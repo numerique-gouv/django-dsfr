@@ -1,0 +1,16 @@
+<div class="fr-tile fr-enlarge-link ">
+  <div class="fr-tile__body">
+    <p class="fr-tile__title">
+      <a class="fr-tile__link" href="{{ tile_data.url }}">
+        {{ tile_data.title }}
+      </a>
+    </p>
+  </div>
+  <div class="fr-tile__img" role="presentation">
+    {% if tile_data.svg_icon %}
+      <object type="image/svg+xml" data="{{ tile_data.image_path }}" class="oc-svg-icon" alt=""></object>
+    {% else %}
+      <img src="{{ tile_data.image_path }}" class="fr-responsive-img" alt="">
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<header role="banner" class="fr-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <div class="fr-header__brand fr-enlarge-link">
+                    <div class="fr-header__brand-top">
+                        <div class="fr-header__logo">
+                            {% block brand %}
+                            <p class="fr-logo">
+                                République
+                                <br>française
+                            </p>
+                            {% endblock %}
+                        </div>
+                        <div class="fr-header__navbar">
+                            <button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="modal-833" aria-haspopup="menu" title="Menu">
+                                Menu
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fr-header__service">
+                        {% block service_title %}
+                        <a href="/" title="Accueil - [À MODIFIER | Nom du site / service] - [À MODIFIER | nom de l’entité (ministère , secrétariat d‘état, gouvernement)]">
+                            <p class="fr-header__service-title">Nom du site / service</p>
+                        </a>
+                        {% endblock %}
+                        <p class="fr-header__service-tagline">{% block service_tagline %}baseline - précisions sur l‘organisation{% endblock %}</p>
+                    </div>
+                </div>
+                <div class="fr-header__tools">
+                    <div class="fr-header__tools-links">
+                        <ul class="fr-links-group">
+                            {% block header_tools %}
+                            <li>
+                                <a class="fr-link fr-fi-add-circle-line" href="#">Créer un espace</a>
+                            </li>
+                            <li>
+                                <a class="fr-link fr-fi-lock-line" href="#">Se connecter</a>
+                            </li>
+                            <li>
+                                <a class="fr-link fr-fi-account-line" href="#">S’enregistrer</a>
+                            </li>
+                            {% endblock %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

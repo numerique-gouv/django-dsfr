@@ -1,0 +1,15 @@
+<div class="fr-input-group {% if extra_classes %} {{ extra_classes }}{% endif %}">
+    <label class="fr-label" for="{{ input_data.id }}">
+      {{ input_data.label }}
+    </label>
+    <input
+        class="fr-input"
+        type="{{ input_data.type|default:'text' }}"
+        id="{{ input_data.id }}"
+        name="{{ input_data.id }}"
+        {% if input_data.onchange %}onchange="{{input_data.onchange}}"{% endif %}
+        {% if input_data.value %}value="{{ input_data.value }}"{% endif %}
+        {% if input_data.min %}min="{{ input_data.min }}"{% endif %}
+        {% if input_data.max %}max="{{ input_data.max }}"{% endif %}
+    />
+</div>

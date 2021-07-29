@@ -1,0 +1,16 @@
+<div class="fr-card fr-enlarge-link {% if extra_classes %} {{ extra_classes }}{% endif %}">
+    <div class="fr-card__body">
+        <p class="fr-card__detail">{{ card_data.detail }}</p>
+            <h4 class="fr-card__title">
+                <a href="{{ card_data.link }}" class="fr-card__link" target="{% if new_tab %}_blank{% else %}_self{% endif %}">
+                    {{ card_data.title |truncatechars:100 }}
+                </a>
+            </h4>
+        <p class="fr-card__desc">{{ card_data.description |truncatechars:200 }}</p>
+    </div>
+    {% if card_data.image %}
+    <div class="fr-card__img">
+        <img src="{{ card_data.image }}" class="fr-responsive-img" alt="">
+    </div>
+    {% endif %}
+</div>

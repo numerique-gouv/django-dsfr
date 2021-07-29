@@ -1,0 +1,24 @@
+<div class="fr-select-group {% if extra_classes %} {{ extra_classes }}{% endif %}">
+    <label class="fr-label" for="{{select_data.id}}">
+        {{ select_data.label }} :
+    </label>
+    <select
+        class="fr-select"
+        id="{{select_data.id}}"
+        name="{{select_data.id}}"
+        {% if select_data.onchange %}onchange="{{select_data.onchange}}"{% endif %}
+        >
+        <option value=""
+            {% if select_data.selected == None %} selected{% endif %}
+            {% if select_data.default.disabled %} disabled{% endif %}
+            {% if select_data.default.hidden %} hidden{% endif %}
+        >
+            {{select_data.default.text}}
+        </option>
+        {% for option in select_data.options %}
+        <option value="{{ option.value }}" {% if select_data.selected == option.value %} selected{% endif %}>
+            {{ option.text }}
+        </option>
+        {% endfor %}
+    </select>
+</div>
