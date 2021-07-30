@@ -55,8 +55,8 @@ La liste des composants est basée sur la version 1.1.0 du DSFR.
 - [x] Pied de page - Footer
 
 ### Autres balises
-- [x] global css: Appelle la feuille de style générale. À inclure dans le <header> des pages web.
-- [x] global js : Appelle le javascript général. À inclure en bas du <body> des pages web
+- [x] global css: Appelle la feuille de style générale. À inclure dans le `<head>` des pages web.
+- [x] global js : Appelle le javascript général. À inclure en bas du `<body>` des pages web.
 
 <a name="installation"></a>
 ## Installation
