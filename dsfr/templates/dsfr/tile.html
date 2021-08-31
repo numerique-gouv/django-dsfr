@@ -8,7 +8,7 @@
   </div>
   <div class="fr-tile__img" role="presentation">
     {% if tile_data.svg_icon %}
-      <object type="image/svg+xml" data="{{ tile_data.image_path }}" class="oc-svg-icon" alt=""></object>
+      <object type="image/svg+xml" data="{{ tile_data.image_path }}" class="oc-svg-icon" alt="" tabindex="-1"></object>
     {% else %}
       <img src="{{ tile_data.image_path }}" class="fr-responsive-img" alt="">
     {% endif %}
