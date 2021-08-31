@@ -73,8 +73,8 @@ def dsfr_theme_modale() -> None:
 # Components
 
 
-@register.inclusion_tag("dsfr/breadcrumb.html")
-def dsfr_breadcrumb(breadcrumb_data: dict) -> dict:
+@register.inclusion_tag("dsfr/breadcrumb.html", takes_context=True)
+def dsfr_breadcrumb(context: Context, breadcrumb_data: dict = {}) -> dict:
     """
     Returns a breadcrumb item. Takes a dict as parameter, with the following structure:
 
@@ -83,6 +83,8 @@ def dsfr_breadcrumb(breadcrumb_data: dict) -> dict:
         "current": "Current page title"
     }
 
+    If the dict is not passed as a parameter, it extracts it from context.
+
     **Tag name**::
         dsfr_breadcrumb
     **Usage**::
@@ -90,6 +92,11 @@ def dsfr_breadcrumb(breadcrumb_data: dict) -> dict:
     **Example**::
         {% dsfr_breadcrumb my_breadcrumb %}
     """
+    if not breadcrumb_data:
+        if "breadcrumb_data" in context:
+            breadcrumb_data = context["breadcrumb_data"]
+        else:
+            breadcrumb_data = {}
     return {"breadcrumb_data": breadcrumb_data}
 
 
@@ -200,7 +207,11 @@ def dsfr_select(select_data: dict, extra_classes: str = "") -> dict:
         "default": { # Optional
             "disabled": "If the item is disabled",
             "hidden": "If the item is hidden",
-        }
+        },
+        "options": [
+            {"text": "Option 1", "value": 1 },
+            {"text": "Option 2", "value": 2 }
+        ]
     }
 
     extra_classes: (Optional) string with names of extra classes
@@ -218,7 +229,7 @@ def dsfr_select(select_data: dict, extra_classes: str = "") -> dict:
 @register.inclusion_tag("dsfr/summary.html")
 def dsfr_summary(items: list) -> dict:
     """
-    Returns a summary item. Takes a dict as parameter, with the following structure:
+    Returns a summary item. Takes a list as parameter, with the following structure:
 
     items = [{ "link": "item1", "title": "First item title"}, {...}]
 
