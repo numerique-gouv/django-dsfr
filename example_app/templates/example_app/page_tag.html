@@ -1,0 +1,60 @@
+{% extends "example_app/base.html" %}
+{% load static dsfr_tags %}
+
+{% block extra_css %}
+<style>
+.example-textarea {
+  border: none; 
+  background-color: #ccc;
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+<h1> {{title}} </h1>
+
+<h2>Tag documentation</h2>
+<pre>
+{{ tag_comment }}
+</pre>
+
+<h2> Résultat</h2>
+{% if tag_name == "breadcrumb" %}
+  {% dsfr_breadcrumb %}
+{% elif tag_name == "callout" %}
+  {% dsfr_callout sample_data %}
+{% elif tag_name == "card" %}
+  <div class="fr-grid-row fr-grid-row--gutters">
+    <div class="fr-col-12 fr-col-md-3">
+      {% dsfr_card sample_data %}
+    </div>
+  </div>
+{% elif tag_name == "css" %}
+  <textarea readonly rows="4" cols="120" class="example-textarea">{% dsfr_css %}</textarea><br />
+{% elif tag_name == "favicon" %}
+  <textarea readonly rows="4" cols="120" class="example-textarea">{% dsfr_favicon %}</textarea><br />
+{% elif tag_name == "js" %}
+  <textarea readonly rows="4" cols="120" class="example-textarea">{% dsfr_js %}</textarea><br />
+{% elif tag_name == "input" %}
+  {% dsfr_input sample_data %}
+{% elif tag_name == "pagination" %}
+  {% dsfr_pagination page_obj %}
+{% elif tag_name == "select" %}
+  {% dsfr_select sample_data %}
+{% elif tag_name == "summary" %}
+  {% dsfr_summary sample_data %}
+{% elif tag_name == "table" %}
+  {% dsfr_table caption="Title" content=content header=header %}
+{% elif tag_name == "theme_modale" %}
+  <textarea readonly rows="4" cols="120" class="example-textarea">{% dsfr_theme_modale %}</textarea><br />
+{% elif tag_name == "tile" %}
+  <div class="fr-grid-row fr-grid-row--gutters">
+      <div class="fr-col-12 fr-col-md-2">
+        {% dsfr_tile sample_data %}
+      </div>
+    </div>
+{% endif %}
+
+<br />
+{% endblock content %}

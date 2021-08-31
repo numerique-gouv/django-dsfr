@@ -1,4 +1,4 @@
-**Django-dsfr** est une application django permettant d'utiliser le Design system de l’État dans des projets Django.
+**Django-dsfr** est une application django permettant d'utiliser le [système de design de l’État](https://www.systeme-de-design.gouv.fr/) dans des projets Django.
 
 Elle a été développée dans le cadre du défi [Open Collectivités](https://github.com/entrepreneur-interet-general/opencollectivites) et est un travail en cours (les composants sont actuellement développés au fur et à mesure de leur utilisation dans le cadre d’Open Collectivités), cf. la section « Avancement » ci-dessous.
 
@@ -66,8 +66,19 @@ Voir la section dédiée dans le [README](https://github.com/entrepreneur-intere
 ## Utilisation
 Le fichier https://github.com/entrepreneur-interet-general/django-dsfr/blob/main/dsfr/templatetags/dsfr_tags.py décrit chaque balise avec un exemple d'utilisation.
 
+<a name="developpement"></a>
+## Développement
+Une instance "example" de Django est fournie. Elle peut être lancée avec les commandes suivantes :
+
+```
+$ poetry install
+$ poetry shell
+$ python manage.py migrate
+$ python manage.py runserver
+```
+
 <a name="notes"></a>
 ## Notes
-- Il est possible d'utiliser tous les composants du DSFR directement avec leur code HTML, y compris ceux pour lesquels in’existe pas encore de balise.
+- Il est possible d'utiliser tous les composants du DSFR directement avec leur code HTML, y compris ceux pour lesquels il n’existe pas encore de balise.
 - Pour certains composants très simples (comme les liens ou les boutons), il n’est pas forcément pertinent de créer une balise, qui n'apporterait que peu par rapport à l'utilisation directe du code HTML.
 - De même pour certains où il vaut mieux créer un template ad-hoc à chaque utilisation, comme les modales.
