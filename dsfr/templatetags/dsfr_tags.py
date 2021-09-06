@@ -152,7 +152,7 @@ def dsfr_card(card_data: dict, extra_classes: str = "", new_tab: bool = False) -
 
 
 @register.inclusion_tag("dsfr/input.html")
-def dsfr_input(input_data: dict, extra_classes: str = "") -> dict:
+def dsfr_input(input_data: dict, extra_classes: str = "", **kwargs) -> dict:
     """
     Returns a input item. Takes the following parameters, with the following structure:
 
@@ -168,6 +168,8 @@ def dsfr_input(input_data: dict, extra_classes: str = "") -> dict:
 
     extra_classes: (Optional) string with names of extra classes
 
+    It is possible to force any of the input_data keys by passing it as an additional parameter.
+
     **Tag name**::
         dsfr_input
     **Usage**::
@@ -175,6 +177,12 @@ def dsfr_input(input_data: dict, extra_classes: str = "") -> dict:
     **Example**::
         {% dsfr_input my_input %}
     """
+
+    authorized_keys = ["id", "label", "type", "onchange", "value", "min", "max"]
+    for k in kwargs:
+        if k in authorized_keys:
+            input_data[k] = kwargs[k]
+
     return {"input_data": input_data, "extra_classes": extra_classes}
 
 
@@ -195,7 +203,7 @@ def dsfr_pagination(context: Context, page_obj: Page) -> dict:
 
 
 @register.inclusion_tag("dsfr/select.html")
-def dsfr_select(select_data: dict, extra_classes: str = "") -> dict:
+def dsfr_select(select_data: dict, extra_classes: str = "", **kwargs) -> dict:
     """
     Returns a select item. Takes the following parameters, with the following structure:
 
@@ -216,6 +224,8 @@ def dsfr_select(select_data: dict, extra_classes: str = "") -> dict:
 
     extra_classes: (Optional) string with names of extra classes
 
+    It is possible to force any of the input_data keys by passing it as an additional parameter.
+
     **Tag name**::
         dsfr_select
     **Usage**::
@@ -223,6 +233,13 @@ def dsfr_select(select_data: dict, extra_classes: str = "") -> dict:
     **Example**::
         {% dsfr_select my_select %}
     """
+
+    authorized_keys = ["id", "label", "onchange", "selected", "default", "options"]
+
+    for k in kwargs:
+        if k in authorized_keys:
+            select_data[k] = kwargs[k]
+
     return {"select_data": select_data, "extra_classes": extra_classes}
 
 
