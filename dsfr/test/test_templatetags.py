@@ -164,17 +164,16 @@ class CreateDsfrCardTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-                <h4 class="fr-card__title">
+                <p class="fr-card__title">
                 <a href="" class="fr-card__link" target="_self">
                     Title of the card item
                 </a>
-            </h4>""",
+            </p>""",
             rendered_template,
         )
 
     def test_card_has_description(self):
         rendered_template = self.template_to_render.render(self.context)
-        print(rendered_template)
         self.assertInHTML(
             '<p class="fr-card__desc">Text of the card item</p>',
             rendered_template,
