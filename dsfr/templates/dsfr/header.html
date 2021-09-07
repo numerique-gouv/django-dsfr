@@ -12,11 +12,13 @@
                             </p>
                             {% endblock %}
                         </div>
+                        {% block burger_menu %}
                         <div class="fr-header__navbar">
-                            <button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="modal-833" aria-haspopup="menu" title="Menu">
+                            <button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="modal-burger" aria-haspopup="menu" title="Menu">
                                 Menu
                             </button>
                         </div>
+                        {% endblock %}
                     </div>
                     <div class="fr-header__service">
                         {% block service_title %}
