@@ -29,8 +29,7 @@ Quick start
 3. Include the tags in your base.html file::
 
     # <your_app>/templates/<your_app>/base.html
-    {% load static %}
-    {% load dsfr_tags %}
+    {% load static dsfr_tags %}
 
     <!doctype html>
     <html lang="fr" data-fr-theme="default">
