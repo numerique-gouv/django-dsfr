@@ -94,7 +94,6 @@ def page_tag(request, tag_name):
                 "title": "Title of the tile item",
                 "url": "URL of the link of the tile item",
                 "image_path": "https://via.placeholder.com/90C",
-                "svg_icon": False,
             },
         },
     }

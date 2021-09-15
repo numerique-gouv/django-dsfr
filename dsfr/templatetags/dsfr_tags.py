@@ -297,8 +297,9 @@ def dsfr_tile(tile_data: dict) -> dict:
         "title": "Title of the tile item",
         "url": "URL of the link of the tile item",
         "image_path": "path of the tile image",
-        "svg_icon": "Boolean, specifies if the tile image is a SVG"
     }
+
+    extra_classes: (Optional) string with names of extra classes
 
     **Tag name**::
         dsfr_tile
