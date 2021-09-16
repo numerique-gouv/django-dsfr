@@ -20,7 +20,11 @@
 </pre>
 
 <h2> Résultat</h2>
-{% if tag_name == "breadcrumb" %}
+{% if tag_name == "accordion" %}
+  {% dsfr_accordion sample_data %}
+{% elif tag_name == "accordion_group" %}
+  {% dsfr_accordion_group sample_data %}
+{% elif tag_name == "breadcrumb" %}
   {% dsfr_breadcrumb %}
 {% elif tag_name == "callout" %}
   {% dsfr_callout sample_data %}

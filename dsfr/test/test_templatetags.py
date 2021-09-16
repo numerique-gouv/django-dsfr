@@ -57,6 +57,66 @@ class CreateDsfrThemeModaleTagTest(SimpleTestCase):
         )
 
 
+class CreateDsfrAccordionTagTest(SimpleTestCase):
+    test_data = {
+        "id": "sample-accordion",
+        "title": "Title of the accordion item",
+        "content": "<p><b>Bold</b> and <em>emphatic</em> Example content</p>",
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_accordion test_data %}")
+
+    def test_accordion_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+<section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion">Title of the accordion item</button>
+    </h3>
+    <div class="fr-collapse" id="sample-accordion">
+        <p><b>Bold</b> and <em>emphatic</em> Example content</p>
+    </div>
+</section>
+""",
+            rendered_template,
+        )
+
+
+class CreateDsfrAccordionGroupTagTest(SimpleTestCase):
+    test_data = [
+        {
+            "id": "sample-accordion",
+            "title": "Title of the accordion item",
+            "content": "<p><b>Bold</b> and <em>emphatic</em> Example content</p>",
+        },
+        {
+            "id": "sample-accordion-2",
+            "title": "Title of the second accordion item",
+            "content": "<p><b>Bold</b> and <em>emphatic</em> Example content</p>",
+        },
+        {
+            "id": "sample-accordion-3",
+            "title": "Title of the third accordion item",
+            "content": "<p><b>Bold</b> and <em>emphatic</em> Example content</p>",
+        },
+    ]
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template(
+        "{% load dsfr_tags %} {% dsfr_accordion_group test_data %}"
+    )
+
+    def test_accordion_group_count(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """<p><b>Bold</b> and <em>emphatic</em> Example content</p>""",
+            rendered_template,
+            count=3,
+        )
+
+
 class CreateDsfrBreadcrumbTagTest(SimpleTestCase):
     breadcrumb_data = {
         "links": [{"url": "test-url", "title": "Test title"}],

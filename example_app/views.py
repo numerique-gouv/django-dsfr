@@ -24,6 +24,34 @@ def index(request):
 @require_safe
 def page_tag(request, tag_name):
     tag_specifics = {
+        "accordion": {
+            "title": "Accordéon (accordion)",
+            "sample_data": {
+                "id": "sample-accordion",
+                "title": "Title of the accordion item",
+                "content": "<p><b>Bold</b> and <em>emphatic</em> Example content</p>",
+            },
+        },
+        "accordion_group": {
+            "title": "Groupe d’accordéons",
+            "sample_data": [
+                {
+                    "id": "sample-accordion-1",
+                    "title": "First accordion item",
+                    "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (1)</p>",
+                },
+                {
+                    "id": "sample-accordion-2",
+                    "title": "Second accordion item",
+                    "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (2)</p>",
+                },
+                {
+                    "id": "sample-accordion-3",
+                    "title": "Third accordion item",
+                    "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (3)</p>",
+                },
+            ],
+        },
         "breadcrumb": {"title": "Fil d’Ariane (breadcrumb)"},
         "callout": {
             "title": "Mise en avant (callout)",

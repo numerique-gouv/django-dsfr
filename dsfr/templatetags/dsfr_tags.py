@@ -71,6 +71,44 @@ def dsfr_theme_modale() -> None:
 
 
 # Components
+@register.inclusion_tag("dsfr/accordion.html")
+def dsfr_accordion(accordion_data: dict) -> dict:
+    """
+    Returns a callout item. Takes a dict as parameter, with the following structure:
+
+    accordion_data = {
+        "id": "Text of the accordion item",
+        "title": "Title of the accordion item",
+        "content": "Content of the accordion item (can include html)",
+        "heading_level": "(Optional) Heading level for the accordion title (default: h3)"
+    }
+
+    Can be used alone or in a group with the tag dsfr_accordion_group.
+
+    **Tag name**::
+        dsfr_accordion
+    **Usage**::
+        {% dsfr_accordion accordion_data %}
+    **Example**::
+        {% dsfr_accordion my_accordion %}
+    """
+    return {"self": accordion_data}
+
+
+@register.inclusion_tag("dsfr/accordion_group.html")
+def dsfr_accordion_group(accordions_list: list) -> dict:
+    """
+    Returns a group of accordion items. Takes a list of dicts as parameters (see the accordeon
+    tag for the structure of these dicts.)
+
+    **Tag name**::
+        dsfr_accordion_group
+    **Usage**::
+        {% dsfr_accordion_group accordions_list %}
+    **Example**::
+        {% dsfr_accordion_group my_accordions %}
+    """
+    return {"self": {"accordions": accordions_list}}
 
 
 @register.inclusion_tag("dsfr/breadcrumb.html", takes_context=True)
@@ -97,7 +135,7 @@ def dsfr_breadcrumb(context: Context, breadcrumb_data: dict = {}) -> dict:
             breadcrumb_data = context["breadcrumb_data"]
         else:
             breadcrumb_data = {}
-    return {"breadcrumb_data": breadcrumb_data}
+    return {"self": breadcrumb_data}
 
 
 @register.inclusion_tag("dsfr/callout.html")

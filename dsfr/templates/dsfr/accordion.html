@@ -1,0 +1,8 @@
+<section class="fr-accordion">
+    <{{ self.heading_level | default:"h3" }} class="fr-accordion__title">
+        <button class="fr-accordion__btn" aria-expanded="false" aria-controls="{{ self.id }}">{{ self.title }}</button>
+    </{{ self.heading_level | default:"h3" }}>
+    <div class="fr-collapse" id="{{ self.id }}">
+        {{ self.content | safe }}
+    </div>
+</section>

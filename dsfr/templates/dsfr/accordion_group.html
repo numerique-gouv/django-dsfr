@@ -1,0 +1,8 @@
+{% load dsfr_tags %}
+<ul class="fr-accordions-group">
+  {% for accordion in self.accordions %}
+    <li>
+        {% dsfr_accordion accordion %}
+    </li>
+  {% endfor %}
+</ul>
