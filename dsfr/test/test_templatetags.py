@@ -230,7 +230,7 @@ class CreateDsfrCardTagTest(SimpleTestCase):
         "detail": "Appears before the title of the card item",
         "title": "Title of the card item",
         "description": "Text of the card item",
-        "image": "https://test.gouv.fr/test.png",
+        "image_url": "https://test.gouv.fr/test.png",
     }
 
     extra_classes = "test-extraclass"
