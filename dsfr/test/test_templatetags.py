@@ -136,14 +136,12 @@ class CreateDsfrAlertTagTest(SimpleTestCase):
 
     def test_alert_tag_heading_can_be_set(self):
         rendered_template = self.template_to_render.render(self.context)
-        print(rendered_template)
         self.assertInHTML(
             """<h3 class="fr-alert__title">Sample title</h3>""", rendered_template
         )
 
     def test_alert_tag_has_collapse_button(self):
         rendered_template = self.template_to_render.render(self.context)
-        print(rendered_template)
         self.assertInHTML(
             """
 <button class="fr-link--close fr-link" aria-expanded="true" aria-controls="test-alert-message">

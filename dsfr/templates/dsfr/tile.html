@@ -1,12 +1,12 @@
-<div class="fr-tile fr-enlarge-link{% if extra_classes %} {{ extra_classes }}{% endif %}">
+<div class="fr-tile fr-enlarge-link{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
   <div class="fr-tile__body">
     <p class="fr-tile__title">
-      <a class="fr-tile__link" href="{{ tile_data.url }}">
-        {{ tile_data.title }}
+      <a class="fr-tile__link" href="{{ self.url }}">
+        {{ self.title }}
       </a>
     </p>
   </div>
   <div class="fr-tile__img" role="presentation">
-    <img src="{{ tile_data.image_path }}" class="fr-responsive-img" alt="">
+    <img src="{{ self.image_path }}" class="fr-responsive-img" alt="">
   </div>
 </div>

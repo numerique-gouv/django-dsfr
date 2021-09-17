@@ -77,6 +77,7 @@ def page_tag(request, tag_name):
                     "label": "button label",
                 },
             },
+            "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331196/Mise+en+avant+-+Call-out",
         },
         "card": {
             "title": "Carte (card)",
@@ -84,8 +85,10 @@ def page_tag(request, tag_name):
                 "detail": "Appears before the title of the card item",
                 "title": "Title of the card item",
                 "description": "Text of the card item",
-                "image": "https://via.placeholder.com/350x200",
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "https://via.placeholder.com/350x200",
             },
+            "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331445/Carte+-+Card",
         },
         "css": {"title": "CSS global"},
         "favicon": {"title": "Icône de favoris (favicon)"},
@@ -100,9 +103,13 @@ def page_tag(request, tag_name):
                 "min": "(Optional) Minimum value of the input item (for type='date')",
                 "max": "(Optional) Maximum value of the input item (for type='date')",
             },
+            "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217088099/Champs+de+saisie+-+Input",
         },
         "js": {"title": "JS global"},
-        "pagination": {"title": "Pagination (pagination)"},
+        "pagination": {
+            "title": "Pagination (pagination)",
+            "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223051980/Pagination+-+Pagination",
+        },
         "select": {
             "title": "Listes déroulantes (selects)",
             "sample_data": {
@@ -119,6 +126,7 @@ def page_tag(request, tag_name):
                     {"text": "Option 2", "value": 2},
                 ],
             },
+            "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019306/Liste+d+roulante+-+Select",
         },
         "summary": {
             "title": "Sommaire (summary)",
@@ -126,8 +134,16 @@ def page_tag(request, tag_name):
                 {"link": "link 1", "title": "First item title"},
                 {"link": "link 2", "title": "Second item title"},
             ],
+            "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/262898307/Sommaire+-+Summary",
         },
-        "table": {"title": "Tableau (table)"},
+        "table": {
+            "title": "Tableau (table)",
+            "sample_data": {
+                "header": ["Colonne 1", "Colonne 2", "Colonne 3"],
+                "content": [["a", "b", "c"], ["d", "e", "f"]],
+            },
+            "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/312016971/Tableau+-+Table",
+        },
         "theme_modale": {"title": "Modale de sélection du thème"},
         "tile": {
             "title": "Tuile (tile)",
@@ -148,9 +164,6 @@ def page_tag(request, tag_name):
             sample_content = list(range(0, 100))
             paginator = Paginator(sample_content, 10)
             payload["page_obj"] = paginator.get_page(4)
-        elif tag_name == "table":
-            payload["header"] = ["Colonne 1", "Colonne 2", "Colonne 3"]
-            payload["content"] = [["a", "b", "c"], ["d", "e", "f"]]
 
         module = getattr(globals()["dsfr_tags"], f"dsfr_{tag_name}")
         payload["tag_comment"] = module.__doc__
@@ -158,8 +171,8 @@ def page_tag(request, tag_name):
         if "sample_data" in current_tag:
             payload["sample_data"] = current_tag["sample_data"]
 
-        if "doc" in current_tag:
-            payload["doc"] = current_tag["doc"]
+        if "doc_url" in current_tag:
+            payload["doc_url"] = current_tag["doc_url"]
 
         return render(request, f"example_app/page_tag.html", payload)
     else:

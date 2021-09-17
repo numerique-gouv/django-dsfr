@@ -19,8 +19,6 @@ def dsfr_css() -> None:
         dsfr_css
     **Usage**::
         {% dsfr_css %}
-    **Example**::
-        {% dsfr_css %}
     """
     return None
 
@@ -33,8 +31,6 @@ def dsfr_js() -> None:
     **Tag name**::
         dsfr_js
     **Usage**::
-        {% dsfr_js %}
-    **Example**::
         {% dsfr_js %}
     """
     return None
@@ -49,8 +45,6 @@ def dsfr_favicon() -> None:
         dsfr_favicon
     **Usage**::
         {% dsfr_favicon %}
-    **Example**::
-        {% dsfr_favicon %}
     """
     return None
 
@@ -64,15 +58,13 @@ def dsfr_theme_modale() -> None:
         dsfr_theme_modale
     **Usage**::
         {% dsfr_theme_modale %}
-    **Example**::
-        {% dsfr_theme_modale %}
     """
     return None
 
 
 # Components
 @register.inclusion_tag("dsfr/accordion.html")
-def dsfr_accordion(tag_data: dict, **kwargs) -> dict:
+def dsfr_accordion(tag_data: dict = {}, **kwargs) -> dict:
     """
     Returns an accordion item. Takes a dict as parameter, with the following structure:
 
@@ -93,15 +85,15 @@ def dsfr_accordion(tag_data: dict, **kwargs) -> dict:
         {% dsfr_accordion data_dict %}
     """
 
-    authorized_keys = ["id", "title", "content", "heading_tag"]
+    allowed_keys = ["id", "title", "content", "heading_tag"]
     for k in kwargs:
-        if k in authorized_keys:
+        if k in allowed_keys:
             tag_data[k] = kwargs[k]
     return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/accordion_group.html")
-def dsfr_accordion_group(accordions_list: list) -> dict:
+def dsfr_accordion_group(items: list) -> dict:
     """
     Returns a group of accordion items. Takes a list of dicts as parameters (see the accordeon
     tag for the structure of these dicts.)
@@ -109,15 +101,13 @@ def dsfr_accordion_group(accordions_list: list) -> dict:
     **Tag name**::
         dsfr_accordion_group
     **Usage**::
-        {% dsfr_accordion_group accordions_list %}
-    **Example**::
-        {% dsfr_accordion_group my_accordions %}
+        {% dsfr_accordion_group data_list %}
     """
-    return {"self": {"accordions": accordions_list}}
+    return {"self": {"items": items}}
 
 
 @register.inclusion_tag("dsfr/alert.html")
-def dsfr_alert(tag_data: dict, **kwargs) -> dict:
+def dsfr_alert(tag_data: dict = {}, **kwargs) -> dict:
     """
     Returns an alert item. Takes a dict as parameter, with the following structure:
 
@@ -141,7 +131,7 @@ def dsfr_alert(tag_data: dict, **kwargs) -> dict:
     **Usage**::
         {% dsfr_alert data_dict %}
     """
-    authorized_keys = [
+    allowed_keys = [
         "id",
         "title",
         "type",
@@ -151,7 +141,7 @@ def dsfr_alert(tag_data: dict, **kwargs) -> dict:
         "extra_classes",
     ]
     for k in kwargs:
-        if k in authorized_keys:
+        if k in allowed_keys:
             tag_data[k] = kwargs[k]
 
     if "is_collapsible" not in tag_data:
@@ -164,7 +154,7 @@ def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
     """
     Returns a breadcrumb item. Takes a dict as parameter, with the following structure:
 
-    tag_data = {
+    data_dict = {
         "links": [{"url": "first-url", "title": "First title"}, {...}],
         "current": "Current page title"
     }
@@ -174,9 +164,7 @@ def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
     **Tag name**::
         dsfr_breadcrumb
     **Usage**::
-        {% dsfr_breadcrumb tag_data %}
-    **Example**::
-        {% dsfr_breadcrumb my_breadcrumb %}
+        {% dsfr_breadcrumb data_dict %}
     """
     if not tag_data:
         if "breadcrumb_data" in context:
@@ -187,11 +175,11 @@ def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
 
 
 @register.inclusion_tag("dsfr/callout.html")
-def dsfr_callout(callout_data: dict) -> dict:
+def dsfr_callout(tag_data: dict = {}, **kwargs) -> dict:
     """
     Returns a callout item. Takes a dict as parameter, with the following structure:
 
-    callout_data = {
+    data_dict = {
         "text": "Text of the callout item",
         "title": "(Optional) Title of the callout item",
         "icon_class": " (Optional) Name of the icon class",
@@ -201,48 +189,68 @@ def dsfr_callout(callout_data: dict) -> dict:
         }
     }
 
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
     **Tag name**::
         dsfr_callout
     **Usage**::
-        {% dsfr_callout callout_data %}
-    **Example**::
-        {% dsfr_callout my_callout %}
+        {% dsfr_callout data_dict %}
     """
-    return {"callout_data": callout_data}
+    allowed_keys = [
+        "text",
+        "title",
+        "icon_class",
+        "button",
+    ]
+    for k in kwargs:
+        if k in allowed_keys:
+            tag_data[k] = kwargs[k]
+
+    return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/card.html")
-def dsfr_card(card_data: dict, extra_classes: str = "", new_tab: bool = False) -> dict:
+def dsfr_card(tag_data: dict = {}, **kwargs) -> dict:
     """
-    Returns a card item. Takes the following parameters, with the following structure:
+    Returns a card item. Takes a dict as parameter, with the following structure:
 
-    card_data = {
+    data_dict = {
         "detail": "Appears before the title of the card item",
         "title": "Title of the card item",
         "description": "Text of the card item",
-        "image": "(Optional) url of the image"
+        "image": "(Optional) url of the image",
+        "new_tab": "(Optional) if True, forces links to open in a new tab",
+        "extra_classes": "(Optional) string with names of extra classes",
     }
 
-    extra_classes: (Optional) string with names of extra classes
-    new_tab: (Optional) if True, forces links to open in a new tab
-
+    All of the keys of the dict can be passed directly as named parameters of the tag.
 
     **Tag name**::
         dsfr_card
     **Usage**::
-        {% dsfr_card card_data %}
-    **Example**::
-        {% dsfr_card my_card %}
+        {% dsfr_card data_dict %}
     """
-    return {"card_data": card_data, "extra_classes": extra_classes, "new_tab": new_tab}
+    allowed_keys = [
+        "detail",
+        "title",
+        "description",
+        "image_url",
+        "new_tab",
+        "extra_classes",
+    ]
+    for k in kwargs:
+        if k in allowed_keys:
+            tag_data[k] = kwargs[k]
+
+    return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/input.html")
-def dsfr_input(input_data: dict, extra_classes: str = "", **kwargs) -> dict:
+def dsfr_input(tag_data: dict = {}, **kwargs) -> dict:
     """
-    Returns a input item. Takes the following parameters, with the following structure:
+    Returns a input item. Takes a dict as parameter, with the following structure:
 
-    input_data = {
+    data_dict = {
         "id": "The html id of the input item",
         "label": "Label of the input item",
         "type": "Type of the input item (default: 'text')",
@@ -250,26 +258,33 @@ def dsfr_input(input_data: dict, extra_classes: str = "", **kwargs) -> dict:
         "value": "(Optional) Value of the input item",
         "min": "(Optional) Minimum value of the input item (for type='date')",
         "max": "(Optional) Maximum value of the input item (for type='date')",
+        "extra_classes": "(Optional) string with names of extra classes"
     }
 
-    extra_classes: (Optional) string with names of extra classes
 
-    It is possible to force any of the input_data keys by passing it as an additional parameter.
+    All of the keys of the dict can be passed directly as named parameters of the tag.
 
     **Tag name**::
         dsfr_input
     **Usage**::
-        {% dsfr_input input_data %}
-    **Example**::
-        {% dsfr_input my_input %}
+        {% dsfr_input data_dict %}
     """
 
-    authorized_keys = ["id", "label", "type", "onchange", "value", "min", "max"]
+    allowed_keys = [
+        "id",
+        "label",
+        "type",
+        "onchange",
+        "value",
+        "min",
+        "max",
+        "extra_classes",
+    ]
     for k in kwargs:
-        if k in authorized_keys:
-            input_data[k] = kwargs[k]
+        if k in allowed_keys:
+            tag_data[k] = kwargs[k]
 
-    return {"input_data": input_data, "extra_classes": extra_classes}
+    return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/pagination.html", takes_context=True)
@@ -282,18 +297,16 @@ def dsfr_pagination(context: Context, page_obj: Page) -> dict:
         dsfr_pagination
     **Usage**::
         {% dsfr_pagination page_obj %}
-    **Example**::
-        {% dsfr_pagination page_obj %}
     """
     return {"request": context["request"], "page_obj": page_obj}
 
 
 @register.inclusion_tag("dsfr/select.html")
-def dsfr_select(select_data: dict, extra_classes: str = "", **kwargs) -> dict:
+def dsfr_select(tag_data: dict = {}, **kwargs) -> dict:
     """
-    Returns a select item. Takes the following parameters, with the following structure:
+    Returns a select item. Takes a dict as parameter, with the following structure:
 
-    select_data = {
+    data_dict = {
         "id": "The html id of the select item",
         "label": "Label of the select item",
         "onchange": "(Optional) Action that happens when the select is changed",
@@ -305,28 +318,33 @@ def dsfr_select(select_data: dict, extra_classes: str = "", **kwargs) -> dict:
         "options": [
             {"text": "Option 1", "value": 1 },
             {"text": "Option 2", "value": 2 }
-        ]
+        ],
+        "extra_classes": "(Optional) string with names of extra classes"
     }
 
-    extra_classes: (Optional) string with names of extra classes
-
-    It is possible to force any of the input_data keys by passing it as an additional parameter.
+    All of the keys of the dict can be passed directly as named parameters of the tag.
 
     **Tag name**::
         dsfr_select
     **Usage**::
-        {% dsfr_select select_data %}
-    **Example**::
-        {% dsfr_select my_select %}
+        {% dsfr_select data_dict %}
     """
 
-    authorized_keys = ["id", "label", "onchange", "selected", "default", "options"]
+    allowed_keys = [
+        "id",
+        "label",
+        "onchange",
+        "selected",
+        "default",
+        "options",
+        "extra_classes",
+    ]
 
     for k in kwargs:
-        if k in authorized_keys:
-            select_data[k] = kwargs[k]
+        if k in allowed_keys:
+            tag_data[k] = kwargs[k]
 
-    return {"select_data": select_data, "extra_classes": extra_classes}
+    return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/summary.html")
@@ -340,64 +358,77 @@ def dsfr_summary(items: list) -> dict:
         dsfr_summary
     **Usage**::
         {% dsfr_summary items %}
-    **Example**::
-        {% dsfr_summary my_items %}
     """
-    return {"items": items}
+    return {"self": {"items": items}}
 
 
 @register.inclusion_tag("dsfr/table.html")
-def dsfr_table(
-    caption: str, content: list, extra_classes: str = "", header: list = []
-) -> dict:
+def dsfr_table(tag_data: dict = {}, **kwargs) -> dict:
     """
-    Returns a table item. Takes the following parameters, with the following structure:
+    Returns a table item. Takes a dict as parameter, with the following structure:
 
-    caption = "The title of the table"
-    content: list of rows, each row being a list of cells itself
+    data_dict = {
+        "caption": "The title of the table",
+        "content": list of rows, each row being a list of cells itself,
+        "extra_classes": (Optional) string with names of extra classes,
+        "header": (Optional) list of cells for the table header
+    }
 
-    extra_classes: (Optional) string with names of extra classes
-    header: (Optional) list of cells for the table header
+    All of the keys of the dict can be passed directly as named parameters of the tag.
 
     **Tag name**::
         dsfr_table
     **Usage**::
-        {% dsfr_table caption="Title" content=content %}
-    **Example**::
-        {% dsfr_table caption="Toto" content=my_content %}
+        {% dsfr_table data_dict %}
     """
-    return {
-        "caption": caption,
-        "content": content,
-        "extra_classes": extra_classes,
-        "header": header,
-    }
+    allowed_keys = [
+        "caption",
+        "content",
+        "header",
+        "extra_classes",
+    ]
+
+    for k in kwargs:
+        if k in allowed_keys:
+            tag_data[k] = kwargs[k]
+
+    return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/tile.html")
-def dsfr_tile(tile_data: dict) -> dict:
+def dsfr_tile(tag_data: dict = {}, **kwargs) -> dict:
     """
     Returns a tile item. Takes a dict as parameter, with the following structure:
 
-    tile_data = {
+    data_dict = {
         "title": "Title of the tile item",
         "url": "URL of the link of the tile item",
         "image_path": "path of the tile image",
+        "extra_classes: (Optional) string with names of extra classes"
     }
 
-    extra_classes: (Optional) string with names of extra classes
+    All of the keys of the dict can be passed directly as named parameters of the tag.
 
     **Tag name**::
         dsfr_tile
     **Usage**::
-        {% dsfr_tile tile_data %}
-    **Example**::
-        {% dsfr_tile my_tile %}
+        {% dsfr_tile data_dict %}
     """
-    return {"tile_data": tile_data}
+    allowed_keys = [
+        "title",
+        "url",
+        "image_path",
+        "extra_classes",
+    ]
+
+    for k in kwargs:
+        if k in allowed_keys:
+            tag_data[k] = kwargs[k]
+
+    return {"self": tag_data}
 
 
-# Other tags
+# Other tags and helpers
 
 
 @register.simple_tag(takes_context=True)
@@ -416,3 +447,9 @@ def url_remplace_params(context: Context, **kwargs):
         query[k] = kwargs[k]
 
     return query.urlencode()
+
+
+@register.filter
+def hyphenate(value, arg):
+    """Concatenate value and arg with hyphens as separator"""
+    return f"{value}-{arg}"

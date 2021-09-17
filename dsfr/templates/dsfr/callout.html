@@ -1,14 +1,14 @@
-<div class="fr-callout {% if callout_data.icon_class %}{{ callout_data.icon_class }}{% endif %}">
-    {% if callout_data.title %}<h4 class="fr-callout__title">{{ callout_data.title }}</h4>{% endif %}
+<div class="fr-callout {% if self.icon_class %}{{ self.icon_class }}{% endif %}">
+    {% if self.title %}<h4 class="fr-callout__title">{{ self.title }}</h4>{% endif %}
     <p class="fr-callout__text">
-        {{ callout_data.text }}
+        {{ self.text }}
     </p>
-    {% if callout_data.button %}
+    {% if self.button %}
     <button
         class="fr-btn"
-        {% if callout_data.button.onclick %}onclick="{{ callout_data.button.onclick }}"{% endif %}
+        {% if self.button.onclick %}onclick="{{ self.button.onclick }}"{% endif %}
     >
-        {{ callout_data.button.label }}
+        {{ self.button.label }}
     </button>
     {% endif %}
 </div>

@@ -1,17 +1,17 @@
-<div class="fr-table {% if extra_classes %} {{ extra_classes }}{% endif %}">
+<div class="fr-table{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
     <table>
-        <caption>{{ caption }}</caption>
-        {% if header %}
+        <caption>{{ self.caption }}</caption>
+        {% if self.header %}
             <thead>
                 <tr>
-                    {% for cell in header %}
+                    {% for cell in self.header %}
                         <th scope="col">{{ cell | safe}}</th>
                     {% endfor %}
                 </tr>
             </thead>
         {% endif %}
         <tbody>
-            {% for row in content %}
+            {% for row in self.content %}
             <tr>
                 {% for cell in row %}
                 <td>{{ cell | safe}}</td>
