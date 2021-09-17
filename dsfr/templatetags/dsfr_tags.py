@@ -72,27 +72,32 @@ def dsfr_theme_modale() -> None:
 
 # Components
 @register.inclusion_tag("dsfr/accordion.html")
-def dsfr_accordion(accordion_data: dict) -> dict:
+def dsfr_accordion(tag_data: dict, **kwargs) -> dict:
     """
-    Returns a callout item. Takes a dict as parameter, with the following structure:
+    Returns an accordion item. Takes a dict as parameter, with the following structure:
 
-    accordion_data = {
+    data_dict = {
         "id": "Text of the accordion item",
         "title": "Title of the accordion item",
         "content": "Content of the accordion item (can include html)",
-        "heading_level": "(Optional) Heading level for the accordion title (default: h3)"
+        "heading_tag": "(Optional) Heading tag for the accordion title (default: h3)"
     }
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
 
     Can be used alone or in a group with the tag dsfr_accordion_group.
 
     **Tag name**::
         dsfr_accordion
     **Usage**::
-        {% dsfr_accordion accordion_data %}
-    **Example**::
-        {% dsfr_accordion my_accordion %}
+        {% dsfr_accordion data_dict %}
     """
-    return {"self": accordion_data}
+
+    authorized_keys = ["id", "title", "content", "heading_tag"]
+    for k in kwargs:
+        if k in authorized_keys:
+            tag_data[k] = kwargs[k]
+    return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/accordion_group.html")
@@ -111,12 +116,55 @@ def dsfr_accordion_group(accordions_list: list) -> dict:
     return {"self": {"accordions": accordions_list}}
 
 
+@register.inclusion_tag("dsfr/alert.html")
+def dsfr_alert(tag_data: dict, **kwargs) -> dict:
+    """
+    Returns an alert item. Takes a dict as parameter, with the following structure:
+
+    data_dict = {
+        "title": "Title of the alert item",
+        "type": "Possible values : info, success, error",
+        "content": "Content of the accordion item (can include html)",
+        "heading_tag": "(Optional) Heading tag for the alert title (default: p)",
+        "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the alert (default: false)",
+        "id": "Text of the alert item (Optional, mandatory if collapsible)",
+        "extra_classes": (Optional) string with names of extra classes.
+    }
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra_classes
+    - "fr-alert--sm" : small alert
+
+    **Tag name**::
+        dsfr_alert
+    **Usage**::
+        {% dsfr_alert data_dict %}
+    """
+    authorized_keys = [
+        "id",
+        "title",
+        "type",
+        "content",
+        "heading_tag",
+        "is_collapsible",
+        "extra_classes",
+    ]
+    for k in kwargs:
+        if k in authorized_keys:
+            tag_data[k] = kwargs[k]
+
+    if "is_collapsible" not in tag_data:
+        tag_data["is_collapsible"] = False
+    return {"self": tag_data}
+
+
 @register.inclusion_tag("dsfr/breadcrumb.html", takes_context=True)
-def dsfr_breadcrumb(context: Context, breadcrumb_data: dict = {}) -> dict:
+def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
     """
     Returns a breadcrumb item. Takes a dict as parameter, with the following structure:
 
-    breadcrumb_data = {
+    tag_data = {
         "links": [{"url": "first-url", "title": "First title"}, {...}],
         "current": "Current page title"
     }
@@ -126,16 +174,16 @@ def dsfr_breadcrumb(context: Context, breadcrumb_data: dict = {}) -> dict:
     **Tag name**::
         dsfr_breadcrumb
     **Usage**::
-        {% dsfr_breadcrumb breadcrumb_data %}
+        {% dsfr_breadcrumb tag_data %}
     **Example**::
         {% dsfr_breadcrumb my_breadcrumb %}
     """
-    if not breadcrumb_data:
+    if not tag_data:
         if "breadcrumb_data" in context:
-            breadcrumb_data = context["breadcrumb_data"]
+            tag_data = context["breadcrumb_data"]
         else:
-            breadcrumb_data = {}
-    return {"self": breadcrumb_data}
+            tag_data = {}
+    return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/callout.html")

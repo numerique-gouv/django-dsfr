@@ -14,6 +14,10 @@
 {% block content %}
 <h1> {{title}} </h1>
 
+{% if doc_url %}
+<p><a href="{{ doc_url }}" target="_blank" rel="noopener">Voir la page de documentation du composant sur le Système de Design de l’État</a></p> 
+{% endif %}
+
 <h2>Tag documentation</h2>
 <pre>
 {{ tag_comment }}
@@ -24,6 +28,8 @@
   {% dsfr_accordion sample_data %}
 {% elif tag_name == "accordion_group" %}
   {% dsfr_accordion_group sample_data %}
+{% elif tag_name == "alert" %}
+  {% dsfr_alert sample_data %}
 {% elif tag_name == "breadcrumb" %}
   {% dsfr_breadcrumb %}
 {% elif tag_name == "callout" %}

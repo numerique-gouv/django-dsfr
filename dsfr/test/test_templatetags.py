@@ -117,6 +117,42 @@ class CreateDsfrAccordionGroupTagTest(SimpleTestCase):
         )
 
 
+class CreateDsfrAlertTagTest(SimpleTestCase):
+    test_data = {
+        "title": "Sample title",
+        "type": "info",
+        "content": "Sample content",
+        "heading_tag": "h3",
+        "is_collapsible": True,
+        "id": "test-alert-message",
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_alert test_data %}")
+
+    def test_alert_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML("""<p>Sample content</p>""", rendered_template)
+
+    def test_alert_tag_heading_can_be_set(self):
+        rendered_template = self.template_to_render.render(self.context)
+        print(rendered_template)
+        self.assertInHTML(
+            """<h3 class="fr-alert__title">Sample title</h3>""", rendered_template
+        )
+
+    def test_alert_tag_has_collapse_button(self):
+        rendered_template = self.template_to_render.render(self.context)
+        print(rendered_template)
+        self.assertInHTML(
+            """
+<button class="fr-link--close fr-link" aria-expanded="true" aria-controls="test-alert-message">
+    Masquer le message
+</button>""",
+            rendered_template,
+        )
+
+
 class CreateDsfrBreadcrumbTagTest(SimpleTestCase):
     breadcrumb_data = {
         "links": [{"url": "test-url", "title": "Test title"}],
