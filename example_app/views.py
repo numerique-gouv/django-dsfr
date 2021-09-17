@@ -31,6 +31,7 @@ def page_tag(request, tag_name):
                 "title": "Title of the accordion item",
                 "content": "<p><b>Bold</b> and <em>emphatic</em> Example content</p>",
             },
+            "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/312082509/Accord+on+-+Accordion",
         },
         "accordion_group": {
             "title": "Groupe d’accordéons",
@@ -51,6 +52,18 @@ def page_tag(request, tag_name):
                     "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (3)</p>",
                 },
             ],
+        },
+        "alert": {
+            "title": "Alerte (alert)",
+            "sample_data": {
+                "title": "Title of the accordion item",
+                "type": "success",
+                "content": "Content of the accordion item (can include html)",
+                "heading_tag": "h3",
+                "is_collapsible": True,
+                "id": "alert-sample-tag",
+            },
+            "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/736362500/Alertes+-+Alerts",
         },
         "breadcrumb": {"title": "Fil d’Ariane (breadcrumb)"},
         "callout": {
@@ -145,6 +158,9 @@ def page_tag(request, tag_name):
         if "sample_data" in current_tag:
             payload["sample_data"] = current_tag["sample_data"]
 
+        if "doc" in current_tag:
+            payload["doc"] = current_tag["doc"]
+
         return render(request, f"example_app/page_tag.html", payload)
     else:
         payload = init_payload("Non implémenté")
@@ -153,3 +169,8 @@ def page_tag(request, tag_name):
             "title": "Non implémenté",
         }
         return render(request, f"example_app/not_yet.html", payload)
+
+
+@require_safe
+def page_tests(request):
+    return render(request, "example_app/tests.html")
