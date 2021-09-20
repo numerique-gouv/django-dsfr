@@ -290,6 +290,14 @@ class HyphenateTestCase(SimpleTestCase):
         result = hyphenate("test", "value")
         self.assertEqual(result, "test-value")
 
-    def test_empty_value_is_not_hyphened(self):
+    def test_empty_value_is_not_hyphenated(self):
         result = hyphenate("test", "")
         self.assertEqual(result, "test")
+
+    def test_numbers_can_be_hyphenated(self):
+        result = hyphenate(4, 3)
+        self.assertEqual(result, "4-3")
+
+    def test_numbers_and_string_can_be_hyphenated(self):
+        result = hyphenate("test", 3)
+        self.assertEqual(result, "test-3")
