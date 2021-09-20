@@ -15,8 +15,8 @@ La liste des composants est basée sur la version 1.1.0 du DSFR.
 
 ### Composants intégrés sous forme de balises (tags)
 
-- [ ] Accordéon - Accordion
-- [ ] Alertes - Alerts
+- [x] Accordéon - Accordion
+- [x] Alertes - Alerts
 - [ ] Barre de recherche - Search
 - [ ] Boutons - Buttons
 - [ ] Groupe de boutons
