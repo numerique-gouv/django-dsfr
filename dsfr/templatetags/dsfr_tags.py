@@ -451,5 +451,5 @@ def url_remplace_params(context: Context, **kwargs):
 
 @register.filter
 def hyphenate(value, arg):
-    """Concatenate value and arg with hyphens as separator"""
-    return f"{value}-{arg}"
+    """Concatenate value and arg with hyphens as separator, if neither is empty"""
+    return "-".join(filter(None, [value, arg]))

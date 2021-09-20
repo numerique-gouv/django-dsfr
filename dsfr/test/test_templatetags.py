@@ -1,3 +1,4 @@
+from dsfr.templatetags.dsfr_tags import hyphenate
 from django.test import SimpleTestCase
 from django.template import Context, Template
 
@@ -282,3 +283,13 @@ class CreateDsfrCardTagTest(SimpleTestCase):
     </div>""",
             rendered_template,
         )
+
+
+class HyphenateTestCase(SimpleTestCase):
+    def test_normal_hyphenation(self):
+        result = hyphenate("test", "value")
+        self.assertEqual(result, "test-value")
+
+    def test_empty_value_is_not_hyphened(self):
+        result = hyphenate("test", "")
+        self.assertEqual(result, "test")
