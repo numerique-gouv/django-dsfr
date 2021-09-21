@@ -285,6 +285,74 @@ class CreateDsfrCardTagTest(SimpleTestCase):
         )
 
 
+class CreateDsfrInputTagTest(SimpleTestCase):
+    test_data_text = {
+        "id": "sample-id",
+        "label": "Label of the input item",
+        "type": "text",
+        "onchange": "doStuff()",
+        "value": "Sample value",
+    }
+
+    test_data_date = {
+        "id": "sample-id",
+        "label": "Label of the input item",
+        "type": "date",
+        "onchange": "doStuff()",
+        "value": "2021-09-15",
+        "min": "2021-09-03",
+        "max": "2021-04-21",
+    }
+
+    def test_text_input_tag_rendered(self):
+        context = Context({"test_data": self.test_data_text})
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_input test_data %}")
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """
+<div class="fr-input-group ">
+    <label class="fr-label" for="sample-id">
+      Label of the input item
+    </label>
+    <input
+        class="fr-input"
+        type="text"
+        id="sample-id"
+        name="sample-id"
+        onchange="doStuff()"
+        value="Sample value"  
+    />
+</div>
+            """,
+            rendered_template,
+        )
+
+    def test_date_input_tag_rendered(self):
+        context = Context({"test_data": self.test_data_date})
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_input test_data %}")
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """
+<div class="fr-input-group ">
+    <label class="fr-label" for="sample-id">
+      Label of the input item
+    </label>
+    <input
+        class="fr-input"
+        type="date"
+        id="sample-id"
+        name="sample-id"
+        onchange="doStuff()"
+        value="2021-09-15"
+        min="2021-09-03"
+        max="2021-04-21"
+    />
+</div>
+            """,
+            rendered_template,
+        )
+
+
 class CreateDsfrLinkTagTest(SimpleTestCase):
     test_data = {
         "url": "http://example.com",
