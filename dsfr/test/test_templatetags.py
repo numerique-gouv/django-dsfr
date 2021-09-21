@@ -285,6 +285,36 @@ class CreateDsfrCardTagTest(SimpleTestCase):
         )
 
 
+class CreateDsfrHighlightTagTest(SimpleTestCase):
+    test_data = {
+        "content": "Content of the highlight item (can include html)",
+        "title": "(Optional) Title of the highlight item",
+        "heading_tag": "h4",
+        "size_class": "fr-text--sm",
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_highlight test_data %}")
+
+    def test_highlight_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+<div class="fr-highlight">
+  
+    <h4>
+      (Optional) Title of the highlight item
+    </h4>
+  
+  <p class="fr-text--sm">
+    Content of the highlight item (can include html)
+  </p>
+</div>
+            """,
+            rendered_template,
+        )
+
+
 class CreateDsfrInputTagTest(SimpleTestCase):
     test_data_text = {
         "id": "sample-id",

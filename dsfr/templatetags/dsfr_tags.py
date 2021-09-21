@@ -245,6 +245,43 @@ def dsfr_card(tag_data: dict = {}, **kwargs) -> dict:
     return {"self": tag_data}
 
 
+@register.inclusion_tag("dsfr/highlight.html")
+def dsfr_highlight(tag_data: dict = {}, **kwargs) -> dict:
+    """
+    Returns a highlight item. Takes a dict as parameter, with the following structure:
+
+    data_dict = {
+        "content": "Content of the highlight item (can include html)",
+        "title": "(Optional) Title of the highlight item",
+        "heading_tag": "(Optional) Heading tag used for the title (default: 'h3')",
+        "size_class": "(Optional) string with name of text-size related classes",
+    }
+
+    Relevant size_classes:
+    - fr-text--sm
+    - fr-text--lg
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**::
+        dsfr_highlight
+    **Usage**::
+        {% dsfr_highlight data_dict %}
+    """
+
+    allowed_keys = [
+        "content",
+        "title",
+        "heading_tag",
+        "size_class",
+    ]
+    for k in kwargs:
+        if k in allowed_keys:
+            tag_data[k] = kwargs[k]
+
+    return {"self": tag_data}
+
+
 @register.inclusion_tag("dsfr/input.html")
 def dsfr_input(tag_data: dict = {}, **kwargs) -> dict:
     """

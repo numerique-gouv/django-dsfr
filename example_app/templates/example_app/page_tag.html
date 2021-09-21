@@ -46,6 +46,8 @@
   <textarea readonly rows="4" cols="120" class="example-textarea">{% dsfr_favicon %}</textarea><br />
 {% elif tag_name == "js" %}
   <textarea readonly rows="4" cols="120" class="example-textarea">{% dsfr_js %}</textarea><br />
+{% elif tag_name == "highlight" %}
+  {% dsfr_highlight sample_data %}
 {% elif tag_name == "input" %}
   {% dsfr_input sample_data %}
 {% elif tag_name == "link" %}

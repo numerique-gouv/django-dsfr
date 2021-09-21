@@ -92,8 +92,18 @@ def page_tag(request, tag_name):
         },
         "css": {"title": "CSS global"},
         "favicon": {"title": "Icône de favoris (favicon)"},
+        "highlight": {
+            "title": "Mise en exergue (highlight)",
+            "sample_data": {
+                "content": "Content of the highlight item (can include html)",
+                "title": "Title of the highlight item",
+                "heading_tag": "h4",
+                "size_class": "fr-text--sm",
+            },
+            "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019199/Mise+en+exergue+-+Highlight",
+        },
         "input": {
-            "title": "Champs de saisie (inputs)",
+            "title": "Champs de saisie (input)",
             "sample_data": {
                 "id": "The html id of the input item",
                 "label": "Label of the input item",
