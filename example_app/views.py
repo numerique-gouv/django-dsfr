@@ -106,6 +106,16 @@ def page_tag(request, tag_name):
             "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217088099/Champs+de+saisie+-+Input",
         },
         "js": {"title": "JS global"},
+        "link": {
+            "title": "Lien (link)",
+            "sample_data": {
+                "url": "http://example.com",
+                "text": "Text of the link item",
+                "is_external": True,
+                "extra_classes": "fr-link--lg",
+            },
+            "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217284725/Liens+-+Links",
+        },
         "pagination": {
             "title": "Pagination (pagination)",
             "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223051980/Pagination+-+Pagination",

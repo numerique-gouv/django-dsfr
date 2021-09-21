@@ -287,6 +287,45 @@ def dsfr_input(tag_data: dict = {}, **kwargs) -> dict:
     return {"self": tag_data}
 
 
+@register.inclusion_tag("dsfr/link.html")
+def dsfr_link(tag_data: dict = {}, **kwargs) -> dict:
+    """
+    Returns a link item. Takes a dict as parameter, with the following structure:
+
+    data_dict = {
+        "url": "URL of the link item",
+        "text": "Text of the link item",
+        "is_external": "(Optional) Indicate if the link is external",
+        "extra_classes": "(Optional) string with names of extra classes"
+    }
+
+    Relevant extra_classes:
+        - fr-link--icon-left or fr-link--icon-right with an icon class
+        - fr-link--sm for small links
+        - fr-link--lg for large links
+
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**::
+        dsfr_link
+    **Usage**::
+        {% dsfr_link data_dict %}
+    """
+
+    allowed_keys = [
+        "url",
+        "text",
+        "is_external",
+        "extra_classes",
+    ]
+    for k in kwargs:
+        if k in allowed_keys:
+            tag_data[k] = kwargs[k]
+
+    return {"self": tag_data}
+
+
 @register.inclusion_tag("dsfr/pagination.html", takes_context=True)
 def dsfr_pagination(context: Context, page_obj: Page) -> dict:
     """
@@ -438,7 +477,7 @@ def url_remplace_params(context: Context, **kwargs):
     keeping the existing ones.
     Useful for combining filters and pagination.
 
-    Sample use:
+    **Example use**:
     <a href="?{% url_remplace_params page=page_obj.next_page_number %}">Next</a>
     """
     query = context["request"].GET.copy()

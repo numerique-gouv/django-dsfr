@@ -48,6 +48,8 @@
   <textarea readonly rows="4" cols="120" class="example-textarea">{% dsfr_js %}</textarea><br />
 {% elif tag_name == "input" %}
   {% dsfr_input sample_data %}
+{% elif tag_name == "link" %}
+  {% dsfr_link sample_data %}
 {% elif tag_name == "pagination" %}
   {% dsfr_pagination page_obj %}
 {% elif tag_name == "select" %}

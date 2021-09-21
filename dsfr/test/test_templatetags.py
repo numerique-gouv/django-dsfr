@@ -285,6 +285,33 @@ class CreateDsfrCardTagTest(SimpleTestCase):
         )
 
 
+class CreateDsfrLinkTagTest(SimpleTestCase):
+    test_data = {
+        "url": "http://example.com",
+        "text": "Text of the link item",
+        "is_external": True,
+        "extra_classes": "fr-link--lg",
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_link test_data %}")
+
+    def test_link_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+<a 
+  class="fr-link fr-fi-external-link-line fr-link--icon-right fr-link--lg"
+  href="http://example.com"
+   target="_blank" rel="noopener noreferrer"
+>
+  Text of the link item
+</a>
+            """,
+            rendered_template,
+        )
+
+
 class HyphenateTestCase(SimpleTestCase):
     def test_normal_hyphenation(self):
         result = hyphenate("test", "value")
