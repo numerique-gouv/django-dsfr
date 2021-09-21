@@ -1,14 +1,18 @@
 <div class="fr-callout {% if self.icon_class %}{{ self.icon_class }}{% endif %}">
-    {% if self.title %}<h4 class="fr-callout__title">{{ self.title }}</h4>{% endif %}
-    <p class="fr-callout__text">
-        {{ self.text }}
-    </p>
-    {% if self.button %}
-    <button
-        class="fr-btn"
-        {% if self.button.onclick %}onclick="{{ self.button.onclick }}"{% endif %}
-    >
-        {{ self.button.label }}
-    </button>
-    {% endif %}
+  {% if self.title %}
+    <{{ self.heading_tag | default:"p" }} class="fr-callout__title">
+      {{ self.title }}
+    </{{ self.heading_tag | default:"p" }}>
+  {% endif %}
+  <p class="fr-callout__text">
+      {{ self.text }}
+  </p>
+  {% if self.button %}
+  <button
+      class="fr-btn"
+      {% if self.button.onclick %}onclick="{{ self.button.onclick }}"{% endif %}
+  >
+      {{ self.button.label }}
+  </button>
+  {% endif %}
 </div>

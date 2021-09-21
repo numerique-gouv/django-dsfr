@@ -183,6 +183,7 @@ class CreateDsfrCalloutTagTest(SimpleTestCase):
         "text": "Text of the callout item",
         "title": "Title of the callout item",
         "icon_class": "fr-fi-information-line",
+        "heading_tag": "h4",
         "button": {"onclick": "close()", "label": "button label"},
     }
 

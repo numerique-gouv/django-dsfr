@@ -182,6 +182,7 @@ def dsfr_callout(tag_data: dict = {}, **kwargs) -> dict:
     data_dict = {
         "text": "Text of the callout item",
         "title": "(Optional) Title of the callout item",
+        "heading_tag": "(Optional) Heading tag for the alert title (default: p)",
         "icon_class": " (Optional) Name of the icon class",
         "button": {                                 # Optional
             "onclick": "button action",
@@ -199,6 +200,7 @@ def dsfr_callout(tag_data: dict = {}, **kwargs) -> dict:
     allowed_keys = [
         "text",
         "title",
+        "heading_tag",
         "icon_class",
         "button",
     ]
