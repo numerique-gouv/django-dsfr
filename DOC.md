@@ -32,12 +32,12 @@ La liste des composants est basée sur la version 1.1.0 du DSFR.
 - [x] Icônes de favoris - Favicons
 - [ ] Interrupteur - Toggle Switch
 - [ ] Lettre d'information et réseaux sociaux - Newsletter & Follow us
-- [ ] Liens - Links
+- [x] Liens - Links
 - [ ] Liens d’évitement - Skiplinks
 - [x] Liste déroulante - Select
 - [ ] Menu latéral - Side menu
 - [x] Mise en avant - Call-out
-- [ ] Mise en exergue - Highlight
+- [x] Mise en exergue - Highlight
 - [ ] Modale - Modal
 - [ ] Navigation principale - Main navigation
 - [ ] Onglets - Tabs
