@@ -48,14 +48,13 @@ Quick start
     <body>
       <main id="content">
         {% block custom_header %}
-          {% include "core/blocks/header.html" %}
+          {% include "dsfr/header.html" %}
         {% endblock %}
         {% dsfr_theme_modale %}
 
         {% block content %}{% endblock %}
 
-        {% include "core/blocks/footer_categories.html" %}
-        {% include "core/blocks/footer.html" %}
+        {% include "dsfr/footer.html" %}
       </main>
 
       {% dsfr_js %}
