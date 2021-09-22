@@ -1,4 +1,4 @@
-from dsfr.templatetags.dsfr_tags import hyphenate
+from dsfr.templatetags.dsfr_tags import concatenate, hyphenate
 from django.test import SimpleTestCase
 from django.template import Context, Template
 
@@ -433,6 +433,20 @@ class CreateDsfrLinkTagTest(SimpleTestCase):
             """,
             rendered_template,
         )
+
+
+class ConcatenateTestCase(SimpleTestCase):
+    def test_normal_concatenation(self):
+        result = concatenate("test ", "value")
+        self.assertEqual(result, "test value")
+
+    def test_concatenation_with_empty_string(self):
+        result = concatenate("test ", "")
+        self.assertEqual(result, "test ")
+
+    def test_concatenation_with_a_number(self):
+        result = concatenate("test ", 3)
+        self.assertEqual(result, "test 3")
 
 
 class HyphenateTestCase(SimpleTestCase):
