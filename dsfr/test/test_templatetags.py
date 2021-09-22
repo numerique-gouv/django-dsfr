@@ -178,8 +178,34 @@ class CreateDsfrBreadcrumbTagTest(SimpleTestCase):
         )
 
 
+class CreateDsfrButtonTagTest(SimpleTestCase):
+    test_data = {
+        "onclick": "alert('test button action')",
+        "label": "button label",
+        "extra_classes": "fr-btn--secondary",
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_button test_data %}")
+
+    def test_button_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+<button
+  class="fr-btn fr-btn--secondary"
+  onclick="alert(&#x27;test button action&#x27;)"
+  
+>
+  button label
+</button>
+            """,
+            rendered_template,
+        )
+
+
 class CreateDsfrCalloutTagTest(SimpleTestCase):
-    callout_data = {
+    test_data = {
         "text": "Text of the callout item",
         "title": "Title of the callout item",
         "icon_class": "fr-fi-information-line",
@@ -187,10 +213,8 @@ class CreateDsfrCalloutTagTest(SimpleTestCase):
         "button": {"onclick": "close()", "label": "button label"},
     }
 
-    context = Context({"callout_data": callout_data})
-    template_to_render = Template(
-        "{% load dsfr_tags %} {% dsfr_callout callout_data %}"
-    )
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_callout test_data %}")
 
     def test_callout_tag_rendered(self):
         rendered_template = self.template_to_render.render(self.context)
@@ -387,7 +411,7 @@ class CreateDsfrInputTagTest(SimpleTestCase):
 class CreateDsfrLinkTagTest(SimpleTestCase):
     test_data = {
         "url": "http://example.com",
-        "text": "Text of the link item",
+        "label": "Label of the link item",
         "is_external": True,
         "extra_classes": "fr-link--lg",
     }
@@ -404,7 +428,7 @@ class CreateDsfrLinkTagTest(SimpleTestCase):
   href="http://example.com"
    target="_blank" rel="noopener noreferrer"
 >
-  Text of the link item
+  Label of the link item
 </a>
             """,
             rendered_template,

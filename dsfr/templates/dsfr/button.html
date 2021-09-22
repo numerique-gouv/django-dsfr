@@ -1,0 +1,7 @@
+<button
+  class="fr-btn{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}"
+  onclick="{{ self.onclick }}"
+  {% if self.is_disabled %}disabled{% endif %}
+>
+  {{ self.label }}
+</button>

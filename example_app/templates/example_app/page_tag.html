@@ -18,7 +18,7 @@
 <p><a href="{{ doc_url }}" target="_blank" rel="noopener">Voir la page de documentation du composant sur le Système de Design de l’État</a></p> 
 {% endif %}
 
-<h2>Tag documentation</h2>
+<h2>Documentation du tag</h2>
 <pre>
 {{ tag_comment }}
 </pre>
@@ -32,6 +32,8 @@
   {% dsfr_alert sample_data %}
 {% elif tag_name == "breadcrumb" %}
   {% dsfr_breadcrumb %}
+{% elif tag_name == "button" %}
+  {% dsfr_button sample_data %}
 {% elif tag_name == "callout" %}
   {% dsfr_callout sample_data %}
 {% elif tag_name == "card" %}

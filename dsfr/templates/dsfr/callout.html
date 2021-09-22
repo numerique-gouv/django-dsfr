@@ -1,3 +1,4 @@
+{% load dsfr_tags %}
 <div class="fr-callout {% if self.icon_class %}{{ self.icon_class }}{% endif %}">
   {% if self.title %}
     <{{ self.heading_tag | default:"p" }} class="fr-callout__title">
@@ -8,11 +9,10 @@
       {{ self.text }}
   </p>
   {% if self.button %}
-  <button
-      class="fr-btn"
-      {% if self.button.onclick %}onclick="{{ self.button.onclick }}"{% endif %}
-  >
-      {{ self.button.label }}
-  </button>
+    {% if self.button.onclick %}
+      {% dsfr_button self.button %}
+    {% elif self.button.url %}
+      <a href="{{ self.button.url }}" class="fr-btn">{{ self.button.label }}</a>
+    {% endif %}
   {% endif %}
 </div>

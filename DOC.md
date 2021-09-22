@@ -18,7 +18,7 @@ La liste des composants est basée sur la version 1.1.0 du DSFR.
 - [x] Accordéon - Accordion
 - [x] Alertes - Alerts
 - [ ] Barre de recherche - Search
-- [ ] Boutons - Buttons
+- [x] Boutons - Buttons
 - [ ] Groupe de boutons
 - [ ] Boutons radio - radio button
 - [ ] Boutons radio riches - radio button extended
@@ -80,5 +80,4 @@ $ python manage.py runserver
 <a name="notes"></a>
 ## Notes
 - Il est possible d'utiliser tous les composants du DSFR directement avec leur code HTML, y compris ceux pour lesquels il n’existe pas encore de balise.
-- Pour certains composants très simples (comme les liens ou les boutons), il n’est pas forcément pertinent de créer une balise, qui n'apporterait que peu par rapport à l'utilisation directe du code HTML.
 - De même pour certains où il vaut mieux créer un template ad-hoc à chaque utilisation, comme les modales.

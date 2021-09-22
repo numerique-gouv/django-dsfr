@@ -54,7 +54,7 @@ def page_tag(request, tag_name):
             ],
         },
         "alert": {
-            "title": "Alerte (alert)",
+            "title": "Alertes (alerts)",
             "sample_data": {
                 "title": "Title of the accordion item",
                 "type": "success",
@@ -66,6 +66,14 @@ def page_tag(request, tag_name):
             "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/736362500/Alertes+-+Alerts",
         },
         "breadcrumb": {"title": "Fil d’Ariane (breadcrumb)"},
+        "button": {
+            "title": "Boutons (buttons)",
+            "sample_data": {
+                "label": "Label of the button item",
+                "onclick": "alert('button doing stuff')",
+            },
+            "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217284660/Boutons+-+Buttons",
+        },
         "callout": {
             "title": "Mise en avant (callout)",
             "sample_data": {
@@ -73,8 +81,9 @@ def page_tag(request, tag_name):
                 "title": "(Optional) Title of the callout item",
                 "icon_class": " (Optional) Name of the icon class",
                 "button": {  # Optional
-                    "onclick": "button action",
+                    "onclick": "alert('button being a button')",
                     "label": "button label",
+                    "extra_classes": "fr-btn--secondary",
                 },
             },
             "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331196/Mise+en+avant+-+Call-out",
@@ -120,7 +129,7 @@ def page_tag(request, tag_name):
             "title": "Lien (link)",
             "sample_data": {
                 "url": "http://example.com",
-                "text": "Text of the link item",
+                "label": "Label of the link item",
                 "is_external": True,
                 "extra_classes": "fr-link--lg",
             },
@@ -206,4 +215,28 @@ def page_tag(request, tag_name):
 
 @require_safe
 def page_tests(request):
-    return render(request, "example_app/tests.html")
+    payload = {}
+    callout_1 = {
+        "text": "This callout item has a normal button",
+        "title": "Callout with actionable button",
+        "icon_class": "fr-fi-alert-line",
+        "button": {
+            "onclick": "alert('button being a button')",
+            "label": "button label",
+            "extra_classes": "fr-btn--secondary",
+        },
+    }
+
+    callout_2 = {
+        "text": "This callout item has a call-to-action link",
+        "title": "Callout with call to action link",
+        "icon_class": "fr-fi-external-link-line",
+        "button": {
+            "label": "button label",
+            "url": "https://www.systeme-de-design.gouv.fr/",
+            "extra_classes": "fr-btn--secondary",
+        },
+    }
+    payload["callout_1"] = callout_1
+    payload["callout_2"] = callout_2
+    return render(request, "example_app/tests.html", payload)

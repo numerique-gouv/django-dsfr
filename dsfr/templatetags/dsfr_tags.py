@@ -174,6 +174,45 @@ def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
     return {"self": tag_data}
 
 
+@register.inclusion_tag("dsfr/button.html")
+def dsfr_button(tag_data: dict = {}, **kwargs) -> dict:
+    """
+    Returns a button item. Takes a dict as parameter, with the following structure:
+
+    data_dict = {
+        "label": "Label of the button item",
+        "onclick": "button action",
+        "is_disabled": "(Optional) boolean that indicate if the button is activated (default: False)",
+        "extra_classes": "(Optional) string with names of extra classes."
+    }
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra_classes
+    - "fr-btn--secondary" : secundary button
+    - "fr-btn--icon-left" and "fr-btn--icon-right": add an icon to the button (associated with an icon class)
+    - "fr-btn--sm" and "fr-btn--lg": button smaller or larger than the default size
+
+    **Tag name**::
+        dsfr_button
+    **Usage**::
+        {% dsfr_button data_dict %}
+    """
+    allowed_keys = [
+        "label",
+        "onclick",
+        "is_disabled",
+        "extra_classes",
+    ]
+    for k in kwargs:
+        if k in allowed_keys:
+            tag_data[k] = kwargs[k]
+
+    if "is_disabled" not in tag_data:
+        tag_data["is_disabled"] = False
+    return {"self": tag_data}
+
+
 @register.inclusion_tag("dsfr/callout.html")
 def dsfr_callout(tag_data: dict = {}, **kwargs) -> dict:
     """
@@ -333,7 +372,7 @@ def dsfr_link(tag_data: dict = {}, **kwargs) -> dict:
 
     data_dict = {
         "url": "URL of the link item",
-        "text": "Text of the link item",
+        "label": "Label of the link item",
         "is_external": "(Optional) Indicate if the link is external",
         "extra_classes": "(Optional) string with names of extra classes"
     }
@@ -354,7 +393,7 @@ def dsfr_link(tag_data: dict = {}, **kwargs) -> dict:
 
     allowed_keys = [
         "url",
-        "text",
+        "label",
         "is_external",
         "extra_classes",
     ]
