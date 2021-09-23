@@ -491,7 +491,7 @@ def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
         {% dsfr_sidemenu data_dict %}
     """
 
-    allowed_keys = ["label", "item", "extra_classes"]
+    allowed_keys = ["label", "items", "extra_classes"]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     active_path = context["request"].path
