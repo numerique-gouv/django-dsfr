@@ -1,3 +1,4 @@
+from dsfr.utils import find_active_menu_items, generate_random_id
 from django import template
 from django.core.paginator import Page
 from django.template.context import Context
@@ -69,7 +70,7 @@ def dsfr_accordion(tag_data: dict = {}, **kwargs) -> dict:
     Returns an accordion item. Takes a dict as parameter, with the following structure:
 
     data_dict = {
-        "id": "Text of the accordion item",
+        "id": "Unique id of the accordion item",
         "title": "Title of the accordion item",
         "content": "Content of the accordion item (can include html)",
         "heading_tag": "(Optional) Heading tag for the accordion title (default: h3)"
@@ -89,6 +90,10 @@ def dsfr_accordion(tag_data: dict = {}, **kwargs) -> dict:
     for k in kwargs:
         if k in allowed_keys:
             tag_data[k] = kwargs[k]
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id("accordion")
+
     return {"self": tag_data}
 
 
@@ -117,7 +122,7 @@ def dsfr_alert(tag_data: dict = {}, **kwargs) -> dict:
         "content": "Content of the accordion item (can include html)",
         "heading_tag": "(Optional) Heading tag for the alert title (default: p)",
         "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the alert (default: false)",
-        "id": "Text of the alert item (Optional, mandatory if collapsible)",
+        "id": "Unique id of the alert item (Optional, mandatory if collapsible)",
         "extra_classes": (Optional) string with names of extra classes.
     }
 
@@ -143,6 +148,9 @@ def dsfr_alert(tag_data: dict = {}, **kwargs) -> dict:
     for k in kwargs:
         if k in allowed_keys:
             tag_data[k] = kwargs[k]
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id("alert")
 
     if "is_collapsible" not in tag_data:
         tag_data["is_collapsible"] = False
@@ -329,7 +337,7 @@ def dsfr_input(tag_data: dict = {}, **kwargs) -> dict:
     Returns a input item. Takes a dict as parameter, with the following structure:
 
     data_dict = {
-        "id": "The html id of the input item",
+        "id": "The unique html id of the input item",
         "label": "Label of the input item",
         "type": "Type of the input item (default: 'text')",
         "onchange": "(Optional) Action that happens when the input is changed",
@@ -361,6 +369,9 @@ def dsfr_input(tag_data: dict = {}, **kwargs) -> dict:
     for k in kwargs:
         if k in allowed_keys:
             tag_data[k] = kwargs[k]
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id("input")
 
     return {"self": tag_data}
 
@@ -461,6 +472,48 @@ def dsfr_select(tag_data: dict = {}, **kwargs) -> dict:
         if k in allowed_keys:
             tag_data[k] = kwargs[k]
 
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id("select")
+
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/sidemenu.html", takes_context=True)
+def dsfr_sidemenu(context: Context, tag_data: dict = {}, **kwargs) -> dict:
+    """
+    Returns a side menu item. Takes a dict as parameter, with the following structure:
+
+    data_dict = {
+        "title": "The title of the main menu",
+        "items": "a list of similarly structured dictionaries (see below)",
+        "extra_classes": "(Optional) string with names of extra classes",
+    }
+
+    Item-level-dictionaries items can have either links or a sub-level menu list, and
+    it can accept three levels of nested menu entries.
+
+    item_dict = {
+        "label": "The label of the menu item",
+        "items": "(EITHER) a list of similarly structured dictionaries (see below)",
+        "link": "(OR) the link (fragment) of the menu item",
+    }
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**::
+        dsfr_sidemenu
+    **Usage**::
+        {% dsfr_sidemenu data_dict %}
+    """
+
+    allowed_keys = ["label", "item", "extra_classes"]
+    for k in kwargs:
+        if k in allowed_keys:
+            tag_data[k] = kwargs[k]
+
+    active_path = context["request"].path
+    tag_data["items"], _ = find_active_menu_items(tag_data["items"], active_path)
+
     return {"self": tag_data}
 
 
@@ -469,7 +522,7 @@ def dsfr_summary(items: list) -> dict:
     """
     Returns a summary item. Takes a list as parameter, with the following structure:
 
-    items = [{ "link": "item1", "title": "First item title"}, {...}]
+    items = [{ "link": "item1", "label": "First item title"}, {...}]
 
     **Tag name**::
         dsfr_summary

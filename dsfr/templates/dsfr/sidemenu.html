@@ -1,0 +1,64 @@
+{% load dsfr_tags %}
+<nav class="fr-sidemenu{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}" role="navigation" aria-label="Menu latéral">
+  <div class="fr-sidemenu__inner">
+    <button class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
+    <div class="fr-collapse" id="fr-sidemenu-wrapper">
+      <div class="fr-sidemenu__title">{{ self.title }}</div>
+      <ul class="fr-sidemenu__list">
+        {% for item in self.items %}{# Level 1 #}
+          <li class="fr-sidemenu__item{% if item.is_active %} fr-sidemenu__item--active{% endif %}">
+            {% if "items" in item %}
+              {% with "fr-sidemenu-item"|hyphenate:forloop.counter as item_id %}
+                <button
+                  class="fr-sidemenu__btn"
+                  aria-expanded="{% if item.is_active %}true{% else %}false{% endif %}"
+                  aria-controls="{{ item_id }}"
+                >
+                  {{ item.label }}
+                </button>
+                <div class="fr-collapse" id="{{ item_id }}">
+                  <ul class="fr-sidemenu__list">
+                    {% for sub_item in item.items %}
+                      <li class="fr-sidemenu__item{% if sub_item.is_active %} fr-sidemenu__item--active{% endif %}">
+                        {% if "items" in sub_item %}{# Level 2 #}
+                          {% with "fr-sidemenu-item"|hyphenate:forloop.parentloop.counter|hyphenate:forloop.counter as sub_item_id %}
+                            <button
+                              class="fr-sidemenu__btn"
+                              aria-expanded="{% if sub_item.is_active %}true{% else %}false{% endif %}"
+                              aria-controls="{{ sub_item_id }}"
+                            >
+                              {{ sub_item.label }}
+                            </button>
+                            <div class="fr-collapse" id="{{ sub_item_id }}">
+                              <ul class="fr-sidemenu__list">
+                                {% for lv3_item in sub_item.items %}
+                                  <li class="fr-sidemenu__item{% if lv3_item.is_active %} fr-sidemenu__item--active{% endif %}">
+                                    <a class="fr-sidemenu__link" href="{{ lv3_item.link }}" target="_self" {% if lv3_item.is_active %} aria-current="page"{% endif %}>
+                                        {{ lv3_item.label }}
+                                    </a>
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                            </div>
+                          {% endwith %}
+                        {% else %}
+                          <li class="fr-sidemenu__item{% if sub_item.is_active %} fr-sidemenu__item--active{% endif %}">
+                            <a class="fr-sidemenu__link" href="{{ sub_item.link }}" target="_self" {% if sub_item.is_active %} aria-current="page"{% endif %}>{{ sub_item.label }}</a>
+                          </li>
+                        {% endif %}{# Level 2 #}
+                      </li>
+                    {% endfor%}
+                  </ul>
+                </div>
+              {% endwith %}
+            {% else %}
+              <li class="fr-sidemenu__item{% if item.is_active %} fr-sidemenu__item--active{% endif %}">
+                <a class="fr-sidemenu__link" href="{{ item.link }}" target="_self" {% if item.is_active %} aria-current="page"{% endif %}>{{ item.label }}</a>
+              </li>
+            {% endif %}
+          </li>
+        {% endfor %}{# Level 1 #}
+      </ul>
+    </div>
+  </div>
+</nav>

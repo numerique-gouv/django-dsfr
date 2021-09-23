@@ -2,9 +2,35 @@
 {% load static dsfr_tags %}
 
 {% block content %}
-  <h1>Design System de l‘État</h1>
+  <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
+    <!-- Menu -->
+      <div class="fr-col-12 fr-col-md-9 fr-py-2w">
+        <h1>{{ title }}</h1>
 
-  {% dsfr_callout callout_1 %}
-  <br />
-  {% dsfr_callout callout_2 %}
+        {% dsfr_callout callout_1 %}
+        <br />
+        {% dsfr_callout callout_2 %}
+        <div id="lipsum">
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et suscipit enim. Mauris dapibus facilisis nisi, vel vestibulum mauris volutpat vitae. Phasellus accumsan massa a facilisis dapibus. Maecenas et luctus quam, in efficitur sapien. Mauris sit amet mi mauris. Nulla eu ex at metus ultrices gravida. Aliquam congue risus at semper scelerisque. Sed metus massa, maximus at dictum at, pellentesque non erat. Donec lectus urna, tristique ut consequat eu, rhoncus eu ex. Ut commodo neque purus, vel dignissim ex vestibulum et. Fusce eu dolor id magna consequat ultrices id sed sapien. Vestibulum dapibus urna massa, non laoreet ex pharetra et. Aenean feugiat pharetra velit in mattis. Pellentesque condimentum massa nec fermentum accumsan.
+          </p>
+          <p>
+          Vivamus varius mauris sed augue vulputate faucibus. Curabitur tincidunt quis leo sit amet consequat. Maecenas sed sapien non turpis commodo efficitur sed nec odio. Ut rhoncus pretium lectus eget congue. Aenean sed leo velit. Praesent ut lorem quam. Etiam eget commodo ante. Etiam blandit, magna quis tincidunt posuere, libero augue malesuada risus, eu bibendum erat neque eu urna. Integer placerat eros ut congue pharetra. Maecenas gravida augue at urna semper vehicula.
+          </p>
+          <p>
+          Maecenas molestie ipsum a rhoncus vehicula. Nullam eget neque eget magna bibendum faucibus semper quis erat. Vivamus orci lectus, maximus ut efficitur id, venenatis et nisi. Duis mauris risus, aliquet ut molestie non, sodales sed ex. Donec sagittis urna quis neque condimentum ornare. Vivamus sollicitudin dignissim magna, nec ornare neque imperdiet vel. In id ultrices purus, a suscipit augue. Duis ut elit id odio mattis imperdiet quis vitae massa. In vel nibh sed augue vulputate pharetra auctor sed nisi. Etiam suscipit, ligula venenatis vulputate bibendum, risus enim volutpat ex, ac consectetur odio enim quis nisl. Etiam non nisi ut magna ultrices ullamcorper et a velit. Nunc maximus nisl et congue condimentum. Proin sodales diam eget lectus rutrum, id hendrerit arcu posuere.
+          </p>
+          <p>
+          Nulla aliquet vitae dolor eu mattis. Praesent lacus ligula, eleifend ut risus eget, fringilla scelerisque massa. Nam quis elementum ex. Vivamus mollis mollis laoreet. Sed at facilisis sapien, a gravida lectus. Morbi pretium congue facilisis. Proin velit odio, pretium a pretium vitae, consectetur ullamcorper mauris.
+          </p>
+          <p>
+          Nulla facilisis eros non ex blandit, quis posuere ex malesuada. Curabitur ultricies, eros sit amet ultricies dapibus, tellus ante luctus magna, et euismod dolor lorem sit amet velit. Sed ac varius augue, ac tincidunt tortor. Morbi sollicitudin tincidunt magna vel auctor. Aliquam in accumsan urna. Donec laoreet a augue id semper. Integer aliquet mollis luctus. Maecenas at arcu euismod, interdum quam vel, vehicula ante. Pellentesque ornare nulla mauris, in ornare lectus convallis consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis ac dictum felis. Pellentesque aliquet vel lorem eget congue. Mauris egestas viverra magna. Vivamus volutpat sem quam, ac efficitur diam cursus in.
+          </p>
+        </div>  
+      </div>
+      <div class="fr-col-12 fr-col-md-3">
+        {% dsfr_sidemenu side_menu extra_classes="fr-sidemenu--sticky-full-height fr-sidemenu--right" %}
+      </div>
+    </div>
+  </div>
 {% endblock %}

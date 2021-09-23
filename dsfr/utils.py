@@ -1,4 +1,6 @@
 from django.core.paginator import Page
+import random
+import string
 
 
 def list_pages(page_obj: Page) -> Page:
@@ -34,3 +36,35 @@ def list_pages(page_obj: Page) -> Page:
 
     page_obj.pages_list = list_with_separators
     return page_obj
+
+
+def find_active_menu_items(menu: list, active_path: str) -> list:
+    """
+    Utility function for the dsfr_sidemenu tag: recusively locates the current
+    active page and its parent menus and sets them to active
+    """
+    for key, item in enumerate(menu):  # Level 1 items
+        if "items" in item:
+            item["items"], set_active = find_active_menu_items(
+                item["items"], active_path
+            )
+            if set_active:
+                menu[key]["is_active"] = True
+        else:
+            if item["link"] == active_path:
+                menu[key]["is_active"] = True
+                set_active = True
+            else:
+                menu[key]["is_active"] = False
+                set_active = False
+    return menu, set_active
+
+
+def generate_random_id(start: str = ""):
+    """ "
+    Generates a random alphabetic id.
+    """
+    result = "".join(random.choices(string.ascii_lowercase, k=16))
+    if start:
+        result = "-".join(start, result)
+    return result

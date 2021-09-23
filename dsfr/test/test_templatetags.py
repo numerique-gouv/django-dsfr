@@ -1,9 +1,10 @@
 from dsfr.templatetags.dsfr_tags import concatenate, hyphenate
 from django.test import SimpleTestCase
 from django.template import Context, Template
+from unittest.mock import MagicMock
 
 
-class CreateDsfrCssTagTest(SimpleTestCase):
+class DsfrCssTagTest(SimpleTestCase):
     def test_css_tag_rendered(self):
         context = Context()
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_css %}")
@@ -14,7 +15,7 @@ class CreateDsfrCssTagTest(SimpleTestCase):
         )
 
 
-class CreateDsfrJsTagTest(SimpleTestCase):
+class DsfrJsTagTest(SimpleTestCase):
     def test_js_tag_rendered(self):
         context = Context()
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_js %}")
@@ -27,7 +28,7 @@ class CreateDsfrJsTagTest(SimpleTestCase):
         )
 
 
-class CreateDsfrFaviconTagTest(SimpleTestCase):
+class DsfrFaviconTagTest(SimpleTestCase):
     def test_favicon_tag_rendered(self):
         context = Context()
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_favicon %}")
@@ -44,7 +45,7 @@ crossorigin="use-credentials">""",
         )
 
 
-class CreateDsfrThemeModaleTagTest(SimpleTestCase):
+class DsfrThemeModaleTagTest(SimpleTestCase):
     def test_theme_modale_tag_rendered(self):
         context = Context()
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_theme_modale %}")
@@ -58,7 +59,7 @@ class CreateDsfrThemeModaleTagTest(SimpleTestCase):
         )
 
 
-class CreateDsfrAccordionTagTest(SimpleTestCase):
+class DsfrAccordionTagTest(SimpleTestCase):
     test_data = {
         "id": "sample-accordion",
         "title": "Title of the accordion item",
@@ -85,7 +86,7 @@ class CreateDsfrAccordionTagTest(SimpleTestCase):
         )
 
 
-class CreateDsfrAccordionGroupTagTest(SimpleTestCase):
+class DsfrAccordionGroupTagTest(SimpleTestCase):
     test_data = [
         {
             "id": "sample-accordion",
@@ -118,7 +119,7 @@ class CreateDsfrAccordionGroupTagTest(SimpleTestCase):
         )
 
 
-class CreateDsfrAlertTagTest(SimpleTestCase):
+class DsfrAlertTagTest(SimpleTestCase):
     test_data = {
         "title": "Sample title",
         "type": "info",
@@ -152,7 +153,7 @@ class CreateDsfrAlertTagTest(SimpleTestCase):
         )
 
 
-class CreateDsfrBreadcrumbTagTest(SimpleTestCase):
+class DsfrBreadcrumbTagTest(SimpleTestCase):
     breadcrumb_data = {
         "links": [{"url": "test-url", "title": "Test title"}],
         "current": "Test page",
@@ -178,7 +179,7 @@ class CreateDsfrBreadcrumbTagTest(SimpleTestCase):
         )
 
 
-class CreateDsfrButtonTagTest(SimpleTestCase):
+class DsfrButtonTagTest(SimpleTestCase):
     test_data = {
         "onclick": "alert('test button action')",
         "label": "button label",
@@ -204,7 +205,7 @@ class CreateDsfrButtonTagTest(SimpleTestCase):
         )
 
 
-class CreateDsfrCalloutTagTest(SimpleTestCase):
+class DsfrCalloutTagTest(SimpleTestCase):
     test_data = {
         "text": "Text of the callout item",
         "title": "Title of the callout item",
@@ -251,7 +252,7 @@ class CreateDsfrCalloutTagTest(SimpleTestCase):
         )
 
 
-class CreateDsfrCardTagTest(SimpleTestCase):
+class DsfrCardTagTest(SimpleTestCase):
     card_data = {
         "detail": "Appears before the title of the card item",
         "title": "Title of the card item",
@@ -310,7 +311,7 @@ class CreateDsfrCardTagTest(SimpleTestCase):
         )
 
 
-class CreateDsfrHighlightTagTest(SimpleTestCase):
+class DsfrHighlightTagTest(SimpleTestCase):
     test_data = {
         "content": "Content of the highlight item (can include html)",
         "title": "(Optional) Title of the highlight item",
@@ -340,7 +341,7 @@ class CreateDsfrHighlightTagTest(SimpleTestCase):
         )
 
 
-class CreateDsfrInputTagTest(SimpleTestCase):
+class DsfrInputTagTest(SimpleTestCase):
     test_data_text = {
         "id": "sample-id",
         "label": "Label of the input item",
@@ -408,7 +409,7 @@ class CreateDsfrInputTagTest(SimpleTestCase):
         )
 
 
-class CreateDsfrLinkTagTest(SimpleTestCase):
+class DsfrLinkTagTest(SimpleTestCase):
     test_data = {
         "url": "http://example.com",
         "label": "Label of the link item",
@@ -430,6 +431,129 @@ class CreateDsfrLinkTagTest(SimpleTestCase):
 >
   Label of the link item
 </a>
+            """,
+            rendered_template,
+        )
+
+
+class DsfrSidemenuTagTest(SimpleTestCase):
+    test_data = {
+        "title": "Menu",
+        "items": [
+            {
+                "label": "Menu replié",
+                "items": [
+                    {
+                        "label": "Une page",
+                        "link": "#",
+                    },
+                    {
+                        "label": "Une autre page",
+                        "link": "/sidemenu",
+                    },
+                ],
+            },
+            {
+                "label": "Menu ouvert",
+                "items": [
+                    {
+                        "label": "Sous-menu replié",
+                        "items": [
+                            {"label": "Encore une page", "link": "#"},
+                        ],
+                    },
+                    {
+                        "label": "Sous-menu ouvert",
+                        "items": [
+                            {"label": "Page non active", "link": "#"},
+                            {
+                                "label": "Page active",
+                                "link": "/sidemenu/",
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    }
+
+    request_mock = MagicMock()
+    request_mock.path = "/sidemenu/"
+    context = Context({"request": request_mock, "test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_sidemenu test_data %}")
+    rendered_template = template_to_render.render(context)
+
+    def test_sidemenu_tag_rendered(self):
+        self.assertInHTML(
+            """
+            <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="#" target="_self" >Une page</a>
+            </li>
+
+            """,
+            self.rendered_template,
+        )
+
+    def test_sidemenu_tag_current_page_and_parents_are_active(self):
+        self.assertInHTML(
+            """
+            <li class="fr-sidemenu__item fr-sidemenu__item--active">
+                <button
+                    class="fr-sidemenu__btn"
+                    aria-expanded="true"
+                    aria-controls="fr-sidemenu-item-2-2"
+                >
+                    Sous-menu ouvert
+                </button>
+                <div class="fr-collapse" id="fr-sidemenu-item-2-2">
+                    <ul class="fr-sidemenu__list">
+                    
+                        <li class="fr-sidemenu__item">
+                        <a class="fr-sidemenu__link" href="#" target="_self" >
+                            Page non active
+                        </a>
+                        </li>
+                    
+                        <li class="fr-sidemenu__item fr-sidemenu__item--active">
+                        <a class="fr-sidemenu__link" href="/sidemenu/" target="_self"  aria-current="page">
+                            Page active
+                        </a>
+                        </li>
+                    
+                    </ul>
+                </div>
+            </li>
+            """,
+            self.rendered_template,
+        )
+
+
+class DsfrSummaryTagTest(SimpleTestCase):
+    test_data = [
+        {"link": "link 1", "label": "First item title"},
+        {"link": "link 2", "label": "Second item title"},
+    ]
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_summary test_data %}")
+
+    def test_summary_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+                <div class="fr-summary__title" id="fr-summary-title">Sommaire</div>
+                <ol class="fr-summary__list">
+                    
+                    <li>
+                        <a class="fr-summary__link" href="link 1">First item title</a>
+                    </li>
+                    
+                    <li>
+                        <a class="fr-summary__link" href="link 2">Second item title</a>
+                    </li>  
+                </ol>
+            </nav>
             """,
             rendered_template,
         )

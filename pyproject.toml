@@ -34,6 +34,7 @@ include = ["LICENSE", "README.rst", "dsfr/static/dsfr/dist/*/*.*" ]
 [tool.poetry.dependencies]
 python = "^3.8"
 Django = "^3.2.5"
+requests = "^2.26.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"

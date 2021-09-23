@@ -8,73 +8,20 @@
       <div class="fr-col-6">
         <h2>Composants implémentés</h2>
         <ul>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'accordion' %}">Accordéons (accordions)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'alert' %}">Alertes (alerts)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'button' %}">Boutons (buttons)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'card' %}">Cartes (cards)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'input' %}">Champs de saisie (inputs)</a>
-            </li>
-            <li class="fr-mb-1w">
-                En-tête (header)
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'theme_modale' %}">Combinaison de couleur (schemes) – Modale de sélection du thème</a>
-            </li>
+            {% for tag, data in implemented_tags.items %}
                 <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'breadcrumb' %}">Fil d’Ariane (breadcrumb)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'favicon' %}">Icônes de favoris (favicons)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'link' %}">Liens (links)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'select' %}">Listes déroulantes (selects)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'callout' %}">Mises en avant (callouts)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'highlight' %}">Mises en exergue (highlights)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'pagination' %}">Pagination (pagination)</a>
-            </li>
-            <li class="fr-mb-1w">
-                Pied de page (footer)
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'summary' %}">Sommaire (summary)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'table' %}">Tableaux (table)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'tile' %}">Tuiles (tiles)</a>
-            </li>
+                    <a href="{% url 'page_tag' tag %}">{{ data.title }}</a>
+                </li>
+            {% endfor %}
         </ul>
 
         <h2>Tags supplémentaires</h2>
         <ul>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'css' %}">CSS global</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'js' %}">JS global</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href="{% url 'page_tag' 'accordion_group' %}">Groupe d’accordéons</a>
-            </li>
+            {% for tag, data in extra_tags.items %}
+                <li class="fr-mb-1w">
+                    <a href="{% url 'page_tag' tag %}">{{ data.title }}</a>
+                </li>
+            {% endfor %}
         </ul>
         
         <h2>En-tête et pied de page</h2>
@@ -86,66 +33,11 @@
       <div class="fr-col-6">
         <h2>Composants encore non implémentés</h2>
         <ul>
-            <li class="fr-mb-1w">
-                <a href='./search'>Barre de recherche (search)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./logo'>Bloc marque (logo)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./radios'>Boutons radio (radios)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./checkboxes'>Cases à cocher (checkboxes)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./quotes'>Citations (quotes)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./content'>Contenu média (content)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./core'>Fondamentaux (core)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./forms'>Formulaires (forms)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./consent'>Gestionnaire de consentement (consent)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./toggles'>Interrupteur (toggles)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./follow'>Lettre d&#39;information et Réseaux Sociaux (follow)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./skiplinks'>Liens d&#39;évitement (skiplinks)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./sidemenu'>Menu latéral (sidemenu)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./modal'>Modale (modal)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./navigation'>Navigation principale (navigation)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./tabs'>Onglets (tabs)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./utilities'>Outils (utilities)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./share'>Partage (share)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./legacy'>Systèmes antérieurs (legacy)</a>
-            </li>
-            <li class="fr-mb-1w">
-                <a href='./tags'>Tags (tags)</a>
-            </li>
+            {% for tag, data in not_yet.items %}
+                <li class="fr-mb-1w">
+                    <a href="{% url 'page_tag' tag %}">{{ data.title }}</a>
+                </li>
+            {% endfor %}
         </ul>
       </div>
   </div>
