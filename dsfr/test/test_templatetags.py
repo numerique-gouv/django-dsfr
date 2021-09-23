@@ -22,8 +22,9 @@ class DsfrJsTagTest(SimpleTestCase):
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             """
-<script type="module" src="/static/dsfr/dist/js/dsfr.module.min.js"></script>
-<script type="text/javascript" nomodule src="/static/dsfr/dist/js/dsfr.nomodule.min.js"></script>""",
+            <script type="module" src="/static/dsfr/dist/js/dsfr.module.min.js"></script>
+            <script type="text/javascript" nomodule src="/static/dsfr/dist/js/dsfr.nomodule.min.js"></script>
+            """,
             rendered_template,
         )
 
@@ -35,12 +36,13 @@ class DsfrFaviconTagTest(SimpleTestCase):
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             """
-<link rel="apple-touch-icon" href="/static/dsfr/dist/favicons/apple-touch-icon.png"><!-- 180×180 -->
-<link rel="icon" href="/static/dsfr/dist/favicons/favicon.svg" type="image/svg+xml">
-<link rel="shortcut icon" href="/static/dsfr/dist/favicons/favicon.ico" type="image/x-icon">
-<!-- 32×32 -->
-<link rel="manifest" href="/static/dsfr/dist/favicons/manifest.webmanifest"
-crossorigin="use-credentials">""",
+            <link rel="apple-touch-icon" href="/static/dsfr/dist/favicons/apple-touch-icon.png"><!-- 180×180 -->
+            <link rel="icon" href="/static/dsfr/dist/favicons/favicon.svg" type="image/svg+xml">
+            <link rel="shortcut icon" href="/static/dsfr/dist/favicons/favicon.ico" type="image/x-icon">
+            <!-- 32×32 -->
+            <link rel="manifest" href="/static/dsfr/dist/favicons/manifest.webmanifest"
+            crossorigin="use-credentials">
+            """,
             rendered_template,
         )
 
@@ -52,9 +54,10 @@ class DsfrThemeModaleTagTest(SimpleTestCase):
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             """
-                        <h1 id="fr-theme-modal-title" class="fr-modal__title">
-                            Paramètres d’affichage
-                        </h1>""",
+            <h1 id="fr-theme-modal-title" class="fr-modal__title">
+                Paramètres d’affichage
+            </h1>
+            """,
             rendered_template,
         )
 
@@ -73,15 +76,15 @@ class DsfrAccordionTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-<section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion">Title of the accordion item</button>
-    </h3>
-    <div class="fr-collapse" id="sample-accordion">
-        <p><b>Bold</b> and <em>emphatic</em> Example content</p>
-    </div>
-</section>
-""",
+            <section class="fr-accordion">
+                <h3 class="fr-accordion__title">
+                    <button class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion">Title of the accordion item</button>
+                </h3>
+                <div class="fr-collapse" id="sample-accordion">
+                    <p><b>Bold</b> and <em>emphatic</em> Example content</p>
+                </div>
+            </section>
+            """,
             rendered_template,
         )
 
@@ -146,9 +149,10 @@ class DsfrAlertTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-<button class="fr-link--close fr-link" aria-expanded="true" aria-controls="test-alert-message">
-    Masquer le message
-</button>""",
+            <button class="fr-link--close fr-link" aria-expanded="true" aria-controls="test-alert-message">
+                Masquer le message
+            </button>
+            """,
             rendered_template,
         )
 
@@ -193,13 +197,12 @@ class DsfrButtonTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-<button
-  class="fr-btn fr-btn--secondary"
-  onclick="alert(&#x27;test button action&#x27;)"
-  
->
-  button label
-</button>
+            <button
+                class="fr-btn fr-btn--secondary"
+                onclick="alert(&#x27;test button action&#x27;)"            
+            >
+                button label    
+            </button>
             """,
             rendered_template,
         )
@@ -242,12 +245,13 @@ class DsfrCalloutTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-    <button
-        class="fr-btn"
-        onclick="close()"
-    >
-        button label
-    </button>""",
+            <button
+                class="fr-btn"
+                onclick="close()"
+            >
+                button label
+            </button>
+            """,
             rendered_template,
         )
 
@@ -304,9 +308,10 @@ class DsfrCardTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-    <div class="fr-card__img">
-        <img src="https://test.gouv.fr/test.png" class="fr-responsive-img" alt="">
-    </div>""",
+            <div class="fr-card__img">
+                <img src="https://test.gouv.fr/test.png" class="fr-responsive-img" alt="">
+            </div>
+            """,
             rendered_template,
         )
 
@@ -326,16 +331,11 @@ class DsfrHighlightTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-<div class="fr-highlight">
-  
-    <h4>
-      (Optional) Title of the highlight item
-    </h4>
-  
-  <p class="fr-text--sm">
-    Content of the highlight item (can include html)
-  </p>
-</div>
+            <div class="fr-highlight">  
+                <p class="fr-text--sm">
+                    Content of the highlight item (can include html)
+                </p>
+            </div>
             """,
             rendered_template,
         )
@@ -366,19 +366,19 @@ class DsfrInputTagTest(SimpleTestCase):
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             """
-<div class="fr-input-group ">
-    <label class="fr-label" for="sample-id">
-      Label of the input item
-    </label>
-    <input
-        class="fr-input"
-        type="text"
-        id="sample-id"
-        name="sample-id"
-        onchange="doStuff()"
-        value="Sample value"  
-    />
-</div>
+            <div class="fr-input-group ">
+                <label class="fr-label" for="sample-id">
+                Label of the input item
+                </label>
+                <input
+                    class="fr-input"
+                    type="text"
+                    id="sample-id"
+                    name="sample-id"
+                    onchange="doStuff()"
+                    value="Sample value"  
+                />
+            </div>
             """,
             rendered_template,
         )
@@ -389,21 +389,21 @@ class DsfrInputTagTest(SimpleTestCase):
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             """
-<div class="fr-input-group ">
-    <label class="fr-label" for="sample-id">
-      Label of the input item
-    </label>
-    <input
-        class="fr-input"
-        type="date"
-        id="sample-id"
-        name="sample-id"
-        onchange="doStuff()"
-        value="2021-09-15"
-        min="2021-09-03"
-        max="2021-04-21"
-    />
-</div>
+            <div class="fr-input-group ">
+                <label class="fr-label" for="sample-id">
+                Label of the input item
+                </label>
+                <input
+                    class="fr-input"
+                    type="date"
+                    id="sample-id"
+                    name="sample-id"
+                    onchange="doStuff()"
+                    value="2021-09-15"
+                    min="2021-09-03"
+                    max="2021-04-21"
+                />
+            </div>
             """,
             rendered_template,
         )
@@ -424,13 +424,13 @@ class DsfrLinkTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-<a 
-  class="fr-link fr-fi-external-link-line fr-link--icon-right fr-link--lg"
-  href="http://example.com"
-   target="_blank" rel="noopener noreferrer"
->
-  Label of the link item
-</a>
+            <a 
+            class="fr-link fr-fi-external-link-line fr-link--icon-right fr-link--lg"
+            href="http://example.com"
+            target="_blank" rel="noopener noreferrer"
+            >
+            Label of the link item
+            </a>
             """,
             rendered_template,
         )

@@ -299,8 +299,6 @@ def dsfr_highlight(*args, **kwargs) -> dict:
 
     data_dict = {
         "content": "Content of the highlight item (can include html)",
-        "title": "(Optional) Title of the highlight item",
-        "heading_tag": "(Optional) Heading tag used for the title (default: 'h3')",
         "size_class": "(Optional) string with name of text-size related classes",
     }
 
@@ -318,8 +316,6 @@ def dsfr_highlight(*args, **kwargs) -> dict:
 
     allowed_keys = [
         "content",
-        "title",
-        "heading_tag",
         "size_class",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)

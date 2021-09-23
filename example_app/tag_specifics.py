@@ -93,8 +93,6 @@ IMPLEMENTED_TAGS = {
         "sample_data": [
             {
                 "content": "Content of the highlight item (can include html)",
-                "title": "Title of the highlight item",
-                "heading_tag": "h4",
                 "size_class": "fr-text--sm",
             }
         ],
