@@ -20,13 +20,13 @@
   <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
   <!-- Menu -->
     <div class="fr-col-12 fr-col-md-3">
-      {% dsfr_sidemenu side_menu extra_classes="fr-sidemenu--sticky-full-height" %}
+      {% dsfr_sidemenu side_menu extra_classes="" %}
     </div>
     <div class="fr-col-12 fr-col-md-9 fr-py-2w">
       <h1> {{title}} </h1>
 
       {% if doc_url %}
-      <p><a href="{{ doc_url }}" target="_blank" rel="noopener">Voir la page de documentation du composant sur le Système de Design de l’État</a></p> 
+        {% dsfr_link url=doc_url label="Voir la page de documentation du composant sur le Système de Design de l’État" is_external=True extra_classes="fr-link--lg" %}
       {% endif %}
 
       <h2>Documentation du tag</h2>
@@ -35,10 +35,17 @@
       </pre>
 
       {% if sample_data %}
-        <h2>Données d'exemple</h2>
+        <h2>Exemples</h2>
         {% for sample_data_item in sample_data %}
-          <h3>Code</h3>
-          <pre class="code_sample">{{ sample_data_item | pprint }}</pre>
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            {% with sample_data_item|pprint as raw_sample_code %}
+              {% with '<pre class="code_sample">'|concatenate:raw_sample_code|concatenate:"</pre>" as sample_data_code %}
+                {% dsfr_accordion title="Données d’exemple" content=sample_data_code %}
+              {% endwith %}
+            {% endwith %}
+          </div>
+
           <h3>Résultat</h3>
           {% if tag_name == "accordion" %}
             {% dsfr_accordion sample_data_item %}
@@ -73,7 +80,7 @@
           {% elif tag_name == "tile" %}
             <div class="fr-grid-row fr-grid-row--gutters">
                 <div class="fr-col-12 fr-col-md-2">
-                  {% dsfr_tile sample_data %}
+                  {% dsfr_tile sample_data_item %}
                 </div>
               </div>
           {% endif %}

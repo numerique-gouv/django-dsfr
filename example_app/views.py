@@ -67,7 +67,7 @@ def page_tag(request, tag_name):
         sidemenu_items = []
         for key in ALL_IMPLEMENTED_TAGS.keys():
             sidemenu_items.append(
-                {"label": key, "url": reverse("page_tag", kwargs={"tag_name": key})}
+                {"label": key, "link": reverse("page_tag", kwargs={"tag_name": key})}
             )
 
         payload["side_menu"] = {"title": "Composants", "items": sidemenu_items}
@@ -93,11 +93,11 @@ def page_tests(request):
                 "items": [
                     {
                         "label": "Alert",
-                        "url": reverse("page_tag", kwargs={"tag_name": "alert"}),
+                        "link": reverse("page_tag", kwargs={"tag_name": "alert"}),
                     },
                     {
                         "label": "Breadcrumb",
-                        "url": reverse("page_tag", kwargs={"tag_name": "breadcrumb"}),
+                        "link": reverse("page_tag", kwargs={"tag_name": "breadcrumb"}),
                     },
                 ],
             },
@@ -107,17 +107,17 @@ def page_tests(request):
                     {
                         "label": "An intermediary menu",
                         "items": [
-                            {"label": "Some page", "url": "/"},
+                            {"label": "Some page", "link": "/"},
                         ],
                     },
                     {
                         "label": "Another intermediary menu",
                         "items": [
-                            {"label": "A sample page", "url": "#"},
-                            {"label": "Another sample page", "url": "#"},
+                            {"label": "A sample page", "link": "#"},
+                            {"label": "Another sample page", "link": "#"},
                             {
                                 "label": "Test page",
-                                "url": reverse("page_tests"),
+                                "link": reverse("page_tests"),
                             },
                         ],
                     },

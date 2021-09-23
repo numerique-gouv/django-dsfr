@@ -1,6 +1,8 @@
 from django.core.paginator import Page
 import random
 import string
+from hashlib import md5
+import json
 
 
 def list_pages(page_obj: Page) -> Page:
@@ -38,6 +40,22 @@ def list_pages(page_obj: Page) -> Page:
     return page_obj
 
 
+def parse_tag_args(args, kwargs, allowed_keys: list) -> dict:
+    """
+    Allows to use a tag with either all the arguments in a dict or by declaring them separately
+    """
+    if args:
+        tag_data = args[0]
+    else:
+        tag_data = {}
+
+    for k in kwargs:
+        if k in allowed_keys:
+            tag_data[k] = kwargs[k]
+
+    return tag_data
+
+
 def find_active_menu_items(menu: list, active_path: str) -> list:
     """
     Utility function for the dsfr_sidemenu tag: recusively locates the current
@@ -61,10 +79,10 @@ def find_active_menu_items(menu: list, active_path: str) -> list:
 
 
 def generate_random_id(start: str = ""):
-    """ "
+    """
     Generates a random alphabetic id.
     """
-    result = "".join(random.choices(string.ascii_lowercase, k=16))
+    result = "".join(random.SystemRandom().choices(string.ascii_lowercase, k=16))
     if start:
-        result = "-".join(start, result)
+        result = "-".join([start, result])
     return result

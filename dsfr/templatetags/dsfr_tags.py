@@ -1,4 +1,8 @@
-from dsfr.utils import find_active_menu_items, generate_random_id
+from dsfr.utils import (
+    find_active_menu_items,
+    generate_random_id,
+    parse_tag_args,
+)
 from django import template
 from django.core.paginator import Page
 from django.template.context import Context
@@ -65,7 +69,7 @@ def dsfr_theme_modale() -> None:
 
 # Components
 @register.inclusion_tag("dsfr/accordion.html")
-def dsfr_accordion(tag_data: dict = {}, **kwargs) -> dict:
+def dsfr_accordion(*args, **kwargs) -> dict:
     """
     Returns an accordion item. Takes a dict as parameter, with the following structure:
 
@@ -85,11 +89,8 @@ def dsfr_accordion(tag_data: dict = {}, **kwargs) -> dict:
     **Usage**::
         {% dsfr_accordion data_dict %}
     """
-
     allowed_keys = ["id", "title", "content", "heading_tag"]
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     if "id" not in tag_data:
         tag_data["id"] = generate_random_id("accordion")
@@ -112,7 +113,7 @@ def dsfr_accordion_group(items: list) -> dict:
 
 
 @register.inclusion_tag("dsfr/alert.html")
-def dsfr_alert(tag_data: dict = {}, **kwargs) -> dict:
+def dsfr_alert(*args, **kwargs) -> dict:
     """
     Returns an alert item. Takes a dict as parameter, with the following structure:
 
@@ -136,6 +137,7 @@ def dsfr_alert(tag_data: dict = {}, **kwargs) -> dict:
     **Usage**::
         {% dsfr_alert data_dict %}
     """
+
     allowed_keys = [
         "id",
         "title",
@@ -145,9 +147,7 @@ def dsfr_alert(tag_data: dict = {}, **kwargs) -> dict:
         "is_collapsible",
         "extra_classes",
     ]
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     if "id" not in tag_data:
         tag_data["id"] = generate_random_id("alert")
@@ -183,7 +183,7 @@ def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
 
 
 @register.inclusion_tag("dsfr/button.html")
-def dsfr_button(tag_data: dict = {}, **kwargs) -> dict:
+def dsfr_button(*args, **kwargs) -> dict:
     """
     Returns a button item. Takes a dict as parameter, with the following structure:
 
@@ -212,6 +212,8 @@ def dsfr_button(tag_data: dict = {}, **kwargs) -> dict:
         "is_disabled",
         "extra_classes",
     ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
     for k in kwargs:
         if k in allowed_keys:
             tag_data[k] = kwargs[k]
@@ -222,7 +224,7 @@ def dsfr_button(tag_data: dict = {}, **kwargs) -> dict:
 
 
 @register.inclusion_tag("dsfr/callout.html")
-def dsfr_callout(tag_data: dict = {}, **kwargs) -> dict:
+def dsfr_callout(*args, **kwargs) -> dict:
     """
     Returns a callout item. Takes a dict as parameter, with the following structure:
 
@@ -251,15 +253,13 @@ def dsfr_callout(tag_data: dict = {}, **kwargs) -> dict:
         "icon_class",
         "button",
     ]
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/card.html")
-def dsfr_card(tag_data: dict = {}, **kwargs) -> dict:
+def dsfr_card(*args, **kwargs) -> dict:
     """
     Returns a card item. Takes a dict as parameter, with the following structure:
 
@@ -287,15 +287,13 @@ def dsfr_card(tag_data: dict = {}, **kwargs) -> dict:
         "new_tab",
         "extra_classes",
     ]
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/highlight.html")
-def dsfr_highlight(tag_data: dict = {}, **kwargs) -> dict:
+def dsfr_highlight(*args, **kwargs) -> dict:
     """
     Returns a highlight item. Takes a dict as parameter, with the following structure:
 
@@ -324,15 +322,13 @@ def dsfr_highlight(tag_data: dict = {}, **kwargs) -> dict:
         "heading_tag",
         "size_class",
     ]
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/input.html")
-def dsfr_input(tag_data: dict = {}, **kwargs) -> dict:
+def dsfr_input(*args, **kwargs) -> dict:
     """
     Returns a input item. Takes a dict as parameter, with the following structure:
 
@@ -366,9 +362,7 @@ def dsfr_input(tag_data: dict = {}, **kwargs) -> dict:
         "max",
         "extra_classes",
     ]
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     if "id" not in tag_data:
         tag_data["id"] = generate_random_id("input")
@@ -377,7 +371,7 @@ def dsfr_input(tag_data: dict = {}, **kwargs) -> dict:
 
 
 @register.inclusion_tag("dsfr/link.html")
-def dsfr_link(tag_data: dict = {}, **kwargs) -> dict:
+def dsfr_link(*args, **kwargs) -> dict:
     """
     Returns a link item. Takes a dict as parameter, with the following structure:
 
@@ -408,9 +402,7 @@ def dsfr_link(tag_data: dict = {}, **kwargs) -> dict:
         "is_external",
         "extra_classes",
     ]
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     return {"self": tag_data}
 
@@ -430,7 +422,7 @@ def dsfr_pagination(context: Context, page_obj: Page) -> dict:
 
 
 @register.inclusion_tag("dsfr/select.html")
-def dsfr_select(tag_data: dict = {}, **kwargs) -> dict:
+def dsfr_select(*args, **kwargs) -> dict:
     """
     Returns a select item. Takes a dict as parameter, with the following structure:
 
@@ -467,10 +459,7 @@ def dsfr_select(tag_data: dict = {}, **kwargs) -> dict:
         "options",
         "extra_classes",
     ]
-
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     if "id" not in tag_data:
         tag_data["id"] = generate_random_id("select")
@@ -479,7 +468,7 @@ def dsfr_select(tag_data: dict = {}, **kwargs) -> dict:
 
 
 @register.inclusion_tag("dsfr/sidemenu.html", takes_context=True)
-def dsfr_sidemenu(context: Context, tag_data: dict = {}, **kwargs) -> dict:
+def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
     """
     Returns a side menu item. Takes a dict as parameter, with the following structure:
 
@@ -507,9 +496,7 @@ def dsfr_sidemenu(context: Context, tag_data: dict = {}, **kwargs) -> dict:
     """
 
     allowed_keys = ["label", "item", "extra_classes"]
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     active_path = context["request"].path
     tag_data["items"], _ = find_active_menu_items(tag_data["items"], active_path)
@@ -533,7 +520,7 @@ def dsfr_summary(items: list) -> dict:
 
 
 @register.inclusion_tag("dsfr/table.html")
-def dsfr_table(tag_data: dict = {}, **kwargs) -> dict:
+def dsfr_table(*args, **kwargs) -> dict:
     """
     Returns a table item. Takes a dict as parameter, with the following structure:
 
@@ -557,16 +544,13 @@ def dsfr_table(tag_data: dict = {}, **kwargs) -> dict:
         "header",
         "extra_classes",
     ]
-
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/tile.html")
-def dsfr_tile(tag_data: dict = {}, **kwargs) -> dict:
+def dsfr_tile(*args, **kwargs) -> dict:
     """
     Returns a tile item. Takes a dict as parameter, with the following structure:
 
@@ -590,10 +574,7 @@ def dsfr_tile(tag_data: dict = {}, **kwargs) -> dict:
         "image_path",
         "extra_classes",
     ]
-
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     return {"self": tag_data}
 

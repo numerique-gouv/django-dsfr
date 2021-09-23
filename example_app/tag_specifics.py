@@ -14,13 +14,26 @@ IMPLEMENTED_TAGS = {
         "title": "Alertes (alerts)",
         "sample_data": [
             {
-                "title": "Title of the accordion item",
+                "title": "Title of the alert item",
                 "type": "success",
-                "content": "Content of the accordion item (can include html)",
+                "content": "Content of the alert item (can include html)",
                 "heading_tag": "h3",
                 "is_collapsible": True,
-                "id": "alert-sample-tag",
-            }
+                "id": "alert-success-tag",
+            },
+            {
+                "title": "Title of the alert item",
+                "type": "error",
+                "content": "Content of the alert item (can include html)",
+                "heading_tag": "h3",
+                "is_collapsible": True,
+            },
+            {
+                "title": "Title of the alert item",
+                "type": "info",
+                "content": "Content of the alert item (can include html)",
+                "heading_tag": "h3",
+            },
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/736362500/Alertes+-+Alerts",
     },
@@ -91,14 +104,20 @@ IMPLEMENTED_TAGS = {
         "title": "Champs de saisie (input)",
         "sample_data": [
             {
-                "id": "The html id of the input item",
+                "id": "example-input-id",
                 "label": "Label of the input item",
-                "type": "Type of the input item (default: 'text')",
-                "onchange": "(Optional) Action that happens when the input is changed",
+                "type": "text",
+                "onchange": "alert(value)",
                 "value": "(Optional) Value of the input item",
-                "min": "(Optional) Minimum value of the input item (for type='date')",
-                "max": "(Optional) Maximum value of the input item (for type='date')",
-            }
+            },
+            {
+                "label": "Label of the input item",
+                "type": "date",
+                "onchange": "alert(value)",
+                "value": "2021-09-16",
+                "min": "2021-09-04",
+                "max": "2021-09-23",
+            },
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217088099/Champs+de+saisie+-+Input",
     },
@@ -122,7 +141,7 @@ IMPLEMENTED_TAGS = {
         "title": "Listes déroulantes (selects)",
         "sample_data": [
             {
-                "id": "The html id of the select item",
+                "id": "select-example-id",
                 "label": "Label of the select item",
                 "onchange": "(Optional) Action that happens when the select is changed",
                 "selected": "(Optional) If the item is selected",
@@ -186,8 +205,10 @@ IMPLEMENTED_TAGS = {
     "summary": {
         "title": "Sommaire (summary)",
         "sample_data": [
-            {"link": "link 1", "label": "First item title"},
-            {"link": "link 2", "label": "Second item title"},
+            [
+                {"link": "link 1", "label": "First item title"},
+                {"link": "link 2", "label": "Second item title"},
+            ]
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/262898307/Sommaire+-+Summary",
     },
@@ -218,21 +239,23 @@ EXTRA_TAGS = {
     "accordion_group": {
         "title": "Groupe d’accordéons (accordion_group)",
         "sample_data": [
-            {
-                "id": "sample-accordion-1",
-                "title": "First accordion item",
-                "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (1)</p>",
-            },
-            {
-                "id": "sample-accordion-2",
-                "title": "Second accordion item",
-                "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (2)</p>",
-            },
-            {
-                "id": "sample-accordion-3",
-                "title": "Third accordion item",
-                "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (3)</p>",
-            },
+            [
+                {
+                    "id": "sample-accordion-1",
+                    "title": "First accordion item",
+                    "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (1)</p>",
+                },
+                {
+                    "id": "sample-accordion-2",
+                    "title": "Second accordion item",
+                    "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (2)</p>",
+                },
+                {
+                    "id": "sample-accordion-3",
+                    "title": "Third accordion item",
+                    "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (3)</p>",
+                },
+            ]
         ],
     },
     "css": {"title": "CSS global"},
