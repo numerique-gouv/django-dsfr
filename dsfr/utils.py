@@ -1,8 +1,7 @@
 from django.core.paginator import Page
+from django.utils.text import slugify
 import random
 import string
-from hashlib import md5
-import json
 
 
 def list_pages(page_obj: Page) -> Page:
@@ -86,3 +85,20 @@ def generate_random_id(start: str = ""):
     if start:
         result = "-".join([start, result])
     return result
+
+
+def generate_summary_items(sections_names: list) -> list:
+    """
+    Takes a list of section names and returns them as a list of links
+    that can be used with dsfr_summary or dsfr_menu tags.
+    """
+    items = []
+    for section_name in sections_names:
+        items.append(
+            {
+                "label": section_name,
+                "link": f"#{slugify(section_name)}",
+            }
+        )
+
+    return items

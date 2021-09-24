@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-dsfr"
-version = "0.4.1"
+version = "0.4.2"
 description = "Integrate the French government Design System into a Django app"
 authors = ["Sylvain Boissel <sylvain.boissel@dgcl.gouv.fr>"]
 license = "MIT"
