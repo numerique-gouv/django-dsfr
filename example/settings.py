@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "dsfr",
     "example_app",
+    "django_distill",
 ]
 
 MIDDLEWARE = [

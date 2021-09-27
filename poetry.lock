@@ -128,6 +128,18 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-distill"
+version = "2.9.0"
+description = "Static site renderer and publisher for Django."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+django = "*"
+requests = "*"
+
+[[package]]
 name = "docutils"
 version = "0.17.1"
 description = "Docutils -- Python Documentation Utilities"
@@ -300,7 +312,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "1bd20c78d0cb18569359126a7cb56afd6be74f5b62de88dc89ec82a21795446a"
+content-hash = "1478b3fefc2424d5f098210de41c9c533616fb250016b4c5803a71e9acc763e2"
 
 [metadata.files]
 appdirs = [
@@ -396,6 +408,9 @@ coverage = [
 django = [
     {file = "Django-3.2.5-py3-none-any.whl", hash = "sha256:c58b5f19c5ae0afe6d75cbdd7df561e6eb929339985dbbda2565e1cabb19a62e"},
     {file = "Django-3.2.5.tar.gz", hash = "sha256:3da05fea54fdec2315b54a563d5b59f3b4e2b1e69c3a5841dda35019c01855cd"},
+]
+django-distill = [
+    {file = "django-distill-2.9.0.tar.gz", hash = "sha256:08f31dcde2e79e73c0bc4f36941830603a811cc89472be11f79f14affb460d84"},
 ]
 docutils = [
     {file = "docutils-0.17.1-py2.py3-none-any.whl", hash = "sha256:cf316c8370a737a022b72b56874f6602acf974a37a9fba42ec2876387549fc61"},

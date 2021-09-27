@@ -41,6 +41,7 @@ pytest = "^6.2.4"
 black = {version = "^21.7b0", allow-prereleases = true}
 docutils = "^0.17.1"
 coverage = "^5.5"
+django-distill = "^2.9.0"
 
 
 [build-system]
