@@ -260,8 +260,8 @@ EXTRA_TAGS = {
     "js": {"title": "JS global"},
 }
 
-unsorted_tags = {**IMPLEMENTED_TAGS, **EXTRA_TAGS}
-ALL_IMPLEMENTED_TAGS = dict(sorted(unsorted_tags.items()))
+unsorted_implemented_tags = {**IMPLEMENTED_TAGS, **EXTRA_TAGS}
+ALL_IMPLEMENTED_TAGS = dict(sorted(unsorted_implemented_tags.items()))
 
 NOT_YET_IMPLEMENTED_TAGS = {
     "search": {
@@ -302,3 +302,11 @@ WONT_BE_IMPLEMENTED = {
     "utilites": {"title": "Outil (utilities)"},
     "legacy": {"title": "Systèmes anterieurs (legacy)"},
 }
+
+all_tags_unsorted = {
+    **IMPLEMENTED_TAGS,
+    **EXTRA_TAGS,
+    **NOT_YET_IMPLEMENTED_TAGS,
+    **WONT_BE_IMPLEMENTED,
+}
+ALL_TAGS = dict(sorted(all_tags_unsorted.items()))

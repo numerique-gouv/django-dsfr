@@ -1,45 +1,62 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
 
+{% block extra_css %}
+<style>
+.code_sample {
+  background-color: var(--g300);
+  padding: 1rem;
+}
+</style>
+{% endblock %}
+
 {% block content %}
-  <h1>Design System de l‘État</h1>
-  <div class="fr-grid-row">
-
-      <div class="fr-col-6">
-        <h2>Composants implémentés</h2>
-        <ul>
-            {% for tag, data in implemented_tags.items %}
-                <li class="fr-mb-1w">
-                    <a href="{% url 'page_tag' tag %}">{{ data.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-
-        <h2>Tags supplémentaires</h2>
-        <ul>
-            {% for tag, data in extra_tags.items %}
-                <li class="fr-mb-1w">
-                    <a href="{% url 'page_tag' tag %}">{{ data.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-        
-        <h2>En-tête et pied de page</h2>
-        <p>Les composants « En-tête (header) » et « Pied de page (footer) » sont actuellement gérés avec 
-        des balises include ({% verbatim %} {% include "dsfr/header.html" %} et {% include "dsfr/footer.html" %}{% endverbatim %})
-        et non des tags.</p> 
-      </div>
-
-      <div class="fr-col-6">
-        <h2>Composants encore non implémentés</h2>
-        <ul>
-            {% for tag, data in not_yet.items %}
-                <li class="fr-mb-1w">
-                    <a href="{% url 'page_tag' tag %}">{{ data.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-      </div>
+  <h1>Django-DSFR</h1>
+  <h2>Documentation</h2>
+  <div>
+    <p>
+      <strong>Django-dsfr</strong> est une application django permettant d'utiliser le
+      <a href="https://www.systeme-de-design.gouv.fr/">système de design de l’État</a> dans des projets Django.
+    </p>
+     
+    <p>
+      Elle a été développée dans le cadre du défi
+      <a href="https://github.com/entrepreneur-interet-general/opencollectivites">Open Collectivités</a>
+      et est un travail en cours (les composants sont actuellement développés au fur et à mesure de leur
+      utilisation dans le cadre d’Open Collectivités), cf. la page <a href="{% url 'tags_index' %}">Composants</a>.
+    </p>
   </div>
 
+  <div class="fr-grid-row fr-grid-row--gutters fr-mb-3w">
+    <div class="fr-col-12 fr-col-md-4">
+      {% dsfr_summary summary_data %}
+    </div>
+  </div>
+
+  <h3 id="installation">Installation</h3>
+  <p>
+    Voir la section dédiée dans le <a href="https://github.com/entrepreneur-interet-general/django-dsfr/blob/main/README.rst">README</a>.
+  </p>
+
+  <h3 id="utilisation">Utilisation</h3>
+  <p>
+    Les explications sur l’utilisation de chaque composant figurent sur leur entrée dédiée, accessible via la
+    page <a href="{% url 'tags_index' %}">Composants</a>.
+  </p>
+
+  <h3 id="developpement">Développement</h3>
+  <p>Une instance "example" de Django est fournie. Elle peut être lancée avec les commandes suivantes :</p>
+  <pre class="code_sample">
+$ poetry install
+$ poetry shell
+$ python manage.py migrate
+$ python manage.py runserver
+  </pre>
+
+  <h3 id="notes">Notes</h3>
+  <ul>
+    <li>Il est possible d'utiliser tous les composants du DSFR directement avec leur code HTML, y compris ceux pour lesquels il n’existe pas encore de balise.</li>
+    <li>De même pour certains où il vaut mieux créer un template ad-hoc à chaque utilisation, comme les modales.</li>
+    <li>La présente documentation est un export statique de l’application example_app réalisé avec <a href="https://github.com/meeb/django-distill">Django-distill</a>.</li>
+  </ul>
 {% endblock %}

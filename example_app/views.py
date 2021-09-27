@@ -2,6 +2,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.http import require_safe
+from dsfr.utils import generate_summary_items
 
 from .tag_specifics import (
     ALL_IMPLEMENTED_TAGS,
@@ -16,20 +17,38 @@ from .tag_specifics import (
 from dsfr.templatetags import dsfr_tags
 
 
-def init_payload(page_title: str):
+def init_payload(page_title: str, links: list = []):
     # Returns the common payload passed to most pages:
     # title: the page title
     # breadcrumb_data: a dictionary used by the page's breadcrumb
     # context: a dictionary used for content for the base template
 
-    breadcrumb_data = {"current": page_title, "links": []}
+    breadcrumb_data = {"current": page_title, "links": links}
 
     return {"title": page_title, "breadcrumb_data": breadcrumb_data}
 
 
 @require_safe
 def index(request):
-    payload = init_payload("Design system de l’État")
+    payload = init_payload("Accueil")
+    with open("DOC.md", "r") as docfile:
+        payload["doc"] = docfile.read()
+
+    payload["summary_data"] = generate_summary_items(
+        [
+            "Installation",
+            "Utilisation",
+            "Développement",
+            "Notes",
+        ]
+    )
+
+    return render(request, "example_app/index.html", payload)
+
+
+@require_safe
+def tags_index(request):
+    payload = init_payload("Composants")
     payload["implemented_tags"] = dict(
         sorted(IMPLEMENTED_TAGS.items(), key=lambda k: k[1]["title"])
     )
@@ -39,7 +58,7 @@ def index(request):
     payload["not_yet"] = dict(
         sorted(NOT_YET_IMPLEMENTED_TAGS.items(), key=lambda k: k[1]["title"])
     )
-    return render(request, "example_app/index.html", payload)
+    return render(request, "example_app/tags_index.html", payload)
 
 
 @require_safe
@@ -47,7 +66,10 @@ def page_tag(request, tag_name):
 
     if tag_name in ALL_IMPLEMENTED_TAGS:
         current_tag = ALL_IMPLEMENTED_TAGS[tag_name]
-        payload = init_payload(current_tag["title"])
+        payload = init_payload(
+            current_tag["title"],
+            links=[{"url": reverse("tags_index"), "title": "Composants"}],
+        )
         payload["tag_name"] = tag_name
 
         if tag_name == "pagination":
