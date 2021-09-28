@@ -89,15 +89,19 @@
         {% if tag_name == "breadcrumb" %}
           {% dsfr_breadcrumb %}
         {% elif tag_name == "css" %}
-          <textarea readonly rows="4" cols="90" class="example-textarea">{% dsfr_css %}</textarea><br />
+          <label for="example-textarea">Code source :</label>
+          <textarea id="example-textarea" readonly rows="4" cols="90" class="example-textarea">{% dsfr_css %}</textarea><br />
         {% elif tag_name == "favicon" %}
-          <textarea readonly rows="4" cols="90" class="example-textarea">{% dsfr_favicon %}</textarea><br />
+          <label for="example-textarea">Code source :</label>
+          <textarea id="example-textarea" readonly rows="4" cols="90" class="example-textarea">{% dsfr_favicon %}</textarea><br />
         {% elif tag_name == "js" %}
-          <textarea readonly rows="4" cols="90" class="example-textarea">{% dsfr_js %}</textarea><br />
+          <label for="example-textarea">Code source :</label>
+          <textarea id="example-textarea" readonly rows="4" cols="90" class="example-textarea">{% dsfr_js %}</textarea><br />
         {% elif tag_name == "pagination" %}
           {% dsfr_pagination page_obj %}
         {% elif tag_name == "theme_modale" %}
-          <textarea readonly rows="4" cols="120" class="example-textarea">{% dsfr_theme_modale %}</textarea><br />
+          <label for="example-textarea">Code source :</label>
+          <textarea id="example-textarea" readonly rows="4" cols="120" class="example-textarea">{% dsfr_theme_modale %}</textarea><br />
         {% endif %}
       {% endif %}
     </div>

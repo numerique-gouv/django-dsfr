@@ -78,7 +78,7 @@ class DsfrAccordionTagTest(SimpleTestCase):
             """
             <section class="fr-accordion">
                 <h3 class="fr-accordion__title">
-                    <button class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion">Title of the accordion item</button>
+                    <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion">Title of the accordion item</button>
                 </h3>
                 <div class="fr-collapse" id="sample-accordion">
                     <p><b>Bold</b> and <em>emphatic</em> Example content</p>
@@ -149,7 +149,7 @@ class DsfrAlertTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-            <button class="fr-link--close fr-link" aria-expanded="true" aria-controls="test-alert-message">
+            <button type="button" class="fr-link--close fr-link" aria-expanded="true" aria-controls="test-alert-message">
                 Masquer le message
             </button>
             """,
@@ -187,6 +187,7 @@ class DsfrButtonTagTest(SimpleTestCase):
     test_data = {
         "onclick": "alert('test button action')",
         "label": "button label",
+        "type": "button",
         "extra_classes": "fr-btn--secondary",
     }
 
@@ -198,6 +199,7 @@ class DsfrButtonTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <button
+                type="button"
                 class="fr-btn fr-btn--secondary"
                 onclick="alert(&#x27;test button action&#x27;)"            
             >
@@ -214,7 +216,7 @@ class DsfrCalloutTagTest(SimpleTestCase):
         "title": "Title of the callout item",
         "icon_class": "fr-fi-information-line",
         "heading_tag": "h4",
-        "button": {"onclick": "close()", "label": "button label"},
+        "button": {"onclick": "close()", "label": "button label", "type": "button"},
     }
 
     context = Context({"test_data": test_data})
@@ -246,6 +248,7 @@ class DsfrCalloutTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <button
+                type="button"
                 class="fr-btn"
                 onclick="close()"
             >
@@ -499,6 +502,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
             """
             <li class="fr-sidemenu__item fr-sidemenu__item--active">
                 <button
+                    type="button"
                     class="fr-sidemenu__btn"
                     aria-expanded="true"
                     aria-controls="fr-sidemenu-item-2-2"
