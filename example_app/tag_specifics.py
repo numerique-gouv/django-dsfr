@@ -142,7 +142,7 @@ IMPLEMENTED_TAGS = {
             {
                 "id": "select-example-id",
                 "label": "Label of the select item",
-                "onchange": "(Optional) Action that happens when the select is changed",
+                "onchange": "console.log(value)",
                 "selected": "(Optional) If the item is selected",
                 "default": {  # Optional
                     "disabled": "If the item is disabled",
