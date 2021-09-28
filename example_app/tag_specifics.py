@@ -143,10 +143,9 @@ IMPLEMENTED_TAGS = {
                 "id": "select-example-id",
                 "label": "Label of the select item",
                 "onchange": "console.log(value)",
-                "selected": "(Optional) If the item is selected",
                 "default": {  # Optional
-                    "disabled": "If the item is disabled",
-                    "hidden": "If the item is hidden",
+                    "disabled": True,
+                    "hidden": True,
                 },
                 "options": [
                     {"text": "Option 1", "value": 1},

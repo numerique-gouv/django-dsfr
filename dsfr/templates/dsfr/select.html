@@ -8,13 +8,15 @@
         name="{{ self.id }}"
         {% if self.onchange %}onchange="{{self.onchange}}"{% endif %}
         >
-        <option value=""
-            {% if self.selected == None %} selected{% endif %}
-            {% if self.default.disabled %} disabled{% endif %}
-            {% if self.default.hidden %} hidden{% endif %}
-        >
-            {{ self.default.text }}
-        </option>
+        {% if self.default %}
+            <option value="{{ self.default.value }}"
+                {% if self.selected == None %} selected{% endif %}
+                {% if self.default.disabled %} disabled{% endif %}
+                {% if self.default.hidden %} hidden{% endif %}
+            >
+                {{ self.default.text }}
+            </option>
+        {% endif %}
         {% for option in self.options %}
         <option value="{{ option.value }}" {% if self.selected == option.value %} selected{% endif %}>
             {{ option.text }}
