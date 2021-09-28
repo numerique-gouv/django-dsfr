@@ -131,3 +131,6 @@ dmypy.json
 
 # Editor stuff
 .vscode/
+
+# Project specific
+!dsfr/static/dsfr/dist
