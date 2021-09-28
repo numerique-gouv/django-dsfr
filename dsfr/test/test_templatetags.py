@@ -20,7 +20,6 @@ class DsfrJsTagTest(SimpleTestCase):
         context = Context()
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_js %}")
         rendered_template = template_to_render.render(context)
-        print(rendered_template)
         self.assertInHTML(
             """
             <script type="module" src="/django-dsfr/static/dsfr/dist/js/dsfr.module.min.js"></script>
