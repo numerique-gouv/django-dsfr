@@ -10,7 +10,7 @@ class DsfrCssTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_css %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            '<link rel="stylesheet" href="/static/dsfr/dist/css/dsfr.min.css">',
+            '<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/css/dsfr.min.css">',
             rendered_template,
         )
 
@@ -20,10 +20,11 @@ class DsfrJsTagTest(SimpleTestCase):
         context = Context()
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_js %}")
         rendered_template = template_to_render.render(context)
+        print(rendered_template)
         self.assertInHTML(
             """
-            <script type="module" src="/static/dsfr/dist/js/dsfr.module.min.js"></script>
-            <script type="text/javascript" nomodule src="/static/dsfr/dist/js/dsfr.nomodule.min.js"></script>
+            <script type="module" src="/django-dsfr/static/dsfr/dist/js/dsfr.module.min.js"></script>
+            <script type="text/javascript" nomodule src="/django-dsfr/static/dsfr/dist/js/dsfr.nomodule.min.js"></script>
             """,
             rendered_template,
         )
@@ -36,11 +37,11 @@ class DsfrFaviconTagTest(SimpleTestCase):
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             """
-            <link rel="apple-touch-icon" href="/static/dsfr/dist/favicons/apple-touch-icon.png"><!-- 180×180 -->
-            <link rel="icon" href="/static/dsfr/dist/favicons/favicon.svg" type="image/svg+xml">
-            <link rel="shortcut icon" href="/static/dsfr/dist/favicons/favicon.ico" type="image/x-icon">
+            <link rel="apple-touch-icon" href="/django-dsfr/static/dsfr/dist/favicons/apple-touch-icon.png"><!-- 180×180 -->
+            <link rel="icon" href="/django-dsfr/static/dsfr/dist/favicons/favicon.svg" type="image/svg+xml">
+            <link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicons/favicon.ico" type="image/x-icon">
             <!-- 32×32 -->
-            <link rel="manifest" href="/static/dsfr/dist/favicons/manifest.webmanifest"
+            <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicons/manifest.webmanifest"
             crossorigin="use-credentials">
             """,
             rendered_template,
