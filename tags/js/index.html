@@ -1,0 +1,435 @@
+
+<!doctype html>
+<html lang="fr" data-fr-theme="default">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/css/dsfr.min.css">
+  
+<link rel="apple-touch-icon" href="/django-dsfr/static/dsfr/dist/favicons/apple-touch-icon.png"><!-- 180×180 -->
+<link rel="icon" href="/django-dsfr/static/dsfr/dist/favicons/favicon.svg" type="image/svg+xml">
+<link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicons/favicon.ico" type="image/x-icon"><!-- 32×32 -->
+<link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicons/manifest.webmanifest" crossorigin="use-credentials">
+  
+<style>
+.example-textarea {
+  border: none; 
+  background-color: var(--g300);
+  padding: 1rem;
+}
+.code_sample {
+  background-color: var(--g300);
+  padding: 1rem;
+}
+</style>
+
+
+  
+  <title>
+    
+      JS global — Design Système de l’État
+    
+  </title>
+  
+</head>
+
+<body>
+  <main id="content">
+    <header role="banner" class="fr-header">
+  <div class="fr-header__body">
+    <div class="fr-container">
+      <div class="fr-header__body-row">
+        <div class="fr-header__brand fr-enlarge-link">
+          <div class="fr-header__brand-top">
+            <div class="fr-header__logo">
+              
+  
+  <p class="fr-logo"
+      title="République française">
+      République <br />française
+  </p>
+  
+
+            </div>
+            
+
+          </div>
+          <div class="fr-header__service">
+            
+<a href="/" title="Accueil - Exemple d’application">
+    <p class="fr-header__service-title">Django-DSFR</p>
+</a>
+
+            <p class="fr-header__service-tagline">Une application Django utilisant le Système de design de l’État</p>
+          </div>
+        </div>
+        <div class="fr-header__tools">
+          <div class="fr-header__tools-links">
+            <ul class="fr-links-group">
+              
+<li>
+  <button class="fr-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+</li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="fr-header__menu fr-modal" id="fr-menu-modal" aria-labelledby="fr-btn-menu-modal">
+      <div class="fr-container">
+        <button class="fr-link--close fr-link" aria-controls="fr-menu-modal">Fermer</button>
+        <div class="fr-header__menu-links"></div>
+        <nav class="fr-nav" id="fr-navigation" role="navigation" aria-label="Menu principal">
+          <ul class="fr-nav__list">
+            <li class="fr-nav__item">
+              <a class="fr-nav__link" href="/django-dsfr/" target="_self">Accueil</a>
+            </li>
+            <li class="fr-nav__item">
+              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self">Composants</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+</header>
+    <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
+    <div class="fr-container--fluid fr-container-md">
+        <div class="fr-grid-row fr-grid-row--center">
+            <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+                <div class="fr-modal__body">
+                    <div class="fr-modal__header">
+                        <button class="fr-link--close fr-link" aria-controls="fr-theme-modal">Fermer</button>
+                    </div>
+                    <div class="fr-modal__content">
+                        <h1 id="fr-theme-modal-title" class="fr-modal__title">
+                            Paramètres d’affichage
+                        </h1>
+                        <div id="fr-switch-theme" class="fr-form-group fr-switch-theme">
+                            <fieldset class="fr-fieldset">
+                                <legend class="fr-fieldset__legend">Choisissez un thème pour personnaliser l’apparence du site.</legend>
+                                <div class="fr-fieldset__content">
+                                    <div class="fr-radio-group fr-radio-rich">
+                                        <input type="radio" id="fr-radios-theme-light" name="fr-radios-theme" value="light">
+                                        <label class="fr-label" for="fr-radios-theme-light">Thème clair
+                                        </label>
+                                    </div>
+                                    <div class="fr-radio-group fr-radio-rich">
+                                        <input type="radio" id="fr-radios-theme-dark" name="fr-radios-theme" value="dark">
+                                        <label class="fr-label" for="fr-radios-theme-dark">Thème sombre
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</dialog>
+
+    <div class="fr-container fr-mt-4w fr-mb-6w">
+      <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb-1">
+        <ol class="fr-breadcrumb__list">
+            <li>
+                <a class="fr-breadcrumb__link" href="/">Accueil</a>
+            </li>
+            
+            <li>
+                <a class="fr-breadcrumb__link" href="/django-dsfr/tags/">Composants</a>
+            </li>
+            
+            <li>
+                <a class="fr-breadcrumb__link" aria-current="page">JS global</a>
+            </li>
+        </ol>
+    </div>
+</nav>
+
+      
+  <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
+  <!-- Menu -->
+    <div class="fr-col-12 fr-col-md-3">
+      
+<nav class="fr-sidemenu" role="navigation" aria-label="Menu latéral">
+  <div class="fr-sidemenu__inner">
+    <button class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
+    <div class="fr-collapse" id="fr-sidemenu-wrapper">
+      <div class="fr-sidemenu__title">Composants</div>
+      <ul class="fr-sidemenu__list">
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion/" target="_self" >accordion</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion_group/" target="_self" >accordion_group</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/alert/" target="_self" >alert</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/breadcrumb/" target="_self" >breadcrumb</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/button/" target="_self" >button</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/callout/" target="_self" >callout</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/card/" target="_self" >card</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/css/" target="_self" >css</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/favicon/" target="_self" >favicon</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/highlight/" target="_self" >highlight</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/input/" target="_self" >input</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item fr-sidemenu__item--active">
+            
+              <li class="fr-sidemenu__item fr-sidemenu__item--active">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/js/" target="_self"  aria-current="page">js</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/link/" target="_self" >link</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/pagination/" target="_self" >pagination</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/select/" target="_self" >select</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/sidemenu/" target="_self" >sidemenu</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/summary/" target="_self" >summary</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/table/" target="_self" >table</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/theme_modale/" target="_self" >theme_modale</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/tile/" target="_self" >tile</a>
+              </li>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+    </div>
+    <div class="fr-col-12 fr-col-md-9 fr-py-2w">
+      <h1> JS global </h1>
+
+      
+
+      <h2>Documentation du tag</h2>
+      <pre>
+      
+    Returns the HTML for the JS body tags for DSFR
+
+    **Tag name**::
+        dsfr_js
+    **Usage**::
+        {% dsfr_js %}
+    
+      </pre>
+
+      
+        <h2>Résultat</h2>
+        
+          <textarea readonly rows="4" cols="90" class="example-textarea">
+<script type="module" src="/django-dsfr/static/dsfr/dist/js/dsfr.module.min.js"></script>
+<script type="text/javascript" nomodule src="/django-dsfr/static/dsfr/dist/js/dsfr.nomodule.min.js"></script></textarea><br />
+        
+      
+    </div>
+  </div>
+<br />
+
+    </div>
+
+    <footer class="fr-footer" role="contentinfo" id="footer">
+    <div class="fr-container">
+        <div class="fr-footer__body">
+            <div class="fr-footer__brand fr-enlarge-link">
+                <a href="/" title="Retour à l’accueil">
+                    
+                    <p class="fr-logo" title="république française">
+                        république
+                        <br>française
+                    </p>
+                    
+                </a>
+            </div>
+            <div class="fr-footer__content">
+                <p class="fr-footer__content-desc"></p>
+                <ul class="fr-footer__content-list">
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+                    </li>
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" href="https://gouvernement.fr">gouvernement.fr</a>
+                    </li>
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" href="https://service-public.fr">service-public.fr</a>
+                    </li>
+                    <li class="fr-footer__content-item">
+                        <a class="fr-footer__content-link" href="https://data.gouv.fr">data.gouv.fr</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="fr-footer__bottom">
+            <ul class="fr-footer__bottom-list">
+                
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="#">Plan du site</a>
+                </li>
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="#">Accessibilité: non/partiellement/totalement conforme</a>
+                </li>
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="#">Mentions légales</a>
+                </li>
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="#">Données personnelles</a>
+                </li>
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="#">Gestion des cookies</a>
+                </li>
+                <li class="fr-footer__bottom-item">
+                    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d’affichage</button>
+                </li>
+                
+            </ul>
+            <div class="fr-footer__bottom-copy">
+                <p>Sauf mention contraire, tous les textes de ce site sont sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener">licence etalab-2.0</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+  </main>
+
+  
+<script type="module" src="/django-dsfr/static/dsfr/dist/js/dsfr.module.min.js"></script>
+<script type="text/javascript" nomodule src="/django-dsfr/static/dsfr/dist/js/dsfr.nomodule.min.js"></script>
+  
+</body>
+
+</html>
