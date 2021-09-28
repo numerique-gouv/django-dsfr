@@ -1,4 +1,4 @@
-name: Django CI
+name: Django-DSFR CI
 
 on:
   push:
