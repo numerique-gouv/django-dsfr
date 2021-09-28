@@ -3,7 +3,7 @@
     <div class="fr-collapse" id="breadcrumb-1">
         <ol class="fr-breadcrumb__list">
             <li>
-                <a class="fr-breadcrumb__link" href="/">Accueil</a>
+                <a class="fr-breadcrumb__link" href="{{ self.root_dir | default:'/' }}">Accueil</a>
             </li>
             {% for link in self.links %}
             <li>

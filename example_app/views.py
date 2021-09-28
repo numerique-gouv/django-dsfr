@@ -23,7 +23,11 @@ def init_payload(page_title: str, links: list = []):
     # breadcrumb_data: a dictionary used by the page's breadcrumb
     # context: a dictionary used for content for the base template
 
-    breadcrumb_data = {"current": page_title, "links": links}
+    breadcrumb_data = {
+        "current": page_title,
+        "links": links,
+        "root_dir": "/django-dsfr",
+    }
 
     return {"title": page_title, "breadcrumb_data": breadcrumb_data}
 

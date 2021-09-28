@@ -164,7 +164,8 @@ def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
 
     data_dict = {
         "links": [{"url": "first-url", "title": "First title"}, {...}],
-        "current": "Current page title"
+        "current": "Current page title",
+        "root_dir": "the root directory, if the site is not installed at the root of the domain"
     }
 
     If the dict is not passed as a parameter, it extracts it from context.
