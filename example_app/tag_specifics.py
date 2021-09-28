@@ -83,6 +83,7 @@ IMPLEMENTED_TAGS = {
                 "description": "Text of the card item",
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "image_url": "https://via.placeholder.com/350x200",
+                "new_tab": True,
             }
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331445/Carte+-+Card",
