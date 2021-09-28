@@ -12,9 +12,12 @@ def get_all_tags():
 
 
 urlpatterns = [
-    distill_path("", views.index, name="index", distill_file="index.html"),
+    distill_path("", views.index, name="index", distill_file="django-dsfr/index.html"),
     distill_path(
-        "tags/", views.tags_index, name="tags_index", distill_file="tags/index.html"
+        "tags/",
+        views.tags_index,
+        name="tags_index",
+        distill_file="django-dsfr/tags/index.html",
     ),
     distill_path(
         "tags/<slug:tag_name>/",

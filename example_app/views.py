@@ -31,8 +31,6 @@ def init_payload(page_title: str, links: list = []):
 @require_safe
 def index(request):
     payload = init_payload("Accueil")
-    with open("DOC.md", "r") as docfile:
-        payload["doc"] = docfile.read()
 
     payload["summary_data"] = generate_summary_items(
         [
