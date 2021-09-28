@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-dsfr"
-version = "0.4.3"
+version = "0.4.4"
 description = "Integrate the French government Design System into a Django app"
 authors = ["Sylvain Boissel <sylvain.boissel@dgcl.gouv.fr>"]
 license = "MIT"
@@ -8,6 +8,7 @@ license = "MIT"
 readme = "README.rst"
 homepage = "https://github.com/entrepreneur-interet-general/django-dsfr"
 repository = "https://github.com/entrepreneur-interet-general/django-dsfr"
+documentation = "https://entrepreneur-interet-general.github.io/django-dsfr"
 keywords = ["django"]
 classifiers = [
     "Development Status :: 3 - Alpha",
