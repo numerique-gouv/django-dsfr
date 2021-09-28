@@ -55,7 +55,12 @@
 
             </div>
             
-
+            <div class="fr-header__navbar">
+              <button type="button" class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="fr-menu-modal" aria-haspopup="menu" title="Menu">
+                Menu
+              </button>
+            </div>
+            
           </div>
           <div class="fr-header__service">
             
@@ -71,7 +76,7 @@
             <ul class="fr-links-group">
               
 <li>
-  <button class="fr-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+  <button type="button" class="fr-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
 </li>
 
             </ul>
@@ -83,7 +88,7 @@
   
     <div class="fr-header__menu fr-modal" id="fr-menu-modal" aria-labelledby="fr-btn-menu-modal">
       <div class="fr-container">
-        <button class="fr-link--close fr-link" aria-controls="fr-menu-modal">Fermer</button>
+        <button type="button" class="fr-link--close fr-link" aria-controls="fr-menu-modal">Fermer</button>
         <div class="fr-header__menu-links"></div>
         <nav class="fr-nav" id="fr-navigation" role="navigation" aria-label="Menu principal">
           <ul class="fr-nav__list">
@@ -105,7 +110,7 @@
             <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
                 <div class="fr-modal__body">
                     <div class="fr-modal__header">
-                        <button class="fr-link--close fr-link" aria-controls="fr-theme-modal">Fermer</button>
+                        <button type="button" class="fr-link--close fr-link" aria-controls="fr-theme-modal">Fermer</button>
                     </div>
                     <div class="fr-modal__content">
                         <h1 id="fr-theme-modal-title" class="fr-modal__title">
@@ -137,7 +142,7 @@
 
     <div class="fr-container fr-mt-4w fr-mb-6w">
       <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
-    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+    <button type="button" class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
     <div class="fr-collapse" id="breadcrumb-1">
         <ol class="fr-breadcrumb__list">
             <li>
@@ -162,7 +167,7 @@
       
 <nav class="fr-sidemenu" role="navigation" aria-label="Menu latéral">
   <div class="fr-sidemenu__inner">
-    <button class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
+    <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
     <div class="fr-collapse" id="fr-sidemenu-wrapper">
       <div class="fr-sidemenu__title">Composants</div>
       <ul class="fr-sidemenu__list">
@@ -383,9 +388,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-sjmvadqlaxrkdvdi">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-rlzvfahycvjyqyig">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-sjmvadqlaxrkdvdi">
+    <div class="fr-collapse" id="accordion-rlzvfahycvjyqyig">
         <pre class="code_sample">{'items': [{'items': [{'label': 'Une page', 'link': '#'},
                       {'label': 'Une autre page', 'link': '/sidemenu'}],
             'label': 'Menu replié'},
@@ -408,7 +413,7 @@
             
 <nav class="fr-sidemenu" role="navigation" aria-label="Menu latéral">
   <div class="fr-sidemenu__inner">
-    <button class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
+    <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
     <div class="fr-collapse" id="fr-sidemenu-wrapper">
       <div class="fr-sidemenu__title">Menu</div>
       <ul class="fr-sidemenu__list">
@@ -417,6 +422,7 @@
             
               
                 <button
+                  type="button"
                   class="fr-sidemenu__btn"
                   aria-expanded="false"
                   aria-controls="fr-sidemenu-item-1"
@@ -452,6 +458,7 @@
             
               
                 <button
+                  type="button"
                   class="fr-sidemenu__btn"
                   aria-expanded="false"
                   aria-controls="fr-sidemenu-item-2"
@@ -465,6 +472,7 @@
                         
                           
                             <button
+                              type="button"
                               class="fr-sidemenu__btn"
                               aria-expanded="false"
                               aria-controls="fr-sidemenu-item-2-1"
@@ -490,6 +498,7 @@
                         
                           
                             <button
+                              type="button"
                               class="fr-sidemenu__btn"
                               aria-expanded="false"
                               aria-controls="fr-sidemenu-item-2-2"
@@ -550,7 +559,11 @@
                 </a>
             </div>
             <div class="fr-footer__content">
-                <p class="fr-footer__content-desc"></p>
+                <p class="fr-footer__content-desc">
+<p>
+  Cette documentation est générée automatiquement à partir de l’application d’exemple grâce à Django-distill, Github Actions et Github Pages.
+</p>
+</p>
                 <ul class="fr-footer__content-list">
                     <li class="fr-footer__content-item">
                         <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
@@ -586,12 +599,12 @@
                     <a class="fr-footer__bottom-link" href="#">Gestion des cookies</a>
                 </li>
                 <li class="fr-footer__bottom-item">
-                    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d’affichage</button>
+                    <button type="button" class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d’affichage</button>
                 </li>
                 
             </ul>
             <div class="fr-footer__bottom-copy">
-                <p>Sauf mention contraire, tous les textes de ce site sont sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener">licence etalab-2.0</a>
+                <p>Sauf mention contraire, tous les textes de ce site sont sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener noreferrer">licence etalab-2.0</a>
                 </p>
             </div>
         </div>
