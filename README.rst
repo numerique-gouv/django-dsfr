@@ -1,6 +1,5 @@
-.. image:: https://img.shields.io/pypi/v/django-dsfr   :alt: PyPI
-.. image:: https://img.shields.io/pypi/l/django-dsfr   :alt: PyPI - License
-.. image:: https://img.shields.io/pypi/djversions/django-dsfr   :alt: PyPI - Django Version
+.. image:: https://badge.fury.io/py/django-dsfr.svg
+    :target: https://pypi.org/project/django-dsfr/
 
 ===========
 Django-DSFR
