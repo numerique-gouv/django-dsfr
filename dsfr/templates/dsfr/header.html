@@ -14,7 +14,7 @@
             </div>
             {% block burger_menu %}
             <div class="fr-header__navbar">
-              <button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="fr-menu-modal" aria-haspopup="menu" title="Menu">
+              <button type="button" class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="fr-menu-modal" aria-haspopup="menu" title="Menu">
                 Menu
               </button>
             </div>
@@ -54,7 +54,7 @@
   </div>
   {% block main_menu %}
     <div class="fr-header__menu fr-modal" id="fr-menu-modal" aria-labelledby="fr-btn-menu-modal">
-      <div class="fr-container">
+      <div type="button" class="fr-container">
         <button class="fr-link--close fr-link" aria-controls="fr-menu-modal">Fermer</button>
         <div class="fr-header__menu-links"></div>
         <nav class="fr-nav" id="fr-navigation" role="navigation" aria-label="Menu principal">

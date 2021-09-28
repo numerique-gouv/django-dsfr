@@ -1,7 +1,7 @@
 {% load dsfr_tags %}
 <nav class="fr-sidemenu{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}" role="navigation" aria-label="Menu latéral">
   <div class="fr-sidemenu__inner">
-    <button class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
+    <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
     <div class="fr-collapse" id="fr-sidemenu-wrapper">
       <div class="fr-sidemenu__title">{{ self.title }}</div>
       <ul class="fr-sidemenu__list">
@@ -10,6 +10,7 @@
             {% if "items" in item %}
               {% with "fr-sidemenu-item"|hyphenate:forloop.counter as item_id %}
                 <button
+                  type="button"
                   class="fr-sidemenu__btn"
                   aria-expanded="{% if item.is_active %}true{% else %}false{% endif %}"
                   aria-controls="{{ item_id }}"
@@ -23,6 +24,7 @@
                         {% if "items" in sub_item %}{# Level 2 #}
                           {% with "fr-sidemenu-item"|hyphenate:forloop.parentloop.counter|hyphenate:forloop.counter as sub_item_id %}
                             <button
+                              type="button"
                               class="fr-sidemenu__btn"
                               aria-expanded="{% if sub_item.is_active %}true{% else %}false{% endif %}"
                               aria-controls="{{ sub_item_id }}"

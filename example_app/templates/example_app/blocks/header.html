@@ -21,19 +21,19 @@
 
 {% block header_tools %}
 <li>
-  <button class="fr-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+  <button type="button" class="fr-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
 </li>
 {% endblock %}
 
-<!-- Leave both blocks below empty if the main menu is not used 
-{% block burger_menu %}
-{% endblock %}
--->
+{# Leave burger_menu and main_menu blocks empty if the main menu is not used #}
+{# block burger_menu #}
+{# endblock #}
+
 
 {% block main_menu %}
     <div class="fr-header__menu fr-modal" id="fr-menu-modal" aria-labelledby="fr-btn-menu-modal">
       <div class="fr-container">
-        <button class="fr-link--close fr-link" aria-controls="fr-menu-modal">Fermer</button>
+        <button type="button" class="fr-link--close fr-link" aria-controls="fr-menu-modal">Fermer</button>
         <div class="fr-header__menu-links"></div>
         <nav class="fr-nav" id="fr-navigation" role="navigation" aria-label="Menu principal">
           <ul class="fr-nav__list">

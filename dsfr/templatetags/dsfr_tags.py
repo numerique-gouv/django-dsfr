@@ -191,6 +191,7 @@ def dsfr_button(*args, **kwargs) -> dict:
     data_dict = {
         "label": "Label of the button item",
         "onclick": "button action",
+        "type": "(Optional) type of button (submit or button - default: submit),
         "is_disabled": "(Optional) boolean that indicate if the button is activated (default: False)",
         "extra_classes": "(Optional) string with names of extra classes."
     }

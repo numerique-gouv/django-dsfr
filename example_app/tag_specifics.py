@@ -124,7 +124,7 @@ IMPLEMENTED_TAGS = {
         "title": "Lien (link)",
         "sample_data": [
             {
-                "url": "http://example.com",
+                "url": "https://www.systeme-de-design.gouv.fr/",
                 "label": "Label of the link item",
                 "is_external": True,
                 "extra_classes": "fr-link--lg",
@@ -215,6 +215,7 @@ IMPLEMENTED_TAGS = {
         "title": "Tableau (table)",
         "sample_data": [
             {
+                "caption": "Titre du tableau",
                 "header": ["Colonne 1", "Colonne 2", "Colonne 3"],
                 "content": [["a", "b", "c"], ["d", "e", "f"]],
             }
