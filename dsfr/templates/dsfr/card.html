@@ -2,7 +2,7 @@
     <div class="fr-card__body">
         <p class="fr-card__detail">{{ self.detail }}</p>
             <p class="fr-card__title">
-                <a href="{{ self.link }}" class="fr-card__link" target="{% if self.new_tab %}_blank{% else %}_self{% endif %}">
+                <a href="{{ self.link }}" class="fr-card__link" target="{% if self.new_tab %}_blank{% else %}_self{% endif %}"{% if self.new_tab %} rel="noopener noreferrer"{% endif %}>
                     {{ self.title |truncatechars:100 }}
                 </a>
             </p>
