@@ -17,15 +17,24 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: 🐍 Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install Dependencies
+    - name: 👷 Install Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install poetry
         poetry install
-    - name: Run Tests
+    - name: 🧪 Run Tests
       run: |
         poetry run python manage.py test
+    - name: 📄 Build docs
+      run: |
+        bash generate_doc.sh  
+    - name: 🚀 Deploy Github Pages
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages     # <- Branche sur laquelle seront commités les fichiers
+        FOLDER: doc/  # <- Dossier contenant notre documentation générée
