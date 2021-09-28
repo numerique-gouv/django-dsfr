@@ -389,17 +389,15 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-nhbfqgfdfptrnxmi">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-miretpmappnipglw">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-nhbfqgfdfptrnxmi">
-        <pre class="code_sample">{'default': {'disabled': 'If the item is disabled',
-             'hidden': 'If the item is hidden'},
+    <div class="fr-collapse" id="accordion-miretpmappnipglw">
+        <pre class="code_sample">{'default': {'disabled': True, 'hidden': True},
  'id': 'select-example-id',
  'label': 'Label of the select item',
  'onchange': 'console.log(value)',
  'options': [{'text': 'Option 1', 'value': 1},
-             {'text': 'Option 2', 'value': 2}],
- 'selected': '(Optional) If the item is selected'}</pre>
+             {'text': 'Option 2', 'value': 2}]}</pre>
     </div>
 </section>
               
@@ -418,13 +416,15 @@
         name="select-example-id"
         onchange="console.log(value)"
         >
-        <option value=""
-            
-             disabled
-             hidden
-        >
-            
-        </option>
+        
+            <option value=""
+                 selected
+                 disabled
+                 hidden
+            >
+                
+            </option>
+        
         
         <option value="1" >
             Option 1
