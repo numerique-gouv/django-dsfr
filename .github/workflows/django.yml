@@ -29,14 +29,3 @@ jobs:
     - name: 🧪 Run Tests
       run: |
         poetry run python manage.py test
-    - name: 📄 Build docs
-      run: |
-        poetry run python manage.py collectstatic --noinput
-        poetry run python manage.py distill-local docs --force
-        touch docs/django-dsfr/.nojekyll
-    - name: 🚀 Deploy Github Pages
-      uses: JamesIves/github-pages-deploy-action@3.7.1
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages     # <- Branche sur laquelle seront commités les fichiers
-        FOLDER: docs/django-dsfr/  # <- Dossier contenant notre documentation générée
