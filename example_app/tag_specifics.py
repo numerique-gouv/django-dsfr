@@ -200,6 +200,16 @@ IMPLEMENTED_TAGS = {
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/258998801/Menu+lat+ral+-+Side+menu",
     },
+    "skiplinks": {
+        "title": "Liens d’évitement (skiplinks)",
+        "sample_data": [
+            [
+                {"link": "#contenu", "label": "Contenu"},
+                {"link": "#navigation-header", "label": "Menu"},
+            ]
+        ],
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/260014417/Liens+d+vitement+-+Skiplinks",
+    },
     "summary": {
         "title": "Sommaire (summary)",
         "sample_data": [
@@ -221,7 +231,22 @@ IMPLEMENTED_TAGS = {
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/312016971/Tableau+-+Table",
     },
-    "theme_modale": {"title": "Modale de sélection du thème"},
+    "tag": {
+        "title": "Tag (tag)",
+        "sample_data": [
+            {"label": "Tag simple"},
+            {"label": "Tag avec lien", "link": "/django-dsfr/tags"},
+            {
+                "label": "Petit tag avec icône",
+                "extra_classes": "fr-tag--sm fr-fi-arrow-right-line fr-tag--icon-left",
+            },
+        ],
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/310706305/Tag",
+    },
+    "theme_modale": {
+        "title": "Modale de sélection du thème",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/579928166/Param+tres+d+affichage+-+Switch+theme",
+    },
     "tile": {
         "title": "Tuile (tile)",
         "sample_data": [
@@ -286,12 +311,10 @@ NOT_YET_IMPLEMENTED_TAGS = {
     "consent": {"title": "Gestionnaire de consentement (consent)"},
     "toggle": {"title": "Interrupteur (toggle)"},
     "follow": {"title": "Lettre d’information et réseaux sociaux (follow)"},
-    "skiplinks": {"title": "Liens d'évitement (skiplinks)"},
     "modal": {"title": "Modale (modal)"},
     "navigation": {"title": "Navigation principale (navigation)"},
     "tab": {"title": "Onglet (tab)"},
     "share": {"title": "Partage (share)"},
-    "tag": {"title": "Tag (tag)"},
 }
 
 # There is no need for specific tags for these

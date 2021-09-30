@@ -1,0 +1,11 @@
+<div class="fr-skiplinks">
+    <nav class="fr-container" role="navigation" aria-label="Accès rapide">
+        <ul class="fr-skiplinks__list">
+          {% for item in self.items %}
+          <li>
+              <a class="fr-link" href="{{ item.link }}">{{ item.label }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+    </nav>
+</div>

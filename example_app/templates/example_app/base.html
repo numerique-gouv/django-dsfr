@@ -10,7 +10,7 @@
   {% dsfr_favicon %}
   {% block extra_css %}{% endblock %}
 
-  {% block  title %}
+  {% block title %}
   <title>
     {% if title %}
       {{ title }} — Design Système de l’État
@@ -23,6 +23,9 @@
 
 <body>
   <main id="content">
+    {% block skiplinks %}
+        {% dsfr_skiplinks skiplinks %}
+    {% endblock %}
     {% include "example_app/blocks/header.html" %}
     {% dsfr_theme_modale %}
 

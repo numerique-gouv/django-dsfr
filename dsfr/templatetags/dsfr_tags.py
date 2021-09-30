@@ -502,6 +502,28 @@ def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
     return {"self": tag_data}
 
 
+@register.inclusion_tag("dsfr/skiplinks.html", takes_context=True)
+def dsfr_skiplinks(context: Context, items: list) -> dict:
+    """
+    Returns a skiplinks item. Takes a list as parameter, with the following structure:
+
+    items = [{ "link": "item1", "label": "First item title"}, {...}]
+
+    If the list is not passed as a parameter, it extracts it from context.
+
+    **Tag name**::
+        dsfr_skiplinks
+    **Usage**::
+        {% dsfr_skiplinks items %}
+    """
+    if not items:
+        if "skiplinks" in context:
+            items = context["skiplinks"]
+        else:
+            items = {}
+    return {"self": {"items": items}}
+
+
 @register.inclusion_tag("dsfr/summary.html")
 def dsfr_summary(items: list) -> dict:
     """
@@ -542,6 +564,35 @@ def dsfr_table(*args, **kwargs) -> dict:
         "header",
         "extra_classes",
     ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/tag.html")
+def dsfr_tag(*args, **kwargs) -> dict:
+    """
+    Returns a tag item. Takes a dict as parameter, with the following structure:
+
+    data_dict = {
+        "label": "Label of the tag",
+        "link": "(Optional) link of the tag",
+        "extra_classes: (Optional) string with names of extra classes"
+    }
+
+    Relevant extra_classes:
+    - fr-tag--sm: for a small tag
+    - icon classes: an icon for the tag, along with a positional class (eg, fr-fi-arrow-right-line fr-tag--icon-left)
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**::
+        dsfr_highlight
+    **Usage**::
+        {% dsfr_highlight data_dict %}
+    """
+
+    allowed_keys = ["label", "link", "extra_classes"]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     return {"self": tag_data}

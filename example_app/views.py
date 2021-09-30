@@ -21,7 +21,7 @@ def init_payload(page_title: str, links: list = []):
     # Returns the common payload passed to most pages:
     # title: the page title
     # breadcrumb_data: a dictionary used by the page's breadcrumb
-    # context: a dictionary used for content for the base template
+    # skiplinks: a list used by the page's skiplinks item
 
     breadcrumb_data = {
         "current": page_title,
@@ -29,7 +29,16 @@ def init_payload(page_title: str, links: list = []):
         "root_dir": "/django-dsfr",
     }
 
-    return {"title": page_title, "breadcrumb_data": breadcrumb_data}
+    skiplinks = [
+        {"link": "#content", "label": "Contenu"},
+        {"link": "#fr-navigation", "label": "Menu"},
+    ]
+
+    return {
+        "title": page_title,
+        "breadcrumb_data": breadcrumb_data,
+        "skiplinks": skiplinks,
+    }
 
 
 @require_safe

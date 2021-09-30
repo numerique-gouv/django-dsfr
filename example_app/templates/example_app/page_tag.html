@@ -72,10 +72,14 @@
             {% dsfr_select sample_data_item %}
           {% elif tag_name == "sidemenu" %}
             {% dsfr_sidemenu sample_data_item %}
+          {% elif tag_name == "skiplinks" %}
+            {% dsfr_skiplinks sample_data_item %}
           {% elif tag_name == "summary" %}
             {% dsfr_summary sample_data_item %}
           {% elif tag_name == "table" %}
             {% dsfr_table sample_data_item %}
+          {% elif tag_name == "tag" %}
+            {% dsfr_tag sample_data_item %}
           {% elif tag_name == "tile" %}
             <div class="fr-grid-row fr-grid-row--gutters">
                 <div class="fr-col-12 fr-col-md-2">

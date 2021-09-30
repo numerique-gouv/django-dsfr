@@ -563,6 +563,74 @@ class DsfrSummaryTagTest(SimpleTestCase):
         )
 
 
+class DsfrSkiplinksTagTest(SimpleTestCase):
+    test_data = [
+        {"link": "#contenu", "label": "Contenu"},
+        {"link": "#header-navigation", "label": "Menu"},
+    ]
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_skiplinks test_data %}")
+
+    def test_summary_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-skiplinks">
+                <nav class="fr-container" role="navigation" aria-label="Accès rapide">
+                    <ul class="fr-skiplinks__list">
+                    <li>
+                        <a class="fr-link" href="#contenu">Contenu</a>
+                    </li>
+                    <li>
+                        <a class="fr-link" href="#header-navigation">Menu</a>
+                    </li>
+                    </ul>
+                </nav>
+            </div>
+            """,
+            rendered_template,
+        )
+
+
+class DsfrTagTagTest(SimpleTestCase):
+    def test_basic_tag_rendered(self):
+        test_data = {
+            "label": "Label of the tag item",
+        }
+
+        context = Context({"test_data": test_data})
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_tag test_data %}")
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """<p class="fr-tag">Label of the tag item</p>""", rendered_template
+        )
+
+    def test_tag_with_link_rendered(self):
+        test_data = {"label": "Label of the tag item", "link": "/tags"}
+
+        context = Context({"test_data": test_data})
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_tag test_data %}")
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """<a href="/tags" class="fr-tag">Label of the tag item</a>""",
+            rendered_template,
+        )
+
+    def test_tag_with_icon_rendered(self):
+        test_data = {"label": "Label of the tag item"}
+
+        context = Context({"test_data": test_data})
+        template_to_render = Template(
+            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-fi-arrow-right-line fr-tag--icon-left' %}"
+        )
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """<p class="fr-tag fr-fi-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",
+            rendered_template,
+        )
+
+
 class ConcatenateTestCase(SimpleTestCase):
     def test_normal_concatenation(self):
         result = concatenate("test ", "value")
