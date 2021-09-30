@@ -22,7 +22,6 @@
 </head>
 
 <body>
-  <main id="content">
     {% block skiplinks %}
         {% dsfr_skiplinks skiplinks %}
     {% endblock %}
@@ -32,11 +31,12 @@
     <div class="fr-container fr-mt-4w fr-mb-6w">
       {% dsfr_breadcrumb %}
 
-      {% block content %}{% endblock %}
+      <main id="content">
+        {% block content %}{% endblock %}
+      </main>
     </div>
 
     {% include "example_app/blocks/footer.html" %}
-  </main>
 
   {% dsfr_js %}
   {% block extra_js %}{% endblock %}
