@@ -1,6 +1,10 @@
 .. image:: https://badge.fury.io/py/django-dsfr.svg
     :target: https://pypi.org/project/django-dsfr/
 
+.. image:: https://github.com/entrepreneur-interet-general/django-dsfr/actions/workflows/django.yml/badge.svg
+    :target: https://github.com/entrepreneur-interet-general/django-dsfr/actions/workflows/django.yml
+
+
 ===========
 Django-DSFR
 ===========
