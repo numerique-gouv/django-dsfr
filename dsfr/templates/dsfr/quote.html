@@ -1,0 +1,23 @@
+<figure class="fr-quote fr-quote--column">
+    <blockquote {% if self.source_url %}cite="{{ self.source_url }}"{% endif %}>
+        <p>{{ self.text }}</p>
+    </blockquote>
+    <figcaption>
+        {% if self.author %}<p class="fr-quote__author">{{ self.author }}</p>{% endif %}
+        {% if self.details or self.source %}<ul class="fr-quote__source">
+          <li>
+              <cite>{{ self.source }}</cite>
+          </li>
+          {% for detail in self.details %}
+            {% if detail.link %}
+              <li><a target="_blank" rel="noopener noreferrer" href="{{ detail.link }}">{{ detail.text }}</a></li>
+            {% else %}
+              <li>{{ detail.text }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>{% endif %}
+        {% if self.image_url %}<div class="fr-quote__image">
+          <img src="{{ self.image_url }}" class="fr-responsive-img" alt="" />
+        </div>{% endif %}
+    </figcaption>
+</figure>

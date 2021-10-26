@@ -136,6 +136,26 @@ IMPLEMENTED_TAGS = {
         "title": "Pagination (pagination)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223051980/Pagination+-+Pagination",
     },
+    "quote": {
+        "title": "Citation (quote)",
+        "sample_data": [
+            {
+                "text": "Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques",
+                "source_url": "https://www.systeme-de-design.gouv.fr/",
+                "author": "Auteur",
+                "source": "Système de Design de l'État",
+                "details": [
+                    {"text": "Detail sans lien"},
+                    {
+                        "text": "Detail avec lien",
+                        "link": "https://template.incubateur.net/",
+                    },
+                ],
+                "image_url": "https://via.placeholder.com/150x150",
+            }
+        ],
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/771358744/Citation+-+Quote",
+    },
     "select": {
         "title": "Listes déroulantes (selects)",
         "sample_data": [
@@ -306,7 +326,6 @@ NOT_YET_IMPLEMENTED_TAGS = {
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/368935129/Boutons+radio+riches+-+Radio+buttons+extended",
     },
     "checkbox": {"title": "Case à cocher (checkbox)"},
-    "quote": {"title": "Citation (quote)"},
     "media_content": {"title": "Contenu média (media_content)"},
     "consent": {"title": "Gestionnaire de consentement (consent)"},
     "toggle": {"title": "Interrupteur (toggle)"},

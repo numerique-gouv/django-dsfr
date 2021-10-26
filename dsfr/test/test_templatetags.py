@@ -439,6 +439,51 @@ class DsfrLinkTagTest(SimpleTestCase):
         )
 
 
+class DsfrQuoteTagTest(SimpleTestCase):
+    test_data = {
+        "text": "Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques",
+        "source_url": "https://www.systeme-de-design.gouv.fr/",
+        "author": "Auteur",
+        "source": "Système de Design de l'État",
+        "details": [
+            {"text": "Detail sans lien"},
+            {
+                "text": "Detail avec lien",
+                "link": "https://template.incubateur.net/",
+            },
+        ],
+        "image_url": "https://via.placeholder.com/150x150",
+    }
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_quote test_data %}")
+
+    def test_quote_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <figure class="fr-quote fr-quote--column">
+                <blockquote cite="https://www.systeme-de-design.gouv.fr/">
+                    <p>Développer vos sites et applications en utilisant des composants prêts à l&#x27;emploi, accessibles et ergonomiques</p>
+                </blockquote>
+                <figcaption>
+                    <p class="fr-quote__author">Auteur</p>
+                    <ul class="fr-quote__source">
+                    <li>
+                        <cite>Système de Design de l&#x27;État</cite>
+                    </li>
+                    <li>Detail sans lien</li>
+                    <li><a target="_blank" rel="noopener noreferrer" href="https://template.incubateur.net/">Detail avec lien</a></li>
+                    </ul>
+                    <div class="fr-quote__image">
+                    <img src="https://via.placeholder.com/150x150" class="fr-responsive-img" alt="" />
+                    </div>
+                </figcaption>
+            </figure>
+            """,
+            rendered_template,
+        )
+
+
 class DsfrSidemenuTagTest(SimpleTestCase):
     test_data = {
         "title": "Menu",
