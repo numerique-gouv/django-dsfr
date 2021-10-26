@@ -14,11 +14,23 @@
 <link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicons/favicon.ico" type="image/x-icon"><!-- 32×32 -->
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicons/manifest.webmanifest" crossorigin="use-credentials">
   
+<style>
+.example-textarea {
+  border: none; 
+  background-color: var(--g300);
+  padding: 1rem;
+}
+.code_sample {
+  background-color: var(--g300);
+  padding: 1rem;
+}
+</style>
+
 
   
   <title>
     
-      Non implémenté — Design Système de l’État
+      Citation (quote) — Design Système de l’État
     
   </title>
   
@@ -154,7 +166,11 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Non implémenté</a>
+                <a class="fr-breadcrumb__link" href="/django-dsfr/tags/">Composants</a>
+            </li>
+            
+            <li>
+                <a class="fr-breadcrumb__link" aria-current="page">Citation (quote)</a>
             </li>
         </ol>
     </div>
@@ -162,21 +178,303 @@
 
       <main id="content">
         
-<h1> Non implémenté </h1>
+  <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
+  <!-- Menu -->
+    <div class="fr-col-12 fr-col-md-3">
+      
+<nav class="fr-sidemenu" role="navigation" aria-label="Menu latéral">
+  <div class="fr-sidemenu__inner">
+    <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
+    <div class="fr-collapse" id="fr-sidemenu-wrapper">
+      <div class="fr-sidemenu__title">Composants</div>
+      <ul class="fr-sidemenu__list">
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion/" target="_self" >accordion</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion_group/" target="_self" >accordion_group</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/alert/" target="_self" >alert</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/breadcrumb/" target="_self" >breadcrumb</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/button/" target="_self" >button</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/callout/" target="_self" >callout</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/card/" target="_self" >card</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/css/" target="_self" >css</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/favicon/" target="_self" >favicon</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/highlight/" target="_self" >highlight</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/input/" target="_self" >input</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/js/" target="_self" >js</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/link/" target="_self" >link</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/pagination/" target="_self" >pagination</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item fr-sidemenu__item--active">
+            
+              <li class="fr-sidemenu__item fr-sidemenu__item--active">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/quote/" target="_self"  aria-current="page">quote</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/select/" target="_self" >select</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/sidemenu/" target="_self" >sidemenu</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/skiplinks/" target="_self" >skiplinks</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/summary/" target="_self" >summary</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/table/" target="_self" >table</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/tag/" target="_self" >tag</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/theme_modale/" target="_self" >theme_modale</a>
+              </li>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <li class="fr-sidemenu__item">
+                <a class="fr-sidemenu__link" href="/django-dsfr/tags/tile/" target="_self" >tile</a>
+              </li>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+    </div>
+    <div class="fr-col-12 fr-col-md-9 fr-py-2w">
+      <h1> Citation (quote) </h1>
 
+      
+        <a 
+  class="fr-link fr-fi-external-link-line fr-link--icon-right fr-link--lg"
+  href="https://gouvfr.atlassian.net/wiki/spaces/DB/pages/771358744/Citation+-+Quote"
+   target="_blank" rel="noopener noreferrer"
+>
+  Voir la page de documentation du composant sur le Système de Design de l’État
+</a>
+      
 
-<div class="fr-callout ">
-  
-    <p class="fr-callout__title">
-      Non implémenté
-    </p>
-  
-  <p class="fr-callout__text">
-      Le contenu recherché n&#x27;est pas encore implémenté
-  </p>
-  
-</div>
+      <h2>Documentation du tag</h2>
+      <pre>
+      
+    Returns a quote item. Takes a dict as parameter, with the following structure:
 
+    data_dict = {
+        &quot;text&quot;: &quot;Text of the quote&quot;,
+        &quot;source_url&quot;: &quot;(Optional) URL of the source of the quote&quot;,
+        &quot;author&quot;: &quot;(Optional) The author of the quote&quot;,
+        &quot;source&quot;: &quot;(Optional) The name of the source of the quote&quot;,
+        &quot;details&quot;: &quot;(Optional) A list containing detail dicts&quot;,
+        &quot;image_url&quot;: &quot;(Optional) URL of an illustrative image&quot;,
+    }
+
+    The &quot;details&quot; dict entries have a mandatory &quot;text&quot; key and an optional &quot;link&quot; key.
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**::
+        dsfr_quote
+    **Usage**::
+        {% dsfr_quote data_dict %}
+    
+      </pre>
+
+      
+        <h2>Exemples</h2>
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-qnaejlvijdshgtjc">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-qnaejlvijdshgtjc">
+        <pre class="code_sample">{'author': 'Auteur',
+ 'details': [{'text': 'Detail sans lien'},
+             {'link': 'https://template.incubateur.net/',
+              'text': 'Detail avec lien'}],
+ 'image_url': 'https://via.placeholder.com/150x150',
+ 'source': "Système de Design de l'État",
+ 'source_url': 'https://www.systeme-de-design.gouv.fr/',
+ 'text': 'Développer vos sites et applications en utilisant des composants '
+         "prêts à l'emploi, accessibles et ergonomiques"}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            <figure class="fr-quote fr-quote--column">
+    <blockquote cite="https://www.systeme-de-design.gouv.fr/">
+        <p>Développer vos sites et applications en utilisant des composants prêts à l&#x27;emploi, accessibles et ergonomiques</p>
+    </blockquote>
+    <figcaption>
+        <p class="fr-quote__author">Auteur</p>
+        <ul class="fr-quote__source">
+          <li>
+              <cite>Système de Design de l&#x27;État</cite>
+          </li>
+          
+            
+              <li>Detail sans lien</li>
+            
+          
+            
+              <li><a target="_blank" rel="noopener noreferrer" href="https://template.incubateur.net/">Detail avec lien</a></li>
+            
+          
+        </ul>
+        <div class="fr-quote__image">
+          <img src="https://via.placeholder.com/150x150" class="fr-responsive-img" alt="" />
+        </div>
+    </figcaption>
+</figure>
+          
+        
+      
+    </div>
+  </div>
 <br />
 
       </main>
