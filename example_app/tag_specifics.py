@@ -314,9 +314,6 @@ NOT_YET_IMPLEMENTED_TAGS = {
         "title": "Barre de recherche (search)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217186376/Barre+de+recherche+-+Search+bar",
     },
-    "logo": {
-        "title": "Bloc marque (logo)",
-    },
     "radio": {
         "title": "Bouton radio (radio)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217088553/Boutons+radio+-+Radio+button",
@@ -325,15 +322,42 @@ NOT_YET_IMPLEMENTED_TAGS = {
         "title": "Bouton radio riche (radio_rich)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/368935129/Boutons+radio+riches+-+Radio+buttons+extended",
     },
-    "checkbox": {"title": "Case à cocher (checkbox)"},
-    "media_content": {"title": "Contenu média (media_content)"},
-    "consent": {"title": "Gestionnaire de consentement (consent)"},
-    "toggle": {"title": "Interrupteur (toggle)"},
-    "follow": {"title": "Lettre d’information et réseaux sociaux (follow)"},
-    "modal": {"title": "Modale (modal)"},
-    "navigation": {"title": "Navigation principale (navigation)"},
-    "tab": {"title": "Onglet (tab)"},
-    "share": {"title": "Partage (share)"},
+    "checkbox": {
+        "title": "Case à cocher (checkbox)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217251933/Case+cocher+-+Checkbox",
+    },
+    "consent": {
+        "title": "Gestionnaire de consentement (consent)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/609189956/Gestionnaire+de+consentement+-+Consent+banner",
+    },
+    "responsive_medias": {
+        "title": "Contenu média (responsive_medias)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019554/Contenu+m+dias+-+Responsive+medias",
+    },
+    "toggle": {
+        "title": "Interrupteur (toggle)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/368935138/Interrupteur+-+Toggle+switch",
+    },
+    "newsletter_follow": {
+        "title": "Lettre d’information et réseaux sociaux (newsletter & follow)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/779747332/Lettre+d+information+et+r+seaux+sociaux+-+Newsletter+Follow+us",
+    },
+    "modal": {
+        "title": "Modale (modal)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/476610770/Modale+-+Modal",
+    },
+    "navigation": {
+        "title": "Navigation principale (navigation)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222789853/Navigation+principale+-+Main+navigation",
+    },
+    "tab": {
+        "title": "Onglet (tab)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/367985267/Onglets+-+Tabs",
+    },
+    "share": {
+        "title": "Partage (share)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/771555355/Partage+-+Share",
+    },
 }
 
 # There is no need for specific tags for these
@@ -342,8 +366,9 @@ NOT_YET_IMPLEMENTED_TAGS = {
 WONT_BE_IMPLEMENTED = {
     "core": {"title": "Fondamentaux (core)"},
     "forms": {"title": "Formulaire (forms)"},
+    "legacy": {"title": "Systèmes antérieurs (legacy)"},
+    "logo": {"title": "Bloc marque (logo)"},
     "utilites": {"title": "Outil (utilities)"},
-    "legacy": {"title": "Systèmes anterieurs (legacy)"},
 }
 
 all_tags_unsorted = {
