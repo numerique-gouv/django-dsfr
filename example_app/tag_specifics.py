@@ -260,6 +260,12 @@ IMPLEMENTED_TAGS = {
                 "label": "Petit tag avec icône",
                 "extra_classes": "fr-tag--sm fr-fi-arrow-right-line fr-tag--icon-left",
             },
+            {
+                "label": "Tag avec action",
+                "link": "#",
+                "extra_classes": "fr-fi-close-line fr-tag--icon-right",
+                "onclick": "alert('clicked'); return false;",
+            },
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/310706305/Tag",
     },
