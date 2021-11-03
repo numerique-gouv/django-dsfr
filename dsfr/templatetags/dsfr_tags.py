@@ -419,6 +419,43 @@ def dsfr_pagination(context: Context, page_obj: Page) -> dict:
     return {"request": context["request"], "page_obj": page_obj}
 
 
+@register.inclusion_tag("dsfr/quote.html")
+def dsfr_quote(*args, **kwargs) -> dict:
+    """
+    Returns a quote item. Takes a dict as parameter, with the following structure:
+
+    data_dict = {
+        "text": "Text of the quote",
+        "source_url": "(Optional) URL of the source of the quote",
+        "author": "(Optional) The author of the quote",
+        "source": "(Optional) The name of the source of the quote",
+        "details": "(Optional) A list containing detail dicts",
+        "image_url": "(Optional) URL of an illustrative image",
+    }
+
+    The "details" dict entries have a mandatory "text" key and an optional "link" key.
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**::
+        dsfr_quote
+    **Usage**::
+        {% dsfr_quote data_dict %}
+    """
+
+    allowed_keys = [
+        "text",
+        "source_url",
+        "author",
+        "source",
+        "details",
+        "image_url",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    return {"self": tag_data}
+
+
 @register.inclusion_tag("dsfr/select.html")
 def dsfr_select(*args, **kwargs) -> dict:
     """
