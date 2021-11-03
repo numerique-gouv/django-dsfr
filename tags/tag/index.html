@@ -399,6 +399,7 @@
     data_dict = {
         &quot;label&quot;: &quot;Label of the tag&quot;,
         &quot;link&quot;: &quot;(Optional) link of the tag&quot;,
+        &quot;onclick&quot;: &quot;(Optional) action that happens when the tag is clicked on&quot;,
         &quot;extra_classes: (Optional) string with names of extra classes&quot;
     }
 
@@ -424,9 +425,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-lgkvoasfxrtjmjod">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ifgghtgqzqpotxaj">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-lgkvoasfxrtjmjod">
+    <div class="fr-collapse" id="accordion-ifgghtgqzqpotxaj">
         <pre class="code_sample">{'label': 'Tag simple'}</pre>
     </div>
 </section>
@@ -445,9 +446,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-csapujkirwsmdopt">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-wlolmgbpkxzgwzul">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-csapujkirwsmdopt">
+    <div class="fr-collapse" id="accordion-wlolmgbpkxzgwzul">
         <pre class="code_sample">{'label': 'Tag avec lien', 'link': '/django-dsfr/tags'}</pre>
     </div>
 </section>
@@ -466,9 +467,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-lblgctfhyxnzpwtt">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-rfvamauszwmvulgo">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-lblgctfhyxnzpwtt">
+    <div class="fr-collapse" id="accordion-rfvamauszwmvulgo">
         <pre class="code_sample">{'extra_classes': 'fr-tag--sm fr-fi-arrow-right-line fr-tag--icon-left',
  'label': 'Petit tag avec icône'}</pre>
     </div>
@@ -480,6 +481,30 @@
           <h3>Résultat</h3>
           
             <p class="fr-tag fr-tag--sm fr-fi-arrow-right-line fr-tag--icon-left">Petit tag avec icône</p>
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-yihcykiyvobgbkvc">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-yihcykiyvobgbkvc">
+        <pre class="code_sample">{'extra_classes': 'fr-fi-close-line fr-tag--icon-right',
+ 'label': 'Tag avec action',
+ 'link': '#',
+ 'onclick': "alert('clicked'); return false;"}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            <a href="#" class="fr-tag fr-fi-close-line fr-tag--icon-right" onclick="alert(&#x27;clicked&#x27;); return false;">Tag avec action</a>
           
         
       
