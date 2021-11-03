@@ -630,6 +630,21 @@ class DsfrTagTagTest(SimpleTestCase):
             rendered_template,
         )
 
+    def test_tag_with_action_rendered(self):
+        test_data = {
+            "label": "Label of the tag item",
+            "link": "#",
+            "onclick": "console.log('clicked');",
+        }
+
+        context = Context({"test_data": test_data})
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_tag test_data %}")
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """<a href="#" class="fr-tag" onclick="console.log(&#x27;clicked&#x27;);">Label of the tag item</a>""",
+            rendered_template,
+        )
+
 
 class ConcatenateTestCase(SimpleTestCase):
     def test_normal_concatenation(self):
