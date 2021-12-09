@@ -320,6 +320,10 @@ NOT_YET_IMPLEMENTED_TAGS = {
         "title": "Barre de recherche (search)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217186376/Barre+de+recherche+-+Search+bar",
     },
+    "file_upload": {
+        "title": "Ajout de fichier (file upload)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/864190467/Ajout+de+fichier+-+File+upload",
+    },
     "radio": {
         "title": "Bouton radio (radio)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217088553/Boutons+radio+-+Radio+button",
