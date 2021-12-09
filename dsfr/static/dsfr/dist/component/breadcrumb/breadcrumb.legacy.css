@@ -1,0 +1,12 @@
+/*!
+ * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .fr-breadcrumb {
+    color: #666;
+  }
+
+  .fr-breadcrumb__link[aria-current] {
+    color: #161616;
+  }
+}

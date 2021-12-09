@@ -1,0 +1,205 @@
+/*!
+ * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .fr-tag {
+    color: #161616;
+    background-color: #eee;
+  }
+
+  a.fr-tag,
+  button.fr-tag,
+  input[type="button"].fr-tag,
+  input[type="image"].fr-tag,
+  input[type="reset"].fr-tag,
+  input[type="submit"].fr-tag {
+    color: #000091;
+    background-color: #e3e3fd;
+  }
+
+  a.fr-tag:disabled,
+  a.fr-tag[disabled],
+  button.fr-tag:disabled,
+  button.fr-tag[disabled],
+  input[type="button"].fr-tag:disabled,
+  input[type="button"].fr-tag[disabled],
+  input[type="image"].fr-tag:disabled,
+  input[type="image"].fr-tag[disabled],
+  input[type="reset"].fr-tag:disabled,
+  input[type="reset"].fr-tag[disabled],
+  input[type="submit"].fr-tag:disabled,
+  input[type="submit"].fr-tag[disabled] {
+    color: #929292;
+    background-color: #e5e5e5;
+  }
+
+  a.fr-tag--green-tilleul-verveine,
+  button.fr-tag--green-tilleul-verveine,
+  input[type="button"].fr-tag--green-tilleul-verveine,
+  input[type="image"].fr-tag--green-tilleul-verveine,
+  input[type="reset"].fr-tag--green-tilleul-verveine,
+  input[type="submit"].fr-tag--green-tilleul-verveine {
+    color: #66673d;
+    background-color: #fbe769;
+  }
+
+  a.fr-tag--green-bourgeon,
+  button.fr-tag--green-bourgeon,
+  input[type="button"].fr-tag--green-bourgeon,
+  input[type="image"].fr-tag--green-bourgeon,
+  input[type="reset"].fr-tag--green-bourgeon,
+  input[type="submit"].fr-tag--green-bourgeon {
+    color: #447049;
+    background-color: #a9fb68;
+  }
+
+  a.fr-tag--green-emeraude,
+  button.fr-tag--green-emeraude,
+  input[type="button"].fr-tag--green-emeraude,
+  input[type="image"].fr-tag--green-emeraude,
+  input[type="reset"].fr-tag--green-emeraude,
+  input[type="submit"].fr-tag--green-emeraude {
+    color: #297254;
+    background-color: #9ef9be;
+  }
+
+  a.fr-tag--green-menthe,
+  button.fr-tag--green-menthe,
+  input[type="button"].fr-tag--green-menthe,
+  input[type="image"].fr-tag--green-menthe,
+  input[type="reset"].fr-tag--green-menthe,
+  input[type="submit"].fr-tag--green-menthe {
+    color: #37635f;
+    background-color: #8bf8e7;
+  }
+
+  a.fr-tag--green-archipel,
+  button.fr-tag--green-archipel,
+  input[type="button"].fr-tag--green-archipel,
+  input[type="image"].fr-tag--green-archipel,
+  input[type="reset"].fr-tag--green-archipel,
+  input[type="submit"].fr-tag--green-archipel {
+    color: #006a6f;
+    background-color: #a6f2fa;
+  }
+
+  a.fr-tag--blue-ecume,
+  button.fr-tag--blue-ecume,
+  input[type="button"].fr-tag--blue-ecume,
+  input[type="image"].fr-tag--blue-ecume,
+  input[type="reset"].fr-tag--blue-ecume,
+  input[type="submit"].fr-tag--blue-ecume {
+    color: #2f4077;
+    background-color: #dee5fd;
+  }
+
+  a.fr-tag--blue-cumulus,
+  button.fr-tag--blue-cumulus,
+  input[type="button"].fr-tag--blue-cumulus,
+  input[type="image"].fr-tag--blue-cumulus,
+  input[type="reset"].fr-tag--blue-cumulus,
+  input[type="submit"].fr-tag--blue-cumulus {
+    color: #3558a2;
+    background-color: #dae6fd;
+  }
+
+  a.fr-tag--purple-glycine,
+  button.fr-tag--purple-glycine,
+  input[type="button"].fr-tag--purple-glycine,
+  input[type="image"].fr-tag--purple-glycine,
+  input[type="reset"].fr-tag--purple-glycine,
+  input[type="submit"].fr-tag--purple-glycine {
+    color: #6e445a;
+    background-color: #fddbfa;
+  }
+
+  a.fr-tag--pink-macaron,
+  button.fr-tag--pink-macaron,
+  input[type="button"].fr-tag--pink-macaron,
+  input[type="image"].fr-tag--pink-macaron,
+  input[type="reset"].fr-tag--pink-macaron,
+  input[type="submit"].fr-tag--pink-macaron {
+    color: #8d533e;
+    background-color: #fddfda;
+  }
+
+  a.fr-tag--pink-tuile,
+  button.fr-tag--pink-tuile,
+  input[type="button"].fr-tag--pink-tuile,
+  input[type="image"].fr-tag--pink-tuile,
+  input[type="reset"].fr-tag--pink-tuile,
+  input[type="submit"].fr-tag--pink-tuile {
+    color: #a94645;
+    background-color: #fddfdb;
+  }
+
+  a.fr-tag--yellow-tournesol,
+  button.fr-tag--yellow-tournesol,
+  input[type="button"].fr-tag--yellow-tournesol,
+  input[type="image"].fr-tag--yellow-tournesol,
+  input[type="reset"].fr-tag--yellow-tournesol,
+  input[type="submit"].fr-tag--yellow-tournesol {
+    color: #716043;
+    background-color: #fde39c;
+  }
+
+  a.fr-tag--yellow-moutarde,
+  button.fr-tag--yellow-moutarde,
+  input[type="button"].fr-tag--yellow-moutarde,
+  input[type="image"].fr-tag--yellow-moutarde,
+  input[type="reset"].fr-tag--yellow-moutarde,
+  input[type="submit"].fr-tag--yellow-moutarde {
+    color: #695240;
+    background-color: #fde2b5;
+  }
+
+  a.fr-tag--orange-terre-battue,
+  button.fr-tag--orange-terre-battue,
+  input[type="button"].fr-tag--orange-terre-battue,
+  input[type="image"].fr-tag--orange-terre-battue,
+  input[type="reset"].fr-tag--orange-terre-battue,
+  input[type="submit"].fr-tag--orange-terre-battue {
+    color: #755348;
+    background-color: #fddfd8;
+  }
+
+  a.fr-tag--brown-cafe-creme,
+  button.fr-tag--brown-cafe-creme,
+  input[type="button"].fr-tag--brown-cafe-creme,
+  input[type="image"].fr-tag--brown-cafe-creme,
+  input[type="reset"].fr-tag--brown-cafe-creme,
+  input[type="submit"].fr-tag--brown-cafe-creme {
+    color: #685c48;
+    background-color: #f4e3c7;
+  }
+
+  a.fr-tag--brown-caramel,
+  button.fr-tag--brown-caramel,
+  input[type="button"].fr-tag--brown-caramel,
+  input[type="image"].fr-tag--brown-caramel,
+  input[type="reset"].fr-tag--brown-caramel,
+  input[type="submit"].fr-tag--brown-caramel {
+    color: #845d48;
+    background-color: #f3e2d9;
+  }
+
+  a.fr-tag--brown-opera,
+  button.fr-tag--brown-opera,
+  input[type="button"].fr-tag--brown-opera,
+  input[type="image"].fr-tag--brown-opera,
+  input[type="reset"].fr-tag--brown-opera,
+  input[type="submit"].fr-tag--brown-opera {
+    color: #745b47;
+    background-color: #f3e2d7;
+  }
+
+  a.fr-tag--beige-gris-galet,
+  button.fr-tag--beige-gris-galet,
+  input[type="button"].fr-tag--beige-gris-galet,
+  input[type="image"].fr-tag--beige-gris-galet,
+  input[type="reset"].fr-tag--beige-gris-galet,
+  input[type="submit"].fr-tag--beige-gris-galet {
+    color: #6a6156;
+    background-color: #eee4d9;
+  }
+}
