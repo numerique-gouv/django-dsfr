@@ -1,0 +1,34 @@
+/*!
+ * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ */
+.fr-tabs {
+  /**
+    * Tab button
+    */
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .fr-tabs::after {
+    box-shadow: inset 0 0 0 1px #e5e5e5;
+  }
+
+  .fr-tabs__tab::after {
+    background-image: linear-gradient(0deg, #000091, #000091), linear-gradient(0deg, #e5e5e5, #e5e5e5), linear-gradient(0deg, #e5e5e5, #e5e5e5), linear-gradient(0deg, #fff, #fff);
+  }
+
+  .fr-tabs__tab:not([aria-selected=true]) {
+    background-color: #e3e3fd;
+    color: #161616;
+  }
+
+  .fr-tabs__tab[aria-selected=true] {
+    color: #000091;
+    background-color: #fff;
+  }
+
+  .fr-tabs__tab:disabled,
+  .fr-tabs__tab[disabled] {
+    color: #929292;
+    background-color: #e5e5e5;
+  }
+}
