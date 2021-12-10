@@ -1,0 +1,96 @@
+/*!
+ * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ */
+@charset "UTF-8";
+
+/* ------------------------------------ *\
+  SUMMARY
+\* ------------------------------------ */
+.fr-summary {
+  --link-underline: none;
+  --link-blank-font: none;
+  --link-blank-content: none;
+  padding: 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+
+  /**
+   * la base de l'espace occupé par le marker est calculé sur 2 nbsp (270 em-square)
+   */
+  --summary-offset: 0.54;
+
+  /**
+   * on ajoute l'écart des éléments ajoutés à chaque sous niveau : un chiffre (600 em-square) et un point (270 em-square)
+   */
+  --blend: var(--background-contrast-grey-blend);
+  background-color: var(--background-contrast-grey);
+}
+
+.fr-summary ol {
+  --summary-base: calc(var(--summary-offset) + 0.87);
+  list-style-type: none;
+}
+
+.fr-summary li {
+  --summary-offset: var(--summary-base);
+}
+
+.fr-summary li::marker {
+  content: none;
+}
+
+.fr-summary li:nth-of-type(1n + 10) {
+  --summary-offset: calc(var(--summary-base) + 0.4);
+}
+
+.fr-summary__title {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-title-grey);
+}
+
+.fr-summary__link {
+  display: inline-block;
+  position: relative;
+
+  --blend-full-size: 100%;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  padding: 0.5rem 0.5rem 0.5rem calc(var(--summary-offset) * var(--xl-size) + 0.5rem);
+  margin: 0 -0.5rem -0.25rem calc(var(--summary-offset) * var(--xl-size) * -1 - 0.5rem);
+}
+
+.fr-summary__link::before {
+  content: var(--ol-content);
+  position: absolute;
+  left: 0.5rem;
+  font-size: var(--xl-size);
+  font-weight: bold;
+}
+
+.fr-summary li > a {
+  color: var(--text-action-high-grey);
+}
+
+@media (min-width: 48em) {
+  .fr-summary {
+    padding: 2rem;
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .fr-summary {
+    background-color: #eee;
+  }
+
+  .fr-summary__title {
+    color: #161616;
+  }
+
+  .fr-summary li > a {
+    color: #161616;
+  }
+}

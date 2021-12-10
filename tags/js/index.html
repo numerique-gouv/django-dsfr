@@ -1,18 +1,19 @@
 
 <!doctype html>
-<html lang="fr" data-fr-theme="default">
+<html lang="fr" data-fr-scheme="system" >
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/css/dsfr.min.css">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css">
+<meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
   
-<link rel="apple-touch-icon" href="/django-dsfr/static/dsfr/dist/favicons/apple-touch-icon.png"><!-- 180×180 -->
-<link rel="icon" href="/django-dsfr/static/dsfr/dist/favicons/favicon.svg" type="image/svg+xml">
-<link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicons/favicon.ico" type="image/x-icon"><!-- 32×32 -->
-<link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicons/manifest.webmanifest" crossorigin="use-credentials">
+<link rel="apple-touch-icon" href="/django-dsfr/static/dsfr/dist/favicon/apple-touch-icon.png"><!-- 180×180 -->
+<link rel="icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.svg" type="image/svg+xml">
+<link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.ico" type="image/x-icon"><!-- 32×32 -->
+<link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials">
   
 <style>
 .example-textarea {
@@ -62,13 +63,10 @@
           <div class="fr-header__brand-top">
             <div class="fr-header__logo">
               
-  
-  <p class="fr-logo"
-      title="République française">
-      République <br />française
-  </p>
-  
-
+                <a href="/" title="Accueil — ">
+                  <p class="fr-logo"></p>
+                </a>
+              
             </div>
             
             <div class="fr-header__navbar">
@@ -80,11 +78,11 @@
           </div>
           <div class="fr-header__service">
             
-<a href="/" title="Accueil - Exemple d’application">
-    <p class="fr-header__service-title">Django-DSFR</p>
+<a href="/" title="Accueil — ">
+    <p class="fr-header__service-title"></p>
 </a>
 
-            <p class="fr-header__service-tagline">Une application Django utilisant le Système de design de l’État</p>
+            <p class="fr-header__service-tagline"></p>
           </div>
         </div>
         <div class="fr-header__tools">
@@ -92,7 +90,7 @@
             <ul class="fr-links-group">
               
 <li>
-  <button type="button" class="fr-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+    <button class="fr-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
 </li>
 
             </ul>
@@ -120,40 +118,63 @@
     </div>
 
 </header>
-    <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
-    <div class="fr-container--fluid fr-container-md">
-        <div class="fr-grid-row fr-grid-row--center">
-            <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
-                <div class="fr-modal__body">
-                    <div class="fr-modal__header">
-                        <button type="button" class="fr-link--close fr-link" aria-controls="fr-theme-modal">Fermer</button>
+    
+<dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
+  <div class="fr-container fr-container--fluid fr-container-md">
+    <div class="fr-grid-row fr-grid-row--center">
+      <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+        <div class="fr-modal__body">
+          <div class="fr-modal__header">
+            <button class="fr-link--close fr-link" aria-controls="fr-theme-modal">Fermer</button>
+          </div>
+          <div class="fr-modal__content">
+            <h1 id="fr-theme-modal-title" class="fr-modal__title">
+              Paramètres d’affichage
+            </h1>
+            <div id="fr-display" class="fr-form-group fr-display">
+              <div class="fr-form-group">
+                <fieldset class="fr-fieldset">
+                  <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
+                    Choisissez un thème pour personnaliser l’apparence du site.
+                  </legend>
+                  <div class="fr-fieldset__content">
+                    <div class="fr-radio-group fr-radio-rich">
+                      <input value="light" type="radio" id="fr-radios-theme-light" name="fr-radios-theme">
+                      <label class="fr-label" for="fr-radios-theme-light">Thème clair
+                      </label>
+                      <div class="fr-radio-rich__img" data-fr-inject-svg>
+                        <img src="/django-dsfr/static/dsfr/dist/artwork/light.svg" alt="" />
+                        <!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+                      </div>
                     </div>
-                    <div class="fr-modal__content">
-                        <h1 id="fr-theme-modal-title" class="fr-modal__title">
-                            Paramètres d’affichage
-                        </h1>
-                        <div id="fr-switch-theme" class="fr-form-group fr-switch-theme">
-                            <fieldset class="fr-fieldset">
-                                <legend class="fr-fieldset__legend">Choisissez un thème pour personnaliser l’apparence du site.</legend>
-                                <div class="fr-fieldset__content">
-                                    <div class="fr-radio-group fr-radio-rich">
-                                        <input type="radio" id="fr-radios-theme-light" name="fr-radios-theme" value="light">
-                                        <label class="fr-label" for="fr-radios-theme-light">Thème clair
-                                        </label>
-                                    </div>
-                                    <div class="fr-radio-group fr-radio-rich">
-                                        <input type="radio" id="fr-radios-theme-dark" name="fr-radios-theme" value="dark">
-                                        <label class="fr-label" for="fr-radios-theme-dark">Thème sombre
-                                        </label>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </div>
+                    <div class="fr-radio-group fr-radio-rich">
+                      <input value="dark" type="radio" id="fr-radios-theme-dark" name="fr-radios-theme">
+                      <label class="fr-label" for="fr-radios-theme-dark">Thème sombre
+                      </label>
+                      <div class="fr-radio-rich__img" data-fr-inject-svg>
+                        <img src="/django-dsfr/static/dsfr/dist/artwork/dark.svg" alt="" />
+                        <!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+                      </div>
                     </div>
-                </div>
+                    <div class="fr-radio-group fr-radio-rich">
+                      <input value="system" type="radio" id="fr-radios-theme-system" name="fr-radios-theme">
+                      <label class="fr-label" for="fr-radios-theme-system">Système
+                        <span class="fr-hint-text">Utilise les paramètres système.</span>
+                      </label>
+                      <div class="fr-radio-rich__img" data-fr-inject-svg>
+                        <img src="/django-dsfr/static/dsfr/dist/artwork/system.svg" alt="" />
+                        <!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </dialog>
 
     <div class="fr-container fr-mt-4w fr-mb-6w">
@@ -400,8 +421,8 @@
         
           <label for="example-textarea">Code source :</label>
           <textarea id="example-textarea" readonly rows="4" cols="90" class="example-textarea">
-<script type="module" src="/django-dsfr/static/dsfr/dist/js/dsfr.module.min.js"></script>
-<script type="text/javascript" nomodule src="/django-dsfr/static/dsfr/dist/js/dsfr.nomodule.min.js"></script></textarea><br />
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"></script>
+<script type="text/javascript" nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"></script></textarea><br />
         
       
     </div>
@@ -412,74 +433,72 @@
     </div>
 
     <footer class="fr-footer" role="contentinfo" id="footer">
-    <div class="fr-container">
-        <div class="fr-footer__body">
-            <div class="fr-footer__brand fr-enlarge-link">
-                <a href="/" title="Retour à l’accueil">
-                    
-                    <p class="fr-logo" title="république française">
-                        république
-                        <br>française
-                    </p>
-                    
-                </a>
-            </div>
-            <div class="fr-footer__content">
-                <p class="fr-footer__content-desc">
-<p>
-  Cette documentation est générée automatiquement à partir de l’application d’exemple grâce à Django-distill, Github Actions et Github Pages.
-</p>
-</p>
-                <ul class="fr-footer__content-list">
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
-                    </li>
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" href="https://gouvernement.fr">gouvernement.fr</a>
-                    </li>
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" href="https://service-public.fr">service-public.fr</a>
-                    </li>
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" href="https://data.gouv.fr">data.gouv.fr</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="fr-footer__bottom">
-            <ul class="fr-footer__bottom-list">
-                
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="#">Plan du site</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="#">Accessibilité: non/partiellement/totalement conforme</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="#">Mentions légales</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="#">Données personnelles</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="#">Gestion des cookies</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <button type="button" class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d’affichage</button>
-                </li>
-                
-            </ul>
-            <div class="fr-footer__bottom-copy">
-                <p>Sauf mention contraire, tous les textes de ce site sont sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener noreferrer">licence etalab-2.0</a>
-                </p>
-            </div>
-        </div>
+  <div class="fr-container">
+    <div class="fr-footer__body">
+      <div class="fr-footer__brand fr-enlarge-link">
+        <a href="/" title="Retour à l’accueil">
+          
+            <p class="fr-logo" title="république française">
+              
+            </p>
+          
+        </a>
+      </div>
+      <div class="fr-footer__content">
+        <p class="fr-footer__content-desc"></p>
+        <ul class="fr-footer__content-list">
+          <li class="fr-footer__content-item">
+            <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+          </li>
+          <li class="fr-footer__content-item">
+            <a class="fr-footer__content-link" href="https://gouvernement.fr">gouvernement.fr</a>
+          </li>
+          <li class="fr-footer__content-item">
+            <a class="fr-footer__content-link" href="https://service-public.fr">service-public.fr</a>
+          </li>
+          <li class="fr-footer__content-item">
+            <a class="fr-footer__content-link" href="https://data.gouv.fr">data.gouv.fr</a>
+          </li>
+        </ul>
+      </div>
     </div>
+    <div class="fr-footer__bottom">
+      <ul class="fr-footer__bottom-list">
+        
+  
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">Plan du site</a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">Accessibilité: non conforme</a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">Mentions légales</a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">Données personnelles</a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">Gestion des cookies</a>
+          </li>
+        
+  <li class="fr-footer__bottom-item">
+    <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+  </li>
+
+      </ul>
+      <div class="fr-footer__bottom-copy">
+        <p>
+          Sauf mention contraire, tous les textes de ce site sont sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener noreferrer">licence etalab-2.0</a>
+        </p>
+      </div>
+    </div>
+  </div>
 </footer>
 
   
-<script type="module" src="/django-dsfr/static/dsfr/dist/js/dsfr.module.min.js"></script>
-<script type="text/javascript" nomodule src="/django-dsfr/static/dsfr/dist/js/dsfr.nomodule.min.js"></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"></script>
+<script type="text/javascript" nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"></script>
   
 </body>
 
