@@ -1,28 +1,8 @@
 {% extends "dsfr/footer.html" %}
 
 {% block footer_links %}
-  <li class="fr-footer__bottom-item">
-    <a class="fr-footer__bottom-link" href="#">Plan du site</a>
-  </li>
-  <li class="fr-footer__bottom-item">
-    <a class="fr-footer__bottom-link" href="#">Accessibilité: non/partiellement/totalement conforme</a>
-  </li>
-  <li class="fr-footer__bottom-item">
-    <a class="fr-footer__bottom-link" href="#">Mentions légales</a>
-  </li>
-  <li class="fr-footer__bottom-item">
-    <a class="fr-footer__bottom-link" href="#">Données personnelles</a>
-  </li>
-  <li class="fr-footer__bottom-item">
-    <a class="fr-footer__bottom-link" href="#">Gestion des cookies</a>
-  </li>
+  {{ block.super }}
   <li class="fr-footer__bottom-item">
     <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
   </li>
-{% endblock %}
-
-{% block footer_content %}
-<p>
-  Cette documentation est générée automatiquement à partir de l’application d’exemple grâce à Django-distill, Github Actions et Github Pages.
-</p>
 {% endblock %}

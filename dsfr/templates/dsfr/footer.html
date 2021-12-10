@@ -4,15 +4,14 @@
       <div class="fr-footer__brand fr-enlarge-link">
         <a href="/" title="Retour à l’accueil">
           {% block brand %}
-            <p class="fr-logo" title="république française">
-              république
-              <br>française
+            <p class="fr-logo" title="{{ SITE_CONFIG.footer_brand|default:'république française' }}">
+              {{ SITE_CONFIG.footer_brand_html| default_if_none:'république<br>française' | safe }}
             </p>
           {% endblock %}
         </a>
       </div>
       <div class="fr-footer__content">
-        <p class="fr-footer__content-desc">{% block footer_content %}{% endblock %}</p>
+        <p class="fr-footer__content-desc">{% block footer_content %}{{ SITE_CONFIG.footer_description | safe }}{% endblock %}</p>
         <ul class="fr-footer__content-list">
           <li class="fr-footer__content-item">
             <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
@@ -36,7 +35,7 @@
             <a class="fr-footer__bottom-link" href="#">Plan du site</a>
           </li>
           <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">Accessibilité: non/partiellement/totalement conforme</a>
+            <a class="fr-footer__bottom-link" href="#">Accessibilité: {{ SITE_CONFIG.get_accessibility_status_display|default:'non' }} conforme</a>
           </li>
           <li class="fr-footer__bottom-item">
             <a class="fr-footer__bottom-link" href="#">Mentions légales</a>

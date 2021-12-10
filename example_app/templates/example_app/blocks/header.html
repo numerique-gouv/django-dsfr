@@ -1,23 +1,13 @@
 {% extends "dsfr/header.html" %}
 
 {% block service_title %}
-<a href="/" title="Accueil - Exemple d’application">
-    <p class="fr-header__service-title">Django-DSFR</p>
+<a href="/" title="Accueil — {{ SITE_CONFIG.site_title }}">
+    <p class="fr-header__service-title">{{ SITE_CONFIG.site_title }}</p>
 </a>
 {% endblock %}
 
-{% block service_tagline %}Une application Django utilisant le Système de design de l’État{% endblock %}
+{% block service_tagline %}{{ SITE_CONFIG.site_tagline }}{% endblock %}
 
-{% block brand %}
-  {% if hide_brand is not True %}
-  <p class="fr-logo"
-      title="République française">
-      République <br />française
-  </p>
-  {% else %}
-  <p class="fr-logo"></p>
-  {% endif %}
-{% endblock %}
 
 {% block header_tools %}
 <li>

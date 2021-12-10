@@ -17,7 +17,7 @@ Django-DSFR is a Django app to integrate the `French government Design System ("
 
 This app was created as a part of `Open Collectivités <https://github.com/entrepreneur-interet-general/opencollectivites>`_ and is very much a work in progress. See the `documentation (in French) <https://entrepreneur-interet-general.github.io/django-dsfr/>`_ for details.
 
-Django-DSFR (partly) implements the `version 1.1.0 of the DSFR <https://gouvfr.atlassian.net/wiki/spaces/DB/pages/806912001/Version+1.1.0>`_.
+Django-DSFR (partly) implements the `version 1.2.1 of the DSFR <https://gouvfr.atlassian.net/wiki/spaces/DB/pages/845905926/Version+1.2>`_.
 
 Requirements
 ------------
@@ -28,7 +28,7 @@ Quick start
 
 1. Install with :code:`pip install django-dsfr`.
 
-2. Add "dsfr" to your INSTALLED_APPS setting like this, before the app you want to use it with::
+2. Add "dsfr" to INSTALLED_APPS in your settings.py like this, before the app you want to use it with::
 
     INSTALLED_APPS = [
         ...
@@ -36,41 +36,21 @@ Quick start
         <your_app>
     ]
 
-3. Include the tags in your base.html file::
+3. (Optional) Add the context processor to your settings.py and create an instance of "DsfrConfig" in the admin panel::
 
-    # <your_app>/templates/<your_app>/base.html
-    {% load static dsfr_tags %}
+    TEMPLATES = [
+        {
+            [...]
+            "OPTIONS": {
+                "context_processors": [
+                    [...]
+                    "dsfr.context_processors.site_config",
+                ],
+            },
+        },
+    ]
 
-    <!doctype html>
-    <html lang="fr" data-fr-theme="default">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-      {% dsfr_css %}
-      {% dsfr_favicon %}
+4. Include the tags in your base.html file (see example file at https://github.com/entrepreneur-interet-general/django-dsfr/blob/main/example_app/templates/example_app/base.html)
 
-      {% block extra_css %}{% endblock %}
-
-      <title>MyApp</title>
-    </head>
-
-    <body>
-      <main id="content">
-        {% block custom_header %}
-          {% include "dsfr/header.html" %}
-        {% endblock %}
-        {% dsfr_theme_modale %}
-
-        {% block content %}{% endblock %}
-
-        {% include "dsfr/footer.html" %}
-      </main>
-
-      {% dsfr_js %}
-      {% block extra_js %}{% endblock %}
-    </body>
-
-    </html> 
-
-4. Start the development server and visit http://127.0.0.1:8000/
+5. Start the development server and visit http://127.0.0.1:8000/
