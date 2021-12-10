@@ -28,6 +28,7 @@ jobs:
         poetry install
     - name: 📄 Build docs
       run: |
+        poetry run python manage.py migrate
         poetry run python manage.py collectstatic --noinput
         poetry run python manage.py distill-local docs --force
         touch docs/django-dsfr/.nojekyll
