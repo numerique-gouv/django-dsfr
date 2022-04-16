@@ -26,7 +26,7 @@
             {% for item in page_obj.pages_list %}
                 {% if item == "…" %}
                 <li>
-                    <a class="fr-pagination__link fr-displayed-lg">
+                    <a class="fr-pagination__link fr-unhidden-lg">
                         …
                     </a>
                 </li>
@@ -43,7 +43,7 @@
                 </li>
                 {% endif %}
 
-            {% endfor%}
+            {% endfor %}
         {% else %}
         <li>
             <a 
