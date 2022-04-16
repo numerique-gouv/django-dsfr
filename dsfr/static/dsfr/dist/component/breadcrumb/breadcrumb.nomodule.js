@@ -1,4 +1,4 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 (function () {
   'use strict';
@@ -7,7 +7,7 @@
     prefix: 'fr',
     namespace: 'dsfr',
     organisation: '@gouvfr',
-    version: '1.2.1'
+    version: '1.4.1'
   };
 
   var api = window[config.namespace];
@@ -99,7 +99,7 @@
   }(api.core.Instance));
 
   var BreadcrumbSelector = {
-    BREADCRUMB: api.ns.selector('breadcrumb')
+    BREADCRUMB: api.internals.ns.selector('breadcrumb')
   };
 
   api.breadcrumb = {
@@ -107,7 +107,7 @@
     Breadcrumb: Breadcrumb
   };
 
-  api.register(api.breadcrumb.BreadcrumbSelector.BREADCRUMB, api.breadcrumb.Breadcrumb);
+  api.internals.register(api.breadcrumb.BreadcrumbSelector.BREADCRUMB, api.breadcrumb.Breadcrumb);
 
 })();
 //# sourceMappingURL=breadcrumb.nomodule.js.map

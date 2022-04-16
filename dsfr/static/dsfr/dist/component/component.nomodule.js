@@ -1,4 +1,4 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 (function () {
   'use strict';
@@ -7,14 +7,14 @@
     prefix: 'fr',
     namespace: 'dsfr',
     organisation: '@gouvfr',
-    version: '1.2.1'
+    version: '1.4.1'
   };
 
   var api = window[config.namespace];
 
   var AccordionSelector = {
-    GROUP: api.ns.selector('accordions-group'),
-    COLLAPSE: ((api.ns.selector('accordion')) + " > " + (api.ns.selector('collapse')))
+    GROUP: api.internals.ns.selector('accordions-group'),
+    COLLAPSE: ((api.internals.ns.selector('accordion')) + " > " + (api.internals.ns.selector('collapse')))
   };
 
   var AccordionsGroup = /*@__PURE__*/(function (superclass) {
@@ -46,19 +46,19 @@
     AccordionsGroup: AccordionsGroup
   };
 
-  api.register(api.accordion.AccordionSelector.GROUP, api.accordion.AccordionsGroup);
+  api.internals.register(api.accordion.AccordionSelector.GROUP, api.accordion.AccordionsGroup);
 
   var ButtonSelector = {
-    EQUISIZED_BUTTON: ((api.ns.selector('btns-group--equisized')) + " " + (api.ns.selector('btn'))),
-    EQUISIZED_GROUP: api.ns.selector('btns-group--equisized')
+    EQUISIZED_BUTTON: ((api.internals.ns.selector('btns-group--equisized')) + " " + (api.internals.ns.selector('btn'))),
+    EQUISIZED_GROUP: api.internals.ns.selector('btns-group--equisized')
   };
 
   api.button = {
     ButtonSelector: ButtonSelector
   };
 
-  api.register(api.button.ButtonSelector.EQUISIZED_BUTTON, api.core.Equisized);
-  api.register(api.button.ButtonSelector.EQUISIZED_GROUP, api.core.EquisizedsGroup);
+  api.internals.register(api.button.ButtonSelector.EQUISIZED_BUTTON, api.core.Equisized);
+  api.internals.register(api.button.ButtonSelector.EQUISIZED_GROUP, api.core.EquisizedsGroup);
 
   var Breadcrumb = /*@__PURE__*/(function (superclass) {
     function Breadcrumb () {
@@ -147,7 +147,7 @@
   }(api.core.Instance));
 
   var BreadcrumbSelector = {
-    BREADCRUMB: api.ns.selector('breadcrumb')
+    BREADCRUMB: api.internals.ns.selector('breadcrumb')
   };
 
   api.breadcrumb = {
@@ -155,11 +155,109 @@
     Breadcrumb: Breadcrumb
   };
 
-  api.register(api.breadcrumb.BreadcrumbSelector.BREADCRUMB, api.breadcrumb.Breadcrumb);
+  api.internals.register(api.breadcrumb.BreadcrumbSelector.BREADCRUMB, api.breadcrumb.Breadcrumb);
+
+  var ToggleInput = /*@__PURE__*/(function (superclass) {
+    function ToggleInput () {
+      superclass.apply(this, arguments);
+    }
+
+    if ( superclass ) ToggleInput.__proto__ = superclass;
+    ToggleInput.prototype = Object.create( superclass && superclass.prototype );
+    ToggleInput.prototype.constructor = ToggleInput;
+
+    var prototypeAccessors = { isChecked: { configurable: true } };
+    var staticAccessors = { instanceClassName: { configurable: true } };
+
+    staticAccessors.instanceClassName.get = function () {
+      return 'ToggleInput';
+    };
+
+    prototypeAccessors.isChecked.get = function () {
+      return this.hasAttribute('checked');
+    };
+
+    Object.defineProperties( ToggleInput.prototype, prototypeAccessors );
+    Object.defineProperties( ToggleInput, staticAccessors );
+
+    return ToggleInput;
+  }(api.core.Instance));
+
+  var ToggleStatusLabel = /*@__PURE__*/(function (superclass) {
+    function ToggleStatusLabel () {
+      superclass.apply(this, arguments);
+    }
+
+    if ( superclass ) ToggleStatusLabel.__proto__ = superclass;
+    ToggleStatusLabel.prototype = Object.create( superclass && superclass.prototype );
+    ToggleStatusLabel.prototype.constructor = ToggleStatusLabel;
+
+    var prototypeAccessors = { proxy: { configurable: true },input: { configurable: true } };
+    var staticAccessors = { instanceClassName: { configurable: true } };
+
+    staticAccessors.instanceClassName.get = function () {
+      return 'ToggleStatusLabel';
+    };
+
+    ToggleStatusLabel.prototype.init = function init () {
+      this.register(("input[id=\"" + (this.getAttribute('for')) + "\"]"), ToggleInput);
+      this.update();
+      this.isSwappingFont = true;
+    };
+
+    prototypeAccessors.proxy.get = function () {
+      var scope = this;
+      return Object.assign.call(this, superclass.prototype.proxy, {
+        update: scope.update.bind(scope)
+      });
+    };
+
+    prototypeAccessors.input.get = function () {
+      return this.getRegisteredInstances('ToggleInput')[0];
+    };
+
+    ToggleStatusLabel.prototype.update = function update () {
+      this.node.style.removeProperty('--toggle-status-width');
+      var checked = this.input.isChecked;
+
+      var style = getComputedStyle(this.node, ':before');
+      var maxWidth = parseFloat(style.width);
+      this.input.node.checked = !checked;
+
+      var style2 = getComputedStyle(this.node, ':before');
+      var width = parseFloat(style2.width);
+      if (width > maxWidth) { maxWidth = width; }
+      this.input.node.checked = checked;
+
+      this.node.style.setProperty('--toggle-status-width', (maxWidth / 16) + 'rem');
+    };
+
+    ToggleStatusLabel.prototype.swapFont = function swapFont (families) {
+      this.update();
+    };
+
+    Object.defineProperties( ToggleStatusLabel.prototype, prototypeAccessors );
+    Object.defineProperties( ToggleStatusLabel, staticAccessors );
+
+    return ToggleStatusLabel;
+  }(api.core.Instance));
+
+  var ToggleSelector = {
+    STATUS_LABEL: ("" + (api.internals.ns.selector('toggle__label')) + (api.internals.ns.attr.selector('checked-label')) + (api.internals.ns.attr.selector('unchecked-label')))
+  };
+
+  // import { ToggleInput } from './script/toggle/toggle-input.js';
+
+  api.toggle = {
+    ToggleStatusLabel: ToggleStatusLabel,
+    ToggleSelector: ToggleSelector
+  };
+
+  api.internals.register(api.toggle.ToggleSelector.STATUS_LABEL, api.toggle.ToggleStatusLabel);
 
   var SidemenuSelector = {
-    LIST: api.ns.selector('sidemenu__list'),
-    COLLAPSE: ((api.ns.selector('sidemenu__item')) + " > " + (api.ns.selector('collapse')))
+    LIST: api.internals.ns.selector('sidemenu__list'),
+    COLLAPSE: ((api.internals.ns.selector('sidemenu__item')) + " > " + (api.internals.ns.selector('collapse')))
   };
 
   var SidemenuList = /*@__PURE__*/(function (superclass) {
@@ -191,12 +289,12 @@
     SidemenuSelector: SidemenuSelector
   };
 
-  api.register(api.sidemenu.SidemenuSelector.LIST, api.sidemenu.SidemenuList);
+  api.internals.register(api.sidemenu.SidemenuSelector.LIST, api.sidemenu.SidemenuList);
 
   var ModalSelector = {
-    MODAL: api.ns.selector('modal'),
-    SCROLL_SHADOW: api.ns.selector('scroll-shadow'),
-    BODY: api.ns.selector('modal__body')
+    MODAL: api.internals.ns.selector('modal'),
+    SCROLL_SHADOW: api.internals.ns.selector('scroll-shadow'),
+    BODY: api.internals.ns.selector('modal__body')
   };
 
   var ModalButton = /*@__PURE__*/(function (superclass) {
@@ -219,13 +317,8 @@
     return ModalButton;
   }(api.core.DisclosureButton));
 
-  var ModalEmission = {
-    ACTIVATE: api.ns.emission('modal', 'activate'),
-    DEACTIVATE: api.ns.emission('modal', 'deactivate')
-  };
-
   var ModalAttribute = {
-    CONCEALING_BACKDROP: api.ns.attr('concealing-backdrop')
+    CONCEALING_BACKDROP: api.internals.ns.attr('concealing-backdrop')
   };
 
   var Modal = /*@__PURE__*/(function (superclass) {
@@ -239,6 +332,7 @@
     Modal.prototype = Object.create( superclass && superclass.prototype );
     Modal.prototype.constructor = Modal;
 
+    var prototypeAccessors = { body: { configurable: true } };
     var staticAccessors = { instanceClassName: { configurable: true } };
 
     staticAccessors.instanceClassName.get = function () {
@@ -251,15 +345,20 @@
       this.listenKey(api.core.KeyCodes.ESCAPE, this.conceal.bind(this, false, false), true, true);
     };
 
+    prototypeAccessors.body.get = function () {
+      return this.element.getDescendantInstances('ModalBody', 'Modal')[0];
+    };
+
     Modal.prototype.click = function click (e) {
       if (e.target === this.node && this.getAttribute(ModalAttribute.CONCEALING_BACKDROP) !== 'false') { this.conceal(); }
     };
 
     Modal.prototype.disclose = function disclose (withhold) {
       if (!superclass.prototype.disclose.call(this, withhold)) { return false; }
-      this.descend(ModalEmission.ACTIVATE);
+      if (this.body) { this.body.activate(); }
       this.isScrollLocked = true;
       this.setAttribute('aria-modal', 'true');
+      this.setAttribute('open', 'true');
       return true;
     };
 
@@ -267,10 +366,12 @@
       if (!superclass.prototype.conceal.call(this, withhold, preventFocus)) { return false; }
       this.isScrollLocked = false;
       this.removeAttribute('aria-modal');
-      this.descend(ModalEmission.DEACTIVATE);
+      this.removeAttribute('open');
+      if (this.body) { this.body.deactivate(); }
       return true;
     };
 
+    Object.defineProperties( Modal.prototype, prototypeAccessors );
     Object.defineProperties( Modal, staticAccessors );
 
     return Modal;
@@ -414,12 +515,12 @@
   prototypeAccessors.focusables.get = function () {
       var this$1$1 = this;
 
-    var unordereds = api.querySelectorAllArray(this.element, UNORDEREDS);
+    var unordereds = api.internals.dom.querySelectorAllArray(this.element, UNORDEREDS);
 
     /**
      *filtrage des radiobutttons de même name (la navigations d'un groupe de radio se fait à la flèche et non pas au tab
      **/
-    var radios = api.querySelectorAllArray(document.documentElement, 'input[type="radio"]');
+    var radios = api.internals.dom.querySelectorAllArray(document.documentElement, 'input[type="radio"]');
 
     if (radios.length) {
       var groups = {};
@@ -439,7 +540,7 @@
       });
     }
 
-    var ordereds = api.querySelectorAllArray(this.element, ORDEREDS);
+    var ordereds = api.internals.dom.querySelectorAllArray(this.element, ORDEREDS);
 
     ordereds.sort(function (a, b) { return a.tabIndex - b.tabIndex; });
 
@@ -546,8 +647,6 @@
 
     ModalBody.prototype.init = function init () {
       this.listen('scroll', this.shade.bind(this));
-      this.addDescent(ModalEmission.ACTIVATE, this.activate.bind(this));
-      this.addDescent(ModalEmission.DEACTIVATE, this.deactivate.bind(this));
     };
 
     ModalBody.prototype.activate = function activate () {
@@ -578,7 +677,8 @@
 
     ModalBody.prototype.adjust = function adjust () {
       var offset = OFFSET * (this.isBreakpoint(api.core.Breakpoints.MD) ? 2 : 1);
-      this.style.maxHeight = (window.innerHeight - offset) + "px";
+      if (this.isLegacy) { this.style.maxHeight = (window.innerHeight - offset) + "px"; }
+      else { this.style.setProperty('--modal-max-height', ((window.innerHeight - offset) + "px")); }
       this.shade();
     };
 
@@ -595,16 +695,16 @@
     ModalSelector: ModalSelector
   };
 
-  api.register(api.modal.ModalSelector.MODAL, api.modal.Modal);
-  api.register(api.modal.ModalSelector.BODY, api.modal.ModalBody);
-  api.register(api.core.RootSelector.ROOT, api.modal.ModalsGroup);
+  api.internals.register(api.modal.ModalSelector.MODAL, api.modal.Modal);
+  api.internals.register(api.modal.ModalSelector.BODY, api.modal.ModalBody);
+  api.internals.register(api.core.RootSelector.ROOT, api.modal.ModalsGroup);
 
   var NavigationSelector = {
-    NAVIGATION: api.ns.selector('nav'),
-    COLLAPSE: ((api.ns.selector('nav__item')) + " > " + (api.ns.selector('collapse'))),
-    ITEM: api.ns.selector('nav__item'),
-    ITEM_RIGHT: api.ns('nav__item--align-right'),
-    MENU: api.ns.selector('menu')
+    NAVIGATION: api.internals.ns.selector('nav'),
+    COLLAPSE: ((api.internals.ns.selector('nav__item')) + " > " + (api.internals.ns.selector('collapse'))),
+    ITEM: api.internals.ns.selector('nav__item'),
+    ITEM_RIGHT: api.internals.ns('nav__item--align-right'),
+    MENU: api.internals.ns.selector('menu')
   };
 
   var NavigationItem = /*@__PURE__*/(function (superclass) {
@@ -652,8 +752,8 @@
     prototypeAccessors.isRightAligned.set = function (value) {
       if (this._isRightAligned === value) { return; }
       this._isRightAligned = value;
-      if (value) { api.addClass(this.element.node, NavigationSelector.ITEM_RIGHT); }
-      else { api.removeClass(this.element.node, NavigationSelector.ITEM_RIGHT); }
+      if (value) { api.internals.dom.addClass(this.element.node, NavigationSelector.ITEM_RIGHT); }
+      else { api.internals.dom.removeClass(this.element.node, NavigationSelector.ITEM_RIGHT); }
     };
 
     Object.defineProperties( NavigationItem.prototype, prototypeAccessors );
@@ -747,8 +847,8 @@
     NavigationSelector: NavigationSelector
   };
 
-  api.register(api.navigation.NavigationSelector.NAVIGATION, api.navigation.Navigation);
-  api.register(api.navigation.NavigationSelector.ITEM, api.navigation.NavigationItem);
+  api.internals.register(api.navigation.NavigationSelector.NAVIGATION, api.navigation.Navigation);
+  api.internals.register(api.navigation.NavigationSelector.ITEM, api.navigation.NavigationItem);
 
   /**
     * TabButton correspond au bouton cliquable qui change le panel
@@ -764,6 +864,7 @@
     TabButton.prototype = Object.create( superclass && superclass.prototype );
     TabButton.prototype.constructor = TabButton;
 
+    var prototypeAccessors = { list: { configurable: true } };
     var staticAccessors = { instanceClassName: { configurable: true } };
 
     staticAccessors.instanceClassName.get = function () {
@@ -774,19 +875,38 @@
       superclass.prototype.apply.call(this, value);
       if (this.isPrimary) {
         this.setAttribute('tabindex', value ? '0' : '-1');
+        if (value) {
+          if (this.list) { this.list.focalize(this); }
+        }
       }
     };
 
+    prototypeAccessors.list.get = function () {
+      return this.element.getAscendantInstance('TabsList', 'TabsGroup');
+    };
+
+    Object.defineProperties( TabButton.prototype, prototypeAccessors );
     Object.defineProperties( TabButton, staticAccessors );
 
     return TabButton;
   }(api.core.DisclosureButton));
 
   var TabSelector = {
-    TAB: api.ns.selector('tabs__tab'),
-    GROUP: api.ns.selector('tabs'),
-    PANEL: api.ns.selector('tabs__panel'),
-    LIST: api.ns.selector('tabs__list')
+    TAB: api.internals.ns.selector('tabs__tab'),
+    GROUP: api.internals.ns.selector('tabs'),
+    PANEL: api.internals.ns.selector('tabs__panel'),
+    LIST: api.internals.ns.selector('tabs__list'),
+    SHADOW: api.internals.ns.selector('tabs__shadow'),
+    SHADOW_LEFT: api.internals.ns.selector('tabs__shadow--left'),
+    SHADOW_RIGHT: api.internals.ns.selector('tabs__shadow--right'),
+    PANEL_START: api.internals.ns.selector('tabs__panel--direction-start'),
+    PANEL_END: api.internals.ns.selector('tabs__panel--direction-end')
+  };
+
+  var TabPanelDirection = {
+    START: 'direction-start',
+    END: 'direction-end',
+    NONE: 'none'
   };
 
   /**
@@ -797,27 +917,77 @@
   var TabPanel = /*@__PURE__*/(function (superclass) {
     function TabPanel () {
       superclass.call(this, api.core.DisclosureType.SELECT, TabSelector.PANEL, TabButton, 'TabsGroup');
+      this._direction = TabPanelDirection.NONE;
+      this._isPreventingTransition = false;
     }
 
     if ( superclass ) TabPanel.__proto__ = superclass;
     TabPanel.prototype = Object.create( superclass && superclass.prototype );
     TabPanel.prototype.constructor = TabPanel;
 
+    var prototypeAccessors = { direction: { configurable: true },isPreventingTransition: { configurable: true } };
     var staticAccessors = { instanceClassName: { configurable: true } };
 
     staticAccessors.instanceClassName.get = function () {
       return 'TabPanel';
     };
 
+    prototypeAccessors.direction.get = function () {
+      return this._direction;
+    };
+
+    prototypeAccessors.direction.set = function (value) {
+      if (value === this._direction) { return; }
+      switch (this._direction) {
+        case TabPanelDirection.START:
+          this.removeClass(TabSelector.PANEL_START);
+          break;
+
+        case TabPanelDirection.END:
+          this.removeClass(TabSelector.PANEL_END);
+          break;
+
+        case TabPanelDirection.NONE:
+          break;
+
+        default:
+          return;
+      }
+
+      this._direction = value;
+
+      switch (this._direction) {
+        case TabPanelDirection.START:
+          this.addClass(TabSelector.PANEL_START);
+          break;
+
+        case TabPanelDirection.END:
+          this.addClass(TabSelector.PANEL_END);
+          break;
+      }
+    };
+
+    prototypeAccessors.isPreventingTransition.get = function () {
+      return this._isPreventingTransition;
+    };
+
+    prototypeAccessors.isPreventingTransition.set = function (value) {
+      if (this._isPreventingTransition === value) { return; }
+      if (value) { this.addClass(api.internals.motion.TransitionSelector.NONE); }
+      else { this.removeClass(api.internals.motion.TransitionSelector.NONE); }
+      this._isPreventingTransition = value === true;
+    };
+
     TabPanel.prototype.translate = function translate (direction, initial) {
-      this.style.transition = initial ? 'none' : '';
-      this.style.transform = "translate(" + (direction * 100) + "%)";
+      this.isPreventingTransition = initial;
+      this.direction = direction;
     };
 
     TabPanel.prototype.reset = function reset () {
       this.group.index = 0;
     };
 
+    Object.defineProperties( TabPanel.prototype, prototypeAccessors );
     Object.defineProperties( TabPanel, staticAccessors );
 
     return TabPanel;
@@ -836,7 +1006,7 @@
     TabsGroup.prototype = Object.create( superclass && superclass.prototype );
     TabsGroup.prototype.constructor = TabsGroup;
 
-    var prototypeAccessors = { buttonHasFocus: { configurable: true } };
+    var prototypeAccessors = { list: { configurable: true },buttonHasFocus: { configurable: true },isPreventingTransition: { configurable: true } };
     var staticAccessors = { instanceClassName: { configurable: true } };
 
     staticAccessors.instanceClassName.get = function () {
@@ -845,18 +1015,22 @@
 
     TabsGroup.prototype.init = function init () {
       superclass.prototype.init.call(this);
-      this.list = this.querySelector(TabSelector.LIST);
       this.listen('transitionend', this.transitionend.bind(this));
       this.listenKey(api.core.KeyCodes.RIGHT, this.pressRight.bind(this), true, true);
       this.listenKey(api.core.KeyCodes.LEFT, this.pressLeft.bind(this), true, true);
       this.listenKey(api.core.KeyCodes.HOME, this.pressHome.bind(this), true, true);
       this.listenKey(api.core.KeyCodes.END, this.pressEnd.bind(this), true, true);
-
       this.isRendering = true;
+
+      if (this.list) { this.list.apply(); }
+    };
+
+    prototypeAccessors.list.get = function () {
+      return this.element.getDescendantInstances('TabsList', 'TabsGroup', true)[0];
     };
 
     TabsGroup.prototype.transitionend = function transitionend (e) {
-      this.style.transition = 'none';
+      this.isPreventingTransition = true;
     };
 
     prototypeAccessors.buttonHasFocus.get = function () {
@@ -912,15 +1086,27 @@
       }
     };
     TabsGroup.prototype.focus = function focus () {
-      if (this.current) { this.current.focus(); }
+      if (this.current) {
+        this.current.focus();
+      }
     };
 
     TabsGroup.prototype.apply = function apply () {
-      for (var i = 0; i < this._index; i++) { this.members[i].translate(-1); }
-      this.current.style.transition = '';
-      this.current.style.transform = '';
-      for (var i$1 = this._index + 1; i$1 < this.length; i$1++) { this.members[i$1].translate(1); }
-      this.style.transition = '';
+      for (var i = 0; i < this._index; i++) { this.members[i].translate(TabPanelDirection.START); }
+      this.current.translate(TabPanelDirection.NONE);
+      for (var i$1 = this._index + 1; i$1 < this.length; i$1++) { this.members[i$1].translate(TabPanelDirection.END); }
+      this.isPreventingTransition = false;
+    };
+
+    prototypeAccessors.isPreventingTransition.get = function () {
+      return this._isPreventingTransition;
+    };
+
+    prototypeAccessors.isPreventingTransition.set = function (value) {
+      if (this._isPreventingTransition === value) { return; }
+      if (value) { this.addClass(api.internals.motion.TransitionSelector.NONE); }
+      else { this.removeClass(api.internals.motion.TransitionSelector.NONE); }
+      this._isPreventingTransition = value === true;
     };
 
     TabsGroup.prototype.render = function render () {
@@ -928,7 +1114,9 @@
       var paneHeight = Math.round(this.current.node.offsetHeight);
       if (this.panelHeight === paneHeight) { return; }
       this.panelHeight = paneHeight;
-      this.style.height = (this.panelHeight + this.list.offsetHeight) + 'px';
+      var listHeight = 0;
+      if (this.list) { listHeight = this.list.node.offsetHeight; }
+      this.style.setProperty('--tabs-height', (this.panelHeight + listHeight) + 'px');
     };
 
     Object.defineProperties( TabsGroup.prototype, prototypeAccessors );
@@ -937,20 +1125,119 @@
     return TabsGroup;
   }(api.core.DisclosuresGroup));
 
+  var FOCALIZE_OFFSET = 16;
+  var SCROLL_OFFSET$1 = 16; // valeur en px du scroll avant laquelle le shadow s'active ou se desactive
+
+  var TabsList = /*@__PURE__*/(function (superclass) {
+    function TabsList () {
+      superclass.apply(this, arguments);
+    }
+
+    if ( superclass ) TabsList.__proto__ = superclass;
+    TabsList.prototype = Object.create( superclass && superclass.prototype );
+    TabsList.prototype.constructor = TabsList;
+
+    var prototypeAccessors = { group: { configurable: true },isScrolling: { configurable: true } };
+    var staticAccessors = { instanceClassName: { configurable: true } };
+
+    staticAccessors.instanceClassName.get = function () {
+      return 'TabsList';
+    };
+
+    TabsList.prototype.init = function init () {
+      this.listen('scroll', this.scroll.bind(this));
+      this.isResizing = true;
+    };
+
+    prototypeAccessors.group.get = function () {
+      return this.element.getAscendantInstance('TabsGroup', 'TabsList');
+    };
+
+    TabsList.prototype.focalize = function focalize (btn) {
+      var btnRect = btn.getRect();
+      var listRect = this.getRect();
+      var actualScroll = this.node.scrollLeft;
+      if (btnRect.left < listRect.left) { this.node.scrollTo(actualScroll - listRect.left + btnRect.left - FOCALIZE_OFFSET, 0); }
+      else if (btnRect.right > listRect.right) { this.node.scrollTo(actualScroll - listRect.right + btnRect.right + FOCALIZE_OFFSET, 0); }
+    };
+
+    prototypeAccessors.isScrolling.get = function () {
+      return this._isScrolling;
+    };
+
+    prototypeAccessors.isScrolling.set = function (value) {
+      if (this._isScrolling === value) { return; }
+      this._isScrolling = value;
+      this.apply();
+    };
+
+    TabsList.prototype.apply = function apply () {
+      if (!this.group) { return; }
+      if (this._isScrolling) {
+        this.group.addClass(TabSelector.SHADOW);
+        this.scroll();
+      } else {
+        this.group.removeClass(TabSelector.SHADOW_RIGHT);
+        this.group.removeClass(TabSelector.SHADOW_LEFT);
+        this.group.removeClass(TabSelector.SHADOW);
+      }
+    };
+
+    /* ajoute la classe fr-table__shadow-left ou fr-table__shadow-right sur fr-table en fonction d'une valeur de scroll et du sens (right, left) */
+    TabsList.prototype.scroll = function scroll () {
+      if (!this.group) { return; }
+      var scrollLeft = this.node.scrollLeft;
+      var isMin = scrollLeft <= SCROLL_OFFSET$1;
+      var max = this.node.scrollWidth - this.node.clientWidth - SCROLL_OFFSET$1;
+
+      var isMax = Math.abs(scrollLeft) >= max;
+      var isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+      var minSelector = isRtl ? TabSelector.SHADOW_RIGHT : TabSelector.SHADOW_LEFT;
+      var maxSelector = isRtl ? TabSelector.SHADOW_LEFT : TabSelector.SHADOW_RIGHT;
+
+      if (isMin) {
+        this.group.removeClass(minSelector);
+      } else {
+        this.group.addClass(minSelector);
+      }
+
+      if (isMax) {
+        this.group.removeClass(maxSelector);
+      } else {
+        this.group.addClass(maxSelector);
+      }
+    };
+
+    TabsList.prototype.resize = function resize () {
+      this.isScrolling = this.node.scrollWidth > this.node.clientWidth + SCROLL_OFFSET$1;
+    };
+
+    TabsList.prototype.dispose = function dispose () {
+      this.isScrolling = false;
+    };
+
+    Object.defineProperties( TabsList.prototype, prototypeAccessors );
+    Object.defineProperties( TabsList, staticAccessors );
+
+    return TabsList;
+  }(api.core.Instance));
+
   api.tab = {
     TabPanel: TabPanel,
     TabButton: TabButton,
     TabsGroup: TabsGroup,
+    TabsList: TabsList,
     TabSelector: TabSelector
   };
 
-  api.register(api.tab.TabSelector.PANEL, api.tab.TabPanel);
-  api.register(api.tab.TabSelector.GROUP, api.tab.TabsGroup);
+  api.internals.register(api.tab.TabSelector.PANEL, api.tab.TabPanel);
+  api.internals.register(api.tab.TabSelector.GROUP, api.tab.TabsGroup);
+  api.internals.register(api.tab.TabSelector.LIST, api.tab.TabsList);
 
   var TableEmission = {
-    SCROLLABLE: api.ns.emission('table', 'scrollable'),
-    CHANGE: api.ns.emission('table', 'change'),
-    CAPTION_HEIGHT: api.ns.emission('table', 'captionheight')
+    SCROLLABLE: api.internals.ns.emission('table', 'scrollable'),
+    CHANGE: api.internals.ns.emission('table', 'change'),
+    CAPTION_HEIGHT: api.internals.ns.emission('table', 'captionheight')
   };
 
   var PADDING = '1rem'; // padding de 4v sur le caption
@@ -984,12 +1271,12 @@
   }(api.core.Instance));
 
   var TableSelector = {
-    TABLE: api.ns.selector('table'),
-    SHADOW: api.ns.selector('table__shadow'),
-    SHADOW_LEFT: api.ns.selector('table__shadow--left'),
-    SHADOW_RIGHT: api.ns.selector('table__shadow--right'),
-    ELEMENT: ((api.ns.selector('table')) + ":not(" + (api.ns.selector('table--no-scroll')) + ") table"),
-    CAPTION: ((api.ns.selector('table')) + " table caption")
+    TABLE: api.internals.ns.selector('table'),
+    SHADOW: api.internals.ns.selector('table__shadow'),
+    SHADOW_LEFT: api.internals.ns.selector('table__shadow--left'),
+    SHADOW_RIGHT: api.internals.ns.selector('table__shadow--right'),
+    ELEMENT: ((api.internals.ns.selector('table')) + ":not(" + (api.internals.ns.selector('table--no-scroll')) + ") table"),
+    CAPTION: ((api.internals.ns.selector('table')) + " table caption")
   };
 
   var SCROLL_OFFSET = 8; // valeur en px du scroll avant laquelle le shadow s'active ou se desactive
@@ -1109,16 +1396,26 @@
     TableSelector: TableSelector
   };
 
-  api.register(api.table.TableSelector.TABLE, api.table.Table);
-  api.register(api.table.TableSelector.ELEMENT, api.table.TableElement);
-  api.register(api.table.TableSelector.CAPTION, api.table.TableCaption);
+  api.internals.register(api.table.TableSelector.TABLE, api.table.Table);
+  api.internals.register(api.table.TableSelector.ELEMENT, api.table.TableElement);
+  api.internals.register(api.table.TableSelector.CAPTION, api.table.TableCaption);
+
+  var TagSelector = {
+    TAG_PRESSABLE: ((api.internals.ns.selector('tag')) + "[aria-pressed]")
+  };
+
+  api.tag = {
+    TagSelector: TagSelector
+  };
+
+  api.internals.register(api.tag.TagSelector.TAG_PRESSABLE, api.core.Toggle);
 
   var HeaderSelector = {
-    HEADER: api.ns.selector('header'),
-    TOOLS_LINKS: api.ns.selector('header__tools-links'),
-    MENU_LINKS: api.ns.selector('header__menu-links'),
-    LINKS: ((api.ns.selector('header__tools-links')) + " " + (api.ns.selector('links-group'))),
-    MODALS: ("" + (api.ns.selector('header__search')) + (api.ns.selector('modal')) + ", " + (api.ns.selector('header__menu')) + (api.ns.selector('modal')))
+    HEADER: api.internals.ns.selector('header'),
+    TOOLS_LINKS: api.internals.ns.selector('header__tools-links'),
+    MENU_LINKS: api.internals.ns.selector('header__menu-links'),
+    BUTTONS: ((api.internals.ns.selector('header__tools-links')) + " " + (api.internals.ns.selector('btns-group')) + ", " + (api.internals.ns.selector('header__tools-links')) + " " + (api.internals.ns.selector('links-group'))),
+    MODALS: ("" + (api.internals.ns.selector('header__search')) + (api.internals.ns.selector('modal')) + ", " + (api.internals.ns.selector('header__menu')) + (api.internals.ns.selector('modal')))
   };
 
   var HeaderLinks = /*@__PURE__*/(function (superclass) {
@@ -1221,13 +1518,13 @@
     doc: 'https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222789846/En-t+te+-+Header'
   };
 
-  api.register(api.header.HeaderSelector.LINKS, api.header.HeaderLinks);
-  api.register(api.header.HeaderSelector.MODALS, api.header.HeaderModal);
+  api.internals.register(api.header.HeaderSelector.BUTTONS, api.header.HeaderLinks);
+  api.internals.register(api.header.HeaderSelector.MODALS, api.header.HeaderModal);
 
   var DisplaySelector = {
-    DISPLAY: api.ns.selector('display'),
-    RADIO_BUTTONS: ("input[name=\"" + (api.ns('radios-theme')) + "\"]"),
-    FIELDSET: api.ns.selector('fieldset')
+    DISPLAY: api.internals.ns.selector('display'),
+    RADIO_BUTTONS: ("input[name=\"" + (api.internals.ns('radios-theme')) + "\"]"),
+    FIELDSET: api.internals.ns.selector('fieldset')
   };
 
   var Display = /*@__PURE__*/(function (superclass) {
@@ -1318,7 +1615,7 @@
     DisplaySelector: DisplaySelector
   };
 
-  api.register(api.display.DisplaySelector.DISPLAY, api.display.Display);
+  api.internals.register(api.display.DisplaySelector.DISPLAY, api.display.Display);
 
 })();
 //# sourceMappingURL=component.nomodule.js.map

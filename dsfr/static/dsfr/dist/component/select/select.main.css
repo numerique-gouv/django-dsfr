@@ -1,11 +1,11 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
-/* ------------------------------------ *\
+/* ¯¯¯¯¯¯¯¯¯ *\
   SELECT
-\* ------------------------------------ */
+\* ˍˍˍˍˍˍˍˍˍ */
 .fr-select {
   display: block;
   appearance: none;
@@ -19,12 +19,15 @@
   background-repeat: no-repeat;
   background-position: calc(100% - 0.5rem) 50%;
   background-size: 1.5rem 1.5rem;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' ><path fill='%23161616' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/></svg>");
   color: var(--text-title-grey);
-
-  --blend: var(--background-contrast-grey-blend);
   background-color: var(--background-contrast-grey);
+
+  --hover: var(--background-contrast-grey-hover);
+  --active: var(--background-contrast-grey-active);
   box-shadow: inset 0 -2px 0 0 var(--border-plain-grey);
+
+  --data-uri-svg: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' ><path fill='%23161616' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/></svg>");
+  background-image: var(--data-uri-svg);
 
   /**
     * Modificateur pour gérer l'état d'erreur
@@ -45,7 +48,7 @@
 }
 
 :root[data-fr-theme="dark"] .fr-select {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' ><path fill='%23fff' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/></svg>");
+  --data-uri-svg: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' ><path fill='%23fff' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/></svg>");
 }
 
 .fr-select--error {
@@ -56,10 +59,16 @@
   box-shadow: inset 0 -2px 0 0 var(--border-plain-success);
 }
 
-.fr-select:disabled,
-.fr-select[disabled] {
+.fr-select:disabled {
   color: var(--text-disabled-grey);
   box-shadow: inset 0 -2px 0 0 var(--border-disabled-grey);
+
+  --data-uri-svg: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' ><path fill='%23929292' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/></svg>");
+  background-image: var(--data-uri-svg);
+}
+
+:root[data-fr-theme="dark"] .fr-select:disabled {
+  --data-uri-svg: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' ><path fill='%23666' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/></svg>");
 }
 
 .fr-select:-webkit-autofill,

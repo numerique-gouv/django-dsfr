@@ -1,11 +1,11 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
-/* ------------------------------------ *\
+/* ¯¯¯¯¯¯¯¯¯ *\
   TABLE
-\* ------------------------------------ */
+\* ˍˍˍˍˍˍˍˍˍ */
 .fr-table {
   --table-offset: 1rem;
   --text-spacing: 0;
@@ -221,20 +221,25 @@
 
 .fr-table thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-grey);
-
-  --blend: var(--background-contrast-grey-blend);
   background-color: var(--background-contrast-grey);
+
+  --hover: var(--background-contrast-grey-hover);
+  --active: var(--background-contrast-grey-active);
   color: var(--text-title-grey);
 }
 
 .fr-table tbody {
-  --blend: var(--background-alt-grey-blend);
   background-color: var(--background-alt-grey);
+
+  --hover: var(--background-alt-grey-hover);
+  --active: var(--background-alt-grey-active);
 }
 
 .fr-table tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-grey-blend);
   background-color: var(--background-contrast-grey);
+
+  --hover: var(--background-contrast-grey-hover);
+  --active: var(--background-contrast-grey-active);
 }
 
 .fr-table--green-tilleul-verveine {
@@ -243,19 +248,24 @@
 
 .fr-table--green-tilleul-verveine thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-green-tilleul-verveine);
-
-  --blend: var(--background-contrast-green-tilleul-verveine-blend);
   background-color: var(--background-contrast-green-tilleul-verveine);
+
+  --hover: var(--background-contrast-green-tilleul-verveine-hover);
+  --active: var(--background-contrast-green-tilleul-verveine-active);
 }
 
 .fr-table--green-tilleul-verveine tbody {
-  --blend: var(--background-alt-green-tilleul-verveine-blend);
   background-color: var(--background-alt-green-tilleul-verveine);
+
+  --hover: var(--background-alt-green-tilleul-verveine-hover);
+  --active: var(--background-alt-green-tilleul-verveine-active);
 }
 
 .fr-table--green-tilleul-verveine tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-green-tilleul-verveine-blend);
   background-color: var(--background-contrast-green-tilleul-verveine);
+
+  --hover: var(--background-contrast-green-tilleul-verveine-hover);
+  --active: var(--background-contrast-green-tilleul-verveine-active);
 }
 
 .fr-table--green-tilleul-verveine.fr-table--bordered tbody tr {
@@ -268,19 +278,24 @@
 
 .fr-table--green-bourgeon thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-green-bourgeon);
-
-  --blend: var(--background-contrast-green-bourgeon-blend);
   background-color: var(--background-contrast-green-bourgeon);
+
+  --hover: var(--background-contrast-green-bourgeon-hover);
+  --active: var(--background-contrast-green-bourgeon-active);
 }
 
 .fr-table--green-bourgeon tbody {
-  --blend: var(--background-alt-green-bourgeon-blend);
   background-color: var(--background-alt-green-bourgeon);
+
+  --hover: var(--background-alt-green-bourgeon-hover);
+  --active: var(--background-alt-green-bourgeon-active);
 }
 
 .fr-table--green-bourgeon tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-green-bourgeon-blend);
   background-color: var(--background-contrast-green-bourgeon);
+
+  --hover: var(--background-contrast-green-bourgeon-hover);
+  --active: var(--background-contrast-green-bourgeon-active);
 }
 
 .fr-table--green-bourgeon.fr-table--bordered tbody tr {
@@ -293,19 +308,24 @@
 
 .fr-table--green-emeraude thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-green-emeraude);
-
-  --blend: var(--background-contrast-green-emeraude-blend);
   background-color: var(--background-contrast-green-emeraude);
+
+  --hover: var(--background-contrast-green-emeraude-hover);
+  --active: var(--background-contrast-green-emeraude-active);
 }
 
 .fr-table--green-emeraude tbody {
-  --blend: var(--background-alt-green-emeraude-blend);
   background-color: var(--background-alt-green-emeraude);
+
+  --hover: var(--background-alt-green-emeraude-hover);
+  --active: var(--background-alt-green-emeraude-active);
 }
 
 .fr-table--green-emeraude tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-green-emeraude-blend);
   background-color: var(--background-contrast-green-emeraude);
+
+  --hover: var(--background-contrast-green-emeraude-hover);
+  --active: var(--background-contrast-green-emeraude-active);
 }
 
 .fr-table--green-emeraude.fr-table--bordered tbody tr {
@@ -318,19 +338,24 @@
 
 .fr-table--green-menthe thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-green-menthe);
-
-  --blend: var(--background-contrast-green-menthe-blend);
   background-color: var(--background-contrast-green-menthe);
+
+  --hover: var(--background-contrast-green-menthe-hover);
+  --active: var(--background-contrast-green-menthe-active);
 }
 
 .fr-table--green-menthe tbody {
-  --blend: var(--background-alt-green-menthe-blend);
   background-color: var(--background-alt-green-menthe);
+
+  --hover: var(--background-alt-green-menthe-hover);
+  --active: var(--background-alt-green-menthe-active);
 }
 
 .fr-table--green-menthe tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-green-menthe-blend);
   background-color: var(--background-contrast-green-menthe);
+
+  --hover: var(--background-contrast-green-menthe-hover);
+  --active: var(--background-contrast-green-menthe-active);
 }
 
 .fr-table--green-menthe.fr-table--bordered tbody tr {
@@ -343,19 +368,24 @@
 
 .fr-table--green-archipel thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-green-archipel);
-
-  --blend: var(--background-contrast-green-archipel-blend);
   background-color: var(--background-contrast-green-archipel);
+
+  --hover: var(--background-contrast-green-archipel-hover);
+  --active: var(--background-contrast-green-archipel-active);
 }
 
 .fr-table--green-archipel tbody {
-  --blend: var(--background-alt-green-archipel-blend);
   background-color: var(--background-alt-green-archipel);
+
+  --hover: var(--background-alt-green-archipel-hover);
+  --active: var(--background-alt-green-archipel-active);
 }
 
 .fr-table--green-archipel tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-green-archipel-blend);
   background-color: var(--background-contrast-green-archipel);
+
+  --hover: var(--background-contrast-green-archipel-hover);
+  --active: var(--background-contrast-green-archipel-active);
 }
 
 .fr-table--green-archipel.fr-table--bordered tbody tr {
@@ -368,19 +398,24 @@
 
 .fr-table--blue-ecume thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-blue-ecume);
-
-  --blend: var(--background-contrast-blue-ecume-blend);
   background-color: var(--background-contrast-blue-ecume);
+
+  --hover: var(--background-contrast-blue-ecume-hover);
+  --active: var(--background-contrast-blue-ecume-active);
 }
 
 .fr-table--blue-ecume tbody {
-  --blend: var(--background-alt-blue-ecume-blend);
   background-color: var(--background-alt-blue-ecume);
+
+  --hover: var(--background-alt-blue-ecume-hover);
+  --active: var(--background-alt-blue-ecume-active);
 }
 
 .fr-table--blue-ecume tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-blue-ecume-blend);
   background-color: var(--background-contrast-blue-ecume);
+
+  --hover: var(--background-contrast-blue-ecume-hover);
+  --active: var(--background-contrast-blue-ecume-active);
 }
 
 .fr-table--blue-ecume.fr-table--bordered tbody tr {
@@ -393,19 +428,24 @@
 
 .fr-table--blue-cumulus thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-blue-cumulus);
-
-  --blend: var(--background-contrast-blue-cumulus-blend);
   background-color: var(--background-contrast-blue-cumulus);
+
+  --hover: var(--background-contrast-blue-cumulus-hover);
+  --active: var(--background-contrast-blue-cumulus-active);
 }
 
 .fr-table--blue-cumulus tbody {
-  --blend: var(--background-alt-blue-cumulus-blend);
   background-color: var(--background-alt-blue-cumulus);
+
+  --hover: var(--background-alt-blue-cumulus-hover);
+  --active: var(--background-alt-blue-cumulus-active);
 }
 
 .fr-table--blue-cumulus tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-blue-cumulus-blend);
   background-color: var(--background-contrast-blue-cumulus);
+
+  --hover: var(--background-contrast-blue-cumulus-hover);
+  --active: var(--background-contrast-blue-cumulus-active);
 }
 
 .fr-table--blue-cumulus.fr-table--bordered tbody tr {
@@ -418,19 +458,24 @@
 
 .fr-table--purple-glycine thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-purple-glycine);
-
-  --blend: var(--background-contrast-purple-glycine-blend);
   background-color: var(--background-contrast-purple-glycine);
+
+  --hover: var(--background-contrast-purple-glycine-hover);
+  --active: var(--background-contrast-purple-glycine-active);
 }
 
 .fr-table--purple-glycine tbody {
-  --blend: var(--background-alt-purple-glycine-blend);
   background-color: var(--background-alt-purple-glycine);
+
+  --hover: var(--background-alt-purple-glycine-hover);
+  --active: var(--background-alt-purple-glycine-active);
 }
 
 .fr-table--purple-glycine tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-purple-glycine-blend);
   background-color: var(--background-contrast-purple-glycine);
+
+  --hover: var(--background-contrast-purple-glycine-hover);
+  --active: var(--background-contrast-purple-glycine-active);
 }
 
 .fr-table--purple-glycine.fr-table--bordered tbody tr {
@@ -443,19 +488,24 @@
 
 .fr-table--pink-macaron thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-pink-macaron);
-
-  --blend: var(--background-contrast-pink-macaron-blend);
   background-color: var(--background-contrast-pink-macaron);
+
+  --hover: var(--background-contrast-pink-macaron-hover);
+  --active: var(--background-contrast-pink-macaron-active);
 }
 
 .fr-table--pink-macaron tbody {
-  --blend: var(--background-alt-pink-macaron-blend);
   background-color: var(--background-alt-pink-macaron);
+
+  --hover: var(--background-alt-pink-macaron-hover);
+  --active: var(--background-alt-pink-macaron-active);
 }
 
 .fr-table--pink-macaron tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-pink-macaron-blend);
   background-color: var(--background-contrast-pink-macaron);
+
+  --hover: var(--background-contrast-pink-macaron-hover);
+  --active: var(--background-contrast-pink-macaron-active);
 }
 
 .fr-table--pink-macaron.fr-table--bordered tbody tr {
@@ -468,19 +518,24 @@
 
 .fr-table--pink-tuile thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-pink-tuile);
-
-  --blend: var(--background-contrast-pink-tuile-blend);
   background-color: var(--background-contrast-pink-tuile);
+
+  --hover: var(--background-contrast-pink-tuile-hover);
+  --active: var(--background-contrast-pink-tuile-active);
 }
 
 .fr-table--pink-tuile tbody {
-  --blend: var(--background-alt-pink-tuile-blend);
   background-color: var(--background-alt-pink-tuile);
+
+  --hover: var(--background-alt-pink-tuile-hover);
+  --active: var(--background-alt-pink-tuile-active);
 }
 
 .fr-table--pink-tuile tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-pink-tuile-blend);
   background-color: var(--background-contrast-pink-tuile);
+
+  --hover: var(--background-contrast-pink-tuile-hover);
+  --active: var(--background-contrast-pink-tuile-active);
 }
 
 .fr-table--pink-tuile.fr-table--bordered tbody tr {
@@ -493,19 +548,24 @@
 
 .fr-table--yellow-tournesol thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-yellow-tournesol);
-
-  --blend: var(--background-contrast-yellow-tournesol-blend);
   background-color: var(--background-contrast-yellow-tournesol);
+
+  --hover: var(--background-contrast-yellow-tournesol-hover);
+  --active: var(--background-contrast-yellow-tournesol-active);
 }
 
 .fr-table--yellow-tournesol tbody {
-  --blend: var(--background-alt-yellow-tournesol-blend);
   background-color: var(--background-alt-yellow-tournesol);
+
+  --hover: var(--background-alt-yellow-tournesol-hover);
+  --active: var(--background-alt-yellow-tournesol-active);
 }
 
 .fr-table--yellow-tournesol tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-yellow-tournesol-blend);
   background-color: var(--background-contrast-yellow-tournesol);
+
+  --hover: var(--background-contrast-yellow-tournesol-hover);
+  --active: var(--background-contrast-yellow-tournesol-active);
 }
 
 .fr-table--yellow-tournesol.fr-table--bordered tbody tr {
@@ -518,19 +578,24 @@
 
 .fr-table--yellow-moutarde thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-yellow-moutarde);
-
-  --blend: var(--background-contrast-yellow-moutarde-blend);
   background-color: var(--background-contrast-yellow-moutarde);
+
+  --hover: var(--background-contrast-yellow-moutarde-hover);
+  --active: var(--background-contrast-yellow-moutarde-active);
 }
 
 .fr-table--yellow-moutarde tbody {
-  --blend: var(--background-alt-yellow-moutarde-blend);
   background-color: var(--background-alt-yellow-moutarde);
+
+  --hover: var(--background-alt-yellow-moutarde-hover);
+  --active: var(--background-alt-yellow-moutarde-active);
 }
 
 .fr-table--yellow-moutarde tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-yellow-moutarde-blend);
   background-color: var(--background-contrast-yellow-moutarde);
+
+  --hover: var(--background-contrast-yellow-moutarde-hover);
+  --active: var(--background-contrast-yellow-moutarde-active);
 }
 
 .fr-table--yellow-moutarde.fr-table--bordered tbody tr {
@@ -543,19 +608,24 @@
 
 .fr-table--orange-terre-battue thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-orange-terre-battue);
-
-  --blend: var(--background-contrast-orange-terre-battue-blend);
   background-color: var(--background-contrast-orange-terre-battue);
+
+  --hover: var(--background-contrast-orange-terre-battue-hover);
+  --active: var(--background-contrast-orange-terre-battue-active);
 }
 
 .fr-table--orange-terre-battue tbody {
-  --blend: var(--background-alt-orange-terre-battue-blend);
   background-color: var(--background-alt-orange-terre-battue);
+
+  --hover: var(--background-alt-orange-terre-battue-hover);
+  --active: var(--background-alt-orange-terre-battue-active);
 }
 
 .fr-table--orange-terre-battue tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-orange-terre-battue-blend);
   background-color: var(--background-contrast-orange-terre-battue);
+
+  --hover: var(--background-contrast-orange-terre-battue-hover);
+  --active: var(--background-contrast-orange-terre-battue-active);
 }
 
 .fr-table--orange-terre-battue.fr-table--bordered tbody tr {
@@ -568,19 +638,24 @@
 
 .fr-table--brown-cafe-creme thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-brown-cafe-creme);
-
-  --blend: var(--background-contrast-brown-cafe-creme-blend);
   background-color: var(--background-contrast-brown-cafe-creme);
+
+  --hover: var(--background-contrast-brown-cafe-creme-hover);
+  --active: var(--background-contrast-brown-cafe-creme-active);
 }
 
 .fr-table--brown-cafe-creme tbody {
-  --blend: var(--background-alt-brown-cafe-creme-blend);
   background-color: var(--background-alt-brown-cafe-creme);
+
+  --hover: var(--background-alt-brown-cafe-creme-hover);
+  --active: var(--background-alt-brown-cafe-creme-active);
 }
 
 .fr-table--brown-cafe-creme tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-brown-cafe-creme-blend);
   background-color: var(--background-contrast-brown-cafe-creme);
+
+  --hover: var(--background-contrast-brown-cafe-creme-hover);
+  --active: var(--background-contrast-brown-cafe-creme-active);
 }
 
 .fr-table--brown-cafe-creme.fr-table--bordered tbody tr {
@@ -593,19 +668,24 @@
 
 .fr-table--brown-caramel thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-brown-caramel);
-
-  --blend: var(--background-contrast-brown-caramel-blend);
   background-color: var(--background-contrast-brown-caramel);
+
+  --hover: var(--background-contrast-brown-caramel-hover);
+  --active: var(--background-contrast-brown-caramel-active);
 }
 
 .fr-table--brown-caramel tbody {
-  --blend: var(--background-alt-brown-caramel-blend);
   background-color: var(--background-alt-brown-caramel);
+
+  --hover: var(--background-alt-brown-caramel-hover);
+  --active: var(--background-alt-brown-caramel-active);
 }
 
 .fr-table--brown-caramel tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-brown-caramel-blend);
   background-color: var(--background-contrast-brown-caramel);
+
+  --hover: var(--background-contrast-brown-caramel-hover);
+  --active: var(--background-contrast-brown-caramel-active);
 }
 
 .fr-table--brown-caramel.fr-table--bordered tbody tr {
@@ -618,19 +698,24 @@
 
 .fr-table--brown-opera thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-brown-opera);
-
-  --blend: var(--background-contrast-brown-opera-blend);
   background-color: var(--background-contrast-brown-opera);
+
+  --hover: var(--background-contrast-brown-opera-hover);
+  --active: var(--background-contrast-brown-opera-active);
 }
 
 .fr-table--brown-opera tbody {
-  --blend: var(--background-alt-brown-opera-blend);
   background-color: var(--background-alt-brown-opera);
+
+  --hover: var(--background-alt-brown-opera-hover);
+  --active: var(--background-alt-brown-opera-active);
 }
 
 .fr-table--brown-opera tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-brown-opera-blend);
   background-color: var(--background-contrast-brown-opera);
+
+  --hover: var(--background-contrast-brown-opera-hover);
+  --active: var(--background-contrast-brown-opera-active);
 }
 
 .fr-table--brown-opera.fr-table--bordered tbody tr {
@@ -643,19 +728,24 @@
 
 .fr-table--beige-gris-galet thead {
   box-shadow: inset 0 -2px 0 0 var(--border-plain-beige-gris-galet);
-
-  --blend: var(--background-contrast-beige-gris-galet-blend);
   background-color: var(--background-contrast-beige-gris-galet);
+
+  --hover: var(--background-contrast-beige-gris-galet-hover);
+  --active: var(--background-contrast-beige-gris-galet-active);
 }
 
 .fr-table--beige-gris-galet tbody {
-  --blend: var(--background-alt-beige-gris-galet-blend);
   background-color: var(--background-alt-beige-gris-galet);
+
+  --hover: var(--background-alt-beige-gris-galet-hover);
+  --active: var(--background-alt-beige-gris-galet-active);
 }
 
 .fr-table--beige-gris-galet tbody tr:nth-child(even) {
-  --blend: var(--background-contrast-beige-gris-galet-blend);
   background-color: var(--background-contrast-beige-gris-galet);
+
+  --hover: var(--background-contrast-beige-gris-galet-hover);
+  --active: var(--background-contrast-beige-gris-galet-active);
 }
 
 .fr-table--beige-gris-galet.fr-table--bordered tbody tr {
@@ -671,7 +761,8 @@
 .fr-table--bordered tbody tr:nth-child(even) {
   background-color: transparent;
 
-  --blend: inherit;
+  --hover: inherit;
+  --active: inherit;
 }
 
 @media (min-width: 48em) {

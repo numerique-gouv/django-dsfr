@@ -1,4 +1,4 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 (function () {
   'use strict';
@@ -7,17 +7,17 @@
     prefix: 'fr',
     namespace: 'dsfr',
     organisation: '@gouvfr',
-    version: '1.2.1'
+    version: '1.4.1'
   };
 
   var api = window[config.namespace];
 
   var HeaderSelector = {
-    HEADER: api.ns.selector('header'),
-    TOOLS_LINKS: api.ns.selector('header__tools-links'),
-    MENU_LINKS: api.ns.selector('header__menu-links'),
-    LINKS: ((api.ns.selector('header__tools-links')) + " " + (api.ns.selector('links-group'))),
-    MODALS: ("" + (api.ns.selector('header__search')) + (api.ns.selector('modal')) + ", " + (api.ns.selector('header__menu')) + (api.ns.selector('modal')))
+    HEADER: api.internals.ns.selector('header'),
+    TOOLS_LINKS: api.internals.ns.selector('header__tools-links'),
+    MENU_LINKS: api.internals.ns.selector('header__menu-links'),
+    BUTTONS: ((api.internals.ns.selector('header__tools-links')) + " " + (api.internals.ns.selector('btns-group')) + ", " + (api.internals.ns.selector('header__tools-links')) + " " + (api.internals.ns.selector('links-group'))),
+    MODALS: ("" + (api.internals.ns.selector('header__search')) + (api.internals.ns.selector('modal')) + ", " + (api.internals.ns.selector('header__menu')) + (api.internals.ns.selector('modal')))
   };
 
   var HeaderLinks = /*@__PURE__*/(function (superclass) {
@@ -120,8 +120,8 @@
     doc: 'https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222789846/En-t+te+-+Header'
   };
 
-  api.register(api.header.HeaderSelector.LINKS, api.header.HeaderLinks);
-  api.register(api.header.HeaderSelector.MODALS, api.header.HeaderModal);
+  api.internals.register(api.header.HeaderSelector.BUTTONS, api.header.HeaderLinks);
+  api.internals.register(api.header.HeaderSelector.MODALS, api.header.HeaderModal);
 
 })();
 //# sourceMappingURL=header.nomodule.js.map

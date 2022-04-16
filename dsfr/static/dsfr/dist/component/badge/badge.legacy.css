@@ -1,0 +1,303 @@
+/*!
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .fr-badge {
+    color: #3a3a3a;
+    background-color: #eee;
+  }
+
+  .fr-badge:hover {
+    background-color: #d2d2d2;
+  }
+
+  .fr-badge:active {
+    background-color: #c1c1c1;
+  }
+
+  .fr-badge--info {
+    color: #0063cb;
+    background-color: #e8edff;
+  }
+
+  .fr-badge--info:hover {
+    background-color: #c2d1ff;
+  }
+
+  .fr-badge--info:active {
+    background-color: #a9bfff;
+  }
+
+  .fr-badge--error {
+    color: #ce0500;
+    background-color: #ffe9e9;
+  }
+
+  .fr-badge--error:hover {
+    background-color: #ffc5c5;
+  }
+
+  .fr-badge--error:active {
+    background-color: #ffafaf;
+  }
+
+  .fr-badge--success {
+    color: #18753c;
+    background-color: #b8fec9;
+  }
+
+  .fr-badge--success:hover {
+    background-color: #46fd89;
+  }
+
+  .fr-badge--success:active {
+    background-color: #34eb7b;
+  }
+
+  .fr-badge--warning {
+    color: #b34000;
+    background-color: #ffe9e6;
+  }
+
+  .fr-badge--warning:hover {
+    background-color: #ffc6bd;
+  }
+
+  .fr-badge--warning:active {
+    background-color: #ffb0a2;
+  }
+
+  .fr-badge--new {
+    color: #695240;
+    background-color: #feebd0;
+  }
+
+  .fr-badge--new:hover {
+    background-color: #fdcd6d;
+  }
+
+  .fr-badge--new:active {
+    background-color: #f4be30;
+  }
+
+  .fr-badge--green-tilleul-verveine {
+    color: #66673d;
+    background-color: #fceeac;
+  }
+
+  .fr-badge--green-tilleul-verveine:hover {
+    background-color: #e8d45c;
+  }
+
+  .fr-badge--green-tilleul-verveine:active {
+    background-color: #d4c254;
+  }
+
+  .fr-badge--green-bourgeon {
+    color: #447049;
+    background-color: #c9fcac;
+  }
+
+  .fr-badge--green-bourgeon:hover {
+    background-color: #9ae95d;
+  }
+
+  .fr-badge--green-bourgeon:active {
+    background-color: #8dd555;
+  }
+
+  .fr-badge--green-emeraude {
+    color: #297254;
+    background-color: #c3fad5;
+  }
+
+  .fr-badge--green-emeraude:hover {
+    background-color: #77eda5;
+  }
+
+  .fr-badge--green-emeraude:active {
+    background-color: #6dd897;
+  }
+
+  .fr-badge--green-menthe {
+    color: #37635f;
+    background-color: #bafaee;
+  }
+
+  .fr-badge--green-menthe:hover {
+    background-color: #79e7d5;
+  }
+
+  .fr-badge--green-menthe:active {
+    background-color: #6fd3c3;
+  }
+
+  .fr-badge--green-archipel {
+    color: #006a6f;
+    background-color: #c7f6fc;
+  }
+
+  .fr-badge--green-archipel:hover {
+    background-color: #64ecf8;
+  }
+
+  .fr-badge--green-archipel:active {
+    background-color: #5bd8e3;
+  }
+
+  .fr-badge--blue-ecume {
+    color: #2f4077;
+    background-color: #e9edfe;
+  }
+
+  .fr-badge--blue-ecume:hover {
+    background-color: #c5d0fc;
+  }
+
+  .fr-badge--blue-ecume:active {
+    background-color: #adbffc;
+  }
+
+  .fr-badge--blue-cumulus {
+    color: #3558a2;
+    background-color: #e6eefe;
+  }
+
+  .fr-badge--blue-cumulus:hover {
+    background-color: #bcd3fc;
+  }
+
+  .fr-badge--blue-cumulus:active {
+    background-color: #9fc3fc;
+  }
+
+  .fr-badge--purple-glycine {
+    color: #6e445a;
+    background-color: #fee7fc;
+  }
+
+  .fr-badge--purple-glycine:hover {
+    background-color: #fdc0f8;
+  }
+
+  .fr-badge--purple-glycine:active {
+    background-color: #fca8f6;
+  }
+
+  .fr-badge--pink-macaron {
+    color: #8d533e;
+    background-color: #fee9e6;
+  }
+
+  .fr-badge--pink-macaron:hover {
+    background-color: #fdc6bd;
+  }
+
+  .fr-badge--pink-macaron:active {
+    background-color: #fcb0a2;
+  }
+
+  .fr-badge--pink-tuile {
+    color: #a94645;
+    background-color: #fee9e7;
+  }
+
+  .fr-badge--pink-tuile:hover {
+    background-color: #fdc6c0;
+  }
+
+  .fr-badge--pink-tuile:active {
+    background-color: #fcb0a7;
+  }
+
+  .fr-badge--yellow-tournesol {
+    color: #716043;
+    background-color: #feecc2;
+  }
+
+  .fr-badge--yellow-tournesol:hover {
+    background-color: #fbd335;
+  }
+
+  .fr-badge--yellow-tournesol:active {
+    background-color: #e6c130;
+  }
+
+  .fr-badge--yellow-moutarde {
+    color: #695240;
+    background-color: #feebd0;
+  }
+
+  .fr-badge--yellow-moutarde:hover {
+    background-color: #fdcd6d;
+  }
+
+  .fr-badge--yellow-moutarde:active {
+    background-color: #f4be30;
+  }
+
+  .fr-badge--orange-terre-battue {
+    color: #755348;
+    background-color: #fee9e5;
+  }
+
+  .fr-badge--orange-terre-battue:hover {
+    background-color: #fdc6ba;
+  }
+
+  .fr-badge--orange-terre-battue:active {
+    background-color: #fcb09e;
+  }
+
+  .fr-badge--brown-cafe-creme {
+    color: #685c48;
+    background-color: #f7ecdb;
+  }
+
+  .fr-badge--brown-cafe-creme:hover {
+    background-color: #edce94;
+  }
+
+  .fr-badge--brown-cafe-creme:active {
+    background-color: #dabd84;
+  }
+
+  .fr-badge--brown-caramel {
+    color: #845d48;
+    background-color: #f7ebe5;
+  }
+
+  .fr-badge--brown-caramel:hover {
+    background-color: #eccbb9;
+  }
+
+  .fr-badge--brown-caramel:active {
+    background-color: #e6b79a;
+  }
+
+  .fr-badge--brown-opera {
+    color: #745b47;
+    background-color: #f7ece4;
+  }
+
+  .fr-badge--brown-opera:hover {
+    background-color: #eccdb3;
+  }
+
+  .fr-badge--brown-opera:active {
+    background-color: #e6ba90;
+  }
+
+  .fr-badge--beige-gris-galet {
+    color: #6a6156;
+    background-color: #f3ede5;
+  }
+
+  .fr-badge--beige-gris-galet:hover {
+    background-color: #e1d0b5;
+  }
+
+  .fr-badge--beige-gris-galet:active {
+    background-color: #d1bea2;
+  }
+}

@@ -1,9 +1,17 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .fr-summary {
     background-color: #eee;
+  }
+
+  .fr-summary:hover {
+    background-color: #d2d2d2;
+  }
+
+  .fr-summary:active {
+    background-color: #c1c1c1;
   }
 
   .fr-summary__title {

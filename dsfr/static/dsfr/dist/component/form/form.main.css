@@ -1,11 +1,11 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
-/* ------------------------------------ *\
+/* ¯¯¯¯¯¯¯¯¯ *\
   FORM
-\* ------------------------------------ */
+\* ˍˍˍˍˍˍˍˍˍ */
 .fr-select-group:not(:last-child),
 .fr-input-group:not(:last-child) {
   margin-bottom: 1.5rem;
@@ -72,7 +72,8 @@
 
 .fr-error-text::before {
   font: normal normal normal 1rem/1 dsfr-icon;
-  content: "";
+  content: "";
+  font-weight: 400;
   display: inline-block;
   margin-right: 0.25rem;
 }
@@ -93,7 +94,8 @@
 
 .fr-valid-text::before {
   font: normal normal normal 1rem/1 dsfr-icon;
-  content: "";
+  content: "";
+  font-weight: 400;
   display: inline-block;
   margin-right: 0.25rem;
 }
@@ -280,8 +282,7 @@
   * Style d'un ensemble de champs
   */
 
-.fr-fieldset:disabled label,
-.fr-fieldset[disabled] label {
+.fr-fieldset:disabled label {
   color: var(--text-disabled-grey);
 }
 

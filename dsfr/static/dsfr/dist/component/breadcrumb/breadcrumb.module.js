@@ -1,10 +1,10 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.2.1'
+  version: '1.4.1'
 };
 
 const api = window[config.namespace];
@@ -84,7 +84,7 @@ class Breadcrumb extends api.core.Instance {
 }
 
 const BreadcrumbSelector = {
-  BREADCRUMB: api.ns.selector('breadcrumb')
+  BREADCRUMB: api.internals.ns.selector('breadcrumb')
 };
 
 api.breadcrumb = {
@@ -92,5 +92,5 @@ api.breadcrumb = {
   Breadcrumb: Breadcrumb
 };
 
-api.register(api.breadcrumb.BreadcrumbSelector.BREADCRUMB, api.breadcrumb.Breadcrumb);
+api.internals.register(api.breadcrumb.BreadcrumbSelector.BREADCRUMB, api.breadcrumb.Breadcrumb);
 //# sourceMappingURL=breadcrumb.module.js.map

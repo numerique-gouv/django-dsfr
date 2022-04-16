@@ -1,18 +1,18 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.2.1'
+  version: '1.4.1'
 };
 
 const api = window[config.namespace];
 
 const TableEmission = {
-  SCROLLABLE: api.ns.emission('table', 'scrollable'),
-  CHANGE: api.ns.emission('table', 'change'),
-  CAPTION_HEIGHT: api.ns.emission('table', 'captionheight')
+  SCROLLABLE: api.internals.ns.emission('table', 'scrollable'),
+  CHANGE: api.internals.ns.emission('table', 'change'),
+  CAPTION_HEIGHT: api.internals.ns.emission('table', 'captionheight')
 };
 
 const PADDING = '1rem'; // padding de 4v sur le caption
@@ -32,12 +32,12 @@ class Table extends api.core.Instance {
 }
 
 const TableSelector = {
-  TABLE: api.ns.selector('table'),
-  SHADOW: api.ns.selector('table__shadow'),
-  SHADOW_LEFT: api.ns.selector('table__shadow--left'),
-  SHADOW_RIGHT: api.ns.selector('table__shadow--right'),
-  ELEMENT: `${api.ns.selector('table')}:not(${api.ns.selector('table--no-scroll')}) table`,
-  CAPTION: `${api.ns.selector('table')} table caption`
+  TABLE: api.internals.ns.selector('table'),
+  SHADOW: api.internals.ns.selector('table__shadow'),
+  SHADOW_LEFT: api.internals.ns.selector('table__shadow--left'),
+  SHADOW_RIGHT: api.internals.ns.selector('table__shadow--right'),
+  ELEMENT: `${api.internals.ns.selector('table')}:not(${api.internals.ns.selector('table--no-scroll')}) table`,
+  CAPTION: `${api.internals.ns.selector('table')} table caption`
 };
 
 const SCROLL_OFFSET = 8; // valeur en px du scroll avant laquelle le shadow s'active ou se desactive
@@ -127,7 +127,7 @@ api.table = {
   TableSelector: TableSelector
 };
 
-api.register(api.table.TableSelector.TABLE, api.table.Table);
-api.register(api.table.TableSelector.ELEMENT, api.table.TableElement);
-api.register(api.table.TableSelector.CAPTION, api.table.TableCaption);
+api.internals.register(api.table.TableSelector.TABLE, api.table.Table);
+api.internals.register(api.table.TableSelector.ELEMENT, api.table.TableElement);
+api.internals.register(api.table.TableSelector.CAPTION, api.table.TableCaption);
 //# sourceMappingURL=table.module.js.map

@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
@@ -8,37 +8,9 @@
     @include scheme-element-bg-color(default grey);
 
     @include respond-from(md) {
-      @include scheme-element-bg-transparent($legacy, true);
+      @include scheme-element-bg-transparent((legacy:$legacy, hover: true));
     }
     */
-}
-
-@media (min-width: 48em) {
-  .fr-sidemenu__title {
-    box-shadow: none;
-  }
-
-  .fr-sidemenu__item {
-    box-shadow: none;
-  }
-
-  .fr-sidemenu__item:last-child .fr-sidemenu__btn {
-    box-shadow: none;
-  }
-}
-
-@media all and (min-width: 48em) and (-ms-high-contrast: none), (min-width: 48em) and (-ms-high-contrast: active) {
-  .fr-sidemenu__inner {
-    box-shadow: inset -1px 0 0 0 #e5e5e5;
-  }
-
-  .fr-sidemenu--right .fr-sidemenu__inner {
-    box-shadow: inset 1px 0 0 0 #e5e5e5;
-  }
-
-  .fr-sidemenu--full-border .fr-sidemenu__inner {
-    box-shadow: inset 0 0 0 1px #e5e5e5;
-  }
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -49,17 +21,28 @@
     height: auto;
   }
 
+  /**
+  * Reset de la liste à puce
+  */
+  .fr-sidemenu__item {
+    list-style: none;
+  }
+
   .fr-sidemenu__title {
     color: #161616;
     box-shadow: inset 0 -1px 0 0 #e5e5e5;
   }
 
-  .fr-sidemenu__item {
+  .fr-sidemenu__item::before {
+    box-shadow: 0 -1px 0 0 #e5e5e5, inset 0 -1px 0 0 #e5e5e5;
+  }
+
+  .fr-sidemenu__item:first-child::before {
     box-shadow: inset 0 -1px 0 0 #e5e5e5;
   }
 
-  .fr-sidemenu__item:last-child .fr-sidemenu__btn {
-    box-shadow: inset 0 -1px 0 0 #e5e5e5;
+  .fr-sidemenu__item:last-child::before {
+    box-shadow: 0 -1px 0 0 #e5e5e5;
   }
 
   .fr-sidemenu__link,
@@ -77,7 +60,45 @@
     background-color: #000091;
   }
 
+  .fr-sidemenu__link[aria-current]::after:hover,
+  .fr-sidemenu__btn[aria-current]::after:hover {
+    background-color: #1212ff;
+  }
+
+  .fr-sidemenu__link[aria-current]::after:active,
+  .fr-sidemenu__btn[aria-current]::after:active {
+    background-color: #2323ff;
+  }
+
   .fr-sidemenu__inner > .fr-sidemenu__btn {
     background-color: #fff;
+  }
+
+  .fr-sidemenu__inner > .fr-sidemenu__btn:hover {
+    background-color: #f6f6f6;
+  }
+
+  .fr-sidemenu__inner > .fr-sidemenu__btn:active {
+    background-color: #ededed;
+  }
+}
+
+@media (min-width: 48em) {
+  .fr-sidemenu__title {
+    box-shadow: none;
+  }
+}
+
+@media all and (min-width: 48em) and (-ms-high-contrast: none), (min-width: 48em) and (-ms-high-contrast: active) {
+  .fr-sidemenu__inner {
+    box-shadow: inset -1px 0 0 0 #e5e5e5;
+  }
+
+  .fr-sidemenu--right .fr-sidemenu__inner {
+    box-shadow: inset 1px 0 0 0 #e5e5e5;
+  }
+
+  .fr-sidemenu--full-border .fr-sidemenu__inner {
+    box-shadow: inset 0 0 0 1px #e5e5e5;
   }
 }

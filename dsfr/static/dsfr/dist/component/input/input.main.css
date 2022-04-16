@@ -1,10 +1,10 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
-/* ------------------------------------ *\
+/* ¯¯¯¯¯¯¯¯¯ *\
   INPUT
-\* ------------------------------------ */
+\* ˍˍˍˍˍˍˍˍˍ */
 /* stylelint-disable */
 .fr-input {
   display: block;
@@ -20,8 +20,9 @@
    * On applique une hauteur maximale si l'élément n'est pas un textarea
    */
   color: var(--text-label-grey);
-  --blend: var(--background-contrast-grey-blend);
   background-color: var(--background-contrast-grey);
+  --hover: var(--background-contrast-grey-hover);
+  --active: var(--background-contrast-grey-active);
   box-shadow: inset 0 -2px 0 0 var(--border-plain-grey);
   /**
     * Style du placeholder
@@ -85,7 +86,7 @@
   display: block;
 }
 
-.fr-input-wrap[class^="fr-fi-"]::before, .fr-input-wrap[class*=" fr-fi-"]::before {
+.fr-input-wrap[class^="fr-icon-"]::before, .fr-input-wrap[class*=" fr-icon-"]::before, .fr-input-wrap[class^="fr-fi-"]::before, .fr-input-wrap[class*=" fr-fi-"]::before {
   font-size: 1rem !important;
   position: absolute;
   top: 0.75rem;
@@ -123,7 +124,7 @@ textarea.fr-input {
   min-height: 3.75rem;
 }
 
-.fr-input:disabled, .fr-input[disabled] {
+.fr-input:disabled {
   color: var(--text-disabled-grey);
   box-shadow: inset 0 -2px 0 0 var(--border-disabled-grey);
 }
