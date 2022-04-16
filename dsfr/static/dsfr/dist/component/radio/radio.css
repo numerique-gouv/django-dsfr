@@ -1,11 +1,11 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
-/* ------------------------------------ *\
+/* ¯¯¯¯¯¯¯¯¯ *\
   RADIO
-\* ------------------------------------ */
+\* ˍˍˍˍˍˍˍˍˍ */
 
 /**
  * L'input de type radio avec son label est contenu dans un groupe
@@ -43,15 +43,15 @@
   margin-bottom: -0.75rem;
 }
 
-.fr-radio-group:last-child input[type="radio"] + label[style*='background-image:'],
-.fr-radio-group:last-child input[type="radio"] + label[class^="fr-ifi-"],
-.fr-radio-group:last-child input[type="radio"] + label[class*=" fr-ifi-"] {
+.fr-radio-group:last-child input[type="radio"] + label[style*='background-image:'] {
   margin-bottom: 1.5rem;
 }
 
 .fr-radio-group input[type="radio"] {
   position: absolute;
   opacity: 0;
+  top: 50%;
+  transform: translateY(-50%);
 
   /**
      * On applique un display grid sur le label afin de gérer le positionnement des élements
@@ -118,9 +118,7 @@
          */
 }
 
-.fr-radio-group input[type="radio"]:checked + label[style*='background-image:'],
-.fr-radio-group input[type="radio"]:checked + label[class^="fr-ifi-"],
-.fr-radio-group input[type="radio"]:checked + label[class*=" fr-ifi-"] {
+.fr-radio-group input[type="radio"]:checked + label[style*='background-image:'] {
   width: 100%;
 }
 
@@ -155,9 +153,10 @@
         * On applique la taille sm pour le bouton radio riche
         */
   box-shadow: inset 0 0 0 1px var(--border-default-grey);
-
-  --blend: var(--background-default-grey-blend);
   background-color: var(--background-default-grey);
+
+  --hover: var(--background-default-grey-hover);
+  --active: var(--background-default-grey-active);
 }
 
 .fr-radio-rich input[type="radio"] + label::before {
@@ -174,12 +173,34 @@
   margin-left: 0;
 }
 
-.fr-radio-rich input[type="radio"]:disabled + label,
-.fr-radio-rich input[type="radio"][disabled] + label {
+.fr-radio-rich input[type="radio"]:disabled ~ .fr-radio-rich__img,
+.fr-radio-rich input[type="radio"][disabled] ~ .fr-radio-rich__img {
   filter: grayscale(1);
 }
 
+.fr-radio-rich input[type="radio"]:not(:disabled) ~ label {
+  --hover-tint: var(--hover);
+  --active-tint: var(--active);
+}
+
+.fr-radio-rich input[type="radio"]:not(:disabled) ~ label:hover {
+  background-color: var(--hover-tint);
+}
+
+.fr-radio-rich input[type="radio"]:not(:disabled) ~ label:active {
+  background-color: var(--active-tint);
+}
+
+.fr-radio-rich input[type="radio"]:not(:disabled) ~ label:hover ~ .fr-radio-rich__img {
+  --brightness: calc(100% + var(--brighten) * 10%);
+}
+
+.fr-radio-rich input[type="radio"]:not(:disabled) ~ label:active ~ .fr-radio-rich__img {
+  --brightness: calc(100% + var(--brighten) * 20%);
+}
+
 .fr-radio-rich__img {
+  filter: brightness(var(--brightness));
   padding-left: 0.25rem;
   width: 5.25rem;
   height: 5rem;
@@ -259,8 +280,7 @@
  * Modificateur pour la taille sm
  */
 
-.fr-radio-group input[type="radio"]:disabled + label::before,
-.fr-radio-group input[type="radio"][disabled] + label::before {
+.fr-radio-group input[type="radio"]:disabled + label::before {
   box-shadow: inset 0 0 0 1px var(--border-disabled-grey), inset 0 0 0 12px var(--background-default-grey), inset 0 0 0 12px var(--text-disabled-grey);
 }
 
@@ -268,13 +288,11 @@
   box-shadow: inset 0 0 0 1px var(--border-action-high-grey), inset 0 0 0 6px var(--background-default-grey), inset 0 0 0 12px var(--background-action-high-blue-france);
 }
 
-.fr-radio-group input[type="radio"]:checked:disabled + label::before,
-.fr-radio-group input[type="radio"]:checked[disabled] + label::before {
+.fr-radio-group input[type="radio"]:checked:disabled + label::before {
   box-shadow: inset 0 0 0 1px var(--border-disabled-grey), inset 0 0 0 6px var(--background-default-grey), inset 0 0 0 12px var(--text-disabled-grey);
 }
 
-.fr-radio-group--sm input[type="radio"]:disabled + label::before,
-.fr-radio-group--sm input[type="radio"][disabled] + label::before {
+.fr-radio-group--sm input[type="radio"]:disabled + label::before {
   box-shadow: inset 0 0 0 1px var(--border-disabled-grey), inset 0 0 0 8px var(--background-disabled-grey), inset 0 0 0 8px var(--text-disabled-grey);
 }
 
@@ -282,13 +300,11 @@
   box-shadow: inset 0 0 0 1px var(--border-action-high-grey), inset 0 0 0 4px var(--background-default-grey), inset 0 0 0 8px var(--background-action-high-blue-france);
 }
 
-.fr-radio-group--sm input[type="radio"]:checked:disabled + label::before,
-.fr-radio-group--sm input[type="radio"]:checked[disabled] + label::before {
+.fr-radio-group--sm input[type="radio"]:checked:disabled + label::before {
   box-shadow: inset 0 0 0 1px var(--border-disabled-grey), inset 0 0 0 4px var(--background-disabled-grey), inset 0 0 0 8px var(--text-disabled-grey);
 }
 
-.fr-radio-rich input[type="radio"]:disabled + label::before,
-.fr-radio-rich input[type="radio"][disabled] + label::before {
+.fr-radio-rich input[type="radio"]:disabled + label::before {
   box-shadow: inset 0 0 0 1px var(--border-disabled-grey), inset 0 0 0 8px var(--background-default-grey), inset 0 0 0 8px var(--text-disabled-grey);
 }
 
@@ -300,48 +316,19 @@
   box-shadow: inset 0 0 0 1px var(--border-action-high-grey), inset 0 0 0 4px var(--background-default-grey), inset 0 0 0 8px var(--background-action-high-blue-france);
 }
 
-.fr-radio-rich input[type="radio"]:checked[disabled] + label,
 .fr-radio-rich input[type="radio"]:checked:disabled + label {
   box-shadow: inset 0 0 0 1px var(--text-disabled-grey);
 }
 
-.fr-radio-rich input[type="radio"]:checked[disabled] + label::before,
 .fr-radio-rich input[type="radio"]:checked:disabled + label::before {
   box-shadow: inset 0 0 0 1px var(--border-disabled-grey), inset 0 0 0 4px var(--background-default-grey), inset 0 0 0 8px var(--text-disabled-grey);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .fr-radio-rich input[type="radio"]:not(:disabled) + label {
-    --hsla: hsla(var(--blend), var(--a));
-    --blend-size: 0%;
-    --blend-position: 50%;
-    background-repeat: no-repeat;
-    background-size: var(--blend-size);
-    background-position: var(--blend-position);
-    background-image: radial-gradient(circle at center, var(--hsla), var(--hsla) 3%);
-  }
-
-  .fr-radio-rich input[type="radio"]:not(:disabled) + label:hover,
-  .fr-radio-rich input[type="radio"]:not(:disabled) + label:active {
-    --blend-size: var(--blend-full-size);
-  }
-
-  .fr-radio-rich input[type="radio"]:not(:disabled) + label:hover {
-    --a: 0.3;
-  }
-
-  .fr-radio-rich input[type="radio"]:not(:disabled) + label:active {
-    --a: 0.5;
-  }
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /**
   * Correctif radio
   */
-  .fr-fieldset--inline .fr-radio-group:last-child input[type="radio"] + label[style*='background-image:'],
-  .fr-fieldset--inline .fr-radio-group:last-child input[type="radio"] + label[class^="fr-ifi-"],
-  .fr-fieldset--inline .fr-radio-group:last-child input[type="radio"] + label[class*=" fr-ifi-"] {
+  .fr-fieldset--inline .fr-radio-group:last-child input[type="radio"] + label[style*='background-image:'] {
     margin-bottom: 0.5rem !important;
   }
 
@@ -357,8 +344,7 @@
     box-shadow: inset 0 0 0 1px #161616, inset 0 0 0 12px #fff, inset 0 0 0 12px #000091;
   }
 
-  .fr-radio-group input[type="radio"]:disabled + label::before,
-  .fr-radio-group input[type="radio"][disabled] + label::before {
+  .fr-radio-group input[type="radio"]:disabled + label::before {
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 0 0 12px #fff, inset 0 0 0 12px #929292;
   }
 
@@ -366,8 +352,7 @@
     box-shadow: inset 0 0 0 1px #161616, inset 0 0 0 6px #fff, inset 0 0 0 12px #000091;
   }
 
-  .fr-radio-group input[type="radio"]:checked:disabled + label::before,
-  .fr-radio-group input[type="radio"]:checked[disabled] + label::before {
+  .fr-radio-group input[type="radio"]:checked:disabled + label::before {
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 0 0 6px #fff, inset 0 0 0 12px #929292;
   }
 
@@ -375,8 +360,7 @@
     box-shadow: inset 0 0 0 1px #161616, inset 0 0 0 8px #fff, inset 0 0 0 8px #000091;
   }
 
-  .fr-radio-group--sm input[type="radio"]:disabled + label::before,
-  .fr-radio-group--sm input[type="radio"][disabled] + label::before {
+  .fr-radio-group--sm input[type="radio"]:disabled + label::before {
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 0 0 8px #e5e5e5, inset 0 0 0 8px #929292;
   }
 
@@ -384,8 +368,7 @@
     box-shadow: inset 0 0 0 1px #161616, inset 0 0 0 4px #fff, inset 0 0 0 8px #000091;
   }
 
-  .fr-radio-group--sm input[type="radio"]:checked:disabled + label::before,
-  .fr-radio-group--sm input[type="radio"]:checked[disabled] + label::before {
+  .fr-radio-group--sm input[type="radio"]:checked:disabled + label::before {
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 0 0 4px #e5e5e5, inset 0 0 0 8px #929292;
   }
 
@@ -398,12 +381,19 @@
     background-color: #fff;
   }
 
+  .fr-radio-rich input[type="radio"] + label:hover {
+    background-color: #f6f6f6;
+  }
+
+  .fr-radio-rich input[type="radio"] + label:active {
+    background-color: #ededed;
+  }
+
   .fr-radio-rich input[type="radio"] + label::before {
     box-shadow: inset 0 0 0 1px #161616, inset 0 0 0 8px #fff, inset 0 0 0 8px #000091;
   }
 
-  .fr-radio-rich input[type="radio"]:disabled + label::before,
-  .fr-radio-rich input[type="radio"][disabled] + label::before {
+  .fr-radio-rich input[type="radio"]:disabled + label::before {
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 0 0 8px #fff, inset 0 0 0 8px #929292;
   }
 
@@ -415,12 +405,10 @@
     box-shadow: inset 0 0 0 1px #161616, inset 0 0 0 4px #fff, inset 0 0 0 8px #000091;
   }
 
-  .fr-radio-rich input[type="radio"]:checked[disabled] + label,
   .fr-radio-rich input[type="radio"]:checked:disabled + label {
     box-shadow: inset 0 0 0 1px #929292;
   }
 
-  .fr-radio-rich input[type="radio"]:checked[disabled] + label::before,
   .fr-radio-rich input[type="radio"]:checked:disabled + label::before {
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 0 0 4px #fff, inset 0 0 0 8px #929292;
   }

@@ -266,6 +266,19 @@ IMPLEMENTED_TAGS = {
                 "extra_classes": "fr-fi-close-line fr-tag--icon-right",
                 "onclick": "alert('clicked'); return false;",
             },
+            {
+                "label": "Tag sélectionnable",
+                "is_selectable": True,
+            },
+            {
+                "label": "Tag supprimable",
+                "is_dismissable": True,
+            },
+            {
+                "label": "Tag vert",
+                "link": "#",
+                "extra_classes": "fr-tag--green-emeraude",
+            },
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/310706305/Tag",
     },
@@ -316,6 +329,10 @@ unsorted_implemented_tags = {**IMPLEMENTED_TAGS, **EXTRA_TAGS}
 ALL_IMPLEMENTED_TAGS = dict(sorted(unsorted_implemented_tags.items()))
 
 NOT_YET_IMPLEMENTED_TAGS = {
+    "badge": {
+        "title": "Badge",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/851869737/Badges",
+    },
     "search": {
         "title": "Barre de recherche (search)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217186376/Barre+de+recherche+-+Search+bar",
@@ -323,6 +340,10 @@ NOT_YET_IMPLEMENTED_TAGS = {
     "file_upload": {
         "title": "Ajout de fichier (file upload)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/864190467/Ajout+de+fichier+-+File+upload",
+    },
+    "franceconnect": {
+        "title": "Bouton FranceConnect",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/967868417/Bouton+FranceConnect",
     },
     "radio": {
         "title": "Bouton radio (radio)",

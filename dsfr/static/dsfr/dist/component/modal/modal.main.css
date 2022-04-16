@@ -1,9 +1,11 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
-/* ------------------------------------ *\
+@charset "UTF-8";
+
+/* ¯¯¯¯¯¯¯¯¯ *\
   MODAL
-\* ------------------------------------ */
+\* ˍˍˍˍˍˍˍˍˍ */
 .fr-modal {
   border: none;
   color: inherit;
@@ -22,13 +24,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 5500;
+  z-index: 5000;
   transition: opacity 0.3s, visibility 0.3s;
 
   /**
   * Modifier pour fixer la modale en haut en mobile (par defaut en bas)
   */
-  background-color: var(--background-overlay);
+  background-color: var(--background-overlay-grey);
 }
 
 .fr-modal > .fr-container {
@@ -72,13 +74,17 @@
 }
 
 .fr-modal__body {
+  --modal-max-height: calc(100vh - 2rem);
   pointer-events: all;
   overflow-y: auto;
   flex: 1 1 auto;
   max-height: calc(100vh - 2rem);
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1), 0 8px 16px -16px rgba(0, 0, 0, 0.32);
-  --blend: var(--background-default-grey-blend);
+  max-height: var(--modal-max-height);
   background-color: var(--background-default-grey);
+
+  --hover: var(--background-default-grey-hover);
+  --active: var(--background-default-grey-active);
 }
 
 .fr-modal__header {
@@ -102,8 +108,11 @@
   position: sticky;
   bottom: 0;
   transition: box-shadow 0.3s;
-  --blend: var(--background-default-grey-blend);
+  z-index: 6000;
   background-color: var(--background-default-grey);
+
+  --hover: var(--background-default-grey-hover);
+  --active: var(--background-default-grey-active);
 }
 
 .fr-modal__footer .fr-btns-group {
@@ -112,14 +121,15 @@
 }
 
 .fr-modal__title {
+  --title-spacing: 0 0 1rem 0;
   font-size: 1.375rem;
   line-height: 1.75rem;
   font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 1rem;
   color: var(--text-title-grey);
 }
 
+.fr-modal__title[class^="fr-icon-"],
+.fr-modal__title[class*=" fr-icon-"],
 .fr-modal__title[class^="fr-fi-"],
 .fr-modal__title[class*=" fr-fi-"] {
   margin-right: 0.5rem;
@@ -127,8 +137,10 @@
 
 .fr-modal__body.fr-scroll-shadow .fr-modal__footer {
   box-shadow: 0 -8px 8px 0 rgba(0, 0, 0, 0.1), 0 -8px 16px -16px rgba(0, 0, 0, 0.32);
-  --blend: var(--background-elevated-grey-blend);
   background-color: var(--background-elevated-grey);
+
+  --hover: var(--background-elevated-grey-hover);
+  --active: var(--background-elevated-grey-active);
 }
 
 @media (min-width: 48em) {
@@ -154,7 +166,7 @@
   }
 
   .fr-modal__header {
-    padding: 1rem;
+    padding: 1rem 2rem;
   }
 
   .fr-modal__content {

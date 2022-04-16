@@ -3,7 +3,7 @@
       <{{ self.heading_tag | default:"p" }} class="fr-alert__title">{{ self.title }}</{{ self.heading_tag | default:"p" }}>
       <p>{{ self.content | safe }}</p>
       {% if self.is_collapsible %}
-        <button type="button" class="fr-link--close fr-link" aria-expanded="true" aria-controls="{{ self.id | default:'collapsible-alert' }}">
+        <button type="button" class="fr-btn fr-btn--close" aria-expanded="true" aria-controls="{{ self.id | default:'collapsible-alert' }}">
           Masquer le message
         </button>
       {% endif %}

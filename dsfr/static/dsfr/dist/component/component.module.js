@@ -1,17 +1,17 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.2.1'
+  version: '1.4.1'
 };
 
 const api = window[config.namespace];
 
 const AccordionSelector = {
-  GROUP: api.ns.selector('accordions-group'),
-  COLLAPSE: `${api.ns.selector('accordion')} > ${api.ns.selector('collapse')}`
+  GROUP: api.internals.ns.selector('accordions-group'),
+  COLLAPSE: `${api.internals.ns.selector('accordion')} > ${api.internals.ns.selector('collapse')}`
 };
 
 class AccordionsGroup extends api.core.CollapsesGroup {
@@ -29,19 +29,19 @@ api.accordion = {
   AccordionsGroup: AccordionsGroup
 };
 
-api.register(api.accordion.AccordionSelector.GROUP, api.accordion.AccordionsGroup);
+api.internals.register(api.accordion.AccordionSelector.GROUP, api.accordion.AccordionsGroup);
 
 const ButtonSelector = {
-  EQUISIZED_BUTTON: `${api.ns.selector('btns-group--equisized')} ${api.ns.selector('btn')}`,
-  EQUISIZED_GROUP: api.ns.selector('btns-group--equisized')
+  EQUISIZED_BUTTON: `${api.internals.ns.selector('btns-group--equisized')} ${api.internals.ns.selector('btn')}`,
+  EQUISIZED_GROUP: api.internals.ns.selector('btns-group--equisized')
 };
 
 api.button = {
   ButtonSelector: ButtonSelector
 };
 
-api.register(api.button.ButtonSelector.EQUISIZED_BUTTON, api.core.Equisized);
-api.register(api.button.ButtonSelector.EQUISIZED_GROUP, api.core.EquisizedsGroup);
+api.internals.register(api.button.ButtonSelector.EQUISIZED_BUTTON, api.core.Equisized);
+api.internals.register(api.button.ButtonSelector.EQUISIZED_GROUP, api.core.EquisizedsGroup);
 
 class Breadcrumb extends api.core.Instance {
   constructor () {
@@ -118,7 +118,7 @@ class Breadcrumb extends api.core.Instance {
 }
 
 const BreadcrumbSelector = {
-  BREADCRUMB: api.ns.selector('breadcrumb')
+  BREADCRUMB: api.internals.ns.selector('breadcrumb')
 };
 
 api.breadcrumb = {
@@ -126,11 +126,77 @@ api.breadcrumb = {
   Breadcrumb: Breadcrumb
 };
 
-api.register(api.breadcrumb.BreadcrumbSelector.BREADCRUMB, api.breadcrumb.Breadcrumb);
+api.internals.register(api.breadcrumb.BreadcrumbSelector.BREADCRUMB, api.breadcrumb.Breadcrumb);
+
+class ToggleInput extends api.core.Instance {
+  static get instanceClassName () {
+    return 'ToggleInput';
+  }
+
+  get isChecked () {
+    return this.hasAttribute('checked');
+  }
+}
+
+class ToggleStatusLabel extends api.core.Instance {
+  static get instanceClassName () {
+    return 'ToggleStatusLabel';
+  }
+
+  init () {
+    this.register(`input[id="${this.getAttribute('for')}"]`, ToggleInput);
+    this.update();
+    this.isSwappingFont = true;
+  }
+
+  get proxy () {
+    const scope = this;
+    return Object.assign(super.proxy, {
+      update: scope.update.bind(scope)
+    });
+  }
+
+  get input () {
+    return this.getRegisteredInstances('ToggleInput')[0];
+  }
+
+  update () {
+    this.node.style.removeProperty('--toggle-status-width');
+    const checked = this.input.isChecked;
+
+    const style = getComputedStyle(this.node, ':before');
+    let maxWidth = parseFloat(style.width);
+    this.input.node.checked = !checked;
+
+    const style2 = getComputedStyle(this.node, ':before');
+    const width = parseFloat(style2.width);
+    if (width > maxWidth) maxWidth = width;
+    this.input.node.checked = checked;
+
+    this.node.style.setProperty('--toggle-status-width', (maxWidth / 16) + 'rem');
+  }
+
+  swapFont (families) {
+    this.update();
+  }
+}
+
+const ToggleSelector = {
+  STATUS_LABEL: `${api.internals.ns.selector('toggle__label')}${api.internals.ns.attr.selector('checked-label')}${api.internals.ns.attr.selector('unchecked-label')}`
+};
+
+// import { ToggleInput } from './script/toggle/toggle-input.js';
+
+api.toggle = {
+  ToggleStatusLabel: ToggleStatusLabel,
+  ToggleSelector: ToggleSelector
+};
+
+api.internals.register(api.toggle.ToggleSelector.STATUS_LABEL, api.toggle.ToggleStatusLabel);
 
 const SidemenuSelector = {
-  LIST: api.ns.selector('sidemenu__list'),
-  COLLAPSE: `${api.ns.selector('sidemenu__item')} > ${api.ns.selector('collapse')}`
+  LIST: api.internals.ns.selector('sidemenu__list'),
+  COLLAPSE: `${api.internals.ns.selector('sidemenu__item')} > ${api.internals.ns.selector('collapse')}`
 };
 
 class SidemenuList extends api.core.CollapsesGroup {
@@ -148,12 +214,12 @@ api.sidemenu = {
   SidemenuSelector: SidemenuSelector
 };
 
-api.register(api.sidemenu.SidemenuSelector.LIST, api.sidemenu.SidemenuList);
+api.internals.register(api.sidemenu.SidemenuSelector.LIST, api.sidemenu.SidemenuList);
 
 const ModalSelector = {
-  MODAL: api.ns.selector('modal'),
-  SCROLL_SHADOW: api.ns.selector('scroll-shadow'),
-  BODY: api.ns.selector('modal__body')
+  MODAL: api.internals.ns.selector('modal'),
+  SCROLL_SHADOW: api.internals.ns.selector('scroll-shadow'),
+  BODY: api.internals.ns.selector('modal__body')
 };
 
 class ModalButton extends api.core.DisclosureButton {
@@ -166,13 +232,8 @@ class ModalButton extends api.core.DisclosureButton {
   }
 }
 
-const ModalEmission = {
-  ACTIVATE: api.ns.emission('modal', 'activate'),
-  DEACTIVATE: api.ns.emission('modal', 'deactivate')
-};
-
 const ModalAttribute = {
-  CONCEALING_BACKDROP: api.ns.attr('concealing-backdrop')
+  CONCEALING_BACKDROP: api.internals.ns.attr('concealing-backdrop')
 };
 
 class Modal extends api.core.Disclosure {
@@ -192,15 +253,20 @@ class Modal extends api.core.Disclosure {
     this.listenKey(api.core.KeyCodes.ESCAPE, this.conceal.bind(this, false, false), true, true);
   }
 
+  get body () {
+    return this.element.getDescendantInstances('ModalBody', 'Modal')[0];
+  }
+
   click (e) {
     if (e.target === this.node && this.getAttribute(ModalAttribute.CONCEALING_BACKDROP) !== 'false') this.conceal();
   }
 
   disclose (withhold) {
     if (!super.disclose(withhold)) return false;
-    this.descend(ModalEmission.ACTIVATE);
+    if (this.body) this.body.activate();
     this.isScrollLocked = true;
     this.setAttribute('aria-modal', 'true');
+    this.setAttribute('open', 'true');
     return true;
   }
 
@@ -208,7 +274,8 @@ class Modal extends api.core.Disclosure {
     if (!super.conceal(withhold, preventFocus)) return false;
     this.isScrollLocked = false;
     this.removeAttribute('aria-modal');
-    this.descend(ModalEmission.DEACTIVATE);
+    this.removeAttribute('open');
+    if (this.body) this.body.deactivate();
     return true;
   }
 }
@@ -346,12 +413,12 @@ class FocusTrap {
   }
 
   get focusables () {
-    let unordereds = api.querySelectorAllArray(this.element, UNORDEREDS);
+    let unordereds = api.internals.dom.querySelectorAllArray(this.element, UNORDEREDS);
 
     /**
      *  filtrage des radiobutttons de même name (la navigations d'un groupe de radio se fait à la flèche et non pas au tab
      **/
-    const radios = api.querySelectorAllArray(document.documentElement, 'input[type="radio"]');
+    const radios = api.internals.dom.querySelectorAllArray(document.documentElement, 'input[type="radio"]');
 
     if (radios.length) {
       const groups = {};
@@ -369,7 +436,7 @@ class FocusTrap {
       });
     }
 
-    const ordereds = api.querySelectorAllArray(this.element, ORDEREDS);
+    const ordereds = api.internals.dom.querySelectorAllArray(this.element, ORDEREDS);
 
     ordereds.sort((a, b) => a.tabIndex - b.tabIndex);
 
@@ -459,8 +526,6 @@ class ModalBody extends api.core.Instance {
 
   init () {
     this.listen('scroll', this.shade.bind(this));
-    this.addDescent(ModalEmission.ACTIVATE, this.activate.bind(this));
-    this.addDescent(ModalEmission.DEACTIVATE, this.deactivate.bind(this));
   }
 
   activate () {
@@ -491,7 +556,8 @@ class ModalBody extends api.core.Instance {
 
   adjust () {
     const offset = OFFSET * (this.isBreakpoint(api.core.Breakpoints.MD) ? 2 : 1);
-    this.style.maxHeight = `${window.innerHeight - offset}px`;
+    if (this.isLegacy) this.style.maxHeight = `${window.innerHeight - offset}px`;
+    else this.style.setProperty('--modal-max-height', `${window.innerHeight - offset}px`);
     this.shade();
   }
 }
@@ -504,16 +570,16 @@ api.modal = {
   ModalSelector: ModalSelector
 };
 
-api.register(api.modal.ModalSelector.MODAL, api.modal.Modal);
-api.register(api.modal.ModalSelector.BODY, api.modal.ModalBody);
-api.register(api.core.RootSelector.ROOT, api.modal.ModalsGroup);
+api.internals.register(api.modal.ModalSelector.MODAL, api.modal.Modal);
+api.internals.register(api.modal.ModalSelector.BODY, api.modal.ModalBody);
+api.internals.register(api.core.RootSelector.ROOT, api.modal.ModalsGroup);
 
 const NavigationSelector = {
-  NAVIGATION: api.ns.selector('nav'),
-  COLLAPSE: `${api.ns.selector('nav__item')} > ${api.ns.selector('collapse')}`,
-  ITEM: api.ns.selector('nav__item'),
-  ITEM_RIGHT: api.ns('nav__item--align-right'),
-  MENU: api.ns.selector('menu')
+  NAVIGATION: api.internals.ns.selector('nav'),
+  COLLAPSE: `${api.internals.ns.selector('nav__item')} > ${api.internals.ns.selector('collapse')}`,
+  ITEM: api.internals.ns.selector('nav__item'),
+  ITEM_RIGHT: api.internals.ns('nav__item--align-right'),
+  MENU: api.internals.ns.selector('menu')
 };
 
 class NavigationItem extends api.core.Instance {
@@ -554,8 +620,8 @@ class NavigationItem extends api.core.Instance {
   set isRightAligned (value) {
     if (this._isRightAligned === value) return;
     this._isRightAligned = value;
-    if (value) api.addClass(this.element.node, NavigationSelector.ITEM_RIGHT);
-    else api.removeClass(this.element.node, NavigationSelector.ITEM_RIGHT);
+    if (value) api.internals.dom.addClass(this.element.node, NavigationSelector.ITEM_RIGHT);
+    else api.internals.dom.removeClass(this.element.node, NavigationSelector.ITEM_RIGHT);
   }
 }
 
@@ -628,8 +694,8 @@ api.navigation = {
   NavigationSelector: NavigationSelector
 };
 
-api.register(api.navigation.NavigationSelector.NAVIGATION, api.navigation.Navigation);
-api.register(api.navigation.NavigationSelector.ITEM, api.navigation.NavigationItem);
+api.internals.register(api.navigation.NavigationSelector.NAVIGATION, api.navigation.Navigation);
+api.internals.register(api.navigation.NavigationSelector.ITEM, api.navigation.NavigationItem);
 
 /**
   * TabButton correspond au bouton cliquable qui change le panel
@@ -649,15 +715,33 @@ class TabButton extends api.core.DisclosureButton {
     super.apply(value);
     if (this.isPrimary) {
       this.setAttribute('tabindex', value ? '0' : '-1');
+      if (value) {
+        if (this.list) this.list.focalize(this);
+      }
     }
+  }
+
+  get list () {
+    return this.element.getAscendantInstance('TabsList', 'TabsGroup');
   }
 }
 
 const TabSelector = {
-  TAB: api.ns.selector('tabs__tab'),
-  GROUP: api.ns.selector('tabs'),
-  PANEL: api.ns.selector('tabs__panel'),
-  LIST: api.ns.selector('tabs__list')
+  TAB: api.internals.ns.selector('tabs__tab'),
+  GROUP: api.internals.ns.selector('tabs'),
+  PANEL: api.internals.ns.selector('tabs__panel'),
+  LIST: api.internals.ns.selector('tabs__list'),
+  SHADOW: api.internals.ns.selector('tabs__shadow'),
+  SHADOW_LEFT: api.internals.ns.selector('tabs__shadow--left'),
+  SHADOW_RIGHT: api.internals.ns.selector('tabs__shadow--right'),
+  PANEL_START: api.internals.ns.selector('tabs__panel--direction-start'),
+  PANEL_END: api.internals.ns.selector('tabs__panel--direction-end')
+};
+
+const TabPanelDirection = {
+  START: 'direction-start',
+  END: 'direction-end',
+  NONE: 'none'
 };
 
 /**
@@ -668,15 +752,63 @@ const TabSelector = {
 class TabPanel extends api.core.Disclosure {
   constructor () {
     super(api.core.DisclosureType.SELECT, TabSelector.PANEL, TabButton, 'TabsGroup');
+    this._direction = TabPanelDirection.NONE;
+    this._isPreventingTransition = false;
   }
 
   static get instanceClassName () {
     return 'TabPanel';
   }
 
+  get direction () {
+    return this._direction;
+  }
+
+  set direction (value) {
+    if (value === this._direction) return;
+    switch (this._direction) {
+      case TabPanelDirection.START:
+        this.removeClass(TabSelector.PANEL_START);
+        break;
+
+      case TabPanelDirection.END:
+        this.removeClass(TabSelector.PANEL_END);
+        break;
+
+      case TabPanelDirection.NONE:
+        break;
+
+      default:
+        return;
+    }
+
+    this._direction = value;
+
+    switch (this._direction) {
+      case TabPanelDirection.START:
+        this.addClass(TabSelector.PANEL_START);
+        break;
+
+      case TabPanelDirection.END:
+        this.addClass(TabSelector.PANEL_END);
+        break;
+    }
+  }
+
+  get isPreventingTransition () {
+    return this._isPreventingTransition;
+  }
+
+  set isPreventingTransition (value) {
+    if (this._isPreventingTransition === value) return;
+    if (value) this.addClass(api.internals.motion.TransitionSelector.NONE);
+    else this.removeClass(api.internals.motion.TransitionSelector.NONE);
+    this._isPreventingTransition = value === true;
+  }
+
   translate (direction, initial) {
-    this.style.transition = initial ? 'none' : '';
-    this.style.transform = `translate(${direction * 100}%)`;
+    this.isPreventingTransition = initial;
+    this.direction = direction;
   }
 
   reset () {
@@ -699,18 +831,22 @@ class TabsGroup extends api.core.DisclosuresGroup {
 
   init () {
     super.init();
-    this.list = this.querySelector(TabSelector.LIST);
     this.listen('transitionend', this.transitionend.bind(this));
     this.listenKey(api.core.KeyCodes.RIGHT, this.pressRight.bind(this), true, true);
     this.listenKey(api.core.KeyCodes.LEFT, this.pressLeft.bind(this), true, true);
     this.listenKey(api.core.KeyCodes.HOME, this.pressHome.bind(this), true, true);
     this.listenKey(api.core.KeyCodes.END, this.pressEnd.bind(this), true, true);
-
     this.isRendering = true;
+
+    if (this.list) this.list.apply();
+  }
+
+  get list () {
+    return this.element.getDescendantInstances('TabsList', 'TabsGroup', true)[0];
   }
 
   transitionend (e) {
-    this.style.transition = 'none';
+    this.isPreventingTransition = true;
   }
 
   get buttonHasFocus () {
@@ -770,15 +906,27 @@ class TabsGroup extends api.core.DisclosuresGroup {
   };
 
   focus () {
-    if (this.current) this.current.focus();
+    if (this.current) {
+      this.current.focus();
+    }
   }
 
   apply () {
-    for (let i = 0; i < this._index; i++) this.members[i].translate(-1);
-    this.current.style.transition = '';
-    this.current.style.transform = '';
-    for (let i = this._index + 1; i < this.length; i++) this.members[i].translate(1);
-    this.style.transition = '';
+    for (let i = 0; i < this._index; i++) this.members[i].translate(TabPanelDirection.START);
+    this.current.translate(TabPanelDirection.NONE);
+    for (let i = this._index + 1; i < this.length; i++) this.members[i].translate(TabPanelDirection.END);
+    this.isPreventingTransition = false;
+  }
+
+  get isPreventingTransition () {
+    return this._isPreventingTransition;
+  }
+
+  set isPreventingTransition (value) {
+    if (this._isPreventingTransition === value) return;
+    if (value) this.addClass(api.internals.motion.TransitionSelector.NONE);
+    else this.removeClass(api.internals.motion.TransitionSelector.NONE);
+    this._isPreventingTransition = value === true;
   }
 
   render () {
@@ -786,7 +934,90 @@ class TabsGroup extends api.core.DisclosuresGroup {
     const paneHeight = Math.round(this.current.node.offsetHeight);
     if (this.panelHeight === paneHeight) return;
     this.panelHeight = paneHeight;
-    this.style.height = (this.panelHeight + this.list.offsetHeight) + 'px';
+    let listHeight = 0;
+    if (this.list) listHeight = this.list.node.offsetHeight;
+    this.style.setProperty('--tabs-height', (this.panelHeight + listHeight) + 'px');
+  }
+}
+
+const FOCALIZE_OFFSET = 16;
+const SCROLL_OFFSET$1 = 16; // valeur en px du scroll avant laquelle le shadow s'active ou se desactive
+
+class TabsList extends api.core.Instance {
+  static get instanceClassName () {
+    return 'TabsList';
+  }
+
+  init () {
+    this.listen('scroll', this.scroll.bind(this));
+    this.isResizing = true;
+  }
+
+  get group () {
+    return this.element.getAscendantInstance('TabsGroup', 'TabsList');
+  }
+
+  focalize (btn) {
+    const btnRect = btn.getRect();
+    const listRect = this.getRect();
+    const actualScroll = this.node.scrollLeft;
+    if (btnRect.left < listRect.left) this.node.scrollTo(actualScroll - listRect.left + btnRect.left - FOCALIZE_OFFSET, 0);
+    else if (btnRect.right > listRect.right) this.node.scrollTo(actualScroll - listRect.right + btnRect.right + FOCALIZE_OFFSET, 0);
+  }
+
+  get isScrolling () {
+    return this._isScrolling;
+  }
+
+  set isScrolling (value) {
+    if (this._isScrolling === value) return;
+    this._isScrolling = value;
+    this.apply();
+  }
+
+  apply () {
+    if (!this.group) return;
+    if (this._isScrolling) {
+      this.group.addClass(TabSelector.SHADOW);
+      this.scroll();
+    } else {
+      this.group.removeClass(TabSelector.SHADOW_RIGHT);
+      this.group.removeClass(TabSelector.SHADOW_LEFT);
+      this.group.removeClass(TabSelector.SHADOW);
+    }
+  }
+
+  /* ajoute la classe fr-table__shadow-left ou fr-table__shadow-right sur fr-table en fonction d'une valeur de scroll et du sens (right, left) */
+  scroll () {
+    if (!this.group) return;
+    const scrollLeft = this.node.scrollLeft;
+    const isMin = scrollLeft <= SCROLL_OFFSET$1;
+    const max = this.node.scrollWidth - this.node.clientWidth - SCROLL_OFFSET$1;
+
+    const isMax = Math.abs(scrollLeft) >= max;
+    const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+    const minSelector = isRtl ? TabSelector.SHADOW_RIGHT : TabSelector.SHADOW_LEFT;
+    const maxSelector = isRtl ? TabSelector.SHADOW_LEFT : TabSelector.SHADOW_RIGHT;
+
+    if (isMin) {
+      this.group.removeClass(minSelector);
+    } else {
+      this.group.addClass(minSelector);
+    }
+
+    if (isMax) {
+      this.group.removeClass(maxSelector);
+    } else {
+      this.group.addClass(maxSelector);
+    }
+  }
+
+  resize () {
+    this.isScrolling = this.node.scrollWidth > this.node.clientWidth + SCROLL_OFFSET$1;
+  }
+
+  dispose () {
+    this.isScrolling = false;
   }
 }
 
@@ -794,16 +1025,18 @@ api.tab = {
   TabPanel: TabPanel,
   TabButton: TabButton,
   TabsGroup: TabsGroup,
+  TabsList: TabsList,
   TabSelector: TabSelector
 };
 
-api.register(api.tab.TabSelector.PANEL, api.tab.TabPanel);
-api.register(api.tab.TabSelector.GROUP, api.tab.TabsGroup);
+api.internals.register(api.tab.TabSelector.PANEL, api.tab.TabPanel);
+api.internals.register(api.tab.TabSelector.GROUP, api.tab.TabsGroup);
+api.internals.register(api.tab.TabSelector.LIST, api.tab.TabsList);
 
 const TableEmission = {
-  SCROLLABLE: api.ns.emission('table', 'scrollable'),
-  CHANGE: api.ns.emission('table', 'change'),
-  CAPTION_HEIGHT: api.ns.emission('table', 'captionheight')
+  SCROLLABLE: api.internals.ns.emission('table', 'scrollable'),
+  CHANGE: api.internals.ns.emission('table', 'change'),
+  CAPTION_HEIGHT: api.internals.ns.emission('table', 'captionheight')
 };
 
 const PADDING = '1rem'; // padding de 4v sur le caption
@@ -823,12 +1056,12 @@ class Table extends api.core.Instance {
 }
 
 const TableSelector = {
-  TABLE: api.ns.selector('table'),
-  SHADOW: api.ns.selector('table__shadow'),
-  SHADOW_LEFT: api.ns.selector('table__shadow--left'),
-  SHADOW_RIGHT: api.ns.selector('table__shadow--right'),
-  ELEMENT: `${api.ns.selector('table')}:not(${api.ns.selector('table--no-scroll')}) table`,
-  CAPTION: `${api.ns.selector('table')} table caption`
+  TABLE: api.internals.ns.selector('table'),
+  SHADOW: api.internals.ns.selector('table__shadow'),
+  SHADOW_LEFT: api.internals.ns.selector('table__shadow--left'),
+  SHADOW_RIGHT: api.internals.ns.selector('table__shadow--right'),
+  ELEMENT: `${api.internals.ns.selector('table')}:not(${api.internals.ns.selector('table--no-scroll')}) table`,
+  CAPTION: `${api.internals.ns.selector('table')} table caption`
 };
 
 const SCROLL_OFFSET = 8; // valeur en px du scroll avant laquelle le shadow s'active ou se desactive
@@ -918,16 +1151,26 @@ api.table = {
   TableSelector: TableSelector
 };
 
-api.register(api.table.TableSelector.TABLE, api.table.Table);
-api.register(api.table.TableSelector.ELEMENT, api.table.TableElement);
-api.register(api.table.TableSelector.CAPTION, api.table.TableCaption);
+api.internals.register(api.table.TableSelector.TABLE, api.table.Table);
+api.internals.register(api.table.TableSelector.ELEMENT, api.table.TableElement);
+api.internals.register(api.table.TableSelector.CAPTION, api.table.TableCaption);
+
+const TagSelector = {
+  TAG_PRESSABLE: `${api.internals.ns.selector('tag')}[aria-pressed]`
+};
+
+api.tag = {
+  TagSelector: TagSelector
+};
+
+api.internals.register(api.tag.TagSelector.TAG_PRESSABLE, api.core.Toggle);
 
 const HeaderSelector = {
-  HEADER: api.ns.selector('header'),
-  TOOLS_LINKS: api.ns.selector('header__tools-links'),
-  MENU_LINKS: api.ns.selector('header__menu-links'),
-  LINKS: `${api.ns.selector('header__tools-links')} ${api.ns.selector('links-group')}`,
-  MODALS: `${api.ns.selector('header__search')}${api.ns.selector('modal')}, ${api.ns.selector('header__menu')}${api.ns.selector('modal')}`
+  HEADER: api.internals.ns.selector('header'),
+  TOOLS_LINKS: api.internals.ns.selector('header__tools-links'),
+  MENU_LINKS: api.internals.ns.selector('header__menu-links'),
+  BUTTONS: `${api.internals.ns.selector('header__tools-links')} ${api.internals.ns.selector('btns-group')}, ${api.internals.ns.selector('header__tools-links')} ${api.internals.ns.selector('links-group')}`,
+  MODALS: `${api.internals.ns.selector('header__search')}${api.internals.ns.selector('modal')}, ${api.internals.ns.selector('header__menu')}${api.internals.ns.selector('modal')}`
 };
 
 class HeaderLinks extends api.core.Instance {
@@ -1002,13 +1245,13 @@ api.header = {
   doc: 'https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222789846/En-t+te+-+Header'
 };
 
-api.register(api.header.HeaderSelector.LINKS, api.header.HeaderLinks);
-api.register(api.header.HeaderSelector.MODALS, api.header.HeaderModal);
+api.internals.register(api.header.HeaderSelector.BUTTONS, api.header.HeaderLinks);
+api.internals.register(api.header.HeaderSelector.MODALS, api.header.HeaderModal);
 
 const DisplaySelector = {
-  DISPLAY: api.ns.selector('display'),
-  RADIO_BUTTONS: `input[name="${api.ns('radios-theme')}"]`,
-  FIELDSET: api.ns.selector('fieldset')
+  DISPLAY: api.internals.ns.selector('display'),
+  RADIO_BUTTONS: `input[name="${api.internals.ns('radios-theme')}"]`,
+  FIELDSET: api.internals.ns.selector('fieldset')
 };
 
 class Display extends api.core.Instance {
@@ -1071,5 +1314,5 @@ api.display = {
   DisplaySelector: DisplaySelector
 };
 
-api.register(api.display.DisplaySelector.DISPLAY, api.display.Display);
+api.internals.register(api.display.DisplaySelector.DISPLAY, api.display.Display);
 //# sourceMappingURL=component.module.js.map

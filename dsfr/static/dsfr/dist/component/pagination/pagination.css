@@ -1,36 +1,36 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
-/* ------------------------------------ *\
+/* ¯¯¯¯¯¯¯¯¯ *\
   PAGINATION
-\* ------------------------------------ */
+\* ˍˍˍˍˍˍˍˍˍ */
 .fr-pagination__link {
-  --link-underline: none;
-  --link-blank-font: none;
-  --link-blank-content: none;
   --text-spacing: 0;
   --title-spacing: 0;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   z-index: 1;
-
-  --blend-full-size: 100%;
+  --hover-tint: var(--hover);
   font-size: 1rem;
   line-height: 1.5rem;
   min-height: 2rem;
   padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
   min-width: 2rem;
   margin-left: 0.125rem;
   margin-right: 0.125rem;
   margin-bottom: 1rem;
+
+  --underline-img: none;
+  --link-blank-font: none;
+  --link-blank-content: none;
+  position: relative;
 }
 
 .fr-pagination {
-  --link-underline: none;
+  --underline-img: none;
   --link-blank-font: none;
   --link-blank-content: none;
   --ul-type: none;
@@ -61,11 +61,9 @@
   margin-right: 0;
 }
 
-.fr-pagination__link[aria-current] {
-  cursor: default !important;
-  --blend: var(--background-active-blue-france-blend);
-  background-color: var(--background-active-blue-france);
-  color: var(--text-inverted-blue-france);
+.fr-pagination__link[aria-current]:not([href]) {
+  cursor: default;
+  pointer-events: none;
 }
 
 .fr-pagination__link--first {
@@ -73,7 +71,6 @@
   line-height: 1.5rem;
   min-height: 2rem;
   padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
   flex-direction: row;
   overflow: hidden;
   white-space: nowrap;
@@ -84,8 +81,9 @@
 }
 
 .fr-pagination__link--first::before {
-  font: normal normal normal 1.5rem/1 dsfr-icon;
-  content: "";
+  font: normal 700 normal 1.5rem/1 dsfr-icon;
+  content: "";
+  font-weight: 700;
   margin-left: 0;
   margin-right: 0.25rem;
   font-size: 1.5rem;
@@ -96,7 +94,6 @@
   line-height: 1.5rem;
   min-height: 2rem;
   padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
   flex-direction: row;
   overflow: hidden;
   white-space: nowrap;
@@ -107,8 +104,9 @@
 }
 
 .fr-pagination__link--prev::before {
-  font: normal normal normal 1.5rem/1 dsfr-icon;
-  content: "";
+  font: normal 700 normal 1.5rem/1 dsfr-icon;
+  content: "";
+  font-weight: 700;
   margin-left: 0;
   margin-right: 0.25rem;
   font-size: 1.5rem;
@@ -119,7 +117,6 @@
   line-height: 1.5rem;
   min-height: 2rem;
   padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
   flex-direction: row;
   overflow: hidden;
   white-space: nowrap;
@@ -130,8 +127,9 @@
 }
 
 .fr-pagination__link--next::before {
-  font: normal normal normal 1.5rem/1 dsfr-icon;
-  content: "";
+  font: normal 700 normal 1.5rem/1 dsfr-icon;
+  content: "";
+  font-weight: 700;
   margin-left: 0;
   margin-right: 0.25rem;
   font-size: 1.5rem;
@@ -142,7 +140,6 @@
   line-height: 1.5rem;
   min-height: 2rem;
   padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
   flex-direction: row;
   overflow: hidden;
   white-space: nowrap;
@@ -153,8 +150,9 @@
 }
 
 .fr-pagination__link--last::before {
-  font: normal normal normal 1.5rem/1 dsfr-icon;
-  content: "";
+  font: normal 700 normal 1.5rem/1 dsfr-icon;
+  content: "";
+  font-weight: 700;
   margin-left: 0;
   margin-right: 0.25rem;
   font-size: 1.5rem;
@@ -172,17 +170,16 @@
   line-height: 1.5rem;
   min-height: 2rem;
   padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
   flex-direction: row;
   overflow: initial;
-  max-width: none;
+  max-width: 100%;
   max-height: none;
 }
 
 .fr-pagination__link--first.fr-pagination__link--label::before,
 .fr-pagination__link--prev.fr-pagination__link--label::before {
-  font: normal normal normal 1.5rem/1 dsfr-icon;
-  margin-left: -0.375rem;
+  font: normal 700 normal 1.5rem/1 dsfr-icon;
+  margin-left: -0.25rem;
   margin-right: 0.5rem;
   font-size: 1.5rem;
 }
@@ -199,23 +196,29 @@
   line-height: 1.5rem;
   min-height: 2rem;
   padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
   flex-direction: row-reverse;
   overflow: initial;
-  max-width: none;
+  max-width: 100%;
   max-height: none;
 }
 
 .fr-pagination__link--next.fr-pagination__link--label::before,
 .fr-pagination__link--last.fr-pagination__link--label::before {
-  font: normal normal normal 1.5rem/1 dsfr-icon;
-  margin-right: -0.375rem;
+  font: normal 700 normal 1.5rem/1 dsfr-icon;
+  margin-right: -0.25rem;
   margin-left: 0.5rem;
   font-size: 1.5rem;
 }
 
+.fr-pagination__link[aria-current] {
+  background-color: var(--background-active-blue-france);
+
+  --hover: var(--background-active-blue-france-hover);
+  --active: var(--background-active-blue-france-active);
+  color: var(--text-inverted-blue-france);
+}
+
 .fr-pagination__link:not([aria-current]):disabled,
-.fr-pagination__link:not([aria-current])[disabled],
 a.fr-pagination__link:not([aria-current]):not([href]) {
   color: var(--text-disabled-grey);
 }
@@ -227,17 +230,16 @@ a.fr-pagination__link:not([aria-current]):not([href]) {
     line-height: 1.5rem;
     min-height: 2rem;
     padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
     flex-direction: row;
     overflow: initial;
-    max-width: none;
+    max-width: 100%;
     max-height: none;
   }
 
   .fr-pagination__link--first.fr-pagination__link--lg-label::before,
   .fr-pagination__link--prev.fr-pagination__link--lg-label::before {
-    font: normal normal normal 1.5rem/1 dsfr-icon;
-    margin-left: -0.375rem;
+    font: normal 700 normal 1.5rem/1 dsfr-icon;
+    margin-left: -0.25rem;
     margin-right: 0.5rem;
     font-size: 1.5rem;
   }
@@ -248,23 +250,29 @@ a.fr-pagination__link:not([aria-current]):not([href]) {
     line-height: 1.5rem;
     min-height: 2rem;
     padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
     flex-direction: row-reverse;
     overflow: initial;
-    max-width: none;
+    max-width: 100%;
     max-height: none;
   }
 
   .fr-pagination__link--next.fr-pagination__link--lg-label::before,
   .fr-pagination__link--last.fr-pagination__link--lg-label::before {
-    font: normal normal normal 1.5rem/1 dsfr-icon;
-    margin-right: -0.375rem;
+    font: normal 700 normal 1.5rem/1 dsfr-icon;
+    margin-right: -0.25rem;
     margin-left: 0.5rem;
     font-size: 1.5rem;
   }
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+  * Correctif de la largeur de la légende d'un fieldset
+  */
+  .fr-pagination__list {
+    list-style: none;
+  }
+
   .fr-pagination {
     color: #161616;
   }
@@ -274,8 +282,15 @@ a.fr-pagination__link:not([aria-current]):not([href]) {
     color: #f5f5fe;
   }
 
+  .fr-pagination__link[aria-current]:hover {
+    background-color: #1212ff;
+  }
+
+  .fr-pagination__link[aria-current]:active {
+    background-color: #2323ff;
+  }
+
   .fr-pagination__link:not([aria-current]):disabled,
-  .fr-pagination__link:not([aria-current])[disabled],
   a.fr-pagination__link:not([aria-current]):not([href]) {
     color: #929292;
   }

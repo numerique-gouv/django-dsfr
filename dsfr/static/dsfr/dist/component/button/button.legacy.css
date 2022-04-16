@@ -1,17 +1,42 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
+@charset "UTF-8";
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+  * Reset liste à puce
+  */
+  .fr-btns-group > li {
+    list-style: none;
+  }
+
   .fr-btn {
     background-color: #000091;
     color: #f5f5fe;
   }
 
+  .fr-btn:hover {
+    background-color: #1212ff;
+  }
+
+  .fr-btn:active {
+    background-color: #2323ff;
+  }
+
   .fr-btn:disabled,
-  .fr-btn[disabled],
   a.fr-btn:not([href]) {
     color: #929292;
     background-color: #e5e5e5;
+  }
+
+  .fr-btn:disabled:hover,
+  a.fr-btn:not([href]):hover {
+    background-color: #c5c5c5;
+  }
+
+  .fr-btn:disabled:active,
+  a.fr-btn:not([href]):active {
+    background-color: #b2b2b2;
   }
 
   .fr-btn--secondary {
@@ -21,10 +46,39 @@
   }
 
   .fr-btn--secondary:disabled,
-  .fr-btn--secondary[disabled],
   a.fr-btn--secondary:not([href]) {
     color: #929292;
     box-shadow: inset 0 0 0 1px #e5e5e5;
+    background-color: transparent;
+  }
+
+  .fr-btn--tertiary {
+    background-color: transparent;
+    color: #000091;
+    box-shadow: inset 0 0 0 1px #e5e5e5;
+  }
+
+  .fr-btn--tertiary:disabled,
+  a.fr-btn--tertiary:not([href]) {
+    color: #929292;
+    box-shadow: inset 0 0 0 1px #e5e5e5;
+    background-color: transparent;
+  }
+
+  .fr-btn--tertiary-no-outline,
+  .fr-btn--close,
+  .fr-btn--display {
+    background-color: transparent;
+    color: #000091;
+  }
+
+  .fr-btn--tertiary-no-outline:disabled,
+  a.fr-btn--tertiary-no-outline:not([href]),
+  a.fr-btn--close:not([href]),
+  a.fr-btn--display:not([href]),
+  .fr-btn--close:disabled,
+  .fr-btn--display:disabled {
+    color: #929292;
     background-color: transparent;
   }
 }

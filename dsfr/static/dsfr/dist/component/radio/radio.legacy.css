@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
@@ -23,9 +23,7 @@
   /**
   * Correctif radio
   */
-  .fr-fieldset--inline .fr-radio-group:last-child input[type="radio"] + label[style*='background-image:'],
-  .fr-fieldset--inline .fr-radio-group:last-child input[type="radio"] + label[class^="fr-ifi-"],
-  .fr-fieldset--inline .fr-radio-group:last-child input[type="radio"] + label[class*=" fr-ifi-"] {
+  .fr-fieldset--inline .fr-radio-group:last-child input[type="radio"] + label[style*='background-image:'] {
     margin-bottom: 0.5rem !important;
   }
 
@@ -41,8 +39,7 @@
     box-shadow: inset 0 0 0 1px #161616, inset 0 0 0 12px #fff, inset 0 0 0 12px #000091;
   }
 
-  .fr-radio-group input[type="radio"]:disabled + label::before,
-  .fr-radio-group input[type="radio"][disabled] + label::before {
+  .fr-radio-group input[type="radio"]:disabled + label::before {
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 0 0 12px #fff, inset 0 0 0 12px #929292;
   }
 
@@ -50,8 +47,7 @@
     box-shadow: inset 0 0 0 1px #161616, inset 0 0 0 6px #fff, inset 0 0 0 12px #000091;
   }
 
-  .fr-radio-group input[type="radio"]:checked:disabled + label::before,
-  .fr-radio-group input[type="radio"]:checked[disabled] + label::before {
+  .fr-radio-group input[type="radio"]:checked:disabled + label::before {
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 0 0 6px #fff, inset 0 0 0 12px #929292;
   }
 
@@ -59,8 +55,7 @@
     box-shadow: inset 0 0 0 1px #161616, inset 0 0 0 8px #fff, inset 0 0 0 8px #000091;
   }
 
-  .fr-radio-group--sm input[type="radio"]:disabled + label::before,
-  .fr-radio-group--sm input[type="radio"][disabled] + label::before {
+  .fr-radio-group--sm input[type="radio"]:disabled + label::before {
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 0 0 8px #e5e5e5, inset 0 0 0 8px #929292;
   }
 
@@ -68,8 +63,7 @@
     box-shadow: inset 0 0 0 1px #161616, inset 0 0 0 4px #fff, inset 0 0 0 8px #000091;
   }
 
-  .fr-radio-group--sm input[type="radio"]:checked:disabled + label::before,
-  .fr-radio-group--sm input[type="radio"]:checked[disabled] + label::before {
+  .fr-radio-group--sm input[type="radio"]:checked:disabled + label::before {
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 0 0 4px #e5e5e5, inset 0 0 0 8px #929292;
   }
 
@@ -82,12 +76,19 @@
     background-color: #fff;
   }
 
+  .fr-radio-rich input[type="radio"] + label:hover {
+    background-color: #f6f6f6;
+  }
+
+  .fr-radio-rich input[type="radio"] + label:active {
+    background-color: #ededed;
+  }
+
   .fr-radio-rich input[type="radio"] + label::before {
     box-shadow: inset 0 0 0 1px #161616, inset 0 0 0 8px #fff, inset 0 0 0 8px #000091;
   }
 
-  .fr-radio-rich input[type="radio"]:disabled + label::before,
-  .fr-radio-rich input[type="radio"][disabled] + label::before {
+  .fr-radio-rich input[type="radio"]:disabled + label::before {
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 0 0 8px #fff, inset 0 0 0 8px #929292;
   }
 
@@ -99,12 +100,10 @@
     box-shadow: inset 0 0 0 1px #161616, inset 0 0 0 4px #fff, inset 0 0 0 8px #000091;
   }
 
-  .fr-radio-rich input[type="radio"]:checked[disabled] + label,
   .fr-radio-rich input[type="radio"]:checked:disabled + label {
     box-shadow: inset 0 0 0 1px #929292;
   }
 
-  .fr-radio-rich input[type="radio"]:checked[disabled] + label::before,
   .fr-radio-rich input[type="radio"]:checked:disabled + label::before {
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 0 0 4px #fff, inset 0 0 0 8px #929292;
   }

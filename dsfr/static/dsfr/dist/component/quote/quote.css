@@ -1,11 +1,11 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
-/* ------------------------------------ *\
+/* ¯¯¯¯¯¯¯¯¯ *\
   QUOTE
-\* ------------------------------------ */
+\* ˍˍˍˍˍˍˍˍˍ */
 .fr-quote {
   position: relative;
   margin: 0;
@@ -17,8 +17,9 @@
 }
 
 .fr-quote::before {
-  font: normal normal normal 2rem/1 dsfr-icon;
-  content: "";
+  font: normal 700 normal 2rem/1 dsfr-icon;
+  content: "";
+  font-weight: 700;
   display: block;
   padding-bottom: 0.5rem;
   color: var(--artwork-minor-blue-france);
@@ -63,7 +64,8 @@
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  margin-bottom: 0.25rem;
+
+  --text-spacing: 0 0 0.25rem;
 }
 
 .fr-quote__image {
@@ -212,11 +214,6 @@
     min-height: auto;
   }
 
-  .fr-quote blockquote p {
-    font-size: 1.375rem;
-    line-height: 2.25rem;
-  }
-
   .fr-quote__image {
     position: absolute;
     top: 50%;
@@ -228,6 +225,13 @@
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+  * Correction largeur max du texte
+  */
+  .fr-quote blockquote {
+    max-width: 100%;
+  }
+
   .fr-quote::before {
     color: #6a6af4;
   }

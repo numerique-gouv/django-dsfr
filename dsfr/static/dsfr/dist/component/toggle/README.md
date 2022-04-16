@@ -19,6 +19,11 @@ Afin d’utiliser le composant `toggle`, il est nécessaire d’ajouter les fich
     <link href="css/toggle/toggle.min.css" rel="stylesheet">
   </head>
   <body>
+    <script type="text/javascript" nomodule href="js/legacy/legacy.nomodule.min.js" ></script>
+    <script type="module" href="js/core/core.module.min.js" ></script>
+    <script type="text/javascript" nomodule href="js/core/core.nomodule.min.js" ></script>
+    <script type="module" href="js/toggle/toggle.module.min.js" ></script>
+    <script type="text/javascript" nomodule href="js/toggle/toggle.nomodule.min.js" ></script>
   </body>
 </html>
 ```

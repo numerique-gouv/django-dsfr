@@ -1,20 +1,20 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.2.1'
+  version: '1.4.1'
 };
 
 const api = window[config.namespace];
 
 const NavigationSelector = {
-  NAVIGATION: api.ns.selector('nav'),
-  COLLAPSE: `${api.ns.selector('nav__item')} > ${api.ns.selector('collapse')}`,
-  ITEM: api.ns.selector('nav__item'),
-  ITEM_RIGHT: api.ns('nav__item--align-right'),
-  MENU: api.ns.selector('menu')
+  NAVIGATION: api.internals.ns.selector('nav'),
+  COLLAPSE: `${api.internals.ns.selector('nav__item')} > ${api.internals.ns.selector('collapse')}`,
+  ITEM: api.internals.ns.selector('nav__item'),
+  ITEM_RIGHT: api.internals.ns('nav__item--align-right'),
+  MENU: api.internals.ns.selector('menu')
 };
 
 class NavigationItem extends api.core.Instance {
@@ -55,8 +55,8 @@ class NavigationItem extends api.core.Instance {
   set isRightAligned (value) {
     if (this._isRightAligned === value) return;
     this._isRightAligned = value;
-    if (value) api.addClass(this.element.node, NavigationSelector.ITEM_RIGHT);
-    else api.removeClass(this.element.node, NavigationSelector.ITEM_RIGHT);
+    if (value) api.internals.dom.addClass(this.element.node, NavigationSelector.ITEM_RIGHT);
+    else api.internals.dom.removeClass(this.element.node, NavigationSelector.ITEM_RIGHT);
   }
 }
 
@@ -129,6 +129,6 @@ api.navigation = {
   NavigationSelector: NavigationSelector
 };
 
-api.register(api.navigation.NavigationSelector.NAVIGATION, api.navigation.Navigation);
-api.register(api.navigation.NavigationSelector.ITEM, api.navigation.NavigationItem);
+api.internals.register(api.navigation.NavigationSelector.NAVIGATION, api.navigation.Navigation);
+api.internals.register(api.navigation.NavigationSelector.ITEM, api.navigation.NavigationItem);
 //# sourceMappingURL=navigation.module.js.map

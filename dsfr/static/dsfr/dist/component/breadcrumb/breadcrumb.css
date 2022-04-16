@@ -1,11 +1,11 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
-/* ------------------------------------ *\
+/* ¯¯¯¯¯¯¯¯¯ *\
   BREADCRUMB
-\* ------------------------------------ */
+\* ˍˍˍˍˍˍˍˍˍ */
 
 /**
 un padding de 4px et une marge négative en compensation sont mis en place afin d'éviter de couper le focus.
@@ -25,7 +25,11 @@ un padding de 4px et une marge négative en compensation sont mis en place afin 
 }
 
 .fr-breadcrumb__button {
-  box-shadow: var(--link-underline);
+  background-image: var(--underline-img), var(--underline-img);
+  background-position: 50% calc(50% + 0.71875em), 50% calc(50% + 0.65625em);
+  background-repeat: no-repeat, no-repeat;
+  transition: background-size 0s;
+  background-size: 0 0.0625em, 100% 0.0625em;
   font-size: 0.75rem;
   line-height: 1.25rem;
   margin: 0;
@@ -76,20 +80,21 @@ un padding de 4px et une marge négative en compensation sont mis en place afin 
 }
 
 .fr-breadcrumb__link:not([aria-current])::after {
-  font: normal normal normal 1rem/1 dsfr-icon;
-  content: "";
+  font: normal 700 normal 1rem/1 dsfr-icon;
+  content: "";
+  font-weight: 700;
   position: absolute;
   top: 0.125rem;
   right: -1.25rem;
   pointer-events: none;
 }
 
-.fr-breadcrumb__link[aria-current] {
-  --link-underline: none;
-  --link-blank-font: none;
-  --link-blank-content: none;
+.fr-breadcrumb__link[aria-current]:not([href]) {
   pointer-events: none;
   cursor: default;
+}
+
+.fr-breadcrumb__link[aria-current] {
   color: var(--text-active-grey);
 }
 
@@ -123,6 +128,13 @@ un padding de 4px et une marge négative en compensation sont mis en place afin 
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+  * reset liste à puce
+  */
+  .fr-breadcrumb__list {
+    list-style: none;
+  }
+
   .fr-breadcrumb {
     color: #666;
   }

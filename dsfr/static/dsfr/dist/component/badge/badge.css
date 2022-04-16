@@ -1,0 +1,634 @@
+/*!
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ */
+@charset "UTF-8";
+
+/* ------------------------------------ *\
+  Badge
+\* ------------------------------------ */
+.fr-badge {
+  --text-spacing: 0;
+  --title-spacing: 0;
+  display: inline-flex;
+  align-items: center;
+  z-index: 1;
+
+  --underline-img: none;
+  --link-blank-font: none;
+  --link-blank-content: none;
+  --hover-tint: var(--hover);
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  min-height: 1.5rem;
+  padding: 0 0.5rem;
+  flex-direction: row;
+  overflow: initial;
+  max-height: none;
+  font-weight: 700;
+  max-width: 100%;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  color: var(--text-default-grey);
+  background-color: var(--background-contrast-grey);
+
+  --hover: var(--background-contrast-grey-hover);
+  --active: var(--background-contrast-grey-active);
+}
+
+.fr-badge--icon-left[class^="fr-icon-"],
+.fr-badge--icon-left[class*=" fr-icon-"],
+.fr-badge--icon-left[class^="fr-fi-"],
+.fr-badge--icon-left[class*=" fr-fi-"] {
+  flex-direction: row;
+  overflow: initial;
+  max-width: 100%;
+  max-height: none;
+}
+
+.fr-badge--icon-left[class^="fr-icon-"]::before,
+.fr-badge--icon-left[class*=" fr-icon-"]::before,
+.fr-badge--icon-left[class^="fr-fi-"]::before,
+.fr-badge--icon-left[class*=" fr-fi-"]::before {
+  margin-left: -0.16667rem;
+  margin-right: 0.25rem;
+  font-size: 1rem;
+}
+
+.fr-badge--sm {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  min-height: 1.125rem;
+  padding: 0 0.375rem;
+  flex-direction: row;
+  overflow: initial;
+  max-width: 100%;
+  max-height: none;
+}
+
+.fr-badge--sm.fr-badge--icon-left[class^="fr-icon-"],
+.fr-badge--sm.fr-badge--icon-left[class*=" fr-icon-"],
+.fr-badge--sm.fr-badge--icon-left[class^="fr-fi-"],
+.fr-badge--sm.fr-badge--icon-left[class*=" fr-fi-"] {
+  flex-direction: row;
+  overflow: initial;
+  max-width: 100%;
+  max-height: none;
+}
+
+.fr-badge--sm.fr-badge--icon-left[class^="fr-icon-"]::before,
+.fr-badge--sm.fr-badge--icon-left[class*=" fr-icon-"]::before,
+.fr-badge--sm.fr-badge--icon-left[class^="fr-fi-"]::before,
+.fr-badge--sm.fr-badge--icon-left[class*=" fr-fi-"]::before {
+  margin-left: -0.125rem;
+  margin-right: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.fr-badge::before {
+  font: normal 700 normal 1.5rem/1 dsfr-icon;
+  margin-left: -0.16667rem;
+  margin-right: 0.25rem;
+  font-size: 1rem;
+}
+
+.fr-badge--sm::before {
+  font: normal 700 normal 1rem/1 dsfr-icon;
+  margin-left: -0.125rem;
+  margin-right: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.fr-badge.fr-badge--info::before,
+.fr-badge--sm.fr-badge--info::before {
+  content: "";
+  font-weight: 400;
+}
+
+.fr-badge.fr-badge--success::before,
+.fr-badge--sm.fr-badge--success::before {
+  content: "";
+  font-weight: 400;
+}
+
+.fr-badge.fr-badge--error::before,
+.fr-badge--sm.fr-badge--error::before {
+  content: "";
+  font-weight: 400;
+}
+
+.fr-badge.fr-badge--warning::before,
+.fr-badge--sm.fr-badge--warning::before {
+  content: "";
+  font-weight: 400;
+}
+
+.fr-badge.fr-badge--new::before,
+.fr-badge--sm.fr-badge--new::before {
+  content: "";
+  font-weight: 400;
+}
+
+.fr-badge.fr-badge--no-icon::before,
+.fr-badge--sm.fr-badge--no-icon::before {
+  content: none;
+}
+
+.fr-badge-group {
+  --ul-type: none;
+  --ol-type: none;
+  --ul-start: 0;
+  --ol-start: 0;
+  --xl-block: 0;
+  --li-bottom: 0;
+  --ol-content: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.fr-badge-group > li {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.fr-badge-group .fr-badge {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.fr-badge--info {
+  color: var(--text-default-info);
+  background-color: var(--background-contrast-info);
+
+  --hover: var(--background-contrast-info-hover);
+  --active: var(--background-contrast-info-active);
+}
+
+.fr-badge--error {
+  color: var(--text-default-error);
+  background-color: var(--background-contrast-error);
+
+  --hover: var(--background-contrast-error-hover);
+  --active: var(--background-contrast-error-active);
+}
+
+.fr-badge--success {
+  color: var(--text-default-success);
+  background-color: var(--background-contrast-success);
+
+  --hover: var(--background-contrast-success-hover);
+  --active: var(--background-contrast-success-active);
+}
+
+.fr-badge--warning {
+  color: var(--text-default-warning);
+  background-color: var(--background-contrast-warning);
+
+  --hover: var(--background-contrast-warning-hover);
+  --active: var(--background-contrast-warning-active);
+}
+
+.fr-badge--new {
+  color: var(--text-action-high-yellow-moutarde);
+  background-color: var(--background-contrast-yellow-moutarde);
+
+  --hover: var(--background-contrast-yellow-moutarde-hover);
+  --active: var(--background-contrast-yellow-moutarde-active);
+}
+
+.fr-badge--green-tilleul-verveine {
+  color: var(--text-label-green-tilleul-verveine);
+  background-color: var(--background-contrast-green-tilleul-verveine);
+
+  --hover: var(--background-contrast-green-tilleul-verveine-hover);
+  --active: var(--background-contrast-green-tilleul-verveine-active);
+}
+
+.fr-badge--green-bourgeon {
+  color: var(--text-label-green-bourgeon);
+  background-color: var(--background-contrast-green-bourgeon);
+
+  --hover: var(--background-contrast-green-bourgeon-hover);
+  --active: var(--background-contrast-green-bourgeon-active);
+}
+
+.fr-badge--green-emeraude {
+  color: var(--text-label-green-emeraude);
+  background-color: var(--background-contrast-green-emeraude);
+
+  --hover: var(--background-contrast-green-emeraude-hover);
+  --active: var(--background-contrast-green-emeraude-active);
+}
+
+.fr-badge--green-menthe {
+  color: var(--text-label-green-menthe);
+  background-color: var(--background-contrast-green-menthe);
+
+  --hover: var(--background-contrast-green-menthe-hover);
+  --active: var(--background-contrast-green-menthe-active);
+}
+
+.fr-badge--green-archipel {
+  color: var(--text-label-green-archipel);
+  background-color: var(--background-contrast-green-archipel);
+
+  --hover: var(--background-contrast-green-archipel-hover);
+  --active: var(--background-contrast-green-archipel-active);
+}
+
+.fr-badge--blue-ecume {
+  color: var(--text-label-blue-ecume);
+  background-color: var(--background-contrast-blue-ecume);
+
+  --hover: var(--background-contrast-blue-ecume-hover);
+  --active: var(--background-contrast-blue-ecume-active);
+}
+
+.fr-badge--blue-cumulus {
+  color: var(--text-label-blue-cumulus);
+  background-color: var(--background-contrast-blue-cumulus);
+
+  --hover: var(--background-contrast-blue-cumulus-hover);
+  --active: var(--background-contrast-blue-cumulus-active);
+}
+
+.fr-badge--purple-glycine {
+  color: var(--text-label-purple-glycine);
+  background-color: var(--background-contrast-purple-glycine);
+
+  --hover: var(--background-contrast-purple-glycine-hover);
+  --active: var(--background-contrast-purple-glycine-active);
+}
+
+.fr-badge--pink-macaron {
+  color: var(--text-label-pink-macaron);
+  background-color: var(--background-contrast-pink-macaron);
+
+  --hover: var(--background-contrast-pink-macaron-hover);
+  --active: var(--background-contrast-pink-macaron-active);
+}
+
+.fr-badge--pink-tuile {
+  color: var(--text-label-pink-tuile);
+  background-color: var(--background-contrast-pink-tuile);
+
+  --hover: var(--background-contrast-pink-tuile-hover);
+  --active: var(--background-contrast-pink-tuile-active);
+}
+
+.fr-badge--yellow-tournesol {
+  color: var(--text-label-yellow-tournesol);
+  background-color: var(--background-contrast-yellow-tournesol);
+
+  --hover: var(--background-contrast-yellow-tournesol-hover);
+  --active: var(--background-contrast-yellow-tournesol-active);
+}
+
+.fr-badge--yellow-moutarde {
+  color: var(--text-label-yellow-moutarde);
+  background-color: var(--background-contrast-yellow-moutarde);
+
+  --hover: var(--background-contrast-yellow-moutarde-hover);
+  --active: var(--background-contrast-yellow-moutarde-active);
+}
+
+.fr-badge--orange-terre-battue {
+  color: var(--text-label-orange-terre-battue);
+  background-color: var(--background-contrast-orange-terre-battue);
+
+  --hover: var(--background-contrast-orange-terre-battue-hover);
+  --active: var(--background-contrast-orange-terre-battue-active);
+}
+
+.fr-badge--brown-cafe-creme {
+  color: var(--text-label-brown-cafe-creme);
+  background-color: var(--background-contrast-brown-cafe-creme);
+
+  --hover: var(--background-contrast-brown-cafe-creme-hover);
+  --active: var(--background-contrast-brown-cafe-creme-active);
+}
+
+.fr-badge--brown-caramel {
+  color: var(--text-label-brown-caramel);
+  background-color: var(--background-contrast-brown-caramel);
+
+  --hover: var(--background-contrast-brown-caramel-hover);
+  --active: var(--background-contrast-brown-caramel-active);
+}
+
+.fr-badge--brown-opera {
+  color: var(--text-label-brown-opera);
+  background-color: var(--background-contrast-brown-opera);
+
+  --hover: var(--background-contrast-brown-opera-hover);
+  --active: var(--background-contrast-brown-opera-active);
+}
+
+.fr-badge--beige-gris-galet {
+  color: var(--text-label-beige-gris-galet);
+  background-color: var(--background-contrast-beige-gris-galet);
+
+  --hover: var(--background-contrast-beige-gris-galet-hover);
+  --active: var(--background-contrast-beige-gris-galet-active);
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .fr-badge {
+    color: #3a3a3a;
+    background-color: #eee;
+  }
+
+  .fr-badge:hover {
+    background-color: #d2d2d2;
+  }
+
+  .fr-badge:active {
+    background-color: #c1c1c1;
+  }
+
+  .fr-badge--info {
+    color: #0063cb;
+    background-color: #e8edff;
+  }
+
+  .fr-badge--info:hover {
+    background-color: #c2d1ff;
+  }
+
+  .fr-badge--info:active {
+    background-color: #a9bfff;
+  }
+
+  .fr-badge--error {
+    color: #ce0500;
+    background-color: #ffe9e9;
+  }
+
+  .fr-badge--error:hover {
+    background-color: #ffc5c5;
+  }
+
+  .fr-badge--error:active {
+    background-color: #ffafaf;
+  }
+
+  .fr-badge--success {
+    color: #18753c;
+    background-color: #b8fec9;
+  }
+
+  .fr-badge--success:hover {
+    background-color: #46fd89;
+  }
+
+  .fr-badge--success:active {
+    background-color: #34eb7b;
+  }
+
+  .fr-badge--warning {
+    color: #b34000;
+    background-color: #ffe9e6;
+  }
+
+  .fr-badge--warning:hover {
+    background-color: #ffc6bd;
+  }
+
+  .fr-badge--warning:active {
+    background-color: #ffb0a2;
+  }
+
+  .fr-badge--new {
+    color: #695240;
+    background-color: #feebd0;
+  }
+
+  .fr-badge--new:hover {
+    background-color: #fdcd6d;
+  }
+
+  .fr-badge--new:active {
+    background-color: #f4be30;
+  }
+
+  .fr-badge--green-tilleul-verveine {
+    color: #66673d;
+    background-color: #fceeac;
+  }
+
+  .fr-badge--green-tilleul-verveine:hover {
+    background-color: #e8d45c;
+  }
+
+  .fr-badge--green-tilleul-verveine:active {
+    background-color: #d4c254;
+  }
+
+  .fr-badge--green-bourgeon {
+    color: #447049;
+    background-color: #c9fcac;
+  }
+
+  .fr-badge--green-bourgeon:hover {
+    background-color: #9ae95d;
+  }
+
+  .fr-badge--green-bourgeon:active {
+    background-color: #8dd555;
+  }
+
+  .fr-badge--green-emeraude {
+    color: #297254;
+    background-color: #c3fad5;
+  }
+
+  .fr-badge--green-emeraude:hover {
+    background-color: #77eda5;
+  }
+
+  .fr-badge--green-emeraude:active {
+    background-color: #6dd897;
+  }
+
+  .fr-badge--green-menthe {
+    color: #37635f;
+    background-color: #bafaee;
+  }
+
+  .fr-badge--green-menthe:hover {
+    background-color: #79e7d5;
+  }
+
+  .fr-badge--green-menthe:active {
+    background-color: #6fd3c3;
+  }
+
+  .fr-badge--green-archipel {
+    color: #006a6f;
+    background-color: #c7f6fc;
+  }
+
+  .fr-badge--green-archipel:hover {
+    background-color: #64ecf8;
+  }
+
+  .fr-badge--green-archipel:active {
+    background-color: #5bd8e3;
+  }
+
+  .fr-badge--blue-ecume {
+    color: #2f4077;
+    background-color: #e9edfe;
+  }
+
+  .fr-badge--blue-ecume:hover {
+    background-color: #c5d0fc;
+  }
+
+  .fr-badge--blue-ecume:active {
+    background-color: #adbffc;
+  }
+
+  .fr-badge--blue-cumulus {
+    color: #3558a2;
+    background-color: #e6eefe;
+  }
+
+  .fr-badge--blue-cumulus:hover {
+    background-color: #bcd3fc;
+  }
+
+  .fr-badge--blue-cumulus:active {
+    background-color: #9fc3fc;
+  }
+
+  .fr-badge--purple-glycine {
+    color: #6e445a;
+    background-color: #fee7fc;
+  }
+
+  .fr-badge--purple-glycine:hover {
+    background-color: #fdc0f8;
+  }
+
+  .fr-badge--purple-glycine:active {
+    background-color: #fca8f6;
+  }
+
+  .fr-badge--pink-macaron {
+    color: #8d533e;
+    background-color: #fee9e6;
+  }
+
+  .fr-badge--pink-macaron:hover {
+    background-color: #fdc6bd;
+  }
+
+  .fr-badge--pink-macaron:active {
+    background-color: #fcb0a2;
+  }
+
+  .fr-badge--pink-tuile {
+    color: #a94645;
+    background-color: #fee9e7;
+  }
+
+  .fr-badge--pink-tuile:hover {
+    background-color: #fdc6c0;
+  }
+
+  .fr-badge--pink-tuile:active {
+    background-color: #fcb0a7;
+  }
+
+  .fr-badge--yellow-tournesol {
+    color: #716043;
+    background-color: #feecc2;
+  }
+
+  .fr-badge--yellow-tournesol:hover {
+    background-color: #fbd335;
+  }
+
+  .fr-badge--yellow-tournesol:active {
+    background-color: #e6c130;
+  }
+
+  .fr-badge--yellow-moutarde {
+    color: #695240;
+    background-color: #feebd0;
+  }
+
+  .fr-badge--yellow-moutarde:hover {
+    background-color: #fdcd6d;
+  }
+
+  .fr-badge--yellow-moutarde:active {
+    background-color: #f4be30;
+  }
+
+  .fr-badge--orange-terre-battue {
+    color: #755348;
+    background-color: #fee9e5;
+  }
+
+  .fr-badge--orange-terre-battue:hover {
+    background-color: #fdc6ba;
+  }
+
+  .fr-badge--orange-terre-battue:active {
+    background-color: #fcb09e;
+  }
+
+  .fr-badge--brown-cafe-creme {
+    color: #685c48;
+    background-color: #f7ecdb;
+  }
+
+  .fr-badge--brown-cafe-creme:hover {
+    background-color: #edce94;
+  }
+
+  .fr-badge--brown-cafe-creme:active {
+    background-color: #dabd84;
+  }
+
+  .fr-badge--brown-caramel {
+    color: #845d48;
+    background-color: #f7ebe5;
+  }
+
+  .fr-badge--brown-caramel:hover {
+    background-color: #eccbb9;
+  }
+
+  .fr-badge--brown-caramel:active {
+    background-color: #e6b79a;
+  }
+
+  .fr-badge--brown-opera {
+    color: #745b47;
+    background-color: #f7ece4;
+  }
+
+  .fr-badge--brown-opera:hover {
+    background-color: #eccdb3;
+  }
+
+  .fr-badge--brown-opera:active {
+    background-color: #e6ba90;
+  }
+
+  .fr-badge--beige-gris-galet {
+    color: #6a6156;
+    background-color: #f3ede5;
+  }
+
+  .fr-badge--beige-gris-galet:hover {
+    background-color: #e1d0b5;
+  }
+
+  .fr-badge--beige-gris-galet:active {
+    background-color: #d1bea2;
+  }
+}

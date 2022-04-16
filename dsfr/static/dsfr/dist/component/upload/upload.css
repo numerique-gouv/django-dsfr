@@ -1,9 +1,11 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
-/* ------------------------------------ *\
-  UPLOAD MAIN
-\* ------------------------------------ */
+@charset "UTF-8";
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  UPLOAD
+\* ˍˍˍˍˍˍˍˍˍ */
 .fr-upload-group .fr-label .fr-hint-text {
   margin-top: 0.75rem;
 }

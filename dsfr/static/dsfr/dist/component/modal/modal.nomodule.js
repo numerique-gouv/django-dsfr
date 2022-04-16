@@ -1,4 +1,4 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 (function () {
   'use strict';
@@ -7,15 +7,15 @@
     prefix: 'fr',
     namespace: 'dsfr',
     organisation: '@gouvfr',
-    version: '1.2.1'
+    version: '1.4.1'
   };
 
   var api = window[config.namespace];
 
   var ModalSelector = {
-    MODAL: api.ns.selector('modal'),
-    SCROLL_SHADOW: api.ns.selector('scroll-shadow'),
-    BODY: api.ns.selector('modal__body')
+    MODAL: api.internals.ns.selector('modal'),
+    SCROLL_SHADOW: api.internals.ns.selector('scroll-shadow'),
+    BODY: api.internals.ns.selector('modal__body')
   };
 
   var ModalButton = /*@__PURE__*/(function (superclass) {
@@ -38,13 +38,8 @@
     return ModalButton;
   }(api.core.DisclosureButton));
 
-  var ModalEmission = {
-    ACTIVATE: api.ns.emission('modal', 'activate'),
-    DEACTIVATE: api.ns.emission('modal', 'deactivate')
-  };
-
   var ModalAttribute = {
-    CONCEALING_BACKDROP: api.ns.attr('concealing-backdrop')
+    CONCEALING_BACKDROP: api.internals.ns.attr('concealing-backdrop')
   };
 
   var Modal = /*@__PURE__*/(function (superclass) {
@@ -58,6 +53,7 @@
     Modal.prototype = Object.create( superclass && superclass.prototype );
     Modal.prototype.constructor = Modal;
 
+    var prototypeAccessors = { body: { configurable: true } };
     var staticAccessors = { instanceClassName: { configurable: true } };
 
     staticAccessors.instanceClassName.get = function () {
@@ -70,15 +66,20 @@
       this.listenKey(api.core.KeyCodes.ESCAPE, this.conceal.bind(this, false, false), true, true);
     };
 
+    prototypeAccessors.body.get = function () {
+      return this.element.getDescendantInstances('ModalBody', 'Modal')[0];
+    };
+
     Modal.prototype.click = function click (e) {
       if (e.target === this.node && this.getAttribute(ModalAttribute.CONCEALING_BACKDROP) !== 'false') { this.conceal(); }
     };
 
     Modal.prototype.disclose = function disclose (withhold) {
       if (!superclass.prototype.disclose.call(this, withhold)) { return false; }
-      this.descend(ModalEmission.ACTIVATE);
+      if (this.body) { this.body.activate(); }
       this.isScrollLocked = true;
       this.setAttribute('aria-modal', 'true');
+      this.setAttribute('open', 'true');
       return true;
     };
 
@@ -86,10 +87,12 @@
       if (!superclass.prototype.conceal.call(this, withhold, preventFocus)) { return false; }
       this.isScrollLocked = false;
       this.removeAttribute('aria-modal');
-      this.descend(ModalEmission.DEACTIVATE);
+      this.removeAttribute('open');
+      if (this.body) { this.body.deactivate(); }
       return true;
     };
 
+    Object.defineProperties( Modal.prototype, prototypeAccessors );
     Object.defineProperties( Modal, staticAccessors );
 
     return Modal;
@@ -233,12 +236,12 @@
   prototypeAccessors.focusables.get = function () {
       var this$1$1 = this;
 
-    var unordereds = api.querySelectorAllArray(this.element, UNORDEREDS);
+    var unordereds = api.internals.dom.querySelectorAllArray(this.element, UNORDEREDS);
 
     /**
      *filtrage des radiobutttons de même name (la navigations d'un groupe de radio se fait à la flèche et non pas au tab
      **/
-    var radios = api.querySelectorAllArray(document.documentElement, 'input[type="radio"]');
+    var radios = api.internals.dom.querySelectorAllArray(document.documentElement, 'input[type="radio"]');
 
     if (radios.length) {
       var groups = {};
@@ -258,7 +261,7 @@
       });
     }
 
-    var ordereds = api.querySelectorAllArray(this.element, ORDEREDS);
+    var ordereds = api.internals.dom.querySelectorAllArray(this.element, ORDEREDS);
 
     ordereds.sort(function (a, b) { return a.tabIndex - b.tabIndex; });
 
@@ -365,8 +368,6 @@
 
     ModalBody.prototype.init = function init () {
       this.listen('scroll', this.shade.bind(this));
-      this.addDescent(ModalEmission.ACTIVATE, this.activate.bind(this));
-      this.addDescent(ModalEmission.DEACTIVATE, this.deactivate.bind(this));
     };
 
     ModalBody.prototype.activate = function activate () {
@@ -397,7 +398,8 @@
 
     ModalBody.prototype.adjust = function adjust () {
       var offset = OFFSET * (this.isBreakpoint(api.core.Breakpoints.MD) ? 2 : 1);
-      this.style.maxHeight = (window.innerHeight - offset) + "px";
+      if (this.isLegacy) { this.style.maxHeight = (window.innerHeight - offset) + "px"; }
+      else { this.style.setProperty('--modal-max-height', ((window.innerHeight - offset) + "px")); }
       this.shade();
     };
 
@@ -414,9 +416,9 @@
     ModalSelector: ModalSelector
   };
 
-  api.register(api.modal.ModalSelector.MODAL, api.modal.Modal);
-  api.register(api.modal.ModalSelector.BODY, api.modal.ModalBody);
-  api.register(api.core.RootSelector.ROOT, api.modal.ModalsGroup);
+  api.internals.register(api.modal.ModalSelector.MODAL, api.modal.Modal);
+  api.internals.register(api.modal.ModalSelector.BODY, api.modal.ModalBody);
+  api.internals.register(api.core.RootSelector.ROOT, api.modal.ModalsGroup);
 
 })();
 //# sourceMappingURL=modal.nomodule.js.map

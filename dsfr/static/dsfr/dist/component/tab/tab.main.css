@@ -1,22 +1,22 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
-/* ------------------------------------ *\
+/* ¯¯¯¯¯¯¯¯¯ *\
   TAB
-\* ------------------------------------ */
+\* ˍˍˍˍˍˍˍˍˍ */
 .fr-tabs__tab {
-  --link-underline: none;
-  --link-blank-font: none;
-  --link-blank-content: none;
   --text-spacing: 0;
   --title-spacing: 0;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
 
-  --blend-full-size: 100%;
+  --underline-img: none;
+  --link-blank-font: none;
+  --link-blank-content: none;
+  --hover-tint: var(--hover);
   font-size: 1rem;
   line-height: 1.5rem;
   min-height: 2.5rem;
@@ -29,6 +29,8 @@
   white-space: nowrap;
 }
 
+.fr-tabs__tab:not([class*="fr-tabs__tab--icon-"])[class^="fr-icon-"],
+.fr-tabs__tab:not([class*="fr-tabs__tab--icon-"])[class*=" fr-icon-"],
 .fr-tabs__tab:not([class*="fr-tabs__tab--icon-"])[class^="fr-fi-"],
 .fr-tabs__tab:not([class*="fr-tabs__tab--icon-"])[class*=" fr-fi-"] {
   flex-direction: row;
@@ -40,6 +42,8 @@
   padding-right: 0.75rem;
 }
 
+.fr-tabs__tab:not([class*="fr-tabs__tab--icon-"])[class^="fr-icon-"]::before,
+.fr-tabs__tab:not([class*="fr-tabs__tab--icon-"])[class*=" fr-icon-"]::before,
 .fr-tabs__tab:not([class*="fr-tabs__tab--icon-"])[class^="fr-fi-"]::before,
 .fr-tabs__tab:not([class*="fr-tabs__tab--icon-"])[class*=" fr-fi-"]::before {
   margin-left: 0;
@@ -47,22 +51,27 @@
   font-size: 1rem;
 }
 
+.fr-tabs__tab--icon-left[class^="fr-icon-"],
+.fr-tabs__tab--icon-left[class*=" fr-icon-"],
 .fr-tabs__tab--icon-left[class^="fr-fi-"],
 .fr-tabs__tab--icon-left[class*=" fr-fi-"] {
   flex-direction: row;
   overflow: initial;
-  max-width: none;
+  max-width: 100%;
   max-height: none;
 }
 
+.fr-tabs__tab--icon-left[class^="fr-icon-"]::before,
+.fr-tabs__tab--icon-left[class*=" fr-icon-"]::before,
 .fr-tabs__tab--icon-left[class^="fr-fi-"]::before,
 .fr-tabs__tab--icon-left[class*=" fr-fi-"]::before {
-  margin-left: -0.25rem;
+  margin-left: -0.16667rem;
   margin-right: 0.5rem;
   font-size: 1rem;
 }
 
 .fr-tabs {
+  --tabs-height: auto;
   --ul-type: none;
   --ol-type: none;
   --ul-start: 0;
@@ -70,23 +79,24 @@
   --xl-block: 0;
   --li-bottom: 0;
   --ol-content: none;
-  --link-underline: none;
+  --underline-img: none;
   --link-blank-font: none;
   --link-blank-content: none;
   position: relative;
   overflow: hidden;
+  margin-left: 0;
+  margin-right: 0;
   margin-top: -4px;
   padding-top: 4px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  height: var(--tabs-height);
 
   /**
-    * Animation de la hauteur du panel
-    */
+  * Animation de la hauteur du panel
+  */
   transition: height 0.3s;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
 
   /**
    * ul : element srollable des boutons
@@ -104,9 +114,9 @@
     */
 }
 
-.fr-tabs .fr-tabs {
-  margin-left: 0;
-  margin-right: 0;
+.fr-tabs--viewport-width {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
 .fr-tabs::after {
@@ -126,8 +136,9 @@
   align-items: flex-end;
   overflow-x: auto;
   width: 100%;
-  height: 3rem;
+  min-height: 3rem;
   position: absolute;
+  z-index: 1;
 
   /**
     * overflow vertical de 4px pour le focus
@@ -139,9 +150,10 @@
 .fr-tabs__tab[aria-selected=true] {
   pointer-events: none;
   color: var(--text-active-blue-france);
-
-  --blend: var(--background-default-grey-blend);
   background-color: var(--background-default-grey);
+
+  --hover: var(--background-default-grey-hover);
+  --active: var(--background-default-grey-active);
 }
 
 .fr-tabs__tab::after {
@@ -164,9 +176,9 @@
 }
 
 .fr-tabs__panel {
-  --link-underline: 0 1px 0 0 currentColor;
-  --link-blank-font: normal normal normal 1rem/1 dsfr-icon;
-  --link-blank-content: "\00a0";
+  --underline-img: linear-gradient(0deg, currentColor, currentColor);
+  --link-blank-font: normal 700 normal 1rem/1 dsfr-icon;
+  --link-blank-content: "\00a0";
   --ul-type: "●\00a0\00a0";
   --ol-type: decimal;
   --ul-start: 1rem;
@@ -205,26 +217,87 @@
   outline-offset: calc(-1rem + 2px);
 }
 
+.fr-tabs__panel--direction-end {
+  transform: translate(100%);
+}
+
+.fr-tabs__panel--direction-start {
+  transform: translate(-100%);
+}
+
 .fr-tabs__panel:not(.fr-tabs__panel--selected) {
   visibility: hidden;
 }
 
+/*
+* Ombres ajoutées en Js si le contenu est plus grand que le conteneur
+*/
+.fr-tabs__shadow {
+  /**
+  * Modifier ombre à gauche
+  **/
+
+  /**
+  * Modifier ombre à droite
+  **/
+
+  /**
+  * Modifier combinaison ombre à gauche et ombre à droite
+  **/
+}
+
+.fr-tabs__shadow::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0.25rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2.5rem;
+  z-index: 2;
+  box-shadow: inset 0 0 0 0 #161616, inset 0 0 0 0 #161616;
+  opacity: 1;
+  pointer-events: none;
+  transition: box-shadow 0.3s;
+}
+
+.fr-tabs__shadow--left::before {
+  box-shadow: inset 2rem 0 1.5rem -2rem #161616, inset 0 0 0 0 #161616;
+}
+
+.fr-tabs__shadow--right::before {
+  box-shadow: inset 0 0 0 0 #161616, inset -2rem 0 1.5rem -2rem #161616;
+}
+
+.fr-tabs__shadow--left.fr-tabs__shadow--right::before {
+  content: "";
+  display: block;
+  box-shadow: inset 2rem 0 1.5rem -2rem #161616, inset -2rem 0 1.5rem -2rem #161616;
+}
+
+:root[data-fr-theme="dark"] .fr-tabs__shadow::before {
+  opacity: 1;
+}
+
 .fr-tabs__tab:not([aria-selected=true]) {
-  --blend: var(--background-action-low-blue-france-blend);
   background-color: var(--background-action-low-blue-france);
+
+  --hover: var(--background-action-low-blue-france-hover);
+  --active: var(--background-action-low-blue-france-active);
   color: var(--text-action-high-grey);
 }
 
-.fr-tabs__tab:disabled,
-.fr-tabs__tab[disabled] {
+.fr-tabs__tab:disabled {
   color: var(--text-disabled-grey);
-
-  --blend: var(--background-disabled-grey-blend);
   background-color: var(--background-disabled-grey);
+
+  --hover: var(--background-disabled-grey-hover);
+  --active: var(--background-disabled-grey-active);
 }
 
 @media (min-width: 48em) {
-  .fr-tabs {
+  .fr-tabs--viewport-width {
     margin-left: 0;
     margin-right: 0;
   }

@@ -6,7 +6,7 @@ Les médias désignent vos contenus photos et vidéos. Lorsqu’ils sont intégr
 ```shell
 content
 └─ core
-└─ link
+└─ button
 ```
 
 ## Utilisation
@@ -16,6 +16,7 @@ Afin d’utiliser le composant `content`, il est nécessaire d’ajouter les fic
   <head>
     <link href="css/core/core.min.css" rel="stylesheet">
     <link href="css/link/link.min.css" rel="stylesheet">
+    <link href="css/button/button.min.css" rel="stylesheet">
     <link href="css/content/content.min.css" rel="stylesheet">
   </head>
   <body>

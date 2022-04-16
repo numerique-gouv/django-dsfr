@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
@@ -57,6 +57,14 @@
     */
 }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+  * Correctif de la largeur de la légende d'un fieldset
+  */
+  .fr-fieldset__legend {
+    max-width: 100%;
+    color: #161616;
+  }
+
   .fr-select-group--valid label,
   .fr-input-group--valid label {
     color: #18753c;
@@ -96,13 +104,8 @@
     color: #18753c;
   }
 
-  .fr-fieldset:disabled label,
-  .fr-fieldset[disabled] label {
+  .fr-fieldset:disabled label {
     color: #929292;
-  }
-
-  .fr-fieldset__legend {
-    color: #161616;
   }
 
   .fr-fieldset--error .fr-fieldset__content::before {

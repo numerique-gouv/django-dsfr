@@ -6,6 +6,7 @@ Le pied de page propose des éléments d’information sur le site et une naviga
 ```shell
 footer
 └─ core
+└─ link
 └─ logo
 ```
 
@@ -15,6 +16,7 @@ Afin d’utiliser le composant `footer`, il est nécessaire d’ajouter les fich
 <html>
   <head>
     <link href="css/core/core.min.css" rel="stylesheet">
+    <link href="css/link/link.min.css" rel="stylesheet">
     <link href="css/logo/logo.min.css" rel="stylesheet">
     <link href="css/footer/footer.min.css" rel="stylesheet">
   </head>
