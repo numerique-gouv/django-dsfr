@@ -1,4 +1,4 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 (function () {
   'use strict';
@@ -70,7 +70,7 @@
     prefix: 'fr',
     namespace: 'dsfr',
     organisation: '@gouvfr',
-    version: '1.2.1'
+    version: '1.4.1'
   };
 
   var LogLevel = function LogLevel (level, light, dark, logger) {
@@ -1024,7 +1024,8 @@
       if (!this._isLocked) {
         this._isLocked = true;
         this._scrollY = window.scrollY;
-        document.body.style.top = this._scrollY * -1 + 'px';
+        if (this.isLegacy) { document.body.style.top = this._scrollY * -1 + 'px'; }
+        else { document.body.style.setProperty('--scroll-top', this._scrollY * -1 + 'px'); }
         document.documentElement.setAttribute(ns.attr('scrolling'), 'false');
       }
     };
@@ -1033,7 +1034,8 @@
       if (this._isLocked) {
         this._isLocked = false;
         document.documentElement.removeAttribute(ns.attr('scrolling'));
-        document.body.style.top = '';
+        if (this.isLegacy) { document.body.style.top = ''; }
+        else { document.body.style.removeProperty('--scroll-top'); }
         window.scroll(0, this._scrollY);
       }
     };
@@ -1064,6 +1066,81 @@
     return Load;
   }(Module));
 
+  var FONT_FAMILIES = ['Marianne', 'Spectral'];
+
+  var FontSwap = /*@__PURE__*/(function (Module) {
+    function FontSwap () {
+      Module.call(this, 'font-swap');
+      this.swapping = this.swap.bind(this);
+    }
+
+    if ( Module ) FontSwap.__proto__ = Module;
+    FontSwap.prototype = Object.create( Module && Module.prototype );
+    FontSwap.prototype.constructor = FontSwap;
+
+    FontSwap.prototype.activate = function activate () {
+      if (document.fonts) {
+        document.fonts.addEventListener('loadingdone', this.swapping);
+      }
+    };
+
+    FontSwap.prototype.swap = function swap () {
+      var families = FONT_FAMILIES.filter(function (family) { return document.fonts.check(("16px " + family)); });
+
+      this.forEach(function (instance) { return instance.swapFont(families); });
+    };
+
+    return FontSwap;
+  }(Module));
+
+  var MouseMove = /*@__PURE__*/(function (Module) {
+    function MouseMove () {
+      Module.call(this, 'mouse-move');
+      this.requireMove = false;
+      this._isMoving = false;
+      this.moving = this.move.bind(this);
+      this.requesting = this.request.bind(this);
+      this.onPopulate = this.listen.bind(this);
+      this.onEmpty = this.unlisten.bind(this);
+    }
+
+    if ( Module ) MouseMove.__proto__ = Module;
+    MouseMove.prototype = Object.create( Module && Module.prototype );
+    MouseMove.prototype.constructor = MouseMove;
+
+    MouseMove.prototype.listen = function listen () {
+      if (this._isMoving) { return; }
+      this._isMoving = true;
+      this.requireMove = false;
+      document.documentElement.addEventListener('mousemove', this.requesting);
+    };
+
+    MouseMove.prototype.unlisten = function unlisten () {
+      if (!this._isMoving) { return; }
+      this._isMoving = false;
+      this.requireMove = false;
+      document.documentElement.removeEventListener('mousemove', this.requesting);
+    };
+
+    MouseMove.prototype.request = function request (e) {
+      if (!this._isMoving) { return; }
+      this.point = { x: e.clientX, y: e.clientY };
+      if (this.requireMove) { return; }
+      this.requireMove = true;
+      window.requestAnimationFrame(this.moving);
+    };
+
+    MouseMove.prototype.move = function move () {
+      var this$1$1 = this;
+
+      if (!this.requireMove) { return; }
+      this.forEach(function (instance) { return instance.mouseMove(this$1$1.point); });
+      this.requireMove = false;
+    };
+
+    return MouseMove;
+  }(Module));
+
   var Engine = function Engine () {
     state.create(Register);
     state.create(Stage);
@@ -1071,6 +1148,8 @@
     state.create(Resizer);
     state.create(ScrollLocker);
     state.create(Load);
+    state.create(FontSwap);
+    state.create(MouseMove);
 
     var registerModule = state.getModule('register');
     this.register = registerModule.register.bind(registerModule);
@@ -1116,6 +1195,105 @@
 
   var hasClass = function (element, className) { return getClassNames(element).indexOf(sanitize(className)) > -1; };
 
+  var dom = {};
+
+  dom.addClass = addClass;
+  dom.hasClass = hasClass;
+  dom.removeClass = removeClass;
+  dom.queryParentSelector = queryParentSelector;
+  dom.querySelectorAllArray = querySelectorAllArray;
+
+  var supportLocalStorage = function () {
+    try {
+      return 'localStorage' in window && window.localStorage !== null;
+    } catch (e) {
+      return false;
+    }
+  };
+
+  var support = {};
+
+  support.supportLocalStorage = supportLocalStorage;
+
+  var TransitionSelector = {
+    NONE: ns.selector('transition-none')
+  };
+
+  var selector = {};
+
+  selector.TransitionSelector = TransitionSelector;
+
+  /**
+   * Copy properties from multiple sources including accessors.
+   * source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#copier_des_accesseurs
+   *
+   * @param {object} [target] - Target object to copy into
+   * @param {...objects} [sources] - Multiple objects
+   * @return {object} A new object
+   *
+   * @example
+   *
+   *     const obj1 = {
+   *        key: 'value'
+   *     };
+   *     const obj2 = {
+   *        get function01 () {
+   *          return a-value;
+   *        }
+   *        set function01 () {
+   *          return a-value;
+   *        }
+   *     };
+   *     completeAssign(obj1, obj2)
+   */
+  var completeAssign = function (target) {
+    var sources = [], len = arguments.length - 1;
+    while ( len-- > 0 ) sources[ len ] = arguments[ len + 1 ];
+
+    sources.forEach(function (source) {
+      var descriptors = Object.keys(source).reduce(function (descriptors, key) {
+        descriptors[key] = Object.getOwnPropertyDescriptor(source, key);
+        return descriptors;
+      }, {});
+
+      Object.getOwnPropertySymbols(source).forEach(function (sym) {
+        var descriptor = Object.getOwnPropertyDescriptor(source, sym);
+        if (descriptor.enumerable) {
+          descriptors[sym] = descriptor;
+        }
+      });
+      Object.defineProperties(target, descriptors);
+    });
+    return target;
+  };
+
+  var property = {};
+
+  property.completeAssign = completeAssign;
+
+  var internals = {};
+  var legacy = {};
+
+  Object.defineProperty(legacy, 'isLegacy', {
+    get: function () { return state.isLegacy; }
+  });
+
+  legacy.setLegacy = function () {
+    state.isLegacy = true;
+  };
+
+  internals.legacy = legacy;
+  internals.dom = dom;
+  internals.support = support;
+  internals.motion = selector;
+  internals.property = property;
+  internals.ns = ns;
+  internals.register = engine.register;
+
+  Object.defineProperty(internals, 'preventManipulation', {
+    get: function () { return options.preventManipulation; }
+  });
+
   inspector.info(("version " + (config.version)));
 
   var api = function (node) {
@@ -1130,28 +1308,10 @@
     get: function () { return options.mode; }
   });
 
-  Object.defineProperty(api, 'preventManipulation', {
-    get: function () { return options.preventManipulation; }
-  });
-
-  Object.defineProperty(api, 'isLegacy', {
-    get: function () { return state.isLegacy; }
-  });
-
-  api.setLegacy = function () {
-    state.isLegacy = true;
-  };
-
-  api.ns = ns;
-  api.addClass = addClass;
-  api.hasClass = hasClass;
-  api.removeClass = removeClass;
-  api.queryParentSelector = queryParentSelector;
-  api.querySelectorAllArray = querySelectorAllArray;
+  api.internals = internals;
 
   api.start = engine.start;
   api.stop = engine.stop;
-  api.register = engine.register;
 
   api.inspector = inspector;
 
@@ -1218,6 +1378,7 @@
     this._isResizing = false;
     this._isScrollLocked = false;
     this._isLoading = false;
+    this._isSwappingFont = false;
     this._listeners = {};
     this._keyListenerTypes = [];
     this._keys = [];
@@ -1229,7 +1390,7 @@
     this._nexts = [];
   };
 
-  var prototypeAccessors = { proxy: { configurable: true },isRendering: { configurable: true },isResizing: { configurable: true },isScrollLocked: { configurable: true },isLoading: { configurable: true },style: { configurable: true },hasFocus: { configurable: true },isLegacy: { configurable: true } };
+  var prototypeAccessors = { proxy: { configurable: true },isRendering: { configurable: true },isResizing: { configurable: true },isScrollLocked: { configurable: true },isLoading: { configurable: true },isSwappingFont: { configurable: true },isMouseMoving: { configurable: true },style: { configurable: true },hasFocus: { configurable: true },isLegacy: { configurable: true } };
   var staticAccessors = { instanceClassName: { configurable: true } };
 
   staticAccessors.instanceClassName.get = function () {
@@ -1404,6 +1565,33 @@
 
   Instance.prototype.load = function load () {};
 
+  prototypeAccessors.isSwappingFont.get = function () {
+    return this._isSwappingFont;
+  };
+
+  prototypeAccessors.isSwappingFont.set = function (value) {
+    if (this._isSwappingFont === value) { return; }
+    if (value) { state.add('font-swap', this); }
+    else { state.remove('font-swap', this); }
+    this._isSwappingFont = value;
+  };
+
+  Instance.prototype.swapFont = function swapFont () {};
+
+  prototypeAccessors.isMouseMoving.get = function () { return this._isMouseMoving; };
+
+  prototypeAccessors.isMouseMoving.set = function (value) {
+    if (this._isMouseMoving === value) { return; }
+    if (value) {
+      state.add('mouse-move', this);
+    } else {
+      state.remove('mouse-move', this);
+    }
+    this._isMouseMoving = value;
+  };
+
+  Instance.prototype.mouseMove = function mouseMove (point) {};
+
   Instance.prototype.examine = function examine (attributeNames) {
     if (!this.node.matches(this.registration.selector)) {
       this._dispose();
@@ -1426,6 +1614,7 @@
     state.getModule('render').nexts.remove(this);
     this.isScrollLocked = false;
     this.isLoading = false;
+    this.isSwappingFont = false;
     this._emitter.dispose();
     this._emitter = null;
     this._ascent.dispose();
@@ -1600,50 +1789,6 @@
     REMOVED: ns.emission('disclosure', 'removed'),
     GROUP: ns.emission('disclosure', 'group'),
     UNGROUP: ns.emission('disclosure', 'ungroup')
-  };
-
-  /**
-   * Copy properties from multiple sources including accessors.
-   * source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#copier_des_accesseurs
-   *
-   * @param {object} [target] - Target object to copy into
-   * @param {...objects} [sources] - Multiple objects
-   * @return {object} A new object
-   *
-   * @example
-   *
-   *     const obj1 = {
-   *        key: 'value'
-   *     };
-   *     const obj2 = {
-   *        get function01 () {
-   *          return a-value;
-   *        }
-   *        set function01 () {
-   *          return a-value;
-   *        }
-   *     };
-   *     completeAssign(obj1, obj2)
-   */
-  var completeAssign = function (target) {
-    var sources = [], len = arguments.length - 1;
-    while ( len-- > 0 ) sources[ len ] = arguments[ len + 1 ];
-
-    sources.forEach(function (source) {
-      var descriptors = Object.keys(source).reduce(function (descriptors, key) {
-        descriptors[key] = Object.getOwnPropertyDescriptor(source, key);
-        return descriptors;
-      }, {});
-
-      Object.getOwnPropertySymbols(source).forEach(function (sym) {
-        var descriptor = Object.getOwnPropertyDescriptor(source, sym);
-        if (descriptor.enumerable) {
-          descriptors[sym] = descriptor;
-        }
-      });
-      Object.defineProperties(target, descriptors);
-    });
-    return target;
   };
 
   var Disclosure = /*@__PURE__*/(function (Instance) {
@@ -1937,7 +2082,9 @@
       return this._members;
     };
 
-    prototypeAccessors.length.get = function () { return this.members.length; };
+    prototypeAccessors.length.get = function () {
+      return this.members ? this.members.length : 0;
+    };
 
     DisclosuresGroup.prototype.getIndex = function getIndex () {
       this._index = -1;
@@ -2066,11 +2213,15 @@
     };
 
     Collapse.prototype.transitionend = function transitionend (e) {
-      if (!this.disclosed) { this.style.maxHeight = ''; }
+      if (!this.disclosed) {
+        if (this.isLegacy) { this.style.maxHeight = ''; }
+        else { this.style.removeProperty('--collapse-max-height'); }
+      }
     };
 
     Collapse.prototype.unbound = function unbound () {
-      this.style.maxHeight = 'none';
+      if (this.isLegacy) { this.style.maxHeight = 'none'; }
+      else { this.style.setProperty('--collapse-max-height', 'none'); }
     };
 
     Collapse.prototype.disclose = function disclose (withhold) {
@@ -2078,16 +2229,24 @@
 
       if (this.disclosed) { return; }
       this.unbound();
-      this.adjust();
-      this.request(function () { Disclosure.prototype.disclose.call(this$1$1, withhold); });
+      this.request(function () {
+        this$1$1.adjust();
+        this$1$1.request(function () {
+          Disclosure.prototype.disclose.call(this$1$1, withhold);
+        });
+      });
     };
 
     Collapse.prototype.conceal = function conceal (withhold, preventFocus) {
       var this$1$1 = this;
 
       if (!this.disclosed) { return; }
-      this.adjust();
-      this.request(function () { Disclosure.prototype.conceal.call(this$1$1, withhold, preventFocus); });
+      this.request(function () {
+        this$1$1.adjust();
+        this$1$1.request(function () {
+          Disclosure.prototype.conceal.call(this$1$1, withhold, preventFocus);
+        });
+      });
     };
 
     Collapse.prototype.adjust = function adjust () {
@@ -2150,12 +2309,12 @@
     };
 
     Equisized.prototype.measure = function measure () {
-      this.style.width = 'auto';
+      if (this.isLegacy) { this.style.width = 'auto'; }
       return this.getRect().width;
     };
 
     Equisized.prototype.adjust = function adjust (width) {
-      this.style.width = width + "px";
+      if (this.isLegacy) { this.style.width = width + "px"; }
     };
 
     Equisized.prototype.dispose = function dispose () {
@@ -2194,14 +2353,78 @@
 
     EquisizedsGroup.prototype.resize = function resize () {
       var equisizeds = this.element.getDescendantInstances('Equisized');
+      if (!this.isLegacy) { this.style.setProperty('--equisized-width', 'auto'); }
 
       var width = Math.max.apply(Math, equisizeds.map(function (equisized) { return equisized.measure(); }));
-      equisizeds.forEach(function (equisized) { return equisized.adjust(width); });
+      if (this.isLegacy) { equisizeds.forEach(function (equisized) { return equisized.adjust(width); }); }
+      else { this.style.setProperty('--equisized-width', (width + "px")); }
     };
 
     Object.defineProperties( EquisizedsGroup, staticAccessors );
 
     return EquisizedsGroup;
+  }(Instance));
+
+  var ToggleEvent = {
+    TOGGLE: ns.event('toggle')
+  };
+
+  var Toggle = /*@__PURE__*/(function (Instance) {
+    function Toggle () {
+      Instance.apply(this, arguments);
+    }
+
+    if ( Instance ) Toggle.__proto__ = Instance;
+    Toggle.prototype = Object.create( Instance && Instance.prototype );
+    Toggle.prototype.constructor = Toggle;
+
+    var prototypeAccessors = { pressed: { configurable: true },proxy: { configurable: true } };
+    var staticAccessors = { instanceClassName: { configurable: true } };
+
+    staticAccessors.instanceClassName.get = function () {
+      return 'Toggle';
+    };
+
+    Toggle.prototype.init = function init () {
+      this.pressed = this.pressed === 'true';
+      this.listen('click', this.toggle.bind(this));
+    };
+
+    Toggle.prototype.toggle = function toggle () {
+      this.pressed = this.pressed !== 'true';
+    };
+
+    prototypeAccessors.pressed.get = function () {
+      return this.getAttribute('aria-pressed');
+    };
+
+    prototypeAccessors.pressed.set = function (value) {
+      this.setAttribute('aria-pressed', value ? 'true' : 'false');
+      this.dispatch(ToggleEvent.TOGGLE, value);
+    };
+
+    prototypeAccessors.proxy.get = function () {
+      var scope = this;
+      var proxy = Object.assign.call(this, Instance.prototype.proxy, {
+        toggle: scope.toggle.bind(scope)
+      });
+
+      var proxyAccessors = {
+        get pressed () {
+          return scope.pressed;
+        },
+        set pressed (value) {
+          scope.pressed = value;
+        }
+      };
+
+      return completeAssign(proxy, proxyAccessors);
+    };
+
+    Object.defineProperties( Toggle.prototype, prototypeAccessors );
+    Object.defineProperties( Toggle, staticAccessors );
+
+    return Toggle;
   }(Instance));
 
   var setAttributes = function (el, attrs) {
@@ -2325,16 +2548,17 @@
     RootSelector: RootSelector,
     Equisized: Equisized,
     EquisizedEmission: EquisizedEmission,
+    Toggle: Toggle,
     EquisizedsGroup: EquisizedsGroup,
     InjectSvg: InjectSvg,
     InjectSvgSelector: InjectSvgSelector
   };
 
-  api.register(api.core.CollapseSelector.COLLAPSE, api.core.Collapse);
-  api.register(api.core.InjectSvgSelector.INJECT_SVG, api.core.InjectSvg);
+  api.internals.register(api.core.CollapseSelector.COLLAPSE, api.core.Collapse);
+  api.internals.register(api.core.InjectSvgSelector.INJECT_SVG, api.core.InjectSvg);
 
   /* legacy code here */
-  api.setLegacy();
+  api.internals.legacy.setLegacy();
 
 })();
 //# sourceMappingURL=core.nomodule.js.map

@@ -6,7 +6,7 @@ L'alerte permet d’attirer l’attention de l’utilisateur sur une information
 ```shell
 alert
 └─ core
-└─ link
+└─ button
 ```
 
 ## Utilisation
@@ -16,6 +16,7 @@ Afin d’utiliser le composant `alert`, il est nécessaire d’ajouter les fichi
   <head>
     <link href="css/core/core.min.css" rel="stylesheet">
     <link href="css/link/link.min.css" rel="stylesheet">
+    <link href="css/button/button.min.css" rel="stylesheet">
     <link href="css/alert/alert.min.css" rel="stylesheet">
   </head>
   <body>

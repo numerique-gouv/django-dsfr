@@ -1,11 +1,11 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
-/* ------------------------------------ *\
+/* ¯¯¯¯¯¯¯¯¯ *\
   TILE
-\* ------------------------------------ */
+\* ˍˍˍˍˍˍˍˍˍ */
 .fr-tile {
   position: relative;
   display: flex;
@@ -48,9 +48,11 @@
   /**
  * Modificateur horizontal à partir du breakpoint md -> vertical en dessous du breakpoint md
  **/
-  --blend: var(--background-default-grey-blend);
-  background-color: var(--background-default-grey);
   box-shadow: inset 0 0 0 1px var(--border-default-grey), inset 0 -0.25rem 0 0 var(--border-plain-blue-france);
+  background-color: var(--background-default-grey);
+
+  --hover: var(--background-default-grey-hover);
+  --active: var(--background-default-grey-active);
 }
 
 .fr-grid-row .fr-tile {
@@ -60,10 +62,18 @@
 .fr-tile__link {
   display: inline-flex;
 
-  --link-underline: none;
+  --underline-img: none;
   --link-blank-font: none;
   --link-blank-content: none;
   width: 100%;
+}
+
+.fr-tile.fr-enlarge-link:hover .fr-tile__img {
+  --brightness: calc(100% + var(--brighten) * 10%);
+}
+
+.fr-tile.fr-enlarge-link:active .fr-tile__img {
+  --brightness: calc(100% + var(--brighten) * 20%);
 }
 
 .fr-tile__img {
@@ -75,6 +85,7 @@
   height: 5rem;
   margin: 2rem auto 0;
   overflow: hidden;
+  filter: brightness(var(--brightness));
 
   /**
      * Dans le cas d'un svg inline sans largeur et hauteur spécifiées, on lui attribue une largeur de 100%.
@@ -99,11 +110,6 @@
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: 700;
-  margin: 0;
-}
-
-.fr-tile__title + .fr-tile__desc {
-  margin: 0.5rem 0 0;
 }
 
 .fr-tile__desc {
@@ -169,8 +175,10 @@
 }
 
 .fr-tile--grey {
-  --blend: var(--background-contrast-grey-blend);
   background-color: var(--background-contrast-grey);
+
+  --hover: var(--background-contrast-grey-hover);
+  --active: var(--background-contrast-grey-active);
 }
 
 @media (min-width: 48em) {
@@ -230,12 +238,44 @@
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+  * Correctif de la largeur du texte dans la tuile
+  */
+  .fr-tile__body,
+  .fr-tile__body > * {
+    max-width: 100%;
+  }
+
+  .fr-tile__title {
+    margin: 0 0 0.5rem;
+  }
+
+  .fr-tile__desc {
+    margin: 0;
+  }
+
   .fr-tile {
-    background-color: #fff;
     box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 -0.25rem 0 0 #000091;
+    background-color: #fff;
+  }
+
+  .fr-tile:hover {
+    background-color: #f6f6f6;
+  }
+
+  .fr-tile:active {
+    background-color: #ededed;
   }
 
   .fr-tile--grey {
     background-color: #eee;
+  }
+
+  .fr-tile--grey:hover {
+    background-color: #d2d2d2;
+  }
+
+  .fr-tile--grey:active {
+    background-color: #c1c1c1;
   }
 }

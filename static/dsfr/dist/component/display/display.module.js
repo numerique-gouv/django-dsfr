@@ -1,18 +1,18 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.2.1'
+  version: '1.4.1'
 };
 
 const api = window[config.namespace];
 
 const DisplaySelector = {
-  DISPLAY: api.ns.selector('display'),
-  RADIO_BUTTONS: `input[name="${api.ns('radios-theme')}"]`,
-  FIELDSET: api.ns.selector('fieldset')
+  DISPLAY: api.internals.ns.selector('display'),
+  RADIO_BUTTONS: `input[name="${api.internals.ns('radios-theme')}"]`,
+  FIELDSET: api.internals.ns.selector('fieldset')
 };
 
 class Display extends api.core.Instance {
@@ -75,5 +75,5 @@ api.display = {
   DisplaySelector: DisplaySelector
 };
 
-api.register(api.display.DisplaySelector.DISPLAY, api.display.Display);
+api.internals.register(api.display.DisplaySelector.DISPLAY, api.display.Display);
 //# sourceMappingURL=display.module.js.map

@@ -1,17 +1,17 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.2.1'
+  version: '1.4.1'
 };
 
 const api = window[config.namespace];
 
 const AccordionSelector = {
-  GROUP: api.ns.selector('accordions-group'),
-  COLLAPSE: `${api.ns.selector('accordion')} > ${api.ns.selector('collapse')}`
+  GROUP: api.internals.ns.selector('accordions-group'),
+  COLLAPSE: `${api.internals.ns.selector('accordion')} > ${api.internals.ns.selector('collapse')}`
 };
 
 class AccordionsGroup extends api.core.CollapsesGroup {
@@ -29,5 +29,5 @@ api.accordion = {
   AccordionsGroup: AccordionsGroup
 };
 
-api.register(api.accordion.AccordionSelector.GROUP, api.accordion.AccordionsGroup);
+api.internals.register(api.accordion.AccordionSelector.GROUP, api.accordion.AccordionsGroup);
 //# sourceMappingURL=accordion.module.js.map

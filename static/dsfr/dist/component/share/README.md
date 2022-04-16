@@ -7,6 +7,7 @@ Les boutons de partage permettent aux utilisateurs de partager facilement un con
 share
 └─ core
 └─ link
+└─ button
 ```
 
 ## Utilisation
@@ -16,6 +17,7 @@ Afin d’utiliser le composant `share`, il est nécessaire d’ajouter les fichi
   <head>
     <link href="css/core/core.min.css" rel="stylesheet">
     <link href="css/link/link.min.css" rel="stylesheet">
+    <link href="css/button/button.min.css" rel="stylesheet">
     <link href="css/share/share.min.css" rel="stylesheet">
   </head>
   <body>

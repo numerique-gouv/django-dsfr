@@ -1,10 +1,10 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.2.1'
+  version: '1.4.1'
 };
 
 const api = window[config.namespace];
@@ -16,9 +16,9 @@ const SchemeValue = {
 };
 
 const SchemeAttribute = {
-  THEME: api.ns.attr('theme'),
-  SCHEME: api.ns.attr('scheme'),
-  TRANSITION: api.ns.attr('transition')
+  THEME: api.internals.ns.attr('theme'),
+  SCHEME: api.internals.ns.attr('scheme'),
+  TRANSITION: api.internals.ns.attr('transition')
 };
 
 const SchemeTheme = {
@@ -27,50 +27,9 @@ const SchemeTheme = {
 };
 
 const SchemeEmission = {
-  SCHEME: api.ns.emission('scheme', 'scheme'),
-  THEME: api.ns.emission('scheme', 'theme'),
-  ASK: api.ns.emission('scheme', 'ask')
-};
-
-/**
- * Copy properties from multiple sources including accessors.
- * source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#copier_des_accesseurs
- *
- * @param {object} [target] - Target object to copy into
- * @param {...objects} [sources] - Multiple objects
- * @return {object} A new object
- *
- * @example
- *
- *     const obj1 = {
- *        key: 'value'
- *     };
- *     const obj2 = {
- *        get function01 () {
- *          return a-value;
- *        }
- *        set function01 () {
- *          return a-value;
- *        }
- *     };
- *     completeAssign(obj1, obj2)
- */
-const completeAssign = (target, ...sources) => {
-  sources.forEach(source => {
-    const descriptors = Object.keys(source).reduce((descriptors, key) => {
-      descriptors[key] = Object.getOwnPropertyDescriptor(source, key);
-      return descriptors;
-    }, {});
-
-    Object.getOwnPropertySymbols(source).forEach(sym => {
-      const descriptor = Object.getOwnPropertyDescriptor(source, sym);
-      if (descriptor.enumerable) {
-        descriptors[sym] = descriptor;
-      }
-    });
-    Object.defineProperties(target, descriptors);
-  });
-  return target;
+  SCHEME: api.internals.ns.emission('scheme', 'scheme'),
+  THEME: api.internals.ns.emission('scheme', 'theme'),
+  ASK: api.internals.ns.emission('scheme', 'ask')
 };
 
 class Scheme extends api.core.Instance {
@@ -90,7 +49,7 @@ class Scheme extends api.core.Instance {
       this.request(this.restoreTransition.bind(this));
     }
 
-    const scheme = localStorage.getItem('scheme');
+    const scheme = api.internals.support.supportLocalStorage() ? localStorage.getItem('scheme') : '';
     const schemeAttr = this.getAttribute(SchemeAttribute.SCHEME);
 
     switch (scheme) {
@@ -131,7 +90,7 @@ class Scheme extends api.core.Instance {
       }
     };
 
-    return completeAssign(super.proxy, proxyAccessors);
+    return api.internals.property.completeAssign(super.proxy, proxyAccessors);
   }
 
   restoreTransition () {
@@ -174,7 +133,9 @@ class Scheme extends api.core.Instance {
     }
 
     this.descend(SchemeEmission.SCHEME, value);
-    localStorage.setItem('scheme', value);
+    if (api.internals.support.supportLocalStorage()) {
+      localStorage.setItem('scheme', value);
+    }
     this.setAttribute(SchemeAttribute.SCHEME, value);
   }
 
@@ -225,9 +186,9 @@ class Scheme extends api.core.Instance {
 }
 
 const SchemeSelector = {
-  SCHEME: `:root${api.ns.attr.selector('theme')}, :root${api.ns.attr.selector('scheme')}`,
-  SWITCH_THEME: api.ns.selector('switch-theme'),
-  RADIO_BUTTONS: `input[name="${api.ns('radios-theme')}"]`
+  SCHEME: `:root${api.internals.ns.attr.selector('theme')}, :root${api.internals.ns.attr.selector('scheme')}`,
+  SWITCH_THEME: api.internals.ns.selector('switch-theme'),
+  RADIO_BUTTONS: `input[name="${api.internals.ns('radios-theme')}"]`
 };
 
 api.scheme = {
@@ -238,5 +199,5 @@ api.scheme = {
   SchemeTheme: SchemeTheme
 };
 
-api.register(api.scheme.SchemeSelector.SCHEME, api.scheme.Scheme);
+api.internals.register(api.scheme.SchemeSelector.SCHEME, api.scheme.Scheme);
 //# sourceMappingURL=scheme.module.js.map

@@ -1,18 +1,18 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.2.1'
+  version: '1.4.1'
 };
 
 const api = window[config.namespace];
 
 const ModalSelector = {
-  MODAL: api.ns.selector('modal'),
-  SCROLL_SHADOW: api.ns.selector('scroll-shadow'),
-  BODY: api.ns.selector('modal__body')
+  MODAL: api.internals.ns.selector('modal'),
+  SCROLL_SHADOW: api.internals.ns.selector('scroll-shadow'),
+  BODY: api.internals.ns.selector('modal__body')
 };
 
 class ModalButton extends api.core.DisclosureButton {
@@ -25,13 +25,8 @@ class ModalButton extends api.core.DisclosureButton {
   }
 }
 
-const ModalEmission = {
-  ACTIVATE: api.ns.emission('modal', 'activate'),
-  DEACTIVATE: api.ns.emission('modal', 'deactivate')
-};
-
 const ModalAttribute = {
-  CONCEALING_BACKDROP: api.ns.attr('concealing-backdrop')
+  CONCEALING_BACKDROP: api.internals.ns.attr('concealing-backdrop')
 };
 
 class Modal extends api.core.Disclosure {
@@ -51,15 +46,20 @@ class Modal extends api.core.Disclosure {
     this.listenKey(api.core.KeyCodes.ESCAPE, this.conceal.bind(this, false, false), true, true);
   }
 
+  get body () {
+    return this.element.getDescendantInstances('ModalBody', 'Modal')[0];
+  }
+
   click (e) {
     if (e.target === this.node && this.getAttribute(ModalAttribute.CONCEALING_BACKDROP) !== 'false') this.conceal();
   }
 
   disclose (withhold) {
     if (!super.disclose(withhold)) return false;
-    this.descend(ModalEmission.ACTIVATE);
+    if (this.body) this.body.activate();
     this.isScrollLocked = true;
     this.setAttribute('aria-modal', 'true');
+    this.setAttribute('open', 'true');
     return true;
   }
 
@@ -67,7 +67,8 @@ class Modal extends api.core.Disclosure {
     if (!super.conceal(withhold, preventFocus)) return false;
     this.isScrollLocked = false;
     this.removeAttribute('aria-modal');
-    this.descend(ModalEmission.DEACTIVATE);
+    this.removeAttribute('open');
+    if (this.body) this.body.deactivate();
     return true;
   }
 }
@@ -205,12 +206,12 @@ class FocusTrap {
   }
 
   get focusables () {
-    let unordereds = api.querySelectorAllArray(this.element, UNORDEREDS);
+    let unordereds = api.internals.dom.querySelectorAllArray(this.element, UNORDEREDS);
 
     /**
      *  filtrage des radiobutttons de même name (la navigations d'un groupe de radio se fait à la flèche et non pas au tab
      **/
-    const radios = api.querySelectorAllArray(document.documentElement, 'input[type="radio"]');
+    const radios = api.internals.dom.querySelectorAllArray(document.documentElement, 'input[type="radio"]');
 
     if (radios.length) {
       const groups = {};
@@ -228,7 +229,7 @@ class FocusTrap {
       });
     }
 
-    const ordereds = api.querySelectorAllArray(this.element, ORDEREDS);
+    const ordereds = api.internals.dom.querySelectorAllArray(this.element, ORDEREDS);
 
     ordereds.sort((a, b) => a.tabIndex - b.tabIndex);
 
@@ -318,8 +319,6 @@ class ModalBody extends api.core.Instance {
 
   init () {
     this.listen('scroll', this.shade.bind(this));
-    this.addDescent(ModalEmission.ACTIVATE, this.activate.bind(this));
-    this.addDescent(ModalEmission.DEACTIVATE, this.deactivate.bind(this));
   }
 
   activate () {
@@ -350,7 +349,8 @@ class ModalBody extends api.core.Instance {
 
   adjust () {
     const offset = OFFSET * (this.isBreakpoint(api.core.Breakpoints.MD) ? 2 : 1);
-    this.style.maxHeight = `${window.innerHeight - offset}px`;
+    if (this.isLegacy) this.style.maxHeight = `${window.innerHeight - offset}px`;
+    else this.style.setProperty('--modal-max-height', `${window.innerHeight - offset}px`);
     this.shade();
   }
 }
@@ -363,7 +363,7 @@ api.modal = {
   ModalSelector: ModalSelector
 };
 
-api.register(api.modal.ModalSelector.MODAL, api.modal.Modal);
-api.register(api.modal.ModalSelector.BODY, api.modal.ModalBody);
-api.register(api.core.RootSelector.ROOT, api.modal.ModalsGroup);
+api.internals.register(api.modal.ModalSelector.MODAL, api.modal.Modal);
+api.internals.register(api.modal.ModalSelector.BODY, api.modal.ModalBody);
+api.internals.register(api.core.RootSelector.ROOT, api.modal.ModalsGroup);
 //# sourceMappingURL=modal.module.js.map

@@ -1,4 +1,4 @@
-/*! DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 class State {
   constructor () {
@@ -59,7 +59,7 @@ const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.2.1'
+  version: '1.4.1'
 };
 
 class LogLevel {
@@ -864,7 +864,8 @@ class ScrollLocker extends Module {
     if (!this._isLocked) {
       this._isLocked = true;
       this._scrollY = window.scrollY;
-      document.body.style.top = this._scrollY * -1 + 'px';
+      if (this.isLegacy) document.body.style.top = this._scrollY * -1 + 'px';
+      else document.body.style.setProperty('--scroll-top', this._scrollY * -1 + 'px');
       document.documentElement.setAttribute(ns.attr('scrolling'), 'false');
     }
   }
@@ -873,7 +874,8 @@ class ScrollLocker extends Module {
     if (this._isLocked) {
       this._isLocked = false;
       document.documentElement.removeAttribute(ns.attr('scrolling'));
-      document.body.style.top = '';
+      if (this.isLegacy) document.body.style.top = '';
+      else document.body.style.removeProperty('--scroll-top');
       window.scroll(0, this._scrollY);
     }
   }
@@ -894,6 +896,67 @@ class Load extends Module {
   }
 }
 
+const FONT_FAMILIES = ['Marianne', 'Spectral'];
+
+class FontSwap extends Module {
+  constructor () {
+    super('font-swap');
+    this.swapping = this.swap.bind(this);
+  }
+
+  activate () {
+    if (document.fonts) {
+      document.fonts.addEventListener('loadingdone', this.swapping);
+    }
+  }
+
+  swap () {
+    const families = FONT_FAMILIES.filter(family => document.fonts.check(`16px ${family}`));
+
+    this.forEach((instance) => instance.swapFont(families));
+  }
+}
+
+class MouseMove extends Module {
+  constructor () {
+    super('mouse-move');
+    this.requireMove = false;
+    this._isMoving = false;
+    this.moving = this.move.bind(this);
+    this.requesting = this.request.bind(this);
+    this.onPopulate = this.listen.bind(this);
+    this.onEmpty = this.unlisten.bind(this);
+  }
+
+  listen () {
+    if (this._isMoving) return;
+    this._isMoving = true;
+    this.requireMove = false;
+    document.documentElement.addEventListener('mousemove', this.requesting);
+  }
+
+  unlisten () {
+    if (!this._isMoving) return;
+    this._isMoving = false;
+    this.requireMove = false;
+    document.documentElement.removeEventListener('mousemove', this.requesting);
+  }
+
+  request (e) {
+    if (!this._isMoving) return;
+    this.point = { x: e.clientX, y: e.clientY };
+    if (this.requireMove) return;
+    this.requireMove = true;
+    window.requestAnimationFrame(this.moving);
+  }
+
+  move () {
+    if (!this.requireMove) return;
+    this.forEach((instance) => instance.mouseMove(this.point));
+    this.requireMove = false;
+  }
+}
+
 class Engine {
   constructor () {
     state.create(Register);
@@ -902,6 +965,8 @@ class Engine {
     state.create(Resizer);
     state.create(ScrollLocker);
     state.create(Load);
+    state.create(FontSwap);
+    state.create(MouseMove);
 
     const registerModule = state.getModule('register');
     this.register = registerModule.register.bind(registerModule);
@@ -944,6 +1009,102 @@ const removeClass = (element, className) => modifyClass(element, className, true
 
 const hasClass = (element, className) => getClassNames(element).indexOf(sanitize(className)) > -1;
 
+const dom = {};
+
+dom.addClass = addClass;
+dom.hasClass = hasClass;
+dom.removeClass = removeClass;
+dom.queryParentSelector = queryParentSelector;
+dom.querySelectorAllArray = querySelectorAllArray;
+
+const supportLocalStorage = () => {
+  try {
+    return 'localStorage' in window && window.localStorage !== null;
+  } catch (e) {
+    return false;
+  }
+};
+
+const support = {};
+
+support.supportLocalStorage = supportLocalStorage;
+
+const TransitionSelector = {
+  NONE: ns.selector('transition-none')
+};
+
+const selector = {};
+
+selector.TransitionSelector = TransitionSelector;
+
+/**
+ * Copy properties from multiple sources including accessors.
+ * source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#copier_des_accesseurs
+ *
+ * @param {object} [target] - Target object to copy into
+ * @param {...objects} [sources] - Multiple objects
+ * @return {object} A new object
+ *
+ * @example
+ *
+ *     const obj1 = {
+ *        key: 'value'
+ *     };
+ *     const obj2 = {
+ *        get function01 () {
+ *          return a-value;
+ *        }
+ *        set function01 () {
+ *          return a-value;
+ *        }
+ *     };
+ *     completeAssign(obj1, obj2)
+ */
+const completeAssign = (target, ...sources) => {
+  sources.forEach(source => {
+    const descriptors = Object.keys(source).reduce((descriptors, key) => {
+      descriptors[key] = Object.getOwnPropertyDescriptor(source, key);
+      return descriptors;
+    }, {});
+
+    Object.getOwnPropertySymbols(source).forEach(sym => {
+      const descriptor = Object.getOwnPropertyDescriptor(source, sym);
+      if (descriptor.enumerable) {
+        descriptors[sym] = descriptor;
+      }
+    });
+    Object.defineProperties(target, descriptors);
+  });
+  return target;
+};
+
+const property = {};
+
+property.completeAssign = completeAssign;
+
+const internals = {};
+const legacy = {};
+
+Object.defineProperty(legacy, 'isLegacy', {
+  get: () => state.isLegacy
+});
+
+legacy.setLegacy = () => {
+  state.isLegacy = true;
+};
+
+internals.legacy = legacy;
+internals.dom = dom;
+internals.support = support;
+internals.motion = selector;
+internals.property = property;
+internals.ns = ns;
+internals.register = engine.register;
+
+Object.defineProperty(internals, 'preventManipulation', {
+  get: () => options.preventManipulation
+});
+
 inspector.info(`version ${config.version}`);
 
 const api = (node) => {
@@ -958,28 +1119,10 @@ Object.defineProperty(api, 'mode', {
   get: () => options.mode
 });
 
-Object.defineProperty(api, 'preventManipulation', {
-  get: () => options.preventManipulation
-});
-
-Object.defineProperty(api, 'isLegacy', {
-  get: () => state.isLegacy
-});
-
-api.setLegacy = () => {
-  state.isLegacy = true;
-};
-
-api.ns = ns;
-api.addClass = addClass;
-api.hasClass = hasClass;
-api.removeClass = removeClass;
-api.queryParentSelector = queryParentSelector;
-api.querySelectorAllArray = querySelectorAllArray;
+api.internals = internals;
 
 api.start = engine.start;
 api.stop = engine.stop;
-api.register = engine.register;
 
 api.inspector = inspector;
 
@@ -1045,6 +1188,7 @@ class Instance {
     this._isResizing = false;
     this._isScrollLocked = false;
     this._isLoading = false;
+    this._isSwappingFont = false;
     this._listeners = {};
     this._keyListenerTypes = [];
     this._keys = [];
@@ -1206,6 +1350,33 @@ class Instance {
 
   load () {}
 
+  get isSwappingFont () {
+    return this._isSwappingFont;
+  }
+
+  set isSwappingFont (value) {
+    if (this._isSwappingFont === value) return;
+    if (value) state.add('font-swap', this);
+    else state.remove('font-swap', this);
+    this._isSwappingFont = value;
+  }
+
+  swapFont () {}
+
+  get isMouseMoving () { return this._isMouseMoving; }
+
+  set isMouseMoving (value) {
+    if (this._isMouseMoving === value) return;
+    if (value) {
+      state.add('mouse-move', this);
+    } else {
+      state.remove('mouse-move', this);
+    }
+    this._isMouseMoving = value;
+  }
+
+  mouseMove (point) {}
+
   examine (attributeNames) {
     if (!this.node.matches(this.registration.selector)) {
       this._dispose();
@@ -1228,6 +1399,7 @@ class Instance {
     state.getModule('render').nexts.remove(this);
     this.isScrollLocked = false;
     this.isLoading = false;
+    this.isSwappingFont = false;
     this._emitter.dispose();
     this._emitter = null;
     this._ascent.dispose();
@@ -1398,47 +1570,6 @@ const DisclosureEmission = {
   REMOVED: ns.emission('disclosure', 'removed'),
   GROUP: ns.emission('disclosure', 'group'),
   UNGROUP: ns.emission('disclosure', 'ungroup')
-};
-
-/**
- * Copy properties from multiple sources including accessors.
- * source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#copier_des_accesseurs
- *
- * @param {object} [target] - Target object to copy into
- * @param {...objects} [sources] - Multiple objects
- * @return {object} A new object
- *
- * @example
- *
- *     const obj1 = {
- *        key: 'value'
- *     };
- *     const obj2 = {
- *        get function01 () {
- *          return a-value;
- *        }
- *        set function01 () {
- *          return a-value;
- *        }
- *     };
- *     completeAssign(obj1, obj2)
- */
-const completeAssign = (target, ...sources) => {
-  sources.forEach(source => {
-    const descriptors = Object.keys(source).reduce((descriptors, key) => {
-      descriptors[key] = Object.getOwnPropertyDescriptor(source, key);
-      return descriptors;
-    }, {});
-
-    Object.getOwnPropertySymbols(source).forEach(sym => {
-      const descriptor = Object.getOwnPropertyDescriptor(source, sym);
-      if (descriptor.enumerable) {
-        descriptors[sym] = descriptor;
-      }
-    });
-    Object.defineProperties(target, descriptors);
-  });
-  return target;
 };
 
 class Disclosure extends Instance {
@@ -1701,7 +1832,9 @@ class DisclosuresGroup extends Instance {
     return this._members;
   }
 
-  get length () { return this.members.length; }
+  get length () {
+    return this.members ? this.members.length : 0;
+  }
 
   getIndex () {
     this._index = -1;
@@ -1809,24 +1942,36 @@ class Collapse extends Disclosure {
   }
 
   transitionend (e) {
-    if (!this.disclosed) this.style.maxHeight = '';
+    if (!this.disclosed) {
+      if (this.isLegacy) this.style.maxHeight = '';
+      else this.style.removeProperty('--collapse-max-height');
+    }
   }
 
   unbound () {
-    this.style.maxHeight = 'none';
+    if (this.isLegacy) this.style.maxHeight = 'none';
+    else this.style.setProperty('--collapse-max-height', 'none');
   }
 
   disclose (withhold) {
     if (this.disclosed) return;
     this.unbound();
-    this.adjust();
-    this.request(() => { super.disclose(withhold); });
+    this.request(() => {
+      this.adjust();
+      this.request(() => {
+        super.disclose(withhold);
+      });
+    });
   }
 
   conceal (withhold, preventFocus) {
     if (!this.disclosed) return;
-    this.adjust();
-    this.request(() => { super.conceal(withhold, preventFocus); });
+    this.request(() => {
+      this.adjust();
+      this.request(() => {
+        super.conceal(withhold, preventFocus);
+      });
+    });
   }
 
   adjust () {
@@ -1865,12 +2010,12 @@ class Equisized extends Instance {
   }
 
   measure () {
-    this.style.width = 'auto';
+    if (this.isLegacy) this.style.width = 'auto';
     return this.getRect().width;
   }
 
   adjust (width) {
-    this.style.width = `${width}px`;
+    if (this.isLegacy) this.style.width = `${width}px`;
   }
 
   dispose () {
@@ -1895,9 +2040,57 @@ class EquisizedsGroup extends Instance {
 
   resize () {
     const equisizeds = this.element.getDescendantInstances('Equisized');
+    if (!this.isLegacy) this.style.setProperty('--equisized-width', 'auto');
 
     const width = Math.max(...equisizeds.map(equisized => equisized.measure()));
-    equisizeds.forEach(equisized => equisized.adjust(width));
+    if (this.isLegacy) equisizeds.forEach(equisized => equisized.adjust(width));
+    else this.style.setProperty('--equisized-width', `${width}px`);
+  }
+}
+
+const ToggleEvent = {
+  TOGGLE: ns.event('toggle')
+};
+
+class Toggle extends Instance {
+  static get instanceClassName () {
+    return 'Toggle';
+  }
+
+  init () {
+    this.pressed = this.pressed === 'true';
+    this.listen('click', this.toggle.bind(this));
+  }
+
+  toggle () {
+    this.pressed = this.pressed !== 'true';
+  }
+
+  get pressed () {
+    return this.getAttribute('aria-pressed');
+  }
+
+  set pressed (value) {
+    this.setAttribute('aria-pressed', value ? 'true' : 'false');
+    this.dispatch(ToggleEvent.TOGGLE, value);
+  }
+
+  get proxy () {
+    const scope = this;
+    const proxy = Object.assign(super.proxy, {
+      toggle: scope.toggle.bind(scope)
+    });
+
+    const proxyAccessors = {
+      get pressed () {
+        return scope.pressed;
+      },
+      set pressed (value) {
+        scope.pressed = value;
+      }
+    };
+
+    return completeAssign(proxy, proxyAccessors);
   }
 }
 
@@ -2004,11 +2197,12 @@ api.core = {
   RootSelector: RootSelector,
   Equisized: Equisized,
   EquisizedEmission: EquisizedEmission,
+  Toggle: Toggle,
   EquisizedsGroup: EquisizedsGroup,
   InjectSvg: InjectSvg,
   InjectSvgSelector: InjectSvgSelector
 };
 
-api.register(api.core.CollapseSelector.COLLAPSE, api.core.Collapse);
-api.register(api.core.InjectSvgSelector.INJECT_SVG, api.core.InjectSvg);
+api.internals.register(api.core.CollapseSelector.COLLAPSE, api.core.Collapse);
+api.internals.register(api.core.InjectSvgSelector.INJECT_SVG, api.core.InjectSvg);
 //# sourceMappingURL=core.module.js.map

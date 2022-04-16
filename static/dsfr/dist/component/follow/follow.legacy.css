@@ -1,23 +1,41 @@
 /*!
- * DSFR v1.2.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
 /**
 * Mixin d'ajout des icones des réseaux sociaux
 **/
-@media all and (min-width: 48em) and (-ms-high-contrast: none), (min-width: 48em) and (-ms-high-contrast: active) {
-  .fr-follow .fr-grid-row > *:not(:first-child) {
-    box-shadow: -1px 0 0 0 #6a6af4;
-  }
-}
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+  * Correctif de la largeur max des textes
+  */
+  .fr-follow__newsletter > * {
+    max-width: 100%;
+  }
+
   .fr-follow {
     background-color: #f5f5fe;
   }
 
+  .fr-follow:hover {
+    background-color: #dcdcfc;
+  }
+
+  .fr-follow:active {
+    background-color: #cbcbfa;
+  }
+
   .fr-follow .fr-input {
     background-color: #fff;
+  }
+
+  .fr-follow .fr-input:hover {
+    background-color: #f6f6f6;
+  }
+
+  .fr-follow .fr-input:active {
+    background-color: #ededed;
   }
 
   .fr-follow__title {
@@ -28,7 +46,23 @@
     color: #666;
   }
 
+  .fr-follow__social .fr-btn {
+    background-color: transparent;
+    color: #000091;
+  }
+
+  .fr-follow__social .fr-btn:disabled,
+  .fr-follow__social a.fr-btn:not([href]) {
+    color: #929292;
+    background-color: transparent;
+  }
+
   .fr-follow .fr-grid-row > *:not(:first-child) {
     box-shadow: 0 -1px 0 0 #6a6af4;
+  }
+}
+@media all and (min-width: 48em) and (-ms-high-contrast: none), (min-width: 48em) and (-ms-high-contrast: active) {
+  .fr-follow .fr-grid-row > *:not(:first-child) {
+    box-shadow: -1px 0 0 0 #6a6af4;
   }
 }
