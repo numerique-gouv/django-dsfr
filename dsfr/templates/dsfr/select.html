@@ -6,7 +6,7 @@
         class="fr-select"
         id="{{ self.id }}"
         name="{{ self.id }}"
-        {% if self.onchange %}onchange="{{self.onchange}}"{% endif %}
+        {% if self.onchange %}onchange="{{ self.onchange }}"{% endif %}
         >
         {% if self.default %}
             <option value="{{ self.default.value }}"

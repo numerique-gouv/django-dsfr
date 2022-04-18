@@ -7,7 +7,7 @@
         type="{{ self.type|default:'text' }}"
         id="{{ self.id }}"
         name="{{ self.id }}"
-        {% if self.onchange %}onchange="{{self.onchange}}"{% endif %}
+        {% if self.onchange %}onchange="{{ self.onchange }}"{% endif %}
         {% if self.value %}value="{{ self.value }}"{% endif %}
         {% if self.min %}min="{{ self.min }}"{% endif %}
         {% if self.max %}max="{{ self.max }}"{% endif %}

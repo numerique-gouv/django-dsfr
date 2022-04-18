@@ -487,6 +487,7 @@ class DsfrQuoteTagTest(SimpleTestCase):
 class DsfrSidemenuTagTest(SimpleTestCase):
     test_data = {
         "title": "Menu",
+        "heading_tag": "h2",
         "items": [
             {
                 "label": "Menu replié",
@@ -538,6 +539,14 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                 <a class="fr-sidemenu__link" href="#" target="_self" >Une page</a>
             </li>
 
+            """,
+            self.rendered_template,
+        )
+
+    def test_sidemenu_heading_can_be_set(self):
+        self.assertInHTML(
+            """
+            <h2 class="fr-sidemenu__title">Menu</h2>
             """,
             self.rendered_template,
         )

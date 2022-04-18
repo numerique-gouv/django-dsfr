@@ -3,7 +3,7 @@
   <div class="fr-sidemenu__inner">
     <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
     <div class="fr-collapse" id="fr-sidemenu-wrapper">
-      <div class="fr-sidemenu__title">{{ self.title }}</div>
+      <{{ self.heading_tag|default:"div" }} class="fr-sidemenu__title">{{ self.title }}</{{ self.heading_tag|default:"div" }}>
       <ul class="fr-sidemenu__list">
         {% for item in self.items %}{# Level 1 #}
           <li class="fr-sidemenu__item{% if item.is_active %} fr-sidemenu__item--active{% endif %}">
