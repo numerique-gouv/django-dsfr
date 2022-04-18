@@ -599,7 +599,7 @@ class DsfrSummaryTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-            <nav class="fr-summary" aria-labelledby="fr-summary-title">
+            <nav role="navigation" class="fr-summary" aria-labelledby="fr-summary-title">
                 <div class="fr-summary__title" id="fr-summary-title">Sommaire</div>
                 <ol class="fr-summary__list">
                     
@@ -631,7 +631,7 @@ class DsfrSkiplinksTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <div class="fr-skiplinks">
-                <nav class="fr-container" aria-label="Accès rapide">
+                <nav role="navigation" class="fr-container" aria-label="Accès rapide">
                     <ul class="fr-skiplinks__list">
                     <li>
                         <a class="fr-link" href="#contenu">Contenu</a>

@@ -1,5 +1,5 @@
 {% load dsfr_tags %}
-<nav class="fr-sidemenu{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}" aria-label="Menu latéral">
+<nav role="navigation" class="fr-sidemenu{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}" aria-label="Menu latéral">
   <div class="fr-sidemenu__inner">
     <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
     <div class="fr-collapse" id="fr-sidemenu-wrapper">
