@@ -28,7 +28,7 @@
 <body>
     
         <div class="fr-skiplinks">
-    <nav class="fr-container" role="navigation" aria-label="Accès rapide">
+    <nav class="fr-container" aria-label="Accès rapide">
         <ul class="fr-skiplinks__list">
           
           <li>
@@ -43,7 +43,7 @@
     </nav>
 </div>
     
-    <header role="banner" class="fr-header">
+    <header class="fr-header">
   <div class="fr-header__body">
     <div class="fr-container">
       <div class="fr-header__body-row">
@@ -57,11 +57,11 @@
               
             </div>
             
-            <div class="fr-header__navbar">
-              <button type="button" class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="fr-menu-modal" aria-haspopup="menu" title="Menu">
-                Menu
-              </button>
-            </div>
+              <div class="fr-header__navbar">
+                <button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="fr-menu-mobile" aria-haspopup="menu" title="Menu" id="fr-btn-menu-mobile">
+                  Menu
+                </button>
+              </div>
             
           </div>
           <div class="fr-header__service">
@@ -88,11 +88,11 @@
     </div>
   </div>
   
-    <div class="fr-header__menu fr-modal" id="fr-menu-modal" aria-labelledby="fr-btn-menu-modal">
+    <div class="fr-header__menu fr-modal" id="fr-menu-mobile" aria-labelledby="fr-btn-menu-mobile">
       <div class="fr-container">
-        <button type="button" class="fr-btn--close fr-btn" aria-controls="fr-menu-modal">Fermer</button>
+        <button type="button" class="fr-btn--close fr-btn" aria-controls="fr-menu-mobile">Fermer</button>
         <div class="fr-header__menu-links"></div>
-        <nav class="fr-nav" id="fr-navigation" role="navigation" aria-label="Menu principal">
+        <nav class="fr-nav" id="fr-navigation" aria-label="Menu principal">
           <ul class="fr-nav__list">
             <li class="fr-nav__item">
               <a class="fr-nav__link" href="/django-dsfr/" target="_self">Accueil</a>
@@ -107,7 +107,7 @@
 
 </header>
     
-<dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
+<dialog id="fr-theme-modal" class="fr-modal" aria-labelledby="fr-theme-modal-title">
   <div class="fr-container fr-container--fluid fr-container-md">
     <div class="fr-grid-row fr-grid-row--center">
       <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
@@ -122,12 +122,12 @@
             <div id="fr-display" class="fr-form-group fr-display">
               <div class="fr-form-group">
                 <fieldset class="fr-fieldset">
-                  <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
+                  <legend class="fr-fieldset__legend fr-text--regular" id="-legend">
                     Choisissez un thème pour personnaliser l’apparence du site.
                   </legend>
                   <div class="fr-fieldset__content">
                     <div class="fr-radio-group fr-radio-rich">
-                      <input value="light" type="radio" id="fr-radios-theme-light" name="fr-radios-theme">
+                      <input value="light" type="radio" id="fr-radios-theme-light" name="fr-radios-theme" />
                       <label class="fr-label" for="fr-radios-theme-light">Thème clair
                       </label>
                       <div class="fr-radio-rich__img" data-fr-inject-svg>
@@ -136,7 +136,7 @@
                       </div>
                     </div>
                     <div class="fr-radio-group fr-radio-rich">
-                      <input value="dark" type="radio" id="fr-radios-theme-dark" name="fr-radios-theme">
+                      <input value="dark" type="radio" id="fr-radios-theme-dark" name="fr-radios-theme" />
                       <label class="fr-label" for="fr-radios-theme-dark">Thème sombre
                       </label>
                       <div class="fr-radio-rich__img" data-fr-inject-svg>
@@ -145,7 +145,7 @@
                       </div>
                     </div>
                     <div class="fr-radio-group fr-radio-rich">
-                      <input value="system" type="radio" id="fr-radios-theme-system" name="fr-radios-theme">
+                      <input value="system" type="radio" id="fr-radios-theme-system" name="fr-radios-theme" />
                       <label class="fr-label" for="fr-radios-theme-system">Système
                         <span class="fr-hint-text">Utilise les paramètres système.</span>
                       </label>
@@ -166,7 +166,7 @@
 </dialog>
 
     <div class="fr-container fr-mt-4w fr-mb-6w">
-      <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+      <nav class="fr-breadcrumb" aria-label="vous êtes ici :">
     <button type="button" class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
     <div class="fr-collapse" id="breadcrumb-1">
         <ol class="fr-breadcrumb__list">
@@ -366,7 +366,7 @@
       </main>
     </div>
 
-    <footer class="fr-footer" role="contentinfo" id="footer">
+    <footer class="fr-footer" id="footer">
   <div class="fr-container">
     <div class="fr-footer__body">
       <div class="fr-footer__brand fr-enlarge-link">
@@ -432,7 +432,7 @@
 
   
 <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"></script>
-<script type="text/javascript" nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"></script>
   
 </body>
 
