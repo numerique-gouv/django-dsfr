@@ -1,17 +1,17 @@
-<footer class="fr-footer" role="contentinfo" id="footer">
+<footer class="fr-footer" id="footer">
   <div class="fr-container">
     <div class="fr-footer__body">
       <div class="fr-footer__brand fr-enlarge-link">
         <a href="/" title="Retour à l’accueil">
           {% block brand %}
             <p class="fr-logo" title="{{ SITE_CONFIG.footer_brand|default:'république française' }}">
-              {{ SITE_CONFIG.footer_brand_html| default_if_none:'république<br>française' | safe }}
+              {{ SITE_CONFIG.footer_brand_html| default_if_none:'république<br />française' | safe }}
             </p>
-          {% endblock %}
+          {% endblock brand %}
         </a>
       </div>
       <div class="fr-footer__content">
-        <p class="fr-footer__content-desc">{% block footer_content %}{{ SITE_CONFIG.footer_description | safe }}{% endblock %}</p>
+        <p class="fr-footer__content-desc">{% block footer_content %}{{ SITE_CONFIG.footer_description | safe }}{% endblock footer_content %}</p>
         <ul class="fr-footer__content-list">
           <li class="fr-footer__content-item">
             <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
@@ -46,7 +46,7 @@
           <li class="fr-footer__bottom-item">
             <a class="fr-footer__bottom-link" href="#">Gestion des cookies</a>
           </li>
-        {% endblock %}
+        {% endblock footer_links %}
       </ul>
       <div class="fr-footer__bottom-copy">
         <p>

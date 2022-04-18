@@ -8,7 +8,7 @@
 
   {% dsfr_css %}
   {% dsfr_favicon %}
-  {% block extra_css %}{% endblock %}
+  {% block extra_css %}{% endblock extra_css %}
 
   {% block title %}
   <title>
@@ -24,7 +24,7 @@
 <body>
     {% block skiplinks %}
         {% dsfr_skiplinks skiplinks %}
-    {% endblock %}
+    {% endblock skiplinks %}
     {% include "example_app/blocks/header.html" %}
     {% dsfr_theme_modale %}
 
@@ -32,14 +32,14 @@
       {% dsfr_breadcrumb %}
 
       <main id="content">
-        {% block content %}{% endblock %}
+        {% block content %}{% endblock content %}
       </main>
     </div>
 
     {% include "example_app/blocks/footer.html" %}
 
   {% dsfr_js %}
-  {% block extra_js %}{% endblock %}
+  {% block extra_js %}{% endblock extra_js %}
 </body>
 
 </html>

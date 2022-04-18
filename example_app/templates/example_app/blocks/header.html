@@ -19,11 +19,11 @@
 {# endblock burger_menu #}
 
 {% block main_menu %}
-    <div class="fr-header__menu fr-modal" id="fr-menu-modal" aria-labelledby="fr-btn-menu-modal">
+    <div class="fr-header__menu fr-modal" id="fr-menu-mobile" aria-labelledby="fr-btn-menu-mobile">
       <div class="fr-container">
-        <button type="button" class="fr-btn--close fr-btn" aria-controls="fr-menu-modal">Fermer</button>
+        <button type="button" class="fr-btn--close fr-btn" aria-controls="fr-menu-mobile">Fermer</button>
         <div class="fr-header__menu-links"></div>
-        <nav class="fr-nav" id="fr-navigation" role="navigation" aria-label="Menu principal">
+        <nav class="fr-nav" id="fr-navigation" aria-label="Menu principal">
           <ul class="fr-nav__list">
             <li class="fr-nav__item">
               <a class="fr-nav__link" href="{% url 'index' %}" target="_self">Accueil</a>

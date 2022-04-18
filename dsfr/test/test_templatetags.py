@@ -23,7 +23,7 @@ class DsfrJsTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"></script>
-            <script type="text/javascript" nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"></script>
+            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"></script>
             """,
             rendered_template,
         )
@@ -590,7 +590,7 @@ class DsfrSummaryTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-            <nav class="fr-summary" role="navigation" aria-labelledby="fr-summary-title">
+            <nav class="fr-summary" aria-labelledby="fr-summary-title">
                 <div class="fr-summary__title" id="fr-summary-title">Sommaire</div>
                 <ol class="fr-summary__list">
                     
@@ -622,7 +622,7 @@ class DsfrSkiplinksTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <div class="fr-skiplinks">
-                <nav class="fr-container" role="navigation" aria-label="Accès rapide">
+                <nav class="fr-container" aria-label="Accès rapide">
                     <ul class="fr-skiplinks__list">
                     <li>
                         <a class="fr-link" href="#contenu">Contenu</a>

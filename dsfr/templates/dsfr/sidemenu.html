@@ -1,5 +1,5 @@
 {% load dsfr_tags %}
-<nav class="fr-sidemenu{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}" role="navigation" aria-label="Menu latéral">
+<nav class="fr-sidemenu{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}" aria-label="Menu latéral">
   <div class="fr-sidemenu__inner">
     <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
     <div class="fr-collapse" id="fr-sidemenu-wrapper">
@@ -44,19 +44,15 @@
                             </div>
                           {% endwith %}
                         {% else %}
-                          <li class="fr-sidemenu__item{% if sub_item.is_active %} fr-sidemenu__item--active{% endif %}">
-                            <a class="fr-sidemenu__link" href="{{ sub_item.link }}" target="_self" {% if sub_item.is_active %} aria-current="page"{% endif %}>{{ sub_item.label }}</a>
-                          </li>
+                          <a class="fr-sidemenu__link" href="{{ sub_item.link }}" target="_self" {% if sub_item.is_active %} aria-current="page"{% endif %}>{{ sub_item.label }}</a>
                         {% endif %}{# Level 2 #}
                       </li>
-                    {% endfor%}
+                    {% endfor %}
                   </ul>
                 </div>
               {% endwith %}
             {% else %}
-              <li class="fr-sidemenu__item{% if item.is_active %} fr-sidemenu__item--active{% endif %}">
-                <a class="fr-sidemenu__link" href="{{ item.link }}" target="_self" {% if item.is_active %} aria-current="page"{% endif %}>{{ item.label }}</a>
-              </li>
+              <a class="fr-sidemenu__link" href="{{ item.link }}" target="_self" {% if item.is_active %} aria-current="page"{% endif %}>{{ item.label }}</a>
             {% endif %}
           </li>
         {% endfor %}{# Level 1 #}

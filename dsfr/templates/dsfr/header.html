@@ -1,4 +1,4 @@
-<header role="banner" class="fr-header">
+<header class="fr-header">
   <div class="fr-header__body">
     <div class="fr-container">
       <div class="fr-header__body-row">
@@ -12,11 +12,11 @@
               {% endblock brand %}
             </div>
             {% block burger_menu %}
-            <div class="fr-header__navbar">
-              <button type="button" class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="fr-menu-modal" aria-haspopup="menu" title="Menu">
-                Menu
-              </button>
-            </div>
+              <div class="fr-header__navbar">
+                <button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="fr-menu-mobile" aria-haspopup="menu" title="Menu" id="fr-btn-menu-mobile">
+                  Menu
+                </button>
+              </div>
             {% endblock burger_menu %}
           </div>
           <div class="fr-header__service">
@@ -55,11 +55,11 @@
     </div>
   </div>
   {% block main_menu %}
-    <div class="fr-header__menu fr-modal" id="fr-menu-modal" aria-labelledby="fr-btn-menu-modal">
+    <div class="fr-header__menu fr-modal" id="fr-menu-mobile" aria-labelledby="fr-btn-menu-mobile">
       <div class="fr-container">
-        <button class="fr-btn--close fr-btn" aria-controls="fr-menu-modal">Fermer</button>
+        <button class="fr-btn--close fr-btn" aria-controls="fr-menu-mobile">Fermer</button>
         <div class="fr-header__menu-links"></div>
-        <nav class="fr-nav" id="fr-navigation" role="navigation" aria-label="Menu principal">
+        <nav class="fr-nav" id="fr-navigation" aria-label="Menu principal">
           <ul class="fr-nav__list">
             <li class="fr-nav__item">
               <a class="fr-nav__link" href="#" target="_self">accès direct</a>

@@ -13,7 +13,7 @@
   padding: 1rem;
 }
 </style>
-{% endblock %}
+{% endblock extra_css %}
 
 {% block content %}
   <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
@@ -22,7 +22,7 @@
       {% dsfr_sidemenu side_menu extra_classes="" %}
     </div>
     <div class="fr-col-12 fr-col-md-9 fr-py-2w">
-      <h1> {{title}} </h1>
+      <h1> {{ title }} </h1>
 
       {% if doc_url %}
         {% dsfr_link url=doc_url label="Voir la page de documentation du composant sur le Système de Design de l’État" is_external=True extra_classes="fr-link--lg" %}

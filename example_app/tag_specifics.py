@@ -166,6 +166,7 @@ IMPLEMENTED_TAGS = {
                 "default": {  # Optional
                     "disabled": True,
                     "hidden": True,
+                    "text": "Chose an option"
                 },
                 "options": [
                     {"text": "Option 1", "value": 1},
@@ -234,8 +235,8 @@ IMPLEMENTED_TAGS = {
         "title": "Sommaire (summary)",
         "sample_data": [
             [
-                {"link": "link 1", "label": "First item title"},
-                {"link": "link 2", "label": "Second item title"},
+                {"link": "link_1", "label": "First item title"},
+                {"link": "link_2", "label": "Second item title"},
             ]
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/262898307/Sommaire+-+Summary",
@@ -291,7 +292,7 @@ IMPLEMENTED_TAGS = {
         "sample_data": [
             {
                 "title": "Title of the tile item",
-                "url": "URL of the link of the tile item",
+                "url": "URL_of_the_link_of_the_tile_item",
                 "image_path": "https://via.placeholder.com/90C",
             }
         ],
