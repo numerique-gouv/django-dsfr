@@ -21,7 +21,7 @@ Django-DSFR (partly) implements the `version 1.4 of the DSFR <https://gouvfr.atl
 
 Requirements
 ------------
-Tested with Python 3.7/3.8/3.9/10 and Django 3.2.5 to 3.2.13. Per `vermin <https://github.com/netromdk/vermin>`_, it should work with Python >= 3.0, and it should work with old versions of Django too.
+Tested with Python 3.7 to 3.10 and Django 3.2.5 to 3.2.13. Per `vermin <https://github.com/netromdk/vermin>`_, it should work with Python >= 3.0, and it should work with old versions of Django too.
 
 Quick start
 -----------
