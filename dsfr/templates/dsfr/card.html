@@ -1,4 +1,4 @@
-<div class="fr-card fr-enlarge-link{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
+<div class="{% if self.enlarge_link %}fr-card fr-enlarge-link{% endif %}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
     <div class="fr-card__body">
         <p class="fr-card__detail">{{ self.detail }}</p>
             <p class="fr-card__title">

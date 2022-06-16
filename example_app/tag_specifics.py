@@ -166,7 +166,7 @@ IMPLEMENTED_TAGS = {
                 "default": {  # Optional
                     "disabled": True,
                     "hidden": True,
-                    "text": "Chose an option"
+                    "text": "Chose an option",
                 },
                 "options": [
                     {"text": "Option 1", "value": 1},
@@ -324,6 +324,8 @@ EXTRA_TAGS = {
     },
     "css": {"title": "CSS global"},
     "js": {"title": "JS global"},
+    "form": {"title": "Formulaire"},
+    "form_field": {"title": "Formulaire - champ"},
 }
 
 unsorted_implemented_tags = {**IMPLEMENTED_TAGS, **EXTRA_TAGS}

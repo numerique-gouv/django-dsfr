@@ -1,0 +1,11 @@
+<div class="fr-checkbox-group{% if field.errors %} fr-checkbox-group--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %}">
+    {{ field }}
+    
+    {{ field.label_tag }}{% if field.field.required %} *{% endif %}
+    
+    {% if field.errors %}
+      <div id="{{ field.auto_id }}-desc-error" class="fr-error-text">
+        {{ field.errors }}
+      </div>
+    {% endif %}
+</div>

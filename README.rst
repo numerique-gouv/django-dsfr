@@ -17,7 +17,7 @@ Django-DSFR is a Django app to integrate the `French government Design System ("
 
 This app was created as a part of `Open Collectivités <https://github.com/entrepreneur-interet-general/opencollectivites>`_ and is very much a work in progress. See the `documentation (in French) <https://entrepreneur-interet-general.github.io/django-dsfr/>`_ for details.
 
-Django-DSFR (partly) implements the `version 1.4 of the DSFR <https://gouvfr.atlassian.net/wiki/spaces/DB/pages/978354177/Version+1.4>`_.
+Django-DSFR (partly) implements the `version 1.4.1 of the DSFR <https://gouvfr.atlassian.net/wiki/spaces/DB/pages/978354177/Version+1.4>`_.
 
 Requirements
 ------------
@@ -28,15 +28,30 @@ Quick start
 
 1. Install with :code:`pip install django-dsfr`.
 
-2. Add "dsfr" to INSTALLED_APPS in your settings.py like this, before the app you want to use it with::
+2. Add "widget_tweaks" and "dsfr" to INSTALLED_APPS in your settings.py like this, before the app you want to use it with::
 
     INSTALLED_APPS = [
         ...
-        'dsfr',
+        "widget_tweaks"
+        "dsfr",
         <your_app>
     ]
 
-3. (Optional) Add the context processor to your settings.py and create an instance of "DsfrConfig" in the admin panel::
+3. Add the following settings so that the choice forms work
+
+    TEMPLATES = [
+        {        
+            [...]
+            "DIRS": [
+                os.path.join(BASE_DIR, "dsfr/templates"),
+                os.path.join(BASE_DIR, "templates"),
+            ],
+        },
+    ]
+
+    FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
+
+4. (Optional) Add the context processor to your settings.py and create an instance of "DsfrConfig" in the admin panel::
 
     TEMPLATES = [
         {
@@ -51,6 +66,6 @@ Quick start
     ]
 
 
-4. Include the tags in your base.html file (see example file at https://github.com/entrepreneur-interet-general/django-dsfr/blob/main/example_app/templates/example_app/base.html)
+5. Include the tags in your base.html file (see example file at https://github.com/entrepreneur-interet-general/django-dsfr/blob/main/example_app/templates/example_app/base.html)
 
-5. Start the development server and visit http://127.0.0.1:8000/
+6. Start the development server and visit http://127.0.0.1:8000/

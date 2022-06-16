@@ -1,0 +1,7 @@
+{% load widget_tweaks %}
+
+{% if field|widget_type == "checkboxinput" %}
+  {% include "dsfr/form_field_snippets/checkbox_snippet.html" %}
+{% else %}
+  {% include "dsfr/form_field_snippets/input_snippet.html" %}
+{% endif %}

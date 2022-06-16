@@ -1,0 +1,12 @@
+{# Generic input snippet used by most of the field types #}
+<div class="fr-input-group{% if field.errors %} fr-input-group--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %}">
+    {{ field.label_tag }}{% if field.field.required %} *{% endif %}
+    {% if field.help_text %}<span class="fr-hint-text">{{ field.help_text }}</span>{% endif %}
+    
+    {{ field }}
+    {% if field.errors %}
+      <div id="{{ field.auto_id }}-desc-error" class="fr-error-text">
+        {{ field.errors }}
+      </div>
+    {% endif %}
+</div>

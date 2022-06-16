@@ -136,6 +136,14 @@ django = "*"
 requests = "*"
 
 [[package]]
+name = "django-widget-tweaks"
+version = "1.4.12"
+description = "Tweak the form field rendering in templates, not in python-level form definitions."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "docutils"
 version = "0.17.1"
 description = "Docutils -- Python Documentation Utilities"
@@ -324,7 +332,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "1478b3fefc2424d5f098210de41c9c533616fb250016b4c5803a71e9acc763e2"
+content-hash = "b80d5af03d1c8bff696a96bfc0a813564bd3a4a84d587596ddd8c1b46b4f5948"
 
 [metadata.files]
 asgiref = [
@@ -419,6 +427,10 @@ django = [
 ]
 django-distill = [
     {file = "django-distill-2.9.2.tar.gz", hash = "sha256:91d5f45c2ff78b8efd4805ff5ec17df4ba815bbf51ca12a2cea65727d2f1d42e"},
+]
+django-widget-tweaks = [
+    {file = "django-widget-tweaks-1.4.12.tar.gz", hash = "sha256:9bfc5c705684754a83cc81da328b39ad1b80f32bd0f4340e2a810cbab4b0c00e"},
+    {file = "django_widget_tweaks-1.4.12-py3-none-any.whl", hash = "sha256:fe6b17d5d595c63331f300917980db2afcf71f240ab9341b954aea8f45d25b9a"},
 ]
 docutils = [
     {file = "docutils-0.17.1-py2.py3-none-any.whl", hash = "sha256:cf316c8370a737a022b72b56874f6602acf974a37a9fba42ec2876387549fc61"},

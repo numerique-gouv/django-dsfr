@@ -1,8 +1,12 @@
 from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.http import require_safe
+
 from dsfr.utils import generate_summary_items
+
+from .forms import ExampleForm
 
 from .tag_specifics import (
     ALL_IMPLEMENTED_TAGS,
@@ -182,3 +186,25 @@ def page_tests(request):
     }
 
     return render(request, "example_app/tests.html", payload)
+
+
+def page_form(request):
+    if request.method == "POST":
+        # create a form instance and populate it with data from the request:
+        form = ExampleForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            # return HttpResponseRedirect("/thanks/")
+            pass
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = ExampleForm()
+
+    payload = init_payload("Formulaire")
+    payload["form"] = form
+
+    return render(request, "example_app/page_form.html", payload)

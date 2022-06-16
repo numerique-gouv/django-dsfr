@@ -54,6 +54,32 @@ def dsfr_favicon() -> None:
     return None
 
 
+@register.inclusion_tag("dsfr/form_snippet.html", takes_context=True)
+def dsfr_form(context) -> dict:
+    """
+    Returns the HTML for a form snippet
+
+    **Tag name**::
+        dsfr_form
+    **Usage**::
+        {% dsfr_form %}
+    """
+    return context
+
+
+@register.inclusion_tag("dsfr/form_field_snippets/field_snippet.html")
+def dsfr_form_field(field) -> dict:
+    """
+    Returns the HTML for a form field snippet
+
+    **Tag name**::
+        dsfr_form_field
+    **Usage**::
+        {% dsfr_form_field field %}
+    """
+    return {"field": field}
+
+
 @register.inclusion_tag("dsfr/theme_modale.html")
 def dsfr_theme_modale() -> None:
     """
@@ -271,6 +297,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         "description": "Text of the card item",
         "image": "(Optional) url of the image",
         "new_tab": "(Optional) if True, forces links to open in a new tab",
+        "enlarge_link": (Optional) boolean. If true (default), the link covers the whole card",
         "extra_classes": "(Optional) string with names of extra classes",
     }
 
@@ -287,9 +314,13 @@ def dsfr_card(*args, **kwargs) -> dict:
         "description",
         "image_url",
         "new_tab",
+        "enlarge_link",
         "extra_classes",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "enlarge_link" not in tag_data:
+        tag_data["enlarge_link"] = True
 
     return {"self": tag_data}
 
@@ -633,7 +664,14 @@ def dsfr_tag(*args, **kwargs) -> dict:
         {% dsfr_highlight data_dict %}
     """
 
-    allowed_keys = ["label", "link", "onclick", "extra_classes", "is_selectable", "is_dismissable"]
+    allowed_keys = [
+        "label",
+        "link",
+        "onclick",
+        "extra_classes",
+        "is_selectable",
+        "is_dismissable",
+    ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     return {"self": tag_data}
