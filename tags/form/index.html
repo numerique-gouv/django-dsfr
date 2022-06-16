@@ -31,7 +31,7 @@
   
   <title>
     
-      Carte (card) — Design Système de l’État
+      Formulaire — Design Système de l’État
     
   </title>
   
@@ -194,7 +194,7 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Carte (card)</a>
+                <a class="fr-breadcrumb__link" aria-current="page">Formulaire</a>
             </li>
         </ol>
     </div>
@@ -249,9 +249,9 @@
             
           </li>
         
-          <li class="fr-sidemenu__item fr-sidemenu__item--active">
+          <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/card/" target="_self"  aria-current="page">card</a>
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/card/" target="_self" >card</a>
             
           </li>
         
@@ -267,9 +267,9 @@
             
           </li>
         
-          <li class="fr-sidemenu__item">
+          <li class="fr-sidemenu__item fr-sidemenu__item--active">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/form/" target="_self" >form</a>
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/form/" target="_self"  aria-current="page">form</a>
             
           </li>
         
@@ -369,89 +369,24 @@
 </nav>
     </div>
     <div class="fr-col-12 fr-col-md-9 fr-py-2w">
-      <h1> Carte (card) </h1>
+      <h1> Formulaire </h1>
 
-      
-        <a 
-  class="fr-link fr-fi-external-link-line fr-link--icon-right fr-link--lg"
-  href="https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331445/Carte+-+Card"
-   target="_blank" rel="noopener noreferrer"
->
-  Voir la page de documentation du composant sur le Système de Design de l’État
-</a>
       
 
       <h2>Documentation du tag</h2>
       <pre>
       
-    Returns a card item. Takes a dict as parameter, with the following structure:
-
-    data_dict = {
-        &quot;detail&quot;: &quot;Appears before the title of the card item&quot;,
-        &quot;title&quot;: &quot;Title of the card item&quot;,
-        &quot;description&quot;: &quot;Text of the card item&quot;,
-        &quot;image&quot;: &quot;(Optional) url of the image&quot;,
-        &quot;new_tab&quot;: &quot;(Optional) if True, forces links to open in a new tab&quot;,
-        &quot;enlarge_link&quot;: (Optional) boolean. If true (default), the link covers the whole card&quot;,
-        &quot;extra_classes&quot;: &quot;(Optional) string with names of extra classes&quot;,
-    }
-
-    All of the keys of the dict can be passed directly as named parameters of the tag.
+    Returns the HTML for a form snippet
 
     **Tag name**::
-        dsfr_card
+        dsfr_form
     **Usage**::
-        {% dsfr_card data_dict %}
+        {% dsfr_form %}
     
       </pre>
 
       
-        <h2>Exemples</h2>
-        
-          <h3 class="fr-mt-3w">Données</h3>
-          <div class="fr-my-2w">
-            
-              
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-bqkmobvjeoyofwfj">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-bqkmobvjeoyofwfj">
-        <pre class="code_sample">{'description': 'Text of the card item',
- 'detail': 'Appears before the title of the card item',
- 'image_url': 'https://via.placeholder.com/350x200',
- 'link': 'https://www.systeme-de-design.gouv.fr/',
- 'new_tab': True,
- 'title': 'Title of the card item'}</pre>
-    </div>
-</section>
-              
-            
-          </div>
-
-          <h3>Résultat</h3>
-          
-            <div class="fr-grid-row fr-grid-row--gutters">
-              <div class="fr-col-12 fr-col-md-3">
-                <div class="fr-card fr-enlarge-link">
-    <div class="fr-card__body">
-        <p class="fr-card__detail">Appears before the title of the card item</p>
-            <p class="fr-card__title">
-                <a href="https://www.systeme-de-design.gouv.fr/" class="fr-card__link" target="_blank" rel="noopener noreferrer">
-                    Title of the card item
-                </a>
-            </p>
-        <p class="fr-card__desc">Text of the card item</p>
-    </div>
-    
-    <div class="fr-card__img">
-        <img src="https://via.placeholder.com/350x200" class="fr-responsive-img" alt="">
-    </div>
-    
-</div>
-              </div>
-            </div>
-          
+        <h2>Résultat</h2>
         
       
     </div>

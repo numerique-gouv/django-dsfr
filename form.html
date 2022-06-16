@@ -15,23 +15,11 @@
 <link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.ico" type="image/x-icon" /><!-- 32×32 -->
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" />
   
-<style>
-.example-textarea {
-  border: none; 
-  background-color: var(--g300);
-  padding: 1rem;
-}
-.code_sample {
-  background-color: var(--g300);
-  padding: 1rem;
-}
-</style>
-
 
   
   <title>
     
-      Carte (card) — Design Système de l’État
+      Formulaire — Design Système de l’État
     
   </title>
   
@@ -190,11 +178,7 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" href="/django-dsfr/tags/">Composants</a>
-            </li>
-            
-            <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Carte (card)</a>
+                <a class="fr-breadcrumb__link" aria-current="page">Formulaire</a>
             </li>
         </ol>
     </div>
@@ -202,261 +186,295 @@
 
       <main id="content" role="main">
         
-  <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
-  <!-- Menu -->
-    <div class="fr-col-12 fr-col-md-3">
+  <h1>Exemple de formulaire</h1>
+  <form action="/django-dsfr/form/" method="post">
+      <input type="hidden" name="csrfmiddlewaretoken" value="Hfx2WeOgBG9DQn1Pbrx7IpD7EB5z3Mdt3JAHjUoWFpmXQu1ECX55d1SKtCLDBNlf">
       
-<nav role="navigation" class="fr-sidemenu" aria-label="Menu latéral">
-  <div class="fr-sidemenu__inner">
-    <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
-    <div class="fr-collapse" id="fr-sidemenu-wrapper">
-      <div class="fr-sidemenu__title">Composants</div>
-      <ul class="fr-sidemenu__list">
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion/" target="_self" >accordion</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion_group/" target="_self" >accordion_group</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/alert/" target="_self" >alert</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/breadcrumb/" target="_self" >breadcrumb</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/button/" target="_self" >button</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/callout/" target="_self" >callout</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item fr-sidemenu__item--active">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/card/" target="_self"  aria-current="page">card</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/css/" target="_self" >css</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/favicon/" target="_self" >favicon</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/form/" target="_self" >form</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/form_field/" target="_self" >form_field</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/highlight/" target="_self" >highlight</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/input/" target="_self" >input</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/js/" target="_self" >js</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/link/" target="_self" >link</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/pagination/" target="_self" >pagination</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/quote/" target="_self" >quote</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/select/" target="_self" >select</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/sidemenu/" target="_self" >sidemenu</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/skiplinks/" target="_self" >skiplinks</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/summary/" target="_self" >summary</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/table/" target="_self" >table</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/tag/" target="_self" >tag</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/theme_modale/" target="_self" >theme_modale</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/tile/" target="_self" >tile</a>
-            
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-    </div>
-    <div class="fr-col-12 fr-col-md-9 fr-py-2w">
-      <h1> Carte (card) </h1>
-
-      
-        <a 
-  class="fr-link fr-fi-external-link-line fr-link--icon-right fr-link--lg"
-  href="https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331445/Carte+-+Card"
-   target="_blank" rel="noopener noreferrer"
->
-  Voir la page de documentation du composant sur le Système de Design de l’État
-</a>
-      
-
-      <h2>Documentation du tag</h2>
-      <pre>
-      
-    Returns a card item. Takes a dict as parameter, with the following structure:
-
-    data_dict = {
-        &quot;detail&quot;: &quot;Appears before the title of the card item&quot;,
-        &quot;title&quot;: &quot;Title of the card item&quot;,
-        &quot;description&quot;: &quot;Text of the card item&quot;,
-        &quot;image&quot;: &quot;(Optional) url of the image&quot;,
-        &quot;new_tab&quot;: &quot;(Optional) if True, forces links to open in a new tab&quot;,
-        &quot;enlarge_link&quot;: (Optional) boolean. If true (default), the link covers the whole card&quot;,
-        &quot;extra_classes&quot;: &quot;(Optional) string with names of extra classes&quot;,
-    }
-
-    All of the keys of the dict can be passed directly as named parameters of the tag.
-
-    **Tag name**::
-        dsfr_card
-    **Usage**::
-        {% dsfr_card data_dict %}
     
-      </pre>
 
-      
-        <h2>Exemples</h2>
-        
-          <h3 class="fr-mt-3w">Données</h3>
-          <div class="fr-my-2w">
-            
-              
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-bqkmobvjeoyofwfj">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-bqkmobvjeoyofwfj">
-        <pre class="code_sample">{'description': 'Text of the card item',
- 'detail': 'Appears before the title of the card item',
- 'image_url': 'https://via.placeholder.com/350x200',
- 'link': 'https://www.systeme-de-design.gouv.fr/',
- 'new_tab': True,
- 'title': 'Title of the card item'}</pre>
-    </div>
-</section>
-              
-            
-          </div>
 
-          <h3>Résultat</h3>
-          
-            <div class="fr-grid-row fr-grid-row--gutters">
-              <div class="fr-col-12 fr-col-md-3">
-                <div class="fr-card fr-enlarge-link">
-    <div class="fr-card__body">
-        <p class="fr-card__detail">Appears before the title of the card item</p>
-            <p class="fr-card__title">
-                <a href="https://www.systeme-de-design.gouv.fr/" class="fr-card__link" target="_blank" rel="noopener noreferrer">
-                    Title of the card item
-                </a>
-            </p>
-        <p class="fr-card__desc">Text of the card item</p>
-    </div>
+  
+<div class="fr-input-group">
+    <label for="id_user_name">Votre nom:</label> *
     
-    <div class="fr-card__img">
-        <img src="https://via.placeholder.com/350x200" class="fr-responsive-img" alt="">
-    </div>
+    
+    <input type="text" name="user_name" maxlength="100" class="fr-input" required id="id_user_name">
     
 </div>
-              </div>
-            </div>
-          
+
+
+
+    
+
+
+  
+<div class="fr-input-group">
+    <label for="id_user_email">Votre courriel:</label>
+    
+    
+    <input type="email" name="user_email" class="fr-input" id="id_user_email">
+    
+</div>
+
+
+
+    
+
+
+  
+<div class="fr-input-group">
+    <label for="id_password">Mot de passe:</label>
+    
+    
+    <input type="password" name="password" class="fr-input" id="id_password">
+    
+</div>
+
+
+
+    
+
+
+  
+<div class="fr-input-group">
+    <label for="id_sample_number">Nombre entier:</label> *
+    <span class="fr-hint-text">Un nombre inférieur à zéro déclenchera un message d’erreur</span>
+    
+    <input type="number" name="sample_number" class="fr-input" required id="id_sample_number">
+    
+</div>
+
+
+
+    
+
+
+  
+<div class="fr-input-group">
+    <label for="id_sample_decimal">Nombre décimal:</label>
+    
+    
+    <input type="number" name="sample_decimal" step="any" class="fr-input" id="id_sample_decimal">
+    
+</div>
+
+
+
+    
+
+
+  
+<div class="fr-input-group fr-input-group--disabled">
+    <label for="id_sample_disabled_field">Champ désactivé:</label>
+    <span class="fr-hint-text">Ce champ est désactivé</span>
+    
+    <input type="text" name="sample_disabled_field" maxlength="100" class="fr-input" disabled id="id_sample_disabled_field">
+    
+</div>
+
+
+
+    
+
+
+  
+<div class="fr-input-group">
+    <label for="id_sample_date">Date:</label>
+    
+    
+    <div class="fr-input-wrap fr-fi-calendar-line"><input type="date" name="sample_date" class="fr-input" id="id_sample_date">
+</div>
+    
+</div>
+
+
+
+    
+
+
+  <div class="fr-checkbox-group">
+    <input type="checkbox" name="sample_boolean" id="id_sample_boolean">
+    
+    <label for="id_sample_boolean">Cochez la case:</label>
+    
+    
+</div>
+
+
+    
+
+
+  
+<div class="fr-input-group">
+    <label for="id_sample_select">Liste déroulante:</label>
+    
+    
+    <select class="fr-select" name="sample_select" class="fr-input" id="id_sample_select">
+  <option value="1">Option 1</option>
+
+  <option value="2">Option 2</option>
+
+  <option value="3">Option 3</option>
+
+</select>
+    
+</div>
+
+
+
+    
+
+
+  
+<div class="fr-input-group">
+    <label for="id_sample_radio_0">Boutons radio:</label>
+    
+    
+    <div class="fr-radio-group">
+    <input type="radio" name="sample_radio" value="1" class="fr-input" id="id_sample_radio_0">
+
+
+	<label class="fr-label" for="id_sample_radio_0">
+    	
+            Premier choix
         
-      
-    </div>
-  </div>
-<br />
+	</label>
+
+</div>
+		
+	
+		
+			<div class="fr-radio-group">
+    <input type="radio" name="sample_radio" value="2" class="fr-input" id="id_sample_radio_1">
+
+
+	<label class="fr-label" for="id_sample_radio_1">
+    	
+            Second choix
+        
+	</label>
+
+</div>
+		
+	
+		
+			<div class="fr-radio-group">
+    <input type="radio" name="sample_radio" value="3" class="fr-input" id="id_sample_radio_2">
+
+
+	<label class="fr-label" for="id_sample_radio_2">
+    	
+            Troisième choix
+        
+	</label>
+
+</div>
+    
+</div>
+
+
+
+    
+
+
+  
+<div class="fr-input-group">
+    <label>Cases à cocher:</label>
+    
+    
+    <div class="fr-checkbox-group">
+    <input type="checkbox" name="sample_checkbox" value="1" class="fr-input" id="id_sample_checkbox_0">
+
+
+	<label class="fr-label" for="id_sample_checkbox_0">
+    	
+            Premier choix
+        
+	</label>
+
+</div>
+		
+	
+		
+			<div class="fr-checkbox-group">
+    <input type="checkbox" name="sample_checkbox" value="2" class="fr-input" id="id_sample_checkbox_1">
+
+
+	<label class="fr-label" for="id_sample_checkbox_1">
+    	
+            Second choix
+        
+	</label>
+
+</div>
+		
+	
+		
+			<div class="fr-checkbox-group">
+    <input type="checkbox" name="sample_checkbox" value="3" class="fr-input" id="id_sample_checkbox_2">
+
+
+	<label class="fr-label" for="id_sample_checkbox_2">
+    	
+            Troisième choix
+        
+	</label>
+
+</div>
+    
+</div>
+
+
+
+    
+
+
+  
+<div class="fr-input-group">
+    <label for="id_sample_comment">Sample comment:</label>
+    
+    
+    <textarea name="sample_comment" cols="40" rows="10" class="fr-input" id="id_sample_comment">
+</textarea>
+    
+</div>
+
+
+
+    
+
+
+  
+<div class="fr-input-group">
+    <label for="id_sample_json">Fichier JSON:</label>
+    
+    
+    <textarea name="sample_json" cols="40" rows="10" class="fr-input" id="id_sample_json">
+null</textarea>
+    
+</div>
+
+
+
+    
+
+
+  
+<div class="fr-input-group">
+    <label for="id_sample_file">Pièce jointe:</label>
+    
+    
+    <input type="file" name="sample_file" id="id_sample_file">
+    
+</div>
+
+
+
+      <div class="fr-input-group fr-my-4w">
+        <button type="submit" class="fr-btn" title="Valider">Valider ce formulaire</button>
+        <button type="" class="fr-btn fr-btn--secondary" title="Annuler">Annuler</button>
+      </div>
+  </form>
 
       </main>
     </div>
