@@ -37,7 +37,7 @@ Quick start
         <your_app>
     ]
 
-3. Add the following settings so that the choice forms work::
+3. Add the following info in the TEMPLATES section in your settings.py so that the choice forms work::
 
     TEMPLATES = [
         {        
@@ -49,10 +49,11 @@ Quick start
         },
     ]
 
+4. Add the following FORM_RENDERER in settings.py so that the choice forms work::
+
     FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 
-
-4. (Optional) Add the context processor to your settings.py and create an instance of "DsfrConfig" in the admin panel::
+5. (Optional) Add the context processor to your settings.py and create an instance of "DsfrConfig" in the admin panel::
 
     TEMPLATES = [
         {
@@ -66,7 +67,6 @@ Quick start
         },
     ]
 
+6. Include the tags in your base.html file (see example file at https://github.com/entrepreneur-interet-general/django-dsfr/blob/main/example_app/templates/example_app/base.html)
 
-5. Include the tags in your base.html file (see example file at https://github.com/entrepreneur-interet-general/django-dsfr/blob/main/example_app/templates/example_app/base.html)
-
-6. Start the development server and visit http://127.0.0.1:8000/
+7. Start the development server and visit http://127.0.0.1:8000/

@@ -14,7 +14,7 @@ class ExampleForm(DsfrBaseForm):
 
     sample_number = forms.IntegerField(
         label="Nombre entier",
-        help_text="Un nombre inférieur à zéro déclenchera un message d’erreur",
+        help_text="Un nombre inférieur à 0 déclenchera un message d’erreur",
     )
 
     sample_decimal = forms.DecimalField(
@@ -74,7 +74,7 @@ class ExampleForm(DsfrBaseForm):
 
     sample_file = forms.FileField(label="Pièce jointe", required=False)
 
-    def clean_user_number(self):
+    def clean_sample_number(self):
         sample_number = self.cleaned_data["sample_number"]
 
         if sample_number < 0:

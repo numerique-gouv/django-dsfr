@@ -16,6 +16,17 @@ class DsfrBaseForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            print(visible.field.widget)
-            if type(visible.field.widget) not in self.WIDGETS_NO_FR_INPUT:
+            """
+            Depending on the widget, we have to add some classes:
+            - on the outer group
+            - on the form field itsef
+            """
+            if type(visible.field.widget) == forms.widgets.Select:
+                visible.field.widget.attrs["class"] = "fr-select"
+                visible.field.widget.group_class = "fr-select-group"
+            elif type(visible.field.widget) == forms.widgets.RadioSelect:
+                visible.field.widget.group_class = "fr-radio-group"
+            elif type(visible.field.widget) == forms.widgets.CheckboxSelectMultiple:
+                visible.field.widget.group_class = "fr-checkbox-group"
+            elif type(visible.field.widget) not in self.WIDGETS_NO_FR_INPUT:
                 visible.field.widget.attrs["class"] = "fr-input"
