@@ -188,17 +188,21 @@
         
   <h1>Exemple de formulaire</h1>
   <form action="/django-dsfr/form/" method="post">
-      <input type="hidden" name="csrfmiddlewaretoken" value="xkWTW89vqAq8ZdqzUNyBL1XI13CFgOXNrC1Z782zhKc11C2rcll5vzPaP9oJfUJv">
+      <input type="hidden" name="csrfmiddlewaretoken" value="XiyZsWCsvxjK1oqvPaCN6gXYiaclc3V5I3ggGEVXkGSS7xZsolCvQ9j4SbLksEEm">
       
     
 
 
   
+
 <div class="fr-input-group">
     <label for="id_user_name">Votre nom:</label> *
     
+
     
-    <input type="text" name="user_name" maxlength="100" class="fr-input" required id="id_user_name">
+      <input type="text" name="user_name" maxlength="100" class="fr-input" required id="id_user_name">
+    
+
     
 </div>
 
@@ -208,11 +212,15 @@
 
 
   
+
 <div class="fr-input-group">
     <label for="id_user_email">Votre courriel:</label>
     
+
     
-    <input type="email" name="user_email" class="fr-input" id="id_user_email">
+      <input type="email" name="user_email" class="fr-input" id="id_user_email">
+    
+
     
 </div>
 
@@ -222,11 +230,15 @@
 
 
   
+
 <div class="fr-input-group">
     <label for="id_password">Mot de passe:</label>
     
+
     
-    <input type="password" name="password" class="fr-input" id="id_password">
+      <input type="password" name="password" class="fr-input" id="id_password">
+    
+
     
 </div>
 
@@ -236,11 +248,15 @@
 
 
   
+
 <div class="fr-input-group">
     <label for="id_sample_number">Nombre entier:</label> *
-    <span class="fr-hint-text">Un nombre inférieur à zéro déclenchera un message d’erreur</span>
+    <span class="fr-hint-text">Un nombre inférieur à 0 déclenchera un message d’erreur</span>
+
     
-    <input type="number" name="sample_number" class="fr-input" required id="id_sample_number">
+      <input type="number" name="sample_number" class="fr-input" required id="id_sample_number">
+    
+
     
 </div>
 
@@ -250,11 +266,15 @@
 
 
   
+
 <div class="fr-input-group">
     <label for="id_sample_decimal">Nombre décimal:</label>
     
+
     
-    <input type="number" name="sample_decimal" step="any" class="fr-input" id="id_sample_decimal">
+      <input type="number" name="sample_decimal" step="any" class="fr-input" id="id_sample_decimal">
+    
+
     
 </div>
 
@@ -264,11 +284,15 @@
 
 
   
+
 <div class="fr-input-group fr-input-group--disabled">
     <label for="id_sample_disabled_field">Champ désactivé:</label>
     <span class="fr-hint-text">Ce champ est désactivé</span>
+
     
-    <input type="text" name="sample_disabled_field" maxlength="100" class="fr-input" disabled id="id_sample_disabled_field">
+      <input type="text" name="sample_disabled_field" maxlength="100" class="fr-input" disabled id="id_sample_disabled_field">
+    
+
     
 </div>
 
@@ -278,12 +302,17 @@
 
 
   
+
 <div class="fr-input-group">
     <label for="id_sample_date">Date:</label>
     
+
     
-    <div class="fr-input-wrap fr-fi-calendar-line"><input type="date" name="sample_date" class="fr-input" id="id_sample_date">
-</div>
+      <div class="fr-input-wrap fr-fi-calendar-line">
+        <input type="date" name="sample_date" class="fr-input" id="id_sample_date">
+      </div>
+    
+
     
 </div>
 
@@ -305,11 +334,13 @@
 
 
   
-<div class="fr-input-group">
+
+<div class="fr-select-group">
     <label for="id_sample_select">Liste déroulante:</label>
     
+
     
-    <select class="fr-select" name="sample_select" class="fr-input" id="id_sample_select">
+      <select name="sample_select" class="fr-select" id="id_sample_select">
   <option value="1">Option 1</option>
 
   <option value="2">Option 2</option>
@@ -318,6 +349,8 @@
 
 </select>
     
+
+    
 </div>
 
 
@@ -326,12 +359,13 @@
 
 
   
-<div class="fr-input-group">
+
+<div class="fr-radio-group">
     <label for="id_sample_radio_0">Boutons radio:</label>
     
+
     
-    <div class="fr-radio-group">
-    <input type="radio" name="sample_radio" value="1" class="fr-input" id="id_sample_radio_0">
+      <input type="radio" name="sample_radio" value="1" id="id_sample_radio_0">
 
 
 	<label class="fr-label" for="id_sample_radio_0">
@@ -340,12 +374,11 @@
         
 	</label>
 
-</div>
+
 		
 	
 		
-			<div class="fr-radio-group">
-    <input type="radio" name="sample_radio" value="2" class="fr-input" id="id_sample_radio_1">
+			<input type="radio" name="sample_radio" value="2" id="id_sample_radio_1">
 
 
 	<label class="fr-label" for="id_sample_radio_1">
@@ -354,12 +387,11 @@
         
 	</label>
 
-</div>
+
 		
 	
 		
-			<div class="fr-radio-group">
-    <input type="radio" name="sample_radio" value="3" class="fr-input" id="id_sample_radio_2">
+			<input type="radio" name="sample_radio" value="3" id="id_sample_radio_2">
 
 
 	<label class="fr-label" for="id_sample_radio_2">
@@ -367,8 +399,8 @@
             Troisième choix
         
 	</label>
+    
 
-</div>
     
 </div>
 
@@ -378,12 +410,13 @@
 
 
   
-<div class="fr-input-group">
+
+<div class="fr-checkbox-group">
     <label>Cases à cocher:</label>
     
+
     
-    <div class="fr-checkbox-group">
-    <input type="checkbox" name="sample_checkbox" value="1" class="fr-input" id="id_sample_checkbox_0">
+      <input type="checkbox" name="sample_checkbox" value="1" id="id_sample_checkbox_0">
 
 
 	<label class="fr-label" for="id_sample_checkbox_0">
@@ -392,12 +425,11 @@
         
 	</label>
 
-</div>
+
 		
 	
 		
-			<div class="fr-checkbox-group">
-    <input type="checkbox" name="sample_checkbox" value="2" class="fr-input" id="id_sample_checkbox_1">
+			<input type="checkbox" name="sample_checkbox" value="2" id="id_sample_checkbox_1">
 
 
 	<label class="fr-label" for="id_sample_checkbox_1">
@@ -406,12 +438,11 @@
         
 	</label>
 
-</div>
+
 		
 	
 		
-			<div class="fr-checkbox-group">
-    <input type="checkbox" name="sample_checkbox" value="3" class="fr-input" id="id_sample_checkbox_2">
+			<input type="checkbox" name="sample_checkbox" value="3" id="id_sample_checkbox_2">
 
 
 	<label class="fr-label" for="id_sample_checkbox_2">
@@ -419,8 +450,8 @@
             Troisième choix
         
 	</label>
+    
 
-</div>
     
 </div>
 
@@ -430,12 +461,16 @@
 
 
   
+
 <div class="fr-input-group">
     <label for="id_sample_comment">Sample comment:</label>
     
+
     
-    <textarea name="sample_comment" cols="40" rows="10" class="fr-input" id="id_sample_comment">
+      <textarea name="sample_comment" cols="40" rows="10" class="fr-input" id="id_sample_comment">
 </textarea>
+    
+
     
 </div>
 
@@ -445,12 +480,16 @@
 
 
   
+
 <div class="fr-input-group">
     <label for="id_sample_json">Fichier JSON:</label>
     
+
     
-    <textarea name="sample_json" cols="40" rows="10" class="fr-input" id="id_sample_json">
+      <textarea name="sample_json" cols="40" rows="10" class="fr-input" id="id_sample_json">
 null</textarea>
+    
+
     
 </div>
 
@@ -460,11 +499,15 @@ null</textarea>
 
 
   
+
 <div class="fr-input-group">
     <label for="id_sample_file">Pièce jointe:</label>
     
+
     
-    <input type="file" name="sample_file" id="id_sample_file">
+      <input type="file" name="sample_file" id="id_sample_file">
+    
+
     
 </div>
 
