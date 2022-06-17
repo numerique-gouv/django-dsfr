@@ -37,7 +37,7 @@ Quick start
         <your_app>
     ]
 
-3. Add the following settings so that the choice forms work
+3. Add the following settings so that the choice forms work::
 
     TEMPLATES = [
         {        
@@ -50,6 +50,7 @@ Quick start
     ]
 
     FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
+
 
 4. (Optional) Add the context processor to your settings.py and create an instance of "DsfrConfig" in the admin panel::
 
