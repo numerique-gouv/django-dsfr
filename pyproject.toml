@@ -44,6 +44,7 @@ coverage = "^5.5"
 django-distill = "^2.9.0"
 docutils = "^0.17.1"
 pytest = "^6.2.4"
+twine = "^4.0.1"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
