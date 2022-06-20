@@ -23,7 +23,7 @@ class DsfrBaseForm(forms.Form):
 
             If a class is already set, we don't force the DSFR-specific classes.
             """
-            if not "class" in visible.field.widget.attrs:
+            if "class" not in visible.field.widget.attrs:
                 if type(visible.field.widget) == forms.widgets.Select:
                     visible.field.widget.attrs["class"] = "fr-select"
                     visible.field.widget.group_class = "fr-select-group"
