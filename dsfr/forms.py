@@ -20,13 +20,16 @@ class DsfrBaseForm(forms.Form):
             Depending on the widget, we have to add some classes:
             - on the outer group
             - on the form field itsef
+
+            If a class is already set, we don't force the DSFR-specific classes.
             """
-            if type(visible.field.widget) == forms.widgets.Select:
-                visible.field.widget.attrs["class"] = "fr-select"
-                visible.field.widget.group_class = "fr-select-group"
-            elif type(visible.field.widget) == forms.widgets.RadioSelect:
-                visible.field.widget.group_class = "fr-radio-group"
-            elif type(visible.field.widget) == forms.widgets.CheckboxSelectMultiple:
-                visible.field.widget.group_class = "fr-checkbox-group"
-            elif type(visible.field.widget) not in self.WIDGETS_NO_FR_INPUT:
-                visible.field.widget.attrs["class"] = "fr-input"
+            if not "class" in visible.field.widget.attrs:
+                if type(visible.field.widget) == forms.widgets.Select:
+                    visible.field.widget.attrs["class"] = "fr-select"
+                    visible.field.widget.group_class = "fr-select-group"
+                elif type(visible.field.widget) == forms.widgets.RadioSelect:
+                    visible.field.widget.group_class = "fr-radio-group"
+                elif type(visible.field.widget) == forms.widgets.CheckboxSelectMultiple:
+                    visible.field.widget.group_class = "fr-checkbox-group"
+                elif type(visible.field.widget) not in self.WIDGETS_NO_FR_INPUT:
+                    visible.field.widget.attrs["class"] = "fr-input"
