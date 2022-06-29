@@ -30,6 +30,6 @@ class DsfrBaseForm(forms.Form):
                 elif type(visible.field.widget) == forms.widgets.RadioSelect:
                     visible.field.widget.group_class = "fr-radio-group"
                 elif type(visible.field.widget) == forms.widgets.CheckboxSelectMultiple:
-                    visible.field.widget.group_class = "fr-checkbox-group"
+                    visible.field.widget.attrs["dsfr"] = "dsfr"
                 elif type(visible.field.widget) not in self.WIDGETS_NO_FR_INPUT:
                     visible.field.widget.attrs["class"] = "fr-input"
