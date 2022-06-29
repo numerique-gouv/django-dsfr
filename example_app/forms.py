@@ -50,6 +50,12 @@ class ExampleForm(DsfrBaseForm):
         required=False,
         choices=[(1, "Option 1"), (2, "Option 2"), (3, "Option 3")],
     )
+    
+    sample_multiple_select = forms.MultipleChoiceField(
+        label="Liste déroulante à choix multiples",
+        required=False,
+        choices=[(1, "Option 1"), (2, "Option 2"), (3, "Option 3")],
+    )
 
     sample_radio = forms.ChoiceField(
         label="Boutons radio",
