@@ -188,7 +188,7 @@
         
   <h1>Exemple de formulaire</h1>
   <form action="/django-dsfr/form/" method="post">
-      <input type="hidden" name="csrfmiddlewaretoken" value="WRvQ60T1Bw0B2c0GZ51Xx83KbdBpTQC7wG3NkckJDW76zUSNUjUjjUbBrelClli4">
+      <input type="hidden" name="csrfmiddlewaretoken" value="lwH6xqm6dUMT3Kyk6gH6EnJlT4DXhZCuOy88BxGF8FbyooFHLcj93YRtERQhmlVG">
       
     
 
@@ -360,6 +360,31 @@
 
   
 
+<div class="fr-select-group">
+    <label for="id_sample_multiple_select">Liste déroulante à choix multiples:</label>
+    
+
+    
+      <select name="sample_multiple_select" class="fr-select" id="id_sample_multiple_select" multiple>
+  <option value="1">Option 1</option>
+
+  <option value="2">Option 2</option>
+
+  <option value="3">Option 3</option>
+
+</select>
+    
+
+    
+</div>
+
+
+
+    
+
+
+  
+
 <div class="fr-radio-group">
     <label for="id_sample_radio_0">Boutons radio:</label>
     
@@ -410,13 +435,16 @@
 
 
   
+<div class="fr-form-group">
+  <fieldset class="fr-fieldset">
+    <legend class="fr-fieldset__legend fr-text--regular" id='checkboxes-legend'>
+      <label>Cases à cocher:</label>
+      
+    </legend>
 
-<div class="fr-checkbox-group">
-    <label>Cases à cocher:</label>
-    
-
-    
-      <input type="checkbox" name="sample_checkbox" value="1" id="id_sample_checkbox_0">
+    <div class="fr-fieldset__content">
+      <div class="fr-checkbox-group">
+<input type="checkbox" name="sample_checkbox" value="1" dsfr="dsfr" id="id_sample_checkbox_0">
 
 
 	<label class="fr-label" for="id_sample_checkbox_0">
@@ -425,11 +453,12 @@
         
 	</label>
 
-
+</div>
 		
 	
 		
-			<input type="checkbox" name="sample_checkbox" value="2" id="id_sample_checkbox_1">
+			<div class="fr-checkbox-group">
+<input type="checkbox" name="sample_checkbox" value="2" dsfr="dsfr" id="id_sample_checkbox_1">
 
 
 	<label class="fr-label" for="id_sample_checkbox_1">
@@ -438,11 +467,12 @@
         
 	</label>
 
-
+</div>
 		
 	
 		
-			<input type="checkbox" name="sample_checkbox" value="3" id="id_sample_checkbox_2">
+			<div class="fr-checkbox-group">
+<input type="checkbox" name="sample_checkbox" value="3" dsfr="dsfr" id="id_sample_checkbox_2">
 
 
 	<label class="fr-label" for="id_sample_checkbox_2">
@@ -450,9 +480,12 @@
             Troisième choix
         
 	</label>
-    
+
+</div>
+    </div>
 
     
+  </fieldset>
 </div>
 
 
