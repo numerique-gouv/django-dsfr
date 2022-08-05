@@ -1,10 +1,10 @@
-/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.4.1'
+  version: '1.7.2'
 };
 
 const api = window[config.namespace];
@@ -606,7 +606,7 @@ class NavigationItem extends api.core.Instance {
   calculate () {
     const collapse = this.element.getDescendantInstances(api.core.Collapse.instanceClassName, null, true)[0];
     if (collapse && this.isBreakpoint(api.core.Breakpoints.LG) && collapse.element.node.matches(NavigationSelector.MENU)) {
-      const right = this.element.node.parentElement.getBoundingClientRect().right;
+      const right = this.element.node.parentElement.getBoundingClientRect().right; // todo: ne fonctionne que si la nav fait 100% du container
       const width = collapse.element.node.getBoundingClientRect().width;
       const left = this.element.node.getBoundingClientRect().left;
       this.isRightAligned = left + width > right;
@@ -650,13 +650,19 @@ class Navigation extends api.core.CollapsesGroup {
 
   down (e) {
     if (!this.isBreakpoint(api.core.Breakpoints.LG) || this.index === -1 || !this.current) return;
-    this.position = this.current.element.node.contains(e.target) ? NavigationMousePosition.INSIDE : NavigationMousePosition.OUTSIDE;
-    this.request(this.getPosition.bind(this));
+    this.position = this.current.node.contains(e.target) ? NavigationMousePosition.INSIDE : NavigationMousePosition.OUTSIDE;
+    this.requestPosition();
   }
 
   focusOut (e) {
     if (!this.isBreakpoint(api.core.Breakpoints.LG)) return;
     this.out = true;
+    this.requestPosition();
+  }
+
+  requestPosition () {
+    if (this.isRequesting) return;
+    this.isRequesting = true;
     this.request(this.getPosition.bind(this));
   }
 
@@ -668,15 +674,21 @@ class Navigation extends api.core.CollapsesGroup {
           break;
 
         case NavigationMousePosition.INSIDE:
-          if (this.current) this.current.focus();
+          if (this.current && !this.current.node.contains(document.activeElement)) this.current.focus();
           break;
 
         default:
           if (this.index > -1 && !this.current.hasFocus) this.index = -1;
       }
     }
+
+    this.request(this.requested.bind(this));
+  }
+
+  requested () {
     this.position = NavigationMousePosition.NONE;
     this.out = false;
+    this.isRequesting = false;
   }
 
   get index () { return super.index; }
@@ -1014,6 +1026,7 @@ class TabsList extends api.core.Instance {
 
   resize () {
     this.isScrolling = this.node.scrollWidth > this.node.clientWidth + SCROLL_OFFSET$1;
+    this.setProperty('--tab-list-height', `${this.getRect().height}px`);
   }
 
   dispose () {
@@ -1165,6 +1178,114 @@ api.tag = {
 
 api.internals.register(api.tag.TagSelector.TAG_PRESSABLE, api.core.Toggle);
 
+const DownloadSelector = {
+  DOWNLOAD_ASSESS_FILE: `${api.internals.ns.attr.selector('assess-file')}`,
+  DOWNLOAD_DETAIL: `${api.internals.ns.selector('download__detail')}`
+};
+
+class AssessFile extends api.core.Instance {
+  static get instanceClassName () {
+    return 'AssessFile';
+  }
+
+  init () {
+    this.lang = this.getLang(this.node);
+    this.href = this.getAttribute('href');
+
+    this.hreflang = this.getAttribute('hreflang');
+    this.file = {};
+    this.detail = this.querySelector(DownloadSelector.DOWNLOAD_DETAIL);
+    this.update();
+  }
+
+  getFileLength () {
+    if (this.href === undefined) {
+      this.length = -1;
+      return;
+    }
+
+    fetch(this.href, { method: 'HEAD', mode: 'cors' }).then(response => {
+      this.length = response.headers.get('content-length') || -1;
+      if (this.length === -1) {
+        console.warn('Impossible de détecter le poids du fichier ' + this.href + '\nErreur de récupération de l\'en-tête HTTP : "content-length"');
+      }
+      this.update();
+    });
+  }
+
+  update () {
+    // TODO V2: implémenter async
+    if (this.isLegacy) this.length = -1;
+
+    if (!this.length) {
+      this.getFileLength();
+      return;
+    }
+
+    const details = [];
+    if (this.detail) {
+      if (this.href) {
+        const extension = this.parseExtension(this.href);
+        if (extension) details.push(extension.toUpperCase());
+      }
+
+      if (this.length !== -1) {
+        details.push(this.bytesToSize(this.length));
+      }
+
+      if (this.hreflang) {
+        details.push(this.getLangDisplayName(this.hreflang));
+      }
+
+      this.detail.innerHTML = details.join(' - ');
+    }
+  }
+
+  getLang (elem) {
+    if (elem.lang) return elem.lang;
+    if (document.documentElement === elem) return window.navigator.language;
+    return this.getLang(elem.parentElement);
+  }
+
+  parseExtension (url) {
+    const regexExtension = /\.(\w{1,9})(?:$|[?#])/;
+    return url.match(regexExtension)[0].replace('.', '');
+  }
+
+  getLangDisplayName (locale) {
+    if (this.isLegacy) return locale;
+    const displayNames = new Intl.DisplayNames([this.lang], { type: 'language' });
+    const name = displayNames.of(locale);
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  }
+
+  bytesToSize (bytes) {
+    if (bytes === -1) return null;
+
+    let sizeUnits = ['octets', 'ko', 'Mo', 'Go', 'To'];
+    if (this.getAttribute(api.internals.ns.attr('assess-file')) === 'bytes') {
+      sizeUnits = ['bytes', 'KB', 'MB', 'GB', 'TB'];
+    }
+
+    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1000)), 10);
+    if (i === 0) return `${bytes} ${sizeUnits[i]}`;
+
+    const size = bytes / (1000 ** i);
+    const roundedSize = Math.round((size + Number.EPSILON) * 100) / 100; // arrondi a 2 décimal
+    const stringSize = String(roundedSize).replace('.', ',');
+
+    return `${stringSize} ${sizeUnits[i]}`;
+  }
+}
+
+api.download = {
+  DownloadSelector: DownloadSelector,
+  AssessFile: AssessFile
+
+};
+
+api.internals.register(api.download.DownloadSelector.DOWNLOAD_ASSESS_FILE, api.download.AssessFile);
+
 const HeaderSelector = {
   HEADER: api.internals.ns.selector('header'),
   TOOLS_LINKS: api.internals.ns.selector('header__tools-links'),
@@ -1182,23 +1303,27 @@ class HeaderLinks extends api.core.Instance {
     const header = this.queryParentSelector(HeaderSelector.HEADER);
     this.toolsLinks = header.querySelector(HeaderSelector.TOOLS_LINKS);
     this.menuLinks = header.querySelector(HeaderSelector.MENU_LINKS);
+    const copySuffix = '_copy';
 
     const toolsHtml = this.toolsLinks.innerHTML.replace(/  +/g, ' ');
     const menuHtml = this.menuLinks.innerHTML.replace(/  +/g, ' ');
+    // Pour éviter de dupliquer des id, on ajoute un suffixe aux id et aria-controls duppliqués.
+    let toolsHtmlDuplicateId = toolsHtml.replace(/ id="(.*?)"/gm, ' id="$1' + copySuffix + '"');
+    toolsHtmlDuplicateId = toolsHtmlDuplicateId.replace(/ aria-controls="(.*?)"/gm, ' aria-controls="$1' + copySuffix + '"');
 
-    if (toolsHtml === menuHtml) return;
+    if (toolsHtmlDuplicateId === menuHtml) return;
 
     switch (api.mode) {
       case api.Modes.ANGULAR:
       case api.Modes.REACT:
       case api.Modes.VUE:
         api.inspector.warn(`header__tools-links content is different from header__menu-links content.
-As you're using a dynamic framework, you should handle duplication of this content yourself, please refer to documentation: 
+As you're using a dynamic framework, you should handle duplication of this content yourself, please refer to documentation:
 ${api.header.doc}`);
         break;
 
       default:
-        this.menuLinks.innerHTML = this.toolsLinks.innerHTML;
+        this.menuLinks.innerHTML = toolsHtmlDuplicateId;
     }
   }
 }

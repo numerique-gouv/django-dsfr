@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
@@ -35,7 +35,7 @@
   border-spacing: 0;
 }
 
-.fr-table[data-fr-js-table="true"] caption {
+.fr-table[data-fr-js-table=true] caption {
   position: absolute;
   top: 0;
 }
@@ -63,6 +63,19 @@
 
 .fr-table th {
   font-weight: 700;
+}
+
+.fr-table thead {
+  background-size: 100% 2px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(0deg, var(--border-plain-grey), var(--border-plain-grey));
+  background-color: var(--background-contrast-grey);
+
+  --idle: transparent;
+  --hover: var(--background-contrast-grey-hover);
+  --active: var(--background-contrast-grey-active);
+  color: var(--text-title-grey);
 }
 
 .fr-table thead td,
@@ -106,7 +119,7 @@
   margin-bottom: calc(var(--table-offset) + 2.75rem);
 }
 
-.fr-table--caption-bottom[data-fr-js-table="true"] caption {
+.fr-table--caption-bottom[data-fr-js-table=true] caption {
   position: absolute;
   top: 100%;
   right: 0;
@@ -142,6 +155,17 @@
 .fr-table--layout-fixed table {
   display: table;
   table-layout: fixed;
+}
+
+/* Style bordered, ajoute des bordures entre chaque ligne */
+.fr-table--bordered tbody tr {
+  background-size: 100% 1px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(0deg, var(--border-default-grey), var(--border-default-grey));
+
+  /* Style bordered, enleve le style even/odd  */
+  /* Style bordered, enleve le style even/odd  */
 }
 
 /*
@@ -216,22 +240,14 @@
   left: 0;
 }
 
-:root[data-fr-theme="dark"] .fr-table__shadow::before {
+:root:where([data-fr-theme="dark"]) .fr-table__shadow::before {
   opacity: 1;
-}
-
-.fr-table thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-grey);
-  background-color: var(--background-contrast-grey);
-
-  --hover: var(--background-contrast-grey-hover);
-  --active: var(--background-contrast-grey-active);
-  color: var(--text-title-grey);
 }
 
 .fr-table tbody {
   background-color: var(--background-alt-grey);
 
+  --idle: transparent;
   --hover: var(--background-alt-grey-hover);
   --active: var(--background-alt-grey-active);
 }
@@ -239,6 +255,7 @@
 .fr-table tbody tr:nth-child(even) {
   background-color: var(--background-contrast-grey);
 
+  --idle: transparent;
   --hover: var(--background-contrast-grey-hover);
   --active: var(--background-contrast-grey-active);
 }
@@ -249,9 +266,10 @@
 }
 
 .fr-table--green-tilleul-verveine thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-green-tilleul-verveine);
+  background-image: linear-gradient(0deg, var(--border-plain-green-tilleul-verveine), var(--border-plain-green-tilleul-verveine));
   background-color: var(--background-contrast-green-tilleul-verveine);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-tilleul-verveine-hover);
   --active: var(--background-contrast-green-tilleul-verveine-active);
 }
@@ -259,6 +277,7 @@
 .fr-table--green-tilleul-verveine tbody {
   background-color: var(--background-alt-green-tilleul-verveine);
 
+  --idle: transparent;
   --hover: var(--background-alt-green-tilleul-verveine-hover);
   --active: var(--background-alt-green-tilleul-verveine-active);
 }
@@ -266,12 +285,13 @@
 .fr-table--green-tilleul-verveine tbody tr:nth-child(even) {
   background-color: var(--background-contrast-green-tilleul-verveine);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-tilleul-verveine-hover);
   --active: var(--background-contrast-green-tilleul-verveine-active);
 }
 
 .fr-table--green-tilleul-verveine.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-green-tilleul-verveine);
+  background-image: linear-gradient(0deg, var(--border-default-green-tilleul-verveine), var(--border-default-green-tilleul-verveine));
 }
 
 .fr-table--green-bourgeon {
@@ -280,9 +300,10 @@
 }
 
 .fr-table--green-bourgeon thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-green-bourgeon);
+  background-image: linear-gradient(0deg, var(--border-plain-green-bourgeon), var(--border-plain-green-bourgeon));
   background-color: var(--background-contrast-green-bourgeon);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-bourgeon-hover);
   --active: var(--background-contrast-green-bourgeon-active);
 }
@@ -290,6 +311,7 @@
 .fr-table--green-bourgeon tbody {
   background-color: var(--background-alt-green-bourgeon);
 
+  --idle: transparent;
   --hover: var(--background-alt-green-bourgeon-hover);
   --active: var(--background-alt-green-bourgeon-active);
 }
@@ -297,12 +319,13 @@
 .fr-table--green-bourgeon tbody tr:nth-child(even) {
   background-color: var(--background-contrast-green-bourgeon);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-bourgeon-hover);
   --active: var(--background-contrast-green-bourgeon-active);
 }
 
 .fr-table--green-bourgeon.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-green-bourgeon);
+  background-image: linear-gradient(0deg, var(--border-default-green-bourgeon), var(--border-default-green-bourgeon));
 }
 
 .fr-table--green-emeraude {
@@ -311,9 +334,10 @@
 }
 
 .fr-table--green-emeraude thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-green-emeraude);
+  background-image: linear-gradient(0deg, var(--border-plain-green-emeraude), var(--border-plain-green-emeraude));
   background-color: var(--background-contrast-green-emeraude);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-emeraude-hover);
   --active: var(--background-contrast-green-emeraude-active);
 }
@@ -321,6 +345,7 @@
 .fr-table--green-emeraude tbody {
   background-color: var(--background-alt-green-emeraude);
 
+  --idle: transparent;
   --hover: var(--background-alt-green-emeraude-hover);
   --active: var(--background-alt-green-emeraude-active);
 }
@@ -328,12 +353,13 @@
 .fr-table--green-emeraude tbody tr:nth-child(even) {
   background-color: var(--background-contrast-green-emeraude);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-emeraude-hover);
   --active: var(--background-contrast-green-emeraude-active);
 }
 
 .fr-table--green-emeraude.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-green-emeraude);
+  background-image: linear-gradient(0deg, var(--border-default-green-emeraude), var(--border-default-green-emeraude));
 }
 
 .fr-table--green-menthe {
@@ -342,9 +368,10 @@
 }
 
 .fr-table--green-menthe thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-green-menthe);
+  background-image: linear-gradient(0deg, var(--border-plain-green-menthe), var(--border-plain-green-menthe));
   background-color: var(--background-contrast-green-menthe);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-menthe-hover);
   --active: var(--background-contrast-green-menthe-active);
 }
@@ -352,6 +379,7 @@
 .fr-table--green-menthe tbody {
   background-color: var(--background-alt-green-menthe);
 
+  --idle: transparent;
   --hover: var(--background-alt-green-menthe-hover);
   --active: var(--background-alt-green-menthe-active);
 }
@@ -359,12 +387,13 @@
 .fr-table--green-menthe tbody tr:nth-child(even) {
   background-color: var(--background-contrast-green-menthe);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-menthe-hover);
   --active: var(--background-contrast-green-menthe-active);
 }
 
 .fr-table--green-menthe.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-green-menthe);
+  background-image: linear-gradient(0deg, var(--border-default-green-menthe), var(--border-default-green-menthe));
 }
 
 .fr-table--green-archipel {
@@ -373,9 +402,10 @@
 }
 
 .fr-table--green-archipel thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-green-archipel);
+  background-image: linear-gradient(0deg, var(--border-plain-green-archipel), var(--border-plain-green-archipel));
   background-color: var(--background-contrast-green-archipel);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-archipel-hover);
   --active: var(--background-contrast-green-archipel-active);
 }
@@ -383,6 +413,7 @@
 .fr-table--green-archipel tbody {
   background-color: var(--background-alt-green-archipel);
 
+  --idle: transparent;
   --hover: var(--background-alt-green-archipel-hover);
   --active: var(--background-alt-green-archipel-active);
 }
@@ -390,12 +421,13 @@
 .fr-table--green-archipel tbody tr:nth-child(even) {
   background-color: var(--background-contrast-green-archipel);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-archipel-hover);
   --active: var(--background-contrast-green-archipel-active);
 }
 
 .fr-table--green-archipel.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-green-archipel);
+  background-image: linear-gradient(0deg, var(--border-default-green-archipel), var(--border-default-green-archipel));
 }
 
 .fr-table--blue-ecume {
@@ -404,9 +436,10 @@
 }
 
 .fr-table--blue-ecume thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-blue-ecume);
+  background-image: linear-gradient(0deg, var(--border-plain-blue-ecume), var(--border-plain-blue-ecume));
   background-color: var(--background-contrast-blue-ecume);
 
+  --idle: transparent;
   --hover: var(--background-contrast-blue-ecume-hover);
   --active: var(--background-contrast-blue-ecume-active);
 }
@@ -414,6 +447,7 @@
 .fr-table--blue-ecume tbody {
   background-color: var(--background-alt-blue-ecume);
 
+  --idle: transparent;
   --hover: var(--background-alt-blue-ecume-hover);
   --active: var(--background-alt-blue-ecume-active);
 }
@@ -421,12 +455,13 @@
 .fr-table--blue-ecume tbody tr:nth-child(even) {
   background-color: var(--background-contrast-blue-ecume);
 
+  --idle: transparent;
   --hover: var(--background-contrast-blue-ecume-hover);
   --active: var(--background-contrast-blue-ecume-active);
 }
 
 .fr-table--blue-ecume.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-blue-ecume);
+  background-image: linear-gradient(0deg, var(--border-default-blue-ecume), var(--border-default-blue-ecume));
 }
 
 .fr-table--blue-cumulus {
@@ -435,9 +470,10 @@
 }
 
 .fr-table--blue-cumulus thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-blue-cumulus);
+  background-image: linear-gradient(0deg, var(--border-plain-blue-cumulus), var(--border-plain-blue-cumulus));
   background-color: var(--background-contrast-blue-cumulus);
 
+  --idle: transparent;
   --hover: var(--background-contrast-blue-cumulus-hover);
   --active: var(--background-contrast-blue-cumulus-active);
 }
@@ -445,6 +481,7 @@
 .fr-table--blue-cumulus tbody {
   background-color: var(--background-alt-blue-cumulus);
 
+  --idle: transparent;
   --hover: var(--background-alt-blue-cumulus-hover);
   --active: var(--background-alt-blue-cumulus-active);
 }
@@ -452,12 +489,13 @@
 .fr-table--blue-cumulus tbody tr:nth-child(even) {
   background-color: var(--background-contrast-blue-cumulus);
 
+  --idle: transparent;
   --hover: var(--background-contrast-blue-cumulus-hover);
   --active: var(--background-contrast-blue-cumulus-active);
 }
 
 .fr-table--blue-cumulus.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-blue-cumulus);
+  background-image: linear-gradient(0deg, var(--border-default-blue-cumulus), var(--border-default-blue-cumulus));
 }
 
 .fr-table--purple-glycine {
@@ -466,9 +504,10 @@
 }
 
 .fr-table--purple-glycine thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-purple-glycine);
+  background-image: linear-gradient(0deg, var(--border-plain-purple-glycine), var(--border-plain-purple-glycine));
   background-color: var(--background-contrast-purple-glycine);
 
+  --idle: transparent;
   --hover: var(--background-contrast-purple-glycine-hover);
   --active: var(--background-contrast-purple-glycine-active);
 }
@@ -476,6 +515,7 @@
 .fr-table--purple-glycine tbody {
   background-color: var(--background-alt-purple-glycine);
 
+  --idle: transparent;
   --hover: var(--background-alt-purple-glycine-hover);
   --active: var(--background-alt-purple-glycine-active);
 }
@@ -483,12 +523,13 @@
 .fr-table--purple-glycine tbody tr:nth-child(even) {
   background-color: var(--background-contrast-purple-glycine);
 
+  --idle: transparent;
   --hover: var(--background-contrast-purple-glycine-hover);
   --active: var(--background-contrast-purple-glycine-active);
 }
 
 .fr-table--purple-glycine.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-purple-glycine);
+  background-image: linear-gradient(0deg, var(--border-default-purple-glycine), var(--border-default-purple-glycine));
 }
 
 .fr-table--pink-macaron {
@@ -497,9 +538,10 @@
 }
 
 .fr-table--pink-macaron thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-pink-macaron);
+  background-image: linear-gradient(0deg, var(--border-plain-pink-macaron), var(--border-plain-pink-macaron));
   background-color: var(--background-contrast-pink-macaron);
 
+  --idle: transparent;
   --hover: var(--background-contrast-pink-macaron-hover);
   --active: var(--background-contrast-pink-macaron-active);
 }
@@ -507,6 +549,7 @@
 .fr-table--pink-macaron tbody {
   background-color: var(--background-alt-pink-macaron);
 
+  --idle: transparent;
   --hover: var(--background-alt-pink-macaron-hover);
   --active: var(--background-alt-pink-macaron-active);
 }
@@ -514,12 +557,13 @@
 .fr-table--pink-macaron tbody tr:nth-child(even) {
   background-color: var(--background-contrast-pink-macaron);
 
+  --idle: transparent;
   --hover: var(--background-contrast-pink-macaron-hover);
   --active: var(--background-contrast-pink-macaron-active);
 }
 
 .fr-table--pink-macaron.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-pink-macaron);
+  background-image: linear-gradient(0deg, var(--border-default-pink-macaron), var(--border-default-pink-macaron));
 }
 
 .fr-table--pink-tuile {
@@ -528,9 +572,10 @@
 }
 
 .fr-table--pink-tuile thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-pink-tuile);
+  background-image: linear-gradient(0deg, var(--border-plain-pink-tuile), var(--border-plain-pink-tuile));
   background-color: var(--background-contrast-pink-tuile);
 
+  --idle: transparent;
   --hover: var(--background-contrast-pink-tuile-hover);
   --active: var(--background-contrast-pink-tuile-active);
 }
@@ -538,6 +583,7 @@
 .fr-table--pink-tuile tbody {
   background-color: var(--background-alt-pink-tuile);
 
+  --idle: transparent;
   --hover: var(--background-alt-pink-tuile-hover);
   --active: var(--background-alt-pink-tuile-active);
 }
@@ -545,12 +591,13 @@
 .fr-table--pink-tuile tbody tr:nth-child(even) {
   background-color: var(--background-contrast-pink-tuile);
 
+  --idle: transparent;
   --hover: var(--background-contrast-pink-tuile-hover);
   --active: var(--background-contrast-pink-tuile-active);
 }
 
 .fr-table--pink-tuile.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-pink-tuile);
+  background-image: linear-gradient(0deg, var(--border-default-pink-tuile), var(--border-default-pink-tuile));
 }
 
 .fr-table--yellow-tournesol {
@@ -559,9 +606,10 @@
 }
 
 .fr-table--yellow-tournesol thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-yellow-tournesol);
+  background-image: linear-gradient(0deg, var(--border-plain-yellow-tournesol), var(--border-plain-yellow-tournesol));
   background-color: var(--background-contrast-yellow-tournesol);
 
+  --idle: transparent;
   --hover: var(--background-contrast-yellow-tournesol-hover);
   --active: var(--background-contrast-yellow-tournesol-active);
 }
@@ -569,6 +617,7 @@
 .fr-table--yellow-tournesol tbody {
   background-color: var(--background-alt-yellow-tournesol);
 
+  --idle: transparent;
   --hover: var(--background-alt-yellow-tournesol-hover);
   --active: var(--background-alt-yellow-tournesol-active);
 }
@@ -576,12 +625,13 @@
 .fr-table--yellow-tournesol tbody tr:nth-child(even) {
   background-color: var(--background-contrast-yellow-tournesol);
 
+  --idle: transparent;
   --hover: var(--background-contrast-yellow-tournesol-hover);
   --active: var(--background-contrast-yellow-tournesol-active);
 }
 
 .fr-table--yellow-tournesol.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-yellow-tournesol);
+  background-image: linear-gradient(0deg, var(--border-default-yellow-tournesol), var(--border-default-yellow-tournesol));
 }
 
 .fr-table--yellow-moutarde {
@@ -590,9 +640,10 @@
 }
 
 .fr-table--yellow-moutarde thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-yellow-moutarde);
+  background-image: linear-gradient(0deg, var(--border-plain-yellow-moutarde), var(--border-plain-yellow-moutarde));
   background-color: var(--background-contrast-yellow-moutarde);
 
+  --idle: transparent;
   --hover: var(--background-contrast-yellow-moutarde-hover);
   --active: var(--background-contrast-yellow-moutarde-active);
 }
@@ -600,6 +651,7 @@
 .fr-table--yellow-moutarde tbody {
   background-color: var(--background-alt-yellow-moutarde);
 
+  --idle: transparent;
   --hover: var(--background-alt-yellow-moutarde-hover);
   --active: var(--background-alt-yellow-moutarde-active);
 }
@@ -607,12 +659,13 @@
 .fr-table--yellow-moutarde tbody tr:nth-child(even) {
   background-color: var(--background-contrast-yellow-moutarde);
 
+  --idle: transparent;
   --hover: var(--background-contrast-yellow-moutarde-hover);
   --active: var(--background-contrast-yellow-moutarde-active);
 }
 
 .fr-table--yellow-moutarde.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-yellow-moutarde);
+  background-image: linear-gradient(0deg, var(--border-default-yellow-moutarde), var(--border-default-yellow-moutarde));
 }
 
 .fr-table--orange-terre-battue {
@@ -621,9 +674,10 @@
 }
 
 .fr-table--orange-terre-battue thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-orange-terre-battue);
+  background-image: linear-gradient(0deg, var(--border-plain-orange-terre-battue), var(--border-plain-orange-terre-battue));
   background-color: var(--background-contrast-orange-terre-battue);
 
+  --idle: transparent;
   --hover: var(--background-contrast-orange-terre-battue-hover);
   --active: var(--background-contrast-orange-terre-battue-active);
 }
@@ -631,6 +685,7 @@
 .fr-table--orange-terre-battue tbody {
   background-color: var(--background-alt-orange-terre-battue);
 
+  --idle: transparent;
   --hover: var(--background-alt-orange-terre-battue-hover);
   --active: var(--background-alt-orange-terre-battue-active);
 }
@@ -638,12 +693,13 @@
 .fr-table--orange-terre-battue tbody tr:nth-child(even) {
   background-color: var(--background-contrast-orange-terre-battue);
 
+  --idle: transparent;
   --hover: var(--background-contrast-orange-terre-battue-hover);
   --active: var(--background-contrast-orange-terre-battue-active);
 }
 
 .fr-table--orange-terre-battue.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-orange-terre-battue);
+  background-image: linear-gradient(0deg, var(--border-default-orange-terre-battue), var(--border-default-orange-terre-battue));
 }
 
 .fr-table--brown-cafe-creme {
@@ -652,9 +708,10 @@
 }
 
 .fr-table--brown-cafe-creme thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-brown-cafe-creme);
+  background-image: linear-gradient(0deg, var(--border-plain-brown-cafe-creme), var(--border-plain-brown-cafe-creme));
   background-color: var(--background-contrast-brown-cafe-creme);
 
+  --idle: transparent;
   --hover: var(--background-contrast-brown-cafe-creme-hover);
   --active: var(--background-contrast-brown-cafe-creme-active);
 }
@@ -662,6 +719,7 @@
 .fr-table--brown-cafe-creme tbody {
   background-color: var(--background-alt-brown-cafe-creme);
 
+  --idle: transparent;
   --hover: var(--background-alt-brown-cafe-creme-hover);
   --active: var(--background-alt-brown-cafe-creme-active);
 }
@@ -669,12 +727,13 @@
 .fr-table--brown-cafe-creme tbody tr:nth-child(even) {
   background-color: var(--background-contrast-brown-cafe-creme);
 
+  --idle: transparent;
   --hover: var(--background-contrast-brown-cafe-creme-hover);
   --active: var(--background-contrast-brown-cafe-creme-active);
 }
 
 .fr-table--brown-cafe-creme.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-brown-cafe-creme);
+  background-image: linear-gradient(0deg, var(--border-default-brown-cafe-creme), var(--border-default-brown-cafe-creme));
 }
 
 .fr-table--brown-caramel {
@@ -683,9 +742,10 @@
 }
 
 .fr-table--brown-caramel thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-brown-caramel);
+  background-image: linear-gradient(0deg, var(--border-plain-brown-caramel), var(--border-plain-brown-caramel));
   background-color: var(--background-contrast-brown-caramel);
 
+  --idle: transparent;
   --hover: var(--background-contrast-brown-caramel-hover);
   --active: var(--background-contrast-brown-caramel-active);
 }
@@ -693,6 +753,7 @@
 .fr-table--brown-caramel tbody {
   background-color: var(--background-alt-brown-caramel);
 
+  --idle: transparent;
   --hover: var(--background-alt-brown-caramel-hover);
   --active: var(--background-alt-brown-caramel-active);
 }
@@ -700,12 +761,13 @@
 .fr-table--brown-caramel tbody tr:nth-child(even) {
   background-color: var(--background-contrast-brown-caramel);
 
+  --idle: transparent;
   --hover: var(--background-contrast-brown-caramel-hover);
   --active: var(--background-contrast-brown-caramel-active);
 }
 
 .fr-table--brown-caramel.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-brown-caramel);
+  background-image: linear-gradient(0deg, var(--border-default-brown-caramel), var(--border-default-brown-caramel));
 }
 
 .fr-table--brown-opera {
@@ -714,9 +776,10 @@
 }
 
 .fr-table--brown-opera thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-brown-opera);
+  background-image: linear-gradient(0deg, var(--border-plain-brown-opera), var(--border-plain-brown-opera));
   background-color: var(--background-contrast-brown-opera);
 
+  --idle: transparent;
   --hover: var(--background-contrast-brown-opera-hover);
   --active: var(--background-contrast-brown-opera-active);
 }
@@ -724,6 +787,7 @@
 .fr-table--brown-opera tbody {
   background-color: var(--background-alt-brown-opera);
 
+  --idle: transparent;
   --hover: var(--background-alt-brown-opera-hover);
   --active: var(--background-alt-brown-opera-active);
 }
@@ -731,12 +795,13 @@
 .fr-table--brown-opera tbody tr:nth-child(even) {
   background-color: var(--background-contrast-brown-opera);
 
+  --idle: transparent;
   --hover: var(--background-contrast-brown-opera-hover);
   --active: var(--background-contrast-brown-opera-active);
 }
 
 .fr-table--brown-opera.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-brown-opera);
+  background-image: linear-gradient(0deg, var(--border-default-brown-opera), var(--border-default-brown-opera));
 }
 
 .fr-table--beige-gris-galet {
@@ -745,9 +810,10 @@
 }
 
 .fr-table--beige-gris-galet thead {
-  box-shadow: inset 0 -2px 0 0 var(--border-plain-beige-gris-galet);
+  background-image: linear-gradient(0deg, var(--border-plain-beige-gris-galet), var(--border-plain-beige-gris-galet));
   background-color: var(--background-contrast-beige-gris-galet);
 
+  --idle: transparent;
   --hover: var(--background-contrast-beige-gris-galet-hover);
   --active: var(--background-contrast-beige-gris-galet-active);
 }
@@ -755,6 +821,7 @@
 .fr-table--beige-gris-galet tbody {
   background-color: var(--background-alt-beige-gris-galet);
 
+  --idle: transparent;
   --hover: var(--background-alt-beige-gris-galet-hover);
   --active: var(--background-alt-beige-gris-galet-active);
 }
@@ -762,19 +829,13 @@
 .fr-table--beige-gris-galet tbody tr:nth-child(even) {
   background-color: var(--background-contrast-beige-gris-galet);
 
+  --idle: transparent;
   --hover: var(--background-contrast-beige-gris-galet-hover);
   --active: var(--background-contrast-beige-gris-galet-active);
 }
 
 .fr-table--beige-gris-galet.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-beige-gris-galet);
-}
-
-.fr-table--bordered tbody tr {
-  box-shadow: inset 0 -1px 0 0 var(--border-default-grey);
-
-  /* Style bordered, enleve le style even/odd  */
-  /* Style bordered, enleve le style even/odd  */
+  background-image: linear-gradient(0deg, var(--border-default-beige-gris-galet), var(--border-default-beige-gris-galet));
 }
 
 .fr-table--bordered tbody tr:nth-child(even) {
@@ -784,7 +845,14 @@
   --active: inherit;
 }
 
+@media (min-width: 36em) {
+  /*! media sm */
+
+  /*! media sm */
+}
+
 @media (min-width: 48em) {
+  /*! media md */
   .fr-table caption {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -799,13 +867,27 @@
   .fr-table thead th {
     padding-bottom: 1.125rem;
   }
+
+  /*! media md */
+}
+
+@media (min-width: 62em) {
+  /*! media lg */
+
+  /*! media lg */
+}
+
+@media (min-width: 78em) {
+  /*! media xl */
+
+  /*! media xl */
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /**
   * Correctif placement caption
   */
-  .fr-table[data-fr-js-table="true"] caption {
+  .fr-table[data-fr-js-table=true] caption {
     position: relative;
   }
 
@@ -814,745 +896,321 @@
   }
 
   .fr-table thead {
-    box-shadow: inset 0 -2px 0 0 #3a3a3a;
+    background-image: linear-gradient(0deg, #3a3a3a, #3a3a3a);
     background-color: #eee;
     color: #161616;
-  }
-
-  .fr-table thead:hover {
-    background-color: #d2d2d2;
-  }
-
-  .fr-table thead:active {
-    background-color: #c1c1c1;
   }
 
   .fr-table tbody {
     background-color: #f6f6f6;
   }
 
-  .fr-table tbody:hover {
-    background-color: #dfdfdf;
-  }
-
-  .fr-table tbody:active {
-    background-color: #cfcfcf;
-  }
-
   .fr-table tbody tr:nth-child(even) {
     background-color: #eee;
   }
 
-  .fr-table tbody tr:nth-child(even):hover {
-    background-color: #d2d2d2;
-  }
-
-  .fr-table tbody tr:nth-child(even):active {
-    background-color: #c1c1c1;
-  }
-
   .fr-table--green-tilleul-verveine thead {
-    box-shadow: inset 0 -2px 0 0 #66673d;
+    background-image: linear-gradient(0deg, #66673d, #66673d);
     background-color: #fceeac;
-  }
-
-  .fr-table--green-tilleul-verveine thead:hover {
-    background-color: #e8d45c;
-  }
-
-  .fr-table--green-tilleul-verveine thead:active {
-    background-color: #d4c254;
   }
 
   .fr-table--green-tilleul-verveine tbody {
     background-color: #fef7da;
   }
 
-  .fr-table--green-tilleul-verveine tbody:hover {
-    background-color: #fce552;
-  }
-
-  .fr-table--green-tilleul-verveine tbody:active {
-    background-color: #ebd54c;
-  }
-
   .fr-table--green-tilleul-verveine tbody tr:nth-child(even) {
     background-color: #fceeac;
   }
 
-  .fr-table--green-tilleul-verveine tbody tr:nth-child(even):hover {
-    background-color: #e8d45c;
-  }
-
-  .fr-table--green-tilleul-verveine tbody tr:nth-child(even):active {
-    background-color: #d4c254;
-  }
-
   .fr-table--green-tilleul-verveine.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #b7a73f;
+    background-image: linear-gradient(0deg, #b7a73f, #b7a73f);
   }
 
   .fr-table--green-bourgeon thead {
-    box-shadow: inset 0 -2px 0 0 #447049;
+    background-image: linear-gradient(0deg, #447049, #447049);
     background-color: #c9fcac;
-  }
-
-  .fr-table--green-bourgeon thead:hover {
-    background-color: #9ae95d;
-  }
-
-  .fr-table--green-bourgeon thead:active {
-    background-color: #8dd555;
   }
 
   .fr-table--green-bourgeon tbody {
     background-color: #e6feda;
   }
 
-  .fr-table--green-bourgeon tbody:hover {
-    background-color: #a7fc62;
-  }
-
-  .fr-table--green-bourgeon tbody:active {
-    background-color: #98ed4d;
-  }
-
   .fr-table--green-bourgeon tbody tr:nth-child(even) {
     background-color: #c9fcac;
   }
 
-  .fr-table--green-bourgeon tbody tr:nth-child(even):hover {
-    background-color: #9ae95d;
-  }
-
-  .fr-table--green-bourgeon tbody tr:nth-child(even):active {
-    background-color: #8dd555;
-  }
-
   .fr-table--green-bourgeon.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #68a532;
+    background-image: linear-gradient(0deg, #68a532, #68a532);
   }
 
   .fr-table--green-emeraude thead {
-    box-shadow: inset 0 -2px 0 0 #297254;
+    background-image: linear-gradient(0deg, #297254, #297254);
     background-color: #c3fad5;
-  }
-
-  .fr-table--green-emeraude thead:hover {
-    background-color: #77eda5;
-  }
-
-  .fr-table--green-emeraude thead:active {
-    background-color: #6dd897;
   }
 
   .fr-table--green-emeraude tbody {
     background-color: #e3fdeb;
   }
 
-  .fr-table--green-emeraude tbody:hover {
-    background-color: #94f9b9;
-  }
-
-  .fr-table--green-emeraude tbody:active {
-    background-color: #6df1a3;
-  }
-
   .fr-table--green-emeraude tbody tr:nth-child(even) {
     background-color: #c3fad5;
   }
 
-  .fr-table--green-emeraude tbody tr:nth-child(even):hover {
-    background-color: #77eda5;
-  }
-
-  .fr-table--green-emeraude tbody tr:nth-child(even):active {
-    background-color: #6dd897;
-  }
-
   .fr-table--green-emeraude.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #00a95f;
+    background-image: linear-gradient(0deg, #00a95f, #00a95f);
   }
 
   .fr-table--green-menthe thead {
-    box-shadow: inset 0 -2px 0 0 #37635f;
+    background-image: linear-gradient(0deg, #37635f, #37635f);
     background-color: #bafaee;
-  }
-
-  .fr-table--green-menthe thead:hover {
-    background-color: #79e7d5;
-  }
-
-  .fr-table--green-menthe thead:active {
-    background-color: #6fd3c3;
   }
 
   .fr-table--green-menthe tbody {
     background-color: #dffdf7;
   }
 
-  .fr-table--green-menthe tbody:hover {
-    background-color: #84f9e7;
-  }
-
-  .fr-table--green-menthe tbody:active {
-    background-color: #70ebd8;
-  }
-
   .fr-table--green-menthe tbody tr:nth-child(even) {
     background-color: #bafaee;
   }
 
-  .fr-table--green-menthe tbody tr:nth-child(even):hover {
-    background-color: #79e7d5;
-  }
-
-  .fr-table--green-menthe tbody tr:nth-child(even):active {
-    background-color: #6fd3c3;
-  }
-
   .fr-table--green-menthe.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #009081;
+    background-image: linear-gradient(0deg, #009081, #009081);
   }
 
   .fr-table--green-archipel thead {
-    box-shadow: inset 0 -2px 0 0 #006a6f;
+    background-image: linear-gradient(0deg, #006a6f, #006a6f);
     background-color: #c7f6fc;
-  }
-
-  .fr-table--green-archipel thead:hover {
-    background-color: #64ecf8;
-  }
-
-  .fr-table--green-archipel thead:active {
-    background-color: #5bd8e3;
   }
 
   .fr-table--green-archipel tbody {
     background-color: #e5fbfd;
   }
 
-  .fr-table--green-archipel tbody:hover {
-    background-color: #99f2f8;
-  }
-
-  .fr-table--green-archipel tbody:active {
-    background-color: #73e9f0;
-  }
-
   .fr-table--green-archipel tbody tr:nth-child(even) {
     background-color: #c7f6fc;
   }
 
-  .fr-table--green-archipel tbody tr:nth-child(even):hover {
-    background-color: #64ecf8;
-  }
-
-  .fr-table--green-archipel tbody tr:nth-child(even):active {
-    background-color: #5bd8e3;
-  }
-
   .fr-table--green-archipel.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #009099;
+    background-image: linear-gradient(0deg, #009099, #009099);
   }
 
   .fr-table--blue-ecume thead {
-    box-shadow: inset 0 -2px 0 0 #2f4077;
+    background-image: linear-gradient(0deg, #2f4077, #2f4077);
     background-color: #e9edfe;
-  }
-
-  .fr-table--blue-ecume thead:hover {
-    background-color: #c5d0fc;
-  }
-
-  .fr-table--blue-ecume thead:active {
-    background-color: #adbffc;
   }
 
   .fr-table--blue-ecume tbody {
     background-color: #f4f6fe;
   }
 
-  .fr-table--blue-ecume tbody:hover {
-    background-color: #d7dffb;
-  }
-
-  .fr-table--blue-ecume tbody:active {
-    background-color: #c3cffa;
-  }
-
   .fr-table--blue-ecume tbody tr:nth-child(even) {
     background-color: #e9edfe;
   }
 
-  .fr-table--blue-ecume tbody tr:nth-child(even):hover {
-    background-color: #c5d0fc;
-  }
-
-  .fr-table--blue-ecume tbody tr:nth-child(even):active {
-    background-color: #adbffc;
-  }
-
   .fr-table--blue-ecume.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #465f9d;
+    background-image: linear-gradient(0deg, #465f9d, #465f9d);
   }
 
   .fr-table--blue-cumulus thead {
-    box-shadow: inset 0 -2px 0 0 #3558a2;
+    background-image: linear-gradient(0deg, #3558a2, #3558a2);
     background-color: #e6eefe;
-  }
-
-  .fr-table--blue-cumulus thead:hover {
-    background-color: #bcd3fc;
-  }
-
-  .fr-table--blue-cumulus thead:active {
-    background-color: #9fc3fc;
   }
 
   .fr-table--blue-cumulus tbody {
     background-color: #f3f6fe;
   }
 
-  .fr-table--blue-cumulus tbody:hover {
-    background-color: #d3dffc;
-  }
-
-  .fr-table--blue-cumulus tbody:active {
-    background-color: #bed0fa;
-  }
-
   .fr-table--blue-cumulus tbody tr:nth-child(even) {
     background-color: #e6eefe;
   }
 
-  .fr-table--blue-cumulus tbody tr:nth-child(even):hover {
-    background-color: #bcd3fc;
-  }
-
-  .fr-table--blue-cumulus tbody tr:nth-child(even):active {
-    background-color: #9fc3fc;
-  }
-
   .fr-table--blue-cumulus.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #417dc4;
+    background-image: linear-gradient(0deg, #417dc4, #417dc4);
   }
 
   .fr-table--purple-glycine thead {
-    box-shadow: inset 0 -2px 0 0 #6e445a;
+    background-image: linear-gradient(0deg, #6e445a, #6e445a);
     background-color: #fee7fc;
-  }
-
-  .fr-table--purple-glycine thead:hover {
-    background-color: #fdc0f8;
-  }
-
-  .fr-table--purple-glycine thead:active {
-    background-color: #fca8f6;
   }
 
   .fr-table--purple-glycine tbody {
     background-color: #fef3fd;
   }
 
-  .fr-table--purple-glycine tbody:hover {
-    background-color: #fcd4f8;
-  }
-
-  .fr-table--purple-glycine tbody:active {
-    background-color: #fabff5;
-  }
-
   .fr-table--purple-glycine tbody tr:nth-child(even) {
     background-color: #fee7fc;
   }
 
-  .fr-table--purple-glycine tbody tr:nth-child(even):hover {
-    background-color: #fdc0f8;
-  }
-
-  .fr-table--purple-glycine tbody tr:nth-child(even):active {
-    background-color: #fca8f6;
-  }
-
   .fr-table--purple-glycine.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #a558a0;
+    background-image: linear-gradient(0deg, #a558a0, #a558a0);
   }
 
   .fr-table--pink-macaron thead {
-    box-shadow: inset 0 -2px 0 0 #8d533e;
+    background-image: linear-gradient(0deg, #8d533e, #8d533e);
     background-color: #fee9e6;
-  }
-
-  .fr-table--pink-macaron thead:hover {
-    background-color: #fdc6bd;
-  }
-
-  .fr-table--pink-macaron thead:active {
-    background-color: #fcb0a2;
   }
 
   .fr-table--pink-macaron tbody {
     background-color: #fef4f2;
   }
 
-  .fr-table--pink-macaron tbody:hover {
-    background-color: #fcd8d0;
-  }
-
-  .fr-table--pink-macaron tbody:active {
-    background-color: #fac5b8;
-  }
-
   .fr-table--pink-macaron tbody tr:nth-child(even) {
     background-color: #fee9e6;
   }
 
-  .fr-table--pink-macaron tbody tr:nth-child(even):hover {
-    background-color: #fdc6bd;
-  }
-
-  .fr-table--pink-macaron tbody tr:nth-child(even):active {
-    background-color: #fcb0a2;
-  }
-
   .fr-table--pink-macaron.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #e18b76;
+    background-image: linear-gradient(0deg, #e18b76, #e18b76);
   }
 
   .fr-table--pink-tuile thead {
-    box-shadow: inset 0 -2px 0 0 #a94645;
+    background-image: linear-gradient(0deg, #a94645, #a94645);
     background-color: #fee9e7;
-  }
-
-  .fr-table--pink-tuile thead:hover {
-    background-color: #fdc6c0;
-  }
-
-  .fr-table--pink-tuile thead:active {
-    background-color: #fcb0a7;
   }
 
   .fr-table--pink-tuile tbody {
     background-color: #fef4f3;
   }
 
-  .fr-table--pink-tuile tbody:hover {
-    background-color: #fcd7d3;
-  }
-
-  .fr-table--pink-tuile tbody:active {
-    background-color: #fac4be;
-  }
-
   .fr-table--pink-tuile tbody tr:nth-child(even) {
     background-color: #fee9e7;
   }
 
-  .fr-table--pink-tuile tbody tr:nth-child(even):hover {
-    background-color: #fdc6c0;
-  }
-
-  .fr-table--pink-tuile tbody tr:nth-child(even):active {
-    background-color: #fcb0a7;
-  }
-
   .fr-table--pink-tuile.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #ce614a;
+    background-image: linear-gradient(0deg, #ce614a, #ce614a);
   }
 
   .fr-table--yellow-tournesol thead {
-    box-shadow: inset 0 -2px 0 0 #716043;
+    background-image: linear-gradient(0deg, #716043, #716043);
     background-color: #feecc2;
-  }
-
-  .fr-table--yellow-tournesol thead:hover {
-    background-color: #fbd335;
-  }
-
-  .fr-table--yellow-tournesol thead:active {
-    background-color: #e6c130;
   }
 
   .fr-table--yellow-tournesol tbody {
     background-color: #fef6e3;
   }
 
-  .fr-table--yellow-tournesol tbody:hover {
-    background-color: #fce086;
-  }
-
-  .fr-table--yellow-tournesol tbody:active {
-    background-color: #f5d24b;
-  }
-
   .fr-table--yellow-tournesol tbody tr:nth-child(even) {
     background-color: #feecc2;
   }
 
-  .fr-table--yellow-tournesol tbody tr:nth-child(even):hover {
-    background-color: #fbd335;
-  }
-
-  .fr-table--yellow-tournesol tbody tr:nth-child(even):active {
-    background-color: #e6c130;
-  }
-
   .fr-table--yellow-tournesol.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #c8aa39;
+    background-image: linear-gradient(0deg, #c8aa39, #c8aa39);
   }
 
   .fr-table--yellow-moutarde thead {
-    box-shadow: inset 0 -2px 0 0 #695240;
+    background-image: linear-gradient(0deg, #695240, #695240);
     background-color: #feebd0;
-  }
-
-  .fr-table--yellow-moutarde thead:hover {
-    background-color: #fdcd6d;
-  }
-
-  .fr-table--yellow-moutarde thead:active {
-    background-color: #f4be30;
   }
 
   .fr-table--yellow-moutarde tbody {
     background-color: #fef5e8;
   }
 
-  .fr-table--yellow-moutarde tbody:hover {
-    background-color: #fcdca3;
-  }
-
-  .fr-table--yellow-moutarde tbody:active {
-    background-color: #fbcd64;
-  }
-
   .fr-table--yellow-moutarde tbody tr:nth-child(even) {
     background-color: #feebd0;
   }
 
-  .fr-table--yellow-moutarde tbody tr:nth-child(even):hover {
-    background-color: #fdcd6d;
-  }
-
-  .fr-table--yellow-moutarde tbody tr:nth-child(even):active {
-    background-color: #f4be30;
-  }
-
   .fr-table--yellow-moutarde.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #c3992a;
+    background-image: linear-gradient(0deg, #c3992a, #c3992a);
   }
 
   .fr-table--orange-terre-battue thead {
-    box-shadow: inset 0 -2px 0 0 #755348;
+    background-image: linear-gradient(0deg, #755348, #755348);
     background-color: #fee9e5;
-  }
-
-  .fr-table--orange-terre-battue thead:hover {
-    background-color: #fdc6ba;
-  }
-
-  .fr-table--orange-terre-battue thead:active {
-    background-color: #fcb09e;
   }
 
   .fr-table--orange-terre-battue tbody {
     background-color: #fef4f2;
   }
 
-  .fr-table--orange-terre-battue tbody:hover {
-    background-color: #fcd8d0;
-  }
-
-  .fr-table--orange-terre-battue tbody:active {
-    background-color: #fac5b8;
-  }
-
   .fr-table--orange-terre-battue tbody tr:nth-child(even) {
     background-color: #fee9e5;
   }
 
-  .fr-table--orange-terre-battue tbody tr:nth-child(even):hover {
-    background-color: #fdc6ba;
-  }
-
-  .fr-table--orange-terre-battue tbody tr:nth-child(even):active {
-    background-color: #fcb09e;
-  }
-
   .fr-table--orange-terre-battue.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #e4794a;
+    background-image: linear-gradient(0deg, #e4794a, #e4794a);
   }
 
   .fr-table--brown-cafe-creme thead {
-    box-shadow: inset 0 -2px 0 0 #685c48;
+    background-image: linear-gradient(0deg, #685c48, #685c48);
     background-color: #f7ecdb;
-  }
-
-  .fr-table--brown-cafe-creme thead:hover {
-    background-color: #edce94;
-  }
-
-  .fr-table--brown-cafe-creme thead:active {
-    background-color: #dabd84;
   }
 
   .fr-table--brown-cafe-creme tbody {
     background-color: #fbf6ed;
   }
 
-  .fr-table--brown-cafe-creme tbody:hover {
-    background-color: #f2deb6;
-  }
-
-  .fr-table--brown-cafe-creme tbody:active {
-    background-color: #eacf91;
-  }
-
   .fr-table--brown-cafe-creme tbody tr:nth-child(even) {
     background-color: #f7ecdb;
   }
 
-  .fr-table--brown-cafe-creme tbody tr:nth-child(even):hover {
-    background-color: #edce94;
-  }
-
-  .fr-table--brown-cafe-creme tbody tr:nth-child(even):active {
-    background-color: #dabd84;
-  }
-
   .fr-table--brown-cafe-creme.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #d1b781;
+    background-image: linear-gradient(0deg, #d1b781, #d1b781);
   }
 
   .fr-table--brown-caramel thead {
-    box-shadow: inset 0 -2px 0 0 #845d48;
+    background-image: linear-gradient(0deg, #845d48, #845d48);
     background-color: #f7ebe5;
-  }
-
-  .fr-table--brown-caramel thead:hover {
-    background-color: #eccbb9;
-  }
-
-  .fr-table--brown-caramel thead:active {
-    background-color: #e6b79a;
   }
 
   .fr-table--brown-caramel tbody {
     background-color: #fbf5f2;
   }
 
-  .fr-table--brown-caramel tbody:hover {
-    background-color: #f1dbcf;
-  }
-
-  .fr-table--brown-caramel tbody:active {
-    background-color: #ecc9b5;
-  }
-
   .fr-table--brown-caramel tbody tr:nth-child(even) {
     background-color: #f7ebe5;
   }
 
-  .fr-table--brown-caramel tbody tr:nth-child(even):hover {
-    background-color: #eccbb9;
-  }
-
-  .fr-table--brown-caramel tbody tr:nth-child(even):active {
-    background-color: #e6b79a;
-  }
-
   .fr-table--brown-caramel.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #c08c65;
+    background-image: linear-gradient(0deg, #c08c65, #c08c65);
   }
 
   .fr-table--brown-opera thead {
-    box-shadow: inset 0 -2px 0 0 #745b47;
+    background-image: linear-gradient(0deg, #745b47, #745b47);
     background-color: #f7ece4;
-  }
-
-  .fr-table--brown-opera thead:hover {
-    background-color: #eccdb3;
-  }
-
-  .fr-table--brown-opera thead:active {
-    background-color: #e6ba90;
   }
 
   .fr-table--brown-opera tbody {
     background-color: #fbf5f2;
   }
 
-  .fr-table--brown-opera tbody:hover {
-    background-color: #f1dbcf;
-  }
-
-  .fr-table--brown-opera tbody:active {
-    background-color: #ecc9b5;
-  }
-
   .fr-table--brown-opera tbody tr:nth-child(even) {
     background-color: #f7ece4;
   }
 
-  .fr-table--brown-opera tbody tr:nth-child(even):hover {
-    background-color: #eccdb3;
-  }
-
-  .fr-table--brown-opera tbody tr:nth-child(even):active {
-    background-color: #e6ba90;
-  }
-
   .fr-table--brown-opera.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #bd987a;
+    background-image: linear-gradient(0deg, #bd987a, #bd987a);
   }
 
   .fr-table--beige-gris-galet thead {
-    box-shadow: inset 0 -2px 0 0 #6a6156;
+    background-image: linear-gradient(0deg, #6a6156, #6a6156);
     background-color: #f3ede5;
-  }
-
-  .fr-table--beige-gris-galet thead:hover {
-    background-color: #e1d0b5;
-  }
-
-  .fr-table--beige-gris-galet thead:active {
-    background-color: #d1bea2;
   }
 
   .fr-table--beige-gris-galet tbody {
     background-color: #f9f6f2;
   }
 
-  .fr-table--beige-gris-galet tbody:hover {
-    background-color: #eadecd;
-  }
-
-  .fr-table--beige-gris-galet tbody:active {
-    background-color: #e1ceb1;
-  }
-
   .fr-table--beige-gris-galet tbody tr:nth-child(even) {
     background-color: #f3ede5;
   }
 
-  .fr-table--beige-gris-galet tbody tr:nth-child(even):hover {
-    background-color: #e1d0b5;
-  }
-
-  .fr-table--beige-gris-galet tbody tr:nth-child(even):active {
-    background-color: #d1bea2;
-  }
-
   .fr-table--beige-gris-galet.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #aea397;
+    background-image: linear-gradient(0deg, #aea397, #aea397);
   }
 
   .fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #e5e5e5;
+    background-image: linear-gradient(0deg, #ddd, #ddd);
   }
 
   .fr-table--bordered tbody tr:nth-child(even) {
     background-color: transparent;
+  }
+
+  .fr-table--bordered tbody tr:nth-child(even):hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .fr-table--bordered tbody tr:nth-child(even):active {
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }

@@ -1,6 +1,18 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
+@media (min-width: 36em) {
+  /*! media sm */
+}
+@media (min-width: 48em) {
+  /*! media md */
+}
+@media (min-width: 62em) {
+  /*! media lg */
+}
+@media (min-width: 78em) {
+  /*! media xl */
+}
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /**
   * Marge des titres et textes
@@ -19,14 +31,6 @@
     box-shadow: inset 0.25rem 0 0 0 #6a6af4;
   }
 
-  .fr-callout:hover {
-    background-color: #d2d2d2;
-  }
-
-  .fr-callout:active {
-    background-color: #c1c1c1;
-  }
-
   .fr-callout::before {
     color: #161616;
   }
@@ -36,25 +40,9 @@
     background-color: #fceeac;
   }
 
-  .fr-callout--green-tilleul-verveine:hover {
-    background-color: #e8d45c;
-  }
-
-  .fr-callout--green-tilleul-verveine:active {
-    background-color: #d4c254;
-  }
-
   .fr-callout--green-bourgeon {
     box-shadow: inset 0.25rem 0 0 0 #68a532;
     background-color: #c9fcac;
-  }
-
-  .fr-callout--green-bourgeon:hover {
-    background-color: #9ae95d;
-  }
-
-  .fr-callout--green-bourgeon:active {
-    background-color: #8dd555;
   }
 
   .fr-callout--green-emeraude {
@@ -62,25 +50,9 @@
     background-color: #c3fad5;
   }
 
-  .fr-callout--green-emeraude:hover {
-    background-color: #77eda5;
-  }
-
-  .fr-callout--green-emeraude:active {
-    background-color: #6dd897;
-  }
-
   .fr-callout--green-menthe {
     box-shadow: inset 0.25rem 0 0 0 #009081;
     background-color: #bafaee;
-  }
-
-  .fr-callout--green-menthe:hover {
-    background-color: #79e7d5;
-  }
-
-  .fr-callout--green-menthe:active {
-    background-color: #6fd3c3;
   }
 
   .fr-callout--green-archipel {
@@ -88,25 +60,9 @@
     background-color: #c7f6fc;
   }
 
-  .fr-callout--green-archipel:hover {
-    background-color: #64ecf8;
-  }
-
-  .fr-callout--green-archipel:active {
-    background-color: #5bd8e3;
-  }
-
   .fr-callout--blue-ecume {
     box-shadow: inset 0.25rem 0 0 0 #465f9d;
     background-color: #e9edfe;
-  }
-
-  .fr-callout--blue-ecume:hover {
-    background-color: #c5d0fc;
-  }
-
-  .fr-callout--blue-ecume:active {
-    background-color: #adbffc;
   }
 
   .fr-callout--blue-cumulus {
@@ -114,25 +70,9 @@
     background-color: #e6eefe;
   }
 
-  .fr-callout--blue-cumulus:hover {
-    background-color: #bcd3fc;
-  }
-
-  .fr-callout--blue-cumulus:active {
-    background-color: #9fc3fc;
-  }
-
   .fr-callout--purple-glycine {
     box-shadow: inset 0.25rem 0 0 0 #a558a0;
     background-color: #fee7fc;
-  }
-
-  .fr-callout--purple-glycine:hover {
-    background-color: #fdc0f8;
-  }
-
-  .fr-callout--purple-glycine:active {
-    background-color: #fca8f6;
   }
 
   .fr-callout--pink-macaron {
@@ -140,25 +80,9 @@
     background-color: #fee9e6;
   }
 
-  .fr-callout--pink-macaron:hover {
-    background-color: #fdc6bd;
-  }
-
-  .fr-callout--pink-macaron:active {
-    background-color: #fcb0a2;
-  }
-
   .fr-callout--pink-tuile {
     box-shadow: inset 0.25rem 0 0 0 #ce614a;
     background-color: #fee9e7;
-  }
-
-  .fr-callout--pink-tuile:hover {
-    background-color: #fdc6c0;
-  }
-
-  .fr-callout--pink-tuile:active {
-    background-color: #fcb0a7;
   }
 
   .fr-callout--yellow-tournesol {
@@ -166,25 +90,9 @@
     background-color: #feecc2;
   }
 
-  .fr-callout--yellow-tournesol:hover {
-    background-color: #fbd335;
-  }
-
-  .fr-callout--yellow-tournesol:active {
-    background-color: #e6c130;
-  }
-
   .fr-callout--yellow-moutarde {
     box-shadow: inset 0.25rem 0 0 0 #c3992a;
     background-color: #feebd0;
-  }
-
-  .fr-callout--yellow-moutarde:hover {
-    background-color: #fdcd6d;
-  }
-
-  .fr-callout--yellow-moutarde:active {
-    background-color: #f4be30;
   }
 
   .fr-callout--orange-terre-battue {
@@ -192,25 +100,9 @@
     background-color: #fee9e5;
   }
 
-  .fr-callout--orange-terre-battue:hover {
-    background-color: #fdc6ba;
-  }
-
-  .fr-callout--orange-terre-battue:active {
-    background-color: #fcb09e;
-  }
-
   .fr-callout--brown-cafe-creme {
     box-shadow: inset 0.25rem 0 0 0 #d1b781;
     background-color: #f7ecdb;
-  }
-
-  .fr-callout--brown-cafe-creme:hover {
-    background-color: #edce94;
-  }
-
-  .fr-callout--brown-cafe-creme:active {
-    background-color: #dabd84;
   }
 
   .fr-callout--brown-caramel {
@@ -218,37 +110,13 @@
     background-color: #f7ebe5;
   }
 
-  .fr-callout--brown-caramel:hover {
-    background-color: #eccbb9;
-  }
-
-  .fr-callout--brown-caramel:active {
-    background-color: #e6b79a;
-  }
-
   .fr-callout--brown-opera {
     box-shadow: inset 0.25rem 0 0 0 #bd987a;
     background-color: #f7ece4;
   }
 
-  .fr-callout--brown-opera:hover {
-    background-color: #eccdb3;
-  }
-
-  .fr-callout--brown-opera:active {
-    background-color: #e6ba90;
-  }
-
   .fr-callout--beige-gris-galet {
     box-shadow: inset 0.25rem 0 0 0 #aea397;
     background-color: #f3ede5;
-  }
-
-  .fr-callout--beige-gris-galet:hover {
-    background-color: #e1d0b5;
-  }
-
-  .fr-callout--beige-gris-galet:active {
-    background-color: #d1bea2;
   }
 }

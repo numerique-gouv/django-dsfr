@@ -1,10 +1,32 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
+@media (min-width: 36em) {
+  /*! media sm */
+}
+@media (min-width: 48em) {
+  /*! media md */
+}
+@media (min-width: 62em) {
+  /*! media lg */
+}
+@media (min-width: 78em) {
+  /*! media xl */
+}
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /**
   * Correction largeur max du texte
   */
+  .fr-quote::before,
+  .fr-quote::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../../icons/editor/fr--quote-line.svg");
+    width: 2rem;
+    height: 2rem;
+  }
+
   .fr-quote blockquote {
     max-width: 100%;
   }
@@ -82,6 +104,6 @@
   }
 
   .fr-quote {
-    background-image: linear-gradient(0deg, #e5e5e5, #e5e5e5);
+    background-image: linear-gradient(0deg, #ddd, #ddd);
   }
 }

@@ -6,16 +6,14 @@ Le bouton est un élément d’interaction avec l’interface permettant à l’
 ```shell
 button
 └─ core
-└─ link
 ```
 
 ## Utilisation
-Afin d’utiliser le composant `button`, il est nécessaire d’ajouter les fichiers de styles et de scripts présents dans le dossier dist dans l'ordre suivant :
+Afin d’utiliser le composant `button`, il est nécessaire d’ajouter les fichiers de styles et de scripts présents dans le dossier dist dans l'ordre suivant :\n
 ```html
 <html>
   <head>
     <link href="css/core/core.min.css" rel="stylesheet">
-    <link href="css/link/link.min.css" rel="stylesheet">
     <link href="css/button/button.min.css" rel="stylesheet">
   </head>
   <body>

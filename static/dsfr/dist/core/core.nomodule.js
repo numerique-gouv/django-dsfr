@@ -1,4 +1,4 @@
-/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 (function () {
   'use strict';
@@ -70,7 +70,7 @@
     prefix: 'fr',
     namespace: 'dsfr',
     organisation: '@gouvfr',
-    version: '1.4.1'
+    version: '1.7.2'
   };
 
   var LogLevel = function LogLevel (level, light, dark, logger) {
@@ -559,6 +559,7 @@
   };
 
   prototypeAccessors$2.html.get = function () {
+    if (!this.node || !this.node.outerHTML) { return ''; }
     var end = this.node.outerHTML.indexOf('>');
     return this.node.outerHTML.substring(0, end + 1);
   };
@@ -1211,9 +1212,16 @@
     }
   };
 
+  var supportAspectRatio = function () {
+    if (!window.CSS) { return false; }
+    return CSS.supports('aspect-ratio: 16 / 9');
+  };
+
   var support = {};
 
   support.supportLocalStorage = supportLocalStorage;
+
+  support.supportAspectRatio = supportAspectRatio;
 
   var TransitionSelector = {
     NONE: ns.selector('transition-none')
@@ -1289,35 +1297,39 @@
   internals.property = property;
   internals.ns = ns;
   internals.register = engine.register;
+  internals.state = state;
 
   Object.defineProperty(internals, 'preventManipulation', {
     get: function () { return options.preventManipulation; }
   });
+  Object.defineProperty(internals, 'stage', {
+    get: function () { return state.getModule('stage'); }
+  });
 
   inspector.info(("version " + (config.version)));
 
-  var api = function (node) {
+  var api$1 = function (node) {
     var stage = state.getModule('stage');
     return stage.getProxy(node);
   };
 
-  api.Modes = Modes;
+  api$1.Modes = Modes;
 
-  Object.defineProperty(api, 'mode', {
+  Object.defineProperty(api$1, 'mode', {
     set: function (value) { options.mode = value; },
     get: function () { return options.mode; }
   });
 
-  api.internals = internals;
+  api$1.internals = internals;
 
-  api.start = engine.start;
-  api.stop = engine.stop;
+  api$1.start = engine.start;
+  api$1.stop = engine.stop;
 
-  api.inspector = inspector;
+  api$1.inspector = inspector;
 
-  options.configure(window[config.namespace], api.start);
+  options.configure(window[config.namespace], api$1.start);
 
-  window[config.namespace] = api;
+  window[config.namespace] = api$1;
 
   var Emitter = function Emitter () {
     this.emissions = {};
@@ -1390,7 +1402,7 @@
     this._nexts = [];
   };
 
-  var prototypeAccessors = { proxy: { configurable: true },isRendering: { configurable: true },isResizing: { configurable: true },isScrollLocked: { configurable: true },isLoading: { configurable: true },isSwappingFont: { configurable: true },isMouseMoving: { configurable: true },style: { configurable: true },hasFocus: { configurable: true },isLegacy: { configurable: true } };
+  var prototypeAccessors = { proxy: { configurable: true },isRendering: { configurable: true },isResizing: { configurable: true },isScrollLocked: { configurable: true },isLoading: { configurable: true },isSwappingFont: { configurable: true },isMouseMoving: { configurable: true },style: { configurable: true },classNames: { configurable: true },hasFocus: { configurable: true },isLegacy: { configurable: true } };
   var staticAccessors = { instanceClassName: { configurable: true } };
 
   staticAccessors.instanceClassName.get = function () {
@@ -1684,6 +1696,10 @@
 
   Instance.prototype.hasClass = function hasClass$1 (className) {
     return hasClass(this.node, className);
+  };
+
+  prototypeAccessors.classNames.get = function () {
+    return getClassNames(this.node);
   };
 
   Instance.prototype.setAttribute = function setAttribute (attributeName, value) {
@@ -2184,7 +2200,8 @@
   }(DisclosureButton));
 
   var CollapseSelector = {
-    COLLAPSE: ns.selector('collapse')
+    COLLAPSE: ns.selector('collapse'),
+    COLLAPSING: ns.selector('collapsing')
   };
 
   /**
@@ -2213,6 +2230,7 @@
     };
 
     Collapse.prototype.transitionend = function transitionend (e) {
+      this.removeClass(CollapseSelector.COLLAPSING);
       if (!this.disclosed) {
         if (this.isLegacy) { this.style.maxHeight = ''; }
         else { this.style.removeProperty('--collapse-max-height'); }
@@ -2230,6 +2248,7 @@
       if (this.disclosed) { return; }
       this.unbound();
       this.request(function () {
+        this$1$1.addClass(CollapseSelector.COLLAPSING);
         this$1$1.adjust();
         this$1$1.request(function () {
           Disclosure.prototype.disclose.call(this$1$1, withhold);
@@ -2242,6 +2261,7 @@
 
       if (!this.disclosed) { return; }
       this.request(function () {
+        this$1$1.addClass(CollapseSelector.COLLAPSING);
         this$1$1.adjust();
         this$1$1.request(function () {
           Disclosure.prototype.conceal.call(this$1$1, withhold, preventFocus);
@@ -2497,6 +2517,17 @@
         this.svg.setAttribute('id', this.imgID);
       }
 
+      // gestion de la dépréciation
+      var name = this.imgURL.match(/[ \w-]+\./)[0];
+      if (name) {
+        name = name.slice(0, -1);
+
+        if (['dark', 'light', 'system'].includes(name)) {
+          this.svg.innerHTML = this.svg.innerHTML.replaceAll('id="artwork-', ("id=\"" + name + "-artwork-"));
+          this.svg.innerHTML = this.svg.innerHTML.replaceAll('"#artwork-', ("\"#" + name + "-artwork-"));
+        }
+      }
+
       if (this.imgClass && typeof this.imgClass !== 'undefined') {
         this.svg.setAttribute('class', this.imgClass);
       }
@@ -2531,7 +2562,139 @@
     INJECT_SVG: ("[" + (ns.attr('inject-svg')) + "]")
   };
 
-  api.core = {
+  var Artwork = /*@__PURE__*/(function (Instance) {
+    function Artwork () {
+      Instance.apply(this, arguments);
+    }
+
+    if ( Instance ) Artwork.__proto__ = Instance;
+    Artwork.prototype = Object.create( Instance && Instance.prototype );
+    Artwork.prototype.constructor = Artwork;
+
+    var prototypeAccessors = { proxy: { configurable: true } };
+    var staticAccessors = { instanceClassName: { configurable: true } };
+
+    staticAccessors.instanceClassName.get = function () {
+      return 'Artwork';
+    };
+
+    Artwork.prototype.init = function init () {
+      if (this.isLegacy) {
+        this.replace();
+      }
+    };
+
+    prototypeAccessors.proxy.get = function () {
+      var scope = this;
+      return Object.assign.call(this, Instance.prototype.proxy, {
+        replace: scope.replace.bind(scope)
+      });
+    };
+
+    Artwork.prototype.fetch = function fetch () {
+      var this$1$1 = this;
+
+      this.xlink = this.node.getAttribute('xlink:href');
+      var splitUrl = this.xlink.split('#');
+      this.svgUrl = splitUrl[0];
+      this.svgName = splitUrl[1];
+
+      var xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString(xhr.responseText, 'text/html');
+        this$1$1.realSvgContent = xmlDoc.getElementById(this$1$1.svgName);
+
+        if (this$1$1.realSvgContent) {
+          this$1$1.realSvgContent.classList.add(this$1$1.node.classList);
+          this$1$1.replace();
+        }
+      };
+      xhr.open('GET', this.svgUrl);
+      xhr.send();
+    };
+
+    Artwork.prototype.replace = function replace () {
+      if (!this.realSvgContent) {
+        this.fetch();
+        return;
+      }
+
+      this.node.parentNode.replaceChild(this.realSvgContent, this.node);
+    };
+
+    Object.defineProperties( Artwork.prototype, prototypeAccessors );
+    Object.defineProperties( Artwork, staticAccessors );
+
+    return Artwork;
+  }(Instance));
+
+  var ArtworkSelector = {
+    ARTWORK_USE: ((ns.selector('artwork')) + " use")
+  };
+
+  var ratiosImg = ['32x9', '16x9', '3x2', '4x3', '1x1', '3x4', '2x3'];
+  var ratiosVid = ['16x9', '4x3', '1x1'];
+
+  var ratioSelector = function (name, modifiers) {
+    return modifiers.map(function (modifier) { return ns.selector((name + "--" + modifier)); }).join(',');
+  };
+
+  var deprecatedRatioSelector = (ns.selector('responsive-img')) + ", " + (ratioSelector('responsive-img', ratiosImg)) + ", " + (ns.selector('responsive-vid')) + ", " + (ratioSelector('responsive-vid', ratiosVid));
+
+  var RatioSelector = {
+    RATIO: ((ns.selector('ratio')) + ", " + (ratioSelector('ratio', ratiosImg)) + ", " + deprecatedRatioSelector)
+  };
+
+  var api = window[config.namespace];
+
+  var Ratio = /*@__PURE__*/(function (Instance) {
+    function Ratio () {
+      Instance.apply(this, arguments);
+    }
+
+    if ( Instance ) Ratio.__proto__ = Instance;
+    Ratio.prototype = Object.create( Instance && Instance.prototype );
+    Ratio.prototype.constructor = Ratio;
+
+    var staticAccessors = { instanceClassName: { configurable: true } };
+
+    staticAccessors.instanceClassName.get = function () {
+      return 'Ratio';
+    };
+
+    Ratio.prototype.init = function init () {
+      if (!api.internals.support.supportAspectRatio()) {
+        this.ratio = 16 / 9;
+        for (var className in this.classNames) {
+          if (this.registration.selector.indexOf(this.classNames[className]) > 0) {
+            var ratio = this.classNames[className].split('ratio-');
+            if (ratio[1]) {
+              this.ratio = ratio[1].split('x')[0] / ratio[1].split('x')[1];
+            }
+          }
+        }
+        this.isRendering = true;
+        this.update();
+      }
+    };
+
+    Ratio.prototype.render = function render () {
+      var width = this.getRect().width;
+      if (width !== this.currentWidth) { this.update(); }
+    };
+
+    Ratio.prototype.update = function update () {
+      this.currentWidth = this.getRect().width;
+      this.style.height = this.currentWidth / this.ratio + 'px';
+    };
+
+    Object.defineProperties( Ratio, staticAccessors );
+
+    return Ratio;
+  }(Instance));
+
+  api$1.core = {
     Instance: Instance,
     Breakpoints: Breakpoints,
     KeyCodes: KeyCodes,
@@ -2551,14 +2714,20 @@
     Toggle: Toggle,
     EquisizedsGroup: EquisizedsGroup,
     InjectSvg: InjectSvg,
-    InjectSvgSelector: InjectSvgSelector
+    InjectSvgSelector: InjectSvgSelector,
+    Artwork: Artwork,
+    ArtworkSelector: ArtworkSelector,
+    Ratio: Ratio,
+    RatioSelector: RatioSelector
   };
 
-  api.internals.register(api.core.CollapseSelector.COLLAPSE, api.core.Collapse);
-  api.internals.register(api.core.InjectSvgSelector.INJECT_SVG, api.core.InjectSvg);
+  api$1.internals.register(api$1.core.CollapseSelector.COLLAPSE, api$1.core.Collapse);
+  api$1.internals.register(api$1.core.InjectSvgSelector.INJECT_SVG, api$1.core.InjectSvg);
+  api$1.internals.register(api$1.core.RatioSelector.RATIO, api$1.core.Ratio);
 
   /* legacy code here */
-  api.internals.legacy.setLegacy();
+  api$1.internals.legacy.setLegacy();
+  api$1.internals.register(api$1.core.ArtworkSelector.ARTWORK_USE, api$1.core.Artwork);
 
 })();
 //# sourceMappingURL=core.nomodule.js.map

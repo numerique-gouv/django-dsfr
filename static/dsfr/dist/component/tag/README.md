@@ -6,16 +6,14 @@ Le tag catégorise/classe/organise les contenus à l'aide de mots-clés. Il a
 ```shell
 tag
 └─ core
-└─ link
 ```
 
 ## Utilisation
-Afin d’utiliser le composant `tag`, il est nécessaire d’ajouter les fichiers de styles et de scripts présents dans le dossier dist dans l'ordre suivant :
+Afin d’utiliser le composant `tag`, il est nécessaire d’ajouter les fichiers de styles et de scripts présents dans le dossier dist dans l'ordre suivant :\n
 ```html
 <html>
   <head>
     <link href="css/core/core.min.css" rel="stylesheet">
-    <link href="css/link/link.min.css" rel="stylesheet">
     <link href="css/tag/tag.min.css" rel="stylesheet">
   </head>
   <body>

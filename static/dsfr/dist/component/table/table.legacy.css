@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 .fr-table {
   /* Style bordered, ajoute des bordures entre chaque ligne */
@@ -77,11 +77,27 @@
   /* Style bordered, enleve le style even/odd  */
 }
 
+@media (min-width: 36em) {
+  /*! media sm */
+}
+
+@media (min-width: 48em) {
+  /*! media md */
+}
+
+@media (min-width: 62em) {
+  /*! media lg */
+}
+
+@media (min-width: 78em) {
+  /*! media xl */
+}
+
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /**
   * Correctif placement caption
   */
-  .fr-table[data-fr-js-table="true"] caption {
+  .fr-table[data-fr-js-table=true] caption {
     position: relative;
   }
 
@@ -90,745 +106,321 @@
   }
 
   .fr-table thead {
-    box-shadow: inset 0 -2px 0 0 #3a3a3a;
+    background-image: linear-gradient(0deg, #3a3a3a, #3a3a3a);
     background-color: #eee;
     color: #161616;
-  }
-
-  .fr-table thead:hover {
-    background-color: #d2d2d2;
-  }
-
-  .fr-table thead:active {
-    background-color: #c1c1c1;
   }
 
   .fr-table tbody {
     background-color: #f6f6f6;
   }
 
-  .fr-table tbody:hover {
-    background-color: #dfdfdf;
-  }
-
-  .fr-table tbody:active {
-    background-color: #cfcfcf;
-  }
-
   .fr-table tbody tr:nth-child(even) {
     background-color: #eee;
   }
 
-  .fr-table tbody tr:nth-child(even):hover {
-    background-color: #d2d2d2;
-  }
-
-  .fr-table tbody tr:nth-child(even):active {
-    background-color: #c1c1c1;
-  }
-
   .fr-table--green-tilleul-verveine thead {
-    box-shadow: inset 0 -2px 0 0 #66673d;
+    background-image: linear-gradient(0deg, #66673d, #66673d);
     background-color: #fceeac;
-  }
-
-  .fr-table--green-tilleul-verveine thead:hover {
-    background-color: #e8d45c;
-  }
-
-  .fr-table--green-tilleul-verveine thead:active {
-    background-color: #d4c254;
   }
 
   .fr-table--green-tilleul-verveine tbody {
     background-color: #fef7da;
   }
 
-  .fr-table--green-tilleul-verveine tbody:hover {
-    background-color: #fce552;
-  }
-
-  .fr-table--green-tilleul-verveine tbody:active {
-    background-color: #ebd54c;
-  }
-
   .fr-table--green-tilleul-verveine tbody tr:nth-child(even) {
     background-color: #fceeac;
   }
 
-  .fr-table--green-tilleul-verveine tbody tr:nth-child(even):hover {
-    background-color: #e8d45c;
-  }
-
-  .fr-table--green-tilleul-verveine tbody tr:nth-child(even):active {
-    background-color: #d4c254;
-  }
-
   .fr-table--green-tilleul-verveine.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #b7a73f;
+    background-image: linear-gradient(0deg, #b7a73f, #b7a73f);
   }
 
   .fr-table--green-bourgeon thead {
-    box-shadow: inset 0 -2px 0 0 #447049;
+    background-image: linear-gradient(0deg, #447049, #447049);
     background-color: #c9fcac;
-  }
-
-  .fr-table--green-bourgeon thead:hover {
-    background-color: #9ae95d;
-  }
-
-  .fr-table--green-bourgeon thead:active {
-    background-color: #8dd555;
   }
 
   .fr-table--green-bourgeon tbody {
     background-color: #e6feda;
   }
 
-  .fr-table--green-bourgeon tbody:hover {
-    background-color: #a7fc62;
-  }
-
-  .fr-table--green-bourgeon tbody:active {
-    background-color: #98ed4d;
-  }
-
   .fr-table--green-bourgeon tbody tr:nth-child(even) {
     background-color: #c9fcac;
   }
 
-  .fr-table--green-bourgeon tbody tr:nth-child(even):hover {
-    background-color: #9ae95d;
-  }
-
-  .fr-table--green-bourgeon tbody tr:nth-child(even):active {
-    background-color: #8dd555;
-  }
-
   .fr-table--green-bourgeon.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #68a532;
+    background-image: linear-gradient(0deg, #68a532, #68a532);
   }
 
   .fr-table--green-emeraude thead {
-    box-shadow: inset 0 -2px 0 0 #297254;
+    background-image: linear-gradient(0deg, #297254, #297254);
     background-color: #c3fad5;
-  }
-
-  .fr-table--green-emeraude thead:hover {
-    background-color: #77eda5;
-  }
-
-  .fr-table--green-emeraude thead:active {
-    background-color: #6dd897;
   }
 
   .fr-table--green-emeraude tbody {
     background-color: #e3fdeb;
   }
 
-  .fr-table--green-emeraude tbody:hover {
-    background-color: #94f9b9;
-  }
-
-  .fr-table--green-emeraude tbody:active {
-    background-color: #6df1a3;
-  }
-
   .fr-table--green-emeraude tbody tr:nth-child(even) {
     background-color: #c3fad5;
   }
 
-  .fr-table--green-emeraude tbody tr:nth-child(even):hover {
-    background-color: #77eda5;
-  }
-
-  .fr-table--green-emeraude tbody tr:nth-child(even):active {
-    background-color: #6dd897;
-  }
-
   .fr-table--green-emeraude.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #00a95f;
+    background-image: linear-gradient(0deg, #00a95f, #00a95f);
   }
 
   .fr-table--green-menthe thead {
-    box-shadow: inset 0 -2px 0 0 #37635f;
+    background-image: linear-gradient(0deg, #37635f, #37635f);
     background-color: #bafaee;
-  }
-
-  .fr-table--green-menthe thead:hover {
-    background-color: #79e7d5;
-  }
-
-  .fr-table--green-menthe thead:active {
-    background-color: #6fd3c3;
   }
 
   .fr-table--green-menthe tbody {
     background-color: #dffdf7;
   }
 
-  .fr-table--green-menthe tbody:hover {
-    background-color: #84f9e7;
-  }
-
-  .fr-table--green-menthe tbody:active {
-    background-color: #70ebd8;
-  }
-
   .fr-table--green-menthe tbody tr:nth-child(even) {
     background-color: #bafaee;
   }
 
-  .fr-table--green-menthe tbody tr:nth-child(even):hover {
-    background-color: #79e7d5;
-  }
-
-  .fr-table--green-menthe tbody tr:nth-child(even):active {
-    background-color: #6fd3c3;
-  }
-
   .fr-table--green-menthe.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #009081;
+    background-image: linear-gradient(0deg, #009081, #009081);
   }
 
   .fr-table--green-archipel thead {
-    box-shadow: inset 0 -2px 0 0 #006a6f;
+    background-image: linear-gradient(0deg, #006a6f, #006a6f);
     background-color: #c7f6fc;
-  }
-
-  .fr-table--green-archipel thead:hover {
-    background-color: #64ecf8;
-  }
-
-  .fr-table--green-archipel thead:active {
-    background-color: #5bd8e3;
   }
 
   .fr-table--green-archipel tbody {
     background-color: #e5fbfd;
   }
 
-  .fr-table--green-archipel tbody:hover {
-    background-color: #99f2f8;
-  }
-
-  .fr-table--green-archipel tbody:active {
-    background-color: #73e9f0;
-  }
-
   .fr-table--green-archipel tbody tr:nth-child(even) {
     background-color: #c7f6fc;
   }
 
-  .fr-table--green-archipel tbody tr:nth-child(even):hover {
-    background-color: #64ecf8;
-  }
-
-  .fr-table--green-archipel tbody tr:nth-child(even):active {
-    background-color: #5bd8e3;
-  }
-
   .fr-table--green-archipel.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #009099;
+    background-image: linear-gradient(0deg, #009099, #009099);
   }
 
   .fr-table--blue-ecume thead {
-    box-shadow: inset 0 -2px 0 0 #2f4077;
+    background-image: linear-gradient(0deg, #2f4077, #2f4077);
     background-color: #e9edfe;
-  }
-
-  .fr-table--blue-ecume thead:hover {
-    background-color: #c5d0fc;
-  }
-
-  .fr-table--blue-ecume thead:active {
-    background-color: #adbffc;
   }
 
   .fr-table--blue-ecume tbody {
     background-color: #f4f6fe;
   }
 
-  .fr-table--blue-ecume tbody:hover {
-    background-color: #d7dffb;
-  }
-
-  .fr-table--blue-ecume tbody:active {
-    background-color: #c3cffa;
-  }
-
   .fr-table--blue-ecume tbody tr:nth-child(even) {
     background-color: #e9edfe;
   }
 
-  .fr-table--blue-ecume tbody tr:nth-child(even):hover {
-    background-color: #c5d0fc;
-  }
-
-  .fr-table--blue-ecume tbody tr:nth-child(even):active {
-    background-color: #adbffc;
-  }
-
   .fr-table--blue-ecume.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #465f9d;
+    background-image: linear-gradient(0deg, #465f9d, #465f9d);
   }
 
   .fr-table--blue-cumulus thead {
-    box-shadow: inset 0 -2px 0 0 #3558a2;
+    background-image: linear-gradient(0deg, #3558a2, #3558a2);
     background-color: #e6eefe;
-  }
-
-  .fr-table--blue-cumulus thead:hover {
-    background-color: #bcd3fc;
-  }
-
-  .fr-table--blue-cumulus thead:active {
-    background-color: #9fc3fc;
   }
 
   .fr-table--blue-cumulus tbody {
     background-color: #f3f6fe;
   }
 
-  .fr-table--blue-cumulus tbody:hover {
-    background-color: #d3dffc;
-  }
-
-  .fr-table--blue-cumulus tbody:active {
-    background-color: #bed0fa;
-  }
-
   .fr-table--blue-cumulus tbody tr:nth-child(even) {
     background-color: #e6eefe;
   }
 
-  .fr-table--blue-cumulus tbody tr:nth-child(even):hover {
-    background-color: #bcd3fc;
-  }
-
-  .fr-table--blue-cumulus tbody tr:nth-child(even):active {
-    background-color: #9fc3fc;
-  }
-
   .fr-table--blue-cumulus.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #417dc4;
+    background-image: linear-gradient(0deg, #417dc4, #417dc4);
   }
 
   .fr-table--purple-glycine thead {
-    box-shadow: inset 0 -2px 0 0 #6e445a;
+    background-image: linear-gradient(0deg, #6e445a, #6e445a);
     background-color: #fee7fc;
-  }
-
-  .fr-table--purple-glycine thead:hover {
-    background-color: #fdc0f8;
-  }
-
-  .fr-table--purple-glycine thead:active {
-    background-color: #fca8f6;
   }
 
   .fr-table--purple-glycine tbody {
     background-color: #fef3fd;
   }
 
-  .fr-table--purple-glycine tbody:hover {
-    background-color: #fcd4f8;
-  }
-
-  .fr-table--purple-glycine tbody:active {
-    background-color: #fabff5;
-  }
-
   .fr-table--purple-glycine tbody tr:nth-child(even) {
     background-color: #fee7fc;
   }
 
-  .fr-table--purple-glycine tbody tr:nth-child(even):hover {
-    background-color: #fdc0f8;
-  }
-
-  .fr-table--purple-glycine tbody tr:nth-child(even):active {
-    background-color: #fca8f6;
-  }
-
   .fr-table--purple-glycine.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #a558a0;
+    background-image: linear-gradient(0deg, #a558a0, #a558a0);
   }
 
   .fr-table--pink-macaron thead {
-    box-shadow: inset 0 -2px 0 0 #8d533e;
+    background-image: linear-gradient(0deg, #8d533e, #8d533e);
     background-color: #fee9e6;
-  }
-
-  .fr-table--pink-macaron thead:hover {
-    background-color: #fdc6bd;
-  }
-
-  .fr-table--pink-macaron thead:active {
-    background-color: #fcb0a2;
   }
 
   .fr-table--pink-macaron tbody {
     background-color: #fef4f2;
   }
 
-  .fr-table--pink-macaron tbody:hover {
-    background-color: #fcd8d0;
-  }
-
-  .fr-table--pink-macaron tbody:active {
-    background-color: #fac5b8;
-  }
-
   .fr-table--pink-macaron tbody tr:nth-child(even) {
     background-color: #fee9e6;
   }
 
-  .fr-table--pink-macaron tbody tr:nth-child(even):hover {
-    background-color: #fdc6bd;
-  }
-
-  .fr-table--pink-macaron tbody tr:nth-child(even):active {
-    background-color: #fcb0a2;
-  }
-
   .fr-table--pink-macaron.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #e18b76;
+    background-image: linear-gradient(0deg, #e18b76, #e18b76);
   }
 
   .fr-table--pink-tuile thead {
-    box-shadow: inset 0 -2px 0 0 #a94645;
+    background-image: linear-gradient(0deg, #a94645, #a94645);
     background-color: #fee9e7;
-  }
-
-  .fr-table--pink-tuile thead:hover {
-    background-color: #fdc6c0;
-  }
-
-  .fr-table--pink-tuile thead:active {
-    background-color: #fcb0a7;
   }
 
   .fr-table--pink-tuile tbody {
     background-color: #fef4f3;
   }
 
-  .fr-table--pink-tuile tbody:hover {
-    background-color: #fcd7d3;
-  }
-
-  .fr-table--pink-tuile tbody:active {
-    background-color: #fac4be;
-  }
-
   .fr-table--pink-tuile tbody tr:nth-child(even) {
     background-color: #fee9e7;
   }
 
-  .fr-table--pink-tuile tbody tr:nth-child(even):hover {
-    background-color: #fdc6c0;
-  }
-
-  .fr-table--pink-tuile tbody tr:nth-child(even):active {
-    background-color: #fcb0a7;
-  }
-
   .fr-table--pink-tuile.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #ce614a;
+    background-image: linear-gradient(0deg, #ce614a, #ce614a);
   }
 
   .fr-table--yellow-tournesol thead {
-    box-shadow: inset 0 -2px 0 0 #716043;
+    background-image: linear-gradient(0deg, #716043, #716043);
     background-color: #feecc2;
-  }
-
-  .fr-table--yellow-tournesol thead:hover {
-    background-color: #fbd335;
-  }
-
-  .fr-table--yellow-tournesol thead:active {
-    background-color: #e6c130;
   }
 
   .fr-table--yellow-tournesol tbody {
     background-color: #fef6e3;
   }
 
-  .fr-table--yellow-tournesol tbody:hover {
-    background-color: #fce086;
-  }
-
-  .fr-table--yellow-tournesol tbody:active {
-    background-color: #f5d24b;
-  }
-
   .fr-table--yellow-tournesol tbody tr:nth-child(even) {
     background-color: #feecc2;
   }
 
-  .fr-table--yellow-tournesol tbody tr:nth-child(even):hover {
-    background-color: #fbd335;
-  }
-
-  .fr-table--yellow-tournesol tbody tr:nth-child(even):active {
-    background-color: #e6c130;
-  }
-
   .fr-table--yellow-tournesol.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #c8aa39;
+    background-image: linear-gradient(0deg, #c8aa39, #c8aa39);
   }
 
   .fr-table--yellow-moutarde thead {
-    box-shadow: inset 0 -2px 0 0 #695240;
+    background-image: linear-gradient(0deg, #695240, #695240);
     background-color: #feebd0;
-  }
-
-  .fr-table--yellow-moutarde thead:hover {
-    background-color: #fdcd6d;
-  }
-
-  .fr-table--yellow-moutarde thead:active {
-    background-color: #f4be30;
   }
 
   .fr-table--yellow-moutarde tbody {
     background-color: #fef5e8;
   }
 
-  .fr-table--yellow-moutarde tbody:hover {
-    background-color: #fcdca3;
-  }
-
-  .fr-table--yellow-moutarde tbody:active {
-    background-color: #fbcd64;
-  }
-
   .fr-table--yellow-moutarde tbody tr:nth-child(even) {
     background-color: #feebd0;
   }
 
-  .fr-table--yellow-moutarde tbody tr:nth-child(even):hover {
-    background-color: #fdcd6d;
-  }
-
-  .fr-table--yellow-moutarde tbody tr:nth-child(even):active {
-    background-color: #f4be30;
-  }
-
   .fr-table--yellow-moutarde.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #c3992a;
+    background-image: linear-gradient(0deg, #c3992a, #c3992a);
   }
 
   .fr-table--orange-terre-battue thead {
-    box-shadow: inset 0 -2px 0 0 #755348;
+    background-image: linear-gradient(0deg, #755348, #755348);
     background-color: #fee9e5;
-  }
-
-  .fr-table--orange-terre-battue thead:hover {
-    background-color: #fdc6ba;
-  }
-
-  .fr-table--orange-terre-battue thead:active {
-    background-color: #fcb09e;
   }
 
   .fr-table--orange-terre-battue tbody {
     background-color: #fef4f2;
   }
 
-  .fr-table--orange-terre-battue tbody:hover {
-    background-color: #fcd8d0;
-  }
-
-  .fr-table--orange-terre-battue tbody:active {
-    background-color: #fac5b8;
-  }
-
   .fr-table--orange-terre-battue tbody tr:nth-child(even) {
     background-color: #fee9e5;
   }
 
-  .fr-table--orange-terre-battue tbody tr:nth-child(even):hover {
-    background-color: #fdc6ba;
-  }
-
-  .fr-table--orange-terre-battue tbody tr:nth-child(even):active {
-    background-color: #fcb09e;
-  }
-
   .fr-table--orange-terre-battue.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #e4794a;
+    background-image: linear-gradient(0deg, #e4794a, #e4794a);
   }
 
   .fr-table--brown-cafe-creme thead {
-    box-shadow: inset 0 -2px 0 0 #685c48;
+    background-image: linear-gradient(0deg, #685c48, #685c48);
     background-color: #f7ecdb;
-  }
-
-  .fr-table--brown-cafe-creme thead:hover {
-    background-color: #edce94;
-  }
-
-  .fr-table--brown-cafe-creme thead:active {
-    background-color: #dabd84;
   }
 
   .fr-table--brown-cafe-creme tbody {
     background-color: #fbf6ed;
   }
 
-  .fr-table--brown-cafe-creme tbody:hover {
-    background-color: #f2deb6;
-  }
-
-  .fr-table--brown-cafe-creme tbody:active {
-    background-color: #eacf91;
-  }
-
   .fr-table--brown-cafe-creme tbody tr:nth-child(even) {
     background-color: #f7ecdb;
   }
 
-  .fr-table--brown-cafe-creme tbody tr:nth-child(even):hover {
-    background-color: #edce94;
-  }
-
-  .fr-table--brown-cafe-creme tbody tr:nth-child(even):active {
-    background-color: #dabd84;
-  }
-
   .fr-table--brown-cafe-creme.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #d1b781;
+    background-image: linear-gradient(0deg, #d1b781, #d1b781);
   }
 
   .fr-table--brown-caramel thead {
-    box-shadow: inset 0 -2px 0 0 #845d48;
+    background-image: linear-gradient(0deg, #845d48, #845d48);
     background-color: #f7ebe5;
-  }
-
-  .fr-table--brown-caramel thead:hover {
-    background-color: #eccbb9;
-  }
-
-  .fr-table--brown-caramel thead:active {
-    background-color: #e6b79a;
   }
 
   .fr-table--brown-caramel tbody {
     background-color: #fbf5f2;
   }
 
-  .fr-table--brown-caramel tbody:hover {
-    background-color: #f1dbcf;
-  }
-
-  .fr-table--brown-caramel tbody:active {
-    background-color: #ecc9b5;
-  }
-
   .fr-table--brown-caramel tbody tr:nth-child(even) {
     background-color: #f7ebe5;
   }
 
-  .fr-table--brown-caramel tbody tr:nth-child(even):hover {
-    background-color: #eccbb9;
-  }
-
-  .fr-table--brown-caramel tbody tr:nth-child(even):active {
-    background-color: #e6b79a;
-  }
-
   .fr-table--brown-caramel.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #c08c65;
+    background-image: linear-gradient(0deg, #c08c65, #c08c65);
   }
 
   .fr-table--brown-opera thead {
-    box-shadow: inset 0 -2px 0 0 #745b47;
+    background-image: linear-gradient(0deg, #745b47, #745b47);
     background-color: #f7ece4;
-  }
-
-  .fr-table--brown-opera thead:hover {
-    background-color: #eccdb3;
-  }
-
-  .fr-table--brown-opera thead:active {
-    background-color: #e6ba90;
   }
 
   .fr-table--brown-opera tbody {
     background-color: #fbf5f2;
   }
 
-  .fr-table--brown-opera tbody:hover {
-    background-color: #f1dbcf;
-  }
-
-  .fr-table--brown-opera tbody:active {
-    background-color: #ecc9b5;
-  }
-
   .fr-table--brown-opera tbody tr:nth-child(even) {
     background-color: #f7ece4;
   }
 
-  .fr-table--brown-opera tbody tr:nth-child(even):hover {
-    background-color: #eccdb3;
-  }
-
-  .fr-table--brown-opera tbody tr:nth-child(even):active {
-    background-color: #e6ba90;
-  }
-
   .fr-table--brown-opera.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #bd987a;
+    background-image: linear-gradient(0deg, #bd987a, #bd987a);
   }
 
   .fr-table--beige-gris-galet thead {
-    box-shadow: inset 0 -2px 0 0 #6a6156;
+    background-image: linear-gradient(0deg, #6a6156, #6a6156);
     background-color: #f3ede5;
-  }
-
-  .fr-table--beige-gris-galet thead:hover {
-    background-color: #e1d0b5;
-  }
-
-  .fr-table--beige-gris-galet thead:active {
-    background-color: #d1bea2;
   }
 
   .fr-table--beige-gris-galet tbody {
     background-color: #f9f6f2;
   }
 
-  .fr-table--beige-gris-galet tbody:hover {
-    background-color: #eadecd;
-  }
-
-  .fr-table--beige-gris-galet tbody:active {
-    background-color: #e1ceb1;
-  }
-
   .fr-table--beige-gris-galet tbody tr:nth-child(even) {
     background-color: #f3ede5;
   }
 
-  .fr-table--beige-gris-galet tbody tr:nth-child(even):hover {
-    background-color: #e1d0b5;
-  }
-
-  .fr-table--beige-gris-galet tbody tr:nth-child(even):active {
-    background-color: #d1bea2;
-  }
-
   .fr-table--beige-gris-galet.fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #aea397;
+    background-image: linear-gradient(0deg, #aea397, #aea397);
   }
 
   .fr-table--bordered tbody tr {
-    box-shadow: inset 0 -1px 0 0 #e5e5e5;
+    background-image: linear-gradient(0deg, #ddd, #ddd);
   }
 
   .fr-table--bordered tbody tr:nth-child(even) {
     background-color: transparent;
+  }
+
+  .fr-table--bordered tbody tr:nth-child(even):hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .fr-table--bordered tbody tr:nth-child(even):active {
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }

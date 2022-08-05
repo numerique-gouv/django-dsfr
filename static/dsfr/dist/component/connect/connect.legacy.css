@@ -1,26 +1,22 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
+@media (min-width: 36em) {
+  /*! media sm */
+}
+@media (min-width: 48em) {
+  /*! media md */
+}
+@media (min-width: 62em) {
+  /*! media lg */
+}
+@media (min-width: 78em) {
+  /*! media xl */
+}
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .fr-connect {
     background-color: #000091;
     color: #f5f5fe;
-  }
-
-  .fr-connect:hover {
-    background-color: #1212ff;
-  }
-
-  .fr-connect:active {
-    background-color: #2323ff;
-  }
-
-  .fr-connect-group .fr-connect + p a {
-    color: #000091;
-  }
-
-  .fr-connect-group p {
-    color: #666;
   }
 
   .fr-connect::after {
@@ -33,18 +29,16 @@
     color: #929292;
   }
 
-  .fr-connect:disabled:hover,
-  a.fr-connect:not([href]):hover {
-    background-color: #c5c5c5;
-  }
-
-  .fr-connect:disabled:active,
-  a.fr-connect:not([href]):active {
-    background-color: #b2b2b2;
-  }
-
   .fr-connect:disabled::after,
   a.fr-connect:not([href])::after {
     background-image: linear-gradient(0deg, #929292, #929292), linear-gradient(0deg, #929292, #929292);
+  }
+
+  .fr-connect-group .fr-connect + p a {
+    color: #000091;
+  }
+
+  .fr-connect-group p {
+    color: #666;
   }
 }

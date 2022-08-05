@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
@@ -20,6 +20,7 @@
   transform: translateY(-100%);
   background-color: var(--background-contrast-grey);
 
+  --idle: transparent;
   --hover: var(--background-contrast-grey-hover);
   --active: var(--background-contrast-grey-active);
 }
@@ -49,9 +50,9 @@
   padding: 0 0;
 }
 
-.fr-skiplinks__list > li .fr-link::before {
-  font: normal 700 normal 1.5rem/1 dsfr-icon;
-  content: none;
+.fr-skiplinks__list > li .fr-link::before,
+.fr-skiplinks__list > li .fr-link::after {
+  --icon-size: 1rem;
 }
 
 .fr-skiplinks__list:focus-within {
@@ -59,7 +60,14 @@
   transform: translateY(0);
 }
 
+@media (min-width: 36em) {
+  /*! media sm */
+
+  /*! media sm */
+}
+
 @media (min-width: 48em) {
+  /*! media md */
   .fr-skiplinks__list > li {
     margin: 0 1rem;
   }
@@ -69,6 +77,20 @@
     flex-wrap: wrap;
     margin: 0 -1rem;
   }
+
+  /*! media md */
+}
+
+@media (min-width: 62em) {
+  /*! media lg */
+
+  /*! media lg */
+}
+
+@media (min-width: 78em) {
+  /*! media xl */
+
+  /*! media xl */
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -82,13 +104,5 @@
 
   .fr-skiplinks {
     background-color: #eee;
-  }
-
-  .fr-skiplinks:hover {
-    background-color: #d2d2d2;
-  }
-
-  .fr-skiplinks:active {
-    background-color: #c1c1c1;
   }
 }
