@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
@@ -36,21 +36,17 @@
   /**
    * Description de la tuile
    */
+  /**
+  * Modificateur vertical à partir du breakpoint md -> horizontal en dessous du breakpoint md
+  **/
 
   /**
- * Modificateur tuile horizontale
- **/
-
-  /**
- * Modificateur vertical à partir du breakpoint md -> horizontal en dessous du breakpoint md
- **/
-
-  /**
- * Modificateur horizontal à partir du breakpoint md -> vertical en dessous du breakpoint md
- **/
+  * Modificateur horizontal à partir du breakpoint md -> vertical en dessous du breakpoint md
+  **/
   box-shadow: inset 0 0 0 1px var(--border-default-grey), inset 0 -0.25rem 0 0 var(--border-plain-blue-france);
   background-color: var(--background-default-grey);
 
+  --idle: transparent;
   --hover: var(--background-default-grey-hover);
   --active: var(--background-default-grey-active);
 }
@@ -63,8 +59,6 @@
   display: inline-flex;
 
   --underline-img: none;
-  --link-blank-font: none;
-  --link-blank-content: none;
   width: 100%;
 }
 
@@ -88,8 +82,8 @@
   filter: brightness(var(--brightness));
 
   /**
-     * Dans le cas d'un svg inline sans largeur et hauteur spécifiées, on lui attribue une largeur de 100%.
-     */
+   * Dans le cas d'un svg inline sans largeur et hauteur spécifiées, on lui attribue une largeur de 100%.
+   */
 }
 
 .fr-tile__img > svg {
@@ -116,6 +110,10 @@
   font-size: 1rem;
   line-height: 1.5rem;
 }
+
+/**
+ * Modificateur tuile horizontale
+ **/
 
 .fr-tile--horizontal {
   flex-direction: row-reverse;
@@ -177,11 +175,15 @@
 .fr-tile--grey {
   background-color: var(--background-contrast-grey);
 
+  --idle: transparent;
   --hover: var(--background-contrast-grey-hover);
   --active: var(--background-contrast-grey-active);
 }
-
+@media (min-width: 36em) {
+  /*! media sm */
+}
 @media (min-width: 48em) {
+  /*! media md */
   .fr-tile__body {
     padding: 1.5rem;
   }
@@ -235,4 +237,10 @@
     flex-direction: row-reverse;
     align-items: center;
   }
+}
+@media (min-width: 62em) {
+  /*! media lg */
+}
+@media (min-width: 78em) {
+  /*! media xl */
 }

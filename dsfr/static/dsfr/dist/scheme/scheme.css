@@ -1,18 +1,15 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
 /* ¯¯¯¯¯¯¯¯¯ *\
   SCHEME
 \* ˍˍˍˍˍˍˍˍˍ */
-:root[data-fr-theme="dark"] {
+:root:where([data-fr-theme="dark"]) {
   --grey-1000-50: #161616;
   --grey-1000-50-hover: #343434;
   --grey-1000-50-active: #474747;
-  --grey-1000-75: #1e1e1e;
-  --grey-1000-75-hover: #3f3f3f;
-  --grey-1000-75-active: #525252;
   --grey-975-75: #1e1e1e;
   --grey-975-75-hover: #3f3f3f;
   --grey-975-75-active: #525252;
@@ -21,10 +18,28 @@
   --grey-950-100-active: #5b5b5b;
   --grey-200-850: #cecece;
   --grey-925-125: #2a2a2a;
-  --grey-50-1000-a375: rgba(255, 255, 255, 0.375);
+  --grey-1000-75: #1e1e1e;
+  --grey-1000-75-hover: #3f3f3f;
+  --grey-1000-75-active: #525252;
+  --grey-1000-100: #242424;
+  --grey-1000-100-hover: #474747;
+  --grey-1000-100-active: #5b5b5b;
+  --grey-975-100: #242424;
+  --grey-975-100-hover: #474747;
+  --grey-975-100-active: #5b5b5b;
+  --grey-975-125: #2a2a2a;
+  --grey-975-125-hover: #4e4e4e;
+  --grey-975-125-active: #636363;
+  --grey-950-125: #2a2a2a;
+  --grey-950-125-hover: #4e4e4e;
+  --grey-950-125-active: #636363;
+  --grey-950-150: #2f2f2f;
+  --grey-950-150-hover: #545454;
+  --grey-950-150-active: #696969;
   --grey-50-1000: #fff;
   --grey-425-625: #929292;
   --grey-625-425: #666;
+  --grey-900-175: #353535;
   --blue-france-975-75: #1b1b35;
   --blue-france-975-75-hover: #3a3a68;
   --blue-france-975-75-active: #4d4d83;
@@ -321,8 +336,20 @@
   --beige-gris-galet-main-702: #aea397;
   --beige-gris-galet-850-200: #433829;
 }
+@media (min-width: 36em) {
+  /*! media sm */
+}
+@media (min-width: 48em) {
+  /*! media md */
+}
+@media (min-width: 62em) {
+  /*! media lg */
+}
+@media (min-width: 78em) {
+  /*! media xl */
+}
 @media (hover: hover) and (pointer: fine) {
-  :root[data-fr-theme="dark"] {
+  :root:where([data-fr-theme="dark"]) {
     --brighten: 1;
   }
 }

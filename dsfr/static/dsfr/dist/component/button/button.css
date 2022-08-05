@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
@@ -9,32 +9,56 @@
 .fr-btn {
   --text-spacing: 0;
   --title-spacing: 0;
+  z-index: 1;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  z-index: 1;
+  width: -moz-fit-content;
+  width: fit-content;
 
   --underline-img: none;
-  --link-blank-font: none;
-  --link-blank-content: none;
   --hover-tint: var(--hover);
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.5rem;
   min-height: 2.5rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1rem;
   background-color: var(--background-action-high-blue-france);
 
+  --idle: transparent;
   --hover: var(--background-action-high-blue-france-hover);
   --active: var(--background-action-high-blue-france-active);
   color: var(--text-inverted-blue-france);
 }
 
-.fr-btn:not([class*="fr-btn--icon-"])[class^="fr-icon-"],
-.fr-btn:not([class*="fr-btn--icon-"])[class*=" fr-icon-"],
-.fr-btn:not([class*="fr-btn--icon-"])[class^="fr-fi-"],
-.fr-btn:not([class*="fr-btn--icon-"])[class*=" fr-fi-"] {
-  flex-direction: row;
+.fr-btn::before,
+.fr-btn::after {
+  display: block;
+}
+
+.fr-btn[target=_blank] {
+  overflow: initial;
+  max-width: 100%;
+  max-height: none;
+}
+
+.fr-btn[target=_blank]::after {
+  content: "";
+
+  --icon-size: 1rem;
+  margin-right: -0.125rem;
+  margin-left: 0.5rem;
+}
+
+.fr-btn--align-on-content {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.fr-btn[class^=fr-icon-]:not([class*=fr-btn--icon-]),
+.fr-btn[class*=" fr-icon-"]:not([class*=fr-btn--icon-]),
+.fr-btn[class^=fr-fi-]:not([class*=fr-btn--icon-]),
+.fr-btn[class*=" fr-fi-"]:not([class*=fr-btn--icon-]) {
   overflow: hidden;
   white-space: nowrap;
   max-width: 2.5rem;
@@ -43,65 +67,114 @@
   padding-right: 0.5rem;
 }
 
-.fr-btn:not([class*="fr-btn--icon-"])[class^="fr-icon-"]::before,
-.fr-btn:not([class*="fr-btn--icon-"])[class*=" fr-icon-"]::before,
-.fr-btn:not([class*="fr-btn--icon-"])[class^="fr-fi-"]::before,
-.fr-btn:not([class*="fr-btn--icon-"])[class*=" fr-fi-"]::before {
+.fr-btn[class^=fr-icon-]:not([class*=fr-btn--icon-])::before,
+.fr-btn[class*=" fr-icon-"]:not([class*=fr-btn--icon-])::before,
+.fr-btn[class^=fr-fi-]:not([class*=fr-btn--icon-])::before,
+.fr-btn[class*=" fr-fi-"]:not([class*=fr-btn--icon-])::before {
+  --icon-size: 1.5rem;
   margin-left: 0;
   margin-right: 0.5rem;
-  font-size: 1.5rem;
 }
 
-.fr-btn--icon-left[class^="fr-icon-"],
+.fr-btn--align-on-content[class^=fr-icon-]:not([class*=fr-btn--icon-]),
+.fr-btn--align-on-content[class*=" fr-icon-"]:not([class*=fr-btn--icon-]),
+.fr-btn--align-on-content[class^=fr-fi-]:not([class*=fr-btn--icon-]),
+.fr-btn--align-on-content[class*=" fr-fi-"]:not([class*=fr-btn--icon-]) {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.fr-btn--icon-left[class^=fr-icon-],
 .fr-btn--icon-left[class*=" fr-icon-"],
-.fr-btn--icon-left[class^="fr-fi-"],
+.fr-btn--icon-left[class^=fr-fi-],
 .fr-btn--icon-left[class*=" fr-fi-"] {
-  flex-direction: row;
   overflow: initial;
   max-width: 100%;
   max-height: none;
 }
 
-.fr-btn--icon-left[class^="fr-icon-"]::before,
+.fr-btn--icon-left[class^=fr-icon-]::before,
 .fr-btn--icon-left[class*=" fr-icon-"]::before,
-.fr-btn--icon-left[class^="fr-fi-"]::before,
+.fr-btn--icon-left[class^=fr-fi-]::before,
 .fr-btn--icon-left[class*=" fr-fi-"]::before {
-  margin-left: -0.16667rem;
+  --icon-size: 1rem;
+  margin-left: -0.125rem;
   margin-right: 0.5rem;
-  font-size: 1rem;
 }
 
-.fr-btn--icon-right[class^="fr-icon-"],
+.fr-btn--align-on-content.fr-btn--icon-left[class^=fr-icon-],
+.fr-btn--align-on-content.fr-btn--icon-left[class*=" fr-icon-"],
+.fr-btn--align-on-content.fr-btn--icon-left[class^=fr-fi-],
+.fr-btn--align-on-content.fr-btn--icon-left[class*=" fr-fi-"] {
+  margin-left: -0.875rem;
+  margin-right: -1rem;
+}
+
+.fr-btn--icon-right[class^=fr-icon-],
 .fr-btn--icon-right[class*=" fr-icon-"],
-.fr-btn--icon-right[class^="fr-fi-"],
+.fr-btn--icon-right[class^=fr-fi-],
 .fr-btn--icon-right[class*=" fr-fi-"] {
-  flex-direction: row-reverse;
   overflow: initial;
   max-width: 100%;
   max-height: none;
 }
 
-.fr-btn--icon-right[class^="fr-icon-"]::before,
-.fr-btn--icon-right[class*=" fr-icon-"]::before,
-.fr-btn--icon-right[class^="fr-fi-"]::before,
-.fr-btn--icon-right[class*=" fr-fi-"]::before {
-  margin-right: -0.16667rem;
+.fr-btn--icon-right[class^=fr-icon-]::after,
+.fr-btn--icon-right[class*=" fr-icon-"]::after,
+.fr-btn--icon-right[class^=fr-fi-]::after,
+.fr-btn--icon-right[class*=" fr-fi-"]::after {
+  content: "";
+
+  --icon-size: 1rem;
+  margin-right: -0.125rem;
   margin-left: 0.5rem;
-  font-size: 1rem;
+}
+
+.fr-btn--icon-right[class^=fr-icon-]::before,
+.fr-btn--icon-right[class*=" fr-icon-"]::before,
+.fr-btn--icon-right[class^=fr-fi-]::before,
+.fr-btn--icon-right[class*=" fr-fi-"]::before {
+  content: none;
+}
+
+.fr-btn--align-on-content.fr-btn--icon-right[class^=fr-icon-],
+.fr-btn--align-on-content.fr-btn--icon-right[class*=" fr-icon-"],
+.fr-btn--align-on-content.fr-btn--icon-right[class^=fr-fi-],
+.fr-btn--align-on-content.fr-btn--icon-right[class*=" fr-fi-"] {
+  margin-left: -1rem;
+  margin-right: -0.875rem;
 }
 
 .fr-btn--sm {
   font-size: 0.875rem;
   line-height: 1.5rem;
   min-height: 2rem;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 0.75rem;
 }
 
-.fr-btn--sm:not([class*="fr-btn--icon-"])[class^="fr-icon-"],
-.fr-btn--sm:not([class*="fr-btn--icon-"])[class*=" fr-icon-"],
-.fr-btn--sm:not([class*="fr-btn--icon-"])[class^="fr-fi-"],
-.fr-btn--sm:not([class*="fr-btn--icon-"])[class*=" fr-fi-"] {
-  flex-direction: row;
+.fr-btn--sm[target=_blank] {
+  overflow: initial;
+  max-width: 100%;
+  max-height: none;
+}
+
+.fr-btn--sm[target=_blank]::after {
+  content: "";
+
+  --icon-size: 1rem;
+  margin-right: -0.125rem;
+  margin-left: 0.5rem;
+}
+
+.fr-btn--sm.fr-btn--align-on-content {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.fr-btn--sm[class^=fr-icon-]:not([class*=fr-btn--icon-]),
+.fr-btn--sm[class*=" fr-icon-"]:not([class*=fr-btn--icon-]),
+.fr-btn--sm[class^=fr-fi-]:not([class*=fr-btn--icon-]),
+.fr-btn--sm[class*=" fr-fi-"]:not([class*=fr-btn--icon-]) {
   overflow: hidden;
   white-space: nowrap;
   max-width: 2rem;
@@ -110,65 +183,114 @@
   padding-right: 0.5rem;
 }
 
-.fr-btn--sm:not([class*="fr-btn--icon-"])[class^="fr-icon-"]::before,
-.fr-btn--sm:not([class*="fr-btn--icon-"])[class*=" fr-icon-"]::before,
-.fr-btn--sm:not([class*="fr-btn--icon-"])[class^="fr-fi-"]::before,
-.fr-btn--sm:not([class*="fr-btn--icon-"])[class*=" fr-fi-"]::before {
+.fr-btn--sm[class^=fr-icon-]:not([class*=fr-btn--icon-])::before,
+.fr-btn--sm[class*=" fr-icon-"]:not([class*=fr-btn--icon-])::before,
+.fr-btn--sm[class^=fr-fi-]:not([class*=fr-btn--icon-])::before,
+.fr-btn--sm[class*=" fr-fi-"]:not([class*=fr-btn--icon-])::before {
+  --icon-size: 1rem;
   margin-left: 0;
   margin-right: 0.5rem;
-  font-size: 1rem;
 }
 
-.fr-btn--sm.fr-btn--icon-left[class^="fr-icon-"],
+.fr-btn--sm.fr-btn--align-on-content[class^=fr-icon-]:not([class*=fr-btn--icon-]),
+.fr-btn--sm.fr-btn--align-on-content[class*=" fr-icon-"]:not([class*=fr-btn--icon-]),
+.fr-btn--sm.fr-btn--align-on-content[class^=fr-fi-]:not([class*=fr-btn--icon-]),
+.fr-btn--sm.fr-btn--align-on-content[class*=" fr-fi-"]:not([class*=fr-btn--icon-]) {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.fr-btn--sm.fr-btn--icon-left[class^=fr-icon-],
 .fr-btn--sm.fr-btn--icon-left[class*=" fr-icon-"],
-.fr-btn--sm.fr-btn--icon-left[class^="fr-fi-"],
+.fr-btn--sm.fr-btn--icon-left[class^=fr-fi-],
 .fr-btn--sm.fr-btn--icon-left[class*=" fr-fi-"] {
-  flex-direction: row;
   overflow: initial;
   max-width: 100%;
   max-height: none;
 }
 
-.fr-btn--sm.fr-btn--icon-left[class^="fr-icon-"]::before,
+.fr-btn--sm.fr-btn--icon-left[class^=fr-icon-]::before,
 .fr-btn--sm.fr-btn--icon-left[class*=" fr-icon-"]::before,
-.fr-btn--sm.fr-btn--icon-left[class^="fr-fi-"]::before,
+.fr-btn--sm.fr-btn--icon-left[class^=fr-fi-]::before,
 .fr-btn--sm.fr-btn--icon-left[class*=" fr-fi-"]::before {
-  margin-left: -0.16667rem;
+  --icon-size: 1rem;
+  margin-left: -0.125rem;
   margin-right: 0.5rem;
-  font-size: 1rem;
 }
 
-.fr-btn--sm.fr-btn--icon-right[class^="fr-icon-"],
+.fr-btn--sm.fr-btn--align-on-content.fr-btn--icon-left[class^=fr-icon-],
+.fr-btn--sm.fr-btn--align-on-content.fr-btn--icon-left[class*=" fr-icon-"],
+.fr-btn--sm.fr-btn--align-on-content.fr-btn--icon-left[class^=fr-fi-],
+.fr-btn--sm.fr-btn--align-on-content.fr-btn--icon-left[class*=" fr-fi-"] {
+  margin-left: -0.625rem;
+  margin-right: -0.75rem;
+}
+
+.fr-btn--sm.fr-btn--icon-right[class^=fr-icon-],
 .fr-btn--sm.fr-btn--icon-right[class*=" fr-icon-"],
-.fr-btn--sm.fr-btn--icon-right[class^="fr-fi-"],
+.fr-btn--sm.fr-btn--icon-right[class^=fr-fi-],
 .fr-btn--sm.fr-btn--icon-right[class*=" fr-fi-"] {
-  flex-direction: row-reverse;
   overflow: initial;
   max-width: 100%;
   max-height: none;
 }
 
-.fr-btn--sm.fr-btn--icon-right[class^="fr-icon-"]::before,
-.fr-btn--sm.fr-btn--icon-right[class*=" fr-icon-"]::before,
-.fr-btn--sm.fr-btn--icon-right[class^="fr-fi-"]::before,
-.fr-btn--sm.fr-btn--icon-right[class*=" fr-fi-"]::before {
-  margin-right: -0.16667rem;
+.fr-btn--sm.fr-btn--icon-right[class^=fr-icon-]::after,
+.fr-btn--sm.fr-btn--icon-right[class*=" fr-icon-"]::after,
+.fr-btn--sm.fr-btn--icon-right[class^=fr-fi-]::after,
+.fr-btn--sm.fr-btn--icon-right[class*=" fr-fi-"]::after {
+  content: "";
+
+  --icon-size: 1rem;
+  margin-right: -0.125rem;
   margin-left: 0.5rem;
-  font-size: 1rem;
+}
+
+.fr-btn--sm.fr-btn--icon-right[class^=fr-icon-]::before,
+.fr-btn--sm.fr-btn--icon-right[class*=" fr-icon-"]::before,
+.fr-btn--sm.fr-btn--icon-right[class^=fr-fi-]::before,
+.fr-btn--sm.fr-btn--icon-right[class*=" fr-fi-"]::before {
+  content: none;
+}
+
+.fr-btn--sm.fr-btn--align-on-content.fr-btn--icon-right[class^=fr-icon-],
+.fr-btn--sm.fr-btn--align-on-content.fr-btn--icon-right[class*=" fr-icon-"],
+.fr-btn--sm.fr-btn--align-on-content.fr-btn--icon-right[class^=fr-fi-],
+.fr-btn--sm.fr-btn--align-on-content.fr-btn--icon-right[class*=" fr-fi-"] {
+  margin-left: -0.75rem;
+  margin-right: -0.625rem;
 }
 
 .fr-btn--lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
   min-height: 3rem;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1.5rem;
 }
 
-.fr-btn--lg:not([class*="fr-btn--icon-"])[class^="fr-icon-"],
-.fr-btn--lg:not([class*="fr-btn--icon-"])[class*=" fr-icon-"],
-.fr-btn--lg:not([class*="fr-btn--icon-"])[class^="fr-fi-"],
-.fr-btn--lg:not([class*="fr-btn--icon-"])[class*=" fr-fi-"] {
-  flex-direction: row;
+.fr-btn--lg[target=_blank] {
+  overflow: initial;
+  max-width: 100%;
+  max-height: none;
+}
+
+.fr-btn--lg[target=_blank]::after {
+  content: "";
+
+  --icon-size: 1.5rem;
+  margin-right: -0.1875rem;
+  margin-left: 0.5rem;
+}
+
+.fr-btn--lg.fr-btn--align-on-content {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+.fr-btn--lg[class^=fr-icon-]:not([class*=fr-btn--icon-]),
+.fr-btn--lg[class*=" fr-icon-"]:not([class*=fr-btn--icon-]),
+.fr-btn--lg[class^=fr-fi-]:not([class*=fr-btn--icon-]),
+.fr-btn--lg[class*=" fr-fi-"]:not([class*=fr-btn--icon-]) {
   overflow: hidden;
   white-space: nowrap;
   max-width: 3rem;
@@ -177,51 +299,82 @@
   padding-right: 0.5rem;
 }
 
-.fr-btn--lg:not([class*="fr-btn--icon-"])[class^="fr-icon-"]::before,
-.fr-btn--lg:not([class*="fr-btn--icon-"])[class*=" fr-icon-"]::before,
-.fr-btn--lg:not([class*="fr-btn--icon-"])[class^="fr-fi-"]::before,
-.fr-btn--lg:not([class*="fr-btn--icon-"])[class*=" fr-fi-"]::before {
+.fr-btn--lg[class^=fr-icon-]:not([class*=fr-btn--icon-])::before,
+.fr-btn--lg[class*=" fr-icon-"]:not([class*=fr-btn--icon-])::before,
+.fr-btn--lg[class^=fr-fi-]:not([class*=fr-btn--icon-])::before,
+.fr-btn--lg[class*=" fr-fi-"]:not([class*=fr-btn--icon-])::before {
+  --icon-size: 2rem;
   margin-left: 0;
   margin-right: 0.5rem;
-  font-size: 2rem;
 }
 
-.fr-btn--lg.fr-btn--icon-left[class^="fr-icon-"],
+.fr-btn--lg.fr-btn--align-on-content[class^=fr-icon-]:not([class*=fr-btn--icon-]),
+.fr-btn--lg.fr-btn--align-on-content[class*=" fr-icon-"]:not([class*=fr-btn--icon-]),
+.fr-btn--lg.fr-btn--align-on-content[class^=fr-fi-]:not([class*=fr-btn--icon-]),
+.fr-btn--lg.fr-btn--align-on-content[class*=" fr-fi-"]:not([class*=fr-btn--icon-]) {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.fr-btn--lg.fr-btn--icon-left[class^=fr-icon-],
 .fr-btn--lg.fr-btn--icon-left[class*=" fr-icon-"],
-.fr-btn--lg.fr-btn--icon-left[class^="fr-fi-"],
+.fr-btn--lg.fr-btn--icon-left[class^=fr-fi-],
 .fr-btn--lg.fr-btn--icon-left[class*=" fr-fi-"] {
-  flex-direction: row;
   overflow: initial;
   max-width: 100%;
   max-height: none;
 }
 
-.fr-btn--lg.fr-btn--icon-left[class^="fr-icon-"]::before,
+.fr-btn--lg.fr-btn--icon-left[class^=fr-icon-]::before,
 .fr-btn--lg.fr-btn--icon-left[class*=" fr-icon-"]::before,
-.fr-btn--lg.fr-btn--icon-left[class^="fr-fi-"]::before,
+.fr-btn--lg.fr-btn--icon-left[class^=fr-fi-]::before,
 .fr-btn--lg.fr-btn--icon-left[class*=" fr-fi-"]::before {
-  margin-left: -0.25rem;
+  --icon-size: 1.5rem;
+  margin-left: -0.1875rem;
   margin-right: 0.5rem;
-  font-size: 1.5rem;
 }
 
-.fr-btn--lg.fr-btn--icon-right[class^="fr-icon-"],
+.fr-btn--lg.fr-btn--align-on-content.fr-btn--icon-left[class^=fr-icon-],
+.fr-btn--lg.fr-btn--align-on-content.fr-btn--icon-left[class*=" fr-icon-"],
+.fr-btn--lg.fr-btn--align-on-content.fr-btn--icon-left[class^=fr-fi-],
+.fr-btn--lg.fr-btn--align-on-content.fr-btn--icon-left[class*=" fr-fi-"] {
+  margin-left: -1.3125rem;
+  margin-right: -1.5rem;
+}
+
+.fr-btn--lg.fr-btn--icon-right[class^=fr-icon-],
 .fr-btn--lg.fr-btn--icon-right[class*=" fr-icon-"],
-.fr-btn--lg.fr-btn--icon-right[class^="fr-fi-"],
+.fr-btn--lg.fr-btn--icon-right[class^=fr-fi-],
 .fr-btn--lg.fr-btn--icon-right[class*=" fr-fi-"] {
-  flex-direction: row-reverse;
   overflow: initial;
   max-width: 100%;
   max-height: none;
 }
 
-.fr-btn--lg.fr-btn--icon-right[class^="fr-icon-"]::before,
-.fr-btn--lg.fr-btn--icon-right[class*=" fr-icon-"]::before,
-.fr-btn--lg.fr-btn--icon-right[class^="fr-fi-"]::before,
-.fr-btn--lg.fr-btn--icon-right[class*=" fr-fi-"]::before {
-  margin-right: -0.25rem;
+.fr-btn--lg.fr-btn--icon-right[class^=fr-icon-]::after,
+.fr-btn--lg.fr-btn--icon-right[class*=" fr-icon-"]::after,
+.fr-btn--lg.fr-btn--icon-right[class^=fr-fi-]::after,
+.fr-btn--lg.fr-btn--icon-right[class*=" fr-fi-"]::after {
+  content: "";
+
+  --icon-size: 1.5rem;
+  margin-right: -0.1875rem;
   margin-left: 0.5rem;
-  font-size: 1.5rem;
+}
+
+.fr-btn--lg.fr-btn--icon-right[class^=fr-icon-]::before,
+.fr-btn--lg.fr-btn--icon-right[class*=" fr-icon-"]::before,
+.fr-btn--lg.fr-btn--icon-right[class^=fr-fi-]::before,
+.fr-btn--lg.fr-btn--icon-right[class*=" fr-fi-"]::before {
+  content: none;
+}
+
+.fr-btn--lg.fr-btn--align-on-content.fr-btn--icon-right[class^=fr-icon-],
+.fr-btn--lg.fr-btn--align-on-content.fr-btn--icon-right[class*=" fr-icon-"],
+.fr-btn--lg.fr-btn--align-on-content.fr-btn--icon-right[class^=fr-fi-],
+.fr-btn--lg.fr-btn--align-on-content.fr-btn--icon-right[class*=" fr-fi-"] {
+  margin-left: -1.5rem;
+  margin-right: -1.3125rem;
 }
 
 .fr-btns-group {
@@ -235,8 +388,8 @@
   display: flex;
   align-items: stretch;
   flex-wrap: wrap;
-  margin-right: 0;
-  margin-left: 0;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 
   /**
   * fr-btns-group--inline : aligne les boutons horizontalement dans tout les cas
@@ -278,21 +431,16 @@
 }
 
 .fr-btns-group .fr-btn {
-  width: 100%;
-  margin-right: 0;
-  margin-left: 0;
-  margin-bottom: 1rem;
+  width: calc(100% - 1rem);
+  margin: 0 0.5rem 1rem;
   justify-content: center;
-}
-
-.fr-btns-group--inline {
-  width: calc(100% + 1rem);
 }
 
 .fr-btns-group--inline .fr-btn {
   width: auto;
-  margin-right: 1rem;
   max-width: 100%;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .fr-btns-group--inline > li {
@@ -301,33 +449,9 @@
   width: auto;
 }
 
-.fr-btns-group--inline > li::before {
-  content: none;
-}
-
-.fr-btns-group--inline.fr-btns-group--right {
-  margin-left: -1rem;
-}
-
-.fr-btns-group--inline.fr-btns-group--right .fr-btn {
-  margin-right: 0;
-  margin-left: 1rem;
-}
-
 .fr-btns-group--inline.fr-btns-group--right.fr-btns-group--inline-reverse {
   flex-direction: row-reverse;
   justify-content: flex-start;
-}
-
-.fr-btns-group--inline.fr-btns-group--center,
-.fr-btns-group--inline.fr-btns-group--left {
-  margin-right: -1rem;
-}
-
-.fr-btns-group--inline.fr-btns-group--center .fr-btn,
-.fr-btns-group--inline.fr-btns-group--left .fr-btn {
-  margin-right: 1rem;
-  margin-left: 0;
 }
 
 .fr-btns-group--left,
@@ -357,325 +481,324 @@
   width: var(--equisized-width);
 }
 
-.fr-btns-group--sm .fr-btn:not([class^="fr-icon-"]):not([class*=" fr-icon-"]):not([class^="fr-fi-"]):not([class*=" fr-fi-"]) {
+.fr-btns-group--sm .fr-btn:not([class^=fr-icon-]):not([class*=" fr-icon-"]):not([class^=fr-fi-]):not([class*=" fr-fi-"]) {
   font-size: 0.875rem;
   line-height: 1.5rem;
   min-height: 2rem;
-  padding: 0.25rem 1rem;
-  flex-direction: row;
-  font-weight: 500;
+  padding: 0.25rem 0.75rem;
 }
 
-.fr-btns-group--sm .fr-btn:not([class^="fr-icon-"]):not([class*=" fr-icon-"]):not([class^="fr-fi-"]):not([class*=" fr-fi-"])::before {
-  font: normal 700 normal 1rem/1 dsfr-icon;
-}
-
-.fr-btns-group--sm:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^="fr-icon-"],
-.fr-btns-group--sm:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"],
-.fr-btns-group--sm:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^="fr-fi-"],
-.fr-btns-group--sm:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"] {
+.fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-icon-],
+.fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"],
+.fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-fi-],
+.fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"] {
   font-size: 0.875rem;
   line-height: 1.5rem;
   min-height: 2rem;
-  padding: 0.25rem 1rem;
-  flex-direction: row;
+  padding: 0.25rem 0.75rem;
   overflow: hidden;
   white-space: nowrap;
   max-width: 2rem;
   max-height: 2rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  font-weight: 500;
   justify-content: flex-start;
 }
 
-.fr-btns-group--sm:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^="fr-icon-"]::before,
-.fr-btns-group--sm:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"]::before,
-.fr-btns-group--sm:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^="fr-fi-"]::before,
-.fr-btns-group--sm:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"]::before {
-  font: normal 700 normal 1rem/1 dsfr-icon;
+.fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-icon-]::before,
+.fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"]::before,
+.fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-fi-]::before,
+.fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"]::before {
+  --icon-size: 1rem;
   margin-left: 0;
   margin-right: 0.5rem;
-  font-size: 1rem;
 }
 
-.fr-btns-group--sm.fr-btns-group--icon-left .fr-btn[class^="fr-icon-"],
+.fr-btns-group--sm.fr-btns-group--icon-left .fr-btn[class^=fr-icon-],
 .fr-btns-group--sm.fr-btns-group--icon-left .fr-btn[class*=" fr-icon-"],
-.fr-btns-group--sm.fr-btns-group--icon-left .fr-btn[class^="fr-fi-"],
+.fr-btns-group--sm.fr-btns-group--icon-left .fr-btn[class^=fr-fi-],
 .fr-btns-group--sm.fr-btns-group--icon-left .fr-btn[class*=" fr-fi-"] {
   font-size: 0.875rem;
   line-height: 1.5rem;
   min-height: 2rem;
-  padding: 0.25rem 1rem;
-  flex-direction: row;
+  padding: 0.25rem 0.75rem;
   overflow: initial;
   max-width: 100%;
   max-height: none;
-  font-weight: 500;
 }
 
-.fr-btns-group--sm.fr-btns-group--icon-left .fr-btn[class^="fr-icon-"]::before,
+.fr-btns-group--sm.fr-btns-group--icon-left .fr-btn[class^=fr-icon-]::before,
 .fr-btns-group--sm.fr-btns-group--icon-left .fr-btn[class*=" fr-icon-"]::before,
-.fr-btns-group--sm.fr-btns-group--icon-left .fr-btn[class^="fr-fi-"]::before,
+.fr-btns-group--sm.fr-btns-group--icon-left .fr-btn[class^=fr-fi-]::before,
 .fr-btns-group--sm.fr-btns-group--icon-left .fr-btn[class*=" fr-fi-"]::before {
-  font: normal 700 normal 1rem/1 dsfr-icon;
-  margin-left: -0.16667rem;
+  --icon-size: 1rem;
+  margin-left: -0.125rem;
   margin-right: 0.5rem;
-  font-size: 1rem;
 }
 
-.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class^="fr-icon-"],
+.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class^=fr-icon-],
 .fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"],
-.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class^="fr-fi-"],
+.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class^=fr-fi-],
 .fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"] {
   font-size: 0.875rem;
   line-height: 1.5rem;
   min-height: 2rem;
-  padding: 0.25rem 1rem;
-  flex-direction: row-reverse;
+  padding: 0.25rem 0.75rem;
   overflow: initial;
   max-width: 100%;
   max-height: none;
-  font-weight: 500;
 }
 
-.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class^="fr-icon-"]::before,
-.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"]::before,
-.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class^="fr-fi-"]::before,
-.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"]::before {
-  font: normal 700 normal 1rem/1 dsfr-icon;
-  margin-right: -0.16667rem;
+.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class^=fr-icon-]::after,
+.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"]::after,
+.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class^=fr-fi-]::after,
+.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"]::after {
+  content: "";
+
+  --icon-size: 1rem;
+  margin-right: -0.125rem;
   margin-left: 0.5rem;
-  font-size: 1rem;
 }
 
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg) .fr-btn:not([class^="fr-icon-"]):not([class*=" fr-icon-"]):not([class^="fr-fi-"]):not([class*=" fr-fi-"]) {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  min-height: 2.5rem;
-  padding: 0.5rem 1.5rem;
-  flex-direction: row;
-  font-weight: 500;
+.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class^=fr-icon-]::before,
+.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"]::before,
+.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class^=fr-fi-]::before,
+.fr-btns-group--sm.fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"]::before {
+  content: none;
 }
 
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg) .fr-btn:not([class^="fr-icon-"]):not([class*=" fr-icon-"]):not([class^="fr-fi-"]):not([class*=" fr-fi-"])::before {
-  font: normal 700 normal 1.5rem/1 dsfr-icon;
-}
-
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg):not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^="fr-icon-"],
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg):not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"],
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg):not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^="fr-fi-"],
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg):not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"] {
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)) .fr-btn:not([class^=fr-icon-]):not([class*=" fr-icon-"]):not([class^=fr-fi-]):not([class*=" fr-fi-"]) {
   font-size: 1rem;
   line-height: 1.5rem;
   min-height: 2.5rem;
-  padding: 0.5rem 1.5rem;
-  flex-direction: row;
+  padding: 0.5rem 1rem;
+}
+
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)):not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-icon-],
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)):not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"],
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)):not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-fi-],
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)):not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"] {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
   overflow: hidden;
   white-space: nowrap;
   max-width: 2.5rem;
   max-height: 2.5rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  font-weight: 500;
   justify-content: flex-start;
 }
 
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg):not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^="fr-icon-"]::before,
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg):not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"]::before,
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg):not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^="fr-fi-"]::before,
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg):not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"]::before {
-  font: normal 700 normal 1.5rem/1 dsfr-icon;
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)):not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-icon-]::before,
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)):not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"]::before,
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)):not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-fi-]::before,
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)):not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"]::before {
+  --icon-size: 1.5rem;
   margin-left: 0;
   margin-right: 0.5rem;
-  font-size: 1.5rem;
 }
 
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-left .fr-btn[class^="fr-icon-"],
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-left .fr-btn[class*=" fr-icon-"],
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-left .fr-btn[class^="fr-fi-"],
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-left .fr-btn[class*=" fr-fi-"] {
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-left .fr-btn[class^=fr-icon-],
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-left .fr-btn[class*=" fr-icon-"],
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-left .fr-btn[class^=fr-fi-],
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-left .fr-btn[class*=" fr-fi-"] {
   font-size: 1rem;
   line-height: 1.5rem;
   min-height: 2.5rem;
-  padding: 0.5rem 1.5rem;
-  flex-direction: row;
+  padding: 0.5rem 1rem;
   overflow: initial;
   max-width: 100%;
   max-height: none;
-  font-weight: 500;
 }
 
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-left .fr-btn[class^="fr-icon-"]::before,
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-left .fr-btn[class*=" fr-icon-"]::before,
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-left .fr-btn[class^="fr-fi-"]::before,
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-left .fr-btn[class*=" fr-fi-"]::before {
-  font: normal 700 normal 1.5rem/1 dsfr-icon;
-  margin-left: -0.16667rem;
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-left .fr-btn[class^=fr-icon-]::before,
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-left .fr-btn[class*=" fr-icon-"]::before,
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-left .fr-btn[class^=fr-fi-]::before,
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-left .fr-btn[class*=" fr-fi-"]::before {
+  --icon-size: 1rem;
+  margin-left: -0.125rem;
   margin-right: 0.5rem;
-  font-size: 1rem;
 }
 
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-right .fr-btn[class^="fr-icon-"],
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"],
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-right .fr-btn[class^="fr-fi-"],
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"] {
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-right .fr-btn[class^=fr-icon-],
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"],
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-right .fr-btn[class^=fr-fi-],
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"] {
   font-size: 1rem;
   line-height: 1.5rem;
   min-height: 2.5rem;
-  padding: 0.5rem 1.5rem;
-  flex-direction: row-reverse;
+  padding: 0.5rem 1rem;
   overflow: initial;
   max-width: 100%;
   max-height: none;
-  font-weight: 500;
 }
 
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-right .fr-btn[class^="fr-icon-"]::before,
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"]::before,
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-right .fr-btn[class^="fr-fi-"]::before,
-.fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg).fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"]::before {
-  font: normal 700 normal 1.5rem/1 dsfr-icon;
-  margin-right: -0.16667rem;
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-right .fr-btn[class^=fr-icon-]::after,
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"]::after,
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-right .fr-btn[class^=fr-fi-]::after,
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"]::after {
+  content: "";
+
+  --icon-size: 1rem;
+  margin-right: -0.125rem;
   margin-left: 0.5rem;
-  font-size: 1rem;
 }
 
-.fr-btns-group--lg .fr-btn:not([class^="fr-icon-"]):not([class*=" fr-icon-"]):not([class^="fr-fi-"]):not([class*=" fr-fi-"]) {
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-right .fr-btn[class^=fr-icon-]::before,
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"]::before,
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-right .fr-btn[class^=fr-fi-]::before,
+.fr-btns-group:where(:not(.fr-btns-group--sm):not(.fr-btns-group--lg)).fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"]::before {
+  content: none;
+}
+
+.fr-btns-group--lg .fr-btn:not([class^=fr-icon-]):not([class*=" fr-icon-"]):not([class^=fr-fi-]):not([class*=" fr-fi-"]) {
   font-size: 1.125rem;
   line-height: 1.75rem;
   min-height: 3rem;
-  padding: 0.5rem 2rem;
-  flex-direction: row;
-  font-weight: 500;
+  padding: 0.5rem 1.5rem;
 }
 
-.fr-btns-group--lg .fr-btn:not([class^="fr-icon-"]):not([class*=" fr-icon-"]):not([class^="fr-fi-"]):not([class*=" fr-fi-"])::before {
-  font: normal 700 normal 2rem/1 dsfr-icon;
-}
-
-.fr-btns-group--lg:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^="fr-icon-"],
-.fr-btns-group--lg:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"],
-.fr-btns-group--lg:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^="fr-fi-"],
-.fr-btns-group--lg:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"] {
+.fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-icon-],
+.fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"],
+.fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-fi-],
+.fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"] {
   font-size: 1.125rem;
   line-height: 1.75rem;
   min-height: 3rem;
-  padding: 0.5rem 2rem;
-  flex-direction: row;
+  padding: 0.5rem 1.5rem;
   overflow: hidden;
   white-space: nowrap;
   max-width: 3rem;
   max-height: 3rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  font-weight: 500;
   justify-content: flex-start;
 }
 
-.fr-btns-group--lg:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^="fr-icon-"]::before,
-.fr-btns-group--lg:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"]::before,
-.fr-btns-group--lg:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^="fr-fi-"]::before,
-.fr-btns-group--lg:not([class^="fr-btns-group--icon-"]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"]::before {
-  font: normal 700 normal 2rem/1 dsfr-icon;
+.fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-icon-]::before,
+.fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"]::before,
+.fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-fi-]::before,
+.fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"]::before {
+  --icon-size: 2rem;
   margin-left: 0;
   margin-right: 0.5rem;
-  font-size: 2rem;
 }
 
-.fr-btns-group--lg.fr-btns-group--icon-left .fr-btn[class^="fr-icon-"],
+.fr-btns-group--lg.fr-btns-group--icon-left .fr-btn[class^=fr-icon-],
 .fr-btns-group--lg.fr-btns-group--icon-left .fr-btn[class*=" fr-icon-"],
-.fr-btns-group--lg.fr-btns-group--icon-left .fr-btn[class^="fr-fi-"],
+.fr-btns-group--lg.fr-btns-group--icon-left .fr-btn[class^=fr-fi-],
 .fr-btns-group--lg.fr-btns-group--icon-left .fr-btn[class*=" fr-fi-"] {
   font-size: 1.125rem;
   line-height: 1.75rem;
   min-height: 3rem;
-  padding: 0.5rem 2rem;
-  flex-direction: row;
+  padding: 0.5rem 1.5rem;
   overflow: initial;
   max-width: 100%;
   max-height: none;
-  font-weight: 500;
 }
 
-.fr-btns-group--lg.fr-btns-group--icon-left .fr-btn[class^="fr-icon-"]::before,
+.fr-btns-group--lg.fr-btns-group--icon-left .fr-btn[class^=fr-icon-]::before,
 .fr-btns-group--lg.fr-btns-group--icon-left .fr-btn[class*=" fr-icon-"]::before,
-.fr-btns-group--lg.fr-btns-group--icon-left .fr-btn[class^="fr-fi-"]::before,
+.fr-btns-group--lg.fr-btns-group--icon-left .fr-btn[class^=fr-fi-]::before,
 .fr-btns-group--lg.fr-btns-group--icon-left .fr-btn[class*=" fr-fi-"]::before {
-  font: normal 700 normal 2rem/1 dsfr-icon;
-  margin-left: -0.25rem;
+  --icon-size: 1.5rem;
+  margin-left: -0.1875rem;
   margin-right: 0.5rem;
-  font-size: 1.5rem;
 }
 
-.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class^="fr-icon-"],
+.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class^=fr-icon-],
 .fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"],
-.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class^="fr-fi-"],
+.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class^=fr-fi-],
 .fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"] {
   font-size: 1.125rem;
   line-height: 1.75rem;
   min-height: 3rem;
-  padding: 0.5rem 2rem;
-  flex-direction: row-reverse;
+  padding: 0.5rem 1.5rem;
   overflow: initial;
   max-width: 100%;
   max-height: none;
-  font-weight: 500;
 }
 
-.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class^="fr-icon-"]::before,
-.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"]::before,
-.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class^="fr-fi-"]::before,
-.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"]::before {
-  font: normal 700 normal 2rem/1 dsfr-icon;
-  margin-right: -0.25rem;
+.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class^=fr-icon-]::after,
+.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"]::after,
+.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class^=fr-fi-]::after,
+.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"]::after {
+  content: "";
+
+  --icon-size: 1.5rem;
+  margin-right: -0.1875rem;
   margin-left: 0.5rem;
-  font-size: 1.5rem;
+}
+
+.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class^=fr-icon-]::before,
+.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class*=" fr-icon-"]::before,
+.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class^=fr-fi-]::before,
+.fr-btns-group--lg.fr-btns-group--icon-right .fr-btn[class*=" fr-fi-"]::before {
+  content: none;
 }
 
 .fr-btn--close {
   font-size: 0.875rem;
   line-height: 1.5rem;
   min-height: 2rem;
-  padding: 0.25rem 1rem;
-  flex-direction: row-reverse;
+  padding: 0.25rem 0.75rem;
   overflow: initial;
   max-width: 100%;
   max-height: none;
-  font-weight: 500;
   display: flex;
   margin-left: auto;
   margin-right: -1rem;
 }
 
-.fr-btn--close::before {
-  font: normal 700 normal 1.5rem/1 dsfr-icon;
-  content: "";
-  font-weight: 700;
-  margin-right: -0.16667rem;
+.fr-btn--close::after {
+
+  --icon-size: 1rem;
+  margin-right: -0.125rem;
   margin-left: 0.5rem;
-  font-size: 1rem;
+  flex: 0 0 auto;
+  display: inline-block;
+  vertical-align: calc((0.75em - var(--icon-size)) * 0.5);
+  background-color: currentColor;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-image: url("../../icons/system/close-line.svg");
+  mask-image: url("../../icons/system/close-line.svg");
+  content: "";
+}
+
+.fr-btn--close::before {
+  content: none;
 }
 
 .fr-btn--display {
   font-size: 1rem;
   line-height: 1.5rem;
   min-height: 2.5rem;
-  padding: 0.5rem 1.5rem;
-  flex-direction: row;
+  padding: 0.5rem 1rem;
   overflow: initial;
   max-width: 100%;
   max-height: none;
-  font-weight: 500;
 }
 
 .fr-btn--display::before {
-  font: normal 700 normal 1.5rem/1 dsfr-icon;
-  content: "";
-  font-weight: 700;
-  margin-left: -0.16667rem;
+  --icon-size: 1rem;
+  margin-left: -0.125rem;
   margin-right: 0.5rem;
-  font-size: 1rem;
+  flex: 0 0 auto;
+  display: inline-block;
+  vertical-align: calc((0.75em - var(--icon-size)) * 0.5);
+  background-color: currentColor;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-image: url("../../icons/system/fr--theme-fill.svg");
+  mask-image: url("../../icons/system/fr--theme-fill.svg");
+  content: "";
 }
 
 .fr-btn:disabled,
@@ -683,6 +806,7 @@ a.fr-btn:not([href]) {
   color: var(--text-disabled-grey);
   background-color: var(--background-disabled-grey);
 
+  --idle: transparent;
   --hover: var(--background-disabled-grey-hover);
   --active: var(--background-disabled-grey-active);
 }
@@ -747,16 +871,13 @@ a.fr-btn--display:not([href]),
   --hover: inherit;
   --active: inherit;
 }
-
 @media (min-width: 36em) {
-  .fr-btns-group--inline-sm {
-    width: calc(100% + 1rem);
-  }
-
+  /*! media sm */
   .fr-btns-group--inline-sm .fr-btn {
     width: auto;
-    margin-right: 1rem;
     max-width: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 
   .fr-btns-group--inline-sm > li {
@@ -765,45 +886,20 @@ a.fr-btn--display:not([href]),
     width: auto;
   }
 
-  .fr-btns-group--inline-sm > li::before {
-    content: none;
-  }
-
-  .fr-btns-group--inline-sm.fr-btns-group--right {
-    margin-left: -1rem;
-  }
-
-  .fr-btns-group--inline-sm.fr-btns-group--right .fr-btn {
-    margin-right: 0;
-    margin-left: 1rem;
-  }
-
   .fr-btns-group--inline-sm.fr-btns-group--right.fr-btns-group--inline-reverse {
     flex-direction: row-reverse;
     justify-content: flex-start;
   }
 
-  .fr-btns-group--inline-sm.fr-btns-group--center,
-  .fr-btns-group--inline-sm.fr-btns-group--left {
-    margin-right: -1rem;
-  }
-
-  .fr-btns-group--inline-sm.fr-btns-group--center .fr-btn,
-  .fr-btns-group--inline-sm.fr-btns-group--left .fr-btn {
-    margin-right: 1rem;
-    margin-left: 0;
-  }
+  /*! media sm */
 }
-
 @media (min-width: 48em) {
-  .fr-btns-group--inline-md {
-    width: calc(100% + 1rem);
-  }
-
+  /*! media md */
   .fr-btns-group--inline-md .fr-btn {
     width: auto;
-    margin-right: 1rem;
     max-width: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 
   .fr-btns-group--inline-md > li {
@@ -812,45 +908,20 @@ a.fr-btn--display:not([href]),
     width: auto;
   }
 
-  .fr-btns-group--inline-md > li::before {
-    content: none;
-  }
-
-  .fr-btns-group--inline-md.fr-btns-group--right {
-    margin-left: -1rem;
-  }
-
-  .fr-btns-group--inline-md.fr-btns-group--right .fr-btn {
-    margin-right: 0;
-    margin-left: 1rem;
-  }
-
   .fr-btns-group--inline-md.fr-btns-group--right.fr-btns-group--inline-reverse {
     flex-direction: row-reverse;
     justify-content: flex-start;
   }
 
-  .fr-btns-group--inline-md.fr-btns-group--center,
-  .fr-btns-group--inline-md.fr-btns-group--left {
-    margin-right: -1rem;
-  }
-
-  .fr-btns-group--inline-md.fr-btns-group--center .fr-btn,
-  .fr-btns-group--inline-md.fr-btns-group--left .fr-btn {
-    margin-right: 1rem;
-    margin-left: 0;
-  }
+  /*! media md */
 }
-
 @media (min-width: 62em) {
-  .fr-btns-group--inline-lg {
-    width: calc(100% + 1rem);
-  }
-
+  /*! media lg */
   .fr-btns-group--inline-lg .fr-btn {
     width: auto;
-    margin-right: 1rem;
     max-width: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 
   .fr-btns-group--inline-lg > li {
@@ -859,42 +930,154 @@ a.fr-btn--display:not([href]),
     width: auto;
   }
 
-  .fr-btns-group--inline-lg > li::before {
-    content: none;
-  }
-
-  .fr-btns-group--inline-lg.fr-btns-group--right {
-    margin-left: -1rem;
-  }
-
-  .fr-btns-group--inline-lg.fr-btns-group--right .fr-btn {
-    margin-right: 0;
-    margin-left: 1rem;
-  }
-
   .fr-btns-group--inline-lg.fr-btns-group--right.fr-btns-group--inline-reverse {
     flex-direction: row-reverse;
     justify-content: flex-start;
   }
 
-  .fr-btns-group--inline-lg.fr-btns-group--center,
-  .fr-btns-group--inline-lg.fr-btns-group--left {
-    margin-right: -1rem;
-  }
-
-  .fr-btns-group--inline-lg.fr-btns-group--center .fr-btn,
-  .fr-btns-group--inline-lg.fr-btns-group--left .fr-btn {
-    margin-right: 1rem;
-    margin-left: 0;
-  }
+  /*! media lg */
 }
+@media (min-width: 78em) {
+  /*! media xl */
 
+  /*! media xl */
+}
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  /**
-  * Reset liste à puce
-  */
-  .fr-btns-group > li {
-    list-style: none;
+  .fr-btn::before,
+  .fr-btn::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .fr-btn[class^=fr-icon-]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::before,
+  .fr-btn[class^=fr-icon-]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::after,
+  .fr-btn[class*=" fr-icon-"]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::before,
+  .fr-btn[class*=" fr-icon-"]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::after,
+  .fr-btn[class^=fr-fi-]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::before,
+  .fr-btn[class^=fr-fi-]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::after,
+  .fr-btn[class*=" fr-fi-"]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::before,
+  .fr-btn[class*=" fr-fi-"]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .fr-btn--sm::before,
+  .fr-btn--sm::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  .fr-btn--sm[class^=fr-icon-]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::before,
+  .fr-btn--sm[class^=fr-icon-]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::after,
+  .fr-btn--sm[class*=" fr-icon-"]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::before,
+  .fr-btn--sm[class*=" fr-icon-"]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::after,
+  .fr-btn--sm[class^=fr-fi-]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::before,
+  .fr-btn--sm[class^=fr-fi-]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::after,
+  .fr-btn--sm[class*=" fr-fi-"]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::before,
+  .fr-btn--sm[class*=" fr-fi-"]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .fr-btn--lg::before,
+  .fr-btn--lg::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .fr-btn--lg[class^=fr-icon-]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::before,
+  .fr-btn--lg[class^=fr-icon-]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::after,
+  .fr-btn--lg[class*=" fr-icon-"]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::before,
+  .fr-btn--lg[class*=" fr-icon-"]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::after,
+  .fr-btn--lg[class^=fr-fi-]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::before,
+  .fr-btn--lg[class^=fr-fi-]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::after,
+  .fr-btn--lg[class*=" fr-fi-"]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::before,
+  .fr-btn--lg[class*=" fr-fi-"]:not([class^=fr-btn--icon-]):not([class*=" fr-btn--icon-"])::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .fr-btn--close::before,
+  .fr-btn--close::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../../icons/system/close-line.svg");
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .fr-btn--display::before,
+  .fr-btn--display::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../../icons/system/fr--theme-fill.svg");
+    width: 1rem;
+    height: 1rem;
+  }
+
+  ul.fr-btns-group {
+    list-style-type: none;
+  }
+
+  ol.fr-btns-group {
+    list-style-type: none;
+  }
+
+  ul.fr-btns-group,
+  ol.fr-btns-group {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-icon-]::before,
+  .fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-icon-]::after,
+  .fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"]::before,
+  .fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"]::after,
+  .fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-fi-]::before,
+  .fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-fi-]::after,
+  .fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"]::before,
+  .fr-btns-group--sm:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"]::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-icon-]::before,
+  .fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-icon-]::after,
+  .fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"]::before,
+  .fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-icon-"]::after,
+  .fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-fi-]::before,
+  .fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class^=fr-fi-]::after,
+  .fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"]::before,
+  .fr-btns-group--lg:not([class^=fr-btns-group--icon-]):not([class*=" fr-btns-group--icon-"]) .fr-btn[class*=" fr-fi-"]::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
   }
 
   .fr-btn {
@@ -916,20 +1099,18 @@ a.fr-btn--display:not([href]),
     background-color: #e5e5e5;
   }
 
-  .fr-btn:disabled:hover,
-  a.fr-btn:not([href]):hover {
-    background-color: #c5c5c5;
-  }
-
-  .fr-btn:disabled:active,
-  a.fr-btn:not([href]):active {
-    background-color: #b2b2b2;
-  }
-
   .fr-btn--secondary {
     background-color: transparent;
     color: #000091;
     box-shadow: inset 0 0 0 1px #000091;
+  }
+
+  .fr-btn--secondary:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .fr-btn--secondary:active {
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
   .fr-btn--secondary:disabled,
@@ -939,10 +1120,28 @@ a.fr-btn--display:not([href]),
     background-color: transparent;
   }
 
+  .fr-btn--secondary:disabled:hover,
+  a.fr-btn--secondary:not([href]):hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .fr-btn--secondary:disabled:active,
+  a.fr-btn--secondary:not([href]):active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
   .fr-btn--tertiary {
     background-color: transparent;
     color: #000091;
-    box-shadow: inset 0 0 0 1px #e5e5e5;
+    box-shadow: inset 0 0 0 1px #ddd;
+  }
+
+  .fr-btn--tertiary:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .fr-btn--tertiary:active {
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
   .fr-btn--tertiary:disabled,
@@ -952,11 +1151,33 @@ a.fr-btn--display:not([href]),
     background-color: transparent;
   }
 
+  .fr-btn--tertiary:disabled:hover,
+  a.fr-btn--tertiary:not([href]):hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .fr-btn--tertiary:disabled:active,
+  a.fr-btn--tertiary:not([href]):active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
   .fr-btn--tertiary-no-outline,
   .fr-btn--close,
   .fr-btn--display {
     background-color: transparent;
     color: #000091;
+  }
+
+  .fr-btn--tertiary-no-outline:hover,
+  .fr-btn--close:hover,
+  .fr-btn--display:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .fr-btn--tertiary-no-outline:active,
+  .fr-btn--close:active,
+  .fr-btn--display:active {
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
   .fr-btn--tertiary-no-outline:disabled,
@@ -967,5 +1188,23 @@ a.fr-btn--display:not([href]),
   .fr-btn--display:disabled {
     color: #929292;
     background-color: transparent;
+  }
+
+  .fr-btn--tertiary-no-outline:disabled:hover,
+  a.fr-btn--tertiary-no-outline:not([href]):hover,
+  a.fr-btn--close:not([href]):hover,
+  a.fr-btn--display:not([href]):hover,
+  .fr-btn--close:disabled:hover,
+  .fr-btn--display:disabled:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .fr-btn--tertiary-no-outline:disabled:active,
+  a.fr-btn--tertiary-no-outline:not([href]):active,
+  a.fr-btn--close:not([href]):active,
+  a.fr-btn--display:not([href]):active,
+  .fr-btn--close:disabled:active,
+  .fr-btn--display:disabled:active {
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }

@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
@@ -23,14 +23,15 @@
    */
   background-color: var(--background-contrast-grey);
 
+  --idle: transparent;
   --hover: var(--background-contrast-grey-hover);
   --active: var(--background-contrast-grey-active);
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-blue-france);
 }
 
-.fr-callout[class^="fr-icon-"]::before,
+.fr-callout[class^=fr-icon-]::before,
 .fr-callout[class*=" fr-icon-"]::before,
-.fr-callout[class^="fr-fi-"]::before,
+.fr-callout[class^=fr-fi-]::before,
 .fr-callout[class*=" fr-fi-"]::before {
   display: block;
   margin: -0.5rem 0 0.5rem;
@@ -60,6 +61,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-green-tilleul-verveine);
   background-color: var(--background-contrast-green-tilleul-verveine);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-tilleul-verveine-hover);
   --active: var(--background-contrast-green-tilleul-verveine-active);
 }
@@ -68,6 +70,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-green-bourgeon);
   background-color: var(--background-contrast-green-bourgeon);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-bourgeon-hover);
   --active: var(--background-contrast-green-bourgeon-active);
 }
@@ -76,6 +79,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-green-emeraude);
   background-color: var(--background-contrast-green-emeraude);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-emeraude-hover);
   --active: var(--background-contrast-green-emeraude-active);
 }
@@ -84,6 +88,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-green-menthe);
   background-color: var(--background-contrast-green-menthe);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-menthe-hover);
   --active: var(--background-contrast-green-menthe-active);
 }
@@ -92,6 +97,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-green-archipel);
   background-color: var(--background-contrast-green-archipel);
 
+  --idle: transparent;
   --hover: var(--background-contrast-green-archipel-hover);
   --active: var(--background-contrast-green-archipel-active);
 }
@@ -100,6 +106,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-blue-ecume);
   background-color: var(--background-contrast-blue-ecume);
 
+  --idle: transparent;
   --hover: var(--background-contrast-blue-ecume-hover);
   --active: var(--background-contrast-blue-ecume-active);
 }
@@ -108,6 +115,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-blue-cumulus);
   background-color: var(--background-contrast-blue-cumulus);
 
+  --idle: transparent;
   --hover: var(--background-contrast-blue-cumulus-hover);
   --active: var(--background-contrast-blue-cumulus-active);
 }
@@ -116,6 +124,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-purple-glycine);
   background-color: var(--background-contrast-purple-glycine);
 
+  --idle: transparent;
   --hover: var(--background-contrast-purple-glycine-hover);
   --active: var(--background-contrast-purple-glycine-active);
 }
@@ -124,6 +133,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-pink-macaron);
   background-color: var(--background-contrast-pink-macaron);
 
+  --idle: transparent;
   --hover: var(--background-contrast-pink-macaron-hover);
   --active: var(--background-contrast-pink-macaron-active);
 }
@@ -132,6 +142,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-pink-tuile);
   background-color: var(--background-contrast-pink-tuile);
 
+  --idle: transparent;
   --hover: var(--background-contrast-pink-tuile-hover);
   --active: var(--background-contrast-pink-tuile-active);
 }
@@ -140,6 +151,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-yellow-tournesol);
   background-color: var(--background-contrast-yellow-tournesol);
 
+  --idle: transparent;
   --hover: var(--background-contrast-yellow-tournesol-hover);
   --active: var(--background-contrast-yellow-tournesol-active);
 }
@@ -148,6 +160,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-yellow-moutarde);
   background-color: var(--background-contrast-yellow-moutarde);
 
+  --idle: transparent;
   --hover: var(--background-contrast-yellow-moutarde-hover);
   --active: var(--background-contrast-yellow-moutarde-active);
 }
@@ -156,6 +169,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-orange-terre-battue);
   background-color: var(--background-contrast-orange-terre-battue);
 
+  --idle: transparent;
   --hover: var(--background-contrast-orange-terre-battue-hover);
   --active: var(--background-contrast-orange-terre-battue-active);
 }
@@ -164,6 +178,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-brown-cafe-creme);
   background-color: var(--background-contrast-brown-cafe-creme);
 
+  --idle: transparent;
   --hover: var(--background-contrast-brown-cafe-creme-hover);
   --active: var(--background-contrast-brown-cafe-creme-active);
 }
@@ -172,6 +187,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-brown-caramel);
   background-color: var(--background-contrast-brown-caramel);
 
+  --idle: transparent;
   --hover: var(--background-contrast-brown-caramel-hover);
   --active: var(--background-contrast-brown-caramel-active);
 }
@@ -180,6 +196,7 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-brown-opera);
   background-color: var(--background-contrast-brown-opera);
 
+  --idle: transparent;
   --hover: var(--background-contrast-brown-opera-hover);
   --active: var(--background-contrast-brown-opera-active);
 }
@@ -188,18 +205,24 @@
   box-shadow: inset 0.25rem 0 0 0 var(--border-default-beige-gris-galet);
   background-color: var(--background-contrast-beige-gris-galet);
 
+  --idle: transparent;
   --hover: var(--background-contrast-beige-gris-galet-hover);
   --active: var(--background-contrast-beige-gris-galet-active);
 }
 
+@media (min-width: 36em) {
+  /*! media sm */
+}
+
 @media (min-width: 48em) {
+  /*! media md */
   .fr-callout {
     padding: 2rem 3rem;
   }
 
-  .fr-callout[class^="fr-icon-"]::before,
+  .fr-callout[class^=fr-icon-]::before,
   .fr-callout[class*=" fr-icon-"]::before,
-  .fr-callout[class^="fr-fi-"]::before,
+  .fr-callout[class^=fr-fi-]::before,
   .fr-callout[class*=" fr-fi-"]::before {
     margin: -1rem 0 1rem -2rem;
   }
@@ -208,4 +231,12 @@
     font-size: 1.5rem;
     line-height: 2rem;
   }
+}
+
+@media (min-width: 62em) {
+  /*! media lg */
+}
+
+@media (min-width: 78em) {
+  /*! media xl */
 }

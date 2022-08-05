@@ -1,48 +1,80 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
 .fr-sidemenu {
   /*
-    @include scheme-element-bg-color(default grey);
-
-    @include respond-from(md) {
-      @include scheme-element-bg-transparent((legacy:$legacy, hover: true));
-    }
-    */
+  @include elevation.elevate(raised, (legacy:$legacy));
+  @include respond-from(md) {
+    @include elevation.drop((legacy:$legacy));
+  }
+   */
 }
-
+@media (min-width: 36em) {
+  /*! media sm */
+}
+@media (min-width: 48em) {
+  /*! media md */
+}
+@media (min-width: 62em) {
+  /*! media lg */
+}
+@media (min-width: 78em) {
+  /*! media xl */
+}
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /**
   * Correctif de la hauteur de la navigation latérale
   */
-  .fr-sidenav {
+  .fr-sidemenu {
     height: auto;
+    box-shadow: inset 0 -1px 0 0 #ddd, inset 0 1px 0 0 #ddd;
   }
 
-  /**
-  * Reset de la liste à puce
-  */
-  .fr-sidemenu__item {
-    list-style: none;
+  .fr-sidemenu ul {
+    list-style-type: none;
+  }
+
+  .fr-sidemenu ol {
+    list-style-type: none;
+  }
+
+  .fr-sidemenu ul,
+  .fr-sidemenu ol {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .fr-sidemenu [href] {
+    text-decoration: none;
+  }
+
+  .fr-sidemenu__btn[aria-expanded]::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../../icons/system/arrow-down-s-line.svg");
+    width: 1rem;
+    height: 1rem;
   }
 
   .fr-sidemenu__title {
     color: #161616;
-    box-shadow: inset 0 -1px 0 0 #e5e5e5;
+    box-shadow: inset 0 -1px 0 0 #ddd;
   }
 
   .fr-sidemenu__item::before {
-    box-shadow: 0 -1px 0 0 #e5e5e5, inset 0 -1px 0 0 #e5e5e5;
+    box-shadow: 0 -1px 0 0 #ddd, inset 0 -1px 0 0 #ddd;
   }
 
   .fr-sidemenu__item:first-child::before {
-    box-shadow: inset 0 -1px 0 0 #e5e5e5;
+    box-shadow: inset 0 -1px 0 0 #ddd;
   }
 
   .fr-sidemenu__item:last-child::before {
-    box-shadow: 0 -1px 0 0 #e5e5e5;
+    box-shadow: 0 -1px 0 0 #ddd;
   }
 
   .fr-sidemenu__link,
@@ -55,50 +87,29 @@
     color: #000091;
   }
 
-  .fr-sidemenu__link[aria-current]::after,
-  .fr-sidemenu__btn[aria-current]::after {
+  .fr-sidemenu__link[aria-current]::before,
+  .fr-sidemenu__btn[aria-current]::before {
     background-color: #000091;
   }
-
-  .fr-sidemenu__link[aria-current]::after:hover,
-  .fr-sidemenu__btn[aria-current]::after:hover {
-    background-color: #1212ff;
-  }
-
-  .fr-sidemenu__link[aria-current]::after:active,
-  .fr-sidemenu__btn[aria-current]::after:active {
-    background-color: #2323ff;
-  }
-
-  .fr-sidemenu__inner > .fr-sidemenu__btn {
-    background-color: #fff;
-  }
-
-  .fr-sidemenu__inner > .fr-sidemenu__btn:hover {
-    background-color: #f6f6f6;
-  }
-
-  .fr-sidemenu__inner > .fr-sidemenu__btn:active {
-    background-color: #ededed;
-  }
 }
+@media (min-width: 48em) and (-ms-high-contrast: none), (min-width: 48em) and (-ms-high-contrast: active) {
+  .fr-sidemenu {
+    box-shadow: none;
+  }
 
-@media (min-width: 48em) {
   .fr-sidemenu__title {
     box-shadow: none;
   }
-}
 
-@media all and (min-width: 48em) and (-ms-high-contrast: none), (min-width: 48em) and (-ms-high-contrast: active) {
   .fr-sidemenu__inner {
-    box-shadow: inset -1px 0 0 0 #e5e5e5;
+    box-shadow: inset -1px 0 0 0 #ddd;
   }
 
   .fr-sidemenu--right .fr-sidemenu__inner {
-    box-shadow: inset 1px 0 0 0 #e5e5e5;
+    box-shadow: inset 1px 0 0 0 #ddd;
   }
 
   .fr-sidemenu--full-border .fr-sidemenu__inner {
-    box-shadow: inset 0 0 0 1px #e5e5e5;
+    box-shadow: inset 0 0 0 1px #ddd;
   }
 }

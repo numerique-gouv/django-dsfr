@@ -1,4 +1,4 @@
-/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 class State {
   constructor () {
@@ -59,7 +59,7 @@ const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.4.1'
+  version: '1.7.2'
 };
 
 class LogLevel {
@@ -496,6 +496,7 @@ class Element {
   }
 
   get html () {
+    if (!this.node || !this.node.outerHTML) return '';
     const end = this.node.outerHTML.indexOf('>');
     return this.node.outerHTML.substring(0, end + 1);
   }
@@ -1025,9 +1026,16 @@ const supportLocalStorage = () => {
   }
 };
 
+const supportAspectRatio = () => {
+  if (!window.CSS) return false;
+  return CSS.supports('aspect-ratio: 16 / 9');
+};
+
 const support = {};
 
 support.supportLocalStorage = supportLocalStorage;
+
+support.supportAspectRatio = supportAspectRatio;
 
 const TransitionSelector = {
   NONE: ns.selector('transition-none')
@@ -1100,35 +1108,39 @@ internals.motion = selector;
 internals.property = property;
 internals.ns = ns;
 internals.register = engine.register;
+internals.state = state;
 
 Object.defineProperty(internals, 'preventManipulation', {
   get: () => options.preventManipulation
 });
+Object.defineProperty(internals, 'stage', {
+  get: () => state.getModule('stage')
+});
 
 inspector.info(`version ${config.version}`);
 
-const api = (node) => {
+const api$1 = (node) => {
   const stage = state.getModule('stage');
   return stage.getProxy(node);
 };
 
-api.Modes = Modes;
+api$1.Modes = Modes;
 
-Object.defineProperty(api, 'mode', {
+Object.defineProperty(api$1, 'mode', {
   set: (value) => { options.mode = value; },
   get: () => options.mode
 });
 
-api.internals = internals;
+api$1.internals = internals;
 
-api.start = engine.start;
-api.stop = engine.stop;
+api$1.start = engine.start;
+api$1.stop = engine.stop;
 
-api.inspector = inspector;
+api$1.inspector = inspector;
 
-options.configure(window[config.namespace], api.start);
+options.configure(window[config.namespace], api$1.start);
 
-window[config.namespace] = api;
+window[config.namespace] = api$1;
 
 class Emitter {
   constructor () {
@@ -1465,6 +1477,10 @@ class Instance {
 
   hasClass (className) {
     return hasClass(this.node, className);
+  }
+
+  get classNames () {
+    return getClassNames(this.node);
   }
 
   setAttribute (attributeName, value) {
@@ -1919,7 +1935,8 @@ class CollapseButton extends DisclosureButton {
 }
 
 const CollapseSelector = {
-  COLLAPSE: ns.selector('collapse')
+  COLLAPSE: ns.selector('collapse'),
+  COLLAPSING: ns.selector('collapsing')
 };
 
 /**
@@ -1942,6 +1959,7 @@ class Collapse extends Disclosure {
   }
 
   transitionend (e) {
+    this.removeClass(CollapseSelector.COLLAPSING);
     if (!this.disclosed) {
       if (this.isLegacy) this.style.maxHeight = '';
       else this.style.removeProperty('--collapse-max-height');
@@ -1957,6 +1975,7 @@ class Collapse extends Disclosure {
     if (this.disclosed) return;
     this.unbound();
     this.request(() => {
+      this.addClass(CollapseSelector.COLLAPSING);
       this.adjust();
       this.request(() => {
         super.disclose(withhold);
@@ -1967,6 +1986,7 @@ class Collapse extends Disclosure {
   conceal (withhold, preventFocus) {
     if (!this.disclosed) return;
     this.request(() => {
+      this.addClass(CollapseSelector.COLLAPSING);
       this.adjust();
       this.request(() => {
         super.conceal(withhold, preventFocus);
@@ -2151,6 +2171,17 @@ class InjectSvg extends Instance {
       this.svg.setAttribute('id', this.imgID);
     }
 
+    // gestion de la dépréciation
+    let name = this.imgURL.match(/[ \w-]+\./)[0];
+    if (name) {
+      name = name.slice(0, -1);
+
+      if (['dark', 'light', 'system'].includes(name)) {
+        this.svg.innerHTML = this.svg.innerHTML.replaceAll('id="artwork-', `id="${name}-artwork-`);
+        this.svg.innerHTML = this.svg.innerHTML.replaceAll('"#artwork-', `"#${name}-artwork-`);
+      }
+    }
+
     if (this.imgClass && typeof this.imgClass !== 'undefined') {
       this.svg.setAttribute('class', this.imgClass);
     }
@@ -2180,7 +2211,107 @@ const InjectSvgSelector = {
   INJECT_SVG: `[${ns.attr('inject-svg')}]`
 };
 
-api.core = {
+class Artwork extends Instance {
+  static get instanceClassName () {
+    return 'Artwork';
+  }
+
+  init () {
+    if (this.isLegacy) {
+      this.replace();
+    }
+  }
+
+  get proxy () {
+    const scope = this;
+    return Object.assign(super.proxy, {
+      replace: scope.replace.bind(scope)
+    });
+  }
+
+  fetch () {
+    this.xlink = this.node.getAttribute('xlink:href');
+    const splitUrl = this.xlink.split('#');
+    this.svgUrl = splitUrl[0];
+    this.svgName = splitUrl[1];
+
+    const xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xhr.responseText, 'text/html');
+      this.realSvgContent = xmlDoc.getElementById(this.svgName);
+
+      if (this.realSvgContent) {
+        this.realSvgContent.classList.add(this.node.classList);
+        this.replace();
+      }
+    };
+    xhr.open('GET', this.svgUrl);
+    xhr.send();
+  }
+
+  replace () {
+    if (!this.realSvgContent) {
+      this.fetch();
+      return;
+    }
+
+    this.node.parentNode.replaceChild(this.realSvgContent, this.node);
+  }
+}
+
+const ArtworkSelector = {
+  ARTWORK_USE: `${ns.selector('artwork')} use`
+};
+
+const ratiosImg = ['32x9', '16x9', '3x2', '4x3', '1x1', '3x4', '2x3'];
+const ratiosVid = ['16x9', '4x3', '1x1'];
+
+const ratioSelector = (name, modifiers) => {
+  return modifiers.map(modifier => ns.selector(`${name}--${modifier}`)).join(',');
+};
+
+const deprecatedRatioSelector = `${ns.selector('responsive-img')}, ${ratioSelector('responsive-img', ratiosImg)}, ${ns.selector('responsive-vid')}, ${ratioSelector('responsive-vid', ratiosVid)}`;
+
+const RatioSelector = {
+  RATIO: `${ns.selector('ratio')}, ${ratioSelector('ratio', ratiosImg)}, ${deprecatedRatioSelector}`
+};
+
+const api = window[config.namespace];
+
+class Ratio extends Instance {
+  static get instanceClassName () {
+    return 'Ratio';
+  }
+
+  init () {
+    if (!api.internals.support.supportAspectRatio()) {
+      this.ratio = 16 / 9;
+      for (const className in this.classNames) {
+        if (this.registration.selector.indexOf(this.classNames[className]) > 0) {
+          const ratio = this.classNames[className].split('ratio-');
+          if (ratio[1]) {
+            this.ratio = ratio[1].split('x')[0] / ratio[1].split('x')[1];
+          }
+        }
+      }
+      this.isRendering = true;
+      this.update();
+    }
+  }
+
+  render () {
+    const width = this.getRect().width;
+    if (width !== this.currentWidth) this.update();
+  }
+
+  update () {
+    this.currentWidth = this.getRect().width;
+    this.style.height = this.currentWidth / this.ratio + 'px';
+  }
+}
+
+api$1.core = {
   Instance: Instance,
   Breakpoints: Breakpoints,
   KeyCodes: KeyCodes,
@@ -2200,9 +2331,14 @@ api.core = {
   Toggle: Toggle,
   EquisizedsGroup: EquisizedsGroup,
   InjectSvg: InjectSvg,
-  InjectSvgSelector: InjectSvgSelector
+  InjectSvgSelector: InjectSvgSelector,
+  Artwork: Artwork,
+  ArtworkSelector: ArtworkSelector,
+  Ratio: Ratio,
+  RatioSelector: RatioSelector
 };
 
-api.internals.register(api.core.CollapseSelector.COLLAPSE, api.core.Collapse);
-api.internals.register(api.core.InjectSvgSelector.INJECT_SVG, api.core.InjectSvg);
+api$1.internals.register(api$1.core.CollapseSelector.COLLAPSE, api$1.core.Collapse);
+api$1.internals.register(api$1.core.InjectSvgSelector.INJECT_SVG, api$1.core.InjectSvg);
+api$1.internals.register(api$1.core.RatioSelector.RATIO, api$1.core.Ratio);
 //# sourceMappingURL=core.module.js.map

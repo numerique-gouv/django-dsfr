@@ -1,10 +1,10 @@
-/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.4.1'
+  version: '1.7.2'
 };
 
 const api = window[config.namespace];
@@ -326,6 +326,7 @@ class TabsList extends api.core.Instance {
 
   resize () {
     this.isScrolling = this.node.scrollWidth > this.node.clientWidth + SCROLL_OFFSET;
+    this.setProperty('--tab-list-height', `${this.getRect().height}px`);
   }
 
   dispose () {
