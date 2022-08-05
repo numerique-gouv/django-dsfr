@@ -517,7 +517,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                             {"label": "Page non active", "link": "#"},
                             {
                                 "label": "Page active",
-                                "link": "/sidemenu/",
+                                "link": "/django-dsfr/tags/sidemenu/",
                             },
                         ],
                     },
@@ -527,7 +527,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
     }
 
     request_mock = MagicMock()
-    request_mock.path = "/sidemenu/"
+    request_mock.path = "/django-dsfr/tags/sidemenu/"
     context = Context({"request": request_mock, "test_data": test_data})
     template_to_render = Template("{% load dsfr_tags %} {% dsfr_sidemenu test_data %}")
     rendered_template = template_to_render.render(context)
@@ -565,7 +565,6 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                 </button>
                 <div class="fr-collapse" id="fr-sidemenu-item-2-2">
                     <ul class="fr-sidemenu__list">
-                    
                         <li class="fr-sidemenu__item">
                         <a class="fr-sidemenu__link" href="#" target="_self" >
                             Page non active
@@ -573,17 +572,17 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                         </li>
                     
                         <li class="fr-sidemenu__item fr-sidemenu__item--active">
-                        <a class="fr-sidemenu__link" href="/sidemenu/" target="_self"  aria-current="page">
+                        <a class="fr-sidemenu__link" href="/django-dsfr/tags/sidemenu/" target="_self"  aria-current="page">
                             Page active
                         </a>
                         </li>
-                    
                     </ul>
                 </div>
             </li>
             """,
             self.rendered_template,
         )
+
 
 
 class DsfrSummaryTagTest(SimpleTestCase):

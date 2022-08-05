@@ -210,7 +210,7 @@ IMPLEMENTED_TAGS = {
                                     {"label": "Page non active", "link": "#"},
                                     {
                                         "label": "Page active",
-                                        "link": "/sidemenu/",
+                                        "link": "/django-dsfr/tags/sidemenu/",
                                     },
                                 ],
                             },
