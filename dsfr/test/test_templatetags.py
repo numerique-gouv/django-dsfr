@@ -214,7 +214,7 @@ class DsfrCalloutTagTest(SimpleTestCase):
     test_data = {
         "text": "Text of the callout item",
         "title": "Title of the callout item",
-        "icon_class": "fr-fi-information-line",
+        "icon_class": "fr-icon-information-line",
         "heading_tag": "h4",
         "button": {"onclick": "close()", "label": "button label", "type": "button"},
     }
@@ -241,7 +241,7 @@ class DsfrCalloutTagTest(SimpleTestCase):
 
     def test_callout_optional_icon_rendered(self):
         rendered_template = self.template_to_render.render(self.context)
-        self.assertTrue("fr-fi-information-line" in rendered_template)
+        self.assertTrue("fr-icon-information-line" in rendered_template)
 
     def test_callout_optional_button_rendered(self):
         rendered_template = self.template_to_render.render(self.context)
@@ -428,7 +428,7 @@ class DsfrLinkTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <a 
-            class="fr-link fr-fi-external-link-line fr-link--icon-right fr-link--lg"
+            class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
             href="http://example.com"
             target="_blank" rel="noopener noreferrer"
             >
@@ -676,11 +676,11 @@ class DsfrTagTagTest(SimpleTestCase):
 
         context = Context({"test_data": test_data})
         template_to_render = Template(
-            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-fi-arrow-right-line fr-tag--icon-left' %}"
+            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-icon-arrow-right-line fr-tag--icon-left' %}"
         )
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<p class="fr-tag fr-fi-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",
+            """<p class="fr-tag fr-icon-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",
             rendered_template,
         )
 

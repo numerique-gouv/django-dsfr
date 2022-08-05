@@ -54,7 +54,7 @@ IMPLEMENTED_TAGS = {
             {
                 "title": "Mise en avant avec bouton normal",
                 "text": "This callout item has a normal button",
-                "icon_class": "fr-fi-alert-line",
+                "icon_class": "fr-icon-alert-line",
                 "button": {
                     "onclick": "alert('button being a button')",
                     "label": "button label",
@@ -64,7 +64,7 @@ IMPLEMENTED_TAGS = {
             {
                 "title": "Mise en avant avec lien",
                 "text": "This callout item has a call-to-action link",
-                "icon_class": "fr-fi-external-link-line",
+                "icon_class": "fr-icon-external-link-line",
                 "button": {
                     "label": "button label",
                     "url": "https://www.systeme-de-design.gouv.fr/",
@@ -259,12 +259,12 @@ IMPLEMENTED_TAGS = {
             {"label": "Tag avec lien", "link": "/django-dsfr/tags"},
             {
                 "label": "Petit tag avec icône",
-                "extra_classes": "fr-tag--sm fr-fi-arrow-right-line fr-tag--icon-left",
+                "extra_classes": "fr-tag--sm fr-icon-arrow-right-line fr-tag--icon-left",
             },
             {
                 "label": "Tag avec action",
                 "link": "#",
-                "extra_classes": "fr-fi-close-line fr-tag--icon-right",
+                "extra_classes": "fr-icon-close-line fr-tag--icon-right",
                 "onclick": "alert('clicked'); return false;",
             },
             {

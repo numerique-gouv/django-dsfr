@@ -654,7 +654,7 @@ def dsfr_tag(*args, **kwargs) -> dict:
 
     Relevant extra_classes:
     - fr-tag--sm: for a small tag
-    - icon classes: an icon for the tag, along with a positional class (eg, fr-fi-arrow-right-line fr-tag--icon-left)
+    - icon classes: an icon for the tag, along with a positional class (eg, fr-icon-arrow-right-line fr-tag--icon-left)
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 

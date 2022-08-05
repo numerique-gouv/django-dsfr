@@ -166,7 +166,7 @@ def page_tests(request):
     payload["callout_1"] = {
         "text": "This callout item has a normal button",
         "title": "Callout with actionable button",
-        "icon_class": "fr-fi-alert-line",
+        "icon_class": "fr-icon-alert-line",
         "button": {
             "onclick": "alert('button being a button')",
             "label": "button label",
@@ -177,7 +177,7 @@ def page_tests(request):
     payload["callout_2"] = {
         "text": "This callout item has a call-to-action link",
         "title": "Callout with call to action link",
-        "icon_class": "fr-fi-external-link-line",
+        "icon_class": "fr-icon-external-link-line",
         "button": {
             "label": "button label",
             "url": "https://www.systeme-de-design.gouv.fr/",
