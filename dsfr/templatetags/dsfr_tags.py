@@ -182,6 +182,37 @@ def dsfr_alert(*args, **kwargs) -> dict:
         tag_data["is_collapsible"] = False
     return {"self": tag_data}
 
+@register.inclusion_tag("dsfr/badge.html")
+def dsfr_badge(*args, **kwargs) -> dict:
+    """
+    Returns a badge item. Takes a dict as parameter, with the following structure:
+
+    data_dict = {
+        "label": "Label of the button item",
+        "extra_classes": "(Optional) string with names of extra classes."
+    }
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra_classes
+    - "fr-badge--sm" : small-sized badge
+    - "fr-badge--green-menthe" other color codes: change the color of the badge
+    - "fr-badge--success" (or error/info/warning/new): system badges
+    - "fr-badge--no-icon": removes the icon on system badges
+
+    **Tag name**::
+        dsfr_badge
+    **Usage**::
+        {% dsfr_badge data_dict %}
+    """
+    allowed_keys = [
+        "label",
+        "extra_classes",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    return {"self": tag_data}
+
 
 @register.inclusion_tag("dsfr/breadcrumb.html", takes_context=True)
 def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
@@ -242,10 +273,6 @@ def dsfr_button(*args, **kwargs) -> dict:
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
-
     if "is_disabled" not in tag_data:
         tag_data["is_disabled"] = False
     return {"self": tag_data}
@@ -295,13 +322,19 @@ def dsfr_card(*args, **kwargs) -> dict:
         "detail": "Appears before the title of the card item",
         "title": "Title of the card item",
         "description": "Text of the card item",
-        "image": "(Optional) url of the image",
+        "image_url": "(Optional) url of the image",
+        "image_alt": "(Optional) alt text of the image",
         "new_tab": "(Optional) if True, forces links to open in a new tab",
         "enlarge_link": (Optional) boolean. If true (default), the link covers the whole card",
         "extra_classes": "(Optional) string with names of extra classes",
     }
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra classes:
+    - fr-card--horizontal: makes the card horizontal
+    - fr-card--horizontal-tier: allows a 33% ratio instead of the 40% default
+    - fr-card--horizontal-half: allows a 50% ratio instead of the 40% default
 
     **Tag name**::
         dsfr_card
@@ -313,6 +346,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         "title",
         "description",
         "image_url",
+        "image_alt",
         "new_tab",
         "enlarge_link",
         "extra_classes",

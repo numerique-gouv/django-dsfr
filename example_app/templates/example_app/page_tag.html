@@ -52,16 +52,24 @@
             {% dsfr_accordion_group sample_data_item %}
           {% elif tag_name == "alert" %}
             {% dsfr_alert sample_data_item %}
+          {% elif tag_name == "badge" %}
+            {% dsfr_badge sample_data_item %}
           {% elif tag_name == "button" %}
             {% dsfr_button sample_data_item %}
           {% elif tag_name == "callout" %}
             {% dsfr_callout sample_data_item %}
           {% elif tag_name == "card" %}
-            <div class="fr-grid-row fr-grid-row--gutters">
-              <div class="fr-col-12 fr-col-md-3">
+            {% if not "horizontal" in sample_data_item.extra_classes %}
+              <div class="fr-grid-row fr-grid-row--gutters">
+                <div class="fr-col-12 fr-col-md-4">
+                  {% dsfr_card sample_data_item %}
+                </div>
+              </div>
+            {% else %}
+              <div class="fr-grid-row fr-grid-row--gutters">
                 {% dsfr_card sample_data_item %}
               </div>
-            </div>
+            {% endif %}
           {% elif tag_name == "highlight" %}
             {% dsfr_highlight sample_data_item %}
           {% elif tag_name == "input" %}
@@ -84,7 +92,7 @@
             {% dsfr_tag sample_data_item %}
           {% elif tag_name == "tile" %}
             <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-2">
+                <div class="fr-col-12 fr-col-md-3">
                   {% dsfr_tile sample_data_item %}
                 </div>
               </div>

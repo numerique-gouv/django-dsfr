@@ -157,6 +157,26 @@ class DsfrAlertTagTest(SimpleTestCase):
         )
 
 
+class DsfrBadgeTagTest(SimpleTestCase):
+    test_data = {
+        "label": "badge label",
+        "extra_classes": "fr-badge--success",
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_badge test_data %}")
+
+    def test_badge_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        print(rendered_template)
+        self.assertInHTML(
+            """
+            <p class="fr-badge fr-badge--success">badge label</p>
+            """,
+            rendered_template,
+        )
+
+
 class DsfrBreadcrumbTagTest(SimpleTestCase):
     breadcrumb_data = {
         "links": [{"url": "test-url", "title": "Test title"}],

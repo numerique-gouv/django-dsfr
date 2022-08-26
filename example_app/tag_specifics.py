@@ -37,6 +37,27 @@ IMPLEMENTED_TAGS = {
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/736362500/Alertes+-+Alerts",
     },
+    "badge": {
+        "title": "Badge",
+        "sample_data": [
+            {
+                "label": "Badge simple",
+                "extra_classes": "",
+            },
+            {
+                "label": "Petit badge",
+                "extra_classes": "fr-badge--sm",
+            },
+            {
+                "label": "Badge coloré",
+                "extra_classes": "fr-badge--green-menthe",
+            },
+            {
+                "label": "Badge système",
+                "extra_classes": "fr-badge--success",
+            }        ],
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/851869737/Badges",
+    },
     "breadcrumb": {"title": "Fil d’Ariane (breadcrumb)"},
     "button": {
         "title": "Boutons (buttons)",
@@ -78,12 +99,51 @@ IMPLEMENTED_TAGS = {
         "title": "Carte (card)",
         "sample_data": [
             {
-                "detail": "Appears before the title of the card item",
-                "title": "Title of the card item",
-                "description": "Text of the card item",
+                "detail": "Détail",
+                "title": "Carte basique",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
+                    cinq lignes dans le mode vertical, et deux en horizontal.
+                    """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
-                "image_url": "https://via.placeholder.com/350x200",
+                "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
                 "new_tab": True,
+            },
+            {
+                "detail": "Détail",
+                "title": "Carte horizontale, largeur standard",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
+                    deux lignes dans le mode horizontal, et cinq en vertical.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "extra_classes": "fr-card--horizontal"
+            },
+            {
+                "detail": "Détail",
+                "title": "Carte horizontale, largeur tiers",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
+                    deux lignes dans le mode horizontal, et cinq en vertical.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "extra_classes": "fr-card--horizontal fr-card--horizontal-tier"
+            },
+            {
+                "detail": "Détail",
+                "title": "Carte horizontale, largeur moitié",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
+                    deux lignes dans le mode horizontal, et cinq en vertical.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "extra_classes": "fr-card--horizontal fr-card--horizontal-half"
             }
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331445/Carte+-+Card",
@@ -151,7 +211,7 @@ IMPLEMENTED_TAGS = {
                         "link": "https://template.incubateur.net/",
                     },
                 ],
-                "image_url": "https://via.placeholder.com/150x150",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
             }
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/771358744/Citation+-+Quote",
@@ -292,8 +352,8 @@ IMPLEMENTED_TAGS = {
         "sample_data": [
             {
                 "title": "Title of the tile item",
-                "url": "URL_of_the_link_of_the_tile_item",
-                "image_path": "https://via.placeholder.com/90C",
+                "url": "/",
+                "image_path": "/django-dsfr/static/img/placeholder.1x1.svg",
             }
         ],
     },
@@ -332,10 +392,6 @@ unsorted_implemented_tags = {**IMPLEMENTED_TAGS, **EXTRA_TAGS}
 ALL_IMPLEMENTED_TAGS = dict(sorted(unsorted_implemented_tags.items()))
 
 NOT_YET_IMPLEMENTED_TAGS = {
-    "badge": {
-        "title": "Badge",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/851869737/Badges",
-    },
     "search": {
         "title": "Barre de recherche (search)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217186376/Barre+de+recherche+-+Search+bar",
