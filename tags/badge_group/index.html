@@ -33,7 +33,7 @@
   
   <title>
     
-      Lien (link) — Design Système de l’État
+      Groupe de badges (badge_group) — Design Système de l’État
     
   </title>
   
@@ -196,7 +196,7 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Lien (link)</a>
+                <a class="fr-breadcrumb__link" aria-current="page">Groupe de badges (badge_group)</a>
             </li>
         </ol>
     </div>
@@ -239,9 +239,9 @@
             
           </li>
         
-          <li class="fr-sidemenu__item">
+          <li class="fr-sidemenu__item fr-sidemenu__item--active">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/badge_group/" target="_self" >badge_group</a>
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/badge_group/" target="_self"  aria-current="page">badge_group</a>
             
           </li>
         
@@ -311,9 +311,9 @@
             
           </li>
         
-          <li class="fr-sidemenu__item fr-sidemenu__item--active">
+          <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/link/" target="_self"  aria-current="page">link</a>
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/link/" target="_self" >link</a>
             
           </li>
         
@@ -383,42 +383,20 @@
 </nav>
     </div>
     <div class="fr-col-12 fr-col-md-9 fr-py-2w">
-      <h1> Lien (link) </h1>
+      <h1> Groupe de badges (badge_group) </h1>
 
-      
-        <a 
-  class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
-  href="https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217284725/Liens+-+Links"
-   target="_blank" rel="noopener noreferrer"
->
-  Voir la page de documentation du composant sur le Système de Design de l’État
-</a>
       
 
       <h2>Documentation du tag</h2>
       <pre>
       
-    Returns a link item. Takes a dict as parameter, with the following structure:
-
-    data_dict = {
-        &quot;url&quot;: &quot;URL of the link item&quot;,
-        &quot;label&quot;: &quot;Label of the link item&quot;,
-        &quot;is_external&quot;: &quot;(Optional) Indicate if the link is external&quot;,
-        &quot;extra_classes&quot;: &quot;(Optional) string with names of extra classes&quot;
-    }
-
-    Relevant extra_classes:
-        - fr-link--icon-left or fr-link--icon-right with an icon class
-        - fr-link--sm for small links
-        - fr-link--lg for large links
-
-
-    All of the keys of the dict can be passed directly as named parameters of the tag.
+    Returns a group of badge items. Takes a list of dicts as parameters (see the badge
+    tag for the structure of these dicts.)
 
     **Tag name**::
-        dsfr_link
+        dsfr_badge_group
     **Usage**::
-        {% dsfr_link data_dict %}
+        {% dsfr_badge_group data_list %}
     
       </pre>
 
@@ -431,13 +409,14 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-rvlsakxoaxidilvt">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-afqcfkrsmkdhmvip">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-rvlsakxoaxidilvt">
-        <pre class="code_sample">{'extra_classes': 'fr-link--lg',
- 'is_external': True,
- 'label': 'Label of the link item',
- 'url': 'https://www.systeme-de-design.gouv.fr/'}</pre>
+    <div class="fr-collapse" id="accordion-afqcfkrsmkdhmvip">
+        <pre class="code_sample">[{'extra_classes': 'fr-badge--success', 'label': 'Succès'},
+ {'extra_classes': 'fr-badge--info', 'label': 'Info'},
+ {'extra_classes': 'fr-badge--warning', 'label': 'Avertissement'},
+ {'extra_classes': 'fr-badge--error', 'label': 'Erreur'},
+ {'extra_classes': 'fr-badge--new', 'label': 'Nouveau'}]</pre>
     </div>
 </section>
               
@@ -446,13 +425,30 @@
 
           <h3>Résultat</h3>
           
-            <a 
-  class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
-  href="https://www.systeme-de-design.gouv.fr/"
-   target="_blank" rel="noopener noreferrer"
->
-  Label of the link item
-</a>
+            
+<ul class="fr-badge-group">
+  
+    <li>
+      <p class="fr-badge fr-badge--success">Succès</p>
+    </li>
+  
+    <li>
+      <p class="fr-badge fr-badge--info">Info</p>
+    </li>
+  
+    <li>
+      <p class="fr-badge fr-badge--warning">Avertissement</p>
+    </li>
+  
+    <li>
+      <p class="fr-badge fr-badge--error">Erreur</p>
+    </li>
+  
+    <li>
+      <p class="fr-badge fr-badge--new">Nouveau</p>
+    </li>
+  
+</ul>
           
         
       
