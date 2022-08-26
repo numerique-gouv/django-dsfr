@@ -235,6 +235,12 @@
         
           <li class="fr-sidemenu__item">
             
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/badge/" target="_self" >badge</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
               <a class="fr-sidemenu__link" href="/django-dsfr/tags/breadcrumb/" target="_self" >breadcrumb</a>
             
           </li>
@@ -392,13 +398,19 @@
         &quot;detail&quot;: &quot;Appears before the title of the card item&quot;,
         &quot;title&quot;: &quot;Title of the card item&quot;,
         &quot;description&quot;: &quot;Text of the card item&quot;,
-        &quot;image&quot;: &quot;(Optional) url of the image&quot;,
+        &quot;image_url&quot;: &quot;(Optional) url of the image&quot;,
+        &quot;image_alt&quot;: &quot;(Optional) alt text of the image&quot;,
         &quot;new_tab&quot;: &quot;(Optional) if True, forces links to open in a new tab&quot;,
         &quot;enlarge_link&quot;: (Optional) boolean. If true (default), the link covers the whole card&quot;,
         &quot;extra_classes&quot;: &quot;(Optional) string with names of extra classes&quot;,
     }
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra classes:
+    - fr-card--horizontal: makes the card horizontal
+    - fr-card--horizontal-tier: allows a 33% ratio instead of the 40% default
+    - fr-card--horizontal-half: allows a 50% ratio instead of the 40% default
 
     **Tag name**::
         dsfr_card
@@ -416,15 +428,20 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fvyjkkjykwuufqct">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-kxlryqebiwqrozvv">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-fvyjkkjykwuufqct">
-        <pre class="code_sample">{'description': 'Text of the card item',
- 'detail': 'Appears before the title of the card item',
- 'image_url': 'https://via.placeholder.com/350x200',
+    <div class="fr-collapse" id="accordion-kxlryqebiwqrozvv">
+        <pre class="code_sample">{'description': 'Texte de la carte.\n'
+                '                    Il peut prendre jusqu’à 200 caractères, '
+                'ce qui devrait correspondre à environ\n'
+                '                    cinq lignes dans le mode vertical, et '
+                'deux en horizontal.\n'
+                '                    ',
+ 'detail': 'Détail',
+ 'image_url': '/django-dsfr/static/img/placeholder.16x9.svg',
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
- 'title': 'Title of the card item'}</pre>
+ 'title': 'Carte basique'}</pre>
     </div>
 </section>
               
@@ -433,26 +450,193 @@
 
           <h3>Résultat</h3>
           
-            <div class="fr-grid-row fr-grid-row--gutters">
-              <div class="fr-col-12 fr-col-md-3">
-                <div class="fr-card fr-enlarge-link">
+            
+              <div class="fr-grid-row fr-grid-row--gutters">
+                <div class="fr-col-12 fr-col-md-4">
+                  <div class="fr-card fr-enlarge-link">
     <div class="fr-card__body">
-        <p class="fr-card__detail">Appears before the title of the card item</p>
+        <p class="fr-card__detail">Détail</p>
             <p class="fr-card__title">
                 <a href="https://www.systeme-de-design.gouv.fr/" class="fr-card__link" target="_blank" rel="noopener noreferrer">
-                    Title of the card item
+                    Carte basique
                 </a>
             </p>
-        <p class="fr-card__desc">Text of the card item</p>
+        <p class="fr-card__desc">Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
+                    cinq lignes dans le mode vertical, et deux en horizontal.
+    …</p>
     </div>
     
     <div class="fr-card__img">
-        <img src="https://via.placeholder.com/350x200" class="fr-responsive-img" alt="">
+        <img src="/django-dsfr/static/img/placeholder.16x9.svg" class="fr-responsive-img" alt="">
+    </div>
+    
+</div>
+                </div>
+              </div>
+            
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-njfkqeinpwgvfthd">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-njfkqeinpwgvfthd">
+        <pre class="code_sample">{'description': 'Texte de la carte.\n'
+                '                    Il peut prendre jusqu’à 200 caractères, '
+                'ce qui devrait correspondre à environ\n'
+                '                    deux lignes dans le mode horizontal, et '
+                'cinq en vertical.\n'
+                '                    ',
+ 'detail': 'Détail',
+ 'extra_classes': 'fr-card--horizontal',
+ 'image_url': '/django-dsfr/static/img/placeholder.1x1.svg',
+ 'link': 'https://www.systeme-de-design.gouv.fr/',
+ 'new_tab': True,
+ 'title': 'Carte horizontale, largeur standard'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            
+              <div class="fr-grid-row fr-grid-row--gutters">
+                <div class="fr-card fr-enlarge-link fr-card--horizontal">
+    <div class="fr-card__body">
+        <p class="fr-card__detail">Détail</p>
+            <p class="fr-card__title">
+                <a href="https://www.systeme-de-design.gouv.fr/" class="fr-card__link" target="_blank" rel="noopener noreferrer">
+                    Carte horizontale, largeur standard
+                </a>
+            </p>
+        <p class="fr-card__desc">Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
+                    deux lignes dans le mode horizontal, et cinq en vertical.
+    …</p>
+    </div>
+    
+    <div class="fr-card__img">
+        <img src="/django-dsfr/static/img/placeholder.1x1.svg" class="fr-responsive-img" alt="">
     </div>
     
 </div>
               </div>
-            </div>
+            
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-xkncuhmdzudmgyqw">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-xkncuhmdzudmgyqw">
+        <pre class="code_sample">{'description': 'Texte de la carte.\n'
+                '                    Il peut prendre jusqu’à 200 caractères, '
+                'ce qui devrait correspondre à environ\n'
+                '                    deux lignes dans le mode horizontal, et '
+                'cinq en vertical.\n'
+                '                    ',
+ 'detail': 'Détail',
+ 'extra_classes': 'fr-card--horizontal fr-card--horizontal-tier',
+ 'image_url': '/django-dsfr/static/img/placeholder.1x1.svg',
+ 'link': 'https://www.systeme-de-design.gouv.fr/',
+ 'new_tab': True,
+ 'title': 'Carte horizontale, largeur tiers'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            
+              <div class="fr-grid-row fr-grid-row--gutters">
+                <div class="fr-card fr-enlarge-link fr-card--horizontal fr-card--horizontal-tier">
+    <div class="fr-card__body">
+        <p class="fr-card__detail">Détail</p>
+            <p class="fr-card__title">
+                <a href="https://www.systeme-de-design.gouv.fr/" class="fr-card__link" target="_blank" rel="noopener noreferrer">
+                    Carte horizontale, largeur tiers
+                </a>
+            </p>
+        <p class="fr-card__desc">Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
+                    deux lignes dans le mode horizontal, et cinq en vertical.
+    …</p>
+    </div>
+    
+    <div class="fr-card__img">
+        <img src="/django-dsfr/static/img/placeholder.1x1.svg" class="fr-responsive-img" alt="">
+    </div>
+    
+</div>
+              </div>
+            
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-rjcpzuhopfzyrinr">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-rjcpzuhopfzyrinr">
+        <pre class="code_sample">{'description': 'Texte de la carte.\n'
+                '                    Il peut prendre jusqu’à 200 caractères, '
+                'ce qui devrait correspondre à environ\n'
+                '                    deux lignes dans le mode horizontal, et '
+                'cinq en vertical.\n'
+                '                    ',
+ 'detail': 'Détail',
+ 'extra_classes': 'fr-card--horizontal fr-card--horizontal-half',
+ 'image_url': '/django-dsfr/static/img/placeholder.1x1.svg',
+ 'link': 'https://www.systeme-de-design.gouv.fr/',
+ 'new_tab': True,
+ 'title': 'Carte horizontale, largeur moitié'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            
+              <div class="fr-grid-row fr-grid-row--gutters">
+                <div class="fr-card fr-enlarge-link fr-card--horizontal fr-card--horizontal-half">
+    <div class="fr-card__body">
+        <p class="fr-card__detail">Détail</p>
+            <p class="fr-card__title">
+                <a href="https://www.systeme-de-design.gouv.fr/" class="fr-card__link" target="_blank" rel="noopener noreferrer">
+                    Carte horizontale, largeur moitié
+                </a>
+            </p>
+        <p class="fr-card__desc">Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
+                    deux lignes dans le mode horizontal, et cinq en vertical.
+    …</p>
+    </div>
+    
+    <div class="fr-card__img">
+        <img src="/django-dsfr/static/img/placeholder.1x1.svg" class="fr-responsive-img" alt="">
+    </div>
+    
+</div>
+              </div>
+            
           
         
       

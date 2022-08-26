@@ -17,11 +17,23 @@
 <link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.ico" type="image/x-icon" /><!-- 32×32 -->
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" />
   
+<style>
+.example-textarea {
+  border: none; 
+  background-color: var(--g300);
+  padding: 1rem;
+}
+.code_sample {
+  background-color: var(--g300);
+  padding: 1rem;
+}
+</style>
+
 
   
   <title>
     
-      Non implémenté — Design Système de l’État
+      Badge — Design Système de l’État
     
   </title>
   
@@ -180,7 +192,11 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Non implémenté</a>
+                <a class="fr-breadcrumb__link" href="/django-dsfr/tags/">Composants</a>
+            </li>
+            
+            <li>
+                <a class="fr-breadcrumb__link" aria-current="page">Badge</a>
             </li>
         </ol>
     </div>
@@ -188,21 +204,306 @@
 
       <main id="content" role="main">
         
-<h1> Non implémenté </h1>
+  <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
+  <!-- Menu -->
+    <div class="fr-col-12 fr-col-md-3">
+      
+<nav role="navigation" class="fr-sidemenu" aria-label="Menu latéral">
+  <div class="fr-sidemenu__inner">
+    <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
+    <div class="fr-collapse" id="fr-sidemenu-wrapper">
+      <div class="fr-sidemenu__title">Composants</div>
+      <ul class="fr-sidemenu__list">
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion/" target="_self" >accordion</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion_group/" target="_self" >accordion_group</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/alert/" target="_self" >alert</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item fr-sidemenu__item--active">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/badge/" target="_self"  aria-current="page">badge</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/breadcrumb/" target="_self" >breadcrumb</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/button/" target="_self" >button</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/callout/" target="_self" >callout</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/card/" target="_self" >card</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/css/" target="_self" >css</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/favicon/" target="_self" >favicon</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/form/" target="_self" >form</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/form_field/" target="_self" >form_field</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/highlight/" target="_self" >highlight</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/input/" target="_self" >input</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/js/" target="_self" >js</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/link/" target="_self" >link</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/pagination/" target="_self" >pagination</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/quote/" target="_self" >quote</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/select/" target="_self" >select</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/sidemenu/" target="_self" >sidemenu</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/skiplinks/" target="_self" >skiplinks</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/summary/" target="_self" >summary</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/table/" target="_self" >table</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/tag/" target="_self" >tag</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/theme_modale/" target="_self" >theme_modale</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/tile/" target="_self" >tile</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+    </div>
+    <div class="fr-col-12 fr-col-md-9 fr-py-2w">
+      <h1> Badge </h1>
 
+      
+        <a 
+  class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+  href="https://gouvfr.atlassian.net/wiki/spaces/DB/pages/851869737/Badges"
+   target="_blank" rel="noopener noreferrer"
+>
+  Voir la page de documentation du composant sur le Système de Design de l’État
+</a>
+      
 
-<div class="fr-callout ">
-  
-    <p class="fr-callout__title">
-      Non implémenté
-    </p>
-  
-  <p class="fr-callout__text">
-      Le contenu recherché n&#x27;est pas encore implémenté
-  </p>
-  
-</div>
+      <h2>Documentation du tag</h2>
+      <pre>
+      
+    Returns a badge item. Takes a dict as parameter, with the following structure:
 
+    data_dict = {
+        &quot;label&quot;: &quot;Label of the button item&quot;,
+        &quot;extra_classes&quot;: &quot;(Optional) string with names of extra classes.&quot;
+    }
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra_classes
+    - &quot;fr-badge--sm&quot; : small-sized badge
+    - &quot;fr-badge--green-menthe&quot; other color codes: change the color of the badge
+    - &quot;fr-badge--success&quot; (or error/info/warning/new): system badges
+    - &quot;fr-badge--no-icon&quot;: removes the icon on system badges
+
+    **Tag name**::
+        dsfr_badge
+    **Usage**::
+        {% dsfr_badge data_dict %}
+    
+      </pre>
+
+      
+        <h2>Exemples</h2>
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-qzerqxdnelblzhfj">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-qzerqxdnelblzhfj">
+        <pre class="code_sample">{'extra_classes': '', 'label': 'Badge simple'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            <p class="fr-badge">Badge simple</p>
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-prfpjghuhkwmfwyv">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-prfpjghuhkwmfwyv">
+        <pre class="code_sample">{'extra_classes': 'fr-badge--sm', 'label': 'Petit badge'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            <p class="fr-badge fr-badge--sm">Petit badge</p>
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-uvjrqfbawxkiviog">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-uvjrqfbawxkiviog">
+        <pre class="code_sample">{'extra_classes': 'fr-badge--green-menthe', 'label': 'Badge coloré'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            <p class="fr-badge fr-badge--green-menthe">Badge coloré</p>
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-utpsgculkokrmeij">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-utpsgculkokrmeij">
+        <pre class="code_sample">{'extra_classes': 'fr-badge--success', 'label': 'Badge système'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            <p class="fr-badge fr-badge--success">Badge système</p>
+          
+        
+      
+    </div>
+  </div>
 <br />
 
       </main>
