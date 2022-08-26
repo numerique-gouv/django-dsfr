@@ -127,7 +127,7 @@ def dsfr_accordion(*args, **kwargs) -> dict:
 @register.inclusion_tag("dsfr/accordion_group.html")
 def dsfr_accordion_group(items: list) -> dict:
     """
-    Returns a group of accordion items. Takes a list of dicts as parameters (see the accordeon
+    Returns a group of accordion items. Takes a list of dicts as parameters (see the accordion
     tag for the structure of these dicts.)
 
     **Tag name**::
@@ -212,6 +212,19 @@ def dsfr_badge(*args, **kwargs) -> dict:
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     return {"self": tag_data}
+
+@register.inclusion_tag("dsfr/badge_group.html")
+def dsfr_badge_group(items: list) -> dict:
+    """
+    Returns a group of badge items. Takes a list of dicts as parameters (see the badge
+    tag for the structure of these dicts.)
+
+    **Tag name**::
+        dsfr_badge_group
+    **Usage**::
+        {% dsfr_badge_group data_list %}
+    """
+    return {"self": {"items": items}}
 
 
 @register.inclusion_tag("dsfr/breadcrumb.html", takes_context=True)

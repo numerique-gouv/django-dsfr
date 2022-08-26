@@ -1,0 +1,8 @@
+{% load dsfr_tags %}
+<ul class="fr-badge-group">
+  {% for item in self.items %}
+    <li>
+      {% dsfr_badge item %}
+    </li>
+  {% endfor %}
+</ul>

@@ -55,7 +55,8 @@ IMPLEMENTED_TAGS = {
             {
                 "label": "Badge système",
                 "extra_classes": "fr-badge--success",
-            }        ],
+            }
+        ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/851869737/Badges",
     },
     "breadcrumb": {"title": "Fil d’Ariane (breadcrumb)"},
@@ -378,6 +379,33 @@ EXTRA_TAGS = {
                     "id": "sample-accordion-3",
                     "title": "Third accordion item",
                     "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (3)</p>",
+                },
+            ]
+        ],
+    },
+    "badge_group": {
+        "title": "Groupe de badges (badge_group)",
+        "sample_data": [
+            [
+                {
+                    "label": "Succès",
+                    "extra_classes": "fr-badge--success",
+                },
+                {
+                    "label": "Info",
+                    "extra_classes": "fr-badge--info",
+                },
+                {
+                    "label": "Avertissement",
+                    "extra_classes": "fr-badge--warning",
+                },
+                {
+                    "label": "Erreur",
+                    "extra_classes": "fr-badge--error",
+                },
+                {
+                    "label": "Nouveau",
+                    "extra_classes": "fr-badge--new",
                 },
             ]
         ],
