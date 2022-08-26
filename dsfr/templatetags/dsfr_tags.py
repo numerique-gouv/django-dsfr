@@ -337,6 +337,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         "description": "Text of the card item",
         "image_url": "(Optional) url of the image",
         "image_alt": "(Optional) alt text of the image",
+        "media_badges": (Optional) list of badges for the media area (similar to a badge_group tag)
         "new_tab": "(Optional) if True, forces links to open in a new tab",
         "enlarge_link": (Optional) boolean. If true (default), the link covers the whole card",
         "extra_classes": "(Optional) string with names of extra classes",
@@ -360,6 +361,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         "description",
         "image_url",
         "image_alt",
+        "media_badges",
         "new_tab",
         "enlarge_link",
         "extra_classes",

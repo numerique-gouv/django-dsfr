@@ -1,16 +1,57 @@
-<div class="{% if self.enlarge_link %}fr-card fr-enlarge-link{% endif %}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
+{% load dsfr_tags %}
+<div class="fr-card{% if self.enlarge_link %} fr-enlarge-link{% endif %}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
     <div class="fr-card__body">
-        <p class="fr-card__detail">{{ self.detail }}</p>
-            <p class="fr-card__title">
-                <a href="{{ self.link }}" class="fr-card__link" target="{% if self.new_tab %}_blank{% else %}_self{% endif %}"{% if self.new_tab %} rel="noopener noreferrer"{% endif %}>
+        <div class="fr-card__content">
+            <h4 class="fr-card__title">
+                <a href="{{ self.link }}" target="{% if self.new_tab %}_blank{% else %}_self{% endif %}"{% if self.new_tab %} rel="noopener noreferrer"{% endif %}>
                     {{ self.title |truncatechars:100 }}
                 </a>
-            </p>
-        <p class="fr-card__desc">{{ self.description |truncatechars:200 }}</p>
+            </h4>
+            <p class="fr-card__desc">{{ self.description |truncatechars:200 }}</p>
+
+            {% if self.top_details %}
+                <div class="fr-card__start">
+                    {% if self.top_details.tags %}
+                    <ul class="fr-tags-group">
+                        {% for tag in self.top_details.tags %}
+                            <li>
+                                {% dsfr_tag tag %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% elif self.top_details.badges %}
+                        <ul class="fr-badges-group">
+                            {% for badge in self.top_details.badges %}
+                                <li>
+                                    {% dsfr_badge badge %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% if self.top_details.detail %}
+                        <p class="fr-card__detail{% if self.top_details.detail.icon_class %} self.top_details.detail.icon_class{% endif %}">
+                            {{ self.top_details.detail.text }}
+                        </p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+
     </div>
-    {% if self.image_url %}
-    <div class="fr-card__img">
-        <img src="{{ self.image_url }}" class="fr-responsive-img" alt="">
+    <div class="fr-card__header">
+        {% if self.image_url %}
+            <div class="fr-card__img">
+                <img class="fr-responsive-img" src="{{ self.image_url }}" alt="{{ self.image_alt }}" />
+            </div>
+            {% if self.media_badges %}
+                <ul class="fr-badges-group">
+                {% for badge in self.media_badges %}
+                    <li>
+                        {% dsfr_badge badge %}
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endif %}
     </div>
-    {% endif %}
 </div>

@@ -55,7 +55,7 @@ IMPLEMENTED_TAGS = {
             {
                 "label": "Badge système",
                 "extra_classes": "fr-badge--success",
-            }
+            },
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/851869737/Badges",
     },
@@ -100,7 +100,6 @@ IMPLEMENTED_TAGS = {
         "title": "Carte (card)",
         "sample_data": [
             {
-                "detail": "Détail",
                 "title": "Carte basique",
                 "description": """Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
@@ -111,7 +110,6 @@ IMPLEMENTED_TAGS = {
                 "new_tab": True,
             },
             {
-                "detail": "Détail",
                 "title": "Carte horizontale, largeur standard",
                 "description": """Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
@@ -120,10 +118,9 @@ IMPLEMENTED_TAGS = {
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
                 "new_tab": True,
-                "extra_classes": "fr-card--horizontal"
+                "extra_classes": "fr-card--horizontal",
             },
             {
-                "detail": "Détail",
                 "title": "Carte horizontale, largeur tiers",
                 "description": """Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
@@ -132,10 +129,9 @@ IMPLEMENTED_TAGS = {
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
                 "new_tab": True,
-                "extra_classes": "fr-card--horizontal fr-card--horizontal-tier"
+                "extra_classes": "fr-card--horizontal fr-card--horizontal-tier",
             },
             {
-                "detail": "Détail",
                 "title": "Carte horizontale, largeur moitié",
                 "description": """Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
@@ -144,8 +140,60 @@ IMPLEMENTED_TAGS = {
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
                 "new_tab": True,
-                "extra_classes": "fr-card--horizontal fr-card--horizontal-half"
-            }
+                "extra_classes": "fr-card--horizontal fr-card--horizontal-half",
+            },
+            {
+                "title": "Carte avec badge",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "media_badges": [
+                    {
+                        "label": "Nouveau",
+                        "extra_classes": "fr-badge--new",
+                    }
+                ],
+            },
+            {
+                "title": "Carte avec détails d’en-tête (tags)",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "new_tab": True,
+                "top_details": {
+                    "detail": {
+                        "icon": "fr-icon-warning-fill",
+                        "text": "Détail (optionnel)",
+                    },
+                    "tags": [{"label": "tag 1"}, {"label": "tag 2"}],
+                },
+            },
+            {
+                "title": "Carte avec détails d’en-tête (badges)",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "new_tab": True,
+                "top_details": {
+                    "detail": {
+                        "icon": "fr-icon-warning-fill",
+                        "text": "Détail (optionnel)",
+                    },
+                    "badges": [
+                        {
+                            "label": "Badge 1",
+                        },
+                        {
+                            "label": "Badge 2",
+                        },
+                    ],
+                },
+            },
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331445/Carte+-+Card",
     },
