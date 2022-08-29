@@ -401,8 +401,8 @@
     Returns a card item. Takes a dict as parameter, with the following structure:
 
     data_dict = {
-        &quot;detail&quot;: &quot;Appears before the title of the card item&quot;,
         &quot;title&quot;: &quot;Title of the card item&quot;,
+        &quot;heading_tag&quot;: &quot;(Optional) Heading tag for the title (h2, etc. Default: p)&quot;
         &quot;description&quot;: &quot;Text of the card item&quot;,
         &quot;image_url&quot;: &quot;(Optional) url of the image&quot;,
         &quot;image_alt&quot;: &quot;(Optional) alt text of the image&quot;,
@@ -410,6 +410,9 @@
         &quot;new_tab&quot;: &quot;(Optional) if True, forces links to open in a new tab&quot;,
         &quot;enlarge_link&quot;: (Optional) boolean. If true (default), the link covers the whole card&quot;,
         &quot;extra_classes&quot;: &quot;(Optional) string with names of extra classes&quot;,
+        &quot;top_detail&quot;: &quot;(Optional) dict with a top detail content and optional tags or badges&quot;,
+        &quot;bottom_detail&quot;: &quot;(Optional) a detail string and optional icon&quot;,
+        &quot;call_to_action&quot;: &quot;(Optional) a list of buttons or links at the bottom of the card,
     }
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
@@ -418,6 +421,23 @@
     - fr-card--horizontal: makes the card horizontal
     - fr-card--horizontal-tier: allows a 33% ratio instead of the 40% default
     - fr-card--horizontal-half: allows a 50% ratio instead of the 40% default
+
+    Format of the top_detail dict (every field is optional):
+    top_detail = {
+        &quot;detail&quot;: {
+            &quot;text&quot;: &quot;the detail text&quot;,
+            &quot;icon_class&quot;: &quot;(Optional) an icon class (eg, fr-icon-warning-fill)&quot;
+        },
+        &quot;tags&quot;: &quot;a list of tag items (mutually exclusive with badges)&quot;,
+        &quot;badges&quot;: &quot;a list of badge items (mutually exclusive with tags)&quot;
+    }
+
+    Format of the bottom_detail dict :
+    bottom_detail = {
+        &quot;text&quot;: &quot;the detail text&quot;,
+        &quot;icon_class&quot;: &quot;(Optional) an icon class (eg, fr-icon-warning-fill)&quot;
+    },
+
 
     **Tag name**::
         dsfr_card
@@ -435,9 +455,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-lyfysdimtwowhvly">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-thsqvwmvubjbmwoa">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-lyfysdimtwowhvly">
+    <div class="fr-collapse" id="accordion-thsqvwmvubjbmwoa">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre à environ\n'
@@ -463,20 +483,24 @@
 <div class="fr-card fr-enlarge-link">
     <div class="fr-card__body">
         <div class="fr-card__content">
-            <h4 class="fr-card__title">
+            <p class="fr-card__title">
                 <a href="https://www.systeme-de-design.gouv.fr/" target="_blank" rel="noopener noreferrer">
                     Carte basique
                 </a>
-            </h4>
+            </p>
             <p class="fr-card__desc">Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
                     cinq lignes dans le mode vertical, et deux en horizontal.
     …</p>
 
             
+
+            
         </div>
 
+        
     </div>
+
     <div class="fr-card__header">
         
             <div class="fr-card__img">
@@ -497,9 +521,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-gxpyflumkvspcqqj">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-lialnotqdftfqoic">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-gxpyflumkvspcqqj">
+    <div class="fr-collapse" id="accordion-lialnotqdftfqoic">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre à environ\n'
@@ -525,20 +549,24 @@
 <div class="fr-card fr-enlarge-link fr-card--horizontal">
     <div class="fr-card__body">
         <div class="fr-card__content">
-            <h4 class="fr-card__title">
+            <p class="fr-card__title">
                 <a href="https://www.systeme-de-design.gouv.fr/" target="_blank" rel="noopener noreferrer">
                     Carte horizontale, largeur standard
                 </a>
-            </h4>
+            </p>
             <p class="fr-card__desc">Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
                     deux lignes dans le mode horizontal, et cinq en vertical.
     …</p>
 
             
+
+            
         </div>
 
+        
     </div>
+
     <div class="fr-card__header">
         
             <div class="fr-card__img">
@@ -558,9 +586,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-rxuqbkxskikfzdod">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-gsvnkijtnppbwpsc">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-rxuqbkxskikfzdod">
+    <div class="fr-collapse" id="accordion-gsvnkijtnppbwpsc">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre à environ\n'
@@ -586,20 +614,24 @@
 <div class="fr-card fr-enlarge-link fr-card--horizontal fr-card--horizontal-tier">
     <div class="fr-card__body">
         <div class="fr-card__content">
-            <h4 class="fr-card__title">
+            <p class="fr-card__title">
                 <a href="https://www.systeme-de-design.gouv.fr/" target="_blank" rel="noopener noreferrer">
                     Carte horizontale, largeur tiers
                 </a>
-            </h4>
+            </p>
             <p class="fr-card__desc">Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
                     deux lignes dans le mode horizontal, et cinq en vertical.
     …</p>
 
             
+
+            
         </div>
 
+        
     </div>
+
     <div class="fr-card__header">
         
             <div class="fr-card__img">
@@ -619,9 +651,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-dvrzcqlwnieoogcn">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ywqvfnssnuydillp">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-dvrzcqlwnieoogcn">
+    <div class="fr-collapse" id="accordion-ywqvfnssnuydillp">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre à environ\n'
@@ -647,20 +679,24 @@
 <div class="fr-card fr-enlarge-link fr-card--horizontal fr-card--horizontal-half">
     <div class="fr-card__body">
         <div class="fr-card__content">
-            <h4 class="fr-card__title">
+            <p class="fr-card__title">
                 <a href="https://www.systeme-de-design.gouv.fr/" target="_blank" rel="noopener noreferrer">
                     Carte horizontale, largeur moitié
                 </a>
-            </h4>
+            </p>
             <p class="fr-card__desc">Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
                     deux lignes dans le mode horizontal, et cinq en vertical.
     …</p>
 
             
+
+            
         </div>
 
+        
     </div>
+
     <div class="fr-card__header">
         
             <div class="fr-card__img">
@@ -680,9 +716,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ivusriyaihdfzqsi">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-bgptwnkbhheuhkes">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-ivusriyaihdfzqsi">
+    <div class="fr-collapse" id="accordion-bgptwnkbhheuhkes">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
@@ -706,19 +742,23 @@
 <div class="fr-card fr-enlarge-link">
     <div class="fr-card__body">
         <div class="fr-card__content">
-            <h4 class="fr-card__title">
+            <p class="fr-card__title">
                 <a href="https://www.systeme-de-design.gouv.fr/" target="_blank" rel="noopener noreferrer">
                     Carte avec badge
                 </a>
-            </h4>
+            </p>
             <p class="fr-card__desc">Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères.
                     </p>
 
             
+
+            
         </div>
 
+        
     </div>
+
     <div class="fr-card__header">
         
             <div class="fr-card__img">
@@ -747,18 +787,19 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ulzrhcexbwbuzqtp">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-mfasrxlhlilqprrt">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-ulzrhcexbwbuzqtp">
+    <div class="fr-collapse" id="accordion-mfasrxlhlilqprrt">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
  'title': 'Carte avec détails d’en-tête (tags)',
- 'top_details': {'detail': {'icon': 'fr-icon-warning-fill',
-                            'text': 'Détail (optionnel)'},
-                 'tags': [{'label': 'tag 1'}, {'label': 'tag 2'}]}}</pre>
+ 'top_detail': {'detail': {'icon_class': 'fr-icon-warning-fill',
+                           'text': 'Détail (optionnel) avec icône '
+                                   '(optionnelle)'},
+                'tags': [{'label': 'tag 1'}, {'label': 'tag 2'}]}}</pre>
     </div>
 </section>
               
@@ -774,11 +815,11 @@
 <div class="fr-card fr-enlarge-link">
     <div class="fr-card__body">
         <div class="fr-card__content">
-            <h4 class="fr-card__title">
+            <p class="fr-card__title">
                 <a href="https://www.systeme-de-design.gouv.fr/" target="_blank" rel="noopener noreferrer">
                     Carte avec détails d’en-tête (tags)
                 </a>
-            </h4>
+            </p>
             <p class="fr-card__desc">Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères.
                     </p>
@@ -799,15 +840,19 @@
                     </ul>
                     
                     
-                        <p class="fr-card__detail">
-                            Détail (optionnel)
+                        <p class="fr-card__detail self.top_detail.detail.icon_class">
+                            Détail (optionnel) avec icône (optionnelle)
                         </p>
                     
                 </div>
             
+
+            
         </div>
 
+        
     </div>
+
     <div class="fr-card__header">
         
     </div>
@@ -823,18 +868,18 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-lmetnbknrdvtqdvw">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-gdrkwiiwjxdvhmko">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-lmetnbknrdvtqdvw">
+    <div class="fr-collapse" id="accordion-gdrkwiiwjxdvhmko">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
  'title': 'Carte avec détails d’en-tête (badges)',
- 'top_details': {'badges': [{'label': 'Badge 1'}, {'label': 'Badge 2'}],
-                 'detail': {'icon': 'fr-icon-warning-fill',
-                            'text': 'Détail (optionnel)'}}}</pre>
+ 'top_detail': {'badges': [{'label': 'Badge 1'}, {'label': 'Badge 2'}],
+                'detail': {'icon_class': 'fr-icon-warning-fill',
+                           'text': 'Détail (optionnel)'}}}</pre>
     </div>
 </section>
               
@@ -850,11 +895,11 @@
 <div class="fr-card fr-enlarge-link">
     <div class="fr-card__body">
         <div class="fr-card__content">
-            <h4 class="fr-card__title">
+            <p class="fr-card__title">
                 <a href="https://www.systeme-de-design.gouv.fr/" target="_blank" rel="noopener noreferrer">
                     Carte avec détails d’en-tête (badges)
                 </a>
-            </h4>
+            </p>
             <p class="fr-card__desc">Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères.
                     </p>
@@ -875,20 +920,277 @@
                         </ul>
                     
                     
-                        <p class="fr-card__detail">
+                        <p class="fr-card__detail self.top_detail.detail.icon_class">
                             Détail (optionnel)
                         </p>
                     
                 </div>
             
+
+            
         </div>
 
+        
     </div>
+
     <div class="fr-card__header">
         
     </div>
 </div>
                 </div>
+              </div>
+            
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fyyremqfdegzadlv">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-fyyremqfdegzadlv">
+        <pre class="code_sample">{'bottom_detail': {'icon': 'fr-icon-warning-fill',
+                   'text': 'Détail (optionnel)'},
+ 'description': 'Texte de la carte.\n'
+                '                    Il peut prendre jusqu’à 200 caractères.\n'
+                '                    ',
+ 'link': 'https://www.systeme-de-design.gouv.fr/',
+ 'new_tab': True,
+ 'title': 'Carte avec détails en pied'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            
+              <div class="fr-grid-row fr-grid-row--gutters">
+                <div class="fr-col-12 fr-col-md-4">
+                  
+<div class="fr-card fr-enlarge-link">
+    <div class="fr-card__body">
+        <div class="fr-card__content">
+            <p class="fr-card__title">
+                <a href="https://www.systeme-de-design.gouv.fr/" target="_blank" rel="noopener noreferrer">
+                    Carte avec détails en pied
+                </a>
+            </p>
+            <p class="fr-card__desc">Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    </p>
+
+            
+
+            
+                <div class="fr-card__end">
+                    <p class="fr-card__detail">
+                        Détail (optionnel)
+                    </p>
+                </div>
+            
+        </div>
+
+        
+    </div>
+
+    <div class="fr-card__header">
+        
+    </div>
+</div>
+                </div>
+              </div>
+            
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-hahictjgdssynrqj">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-hahictjgdssynrqj">
+        <pre class="code_sample">{'call_to_action': {'buttons': [{'extra_classes': 'fr-btn--secondary',
+                                 'label': 'Bouton 1'},
+                                {'label': 'Bouton 2'}]},
+ 'description': 'Texte de la carte.\n'
+                '                    Il peut prendre jusqu’à 200 caractères.\n'
+                '                    ',
+ 'enlarge_link': False,
+ 'extra_classes': 'fr-card--horizontal',
+ 'image_url': '/django-dsfr/static/img/placeholder.1x1.svg',
+ 'link': 'https://www.systeme-de-design.gouv.fr/',
+ 'new_tab': True,
+ 'title': 'Carte horizontale avec zone d’action (boutons)'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            
+              <div class="fr-grid-row fr-grid-row--gutters">
+                
+<div class="fr-card fr-card--horizontal">
+    <div class="fr-card__body">
+        <div class="fr-card__content">
+            <p class="fr-card__title">
+                <a href="https://www.systeme-de-design.gouv.fr/" target="_blank" rel="noopener noreferrer">
+                    Carte horizontale avec zone d’action (boutons)
+                </a>
+            </p>
+            <p class="fr-card__desc">Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    </p>
+
+            
+
+            
+        </div>
+
+        
+            <div class="fr-card__footer">
+                
+                    <ul class="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
+                        
+                        <li>
+                            <button
+  class="fr-btn fr-btn--secondary"
+  onclick=""
+  
+  type="submit"
+>
+  Bouton 1
+</button>
+                        </li>
+                        
+                        <li>
+                            <button
+  class="fr-btn"
+  onclick=""
+  
+  type="submit"
+>
+  Bouton 2
+</button>
+                        </li>
+                        
+                    </ul>
+                
+            </div>
+        
+    </div>
+
+    <div class="fr-card__header">
+        
+            <div class="fr-card__img">
+                <img class="fr-responsive-img" src="/django-dsfr/static/img/placeholder.1x1.svg" alt="" />
+            </div>
+            
+        
+    </div>
+</div>
+              </div>
+            
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-nsoiybtlkiqaxjui">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-nsoiybtlkiqaxjui">
+        <pre class="code_sample">{'call_to_action': {'links': [{'label': 'Lien interne', 'url': '/'},
+                              {'is_external': True,
+                               'label': 'Lien externe',
+                               'url': 'https://www.systeme-de-design.gouv.fr/'}]},
+ 'description': 'Texte de la carte.\n'
+                '                    Il peut prendre jusqu’à 200 caractères.\n'
+                '                    ',
+ 'enlarge_link': False,
+ 'extra_classes': 'fr-card--horizontal',
+ 'image_url': '/django-dsfr/static/img/placeholder.1x1.svg',
+ 'link': 'https://www.systeme-de-design.gouv.fr/',
+ 'new_tab': True,
+ 'title': 'Carte horizontale avec zone d’action (liens)'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            
+              <div class="fr-grid-row fr-grid-row--gutters">
+                
+<div class="fr-card fr-card--horizontal">
+    <div class="fr-card__body">
+        <div class="fr-card__content">
+            <p class="fr-card__title">
+                <a href="https://www.systeme-de-design.gouv.fr/" target="_blank" rel="noopener noreferrer">
+                    Carte horizontale avec zone d’action (liens)
+                </a>
+            </p>
+            <p class="fr-card__desc">Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    </p>
+
+            
+
+            
+        </div>
+
+        
+            <div class="fr-card__footer">
+                
+                    <ul class="fr-links-group">
+                        
+                            <li>
+                                <a 
+  class="fr-link"
+  href="/"
+  
+>
+  Lien interne
+</a>
+                            </li>
+                        
+                            <li>
+                                <a 
+  class="fr-link fr-icon-external-link-line fr-link--icon-right"
+  href="https://www.systeme-de-design.gouv.fr/"
+   target="_blank" rel="noopener noreferrer"
+>
+  Lien externe
+</a>
+                            </li>
+                        
+                    </ul>
+                
+            </div>
+        
+    </div>
+
+    <div class="fr-card__header">
+        
+            <div class="fr-card__img">
+                <img class="fr-responsive-img" src="/django-dsfr/static/img/placeholder.1x1.svg" alt="" />
+            </div>
+            
+        
+    </div>
+</div>
               </div>
             
           
