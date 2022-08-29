@@ -164,10 +164,10 @@ IMPLEMENTED_TAGS = {
                     """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "new_tab": True,
-                "top_details": {
+                "top_detail": {
                     "detail": {
-                        "icon": "fr-icon-warning-fill",
-                        "text": "Détail (optionnel)",
+                        "icon_class": "fr-icon-warning-fill",
+                        "text": "Détail (optionnel) avec icône (optionnelle)",
                     },
                     "tags": [{"label": "tag 1"}, {"label": "tag 2"}],
                 },
@@ -179,9 +179,9 @@ IMPLEMENTED_TAGS = {
                     """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "new_tab": True,
-                "top_details": {
+                "top_detail": {
                     "detail": {
-                        "icon": "fr-icon-warning-fill",
+                        "icon_class": "fr-icon-warning-fill",
                         "text": "Détail (optionnel)",
                     },
                     "badges": [
@@ -192,6 +192,59 @@ IMPLEMENTED_TAGS = {
                             "label": "Badge 2",
                         },
                     ],
+                },
+            },
+            {
+                "title": "Carte avec détails en pied",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "new_tab": True,
+                "bottom_detail": {
+                    "icon": "fr-icon-warning-fill",
+                    "text": "Détail (optionnel)",
+                },
+            },
+            {
+                "title": "Carte horizontale avec zone d’action (boutons)",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "enlarge_link": False,
+                "extra_classes": "fr-card--horizontal",
+                "call_to_action": {
+                    "buttons": [
+                        {"label": "Bouton 1", "extra_classes": "fr-btn--secondary"},
+                        {"label": "Bouton 2"},
+                    ]
+                },
+            },
+            {
+                "title": "Carte horizontale avec zone d’action (liens)",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "enlarge_link": False,
+                "extra_classes": "fr-card--horizontal",
+                "call_to_action": {
+                    "links": [
+                        {
+                            "url": "/",
+                            "label": "Lien interne",
+                        },
+                        {
+                            "url": "https://www.systeme-de-design.gouv.fr/",
+                            "label": "Lien externe",
+                            "is_external": True,
+                        },
+                    ]
                 },
             },
         ],
@@ -234,7 +287,7 @@ IMPLEMENTED_TAGS = {
         "sample_data": [
             {
                 "url": "https://www.systeme-de-design.gouv.fr/",
-                "label": "Label of the link item",
+                "label": "Texte du lien",
                 "is_external": True,
                 "extra_classes": "fr-link--lg",
             }

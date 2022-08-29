@@ -281,7 +281,7 @@ class DsfrCalloutTagTest(SimpleTestCase):
 
 class DsfrCardTagTest(SimpleTestCase):
     card_data = {
-        "detail": "Appears before the title of the card item",
+        "top_detail": {"detail": {"text": "Appears before the title of the card item"}},
         "title": "Title of the card item",
         "description": "Text of the card item",
         "image_url": "https://test.gouv.fr/test.png",
@@ -313,7 +313,7 @@ class DsfrCardTagTest(SimpleTestCase):
         self.assertInHTML(
             """
                 <p class="fr-card__title">
-                <a href="" class="fr-card__link" target="_self">
+                <a href="" target="_self">
                     Title of the card item
                 </a>
             </p>""",
@@ -602,7 +602,6 @@ class DsfrSidemenuTagTest(SimpleTestCase):
             """,
             self.rendered_template,
         )
-
 
 
 class DsfrSummaryTagTest(SimpleTestCase):
