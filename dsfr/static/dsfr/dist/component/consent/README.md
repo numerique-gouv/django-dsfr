@@ -14,14 +14,14 @@ consent
 ```
 
 ## Utilisation
-Afin d’utiliser le composant `consent`, il est nécessaire d’ajouter les fichiers de styles et de scripts présents dans le dossier dist dans l'ordre suivant :
+Afin d’utiliser le composant `consent`, il est nécessaire d’ajouter les fichiers de styles et de scripts présents dans le dossier dist dans l'ordre suivant :\n
 ```html
 <html>
   <head>
     <link href="css/core/core.min.css" rel="stylesheet">
     <link href="css/link/link.min.css" rel="stylesheet">
-    <link href="css/form/form.min.css" rel="stylesheet">
     <link href="css/button/button.min.css" rel="stylesheet">
+    <link href="css/form/form.min.css" rel="stylesheet">
     <link href="css/radio/radio.min.css" rel="stylesheet">
     <link href="css/modal/modal.min.css" rel="stylesheet">
     <link href="css/consent/consent.min.css" rel="stylesheet">

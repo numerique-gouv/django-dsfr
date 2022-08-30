@@ -157,6 +157,26 @@ class DsfrAlertTagTest(SimpleTestCase):
         )
 
 
+class DsfrBadgeTagTest(SimpleTestCase):
+    test_data = {
+        "label": "badge label",
+        "extra_classes": "fr-badge--success",
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_badge test_data %}")
+
+    def test_badge_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        print(rendered_template)
+        self.assertInHTML(
+            """
+            <p class="fr-badge fr-badge--success">badge label</p>
+            """,
+            rendered_template,
+        )
+
+
 class DsfrBreadcrumbTagTest(SimpleTestCase):
     breadcrumb_data = {
         "links": [{"url": "test-url", "title": "Test title"}],
@@ -214,7 +234,7 @@ class DsfrCalloutTagTest(SimpleTestCase):
     test_data = {
         "text": "Text of the callout item",
         "title": "Title of the callout item",
-        "icon_class": "fr-fi-information-line",
+        "icon_class": "fr-icon-information-line",
         "heading_tag": "h4",
         "button": {"onclick": "close()", "label": "button label", "type": "button"},
     }
@@ -241,7 +261,7 @@ class DsfrCalloutTagTest(SimpleTestCase):
 
     def test_callout_optional_icon_rendered(self):
         rendered_template = self.template_to_render.render(self.context)
-        self.assertTrue("fr-fi-information-line" in rendered_template)
+        self.assertTrue("fr-icon-information-line" in rendered_template)
 
     def test_callout_optional_button_rendered(self):
         rendered_template = self.template_to_render.render(self.context)
@@ -261,7 +281,7 @@ class DsfrCalloutTagTest(SimpleTestCase):
 
 class DsfrCardTagTest(SimpleTestCase):
     card_data = {
-        "detail": "Appears before the title of the card item",
+        "top_detail": {"detail": {"text": "Appears before the title of the card item"}},
         "title": "Title of the card item",
         "description": "Text of the card item",
         "image_url": "https://test.gouv.fr/test.png",
@@ -293,7 +313,7 @@ class DsfrCardTagTest(SimpleTestCase):
         self.assertInHTML(
             """
                 <p class="fr-card__title">
-                <a href="" class="fr-card__link" target="_self">
+                <a href="" target="_self">
                     Title of the card item
                 </a>
             </p>""",
@@ -428,7 +448,7 @@ class DsfrLinkTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <a 
-            class="fr-link fr-fi-external-link-line fr-link--icon-right fr-link--lg"
+            class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
             href="http://example.com"
             target="_blank" rel="noopener noreferrer"
             >
@@ -517,7 +537,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                             {"label": "Page non active", "link": "#"},
                             {
                                 "label": "Page active",
-                                "link": "/sidemenu/",
+                                "link": "/django-dsfr/tags/sidemenu/",
                             },
                         ],
                     },
@@ -527,7 +547,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
     }
 
     request_mock = MagicMock()
-    request_mock.path = "/sidemenu/"
+    request_mock.path = "/django-dsfr/tags/sidemenu/"
     context = Context({"request": request_mock, "test_data": test_data})
     template_to_render = Template("{% load dsfr_tags %} {% dsfr_sidemenu test_data %}")
     rendered_template = template_to_render.render(context)
@@ -565,7 +585,6 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                 </button>
                 <div class="fr-collapse" id="fr-sidemenu-item-2-2">
                     <ul class="fr-sidemenu__list">
-                    
                         <li class="fr-sidemenu__item">
                         <a class="fr-sidemenu__link" href="#" target="_self" >
                             Page non active
@@ -573,11 +592,10 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                         </li>
                     
                         <li class="fr-sidemenu__item fr-sidemenu__item--active">
-                        <a class="fr-sidemenu__link" href="/sidemenu/" target="_self"  aria-current="page">
+                        <a class="fr-sidemenu__link" href="/django-dsfr/tags/sidemenu/" target="_self"  aria-current="page">
                             Page active
                         </a>
                         </li>
-                    
                     </ul>
                 </div>
             </li>
@@ -676,11 +694,11 @@ class DsfrTagTagTest(SimpleTestCase):
 
         context = Context({"test_data": test_data})
         template_to_render = Template(
-            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-fi-arrow-right-line fr-tag--icon-left' %}"
+            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-icon-arrow-right-line fr-tag--icon-left' %}"
         )
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<p class="fr-tag fr-fi-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",
+            """<p class="fr-tag fr-icon-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",
             rendered_template,
         )
 

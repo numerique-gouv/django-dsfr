@@ -37,6 +37,28 @@ IMPLEMENTED_TAGS = {
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/736362500/Alertes+-+Alerts",
     },
+    "badge": {
+        "title": "Badge",
+        "sample_data": [
+            {
+                "label": "Badge simple",
+                "extra_classes": "",
+            },
+            {
+                "label": "Petit badge",
+                "extra_classes": "fr-badge--sm",
+            },
+            {
+                "label": "Badge coloré",
+                "extra_classes": "fr-badge--green-menthe",
+            },
+            {
+                "label": "Badge système",
+                "extra_classes": "fr-badge--success",
+            },
+        ],
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/851869737/Badges",
+    },
     "breadcrumb": {"title": "Fil d’Ariane (breadcrumb)"},
     "button": {
         "title": "Boutons (buttons)",
@@ -54,7 +76,7 @@ IMPLEMENTED_TAGS = {
             {
                 "title": "Mise en avant avec bouton normal",
                 "text": "This callout item has a normal button",
-                "icon_class": "fr-fi-alert-line",
+                "icon_class": "fr-icon-alert-line",
                 "button": {
                     "onclick": "alert('button being a button')",
                     "label": "button label",
@@ -64,7 +86,7 @@ IMPLEMENTED_TAGS = {
             {
                 "title": "Mise en avant avec lien",
                 "text": "This callout item has a call-to-action link",
-                "icon_class": "fr-fi-external-link-line",
+                "icon_class": "fr-icon-external-link-line",
                 "button": {
                     "label": "button label",
                     "url": "https://www.systeme-de-design.gouv.fr/",
@@ -78,13 +100,153 @@ IMPLEMENTED_TAGS = {
         "title": "Carte (card)",
         "sample_data": [
             {
-                "detail": "Appears before the title of the card item",
-                "title": "Title of the card item",
-                "description": "Text of the card item",
+                "title": "Carte basique",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
+                    cinq lignes dans le mode vertical, et deux en horizontal.
+                    """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
-                "image_url": "https://via.placeholder.com/350x200",
+                "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
                 "new_tab": True,
-            }
+            },
+            {
+                "title": "Carte horizontale, largeur standard",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
+                    deux lignes dans le mode horizontal, et cinq en vertical.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "extra_classes": "fr-card--horizontal",
+            },
+            {
+                "title": "Carte horizontale, largeur tiers",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
+                    deux lignes dans le mode horizontal, et cinq en vertical.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "extra_classes": "fr-card--horizontal fr-card--horizontal-tier",
+            },
+            {
+                "title": "Carte horizontale, largeur moitié",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
+                    deux lignes dans le mode horizontal, et cinq en vertical.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "extra_classes": "fr-card--horizontal fr-card--horizontal-half",
+            },
+            {
+                "title": "Carte avec badge",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "media_badges": [
+                    {
+                        "label": "Nouveau",
+                        "extra_classes": "fr-badge--new",
+                    }
+                ],
+            },
+            {
+                "title": "Carte avec détails d’en-tête (tags)",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "new_tab": True,
+                "top_detail": {
+                    "detail": {
+                        "icon_class": "fr-icon-warning-fill",
+                        "text": "Détail (optionnel) avec icône (optionnelle)",
+                    },
+                    "tags": [{"label": "tag 1"}, {"label": "tag 2"}],
+                },
+            },
+            {
+                "title": "Carte avec détails d’en-tête (badges)",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "new_tab": True,
+                "top_detail": {
+                    "detail": {
+                        "icon_class": "fr-icon-warning-fill",
+                        "text": "Détail (optionnel)",
+                    },
+                    "badges": [
+                        {
+                            "label": "Badge 1",
+                        },
+                        {
+                            "label": "Badge 2",
+                        },
+                    ],
+                },
+            },
+            {
+                "title": "Carte avec détails en pied",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "new_tab": True,
+                "bottom_detail": {
+                    "icon": "fr-icon-warning-fill",
+                    "text": "Détail (optionnel)",
+                },
+            },
+            {
+                "title": "Carte horizontale avec zone d’action (boutons)",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "enlarge_link": False,
+                "extra_classes": "fr-card--horizontal",
+                "call_to_action": {
+                    "buttons": [
+                        {"label": "Bouton 1", "extra_classes": "fr-btn--secondary"},
+                        {"label": "Bouton 2"},
+                    ]
+                },
+            },
+            {
+                "title": "Carte horizontale avec zone d’action (liens)",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères.
+                    """,
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "enlarge_link": False,
+                "extra_classes": "fr-card--horizontal",
+                "call_to_action": {
+                    "links": [
+                        {
+                            "url": "/",
+                            "label": "Lien interne",
+                        },
+                        {
+                            "url": "https://www.systeme-de-design.gouv.fr/",
+                            "label": "Lien externe",
+                            "is_external": True,
+                        },
+                    ]
+                },
+            },
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331445/Carte+-+Card",
     },
@@ -125,7 +287,7 @@ IMPLEMENTED_TAGS = {
         "sample_data": [
             {
                 "url": "https://www.systeme-de-design.gouv.fr/",
-                "label": "Label of the link item",
+                "label": "Texte du lien",
                 "is_external": True,
                 "extra_classes": "fr-link--lg",
             }
@@ -151,7 +313,7 @@ IMPLEMENTED_TAGS = {
                         "link": "https://template.incubateur.net/",
                     },
                 ],
-                "image_url": "https://via.placeholder.com/150x150",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
             }
         ],
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/771358744/Citation+-+Quote",
@@ -210,7 +372,7 @@ IMPLEMENTED_TAGS = {
                                     {"label": "Page non active", "link": "#"},
                                     {
                                         "label": "Page active",
-                                        "link": "/sidemenu/",
+                                        "link": "/django-dsfr/tags/sidemenu/",
                                     },
                                 ],
                             },
@@ -259,12 +421,12 @@ IMPLEMENTED_TAGS = {
             {"label": "Tag avec lien", "link": "/django-dsfr/tags"},
             {
                 "label": "Petit tag avec icône",
-                "extra_classes": "fr-tag--sm fr-fi-arrow-right-line fr-tag--icon-left",
+                "extra_classes": "fr-tag--sm fr-icon-arrow-right-line fr-tag--icon-left",
             },
             {
                 "label": "Tag avec action",
                 "link": "#",
-                "extra_classes": "fr-fi-close-line fr-tag--icon-right",
+                "extra_classes": "fr-icon-close-line fr-tag--icon-right",
                 "onclick": "alert('clicked'); return false;",
             },
             {
@@ -292,8 +454,8 @@ IMPLEMENTED_TAGS = {
         "sample_data": [
             {
                 "title": "Title of the tile item",
-                "url": "URL_of_the_link_of_the_tile_item",
-                "image_path": "https://via.placeholder.com/90C",
+                "url": "/",
+                "image_path": "/django-dsfr/static/img/placeholder.1x1.svg",
             }
         ],
     },
@@ -322,6 +484,33 @@ EXTRA_TAGS = {
             ]
         ],
     },
+    "badge_group": {
+        "title": "Groupe de badges (badge_group)",
+        "sample_data": [
+            [
+                {
+                    "label": "Succès",
+                    "extra_classes": "fr-badge--success",
+                },
+                {
+                    "label": "Info",
+                    "extra_classes": "fr-badge--info",
+                },
+                {
+                    "label": "Avertissement",
+                    "extra_classes": "fr-badge--warning",
+                },
+                {
+                    "label": "Erreur",
+                    "extra_classes": "fr-badge--error",
+                },
+                {
+                    "label": "Nouveau",
+                    "extra_classes": "fr-badge--new",
+                },
+            ]
+        ],
+    },
     "css": {"title": "CSS global"},
     "js": {"title": "JS global"},
     "form": {"title": "Formulaire"},
@@ -332,10 +521,6 @@ unsorted_implemented_tags = {**IMPLEMENTED_TAGS, **EXTRA_TAGS}
 ALL_IMPLEMENTED_TAGS = dict(sorted(unsorted_implemented_tags.items()))
 
 NOT_YET_IMPLEMENTED_TAGS = {
-    "badge": {
-        "title": "Badge",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/851869737/Badges",
-    },
     "search": {
         "title": "Barre de recherche (search)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217186376/Barre+de+recherche+-+Search+bar",

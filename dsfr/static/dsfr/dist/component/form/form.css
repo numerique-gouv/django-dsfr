@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
@@ -24,19 +24,19 @@
   color: var(--text-label-grey);
 
   /**
-    * Modificateur au niveau du label pour appliquer un état d'erreur au label
-    */
+  * Modificateur au niveau du label pour appliquer un état d'erreur au label
+  */
 
   /**
-    * Modificateur au niveau du label pour appliquer un état de succès au label
-    */
+  * Modificateur au niveau du label pour appliquer un état de succès au label
+  */
   /**
-    * Modificateur au niveau du label pour appliquer un état d'erreur au label
-    */
+  * Modificateur au niveau du label pour appliquer un état d'erreur au label
+  */
 
   /**
-    * Modificateur au niveau du label pour appliquer un état de succès au label
-    */
+  * Modificateur au niveau du label pour appliquer un état de succès au label
+  */
 }
 
 .fr-label + .fr-input,
@@ -77,10 +77,23 @@
   color: var(--text-default-error);
 }
 
+.fr-error-text::before,
+.fr-error-text::after {
+  flex: 0 0 auto;
+  display: inline-block;
+  vertical-align: calc((0.75em - var(--icon-size)) * 0.5);
+  background-color: currentColor;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-image: url("../../icons/system/fr--error-fill.svg");
+  mask-image: url("../../icons/system/fr--error-fill.svg");
+  --icon-size: 1rem;
+}
+
 .fr-error-text::before {
-  font: normal normal normal 1rem/1 dsfr-icon;
-  content: "";
-  font-weight: 400;
+  content: "";
   display: inline-block;
   margin-right: 0.25rem;
 }
@@ -99,10 +112,23 @@
   color: var(--text-default-success);
 }
 
+.fr-valid-text::before,
+.fr-valid-text::after {
+  flex: 0 0 auto;
+  display: inline-block;
+  vertical-align: calc((0.75em - var(--icon-size)) * 0.5);
+  background-color: currentColor;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-image: url("../../icons/system/fr--success-fill.svg");
+  mask-image: url("../../icons/system/fr--success-fill.svg");
+  --icon-size: 1rem;
+}
+
 .fr-valid-text::before {
-  font: normal normal normal 1rem/1 dsfr-icon;
-  content: "";
-  font-weight: 400;
+  content: "";
   display: inline-block;
   margin-right: 0.25rem;
 }
@@ -132,27 +158,27 @@
    * Modificateur pour gérer l'état de validation
    */
   /**
-    * Mixin disabled pour gérer l'état disabled
-    */
+  * Mixin disabled pour gérer l'état disabled
+  */
 
   /**
-    * Modificateur pour gérer l'état d'erreur
-    */
+  * Modificateur pour gérer l'état d'erreur
+  */
 
   /**
-    * Modificateur pour gérer l'état de validation
-    */
+  * Modificateur pour gérer l'état de validation
+  */
   /**
-    * Mixin disabled pour gérer l'état disabled
-    */
+  * Mixin disabled pour gérer l'état disabled
+  */
 
   /**
-    * Modificateur pour gérer l'état d'erreur
-    */
+  * Modificateur pour gérer l'état d'erreur
+  */
 
   /**
-    * Modificateur pour gérer l'état de validation
-    */
+  * Modificateur pour gérer l'état de validation
+  */
 }
 
 .fr-fieldset .fr-hint-text {
@@ -206,7 +232,7 @@
   display: inline-flex;
 }
 
-.fr-fieldset--inline .fr-radio-group:not(:last-child) input[type="radio"] + label {
+.fr-fieldset--inline .fr-radio-group:not(:last-child) input[type=radio] + label {
   margin-right: 1.75rem;
 }
 
@@ -214,7 +240,7 @@
   margin-top: 0;
 }
 
-.fr-fieldset--inline .fr-radio-group:first-child input[type="radio"] + label {
+.fr-fieldset--inline .fr-radio-group:first-child input[type=radio] + label {
   margin-top: 0;
 }
 
@@ -222,7 +248,7 @@
   margin-bottom: 0;
 }
 
-.fr-fieldset--inline .fr-radio-group:last-child input[type="radio"] + label {
+.fr-fieldset--inline .fr-radio-group:last-child input[type=radio] + label {
   margin-bottom: 0;
 }
 
@@ -249,27 +275,27 @@
 .fr-select-group,
 .fr-input-group {
   /**
-    * Modificateur au niveau du groupe pour appliquer un état validé aux labels
-    */
+  * Modificateur au niveau du groupe pour appliquer un état validé aux labels
+  */
 
   /**
-    * Modificateur au niveau du groupe pour appliquer un état d'erreur aux labels
-    */
+  * Modificateur au niveau du groupe pour appliquer un état d'erreur aux labels
+  */
 
   /**
-    * Modificateur au niveau du groupe pour appliquer un état inactif aux labels
-    */
+  * Modificateur au niveau du groupe pour appliquer un état inactif aux labels
+  */
   /**
-    * Modificateur au niveau du groupe pour appliquer un état validé aux labels
-    */
+  * Modificateur au niveau du groupe pour appliquer un état validé aux labels
+  */
 
   /**
-    * Modificateur au niveau du groupe pour appliquer un état d'erreur aux labels
-    */
+  * Modificateur au niveau du groupe pour appliquer un état d'erreur aux labels
+  */
 
   /**
-    * Modificateur au niveau du groupe pour appliquer un état inactif aux labels
-    */
+  * Modificateur au niveau du groupe pour appliquer un état inactif aux labels
+  */
 }
 
 .fr-select-group--valid label,
@@ -296,20 +322,20 @@
 }
 
 /**
-  * Style du texte d'aide
-  */
+* Style du texte d'aide
+*/
 
 /**
-  * Style du texte d'erreur
-  */
+* Style du texte d'erreur
+*/
 
 /**
-  * Style du texte de l'état validé
-  */
+* Style du texte de l'état validé
+*/
 
 /**
-  * Style d'un ensemble de champs
-  */
+* Style d'un ensemble de champs
+*/
 
 .fr-fieldset:disabled label {
   color: var(--text-disabled-grey);
@@ -324,20 +350,40 @@
 }
 
 /**
-  * Style du texte d'aide
-  */
+* Style du texte d'aide
+*/
 
 /**
-  * Style du texte d'erreur
-  */
+* Style du texte d'erreur
+*/
 
 /**
-  * Style du texte de l'état validé
-  */
+* Style du texte de l'état validé
+*/
 
 /**
-  * Style d'un ensemble de champs
-  */
+* Style d'un ensemble de champs
+*/
+@media (min-width: 36em) {
+  /*! media sm */
+
+  /*! media sm */
+}
+@media (min-width: 48em) {
+  /*! media md */
+
+  /*! media md */
+}
+@media (min-width: 62em) {
+  /*! media lg */
+
+  /*! media lg */
+}
+@media (min-width: 78em) {
+  /*! media xl */
+
+  /*! media xl */
+}
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /**
   * Correctif de la largeur de la légende d'un fieldset
@@ -345,6 +391,26 @@
   .fr-fieldset__legend {
     max-width: 100%;
     color: #161616;
+  }
+
+  .fr-error-text::before,
+  .fr-error-text::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../../icons/system/fr--error-fill.svg");
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .fr-valid-text::before,
+  .fr-valid-text::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../../icons/system/fr--success-fill.svg");
+    width: 1rem;
+    height: 1rem;
   }
 
   .fr-select-group--valid label,

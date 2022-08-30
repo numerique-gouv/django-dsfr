@@ -1,66 +1,62 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
-@charset "UTF-8";
-
-.fr-link--close {
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  min-height: 2rem;
-  padding: 0.25rem 1rem;
-  flex-direction: row-reverse;
-  overflow: initial;
-  max-width: 100%;
-  max-height: none;
-  font-weight: 500;
-  display: flex;
-  margin-left: auto;
-  margin-right: -1rem;
+@media (min-width: 36em) {
+  /*! media sm */
 }
-
-.fr-link--close::before {
-  font: normal 700 normal 1.5rem/1 dsfr-icon;
-  content: "";
-  font-weight: 700;
-  margin-right: -0.16667rem;
-  margin-left: 0.5rem;
-  font-size: 1rem;
+@media (min-width: 48em) {
+  /*! media md */
 }
-
-.fr-link.fr-link--icon-left.fr-fi-theme-fill {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  min-height: 2.5rem;
-  padding: 0.5rem 1.5rem;
-  flex-direction: row;
-  overflow: initial;
-  max-width: 100%;
-  max-height: none;
-  font-weight: 500;
+@media (min-width: 62em) {
+  /*! media lg */
 }
-
-.fr-link.fr-link--icon-left.fr-fi-theme-fill::before {
-  font: normal 700 normal 1.5rem/1 dsfr-icon;
-  margin-left: -0.16667rem;
-  margin-right: 0.5rem;
-  font-size: 1rem;
+@media (min-width: 78em) {
+  /*! media xl */
 }
-
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  ns-link {
+  .fr-link {
     background-image: none;
     text-decoration: underline;
-  }
-
-  /**
-  * Reset liste à puce
-  */
-  .fr-links-group > li {
-    list-style: none;
-  }
-
-  .fr-link {
     color: #000091;
+  }
+
+  .fr-link::before {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .fr-link--sm::before {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .fr-link--lg::before {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  ul.fr-links-group {
+    list-style-type: none;
+  }
+
+  ol.fr-links-group {
+    list-style-type: none;
+  }
+
+  ul.fr-links-group,
+  ol.fr-links-group {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .fr-link--close {
@@ -68,9 +64,27 @@
     color: #000091;
   }
 
+  .fr-link--close:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .fr-link--close:active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
   .fr-link--close:disabled,
   a.fr-link--close:not([href]) {
     color: #929292;
     background-color: transparent;
+  }
+
+  .fr-link--close:disabled:hover,
+  a.fr-link--close:not([href]):hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .fr-link--close:disabled:active,
+  a.fr-link--close:not([href]):active {
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }

@@ -1,4 +1,4 @@
-/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 (function () {
   'use strict';
@@ -7,7 +7,7 @@
     prefix: 'fr',
     namespace: 'dsfr',
     organisation: '@gouvfr',
-    version: '1.4.1'
+    version: '1.7.2'
   };
 
   var api = window[config.namespace];
@@ -738,7 +738,7 @@
     NavigationItem.prototype.calculate = function calculate () {
       var collapse = this.element.getDescendantInstances(api.core.Collapse.instanceClassName, null, true)[0];
       if (collapse && this.isBreakpoint(api.core.Breakpoints.LG) && collapse.element.node.matches(NavigationSelector.MENU)) {
-        var right = this.element.node.parentElement.getBoundingClientRect().right;
+        var right = this.element.node.parentElement.getBoundingClientRect().right; // todo: ne fonctionne que si la nav fait 100% du container
         var width = collapse.element.node.getBoundingClientRect().width;
         var left = this.element.node.getBoundingClientRect().left;
         this.isRightAligned = left + width > right;
@@ -798,13 +798,19 @@
 
     Navigation.prototype.down = function down (e) {
       if (!this.isBreakpoint(api.core.Breakpoints.LG) || this.index === -1 || !this.current) { return; }
-      this.position = this.current.element.node.contains(e.target) ? NavigationMousePosition.INSIDE : NavigationMousePosition.OUTSIDE;
-      this.request(this.getPosition.bind(this));
+      this.position = this.current.node.contains(e.target) ? NavigationMousePosition.INSIDE : NavigationMousePosition.OUTSIDE;
+      this.requestPosition();
     };
 
     Navigation.prototype.focusOut = function focusOut (e) {
       if (!this.isBreakpoint(api.core.Breakpoints.LG)) { return; }
       this.out = true;
+      this.requestPosition();
+    };
+
+    Navigation.prototype.requestPosition = function requestPosition () {
+      if (this.isRequesting) { return; }
+      this.isRequesting = true;
       this.request(this.getPosition.bind(this));
     };
 
@@ -816,15 +822,21 @@
             break;
 
           case NavigationMousePosition.INSIDE:
-            if (this.current) { this.current.focus(); }
+            if (this.current && !this.current.node.contains(document.activeElement)) { this.current.focus(); }
             break;
 
           default:
             if (this.index > -1 && !this.current.hasFocus) { this.index = -1; }
         }
       }
+
+      this.request(this.requested.bind(this));
+    };
+
+    Navigation.prototype.requested = function requested () {
       this.position = NavigationMousePosition.NONE;
       this.out = false;
+      this.isRequesting = false;
     };
 
     prototypeAccessors.index.get = function () { return superclass.prototype.index; };
@@ -1210,6 +1222,7 @@
 
     TabsList.prototype.resize = function resize () {
       this.isScrolling = this.node.scrollWidth > this.node.clientWidth + SCROLL_OFFSET$1;
+      this.setProperty('--tab-list-height', ((this.getRect().height) + "px"));
     };
 
     TabsList.prototype.dispose = function dispose () {
@@ -1410,6 +1423,130 @@
 
   api.internals.register(api.tag.TagSelector.TAG_PRESSABLE, api.core.Toggle);
 
+  var DownloadSelector = {
+    DOWNLOAD_ASSESS_FILE: ("" + (api.internals.ns.attr.selector('assess-file'))),
+    DOWNLOAD_DETAIL: ("" + (api.internals.ns.selector('download__detail')))
+  };
+
+  var AssessFile = /*@__PURE__*/(function (superclass) {
+    function AssessFile () {
+      superclass.apply(this, arguments);
+    }
+
+    if ( superclass ) AssessFile.__proto__ = superclass;
+    AssessFile.prototype = Object.create( superclass && superclass.prototype );
+    AssessFile.prototype.constructor = AssessFile;
+
+    var staticAccessors = { instanceClassName: { configurable: true } };
+
+    staticAccessors.instanceClassName.get = function () {
+      return 'AssessFile';
+    };
+
+    AssessFile.prototype.init = function init () {
+      this.lang = this.getLang(this.node);
+      this.href = this.getAttribute('href');
+
+      this.hreflang = this.getAttribute('hreflang');
+      this.file = {};
+      this.detail = this.querySelector(DownloadSelector.DOWNLOAD_DETAIL);
+      this.update();
+    };
+
+    AssessFile.prototype.getFileLength = function getFileLength () {
+      var this$1$1 = this;
+
+      if (this.href === undefined) {
+        this.length = -1;
+        return;
+      }
+
+      fetch(this.href, { method: 'HEAD', mode: 'cors' }).then(function (response) {
+        this$1$1.length = response.headers.get('content-length') || -1;
+        if (this$1$1.length === -1) {
+          console.warn('Impossible de détecter le poids du fichier ' + this$1$1.href + '\nErreur de récupération de l\'en-tête HTTP : "content-length"');
+        }
+        this$1$1.update();
+      });
+    };
+
+    AssessFile.prototype.update = function update () {
+      // TODO V2: implémenter async
+      if (this.isLegacy) { this.length = -1; }
+
+      if (!this.length) {
+        this.getFileLength();
+        return;
+      }
+
+      var details = [];
+      if (this.detail) {
+        if (this.href) {
+          var extension = this.parseExtension(this.href);
+          if (extension) { details.push(extension.toUpperCase()); }
+        }
+
+        if (this.length !== -1) {
+          details.push(this.bytesToSize(this.length));
+        }
+
+        if (this.hreflang) {
+          details.push(this.getLangDisplayName(this.hreflang));
+        }
+
+        this.detail.innerHTML = details.join(' - ');
+      }
+    };
+
+    AssessFile.prototype.getLang = function getLang (elem) {
+      if (elem.lang) { return elem.lang; }
+      if (document.documentElement === elem) { return window.navigator.language; }
+      return this.getLang(elem.parentElement);
+    };
+
+    AssessFile.prototype.parseExtension = function parseExtension (url) {
+      var regexExtension = /\.(\w{1,9})(?:$|[?#])/;
+      return url.match(regexExtension)[0].replace('.', '');
+    };
+
+    AssessFile.prototype.getLangDisplayName = function getLangDisplayName (locale) {
+      if (this.isLegacy) { return locale; }
+      var displayNames = new Intl.DisplayNames([this.lang], { type: 'language' });
+      var name = displayNames.of(locale);
+      return name.charAt(0).toUpperCase() + name.slice(1);
+    };
+
+    AssessFile.prototype.bytesToSize = function bytesToSize (bytes) {
+      if (bytes === -1) { return null; }
+
+      var sizeUnits = ['octets', 'ko', 'Mo', 'Go', 'To'];
+      if (this.getAttribute(api.internals.ns.attr('assess-file')) === 'bytes') {
+        sizeUnits = ['bytes', 'KB', 'MB', 'GB', 'TB'];
+      }
+
+      var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1000)), 10);
+      if (i === 0) { return (bytes + " " + (sizeUnits[i])); }
+
+      var size = bytes / (Math.pow( 1000, i ));
+      var roundedSize = Math.round((size + Number.EPSILON) * 100) / 100; // arrondi a 2 décimal
+      var stringSize = String(roundedSize).replace('.', ',');
+
+      return (stringSize + " " + (sizeUnits[i]));
+    };
+
+    Object.defineProperties( AssessFile, staticAccessors );
+
+    return AssessFile;
+  }(api.core.Instance));
+
+  api.download = {
+    DownloadSelector: DownloadSelector,
+    AssessFile: AssessFile
+
+  };
+
+  api.internals.register(api.download.DownloadSelector.DOWNLOAD_ASSESS_FILE, api.download.AssessFile);
+
   var HeaderSelector = {
     HEADER: api.internals.ns.selector('header'),
     TOOLS_LINKS: api.internals.ns.selector('header__tools-links'),
@@ -1437,21 +1574,25 @@
       var header = this.queryParentSelector(HeaderSelector.HEADER);
       this.toolsLinks = header.querySelector(HeaderSelector.TOOLS_LINKS);
       this.menuLinks = header.querySelector(HeaderSelector.MENU_LINKS);
+      var copySuffix = '_copy';
 
       var toolsHtml = this.toolsLinks.innerHTML.replace(/  +/g, ' ');
       var menuHtml = this.menuLinks.innerHTML.replace(/  +/g, ' ');
+      // Pour éviter de dupliquer des id, on ajoute un suffixe aux id et aria-controls duppliqués.
+      var toolsHtmlDuplicateId = toolsHtml.replace(/ id="(.*?)"/gm, ' id="$1' + copySuffix + '"');
+      toolsHtmlDuplicateId = toolsHtmlDuplicateId.replace(/ aria-controls="(.*?)"/gm, ' aria-controls="$1' + copySuffix + '"');
 
-      if (toolsHtml === menuHtml) { return; }
+      if (toolsHtmlDuplicateId === menuHtml) { return; }
 
       switch (api.mode) {
         case api.Modes.ANGULAR:
         case api.Modes.REACT:
         case api.Modes.VUE:
-          api.inspector.warn(("header__tools-links content is different from header__menu-links content.\nAs you're using a dynamic framework, you should handle duplication of this content yourself, please refer to documentation: \n" + (api.header.doc)));
+          api.inspector.warn(("header__tools-links content is different from header__menu-links content.\nAs you're using a dynamic framework, you should handle duplication of this content yourself, please refer to documentation:\n" + (api.header.doc)));
           break;
 
         default:
-          this.menuLinks.innerHTML = this.toolsLinks.innerHTML;
+          this.menuLinks.innerHTML = toolsHtmlDuplicateId;
       }
     };
 

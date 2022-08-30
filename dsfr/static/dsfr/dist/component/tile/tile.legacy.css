@@ -1,6 +1,18 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
+@media (min-width: 36em) {
+  /*! media sm */
+}
+@media (min-width: 48em) {
+  /*! media md */
+}
+@media (min-width: 62em) {
+  /*! media lg */
+}
+@media (min-width: 78em) {
+  /*! media xl */
+}
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /**
   * Correctif de la largeur du texte dans la tuile
@@ -19,27 +31,11 @@
   }
 
   .fr-tile {
-    box-shadow: inset 0 0 0 1px #e5e5e5, inset 0 -0.25rem 0 0 #000091;
+    box-shadow: inset 0 0 0 1px #ddd, inset 0 -0.25rem 0 0 #000091;
     background-color: #fff;
-  }
-
-  .fr-tile:hover {
-    background-color: #f6f6f6;
-  }
-
-  .fr-tile:active {
-    background-color: #ededed;
   }
 
   .fr-tile--grey {
     background-color: #eee;
-  }
-
-  .fr-tile--grey:hover {
-    background-color: #d2d2d2;
-  }
-
-  .fr-tile--grey:active {
-    background-color: #c1c1c1;
   }
 }

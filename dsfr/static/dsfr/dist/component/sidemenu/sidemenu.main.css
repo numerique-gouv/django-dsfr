@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
@@ -15,43 +15,25 @@
   --li-bottom: 0;
   --ol-content: none;
   --underline-img: none;
-  --link-blank-font: none;
-  --link-blank-content: none;
   --text-spacing: 0;
   --title-spacing: 0;
   position: relative;
-  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1), 0 8px 16px -16px rgba(0, 0, 0, 0.32);
   margin-left: -1rem;
   margin-right: -1rem;
-
   /**
-* Titre facultatif
- */
-
+  * Titre facultatif
+   */
   /**
- * Variantes du sidemenu proposées juste à partir du breakpoint md
- */
+   * Variantes du sidemenu proposées juste à partir du breakpoint md
+   */
+  box-shadow: inset 0 -1px 0 0 var(--border-default-grey), inset 0 1px 0 0 var(--border-default-grey);
 
-  /**
- * Styles du bouton et du lien d'accès direct du sidemnu
- */
-
-  /**
- * Style du bouton du sidemnenu pour ouvrir/refermer les listes de niveaux 1 et 2
- * Bouton pour la version mobile pour ouvrir/refermer le sidemenu
- */
-
-  /**
- * Modificateur pour le bouton en version mobile permettant d'ouvrir/refermer le sidemenu
- * L'icône de gauche est défini dans _sidemenu.scss (provisoire)
- */
   /*
-    @include scheme-element-bg-color(default grey);
-
-    @include respond-from(md) {
-      @include scheme-element-bg-transparent((legacy:$legacy, hover: true));
-    }
-    */
+  @include elevation.elevate(raised, (legacy:$legacy));
+  @include respond-from(md) {
+    @include elevation.drop((legacy:$legacy));
+  }
+   */
 }
 
 .fr-sidemenu a:not([href]) {
@@ -61,6 +43,13 @@
 .fr-sidemenu .fr-collapse {
   margin: -0.25rem -0.25rem 0;
   padding: 0.25rem 0.25rem 0;
+}
+
+.fr-sidemenu .fr-collapse.fr-collapsing {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .fr-sidemenu__title {
@@ -128,8 +117,11 @@
   padding: 0.25rem 0.25rem 0;
 }
 
-.fr-sidemenu .fr-sidemenu__link,
-.fr-sidemenu .fr-sidemenu__btn {
+/**
+ * Styles du bouton et du lien d'accès direct du sidemnu
+ */
+.fr-sidemenu__link,
+.fr-sidemenu__btn {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -138,53 +130,71 @@
   padding: 0.75rem 0.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
-  box-shadow: none;
   text-align: left;
   font-weight: 700;
 
   --hover-tint: var(--hover);
   --active-tint: var(--active);
+  color: var(--text-action-high-grey);
 }
 
-.fr-sidemenu .fr-sidemenu__link[aria-current]::after,
-.fr-sidemenu .fr-sidemenu__btn[aria-current]::after {
+.fr-sidemenu__link[aria-current]::before,
+.fr-sidemenu__btn[aria-current]::before {
   content: "";
   position: absolute;
   top: 0.75rem;
   bottom: 0.75rem;
   left: 0;
   width: 2px;
+  background-color: var(--border-active-blue-france);
+
+  --idle: transparent;
+  --hover: var(--border-active-blue-france-hover);
+  --active: var(--border-active-blue-france-active);
 }
 
-.fr-sidemenu .fr-sidemenu__link[aria-current]:not([href]) {
+.fr-sidemenu__link[aria-current]:not([href]) {
   pointer-events: none;
   cursor: default;
 }
 
-.fr-sidemenu .fr-sidemenu__btn[aria-expanded] {
+/**
+ * Style du bouton du sidemnenu pour ouvrir/refermer les listes de niveaux 1 et 2
+ * Bouton pour la version mobile pour ouvrir/refermer le sidemenu
+ */
+.fr-sidemenu__btn[aria-expanded] {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   align-items: center;
 }
 
-.fr-sidemenu .fr-sidemenu__btn[aria-expanded]::before {
-  font: normal 700 normal 1rem/1 dsfr-icon;
-  content: "";
-  font-weight: 700;
+.fr-sidemenu__btn[aria-expanded]::after {
+  flex: 0 0 auto;
+  display: inline-block;
+  vertical-align: calc((0.75em - var(--icon-size)) * 0.5);
+  background-color: currentColor;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-image: url("../../icons/system/arrow-down-s-line.svg");
+  mask-image: url("../../icons/system/arrow-down-s-line.svg");
+  --icon-size: 1rem;
+  content: "";
   margin-left: auto;
   margin-right: 0;
   transition: transform 0.3s;
 }
 
-.fr-sidemenu .fr-sidemenu__btn[aria-expanded="true"] {
-  box-shadow: none;
-}
-
-.fr-sidemenu .fr-sidemenu__btn[aria-expanded="true"]::before {
+.fr-sidemenu__btn[aria-expanded=true]::after {
   transform: rotate(-180deg);
 }
 
-.fr-sidemenu .fr-sidemenu__inner > .fr-sidemenu__btn {
+/**
+ * Modificateur pour le bouton en version mobile permettant d'ouvrir/refermer le sidemenu
+ * L'icône de gauche est défini dans _sidemenu.scss (provisoire)
+ */
+.fr-sidemenu__inner > .fr-sidemenu__btn {
   width: 100%;
   font-weight: normal;
 
@@ -193,14 +203,23 @@
   */
 }
 
-.fr-sidemenu .fr-sidemenu__inner > .fr-sidemenu__btn::before {
+.fr-sidemenu__inner > .fr-sidemenu__btn::after {
   margin-right: 1rem;
 }
 
-.fr-sidemenu .fr-sidemenu__inner > .fr-sidemenu__btn::after {
-  font: normal 700 normal 1rem/1 dsfr-icon;
-  content: "";
-  font-weight: 700;
+.fr-sidemenu__inner > .fr-sidemenu__btn::before {
+  flex: 0 0 auto;
+  display: inline-block;
+  vertical-align: calc((0.75em - var(--icon-size)) * 0.5);
+  background-color: currentColor;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-image: url("../../icons/system/menu-2-fill.svg");
+  mask-image: url("../../icons/system/menu-2-fill.svg");
+  --icon-size: 1rem;
+  content: "";
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
@@ -213,53 +232,36 @@
   box-shadow: 0 -1px 0 0 var(--border-default-grey);
 }
 
-.fr-sidemenu__link,
-.fr-sidemenu__btn {
-  color: var(--text-action-high-grey);
-}
-
 .fr-sidemenu__link[aria-current],
 .fr-sidemenu__btn[aria-current] {
   color: var(--text-active-blue-france);
 }
-
-.fr-sidemenu__link[aria-current]::after,
-.fr-sidemenu__btn[aria-current]::after {
-  background-color: var(--border-active-blue-france);
-
-  --hover: var(--border-active-blue-france-hover);
-  --active: var(--border-active-blue-france-active);
+@media (min-width: 36em) {
+  /*! media sm */
 }
-
-.fr-sidemenu__inner > .fr-sidemenu__btn {
-  background-color: var(--background-default-grey);
-
-  --hover: var(--background-default-grey-hover);
-  --active: var(--background-default-grey-active);
-}
-
 @media (min-width: 48em) {
+  /*! media md */
   .fr-sidemenu {
-    box-shadow: none;
     margin-left: 0;
     margin-right: 0;
     padding-right: 2rem;
     /**
-   * Modificateur pour que le sidemenu s'adapte à un affichage à droite du contenu
-   * La bordure se met sur la gauche
-   */
+     * Modificateur pour que le sidemenu s'adapte à un affichage à droite du contenu
+     * La bordure se met sur la gauche
+     */
 
     /**
-   * Modificateur pour que le sidemenu soit sticky
-   */
+     * Modificateur pour que le sidemenu soit sticky
+     */
 
     /**
-   * Modificateur pour que le sidemenu soit à la fois sticky et prenne toute la hauteur de la page
-   */
+     * Modificateur pour que le sidemenu soit à la fois sticky et prenne toute la hauteur de la page
+     */
 
     /**
-   * Modificateur pour avoir une bordure tout autour du sidemenu
-   */
+     * Modificateur pour avoir une bordure tout autour du sidemenu
+     */
+    box-shadow: none;
   }
 
   .fr-sidemenu .fr-collapse {
@@ -351,25 +353,31 @@
   }
 
   .fr-sidemenu--full-border .fr-sidemenu__inner {
-    padding: 0 0.25rem;
+    padding: 0.5rem 1rem;
     box-shadow: inset 0 0 0 1px var(--border-default-grey);
   }
 
-  .fr-sidemenu .fr-sidemenu__link,
-  .fr-sidemenu .fr-sidemenu__btn {
+  .fr-sidemenu__link,
+  .fr-sidemenu__btn {
     margin: 0;
     width: 100%;
   }
 
-  .fr-sidemenu .fr-sidemenu__btn[aria-expanded] {
+  .fr-sidemenu__btn[aria-expanded] {
     padding: 0.75rem 2rem 0.75rem 0.5rem;
   }
 
-  .fr-sidemenu .fr-sidemenu__btn[aria-expanded]::before {
+  .fr-sidemenu__btn[aria-expanded]::after {
     margin-right: -1.5rem;
   }
 
-  .fr-sidemenu .fr-sidemenu__inner > .fr-sidemenu__btn {
+  .fr-sidemenu__inner > .fr-sidemenu__btn {
     display: none;
   }
+}
+@media (min-width: 62em) {
+  /*! media lg */
+}
+@media (min-width: 78em) {
+  /*! media xl */
 }

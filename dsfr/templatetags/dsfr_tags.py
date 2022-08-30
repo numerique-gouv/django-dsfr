@@ -127,7 +127,7 @@ def dsfr_accordion(*args, **kwargs) -> dict:
 @register.inclusion_tag("dsfr/accordion_group.html")
 def dsfr_accordion_group(items: list) -> dict:
     """
-    Returns a group of accordion items. Takes a list of dicts as parameters (see the accordeon
+    Returns a group of accordion items. Takes a list of dicts as parameters (see the accordion
     tag for the structure of these dicts.)
 
     **Tag name**::
@@ -181,6 +181,52 @@ def dsfr_alert(*args, **kwargs) -> dict:
     if "is_collapsible" not in tag_data:
         tag_data["is_collapsible"] = False
     return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/badge.html")
+def dsfr_badge(*args, **kwargs) -> dict:
+    """
+    Returns a badge item. Takes a dict as parameter, with the following structure:
+
+    data_dict = {
+        "label": "Label of the button item",
+        "extra_classes": "(Optional) string with names of extra classes."
+    }
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra_classes
+    - "fr-badge--sm" : small-sized badge
+    - "fr-badge--green-menthe" other color codes: change the color of the badge
+    - "fr-badge--success" (or error/info/warning/new): system badges
+    - "fr-badge--no-icon": removes the icon on system badges
+
+    **Tag name**::
+        dsfr_badge
+    **Usage**::
+        {% dsfr_badge data_dict %}
+    """
+    allowed_keys = [
+        "label",
+        "extra_classes",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/badge_group.html")
+def dsfr_badge_group(items: list) -> dict:
+    """
+    Returns a group of badge items. Takes a list of dicts as parameters (see the badge
+    tag for the structure of these dicts.)
+
+    **Tag name**::
+        dsfr_badge_group
+    **Usage**::
+        {% dsfr_badge_group data_list %}
+    """
+    return {"self": {"items": items}}
 
 
 @register.inclusion_tag("dsfr/breadcrumb.html", takes_context=True)
@@ -242,10 +288,6 @@ def dsfr_button(*args, **kwargs) -> dict:
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
-    for k in kwargs:
-        if k in allowed_keys:
-            tag_data[k] = kwargs[k]
-
     if "is_disabled" not in tag_data:
         tag_data["is_disabled"] = False
     return {"self": tag_data}
@@ -292,16 +334,43 @@ def dsfr_card(*args, **kwargs) -> dict:
     Returns a card item. Takes a dict as parameter, with the following structure:
 
     data_dict = {
-        "detail": "Appears before the title of the card item",
         "title": "Title of the card item",
+        "heading_tag": "(Optional) Heading tag for the title (h2, etc. Default: p)"
         "description": "Text of the card item",
-        "image": "(Optional) url of the image",
+        "image_url": "(Optional) url of the image",
+        "image_alt": "(Optional) alt text of the image",
+        "media_badges": (Optional) list of badges for the media area (similar to a badge_group tag)
         "new_tab": "(Optional) if True, forces links to open in a new tab",
         "enlarge_link": (Optional) boolean. If true (default), the link covers the whole card",
         "extra_classes": "(Optional) string with names of extra classes",
+        "top_detail": "(Optional) dict with a top detail content and optional tags or badges",
+        "bottom_detail": "(Optional) a detail string and optional icon",
+        "call_to_action": "(Optional) a list of buttons or links at the bottom of the card,
     }
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra classes:
+    - fr-card--horizontal: makes the card horizontal
+    - fr-card--horizontal-tier: allows a 33% ratio instead of the 40% default
+    - fr-card--horizontal-half: allows a 50% ratio instead of the 40% default
+
+    Format of the top_detail dict (every field is optional):
+    top_detail = {
+        "detail": {
+            "text": "the detail text",
+            "icon_class": "(Optional) an icon class (eg, fr-icon-warning-fill)"
+        },
+        "tags": "a list of tag items (mutually exclusive with badges)",
+        "badges": "a list of badge items (mutually exclusive with tags)"
+    }
+
+    Format of the bottom_detail dict :
+    bottom_detail = {
+        "text": "the detail text",
+        "icon_class": "(Optional) an icon class (eg, fr-icon-warning-fill)"
+    },
+
 
     **Tag name**::
         dsfr_card
@@ -309,18 +378,27 @@ def dsfr_card(*args, **kwargs) -> dict:
         {% dsfr_card data_dict %}
     """
     allowed_keys = [
-        "detail",
         "title",
+        "heading_tag",
         "description",
         "image_url",
+        "image_alt",
+        "media_badges",
         "new_tab",
         "enlarge_link",
         "extra_classes",
+        "top_detail",
+        "bottom_detail",
+        "call_to_action",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     if "enlarge_link" not in tag_data:
         tag_data["enlarge_link"] = True
+
+    if "call_to_action" in tag_data:
+        # Forcing the enlarge_link to false if there is a CTA
+        tag_data["enlarge_link"] = False
 
     return {"self": tag_data}
 
@@ -654,7 +732,7 @@ def dsfr_tag(*args, **kwargs) -> dict:
 
     Relevant extra_classes:
     - fr-tag--sm: for a small tag
-    - icon classes: an icon for the tag, along with a positional class (eg, fr-fi-arrow-right-line fr-tag--icon-left)
+    - icon classes: an icon for the tag, along with a positional class (eg, fr-icon-arrow-right-line fr-tag--icon-left)
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 

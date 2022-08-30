@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
@@ -11,6 +11,10 @@
   color: inherit;
   visibility: hidden;
   opacity: 0;
+  background-color: rgba(22, 22, 22, 0.64);
+
+  --ground: 2000;
+  z-index: 1750;
   padding: 0;
   margin: 0;
   display: flex;
@@ -24,13 +28,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 5000;
   transition: opacity 0.3s, visibility 0.3s;
 
   /**
   * Modifier pour fixer la modale en haut en mobile (par defaut en bas)
   */
-  background-color: var(--background-overlay-grey);
 }
 
 .fr-modal > .fr-container {
@@ -62,7 +64,7 @@
 }
 
 .fr-modal--top::after {
-  content: '';
+  content: "";
 }
 
 .fr-modal--opened {
@@ -78,13 +80,15 @@
   pointer-events: all;
   overflow-y: auto;
   flex: 1 1 auto;
-  max-height: calc(100vh - 2rem);
-  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1), 0 8px 16px -16px rgba(0, 0, 0, 0.32);
   max-height: var(--modal-max-height);
-  background-color: var(--background-default-grey);
+  z-index: calc(var(--ground) + 2000);
+  background-color: var(--background-lifted-grey);
 
-  --hover: var(--background-default-grey-hover);
-  --active: var(--background-default-grey-active);
+  --idle: transparent;
+  --hover: var(--background-lifted-grey-hover);
+  --active: var(--background-lifted-grey-active);
+  filter: drop-shadow(var(--lifted-shadow));
+  max-height: calc(100vh - 2rem);
 }
 
 .fr-modal__header {
@@ -108,9 +112,9 @@
   position: sticky;
   bottom: 0;
   transition: box-shadow 0.3s;
-  z-index: 6000;
   background-color: var(--background-default-grey);
 
+  --idle: transparent;
   --hover: var(--background-default-grey-hover);
   --active: var(--background-default-grey-active);
 }
@@ -128,24 +132,25 @@
   color: var(--text-title-grey);
 }
 
-.fr-modal__title[class^="fr-icon-"],
+.fr-modal__title[class^=fr-icon-],
 .fr-modal__title[class*=" fr-icon-"],
-.fr-modal__title[class^="fr-fi-"],
+.fr-modal__title[class^=fr-fi-],
 .fr-modal__title[class*=" fr-fi-"] {
   margin-right: 0.5rem;
 }
 
 .fr-modal__body.fr-scroll-shadow .fr-modal__footer {
-  box-shadow: 0 -8px 8px 0 rgba(0, 0, 0, 0.1), 0 -8px 16px -16px rgba(0, 0, 0, 0.32);
-  background-color: var(--background-elevated-grey);
-
-  --hover: var(--background-elevated-grey-hover);
-  --active: var(--background-elevated-grey-active);
+  box-shadow: inset 0 -2rem 1.5rem -2rem #161616;
 }
+@media (min-width: 36em) {
+  /*! media sm */
 
+  /*! media sm */
+}
 @media (min-width: 48em) {
+  /*! media md */
   .fr-modal--top::before {
-    content: '';
+    content: "";
   }
 
   .fr-modal::before {
@@ -184,35 +189,23 @@
     font-size: 1.5rem;
     line-height: 2rem;
   }
+
+  /*! media md */
 }
+@media (min-width: 62em) {
+  /*! media lg */
 
+  /*! media lg */
+}
+@media (min-width: 78em) {
+  /*! media xl */
+
+  /*! media xl */
+}
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .fr-modal {
-    background-color: rgba(22, 22, 22, 0.375);
-  }
-
   .fr-modal__body {
+    z-index: 2000;
     background-color: #fff;
-  }
-
-  .fr-modal__body:hover {
-    background-color: #f6f6f6;
-  }
-
-  .fr-modal__body:active {
-    background-color: #ededed;
-  }
-
-  .fr-modal__body.fr-scroll-shadow .fr-modal__footer {
-    background-color: #fff;
-  }
-
-  .fr-modal__body.fr-scroll-shadow .fr-modal__footer:hover {
-    background-color: #f6f6f6;
-  }
-
-  .fr-modal__body.fr-scroll-shadow .fr-modal__footer:active {
-    background-color: #ededed;
   }
 
   .fr-modal__title {
@@ -221,13 +214,5 @@
 
   .fr-modal__footer {
     background-color: #fff;
-  }
-
-  .fr-modal__footer:hover {
-    background-color: #f6f6f6;
-  }
-
-  .fr-modal__footer:active {
-    background-color: #ededed;
   }
 }

@@ -1,5 +1,5 @@
 /*!
- * DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
+ * DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions)
  */
 @charset "UTF-8";
 
@@ -16,12 +16,25 @@
   background-image: linear-gradient(0deg, var(--border-default-grey), var(--border-default-grey));
 }
 
+.fr-quote::before,
+.fr-quote::after {
+  flex: 0 0 auto;
+  display: inline-block;
+  vertical-align: calc((0.75em - var(--icon-size)) * 0.5);
+  background-color: currentColor;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-image: url("../../icons/editor/fr--quote-line.svg");
+  mask-image: url("../../icons/editor/fr--quote-line.svg");
+  --icon-size: 2rem;
+}
+
 .fr-quote::before {
-  font: normal 700 normal 2rem/1 dsfr-icon;
-  content: "";
-  font-weight: 700;
+  content: "";
   display: block;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
   color: var(--artwork-minor-blue-france);
 }
 
@@ -190,7 +203,14 @@
   color: var(--artwork-minor-beige-gris-galet);
 }
 
+@media (min-width: 36em) {
+  /*! media sm */
+
+  /*! media sm */
+}
+
 @media (min-width: 48em) {
+  /*! media md */
   .fr-quote {
     padding: 0 0 0 2rem;
     background-size: 1px 100%;
@@ -222,12 +242,36 @@
     height: 11.5rem;
     margin-top: -5.75rem;
   }
+
+  /*! media md */
+}
+
+@media (min-width: 62em) {
+  /*! media lg */
+
+  /*! media lg */
+}
+
+@media (min-width: 78em) {
+  /*! media xl */
+
+  /*! media xl */
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /**
   * Correction largeur max du texte
   */
+  .fr-quote::before,
+  .fr-quote::after {
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../../icons/editor/fr--quote-line.svg");
+    width: 2rem;
+    height: 2rem;
+  }
+
   .fr-quote blockquote {
     max-width: 100%;
   }
@@ -305,6 +349,6 @@
   }
 
   .fr-quote {
-    background-image: linear-gradient(0deg, #e5e5e5, #e5e5e5);
+    background-image: linear-gradient(0deg, #ddd, #ddd);
   }
 }

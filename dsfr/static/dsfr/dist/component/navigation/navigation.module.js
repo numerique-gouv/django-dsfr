@@ -1,10 +1,10 @@
-/*! DSFR v1.4.1 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
+/*! DSFR v1.7.2 | SPDX-License-Identifier: MIT | License-Filename: LICENSE.md | restricted use (see terms and conditions) */
 
 const config = {
   prefix: 'fr',
   namespace: 'dsfr',
   organisation: '@gouvfr',
-  version: '1.4.1'
+  version: '1.7.2'
 };
 
 const api = window[config.namespace];
@@ -41,7 +41,7 @@ class NavigationItem extends api.core.Instance {
   calculate () {
     const collapse = this.element.getDescendantInstances(api.core.Collapse.instanceClassName, null, true)[0];
     if (collapse && this.isBreakpoint(api.core.Breakpoints.LG) && collapse.element.node.matches(NavigationSelector.MENU)) {
-      const right = this.element.node.parentElement.getBoundingClientRect().right;
+      const right = this.element.node.parentElement.getBoundingClientRect().right; // todo: ne fonctionne que si la nav fait 100% du container
       const width = collapse.element.node.getBoundingClientRect().width;
       const left = this.element.node.getBoundingClientRect().left;
       this.isRightAligned = left + width > right;
@@ -85,13 +85,19 @@ class Navigation extends api.core.CollapsesGroup {
 
   down (e) {
     if (!this.isBreakpoint(api.core.Breakpoints.LG) || this.index === -1 || !this.current) return;
-    this.position = this.current.element.node.contains(e.target) ? NavigationMousePosition.INSIDE : NavigationMousePosition.OUTSIDE;
-    this.request(this.getPosition.bind(this));
+    this.position = this.current.node.contains(e.target) ? NavigationMousePosition.INSIDE : NavigationMousePosition.OUTSIDE;
+    this.requestPosition();
   }
 
   focusOut (e) {
     if (!this.isBreakpoint(api.core.Breakpoints.LG)) return;
     this.out = true;
+    this.requestPosition();
+  }
+
+  requestPosition () {
+    if (this.isRequesting) return;
+    this.isRequesting = true;
     this.request(this.getPosition.bind(this));
   }
 
@@ -103,15 +109,21 @@ class Navigation extends api.core.CollapsesGroup {
           break;
 
         case NavigationMousePosition.INSIDE:
-          if (this.current) this.current.focus();
+          if (this.current && !this.current.node.contains(document.activeElement)) this.current.focus();
           break;
 
         default:
           if (this.index > -1 && !this.current.hasFocus) this.index = -1;
       }
     }
+
+    this.request(this.requested.bind(this));
+  }
+
+  requested () {
     this.position = NavigationMousePosition.NONE;
     this.out = false;
+    this.isRequesting = false;
   }
 
   get index () { return super.index; }
