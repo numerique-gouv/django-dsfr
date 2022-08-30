@@ -521,13 +521,17 @@ unsorted_implemented_tags = {**IMPLEMENTED_TAGS, **EXTRA_TAGS}
 ALL_IMPLEMENTED_TAGS = dict(sorted(unsorted_implemented_tags.items()))
 
 NOT_YET_IMPLEMENTED_TAGS = {
-    "search": {
-        "title": "Barre de recherche (search)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217186376/Barre+de+recherche+-+Search+bar",
-    },
     "file_upload": {
         "title": "Ajout de fichier (file upload)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/864190467/Ajout+de+fichier+-+File+upload",
+    },
+    "notice": {
+        "title": "Bandeau d’information importante (notice)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/992903190/Bandeau+d+information+importante",
+    },
+    "search_bar": {
+        "title": "Barre de recherche (search bar)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217186376/Barre+de+recherche+-+Search+bar",
     },
     "franceconnect": {
         "title": "Bouton FranceConnect",
@@ -545,13 +549,17 @@ NOT_YET_IMPLEMENTED_TAGS = {
         "title": "Case à cocher (checkbox)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217251933/Case+cocher+-+Checkbox",
     },
+    "responsive_medias": {
+        "title": "Contenu média (responsive_medias)",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019554/Contenu+m+dias+-+Responsive+medias",
+    },
     "consent": {
         "title": "Gestionnaire de consentement (consent)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/609189956/Gestionnaire+de+consentement+-+Consent+banner",
     },
-    "responsive_medias": {
-        "title": "Contenu média (responsive_medias)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019554/Contenu+m+dias+-+Responsive+medias",
+    "stepper": {
+        "title": "Indicateur d’étapes",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/1010860097/Indicateur+d+tapes",
     },
     "toggle": {
         "title": "Interrupteur (toggle)",
@@ -576,6 +584,14 @@ NOT_YET_IMPLEMENTED_TAGS = {
     "share": {
         "title": "Partage (share)",
         "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/771555355/Partage+-+Share",
+    },
+    "translate": {
+        "title": "Sélecteur de langue",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/1034158081/S+lecteur+de+langues",
+    },
+    "download": {
+        "title": "Téléchargement de fichier",
+        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/980025345/T+l+chargement+de+fichier",
     },
 }
 
