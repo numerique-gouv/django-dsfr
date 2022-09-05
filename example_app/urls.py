@@ -23,7 +23,7 @@ urlpatterns = [
         "form/",
         views.page_form,
         name="page_form",
-        distill_file="django-dsfr/form.html",
+        distill_file="django-dsfr/form/index.html",
     ),
     distill_path(
         "tags/<slug:tag_name>/",
