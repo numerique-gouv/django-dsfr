@@ -168,7 +168,6 @@ class DsfrBadgeTagTest(SimpleTestCase):
 
     def test_badge_tag_rendered(self):
         rendered_template = self.template_to_render.render(self.context)
-        print(rendered_template)
         self.assertInHTML(
             """
             <p class="fr-badge fr-badge--success">badge label</p>
