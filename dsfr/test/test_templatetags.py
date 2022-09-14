@@ -451,7 +451,7 @@ class DsfrLinkTagTest(SimpleTestCase):
             href="http://example.com"
             target="_blank" rel="noopener noreferrer"
             >
-            Label of the link item
+            Label of the link item <span class="sr-only">Ouvre une nouvelle fenêtre</span>
             </a>
             """,
             rendered_template,
@@ -491,7 +491,7 @@ class DsfrQuoteTagTest(SimpleTestCase):
                         <cite>Système de Design de l&#x27;État</cite>
                     </li>
                     <li>Detail sans lien</li>
-                    <li><a target="_blank" rel="noopener noreferrer" href="https://template.incubateur.net/">Detail avec lien</a></li>
+                    <li><a target="_blank" rel="noopener noreferrer" href="https://template.incubateur.net/">Detail avec lien <span class="sr-only">Ouvre une nouvelle fenêtre</span></a></li>
                     </ul>
                     <div class="fr-quote__image">
                     <img src="https://via.placeholder.com/150x150" class="fr-responsive-img" alt="" />
