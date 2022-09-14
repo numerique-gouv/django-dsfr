@@ -10,7 +10,7 @@
           </li>
           {% for detail in self.details %}
             {% if detail.link %}
-              <li><a target="_blank" rel="noopener noreferrer" href="{{ detail.link }}">{{ detail.text }}</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" href="{{ detail.link }}">{{ detail.text }} <span class="sr-only">Ouvre une nouvelle fenêtre</span></a></li>
             {% else %}
               <li>{{ detail.text }}</li>
             {% endif %}

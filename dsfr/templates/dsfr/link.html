@@ -3,5 +3,5 @@
   href="{{ self.url }}"
   {% if self.is_external %} target="_blank" rel="noopener noreferrer"{% endif %}
 >
-  {{ self.label }}
+  {{ self.label }}{% if self.is_external %} <span class="sr-only">Ouvre une nouvelle fenêtre</span>{% endif %}
 </a>
