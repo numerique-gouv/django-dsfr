@@ -451,7 +451,7 @@ class DsfrLinkTagTest(SimpleTestCase):
             href="http://example.com"
             target="_blank" rel="noopener noreferrer"
             >
-            Label of the link item <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+              Label of the link item <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
             </a>
             """,
             rendered_template,
