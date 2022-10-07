@@ -24,7 +24,10 @@ class DsfrBaseForm(forms.Form):
             If a class is already set, we don't force the DSFR-specific classes.
             """
             if "class" not in visible.field.widget.attrs:
-                if type(visible.field.widget) in [forms.widgets.Select, forms.widgets.SelectMultiple]:
+                if type(visible.field.widget) in [
+                    forms.widgets.Select,
+                    forms.widgets.SelectMultiple,
+                ]:
                     visible.field.widget.attrs["class"] = "fr-select"
                     visible.field.widget.group_class = "fr-select-group"
                 elif type(visible.field.widget) == forms.widgets.RadioSelect:
@@ -33,3 +36,9 @@ class DsfrBaseForm(forms.Form):
                     visible.field.widget.attrs["dsfr"] = "dsfr"
                 elif type(visible.field.widget) not in self.WIDGETS_NO_FR_INPUT:
                     visible.field.widget.attrs["class"] = "fr-input"
+
+        # If there are fields in error, set the focus on the first one of them
+        errorList = list(self.errors)
+        for item in errorList:
+            self.fields[item].widget.attrs.update({"autofocus": ""})
+            break
