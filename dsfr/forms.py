@@ -36,9 +36,3 @@ class DsfrBaseForm(forms.Form):
                     visible.field.widget.attrs["dsfr"] = "dsfr"
                 elif type(visible.field.widget) not in self.WIDGETS_NO_FR_INPUT:
                     visible.field.widget.attrs["class"] = "fr-input"
-
-        # If there are fields in error, set the focus on the first one of them
-        errorList = list(self.errors)
-        for item in errorList:
-            self.fields[item].widget.attrs.update({"autofocus": ""})
-            break
