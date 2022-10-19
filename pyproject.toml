@@ -3,7 +3,7 @@ authors = ["Sylvain Boissel <sylvain.boissel@beta.gouv.fr>"]
 description = "Integrate the French government Design System into a Django app"
 license = "MIT"
 name = "django-dsfr"
-version = "0.9.5"
+version = "0.10.0"
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Environment :: Web Environment",
@@ -37,7 +37,7 @@ python = "^3.8"
 requests = "^2.26.0"
 django-widget-tweaks = "^1.4.12"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 coverage = "^5.5"
 django-distill = "^2.9.0"
 docutils = "^0.17.1"
