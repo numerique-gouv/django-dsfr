@@ -37,7 +37,7 @@ python = "^3.8"
 requests = "^2.26.0"
 django-widget-tweaks = "^1.4.12"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 coverage = "^5.5"
 django-distill = "^2.9.0"
 docutils = "^0.17.1"
