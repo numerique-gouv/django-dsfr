@@ -25,7 +25,9 @@
       <h1> {{ title }} </h1>
 
       {% if doc_url %}
+      <p>
         {% dsfr_link url=doc_url label="Voir la page de documentation du composant sur le Système de Design de l’État" is_external=True extra_classes="fr-link--lg" %}
+      </p>
       {% endif %}
 
       <h2>Documentation du tag</h2>
