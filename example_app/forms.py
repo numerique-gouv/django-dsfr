@@ -50,7 +50,7 @@ class ExampleForm(DsfrBaseForm):
         required=False,
         choices=[(1, "Option 1"), (2, "Option 2"), (3, "Option 3")],
     )
-    
+
     sample_multiple_select = forms.MultipleChoiceField(
         label="Liste déroulante à choix multiples",
         required=False,
@@ -85,3 +85,7 @@ class ExampleForm(DsfrBaseForm):
 
         if sample_number < 0:
             raise forms.ValidationError("Merci d’entrer un nombre positif")
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.set_autofocus_on_first_error()
