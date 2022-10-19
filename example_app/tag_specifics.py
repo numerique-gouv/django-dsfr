@@ -8,7 +8,7 @@ IMPLEMENTED_TAGS = {
                 "content": "<p><b>Bold</b> and <em>emphatic</em> Example content</p>",
             }
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/312082509/Accord+on+-+Accordion",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/accordeon",
     },
     "alert": {
         "title": "Alertes (alerts)",
@@ -35,7 +35,7 @@ IMPLEMENTED_TAGS = {
                 "heading_tag": "h3",
             },
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/736362500/Alertes+-+Alerts",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/alerte",
     },
     "badge": {
         "title": "Badge",
@@ -57,9 +57,12 @@ IMPLEMENTED_TAGS = {
                 "extra_classes": "fr-badge--success",
             },
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/851869737/Badges",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/badge",
     },
-    "breadcrumb": {"title": "Fil d’Ariane (breadcrumb)"},
+    "breadcrumb": {
+        "title": "Fil d’Ariane (breadcrumb)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/fil-d-ariane",
+    },
     "button": {
         "title": "Boutons (buttons)",
         "sample_data": [
@@ -68,7 +71,7 @@ IMPLEMENTED_TAGS = {
                 "onclick": "alert('button doing stuff')",
             }
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217284660/Boutons+-+Buttons",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton",
     },
     "callout": {
         "title": "Mise en avant (callout)",
@@ -94,7 +97,7 @@ IMPLEMENTED_TAGS = {
                 },
             },
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331196/Mise+en+avant+-+Call-out",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-avant",
     },
     "card": {
         "title": "Carte (card)",
@@ -248,9 +251,12 @@ IMPLEMENTED_TAGS = {
                 },
             },
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331445/Carte+-+Card",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte",
     },
-    "favicon": {"title": "Icône de favoris (favicon)"},
+    "favicon": {
+        "title": "Icône de favoris (favicon)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/icones-de-favoris",
+    },
     "highlight": {
         "title": "Mise en exergue (highlight)",
         "sample_data": [
@@ -259,7 +265,7 @@ IMPLEMENTED_TAGS = {
                 "size_class": "fr-text--sm",
             }
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019199/Mise+en+exergue+-+Highlight",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-exergue",
     },
     "input": {
         "title": "Champs de saisie (input)",
@@ -280,7 +286,7 @@ IMPLEMENTED_TAGS = {
                 "max": "2021-09-23",
             },
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217088099/Champs+de+saisie+-+Input",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/champ-de-saisie",
     },
     "link": {
         "title": "Lien (link)",
@@ -292,11 +298,11 @@ IMPLEMENTED_TAGS = {
                 "extra_classes": "fr-link--lg",
             }
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217284725/Liens+-+Links",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens",
     },
     "pagination": {
         "title": "Pagination (pagination)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223051980/Pagination+-+Pagination",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pagination",
     },
     "quote": {
         "title": "Citation (quote)",
@@ -316,7 +322,7 @@ IMPLEMENTED_TAGS = {
                 "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
             }
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/771358744/Citation+-+Quote",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/citation",
     },
     "select": {
         "title": "Listes déroulantes (selects)",
@@ -336,7 +342,7 @@ IMPLEMENTED_TAGS = {
                 ],
             }
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019306/Liste+d+roulante+-+Select",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liste-deroulante",
     },
     "sidemenu": {
         "title": "Menu latéral (sidemenu)",
@@ -381,7 +387,7 @@ IMPLEMENTED_TAGS = {
                 ],
             }
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/258998801/Menu+lat+ral+-+Side+menu",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/menu-lateral",
     },
     "skiplinks": {
         "title": "Liens d’évitement (skiplinks)",
@@ -391,7 +397,7 @@ IMPLEMENTED_TAGS = {
                 {"link": "#navigation-header", "label": "Menu"},
             ]
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/260014417/Liens+d+vitement+-+Skiplinks",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens-d-evitement",
     },
     "summary": {
         "title": "Sommaire (summary)",
@@ -401,7 +407,7 @@ IMPLEMENTED_TAGS = {
                 {"link": "link_2", "label": "Second item title"},
             ]
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/262898307/Sommaire+-+Summary",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/sommaire",
     },
     "table": {
         "title": "Tableau (table)",
@@ -412,7 +418,7 @@ IMPLEMENTED_TAGS = {
                 "content": [["a", "b", "c"], ["d", "e", "f"]],
             }
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/312016971/Tableau+-+Table",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tableau",
     },
     "tag": {
         "title": "Tag (tag)",
@@ -443,11 +449,11 @@ IMPLEMENTED_TAGS = {
                 "extra_classes": "fr-tag--green-emeraude",
             },
         ],
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/310706305/Tag",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tag",
     },
     "theme_modale": {
-        "title": "Modale de sélection du thème",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/579928166/Param+tres+d+affichage+-+Switch+theme",
+        "title": "Paramètres d'affichage (display)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/parametres-d-affichage",
     },
     "tile": {
         "title": "Tuile (tile)",
@@ -458,6 +464,7 @@ IMPLEMENTED_TAGS = {
                 "image_path": "/django-dsfr/static/img/placeholder.1x1.svg",
             }
         ],
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tuile",
     },
 }
 
@@ -523,75 +530,75 @@ ALL_IMPLEMENTED_TAGS = dict(sorted(unsorted_implemented_tags.items()))
 NOT_YET_IMPLEMENTED_TAGS = {
     "file_upload": {
         "title": "Ajout de fichier (file upload)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/864190467/Ajout+de+fichier+-+File+upload",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
     },
     "notice": {
         "title": "Bandeau d’information importante (notice)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/992903190/Bandeau+d+information+importante",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bandeau-d-information-importante",
     },
     "search_bar": {
         "title": "Barre de recherche (search bar)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217186376/Barre+de+recherche+-+Search+bar",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",
     },
     "franceconnect": {
         "title": "Bouton FranceConnect",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/967868417/Bouton+FranceConnect",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-franceconnect",
     },
     "radio": {
         "title": "Bouton radio (radio)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217088553/Boutons+radio+-+Radio+button",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio",
     },
     "radio_rich": {
         "title": "Bouton radio riche (radio_rich)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/368935129/Boutons+radio+riches+-+Radio+buttons+extended",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio-riches",
     },
     "checkbox": {
         "title": "Case à cocher (checkbox)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217251933/Case+cocher+-+Checkbox",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher",
     },
     "responsive_medias": {
         "title": "Contenu média (responsive_medias)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019554/Contenu+m+dias+-+Responsive+medias",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias",
     },
     "consent": {
         "title": "Gestionnaire de consentement (consent)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/609189956/Gestionnaire+de+consentement+-+Consent+banner",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/gestionnaire-de-consentement",
     },
     "stepper": {
         "title": "Indicateur d’étapes",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/1010860097/Indicateur+d+tapes",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/indicateur-d-etape",
     },
     "toggle": {
         "title": "Interrupteur (toggle)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/368935138/Interrupteur+-+Toggle+switch",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur",
     },
     "newsletter_follow": {
         "title": "Lettre d’information et réseaux sociaux (newsletter & follow)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/779747332/Lettre+d+information+et+r+seaux+sociaux+-+Newsletter+Follow+us",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lettre-d-info-et-reseaux-sociaux",
     },
     "modal": {
         "title": "Modale (modal)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/476610770/Modale+-+Modal",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/modale",
     },
     "navigation": {
         "title": "Navigation principale (navigation)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222789853/Navigation+principale+-+Main+navigation",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale",
     },
     "tab": {
         "title": "Onglet (tab)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/367985267/Onglets+-+Tabs",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/onglets",
     },
     "share": {
         "title": "Partage (share)",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/771555355/Partage+-+Share",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/partage",
     },
     "translate": {
         "title": "Sélecteur de langue",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/1034158081/S+lecteur+de+langues",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/selecteur-de-langue",
     },
     "download": {
         "title": "Téléchargement de fichier",
-        "doc_url": "https://gouvfr.atlassian.net/wiki/spaces/DB/pages/980025345/T+l+chargement+de+fichier",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/telechargement-de-fichier",
     },
 }
 
