@@ -1,7 +1,9 @@
-from dsfr.templatetags.dsfr_tags import concatenate, hyphenate
 from django.test import SimpleTestCase
 from django.template import Context, Template
 from unittest.mock import MagicMock
+
+from dsfr.constants import INTEGRITY_CSS, INTEGRITY_JS_MODULE, INTEGRITY_JS_NOMODULE
+from dsfr.templatetags.dsfr_tags import concatenate, hyphenate
 
 
 class DsfrCssTagTest(SimpleTestCase):
@@ -10,7 +12,7 @@ class DsfrCssTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_css %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            '<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css">',
+            f'<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"  integrity="{ INTEGRITY_CSS }">',
             rendered_template,
         )
 
@@ -21,9 +23,25 @@ class DsfrJsTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_js %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """
-            <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"></script>
-            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"></script>
+            f"""
+            <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{ INTEGRITY_JS_MODULE }"></script>
+            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{ INTEGRITY_JS_NOMODULE }"></script>
+            """,
+            rendered_template,
+        )
+
+
+class DsfrJsTagWithNonceTest(SimpleTestCase):
+    def test_js_tag_rendered(self):
+        context = Context()
+        template_to_render = Template(
+            "{% load dsfr_tags %} {% dsfr_js nonce='random-nonce' %}"
+        )
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            f"""
+            <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{ INTEGRITY_JS_MODULE }" nonce="random-nonce"></script>
+            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{ INTEGRITY_JS_NOMODULE }" nonce="random-nonce"></script>
             """,
             rendered_template,
         )
