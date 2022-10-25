@@ -38,7 +38,7 @@
 
     {% include "example_app/blocks/footer.html" %}
 
-  {% dsfr_js %}
+  {% dsfr_js nonce=request.csp_nonce %}
   {% block extra_js %}{% endblock extra_js %}
 </body>
 

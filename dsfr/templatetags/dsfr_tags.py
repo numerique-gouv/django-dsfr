@@ -1,11 +1,18 @@
+from django import template
+from django.core.paginator import Page
+from django.template.context import Context
+
+from dsfr.constants import (
+    INTEGRITY_CSS,
+    INTEGRITY_CSS_ICONS,
+    INTEGRITY_JS_MODULE,
+    INTEGRITY_JS_NOMODULE,
+)
 from dsfr.utils import (
     find_active_menu_items,
     generate_random_id,
     parse_tag_args,
 )
-from django import template
-from django.core.paginator import Page
-from django.template.context import Context
 
 register = template.Library()
 """
@@ -16,7 +23,7 @@ Tags used in the "DSFR" templates.
 
 
 @register.inclusion_tag("dsfr/global_css.html")
-def dsfr_css() -> None:
+def dsfr_css() -> dict:
     """
     Returns the HTML for the CSS header tags for DSFR
 
@@ -25,11 +32,15 @@ def dsfr_css() -> None:
     **Usage**::
         {% dsfr_css %}
     """
-    return None
+    tag_data = {}
+    tag_data["INTEGRITY_CSS"] = INTEGRITY_CSS
+    tag_data["INTEGRITY_CSS_ICONS"] = INTEGRITY_CSS_ICONS
+
+    return {"self": tag_data}
 
 
-@register.inclusion_tag("dsfr/global_js.html")
-def dsfr_js() -> None:
+@register.inclusion_tag("dsfr/global_js.html", takes_context=True)
+def dsfr_js(context, *args, **kwargs) -> dict:
     """
     Returns the HTML for the JS body tags for DSFR
 
@@ -38,7 +49,16 @@ def dsfr_js() -> None:
     **Usage**::
         {% dsfr_js %}
     """
-    return None
+
+    allowed_keys = [
+        "nonce",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    tag_data["INTEGRITY_JS_MODULE"] = INTEGRITY_JS_MODULE
+    tag_data["INTEGRITY_JS_NOMODULE"] = INTEGRITY_JS_NOMODULE
+
+    return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/favicon.html")
