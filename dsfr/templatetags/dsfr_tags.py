@@ -5,6 +5,10 @@ from django.template.context import Context
 from dsfr.constants import (
     INTEGRITY_CSS,
     INTEGRITY_CSS_ICONS,
+    INTEGRITY_FAVICON_APPLE,
+    INTEGRITY_FAVICON_ICO,
+    INTEGRITY_FAVICON_MANIFEST,
+    INTEGRITY_FAVICON_SVG,
     INTEGRITY_JS_MODULE,
     INTEGRITY_JS_NOMODULE,
 )
@@ -62,7 +66,7 @@ def dsfr_js(context, *args, **kwargs) -> dict:
 
 
 @register.inclusion_tag("dsfr/favicon.html")
-def dsfr_favicon() -> None:
+def dsfr_favicon() -> dict:
     """
     Returns the HTML for the CSS header tags for the DSFR "Marianne" Favicon
 
@@ -71,7 +75,14 @@ def dsfr_favicon() -> None:
     **Usage**::
         {% dsfr_favicon %}
     """
-    return None
+
+    tag_data = {}
+    tag_data["INTEGRITY_FAVICON_APPLE"] = INTEGRITY_FAVICON_APPLE
+    tag_data["INTEGRITY_FAVICON_SVG"] = INTEGRITY_FAVICON_SVG
+    tag_data["INTEGRITY_FAVICON_ICO"] = INTEGRITY_FAVICON_ICO
+    tag_data["INTEGRITY_FAVICON_MANIFEST"] = INTEGRITY_FAVICON_MANIFEST
+
+    return {"self": tag_data}
 
 
 @register.inclusion_tag("dsfr/form_snippet.html", takes_context=True)
