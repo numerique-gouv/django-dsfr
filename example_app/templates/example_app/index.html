@@ -2,7 +2,7 @@
 {% load static dsfr_tags %}
 
 {% block extra_css %}
-<style>
+<style nonce="{{ request.csp_nonce }}">
 .code_sample {
   background-color: var(--g300);
   padding: 1rem;

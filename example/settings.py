@@ -140,9 +140,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Content security policies
 CSP_DEFAULT_SRC = ("'self'",)
-CSP_SCRIPT_SRC = ("'self'", "'unsafe-eval'")
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-eval'", "'unsafe-inline'")
 CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
 CSP_OBJECT_SRC = ("'none'",)
 CSP_IMG_SRC = ("'self'", "data:")
-
-CSP_INCLUDE_NONCE_IN = ["script-src"]
