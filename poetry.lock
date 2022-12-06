@@ -209,6 +209,17 @@ django = "*"
 requests = "*"
 
 [[package]]
+name = "django-extensions"
+version = "3.2.1"
+description = "Extensions for Django"
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+Django = ">=3.2"
+
+[[package]]
 name = "django-widget-tweaks"
 version = "1.4.12"
 description = "Tweak the form field rendering in templates, not in python-level form definitions."
@@ -711,7 +722,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "5490b6a98296ae283cc582eb5dc335552f49f6ef68438abe27371a015841a8e5"
+content-hash = "cf46e29566d383b733ef6926c8e6ab876dda30262319ab96c2e4fe738324972d"
 
 [metadata.files]
 asgiref = [
@@ -930,6 +941,10 @@ django-csp = [
 ]
 django-distill = [
     {file = "django-distill-2.10.2.tar.gz", hash = "sha256:e14e138db240c21673dcc417272cd7af0a11396d7b083beeee1a813831830347"},
+]
+django-extensions = [
+    {file = "django-extensions-3.2.1.tar.gz", hash = "sha256:2a4f4d757be2563cd1ff7cfdf2e57468f5f931cc88b23cf82ca75717aae504a4"},
+    {file = "django_extensions-3.2.1-py3-none-any.whl", hash = "sha256:421464be390289513f86cb5e18eb43e5dc1de8b4c27ba9faa3b91261b0d67e09"},
 ]
 django-widget-tweaks = [
     {file = "django-widget-tweaks-1.4.12.tar.gz", hash = "sha256:9bfc5c705684754a83cc81da328b39ad1b80f32bd0f4340e2a810cbab4b0c00e"},
