@@ -25,4 +25,4 @@ Afin d’utiliser le composant `select`, il est nécessaire d’ajouter les fich
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019306/Liste+d+roulante+-+Select) sur le module Liste déroulante
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liste-deroulante) sur le module Liste déroulante

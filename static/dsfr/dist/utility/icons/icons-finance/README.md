@@ -23,4 +23,4 @@ Afin d’utiliser le composant `icons-finance`, il est nécessaire d’ajouter l
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331396/Ic+nes+-+Icons#Finance) sur le module Icônes Finance
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/icones) sur le module Icônes Finance

@@ -6,7 +6,8 @@ Les médias désignent vos contenus photos et vidéos. Lorsqu’ils sont intégr
 ```shell
 content
 └─ core
-└─ button
+└─ link
+└─ transcription
 ```
 
 ## Utilisation
@@ -15,7 +16,10 @@ Afin d’utiliser le composant `content`, il est nécessaire d’ajouter les fic
 <html>
   <head>
     <link href="css/core/core.min.css" rel="stylesheet">
+    <link href="css/link/link.min.css" rel="stylesheet">
     <link href="css/button/button.min.css" rel="stylesheet">
+    <link href="css/modal/modal.min.css" rel="stylesheet">
+    <link href="css/transcription/transcription.min.css" rel="stylesheet">
     <link href="css/content/content.min.css" rel="stylesheet">
   </head>
   <body>
@@ -25,4 +29,4 @@ Afin d’utiliser le composant `content`, il est nécessaire d’ajouter les fic
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019554/M+dias+int+gr+s+au+contenu+-+Responsive+medias) sur le module Contenu média
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias) sur le module Contenu média

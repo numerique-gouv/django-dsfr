@@ -28,4 +28,4 @@ Afin d’utiliser le composant `sidemenu`, il est nécessaire d’ajouter les fi
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/258998801/Menu+lat+ral+-+Side+menu) sur le module Menu latéral
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/menu-lateral) sur le module Menu latéral

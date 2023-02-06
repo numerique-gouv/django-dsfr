@@ -25,6 +25,6 @@ Afin d’utiliser le composant `radio`, il est nécessaire d’ajouter les fichi
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217088553/Boutons+radio+-+Radio+button) sur le module Bouton radio
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio) sur le module Bouton radio
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/368935129/Bouton+radio+riche+-+radio+button+extended) sur le module Bouton radio riche
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio-riches) sur le module Bouton radio riche

@@ -28,4 +28,4 @@ Afin d’utiliser le composant `tag`, il est nécessaire d’ajouter les fichier
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/310706305/Tag) sur le module Tag
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tag) sur le module Tag

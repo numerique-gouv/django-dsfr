@@ -10,6 +10,7 @@ consent
 └─ form
 └─ radio
 └─ button
+└─ transcription
 └─ modal
 ```
 
@@ -24,6 +25,7 @@ Afin d’utiliser le composant `consent`, il est nécessaire d’ajouter les fic
     <link href="css/form/form.min.css" rel="stylesheet">
     <link href="css/radio/radio.min.css" rel="stylesheet">
     <link href="css/modal/modal.min.css" rel="stylesheet">
+    <link href="css/transcription/transcription.min.css" rel="stylesheet">
     <link href="css/consent/consent.min.css" rel="stylesheet">
   </head>
   <body>
@@ -38,4 +40,4 @@ Afin d’utiliser le composant `consent`, il est nécessaire d’ajouter les fic
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/609189956/) sur le module Gestionnaire de consentement
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/gestionnaire-de-consentement) sur le module Gestionnaire de consentement

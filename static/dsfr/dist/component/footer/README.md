@@ -27,4 +27,4 @@ Afin d’utiliser le composant `footer`, il est nécessaire d’ajouter les fich
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331413/Pied+de+page+-+Footer) sur le module Pied de page
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pied-de-page) sur le module Pied de page

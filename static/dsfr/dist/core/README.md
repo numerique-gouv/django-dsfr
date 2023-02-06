@@ -46,12 +46,12 @@ Afin d’utiliser le composant `core`, il est nécessaire d’ajouter les fichie
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019527/Typographie+-+Typography) sur le module Typographie
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-identite-de-l-etat/typographie) sur le module Typographie
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331396/Ic+nes+-+Icons) sur le module Icônes
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/icones) sur le module Icônes
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/577930274/Ic+nes+de+favoris+-+Favicons) sur le module Icônes de favoris - Favicon
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/icones-de-favoris) sur le module Icônes de favoris - Favicon
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019554/M+dias+int+gr+s+au+contenu+-+Responsive+medias) sur le module Médias fondamentaux
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias) sur le module Médias fondamentaux
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331372/Grille+et+points+de+rupture+-+Grid+and+breakpoints) sur le module Grille
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/grille-et-points-de-rupture) sur le module Grille
