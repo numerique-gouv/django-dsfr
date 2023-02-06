@@ -28,4 +28,4 @@ Afin d’utiliser le composant `breadcrumb`, il est nécessaire d’ajouter les 
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019278/Fil+d+Ariane+-+Breadcrumb) sur le module Fil d'Ariane
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/fil-d-ariane) sur le module Fil d'Ariane

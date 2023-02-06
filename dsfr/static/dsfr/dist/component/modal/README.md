@@ -32,4 +32,4 @@ Afin d’utiliser le composant `modal`, il est nécessaire d’ajouter les fichi
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/476610770/Modale+-+Modal) sur le module Modale
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/modale) sur le module Modale

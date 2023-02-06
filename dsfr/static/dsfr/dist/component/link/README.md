@@ -23,4 +23,4 @@ Afin d’utiliser le composant `link`, il est nécessaire d’ajouter les fichie
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217284725/Liens+-+Links) sur le module Lien
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens) sur le module Lien

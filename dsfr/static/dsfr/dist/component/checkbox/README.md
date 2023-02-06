@@ -25,4 +25,4 @@ Afin d’utiliser le composant `checkbox`, il est nécessaire d’ajouter les fi
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217251933/Case+cocher+-+Checkbox) sur le module Case à cocher
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher) sur le module Case à cocher

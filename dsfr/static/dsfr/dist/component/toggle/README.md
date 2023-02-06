@@ -30,4 +30,4 @@ Afin d’utiliser le composant `toggle`, il est nécessaire d’ajouter les fich
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/368935138/Interrupteur+-+Toggle+switch) sur le module Interrupteur
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur) sur le module Interrupteur

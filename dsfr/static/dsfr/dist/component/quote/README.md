@@ -23,4 +23,4 @@ Afin d’utiliser le composant `quote`, il est nécessaire d’ajouter les fichi
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/771358744/) sur le module Citation
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/citation) sur le module Citation

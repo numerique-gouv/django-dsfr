@@ -28,4 +28,4 @@ Afin d’utiliser le composant `accordion`, il est nécessaire d’ajouter les f
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/312082509/Accord+on+-+Accordion) sur le module Accordéon
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/accordeon) sur le module Accordéon
