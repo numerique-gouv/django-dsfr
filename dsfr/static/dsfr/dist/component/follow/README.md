@@ -28,4 +28,4 @@ Afin d’utiliser le composant `follow`, il est nécessaire d’ajouter les fich
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/779747332) sur le module Lettre d'information et Réseaux Sociaux
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lettre-d-info-et-reseaux-sociaux) sur le module Lettre d'information et Réseaux Sociaux

@@ -23,4 +23,4 @@ Afin d’utiliser le composant `tile`, il est nécessaire d’ajouter les fichie
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331438/Tuile+-+Tile) sur le module Tuile
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tuile) sur le module Tuile

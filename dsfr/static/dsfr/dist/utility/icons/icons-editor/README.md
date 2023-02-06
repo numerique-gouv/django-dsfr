@@ -23,4 +23,4 @@ Afin d’utiliser le composant `icons-editor`, il est nécessaire d’ajouter le
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331396/Ic+nes+-+Icons#Editor) sur le module Icônes Editor
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/icones) sur le module Icônes Editor

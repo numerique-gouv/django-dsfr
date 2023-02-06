@@ -33,4 +33,4 @@ Afin d’utiliser le composant `translate`, il est nécessaire d’ajouter les f
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/1034158081) sur le module Sélecteur de langue
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/selecteur-de-langue) sur le module Sélecteur de langue

@@ -28,4 +28,4 @@ Afin d’utiliser le composant `tab`, il est nécessaire d’ajouter les fichier
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/367985267/Onglets+-+Tabs) sur le module Onglets
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/onglets) sur le module Onglets

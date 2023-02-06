@@ -31,4 +31,4 @@ Afin d’utiliser le composant `card`, il est nécessaire d’ajouter les fichie
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222331445/Carte+-+Card) sur le module Carte
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte) sur le module Carte

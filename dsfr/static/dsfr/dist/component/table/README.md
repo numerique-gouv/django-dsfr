@@ -28,4 +28,4 @@ Afin d’utiliser le composant `table`, il est nécessaire d’ajouter les fichi
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/312016971/Tableau+-+Table) sur le module Tableaux
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tableau) sur le module Tableaux

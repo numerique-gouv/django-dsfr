@@ -1,7 +1,5 @@
 # input
 
-Les champs permettent à un utilisateur d'entrer du contenu et données.
-
 ## Dépendances
 ```shell
 input
@@ -24,7 +22,3 @@ Afin d’utiliser le composant `input`, il est nécessaire d’ajouter les fichi
   </body>
 </html>
 ```
-
-## Documentation
-
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217088099/Champs+de+saisie+-+Text+input) sur le module Champs de saisie

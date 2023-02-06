@@ -28,4 +28,4 @@ Afin d’utiliser le composant `button`, il est nécessaire d’ajouter les fich
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217284660/Boutons+-+Buttons) sur le module Bouton
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton) sur le module Bouton

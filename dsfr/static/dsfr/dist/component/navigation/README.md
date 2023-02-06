@@ -32,4 +32,4 @@ Afin d’utiliser le composant `navigation`, il est nécessaire d’ajouter les 
 
 ## Documentation
 
-Consulter [la documentation](https://gouvfr.atlassian.net/wiki/spaces/DB/pages/222789853/Navigation+principale+-+Main+navigation) sur le module Navigation principale
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale) sur le module Navigation principale
