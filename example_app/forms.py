@@ -4,9 +4,13 @@ from dsfr.forms import DsfrBaseForm
 
 class ExampleForm(DsfrBaseForm):
     # basic fields
-    user_name = forms.CharField(label="Votre nom", max_length=100)
+    user_name = forms.CharField(label="Nom d’utilisateur", max_length=100)
 
-    user_email = forms.EmailField(label="Votre courriel", required=False)
+    user_email = forms.EmailField(
+        label="Adresse électronique",
+        help_text="Format attendu : prenom.nom@domaine.fr",
+        required=False,
+    )
 
     password = forms.CharField(
         label="Mot de passe", required=False, widget=forms.PasswordInput

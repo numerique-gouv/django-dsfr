@@ -55,11 +55,12 @@ def parse_tag_args(args, kwargs, allowed_keys: list) -> dict:
     return tag_data
 
 
-def find_active_menu_items(menu: list, active_path: str) -> list:
+def find_active_menu_items(menu: list, active_path: str) -> tuple:
     """
     Utility function for the dsfr_sidemenu tag: recusively locates the current
     active page and its parent menus and sets them to active
     """
+    set_active = False
     for key, item in enumerate(menu):  # Level 1 items
         if "items" in item:
             item["items"], set_active = find_active_menu_items(
