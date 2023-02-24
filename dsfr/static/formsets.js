@@ -5,11 +5,14 @@ let container = document.querySelector(".formset-group");  // The formset contai
 let addButton = document.querySelector("#add-form");  // Button to add a new form
 let totalForms = document.querySelector('[id$="-TOTAL_FORMS"]');  // Total number of forms in formset.management
 
-let checkbox_remove = document.querySelector('[id$="-DELETE"]');  // Checkbox to remove the formset, not used because replaced with a deleting link
-if ( typeof checkbox_remove !== "undefined" ) {
-	let div_remove = checkbox_remove.parentElement.parentElement;
-	div_remove.remove();
+try {
+	let checkbox_remove = document.querySelector('[id$="-DELETE"]');  // Checkbox to remove the formset, not used because replaced with a deleting link
+	if ( typeof checkbox_remove !== "undefined" ) {
+		let div_remove = checkbox_remove.parentElement.parentElement;
+		div_remove.remove();
+	}
 }
+catch (TypeError) {}
 
 let firstForm = formsetGroup[0].cloneNode(true); // Clone the formset
 
