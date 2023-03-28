@@ -40,6 +40,7 @@ Django = ">3.2.5"
 python = "^3.8"
 requests = "^2.26.0"
 django-widget-tweaks = "^1.4.12"
+django-crispy-forms = "^2.0"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^5.5"
