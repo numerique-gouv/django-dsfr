@@ -1,5 +1,8 @@
 from django import forms
-from django.forms import ModelForm, inlineformset_factory  # /!\ In order to use formsets
+from django.forms import (
+    ModelForm,
+    inlineformset_factory,
+)  # /!\ In order to use formsets
 
 from dsfr.forms import DsfrBaseForm
 
@@ -7,7 +10,7 @@ from dsfr.forms import DsfrBaseForm
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Field
 
-from .models import Author, Book, Genre
+from example_app.models import Author, Book, Genre
 
 
 class ExampleForm(DsfrBaseForm):
@@ -108,16 +111,20 @@ class AuthorCreateForm(ModelForm):
         model = Author
         exclude = []
         widgets = {
-            'first_name': forms.TextInput(),
-            'last_name': forms.TextInput(),
-            'birth_date': forms.DateInput(attrs={'type':'date',}),
+            "first_name": forms.TextInput(),
+            "last_name": forms.TextInput(),
+            "birth_date": forms.DateInput(
+                attrs={
+                    "type": "date",
+                }
+            ),
         }
 
 
 # If you need to define help_text for one radio button or checkbox in particular, you can do it in a dict {'label':...., 'help_text':....}
-BOOK_FORMAT=(
-    ('PAPER', 'Papier'),
-    ('NUM', {'label':'Numérique', 'help_text':'Livre électronique'}),
+BOOK_FORMAT = (
+    ("PAPER", "Papier"),
+    ("NUM", {"label": "Numérique", "help_text": "Livre électronique"}),
 )
 
 # /!\ We want to show individual help_texts under certain checkbox
@@ -126,30 +133,37 @@ BOOK_FORMAT=(
 # And instead of a queryset, MultipleChoiceField requires a list of choices
 # We have to format our queryset into a list of choices including help_texts
 # In this example, the help_text for each object is the field object.help_text in database
-GENRE=list()
+GENRE = list()
 for genre in Genre.objects.all():
     if not genre.help_text:
-        to_add = (genre.pk, genre.designation)  # If no help_text, a tuple (pk, designation) as in BOOK_FORMAT
+        to_add = (
+            genre.pk,
+            genre.designation,
+        )  # If no help_text, a tuple (pk, designation) as in BOOK_FORMAT
     else:
-        to_add = (genre.pk, {'label':genre.designation, 'help_text':genre.help_text})  # If help_text, a tuple (pk, {'label':designation, 'help_text':help_text}) as in BOOK_FORMAT
+        to_add = (
+            genre.pk,
+            {"label": genre.designation, "help_text": genre.help_text},
+        )  # If help_text, a tuple (pk, {'label':designation, 'help_text':help_text}) as in BOOK_FORMAT
     GENRE.append(to_add)
+
 
 class BookCreateForm(ModelForm):
     class Meta:
         model = Book
-        exclude=[]
+        exclude = []
         widgets = {
-            'title': forms.TextInput(),
-            'number_of_pages': forms.NumberInput(),
+            "title": forms.TextInput(),
+            "number_of_pages": forms.NumberInput(),
         }
 
     # /!\ You have to redefine each radio buttons or checkboxes field like so :
     book_format = forms.ChoiceField(
         label="Format",
         choices=BOOK_FORMAT,  # If the choices are in a constant
-        widget=forms.RadioSelect(attrs={'class':'fr-fieldset--inline'}),
+        widget=forms.RadioSelect(attrs={"class": "fr-fieldset--inline"}),
     )
-    
+
     # /!\ Genre is a model, but it requires to format the list of object before passing to the field
     # Using a ModelMultipleChoiceField won't show individual help_texts under each checkbox
     # I declared a variable GENRE in order to show individual help_texts
@@ -158,9 +172,9 @@ class BookCreateForm(ModelForm):
         choices=GENRE,
         widget=forms.CheckboxSelectMultiple(),
         required=False,
-        help_text = 'Veuillez choisir le ou les genres associés au livre',
+        help_text="Veuillez choisir le ou les genres associés au livre",
     )
-    
+
     def clean(self):
         cleaned_data = super().clean()
         return cleaned_data
@@ -170,13 +184,15 @@ class BookCreateForm(ModelForm):
 class BookCreateFormHelper(FormHelper):
     def __init__(self, *args, **kwargs):
         super(BookCreateFormHelper, self).__init__(*args, **kwargs)
-        #self.form_tag = False
+        # self.form_tag = False
         self.layout = Layout(
-            Fieldset("Ajouter un livre", 
-                     Field('title'),
-                     Field('number_of_pages'),
-                     Field('book_format'),
-                     Field('genre'),),
+            Fieldset(
+                "Ajouter un livre",
+                Field("title"),
+                Field("number_of_pages"),
+                Field("book_format"),
+                Field("genre"),
+            ),
         )
 
 
