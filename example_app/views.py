@@ -1,14 +1,14 @@
 from django.core.paginator import Paginator
-from django.http import HttpResponseRedirect
+
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.http import require_safe
 
 from dsfr.utils import generate_summary_items
 
-from .forms import ExampleForm
+from example_app.forms import ExampleForm
 
-from .tag_specifics import (
+from example_app.tag_specifics import (
     ALL_IMPLEMENTED_TAGS,
     IMPLEMENTED_TAGS,
     EXTRA_TAGS,
@@ -16,14 +16,13 @@ from .tag_specifics import (
 )
 
 # Used by the module = getattr(globals()["dsfr_tags"], f"dsfr_{tag_name}") line
-
 from dsfr.templatetags import dsfr_tags
 
 # /!\ In order to test formset
 from django.views.generic import CreateView
 from django.http import HttpResponse
-from .forms import AuthorCreateForm, BookCreateFormSet, BookCreateFormHelper
-from .models import Author, Book
+from example_app.forms import AuthorCreateForm, BookCreateFormSet, BookCreateFormHelper
+from example_app.models import Author
 
 
 def init_payload(page_title: str, links: list = []):
@@ -300,7 +299,7 @@ class AuthorCreateView(CreateView):
         )  # /!\ Before saving formset, link it to the object created with the main form
         formset.save()
 
-        return HttpResponse("Success !")
+        return HttpResponse(b"Success !")
 
     def form_invalid(self, form, formset):
         """

@@ -1,8 +1,6 @@
-from django.urls import path
-
 from django_distill import distill_path
 
-from . import views
+from example_app.views import index, tags_index, page_form, page_tag, AuthorCreateView
 from .tag_specifics import ALL_TAGS
 
 
@@ -12,28 +10,28 @@ def get_all_tags():
 
 
 urlpatterns = [
-    distill_path("", views.index, name="index", distill_file="django-dsfr/index.html"),
+    distill_path("", index, name="index", distill_file="django-dsfr/index.html"),
     distill_path(
         "tags/",
-        views.tags_index,
+        tags_index,
         name="tags_index",
         distill_file="django-dsfr/tags/index.html",
     ),
     distill_path(
         "form/",
-        views.page_form,
+        page_form,
         name="page_form",
         distill_file="django-dsfr/form/index.html",
     ),
     distill_path(
         "tags/<slug:tag_name>/",
-        views.page_tag,
+        page_tag,
         name="page_tag",
         distill_func=get_all_tags,
     ),
     distill_path(
         "form_formset/",
-        views.AuthorCreateView.as_view(),
+        AuthorCreateView.as_view(),
         name="form_formset",
         distill_file="django-dsfr/example-form.html",
     ),
