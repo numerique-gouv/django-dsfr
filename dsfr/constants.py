@@ -9,7 +9,7 @@ INTEGRITY_JS_MODULE = (
 )
 # dsfr/dist/dsfr/dsfr.nomodule.min.js
 INTEGRITY_JS_NOMODULE = (
-    "z+nnc/m3glran4qVg9/2tnMN5v0yvtoXgW4djyCn8npkBhm8uQ90QGYeQ7oqf7Bt"
+    "sha384-z+nnc/m3glran4qVg9/2tnMN5v0yvtoXgW4djyCn8npkBhm8uQ90QGYeQ7oqf7Bt"
 )
 
 #### CSS
