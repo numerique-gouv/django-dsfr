@@ -10,7 +10,8 @@ from dsfr.forms import DsfrBaseForm
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Field
 
-from example_app.models import Author, Book, Genre
+from example_app.models import Author, Book
+from example_app.utils import populate_genre_choices
 
 
 class ExampleForm(DsfrBaseForm):
@@ -151,26 +152,6 @@ BOOK_FORMAT = (
     ("NUM", {"label": "Numérique", "help_text": "Livre électronique"}),
 )
 
-# /!\ We want to show individual help_texts under certain checkbox
-# ModelMultipleChoiceField won't show individual help_text
-# So instead, we use MultipleChoiceField
-# And instead of a queryset, MultipleChoiceField requires a list of choices
-# We have to format our queryset into a list of choices including help_texts
-# In this example, the help_text for each object is the field object.help_text in database
-GENRE = list()
-for genre in Genre.objects.all():
-    if not genre.help_text:
-        to_add = (
-            genre.pk,
-            genre.designation,
-        )  # If no help_text, a tuple (pk, designation) as in BOOK_FORMAT
-    else:
-        to_add = (
-            genre.pk,
-            {"label": genre.designation, "help_text": genre.help_text},
-        )  # If help_text, a tuple (pk, {'label':designation, 'help_text':help_text}) as in BOOK_FORMAT
-    GENRE.append(to_add)
-
 
 class BookCreateForm(ModelForm):
     class Meta:
@@ -190,10 +171,10 @@ class BookCreateForm(ModelForm):
 
     # /!\ Genre is a model, but it requires to format the list of object before passing to the field
     # Using a ModelMultipleChoiceField won't show individual help_texts under each checkbox
-    # I declared a variable GENRE in order to show individual help_texts
+    # I declared a variable GENRES in order to show individual help_texts
     genre = forms.MultipleChoiceField(
         label="Genre",
-        choices=GENRE,
+        choices=populate_genre_choices,
         widget=forms.CheckboxSelectMultiple(),
         required=False,
         help_text="Veuillez choisir le ou les genres associés au livre",
