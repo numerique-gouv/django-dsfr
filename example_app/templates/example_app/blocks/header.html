@@ -1,16 +1,16 @@
 {% extends "dsfr/header.html" %}
 
 {% block service_title %}
-<a href="/" title="Accueil — {{ SITE_CONFIG.site_title }}">
-    <p class="fr-header__service-title">{{ SITE_CONFIG.site_title }}</p>
+<a href="/" title="Accueil — {{ SITE_CONFIG.site_title|default:"Django-DSFR" }}">
+    <p class="fr-header__service-title">{{ SITE_CONFIG.site_title|default:"Django-DSFR" }}</p>
 </a>
 {% endblock service_title %}
 
-{% block service_tagline %}{{ SITE_CONFIG.site_tagline }}{% endblock service_tagline %}
+{% block service_tagline %}{{ SITE_CONFIG.site_tagline|default:"Intégration du système de l’État pour les sites utilisant Django" }}{% endblock service_tagline %}
 
 {% block header_tools %}
 <li>
-    <button class="fr-btn--display fr-btn" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+    <button class="fr-btn--display fr-btn" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d’affichage</button>
 </li>
 {% endblock header_tools %}
 

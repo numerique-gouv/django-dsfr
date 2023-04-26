@@ -5,21 +5,21 @@
 #### JS
 # dsfr/dist/dsfr/dsfr.module.min.js
 INTEGRITY_JS_MODULE = (
-    "sha384-hsT8G3ewRLMSn+hcsZeqdjIsqjqMh/pD8TTc8egEcN4MpeNQDZ+7EqVXDW0zVfYm"
+    "sha384-I2h3dQPRm8wpUZxuuDoCO5k+q6jvFHVAcTkMeJJq/noEkqKDlj6TfbB/TRUgp0zO"
 )
 # dsfr/dist/dsfr/dsfr.nomodule.min.js
 INTEGRITY_JS_NOMODULE = (
-    "sha384-z+nnc/m3glran4qVg9/2tnMN5v0yvtoXgW4djyCn8npkBhm8uQ90QGYeQ7oqf7Bt"
+    "sha384-d+DDNW3pgRaE0MzYgb+MqZxgN/70LO9MiYA6q2Fc7ydJlu3jKx6MmI5EddVeYzl6"
 )
 
 #### CSS
 # dsfr/dist/dsfr/dsfr.min.css
 INTEGRITY_CSS = (
-    "sha384-7z0V109kCjLc5JiwfCaR+gM7rwAw8pWsrgISPTlaD3B77TwopmDN3DQ20n36NMB2"
+    "sha384-LtcfS1K2I3jMUhzjxpeUO3UUiin8SpxX5rODWf05CrGtS44FrX8oAYCPVaFbM10M"
 )
 # dsfr/dist/utility/icons/icons.min.css
 INTEGRITY_CSS_ICONS = (
-    "sha384-J7lCkOU9dOy1LLABqcy542lznn5TyxJnWuFXMse5v7POyQlh95Esaw7RtKwNAHIP"
+    "sha384-STqXIfO4sjaf/YUpwUezCvsCRtEmzt2vrpk5cixx+BPM6SWpOC6K8Bu5b9Svd3sV"
 )
 
 #### Favicon

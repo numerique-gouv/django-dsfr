@@ -399,6 +399,23 @@ IMPLEMENTED_TAGS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens-d-evitement",
     },
+    "stepper": {
+        "title": "Indicateur d’étapes (stepper)",
+        "sample_data": [
+            {
+                "current_step_id": "1",
+                "current_step_title": "Titre de l’étape en cours",
+                "next_step_title": "Titre de la prochaine étape",
+                "total_steps": "3",
+            },
+            {
+                "current_step_id": "4",
+                "current_step_title": "Titre de la dernière étape",
+                "total_steps": "4",
+            },
+        ],
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/indicateur-d-etapes",
+    },
     "summary": {
         "title": "Sommaire (summary)",
         "sample_data": [
@@ -564,10 +581,6 @@ NOT_YET_IMPLEMENTED_TAGS = {
         "title": "Gestionnaire de consentement (consent)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/gestionnaire-de-consentement",
     },
-    "stepper": {
-        "title": "Indicateur d’étapes",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/indicateur-d-etape",
-    },
     "toggle": {
         "title": "Interrupteur (toggle)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur",
@@ -583,10 +596,6 @@ NOT_YET_IMPLEMENTED_TAGS = {
     "navigation": {
         "title": "Navigation principale (navigation)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale",
-    },
-    "tab": {
-        "title": "Onglet (tab)",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/onglets",
     },
     "share": {
         "title": "Partage (share)",
@@ -611,6 +620,7 @@ WONT_BE_IMPLEMENTED = {
     "legacy": {"title": "Systèmes antérieurs (legacy)"},
     "logo": {"title": "Bloc marque (logo)"},
     "utilites": {"title": "Outil (utilities)"},
+    "tab": {"title": "Onglet (tab)"},
 }
 
 all_tags_unsorted = {
