@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-7z0V109kCjLc5JiwfCaR+gM7rwAw8pWsrgISPTlaD3B77TwopmDN3DQ20n36NMB2">
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-J7lCkOU9dOy1LLABqcy542lznn5TyxJnWuFXMse5v7POyQlh95Esaw7RtKwNAHIP">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-LtcfS1K2I3jMUhzjxpeUO3UUiin8SpxX5rODWf05CrGtS44FrX8oAYCPVaFbM10M">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-STqXIfO4sjaf/YUpwUezCvsCRtEmzt2vrpk5cixx+BPM6SWpOC6K8Bu5b9Svd3sV">
 
 <meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
   
@@ -17,11 +17,23 @@
 <link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.ico" type="image/x-icon" integrity="sha384-esZ1Wf54Wvb66vtrLBKzz2QEZciEIV9R+wc+w7C3e5mID8A1SgJpXXIc+3lY9YqP" /><!-- 32×32 -->
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
   
+<style>
+.example-textarea {
+  border: none; 
+  background-color: var(--g300);
+  padding: 1rem;
+}
+.code_sample {
+  background-color: var(--g300);
+  padding: 1rem;
+}
+</style>
+
 
   
   <title>
     
-      Non implémenté — Design Système de l’État
+      Indicateur d’étapes (stepper) — Design Système de l’État
     
   </title>
   
@@ -68,11 +80,11 @@
           </div>
           <div class="fr-header__service">
             
-<a href="/" title="Accueil — ">
-    <p class="fr-header__service-title"></p>
+<a href="/" title="Accueil — Django-DSFR">
+    <p class="fr-header__service-title">Django-DSFR</p>
 </a>
 
-            <p class="fr-header__service-tagline"></p>
+            <p class="fr-header__service-tagline">Intégration du système de l’État pour les sites utilisant Django</p>
           </div>
         </div>
         <div class="fr-header__tools">
@@ -80,7 +92,7 @@
             <ul class="fr-btns-group">
               
 <li>
-    <button class="fr-btn--display fr-btn" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+    <button class="fr-btn--display fr-btn" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d’affichage</button>
 </li>
 
             </ul>
@@ -180,7 +192,11 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Non implémenté</a>
+                <a class="fr-breadcrumb__link" href="/django-dsfr/tags/">Composants</a>
+            </li>
+            
+            <li>
+                <a class="fr-breadcrumb__link" aria-current="page">Indicateur d’étapes (stepper)</a>
             </li>
         </ol>
     </div>
@@ -188,21 +204,297 @@
 
       <main id="content" role="main">
         
-<h1> Non implémenté </h1>
+  <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
+  <!-- Menu -->
+    <div class="fr-col-12 fr-col-md-3">
+      
+<nav role="navigation" class="fr-sidemenu" aria-label="Menu latéral">
+  <div class="fr-sidemenu__inner">
+    <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
+    <div class="fr-collapse" id="fr-sidemenu-wrapper">
+      <div class="fr-sidemenu__title">Composants</div>
+      <ul class="fr-sidemenu__list">
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion/" target="_self" >accordion</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion_group/" target="_self" >accordion_group</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/alert/" target="_self" >alert</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/badge/" target="_self" >badge</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/badge_group/" target="_self" >badge_group</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/breadcrumb/" target="_self" >breadcrumb</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/button/" target="_self" >button</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/callout/" target="_self" >callout</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/card/" target="_self" >card</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/css/" target="_self" >css</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/favicon/" target="_self" >favicon</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/form/" target="_self" >form</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/form_field/" target="_self" >form_field</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/highlight/" target="_self" >highlight</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/input/" target="_self" >input</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/js/" target="_self" >js</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/link/" target="_self" >link</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/pagination/" target="_self" >pagination</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/quote/" target="_self" >quote</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/select/" target="_self" >select</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/sidemenu/" target="_self" >sidemenu</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/skiplinks/" target="_self" >skiplinks</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item fr-sidemenu__item--active">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/stepper/" target="_self"  aria-current="page">stepper</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/summary/" target="_self" >summary</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/table/" target="_self" >table</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/tag/" target="_self" >tag</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/theme_modale/" target="_self" >theme_modale</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/tile/" target="_self" >tile</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+    </div>
+    <div class="fr-col-12 fr-col-md-9 fr-py-2w">
+      <h1> Indicateur d’étapes (stepper) </h1>
 
+      
+      <p>
+        <a 
+  class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+  href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/indicateur-d-etapes"
+   target="_blank" rel="noopener noreferrer"
+>
+  Voir la page de documentation du composant sur le Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+</a>
+      </p>
+      
 
-<div class="fr-callout ">
+      <h2>Documentation du tag</h2>
+      <pre>
+      
+    Returns a stepper item. Takes a dict as parameter, with the following structure:
+
+    data_dict = {
+        &quot;current_step_id&quot;: &quot;Number of current step&quot;,
+        &quot;current_step_title&quot;: &quot;Title of current step&quot;,
+        &quot;next_step_title&quot;: &quot;(Optional) Title of next step&quot;,
+        &quot;total_steps&quot;: &quot;Total number of steps&quot;,
+    }
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**::
+        dsfr_stepper
+    **Usage**::
+        {% dsfr_stepper data_dict %}
+    
+      </pre>
+
+      
+        <h2>Exemples</h2>
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ofjsomvcjdfdqiiq">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-ofjsomvcjdfdqiiq">
+        <pre class="code_sample">{'current_step_id': '1',
+ 'current_step_title': 'Titre de l’étape en cours',
+ 'next_step_title': 'Titre de la prochaine étape',
+ 'total_steps': '3'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            <div class="fr-stepper">
+  <h2 class="fr-stepper__title">
+    <span class="fr-stepper__state">Étape 1 sur 3</span>
+    Titre de l’étape en cours
+  </h2>
+  <div class="fr-stepper__steps" data-fr-current-step="1" data-fr-steps="3"></div>
   
-    <p class="fr-callout__title">
-      Non implémenté
+    <p class="fr-stepper__details">
+      <span class="fr-text--bold">Étape suivante :</span> Titre de la prochaine étape
     </p>
   
-  <p class="fr-callout__text">
-      Le contenu recherché n&#x27;est pas encore implémenté
-  </p>
+</div>
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fqfuwzqkyfwwsvel">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-fqfuwzqkyfwwsvel">
+        <pre class="code_sample">{'current_step_id': '4',
+ 'current_step_title': 'Titre de la dernière étape',
+ 'total_steps': '4'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            <div class="fr-stepper">
+  <h2 class="fr-stepper__title">
+    <span class="fr-stepper__state">Étape 4 sur 4</span>
+    Titre de la dernière étape
+  </h2>
+  <div class="fr-stepper__steps" data-fr-current-step="4" data-fr-steps="4"></div>
   
 </div>
-
+          
+        
+      
+    </div>
+  </div>
 <br />
 
       </main>
@@ -259,7 +551,7 @@
           </li>
         
   <li class="fr-footer__bottom-item">
-    <button class="fr-btn--display fr-btn" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+    <button class="fr-btn--display fr-btn" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d’affichage</button>
   </li>
 
       </ul>
@@ -276,8 +568,8 @@
 </footer>
 
   
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-hsT8G3ewRLMSn+hcsZeqdjIsqjqMh/pD8TTc8egEcN4MpeNQDZ+7EqVXDW0zVfYm" nonce="4dwAvlJbwtJqZkFyDWlSkw=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-z+nnc/m3glran4qVg9/2tnMN5v0yvtoXgW4djyCn8npkBhm8uQ90QGYeQ7oqf7Bt"  nonce="4dwAvlJbwtJqZkFyDWlSkw=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-I2h3dQPRm8wpUZxuuDoCO5k+q6jvFHVAcTkMeJJq/noEkqKDlj6TfbB/TRUgp0zO" nonce="ng3H0faCYWEZhaLRC/0SyA=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-d+DDNW3pgRaE0MzYgb+MqZxgN/70LO9MiYA6q2Fc7ydJlu3jKx6MmI5EddVeYzl6"  nonce="ng3H0faCYWEZhaLRC/0SyA=="></script>
   
 </body>
 
