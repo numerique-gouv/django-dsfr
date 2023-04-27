@@ -702,6 +702,36 @@ def dsfr_skiplinks(context: Context, items: list) -> dict:
     return {"self": {"items": items}}
 
 
+@register.inclusion_tag("dsfr/stepper.html")
+def dsfr_stepper(*args, **kwargs) -> dict:
+    """
+    Returns a stepper item. Takes a dict as parameter, with the following structure:
+
+    data_dict = {
+        "current_step_id": "Number of current step",
+        "current_step_title": "Title of current step",
+        "next_step_title": "(Optional) Title of next step",
+        "total_steps": "Total number of steps",
+    }
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**::
+        dsfr_stepper
+    **Usage**::
+        {% dsfr_stepper data_dict %}
+    """
+    allowed_keys = [
+        "current_step_id",
+        "current_step_title",
+        "next_step_title",
+        "total_steps",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    return {"self": tag_data}
+
+
 @register.inclusion_tag("dsfr/summary.html")
 def dsfr_summary(items: list) -> dict:
     """

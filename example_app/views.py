@@ -108,14 +108,14 @@ def page_tag(request, tag_name):
             )
 
         payload["side_menu"] = {"title": "Composants", "items": sidemenu_items}
-        return render(request, f"example_app/page_tag.html", payload)
+        return render(request, "example_app/page_tag.html", payload)
     else:
         payload = init_payload("Non implémenté")
         payload["not_yet"] = {
-            "text": "Le contenu recherché n'est pas encore implémenté",
+            "text": "Le contenu recherché n’est pas encore implémenté",
             "title": "Non implémenté",
         }
-        return render(request, f"example_app/not_yet.html", payload)
+        return render(request, "example_app/not_yet.html", payload)
 
 
 @require_safe

@@ -2,9 +2,26 @@
 {% load static dsfr_tags %}
 
 {% block content %}
-  <h1>Design System de l‘État</h1>
-  <div class="fr-grid-row">
-    <div class="fr-col-6">
+  <h1>Composants du système de design de l’État</h1>
+  <div class="fr-tabs">
+    <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
+        <li role="presentation">
+            <button id="tabpanel-implemented" class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="true" aria-controls="tabpanel-implemented-panel">
+              Composants implémentés
+            </button>
+        </li>
+        <li role="presentation">
+            <button id="tabpanel-notyetimplemented" class="fr-tabs__tab fr-icon-close-circle-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-notyetimplemented-panel">
+              Composants encore non implémentés
+            </button>
+        </li>
+        <li role="presentation">
+            <button id="tabpanel-extratags" class="fr-tabs__tab fr-icon-add-circle-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-extratags-panel">
+              Tags supplémentaires
+            </button>
+        </li>
+    </ul>
+    <div id="tabpanel-implemented-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tabpanel-implemented" tabindex="0">
       <h2>Composants implémentés</h2>
       <ul>
         {% for tag, data in implemented_tags.items %}
@@ -13,7 +30,18 @@
           </li>
         {% endfor %}
       </ul>
-
+    </div>
+    <div id="tabpanel-notyetimplemented-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-notyetimplemented" tabindex="0">
+      <h2>Composants encore non implémentés</h2>
+      <ul>
+        {% for tag, data in not_yet.items %}
+          <li class="fr-mb-1w">
+            <a href="{{ data.doc_url }}" target="_blank" rel="noopener">{{ data.title }} <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div id="tabpanel-extratags-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-extratags" tabindex="0">
       <h2>Tags supplémentaires</h2>
       <ul>
         {% for tag, data in extra_tags.items %}
@@ -26,19 +54,7 @@
       <h2>En-tête et pied de page</h2>
       <p>Les composants « En-tête (header) » et « Pied de page (footer) » sont actuellement gérés avec 
       des balises include ({% verbatim %} {% include "dsfr/header.html" %} et {% include "dsfr/footer.html" %}{% endverbatim %})
-      et non des tags.</p> 
-    </div>
-
-    <div class="fr-col-6">
-      <h2>Composants encore non implémentés</h2>
-      <ul>
-        {% for tag, data in not_yet.items %}
-          <li class="fr-mb-1w">
-            <a href="{{ data.doc_url }}" target="_blank" rel="noopener">{{ data.title }} <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
-          </li>
-        {% endfor %}
-      </ul>
+      et non des tags.</p>
     </div>
   </div>
-
 {% endblock %}
