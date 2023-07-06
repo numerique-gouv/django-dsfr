@@ -190,7 +190,7 @@
         
   <h1>Exemple de formulaire</h1>
   <form action="/django-dsfr/form/" method="post">
-      <input type="hidden" name="csrfmiddlewaretoken" value="3e4rnXCcUrrhf3Y8LoQHxAdmTCQpDmSGXUSzTJsWHALaS9UiV16hFVIKTX2IcMX8">
+      <input type="hidden" name="csrfmiddlewaretoken" value="11q2f9d26TXslU6T5ciupMnpW96bFqRq5DfuYytU0hZ1F4CiWfMVPgFYACwmDH7D">
       
     
 
@@ -220,7 +220,7 @@
     <span class="fr-hint-text">Format attendu : prenom.nom@domaine.fr</span>
 
     
-      <input type="email" name="user_email" class="fr-input" id="id_user_email">
+      <input type="email" name="user_email" maxlength="320" class="fr-input" id="id_user_email">
     
 
     
@@ -310,9 +310,7 @@
     
 
     
-      <div class="fr-input-wrap fr-icon-calendar-line">
-        <input type="date" name="sample_date" class="fr-input" id="id_sample_date">
-      </div>
+      <input type="date" name="sample_date" class="fr-input" id="id_sample_date">
     
 
     
@@ -323,8 +321,11 @@
     
 
 
-  <div class="fr-checkbox-group">
+  
+<div class="fr-checkbox-group">
+  
     <input type="checkbox" name="sample_boolean" id="id_sample_boolean">
+  
     
     <label for="id_sample_boolean">Cochez la case:</label>
     
@@ -386,15 +387,15 @@
 
 
   
-<div class="fr-form-group">
-  <fieldset class="fr-fieldset">
-    <legend class="fr-fieldset__legend fr-text--regular" id="radio-legend-id_sample_radio">
-      <label>Boutons radio:</label>
-      
-    </legend>
+<fieldset class="fr-fieldset" id="radio-id_sample_radio" aria-labelledby="id_sample_radio-legend">
+  <legend class="fr-fieldset__legend fr-text--regular" id="id_sample_radio-legend">
+    <label>Boutons radio:</label>
+    <span class="fr-hint-text">Le troisième choix renvoie une erreur s’il est sélectionné</span>
+  </legend>
 
-    <div class="fr-fieldset__content">
-      <div class="fr-radio-group">
+  <div class="fr-fieldset__content">
+      
+        <div class="fr-radio-group">
 <input type="radio" name="sample_radio" value="1" dsfr="dsfr" class="fr-radio-group" id="id_sample_radio_0">
 
 
@@ -433,11 +434,12 @@
 	</label>
 
 </div>
-    </div>
+      
+  </div>
 
-    
-  </fieldset>
-</div>
+  
+</fieldset>
+
 
 
 
@@ -445,14 +447,14 @@
 
 
   
-<div class="fr-form-group">
-  <fieldset class="fr-fieldset">
-    <legend class="fr-fieldset__legend fr-text--regular" id="checkboxes-legend-id_sample_checkbox">
-      <label>Cases à cocher:</label>
-      
-    </legend>
+<fieldset class="fr-fieldset" id="checkboxes-id_sample_checkbox" aria-labelledby="id_sample_checkbox-legend">
+  <legend class="fr-fieldset__legend fr-text--regular" id="id_sample_checkbox-legend">
+    <label>Cases à cocher:</label>
+    <span class="fr-hint-text">Le troisième choix renvoie une erreur s’il est sélectionné</span>
+  </legend>
 
-    <div class="fr-fieldset__content">
+  <div class="fr-fieldset__content">
+    
       <div class="fr-checkbox-group">
 <input type="checkbox" name="sample_checkbox" value="1" dsfr="dsfr" id="id_sample_checkbox_0">
 
@@ -492,12 +494,11 @@
 	</label>
 
 </div>
-    </div>
-
     
-  </fieldset>
-</div>
+  </div>
 
+  
+</fieldset>
 
 
     
@@ -633,8 +634,8 @@ null</textarea>
 </footer>
 
   
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-I2h3dQPRm8wpUZxuuDoCO5k+q6jvFHVAcTkMeJJq/noEkqKDlj6TfbB/TRUgp0zO" nonce="0KfV64dsnMTVwzgFQTEg+A=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-d+DDNW3pgRaE0MzYgb+MqZxgN/70LO9MiYA6q2Fc7ydJlu3jKx6MmI5EddVeYzl6"  nonce="0KfV64dsnMTVwzgFQTEg+A=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-I2h3dQPRm8wpUZxuuDoCO5k+q6jvFHVAcTkMeJJq/noEkqKDlj6TfbB/TRUgp0zO" nonce="I0aThQDO9Kju1gOxno2W5w=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-d+DDNW3pgRaE0MzYgb+MqZxgN/70LO9MiYA6q2Fc7ydJlu3jKx6MmI5EddVeYzl6"  nonce="I0aThQDO9Kju1gOxno2W5w=="></script>
   
 </body>
 
