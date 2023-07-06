@@ -65,13 +65,19 @@ class ExampleForm(DsfrBaseForm):
         label="Boutons radio",
         required=False,
         choices=[(1, "Premier choix"), (2, "Second choix"), (3, "Troisième choix")],
+        help_text="Le troisième choix renvoie une erreur s’il est sélectionné",
         widget=forms.RadioSelect,
     )
 
     sample_checkbox = forms.ChoiceField(
         label="Cases à cocher",
         required=False,
-        choices=[(1, "Premier choix"), (2, "Second choix"), (3, "Troisième choix")],
+        choices=[
+            ("1", "Premier choix"),
+            ("2", "Second choix"),
+            ("3", "Troisième choix"),
+        ],
+        help_text="Le troisième choix renvoie une erreur s’il est sélectionné",
         widget=forms.CheckboxSelectMultiple,
     )
 
@@ -89,6 +95,24 @@ class ExampleForm(DsfrBaseForm):
 
         if sample_number < 0:
             raise forms.ValidationError("Merci d’entrer un nombre positif")
+
+        return sample_number
+
+    def clean_sample_radio(self):
+        sample_radio = self.cleaned_data["sample_radio"]
+
+        if sample_radio == "3":
+            raise forms.ValidationError("Le troisième choix est interdit")
+
+        return sample_radio
+
+    def clean_sample_checkbox(self):
+        sample_checkbox = self.cleaned_data["sample_checkbox"]
+
+        if sample_checkbox == ["2"]:
+            raise forms.ValidationError("Le troisième choix est interdit")
+
+        return sample_checkbox
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

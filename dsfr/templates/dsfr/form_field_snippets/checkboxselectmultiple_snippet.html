@@ -1,19 +1,21 @@
 {% load widget_tweaks %}
-<div class="fr-form-group{% if field.errors %} fr-form-group--error{% endif %}{% if field.field.disabled %} fr-form-group--disabled{% endif %}">
-  <fieldset class="fr-fieldset">
-    <legend class="fr-fieldset__legend fr-text--regular" id="checkboxes-legend-{{ field.auto_id }}">
-      {{ field.label_tag }}{% if field.field.required %} *{% endif %}
-      {% if field.help_text %}<span class="fr-hint-text">{{ field.help_text }}</span>{% endif %}
-    </legend>
+<fieldset class="fr-fieldset{% if field.errors %} fr-fieldset--error{% endif %}" id="checkboxes-{{ field.auto_id }}" aria-labelledby="{{ field.auto_id }}-legend{% if field.errors %} {{ field.auto_id }}-messages{% endif %}">
+  <legend class="fr-fieldset__legend fr-text--regular" id="{{ field.auto_id }}-legend">
+    {{ field.label_tag }}{% if field.field.required %} *{% endif %}
+    {% if field.help_text %}<span class="fr-hint-text">{{ field.help_text }}</span>{% endif %}
+  </legend>
 
-    <div class="fr-fieldset__content">
+  <div class="fr-fieldset__content">
+    {% if field.field.disabled %}
+      {{ field|attr:"disabled" }}
+    {% else %}
       {{ field }}
-    </div>
-
-    {% if field.errors %}
-      <div id="{{ field.auto_id }}-desc-error" class="fr-error-text">
-        {{ field.errors }}
-      </div>
     {% endif %}
-  </fieldset>
-</div>
+  </div>
+
+  {% if field.errors %}
+  <div id="{{ field.auto_id }}-messages" class="fr-error-text">
+    {{ field.errors }}
+  </div>
+{% endif %}
+</fieldset>

@@ -1,5 +1,12 @@
+{% load widget_tweaks %}
 <div class="fr-checkbox-group{% if field.errors %} fr-checkbox-group--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %}">
+  {% if field.errors %}
+    {% with aria_describedby="aria-describedby:"|add:field.auto_id|add:"-desc-error" %}
+      {{ field|attr:aria_describedby }}
+    {% endwith %}
+  {% else %}
     {{ field }}
+  {% endif %}
     
     {{ field.label_tag }}
     
