@@ -4,10 +4,10 @@
     {{ field.label_tag }}{% if field.field.required %} *{% endif %}
     {% if field.help_text %}<span class="fr-hint-text">{{ field.help_text }}</span>{% endif %}
 
-    {% if field|widget_type == "dateinput" %}
-      <div class="fr-input-wrap fr-icon-calendar-line">
-        {{ field }}
-      </div>
+    {% if field.errors %}
+      {% with aria_describedby="aria-describedby:"|add:field.auto_id|add:"-desc-error" %}
+        {{ field|attr:"aria-invalid:true"|attr:aria_describedby }}
+      {% endwith %}
     {% else %}
       {{ field }}
     {% endif %}
