@@ -17,7 +17,7 @@
 <link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.ico" type="image/x-icon" integrity="sha384-esZ1Wf54Wvb66vtrLBKzz2QEZciEIV9R+wc+w7C3e5mID8A1SgJpXXIc+3lY9YqP" /><!-- 32×32 -->
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
   
-<style nonce="wvlnnIjOhtUtmOvqoXrLLA==">
+<style nonce="KrDs1l2PP9O/GjJfq6qXOg==">
 .code_sample {
   background-color: var(--g300);
   padding: 1rem;
@@ -112,7 +112,10 @@
             <li class="fr-nav__item">
               <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Formulaire</a>
             </li>
-          </ul>
+			<li class="fr-nav__item">
+              <a class="fr-nav__link" href="/django-dsfr/form_formset/" target="_self">Exemple de formulaire avec formset</a>
+			</li>
+		  </ul>
         </nav>
       </div>
     </div>
@@ -257,6 +260,18 @@ $ poetry shell
 $ python manage.py migrate
 $ python manage.py runserver
   </pre>
+  
+  <p>Pour tester la fonctionnalité de formset, créez quelques objets "Genre" (genres littéraires) en base de données</p>
+   <pre class="code_sample">
+$ poetry shell
+$ python manage.py shell
+$ from example_app.models import Genre
+$ Genre.objects.create(code='SF', designation='Science-Fiction')
+$ Genre.objects.create(code='FTSQUE', designation='Fantastique', help_text='Intrustion du surnaturel dans un cadre réaliste')
+$ Genre.objects.create(code='FTSY', designation='Fantasy', help_text='Elaboration d'un univers distinct du monde réel')
+$ exit()
+$ python manage.py runserver
+  </pre>
 
   <h3 id="notes">Notes</h3>
   <ul>
@@ -336,8 +351,8 @@ $ python manage.py runserver
 </footer>
 
   
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-I2h3dQPRm8wpUZxuuDoCO5k+q6jvFHVAcTkMeJJq/noEkqKDlj6TfbB/TRUgp0zO" nonce="wvlnnIjOhtUtmOvqoXrLLA=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-d+DDNW3pgRaE0MzYgb+MqZxgN/70LO9MiYA6q2Fc7ydJlu3jKx6MmI5EddVeYzl6"  nonce="wvlnnIjOhtUtmOvqoXrLLA=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-I2h3dQPRm8wpUZxuuDoCO5k+q6jvFHVAcTkMeJJq/noEkqKDlj6TfbB/TRUgp0zO" nonce="KrDs1l2PP9O/GjJfq6qXOg=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-d+DDNW3pgRaE0MzYgb+MqZxgN/70LO9MiYA6q2Fc7ydJlu3jKx6MmI5EddVeYzl6"  nonce="KrDs1l2PP9O/GjJfq6qXOg=="></script>
   
 </body>
 
