@@ -1,0 +1,58 @@
+import os
+import base64
+import hashlib
+from pathlib import Path
+
+from django.core.management.base import BaseCommand
+from black import format_str, FileMode
+
+
+class Command(BaseCommand):
+    help = "Removes extra files from the dsfr/dist folder in order to save space."
+
+    BASE_PATH = Path("dsfr/static/dsfr/dist")
+
+    def handle(self, *args, **options):
+        files = [
+            {"path": "dsfr/dsfr.module.min.js", "constant": "INTEGRITY_JS_MODULE"},
+            {"path": "dsfr/dsfr.nomodule.min.js", "constant": "INTEGRITY_JS_NOMODULE"},
+            {"path": "dsfr/dsfr.min.css", "constant": "INTEGRITY_CSS"},
+            {"path": "utility/icons/icons.min.css", "constant": "INTEGRITY_CSS_ICONS"},
+            {
+                "path": "favicon/apple-touch-icon.png",
+                "constant": "INTEGRITY_FAVICON_APPLE",
+            },
+            {"path": "favicon/favicon.svg", "constant": "INTEGRITY_FAVICON_SVG"},
+            {"path": "favicon/favicon.ico", "constant": "INTEGRITY_FAVICON_ICO"},
+            {
+                "path": "favicon/manifest.webmanifest",
+                "constant": "INTEGRITY_FAVICON_MANIFEST",
+            },
+        ]
+
+        output_text = """# Integrity checks for the css/js/favicon files
+# Do not update manually!
+# Generated with the following command:
+# python manage.py integrity_checksums\n\n"""
+
+        for file in files:
+            constant = file["constant"]
+            file_path = self.BASE_PATH / file["path"]
+
+            with open(file_path, "rb") as f:
+                content = f.read()
+                checksum = self.calculate_checksum(content)
+
+            output_text += f'{constant} = ("{checksum}")\n\n'
+
+        output_text = format_str(output_text, mode=FileMode())
+        with open("dsfr/constants.py", "w") as output_file:
+            output_file.write(output_text)
+
+    def calculate_checksum(self, input_content):
+        if isinstance(input_content, str):
+            input_content = input_content.encode()
+
+        hashed_content = hashlib.sha384(input_content).digest()
+        hash_base64 = base64.b64encode(hashed_content).decode()
+        return "sha384-{}".format(hash_base64)
