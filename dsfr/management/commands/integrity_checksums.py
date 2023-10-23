@@ -1,4 +1,3 @@
-import os
 import base64
 import hashlib
 from pathlib import Path
@@ -43,6 +42,7 @@ class Command(BaseCommand):
                 content = f.read()
                 checksum = self.calculate_checksum(content)
 
+            output_text += f"# {file_path}\n"
             output_text += f'{constant} = ("{checksum}")\n\n'
 
         output_text = format_str(output_text, mode=FileMode())
