@@ -143,9 +143,7 @@
                                     <span class="fr-hint-text">{{ field.help_text }}</span>
                                 {% endif %}
                             </label>
-                            <div class="fr-input-wrap fr-fi-calendar-line">
-                                {{ field|add_class:'fr-input'|attr:"type:date" }}
-                            </div>
+                            {{ field|add_class:'fr-input'|attr:"type:date" }}
                             {% if form.errors %}
                                 {% for error in field.errors %}
                                     <p id="text-input-error-desc-error" class="fr-error-text">{{ error }}</p>
