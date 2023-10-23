@@ -167,10 +167,8 @@ Radio button and multiple checkboxes :
                                 {% if field.help_text %}
                                     <span class="fr-hint-text">{{ field.help_text }}</span>
                                 {% endif %}
-                            </label>      
-                            <div class="fr-input-wrap fr-icon-calendar-line">       
-                                {{ field|add_class:'fr-input'|attr:"type:date" }}
-                            </div>
+                            </label>            
+                            {{ field|add_class:'fr-input'|attr:"type:date" }}
                             {% if form.errors %}
                                 {% for error in field.errors %}
                                     <p id="text-input-error-desc-error" class="fr-error-text">{{ error }}</p>
