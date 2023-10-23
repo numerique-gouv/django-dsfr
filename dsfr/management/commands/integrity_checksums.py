@@ -49,10 +49,7 @@ class Command(BaseCommand):
         with open("dsfr/constants.py", "w") as output_file:
             output_file.write(output_text)
 
-    def calculate_checksum(self, input_content):
-        if isinstance(input_content, str):
-            input_content = input_content.encode()
-
+    def calculate_checksum(self, input_content: bytes):
         hashed_content = hashlib.sha384(input_content).digest()
         hash_base64 = base64.b64encode(hashed_content).decode()
         return "sha384-{}".format(hash_base64)
