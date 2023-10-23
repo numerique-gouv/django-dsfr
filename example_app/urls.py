@@ -1,7 +1,7 @@
 from django_distill import distill_path
 
 from example_app.views import index, tags_index, page_form, page_tag, AuthorCreateView
-from .tag_specifics import ALL_TAGS
+from example_app.tag_specifics import ALL_TAGS
 
 
 def get_all_tags():
