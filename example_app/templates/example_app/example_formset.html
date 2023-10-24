@@ -1,10 +1,10 @@
 <!-- Instead of extending base.html, extend formset-base.html -->
-<!-- Then, include this template in another template which extends form-base.html -->
-{% extends "dsfr/formset-base.html" %}
+<!-- Then, include this template in another template which extends form_base.html -->
+{% extends "dsfr/formset_base.html" %}
 
 <!-- You can add some information to the formset inside the blocks of formset-base.html -->
-{% block formset-title %}
+{% block formset_title %}
 	{% if formset %}
 		<h3 class="fr-mt-3w">Livres</h3>
 	{% endif %}
-{% endblock formset-title %}
+{% endblock formset_title %}

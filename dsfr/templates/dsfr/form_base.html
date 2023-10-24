@@ -1,35 +1,54 @@
-<!-- Created on Wed Feb 09 11:14:00 2022 @author: alica.burlot -->
-<!-- base template for formset -->
-<!-- to be INCLUDED in the templates where form-base.html is extended, if you need formset -->
+<!-- Created on Mon Jan 24 13:32:00 2022 @author: alica.burlot -->
+<!-- base template for all forms -->
+<!-- to be extended in the templates where a form is displayed -->
 <!-- Check django comments for more information -->
 
-{# comment : Allows to display the fields with DSFR layout #}
-{% load static dsfr_tags %}
+<!-- extends your base.html template -->
+{% extends 'dsfr/base.html' %}
+{% load static dsfr_tags widget_tweaks %}
 
-{# comment : Widget tweaks allows to add classes to the html elements with add_class #}
-{% load widget_tweaks %}
+{% comment %}
+Radio button and multiple checkboxes :
+    -Help text under each button/checkbox : 
+        In your forms.py, in the ChoiceField or MultipleChoiceField,
+        instead of choices=(("a", "label a"), ("b", "label b"), ...),
+        put choices=(("a", {"label":"label a", "help_text":"help text a"}), ("b", {"label":"label b", "help_text":"help text b"})),
 
-{# comment : if formset #}
-{% block form-set %}
-    {% if formset %}
-        <div class="formset-{{ formset.prefix }} formset-group">
-        {{ formset.management_form }}
+    -Horizontal list of buttons/checkboxes :
+        In your forms.py, in the RadioSelect widget or the CheckboxSelectMultiple widget,
+        put attrs={"class":"fr-fieldset--inline"}
+{% endcomment %}
 
-        {% block formset-title %}
-        {% endblock formset-title %}
 
-        {% for form in formset %}
+{% block extra_css %}
+{% endblock extra_css %}
 
-            <div class="{% cycle 'row1' 'row2' %} formset-row-{{ formset.prefix }} formset" id="formset-0">
-            {% for hidden in form.hidden_fields %} {{ hidden }} {% endfor %}
+
+{% block content %}
+    {# Everything that needs to be outside the form, before #}
+    {% block before_form %}
+    {% endblock before_form %}
+
+    <div id="form">
+        <form method="POST" enctype="multipart/form-data" id="form-base">
+            {% csrf_token %}
+            
+            {# Everything that needs to be in the form but before the fields (form title for example) #}
+            {% block head_form %}
+            {% endblock head_form %}
+
+            {# If you need to add formsets before the form #}
+            {% block extra_formset_before %}
+            {% endblock extra_formset_before %}
+
+            {# The fields #}
             {% for field in form.visible_fields %}
+                {# Everything that needs to be in the for loop #}
+                {% block inside_form %}
+                {% endblock inside_form %}
 
-                {# comment : everything that needs to be in the loop for each field for each form in formset #}
-                {% block inside-formset-field %}
-                {% endblock inside-formset-field %}
-
-                {# comment : Check the widget class and adds the DSFR class corresponding #}
-                {# comment : Select lists #}
+                {# Check the widget class and adds the DSFR class corresponding #}
+                {# Select lists #}
                 {% if field|widget_type == 'select' or field|widget_type == 'selectmultiple' or field|widget_type == 'selectdate' %}
                     <div class="fr-mt-5v">
                         <div class="fr-select-group {% if form_input.errors %}fr-select-group--error{% endif %}">
@@ -48,7 +67,7 @@
                         </div>
                     </div>
 
-                {# comment : SplitDateTimeWidget : currently doesn't work #}
+                    {# SplitDateTimeWidget : currently doesn't work #}
                 {% elif field|widget_type == 'splitdatetimewidget' or field|widget_type == 'splithiddendatetimewidget' %}
                     <div class="fr-mt-5v">
                         <div class="fr-select-group {% if form_input.errors %}fr-select-group--error{% endif %}">
@@ -68,8 +87,8 @@
                         </div>
                     </div>
 
-                {# comment : Single checkbox #}
-                {% elif field|widget_type == 'checkboxinput' %}
+                {# Single checkbox #}
+                {% elif field|widget_type == 'checkboxinput' %}   
                     <div class="fr-mt-5v">
                         <div class="fr-checkbox-group {% if error in field.errors %}fr-checkbox-group--error{% endif %}">
                             {{ field|attr:"type:checkbox"|add_error_attr:"aria-describedby:checkboxes-error-desc-error"|add_error_attr:"id:checkbox-error"|add_error_attr:"name:checkbox-error" }}
@@ -87,18 +106,18 @@
                         </div>
                     </div>
 
-                {# comment : Multiple checkboxes. For some reason, the checkboxes are displayed small #}
-                {% elif field|widget_type == 'checkboxselectmultiple' %}
+                {# Multiple checkboxes #}
+                {% elif field|widget_type == 'checkboxselectmultiple' %}            
                     <div class="fr-mt-5v">
                         <div class="fr-form-group">
                             <fieldset class="fr-fieldset {% if field.field.widget.attrs.class == 'fr-fieldset--inline'%}fr-fieldset--inline{% endif %} {% if error in field.errors %}fr-fieldset--error{% endif %}" {% if error in field.errors %}aria-labelledby="checkboxes-error-legend checkboxes-error-desc-error" role="group"{% endif %}>
-                                <legend class="fr-fieldset__legend fr-text--regular" id="checkboxes-{% if error in field.errors %}error-{% endif %}legend">
+                                <legend class="fr-fieldset__legend fr-text--regular" id="checkboxes-{% if error in field.errors %}error-{% endif %}legend-{{ field.label|slugify }}">
                                     {{ field.label }} {% if field.field.required %}*{% endif %}
                                     {% if field.help_text %}
                                         <span class="fr-hint-text">{{ field.help_text }}</span>
                                     {% endif %}
                                 </legend>
-                                <div class="fr-fieldset__content">
+                                <div class="fr-fieldset__content"> 
                                     {{ field|attr:"type:checkbox"|add_error_attr:"id:checkboxes-error"|add_error_attr:"name:checkboxes-error"|remove_attr:"class" }}
                                 </div>
                                 {% if form.errors %}
@@ -110,30 +129,34 @@
                         </div>
                     </div>
 
-                {# comment : Radio buttons. For some reason, the radio buttons are displayed small #}
+                {# Radio buttons. For some reason, the radio buttons are displayed small #}
                 {% elif field|widget_type == 'radioselect' %}
                     <div class="fr-mt-5v">
                         <div class="fr-form-group">
-                            <fieldset class="fr-fieldset {% if field.field.widget.attrs.class == 'fr-fieldset--inline'%}fr-fieldset--inline{% endif %} {% if error in field.errors %}fr-fieldset--error{% endif %}" {% if error in field.errors %}aria-labelledby="radio-error-legend radio-error-desc-error" role="group"{% endif %}>
-                                <legend class="fr-fieldset__legend fr-text--regular" id='radio-{% if error in field.errors %}error-{% endif %}legend'>
-                                    {{ field.label }} {% if field.field.required %}*{% endif %}
-                                    {% if field.help_text %}
-                                        <span class="fr-hint-text">{{ field.help_text }}</span>
-                                    {% endif %}
+                            <fieldset class="fr-fieldset{% if field.errors %} fr-fieldset--error{% endif %}" id="radio-{{ field.auto_id }}" aria-labelledby="{{ field.auto_id }}-legend{% if field.errors %} {{ field.auto_id }}-messages{% endif %}">
+                                <legend class="fr-fieldset__legend fr-text--regular" id="{{ field.auto_id }}-legend">
+                                  {{ field.label_tag }}{% if field.field.required %} *{% endif %}
+                                  {% if field.help_text %}<span class="fr-hint-text">{{ field.help_text }}</span>{% endif %}
                                 </legend>
+
                                 <div class="fr-fieldset__content">
-                                    {{ field|attr:"type:radio"|add_error_attr:"aria-describedby:radio-error-desc-error"|add_error_attr:"id:radio-error"|add_error_attr:"name:radio-error"|remove_attr:"class" }}
+                                    {% if field.field.disabled %}
+                                      {{ field|add_class:"fr-radio-group"|attr:"disabled" }}
+                                    {% else %}
+                                      {{ field|add_class:"fr-radio-group" }}
+                                    {% endif %}
                                 </div>
-                                {% if form.errors %}
-                                    {% for error in field.errors %}
-                                        <p id="radio-error-desc-error" class="fr-error-text">{{ error }}</p>
-                                    {% endfor %}
+
+                                {% if field.errors %}
+                                  <div class="fr-messages-group fr-error-text" id="{{ field.auto_id }}-messages">
+                                      {{ field.errors }}
+                                  </div>
                                 {% endif %}
                             </fieldset>
                         </div>
                     </div>
 
-                {# comment : Date input #}
+                {# Date input #}
                 {% elif field|widget_type == 'dateinput' %}
                     <div class="fr-mt-5v">
                         <div class="fr-input-group {% if form_input.errors %}fr-input-group--error{% endif %}">
@@ -142,7 +165,7 @@
                                 {% if field.help_text %}
                                     <span class="fr-hint-text">{{ field.help_text }}</span>
                                 {% endif %}
-                            </label>
+                            </label>            
                             {{ field|add_class:'fr-input'|attr:"type:date" }}
                             {% if form.errors %}
                                 {% for error in field.errors %}
@@ -151,8 +174,8 @@
                             {% endif %}
                         </div>
                     </div>
-
-                {# comment : Datetime input. Currently doesn't work on FireFox #}
+                
+                {# Datetime input. Currently doesn't work on FireFox #}
                 {% elif field|widget_type == 'datetimeinput' %}
                     <div class="fr-mt-5v">
                         <div class="fr-input-group {% if form_input.errors %}fr-input-group--error{% endif %}">
@@ -170,8 +193,8 @@
                             {% endif %}
                         </div>
                     </div>
-
-                {# comment : Time input #}
+                
+                {# Time input #}
                 {% elif field|widget_type == 'timeinput' %}
                     <div class="fr-mt-5v">
                         <div class="fr-input-group">
@@ -189,9 +212,9 @@
                             {% endif %}
                         </div>
                     </div>
-
-                {# comment : Textarea #}
-                {% elif field|widget_type == 'textarea' %}
+                
+                {# Textarea #}
+                {% elif field|widget_type == 'textarea' %}   
                     <div class="fr-mt-5v">
                         <div class="fr-input-group {% if form_input.errors %}fr-input-group--error{% endif %}">
                             <label for="{{ field.id_for_label }}" class="fr-label">
@@ -201,10 +224,10 @@
                                 {% endif %}
                             </label>
                             {% if field.field.required %}
-                                <div class="fr-input-wrap fr-fi-alert-line">
+                                <div class="fr-input-wrap fr-icon-alert-line">
                                     {{ field|add_class:"fr-input"|add_error_class:"fr-input--error" }}
                                 </div>
-                            {% else %}
+                            {% else %}                        
                                 {{ field|add_class:"fr-input"|add_error_class:"fr-input--error" }}
                             {% endif %}
                             {% if form.errors %}
@@ -214,9 +237,9 @@
                             {% endif %}
                         </div>
                     </div>
-
-                {# comment : File input #}
-                {# comment : ClearableFileInput can't be cleared #}
+                
+                {# File input #}
+                {# ClearableFileInput can't be cleared #}
                 {% elif 'file' in field|widget_type %}
                     <div class="fr-mt-5v">
                         <div class="fr-upload-group {% if form_input.errors %}fr-upload-group--error{% endif %}">
@@ -240,7 +263,7 @@
                         </div>
                     </div>
 
-                {# comment : Number input #}
+                {# Number input #}
                 {% elif field|widget_type == 'numberinput' %}
                     <div class="fr-mt-5v">
                         <div class="fr-select-group">
@@ -259,7 +282,7 @@
                         </div>
                     </div>
 
-                {# comment : URL input #}
+                {# URL input #}
                 {% elif field|widget_type == 'urlinput' %}
                     <div class="fr-mt-5v">
                         <div class="fr-input-group {% if form_input.errors %}fr-input-group--error{% endif %}">
@@ -270,12 +293,12 @@
                                 {% endif %}
                             </label>
                             {% if field.field.required %}
-                                <div class="fr-input-wrap fr-fi-alert-line">
+                                <div class="fr-input-wrap fr-icon-alert-line">
                                     {{ field|add_class:'fr-input'|add_error_class:"fr-input--error"|attr:"placeholder:https://"|add_error_class:"fr-input--error" }}
                                 </div>
-                            {% else %}
+                            {% else %}                        
                                 {{ field|add_class:'fr-input'|add_error_class:"fr-input--error"|attr:"placeholder:https://" }}
-                            {% endif %}
+                            {% endif %}  
                             {% if form.errors %}
                                 {% for error in field.errors %}
                                     <p id="text-input-error-desc-error" class="fr-error-text">{{ error }}</p>
@@ -284,7 +307,7 @@
                         </div>
                     </div>
 
-                {# comment : Text input or other cases #}
+                {# Text input or other cases #}
                 {% else %}
                     <div class="fr-mt-5v">
                         <div class="fr-input-group {% if form_input.errors %}fr-input-group--error{% endif %}">
@@ -295,12 +318,12 @@
                                 {% endif %}
                             </label>
                             {% if field.field.required %}
-                                <div class="fr-input-wrap fr-fi-alert-line">
+                                <div class="fr-input-wrap fr-icon-alert-line">
                                     {{ field|add_class:'fr-input'|add_error_class:"fr-input--error" }}
                                 </div>
-                            {% else %}
+                            {% else %}                        
                                 {{ field|add_class:'fr-input'|add_error_class:"fr-input--error" }}
-                            {% endif %}
+                            {% endif %}       
                             {% if form.errors %}
                                 {% for error in field.errors %}
                                     <p id="text-input-error-desc-error" class="fr-error-text">{{ error }}</p>
@@ -311,20 +334,19 @@
                 {% endif %}
             {% endfor %}
             
-            <div class="fr-mt-2w">
-                <a id="remove-0" href="javascript:void(0)" onclick="removeFormset(0)">Supprimer cet élément <span class="fr-fi-delete-line" aria-hidden="true"></span><br/><br/></a>
+            {# If you need to add formsets after the form #}
+            {% block extra_formset_after %}
+            {% endblock extra_formset_after %}
+
+            {# Everything that needs to be in the form but after the fields (the buttons for example) #}
+            <div class="foot-form">   
+                {% block foot_form %}
+                {% endblock foot_form %}
             </div>
-            
-            </div>
-        {% endfor %}
-        
-        <button id="add-form" type="button" class="fr-btn fr-btn--secondary fr-fi-add-circle-line fr-btn--icon-right fr-mt-1w">Ajouter un élément</button>
-        
-        </div>
-        <br/>
-    {% endif %}
-{% endblock form-set %}
+        </form>
+    </div>
     
-{% block extra_js %}
-    <script src="{% static 'formsets.js' %}"></script>
-{% endblock %}
+    {# Everything that needs to be outside the form, after #}
+    {% block after_form %}
+    {% endblock after_form %}
+{% endblock content %} 
