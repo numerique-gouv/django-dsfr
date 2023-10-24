@@ -2,6 +2,11 @@
 {% extends 'dsfr/form-base.html' %}
 {% load static dsfr_tags %}
 
+
+{% block header %}
+  {% include "example_app/blocks/header.html" %}
+{% endblock header %}
+
 <!-- You can add some information to the form inside the blocks of form-base.html -->
 {% block head-form %}
     <h1>Exemple de formulaire</h1>
