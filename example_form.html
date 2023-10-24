@@ -198,26 +198,26 @@
 
     <div id="form">
         <form method="POST" enctype="multipart/form-data" id="form-base">
-            <input type="hidden" name="csrfmiddlewaretoken" value="Mw34T9P0E8aoAAmbeBd44j7jS3Tu4co5O1qS2eGhddVxwKVMo1Pm9TyCPfwSqegA">
+            <input type="hidden" name="csrfmiddlewaretoken" value="bsCyHw2dY7ULw8Pq0bY4GS4OiJieyg2Pai2sStrTbzcVp2RDaOBYmD5HQitQbcMJ">
             
             
             
     <h1>Exemple de formulaire</h1>
 
+
             
             
             
-            
-            
+
             
             
                 
                 
                 
+
                 
                 
                 
-                   
                     <div class="fr-mt-5v">
                         <div class="fr-input-group ">
                             <label for="id_first_name" class="fr-label">
@@ -232,15 +232,15 @@
                             
                         </div>
                     </div>
-                 
+                
             
                 
                 
                 
+
                 
                 
                 
-                   
                     <div class="fr-mt-5v">
                         <div class="fr-input-group ">
                             <label for="id_last_name" class="fr-label">
@@ -255,12 +255,12 @@
                             
                         </div>
                     </div>
-                 
+                
             
                 
                 
                 
-                
+
                 
                 
                 
@@ -275,8 +275,8 @@
                         </div>
                     </div>
                 
-                    
-                 
+                
+                
             
             
             
@@ -287,9 +287,6 @@
 <!-- base template for formset -->
 <!-- to be INCLUDED in the templates where form_base.html is extended, if you need formset -->
 <!-- Check django comments for more information -->
-
-
-
 
 
 
@@ -367,13 +364,15 @@
                 
                     <div class="fr-mt-5v">
                         <div class="fr-form-group">
-                            <fieldset class="fr-fieldset fr-fieldset--inline " >
-                                <legend class="fr-fieldset__legend fr-text--regular" id='radio-legend'>
-                                    Format *
-                                    
+                            <fieldset class="fr-fieldset" id="radio-id_book_set-0-book_format" aria-labelledby="id_book_set-0-book_format-legend">
+                                <legend class="fr-fieldset__legend fr-text--regular" id="id_book_set-0-book_format-legend">
+                                  <label>Format:</label> *
+                                  
                                 </legend>
+
                                 <div class="fr-fieldset__content">
-                                    <input type="radio" name="book_set-0-book_format" value="PAPER" id="id_book_set-0-book_format_0">
+                                    
+                                      <input type="radio" name="book_set-0-book_format" value="PAPER" class="fr-fieldset--inline fr-radio-group" id="id_book_set-0-book_format_0">
 
 
     <label class="fr-label" for="id_book_set-0-book_format_0">
@@ -387,7 +386,7 @@
 	
 		
 			
-<input type="radio" name="book_set-0-book_format" value="NUM" id="id_book_set-0-book_format_1">
+<input type="radio" name="book_set-0-book_format" value="NUM" class="fr-fieldset--inline fr-radio-group" id="id_book_set-0-book_format_1">
 
 
     <label class="fr-label" for="id_book_set-0-book_format_1">
@@ -396,9 +395,10 @@
             <span class="fr-hint-text">Livre électronique</span>
         
     </label>
+                                    
                                 </div>
                                 
-                            </fieldset>
+                              </fieldset>
                         </div>
                     </div>
 
@@ -415,18 +415,19 @@
                 
                     <div class="fr-mt-5v">
                         <div class="fr-form-group">
-                            <fieldset class="fr-fieldset  " >
-                                <legend class="fr-fieldset__legend fr-text--regular" id="checkboxes-legend">
-                                    Genre 
-                                    
-                                        <span class="fr-hint-text">Veuillez choisir le ou les genres associés au livre</span>
-                                    
+                            <fieldset class="fr-fieldset" id="checkboxes-id_book_set-0-genre" aria-labelledby="id_book_set-0-genre-legend">
+                                <legend class="fr-fieldset__legend fr-text--regular" id="id_book_set-0-genre-legend">
+                                  <label>Genre:</label>
+                                  <span class="fr-hint-text">Veuillez choisir le ou les genres associés au livre</span>
                                 </legend>
+
                                 <div class="fr-fieldset__content">
+                                  
                                     
+                                  
                                 </div>
                                 
-                            </fieldset>
+                              </fieldset>
                         </div>
                     </div>
 
@@ -455,16 +456,15 @@
                 
                 
             
-            
+
             <div class="fr-mt-2w">
                 <a id="remove-0" href="javascript:void(0)" onclick="removeFormset(0)">Supprimer cet élément <span class="fr-fi-delete-line" aria-hidden="true"></span><br/><br/></a>
             </div>
-            
-            </div>
+
+        </div>
         
-        
+
         <button id="add-form" type="button" class="fr-btn fr-btn--secondary fr-fi-add-circle-line fr-btn--icon-right fr-mt-1w">Ajouter un élément</button>
-        
         </div>
         <br/>
     
@@ -475,7 +475,7 @@
 
 
 
-            
+
             
             <div class="foot-form">   
                 
@@ -564,8 +564,8 @@
     
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-I2h3dQPRm8wpUZxuuDoCO5k+q6jvFHVAcTkMeJJq/noEkqKDlj6TfbB/TRUgp0zO" nonce="jjUC5z9K1lGhQpkyuEK02g=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-d+DDNW3pgRaE0MzYgb+MqZxgN/70LO9MiYA6q2Fc7ydJlu3jKx6MmI5EddVeYzl6"  nonce="jjUC5z9K1lGhQpkyuEK02g=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-I2h3dQPRm8wpUZxuuDoCO5k+q6jvFHVAcTkMeJJq/noEkqKDlj6TfbB/TRUgp0zO" nonce="5FMLDtbXjzx9HPDRmHZQzA=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-d+DDNW3pgRaE0MzYgb+MqZxgN/70LO9MiYA6q2Fc7ydJlu3jKx6MmI5EddVeYzl6"  nonce="5FMLDtbXjzx9HPDRmHZQzA=="></script>
     
   </body>
 </html>
