@@ -3,13 +3,10 @@
 <!-- to be INCLUDED in the templates where form_base.html is extended, if you need formset -->
 <!-- Check django comments for more information -->
 
-{# comment : Allows to display the fields with DSFR layout #}
-{% load static dsfr_tags %}
+{# Allows to display the fields with DSFR layout #}
+{% load static dsfr_tags widget_tweaks %}
 
-{# comment : Widget tweaks allows to add classes to the html elements with add_class #}
-{% load widget_tweaks %}
-
-{# comment : if formset #}
+{# if formset #}
 {% block form_set %}
     {% if formset %}
         <div class="formset-{{ formset.prefix }} formset-group">
@@ -24,12 +21,12 @@
             {% for hidden in form.hidden_fields %} {{ hidden }} {% endfor %}
             {% for field in form.visible_fields %}
 
-                {# comment : everything that needs to be in the loop for each field for each form in formset #}
+                {# everything that needs to be in the loop for each field for each form in formset #}
                 {% block inside_formset_field %}
                 {% endblock inside_formset_field %}
 
-                {# comment : Check the widget class and adds the DSFR class corresponding #}
-                {# comment : Select lists #}
+                {# Check the widget class and adds the DSFR class corresponding #}
+                {# Select lists #}
                 {% if field|widget_type == 'select' or field|widget_type == 'selectmultiple' or field|widget_type == 'selectdate' %}
                     <div class="fr-mt-5v">
                         <div class="fr-select-group {% if form_input.errors %}fr-select-group--error{% endif %}">
@@ -48,7 +45,7 @@
                         </div>
                     </div>
 
-                {# comment : SplitDateTimeWidget : currently doesn't work #}
+                {# SplitDateTimeWidget : currently doesn't work #}
                 {% elif field|widget_type == 'splitdatetimewidget' or field|widget_type == 'splithiddendatetimewidget' %}
                     <div class="fr-mt-5v">
                         <div class="fr-select-group {% if form_input.errors %}fr-select-group--error{% endif %}">
@@ -68,7 +65,7 @@
                         </div>
                     </div>
 
-                {# comment : Single checkbox #}
+                {# Single checkbox #}
                 {% elif field|widget_type == 'checkboxinput' %}
                     <div class="fr-mt-5v">
                         <div class="fr-checkbox-group {% if error in field.errors %}fr-checkbox-group--error{% endif %}">
@@ -87,53 +84,59 @@
                         </div>
                     </div>
 
-                {# comment : Multiple checkboxes. For some reason, the checkboxes are displayed small #}
+                {# Multiple checkboxes. For some reason, the checkboxes are displayed small #}
                 {% elif field|widget_type == 'checkboxselectmultiple' %}
                     <div class="fr-mt-5v">
                         <div class="fr-form-group">
-                            <fieldset class="fr-fieldset {% if field.field.widget.attrs.class == 'fr-fieldset--inline'%}fr-fieldset--inline{% endif %} {% if error in field.errors %}fr-fieldset--error{% endif %}" {% if error in field.errors %}aria-labelledby="checkboxes-error-legend checkboxes-error-desc-error" role="group"{% endif %}>
-                                <legend class="fr-fieldset__legend fr-text--regular" id="checkboxes-{% if error in field.errors %}error-{% endif %}legend">
-                                    {{ field.label }} {% if field.field.required %}*{% endif %}
-                                    {% if field.help_text %}
-                                        <span class="fr-hint-text">{{ field.help_text }}</span>
-                                    {% endif %}
+                            <fieldset class="fr-fieldset{% if field.errors %} fr-fieldset--error{% endif %}" id="checkboxes-{{ field.auto_id }}" aria-labelledby="{{ field.auto_id }}-legend{% if field.errors %} {{ field.auto_id }}-messages{% endif %}">
+                                <legend class="fr-fieldset__legend fr-text--regular" id="{{ field.auto_id }}-legend">
+                                  {{ field.label_tag }}{% if field.field.required %} *{% endif %}
+                                  {% if field.help_text %}<span class="fr-hint-text">{{ field.help_text }}</span>{% endif %}
                                 </legend>
+
                                 <div class="fr-fieldset__content">
-                                    {{ field|attr:"type:checkbox"|add_error_attr:"id:checkboxes-error"|add_error_attr:"name:checkboxes-error"|remove_attr:"class" }}
+                                  {% if field.field.disabled %}
+                                    {{ field|attr:"disabled" }}
+                                  {% else %}
+                                    {{ field }}
+                                  {% endif %}
                                 </div>
-                                {% if form.errors %}
-                                    {% for error in field.errors %}
-                                        <p id="checkboxes-error-desc-error" class="fr-error-text">{{ error }}</p>
-                                    {% endfor %}
-                                {% endif %}
-                            </fieldset>
+                                {% if field.errors %}
+                                <div id="{{ field.auto_id }}-messages" class="fr-error-text">
+                                  {{ field.errors }}
+                                </div>
+                              {% endif %}
+                              </fieldset>
                         </div>
                     </div>
 
-                {# comment : Radio buttons. For some reason, the radio buttons are displayed small #}
+                {# Radio buttons. For some reason, the radio buttons are displayed small #}
                 {% elif field|widget_type == 'radioselect' %}
                     <div class="fr-mt-5v">
                         <div class="fr-form-group">
-                            <fieldset class="fr-fieldset {% if field.field.widget.attrs.class == 'fr-fieldset--inline'%}fr-fieldset--inline{% endif %} {% if error in field.errors %}fr-fieldset--error{% endif %}" {% if error in field.errors %}aria-labelledby="radio-error-legend radio-error-desc-error" role="group"{% endif %}>
-                                <legend class="fr-fieldset__legend fr-text--regular" id='radio-{% if error in field.errors %}error-{% endif %}legend'>
-                                    {{ field.label }} {% if field.field.required %}*{% endif %}
-                                    {% if field.help_text %}
-                                        <span class="fr-hint-text">{{ field.help_text }}</span>
-                                    {% endif %}
+                            <fieldset class="fr-fieldset{% if field.errors %} fr-fieldset--error{% endif %}" id="radio-{{ field.auto_id }}" aria-labelledby="{{ field.auto_id }}-legend{% if field.errors %} {{ field.auto_id }}-messages{% endif %}">
+                                <legend class="fr-fieldset__legend fr-text--regular" id="{{ field.auto_id }}-legend">
+                                  {{ field.label_tag }}{% if field.field.required %} *{% endif %}
+                                  {% if field.help_text %}<span class="fr-hint-text">{{ field.help_text }}</span>{% endif %}
                                 </legend>
+
                                 <div class="fr-fieldset__content">
-                                    {{ field|attr:"type:radio"|add_error_attr:"aria-describedby:radio-error-desc-error"|add_error_attr:"id:radio-error"|add_error_attr:"name:radio-error"|remove_attr:"class" }}
+                                    {% if field.field.disabled %}
+                                      {{ field|add_class:"fr-radio-group"|attr:"disabled" }}
+                                    {% else %}
+                                      {{ field|add_class:"fr-radio-group" }}
+                                    {% endif %}
                                 </div>
-                                {% if form.errors %}
-                                    {% for error in field.errors %}
-                                        <p id="radio-error-desc-error" class="fr-error-text">{{ error }}</p>
-                                    {% endfor %}
+                                {% if field.errors %}
+                                  <div class="fr-messages-group fr-error-text" id="{{ field.auto_id }}-messages">
+                                      {{ field.errors }}
+                                  </div>
                                 {% endif %}
-                            </fieldset>
+                              </fieldset>
                         </div>
                     </div>
 
-                {# comment : Date input #}
+                {# Date input #}
                 {% elif field|widget_type == 'dateinput' %}
                     <div class="fr-mt-5v">
                         <div class="fr-input-group {% if form_input.errors %}fr-input-group--error{% endif %}">
@@ -152,7 +155,7 @@
                         </div>
                     </div>
 
-                {# comment : Datetime input. Currently doesn't work on FireFox #}
+                {# Datetime input. Currently doesn't work on FireFox #}
                 {% elif field|widget_type == 'datetimeinput' %}
                     <div class="fr-mt-5v">
                         <div class="fr-input-group {% if form_input.errors %}fr-input-group--error{% endif %}">
@@ -171,7 +174,7 @@
                         </div>
                     </div>
 
-                {# comment : Time input #}
+                {# Time input #}
                 {% elif field|widget_type == 'timeinput' %}
                     <div class="fr-mt-5v">
                         <div class="fr-input-group">
@@ -190,7 +193,7 @@
                         </div>
                     </div>
 
-                {# comment : Textarea #}
+                {# Textarea #}
                 {% elif field|widget_type == 'textarea' %}
                     <div class="fr-mt-5v">
                         <div class="fr-input-group {% if form_input.errors %}fr-input-group--error{% endif %}">
@@ -215,8 +218,8 @@
                         </div>
                     </div>
 
-                {# comment : File input #}
-                {# comment : ClearableFileInput can't be cleared #}
+                {# File input #}
+                {# ClearableFileInput can't be cleared #}
                 {% elif 'file' in field|widget_type %}
                     <div class="fr-mt-5v">
                         <div class="fr-upload-group {% if form_input.errors %}fr-upload-group--error{% endif %}">
@@ -240,7 +243,7 @@
                         </div>
                     </div>
 
-                {# comment : Number input #}
+                {# Number input #}
                 {% elif field|widget_type == 'numberinput' %}
                     <div class="fr-mt-5v">
                         <div class="fr-select-group">
@@ -259,7 +262,7 @@
                         </div>
                     </div>
 
-                {# comment : URL input #}
+                {# URL input #}
                 {% elif field|widget_type == 'urlinput' %}
                     <div class="fr-mt-5v">
                         <div class="fr-input-group {% if form_input.errors %}fr-input-group--error{% endif %}">
@@ -284,7 +287,7 @@
                         </div>
                     </div>
 
-                {# comment : Text input or other cases #}
+                {# Text input or other cases #}
                 {% else %}
                     <div class="fr-mt-5v">
                         <div class="fr-input-group {% if form_input.errors %}fr-input-group--error{% endif %}">
@@ -310,16 +313,15 @@
                     </div>
                 {% endif %}
             {% endfor %}
-            
+
             <div class="fr-mt-2w">
                 <a id="remove-0" href="javascript:void(0)" onclick="removeFormset(0)">Supprimer cet élément <span class="fr-fi-delete-line" aria-hidden="true"></span><br/><br/></a>
             </div>
-            
-            </div>
+
+        </div>
         {% endfor %}
-        
+
         <button id="add-form" type="button" class="fr-btn fr-btn--secondary fr-fi-add-circle-line fr-btn--icon-right fr-mt-1w">Ajouter un élément</button>
-        
         </div>
         <br/>
     {% endif %}
