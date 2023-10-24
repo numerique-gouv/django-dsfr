@@ -1,0 +1,23 @@
+<!-- Instead of extending base.html, extend form_base.html -->
+{% extends 'dsfr/form_base.html' %}
+{% load static dsfr_tags %}
+
+
+{% block header %}
+  {% include "example_app/blocks/header.html" %}
+{% endblock header %}
+
+<!-- You can add some information to the form inside the blocks of form_base.html -->
+{% block head_form %}
+    <h1>Exemple de formulaire</h1>
+{% endblock head_form %}
+
+<!-- If you use formset, you need to include a template which extends formset-base.html, and put it in a block of form_base.html -->
+{% block extra_formset_after %}
+    {% include "example_app/example_formset.html" %}
+{% endblock extra_formset_after %}
+
+<!-- Don't forget you dsfr button to submit the form -->
+{% block foot_form %}
+    {% dsfr_button btn_submit %}
+{% endblock foot_form %}
