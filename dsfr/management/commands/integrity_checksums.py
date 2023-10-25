@@ -7,7 +7,7 @@ from black import format_str, FileMode
 
 
 class Command(BaseCommand):
-    help = "Removes extra files from the dsfr/dist folder in order to save space."
+    help = "Updates the integrity checksums for the css/js/favicon files."
 
     BASE_PATH = Path("dsfr/static/dsfr/dist")
 
@@ -46,7 +46,7 @@ class Command(BaseCommand):
             output_text += f'{constant} = ("{checksum}")\n\n'
 
         output_text = format_str(output_text, mode=FileMode())
-        with open("dsfr/constants.py", "w") as output_file:
+        with open("dsfr/checksums.py", "w") as output_file:
             output_file.write(output_text)
 
     def calculate_checksum(self, input_content: bytes):

@@ -2,7 +2,7 @@ from django.test import SimpleTestCase
 from django.template import Context, Template
 from unittest.mock import MagicMock
 
-from dsfr.constants import (
+from dsfr.checksums import (
     INTEGRITY_CSS,
     INTEGRITY_FAVICON_APPLE,
     INTEGRITY_FAVICON_ICO,
@@ -20,7 +20,7 @@ class DsfrCssTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_css %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            f'<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"  integrity="{ INTEGRITY_CSS }">',
+            f'<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"  integrity="{ INTEGRITY_CSS }">',  # noqa
             rendered_template,
         )
 
@@ -34,7 +34,7 @@ class DsfrJsTagTest(SimpleTestCase):
             f"""
             <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{ INTEGRITY_JS_MODULE }"></script>
             <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{ INTEGRITY_JS_NOMODULE }"></script>
-            """,
+            """,  # noqa
             rendered_template,
         )
 
@@ -50,7 +50,7 @@ class DsfrJsTagWithNonceTest(SimpleTestCase):
             f"""
             <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{ INTEGRITY_JS_MODULE }" nonce="random-nonce"></script>
             <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{ INTEGRITY_JS_NOMODULE }" nonce="random-nonce"></script>
-            """,
+            """,  # noqa
             rendered_template,
         )
 
@@ -68,7 +68,7 @@ class DsfrFaviconTagTest(SimpleTestCase):
             <!-- 32×32 -->
             <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest"
             crossorigin="use-credentials" integrity="{ INTEGRITY_FAVICON_MANIFEST }" />
-            """,
+            """,  # noqa
             rendered_template,
         )
 
@@ -110,7 +110,7 @@ class DsfrAccordionTagTest(SimpleTestCase):
                     <p><b>Bold</b> and <em>emphatic</em> Example content</p>
                 </div>
             </section>
-            """,
+            """,  # noqa
             rendered_template,
         )
 
@@ -178,7 +178,7 @@ class DsfrAlertTagTest(SimpleTestCase):
             <button type="button" class="fr-btn--close fr-btn" aria-expanded="true" aria-controls="test-alert-message">
                 Masquer le message
             </button>
-            """,
+            """,  # noqa
             rendered_template,
         )
 
@@ -319,7 +319,7 @@ class DsfrCardTagTest(SimpleTestCase):
         {"card_data": card_data, "extra_classes": extra_classes, "new_tab": new_tab}
     )
     template_to_render = Template(
-        "{% load dsfr_tags %} {% dsfr_card card_data extra_classes=extra_classes new_tab=newtab %}"
+        "{% load dsfr_tags %} {% dsfr_card card_data extra_classes=extra_classes new_tab=newtab %}"  # noqa
     )
 
     def test_card_is_created(self):
@@ -359,7 +359,7 @@ class DsfrCardTagTest(SimpleTestCase):
             <div class="fr-card__img">
                 <img src="https://test.gouv.fr/test.png" class="fr-responsive-img" alt="">
             </div>
-            """,
+            """,  # noqa
             rendered_template,
         )
 
@@ -479,14 +479,14 @@ class DsfrLinkTagTest(SimpleTestCase):
             >
               Label of the link item <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
             </a>
-            """,
+            """,  # noqa
             rendered_template,
         )
 
 
 class DsfrQuoteTagTest(SimpleTestCase):
     test_data = {
-        "text": "Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques",
+        "text": "Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques",  # noqa
         "source_url": "https://www.systeme-de-design.gouv.fr/",
         "author": "Auteur",
         "source": "Système de Design de l'État",
@@ -524,7 +524,7 @@ class DsfrQuoteTagTest(SimpleTestCase):
                     </div>
                 </figcaption>
             </figure>
-            """,
+            """,  # noqa
             rendered_template,
         )
 
@@ -624,7 +624,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                     </ul>
                 </div>
             </li>
-            """,
+            """,  # noqa
             self.rendered_template,
         )
 
@@ -655,7 +655,7 @@ class DsfrSummaryTagTest(SimpleTestCase):
                     </li>  
                 </ol>
             </nav>
-            """,
+            """,  # noqa
             rendered_template,
         )
 
@@ -719,11 +719,11 @@ class DsfrTagTagTest(SimpleTestCase):
 
         context = Context({"test_data": test_data})
         template_to_render = Template(
-            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-icon-arrow-right-line fr-tag--icon-left' %}"
+            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-icon-arrow-right-line fr-tag--icon-left' %}"  # noqa
         )
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<p class="fr-tag fr-icon-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",
+            """<p class="fr-tag fr-icon-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",  # noqa
             rendered_template,
         )
 
@@ -738,7 +738,7 @@ class DsfrTagTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_tag test_data %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<a href="#" class="fr-tag" onclick="console.log(&#x27;clicked&#x27;);">Label of the tag item</a>""",
+            """<a href="#" class="fr-tag" onclick="console.log(&#x27;clicked&#x27;);">Label of the tag item</a>""",  # noqa
             rendered_template,
         )
 

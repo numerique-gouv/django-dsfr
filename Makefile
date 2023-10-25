@@ -15,8 +15,18 @@ endif
 checkstyle:
 	poetry run ruff check .
 
+init:
+	poetry install
+	poetry run python manage.py migrate
+	poetry run python manage.py collectstatic --noinput
+	poetry run python manage.py import_sample_data
+	poetry shell
+
 runserver:
 	poetry run python manage.py runserver $(local_port)
+
+test:
+	poetry run python manage.py test
 
 update_dsfr:
 	bash scripts/download_latest.sh
