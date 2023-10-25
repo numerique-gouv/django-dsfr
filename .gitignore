@@ -134,3 +134,4 @@ dmypy.json
 
 # Project specific
 !dsfr/static/dsfr/dist
+docs/
