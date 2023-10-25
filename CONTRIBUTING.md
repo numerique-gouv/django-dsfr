@@ -28,13 +28,13 @@ Pour installer les dépendances du projet :
 poetry install
 ```
 
-Pour installer un nouveau paquet et l'ajouter aux dépendances :
+Pour installer un nouveau paquet et l’ajouter aux dépendances :
 
 ```
 poetry add <paquet>
 ```
 
-Pour un paquet ne servant que pour le développement, par exemple *black* :
+Pour un paquet ne servant que pour le développement, par exemple `black` :
 
 ```
 poetry add --group dev <paquet>
@@ -47,9 +47,14 @@ poetry shell
 
 ## Conventions de style et vérifications automatique
 
-Ce projet suit globalement les [conventions de style de Django](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/coding-style/). 
+Ce projet suit globalement les [conventions de style de Django](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/coding-style/).
 
 Il utilise `ruff` et `black` pour la mise en forme et `bandit` pour repérer les failles de sécurité les plus communes.
+
+Concernant les langues :
+- le code est en anglais, y compris les commentaires, de même que le nom des branches git ;
+- la documentation est en français, de même que les exemples de composants et le nom des PR ;
+- Les *issues* peuvent être ouvertes dans l’une ou l’autre langue.
 
 Pour vérifier son code, on peut intégrer le linter adapté à son IDE et aussi faire ceci :
 
@@ -70,7 +75,7 @@ Une fois la mise à jour faite, il reste à :
 - lancer les tests unitaires avec `make test` ;
 - ouvrir le site de test et vérifier que tous les composants s’affichent toujours bien ;
 - mettre à jour la liste des composants en vérifiant depuis le site du système de design de l’État ;
-- mettre à jour les composants si nécessaire, en se basant sur le site du système de design de l’État.
+- mettre à jour les composants si nécessaire, en se basant sur le site du système de design de l’État (ou ouvrir des *issues*)
 
 ## Publication d’une nouvelle version
 
@@ -83,5 +88,3 @@ La numérotation suit le principe de [versionnage sémantique](https://semver.or
 ## Mise à jour de la documentation
 
 De la même manière, lorsqu’une PR est mergée dans la branche `main`, une tâche Github Actions ([deploy-doc.yml]([./.github/workflows/deploy-doc.yml)) met à jour la documentation statique en faisant un export statique du site d’exemple.
-
-
