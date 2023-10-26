@@ -13,8 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-P/HrcdR2S1HqWeTpL67qRmJbz7DTfxg9pFXTa9s2shPpIUXQRZUWc7ypkVgpLPZt">
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-EA/IxIPlPJ/3DE9waDRt3RCsxyuvvEfrS6NEk9aBDjAsh565PkpBzIPVVNddID/W">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-LtcfS1K2I3jMUhzjxpeUO3UUiin8SpxX5rODWf05CrGtS44FrX8oAYCPVaFbM10M">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-STqXIfO4sjaf/YUpwUezCvsCRtEmzt2vrpk5cixx+BPM6SWpOC6K8Bu5b9Svd3sV">
 
 <meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
     
@@ -206,7 +206,7 @@
 
     <div id="form">
         <form method="POST" enctype="multipart/form-data" id="form-base">
-            <input type="hidden" name="csrfmiddlewaretoken" value="Un7fxWfVLTKRZAygFpHsWo17lf8Ekkb4KpLfwdWqMmXK83PBF7X5uRJRbocZs5M1">
+            <input type="hidden" name="csrfmiddlewaretoken" value="LtDX5JvDjnKpQbxl8ITy9m9aPlOzLNpRNFdKMxhNqJyNBcDBvFeFzOj2C47qRa8v">
             
             
             
@@ -230,7 +230,7 @@
 
 <div class="fr-input-group">
     <label for="id_first_name" class="fr-label">
-        <label for="id_first_name">Prénom :</label> *
+        <label for="id_first_name">Prénom:</label> *
     
     </label>
 
@@ -255,7 +255,7 @@
 
 <div class="fr-input-group">
     <label for="id_last_name" class="fr-label">
-        <label for="id_last_name">Nom :</label> *
+        <label for="id_last_name">Nom:</label> *
     
     </label>
 
@@ -280,7 +280,7 @@
 
 <div class="fr-input-group">
     <label for="id_birth_date" class="fr-label">
-        <label for="id_birth_date">Birth date :</label> *
+        <label for="id_birth_date">Birth date:</label> *
     
     </label>
 
@@ -322,7 +322,36 @@
         
 
             <div class="row1 formset-row-book_set formset" id="formset-0">
-             <input type="hidden" name="book_set-0-author" id="id_book_set-0-author">  <input type="hidden" name="book_set-0-id" id="id_book_set-0-id"> 
+             <input type="hidden" name="book_set-0-id" id="id_book_set-0-id"> 
+            
+
+                
+                
+                
+
+                
+
+
+  
+
+<div class="fr-select-group">
+    <label for="id_book_set-0-author" class="fr-label">
+        <label for="id_book_set-0-author">Author:</label> *
+    
+    </label>
+
+    
+      <select name="book_set-0-author" class="fr-select" id="id_book_set-0-author">
+  <option value="" selected>---------</option>
+
+</select>
+    
+
+    
+</div>
+
+
+
             
 
                 
@@ -336,7 +365,7 @@
 
 <div class="fr-input-group">
     <label for="id_book_set-0-title" class="fr-label">
-        <label for="id_book_set-0-title">Titre :</label> *
+        <label for="id_book_set-0-title">Titre:</label> *
     
     </label>
 
@@ -362,7 +391,7 @@
 
 <div class="fr-input-group">
     <label for="id_book_set-0-number_of_pages" class="fr-label">
-        <label for="id_book_set-0-number_of_pages">Nombre de pages :</label>
+        <label for="id_book_set-0-number_of_pages">Nombre de pages:</label>
     
     </label>
 
@@ -387,7 +416,7 @@
   
 <fieldset class="fr-fieldset" id="radio-id_book_set-0-book_format" aria-labelledby="id_book_set-0-book_format-legend">
   <legend class="fr-fieldset__legend fr-text--regular" id="id_book_set-0-book_format-legend">
-    <label>Format :</label> *
+    <label>Format:</label> *
     
   </legend>
 
@@ -438,7 +467,7 @@
   
 <fieldset class="fr-fieldset" id="checkboxes-id_book_set-0-genre" aria-labelledby="id_book_set-0-genre-legend">
   <legend class="fr-fieldset__legend fr-text--regular" id="id_book_set-0-genre-legend">
-    <label>Genre :</label>
+    <label>Genre:</label>
     <span class="fr-hint-text">Veuillez choisir le ou les genres associés au livre</span>
   </legend>
 
@@ -450,7 +479,7 @@
   
     
     <label for="" class="fr-label">
-        <label>Genre :</label>
+        <label>Genre:</label>
         
             <span class="fr-hint-text">Veuillez choisir le ou les genres associés au livre</span>
         
@@ -482,7 +511,7 @@
   
     
     <label for="id_book_set-0-DELETE" class="fr-label">
-        <label for="id_book_set-0-DELETE">Supprimer :</label>
+        <label for="id_book_set-0-DELETE">Delete:</label>
         
     </label>
     
@@ -600,8 +629,8 @@
     
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-sMPQCVtIWjxSI9VUtSJkCZW2YMRNdVOfokLJm7MfIW2/8RrNnGEIYfUxlcHMgzkd" nonce="JhyqkRGUl8rWtBJXule4Aw=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-H+qvxb2A7gd9xqm321FAeM1hY9Jsz0olZ7f2n1k4AmLST5Bydqqga5EMZyj7i5Ey"  nonce="JhyqkRGUl8rWtBJXule4Aw=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-I2h3dQPRm8wpUZxuuDoCO5k+q6jvFHVAcTkMeJJq/noEkqKDlj6TfbB/TRUgp0zO" nonce="CM1HShXCON6wj07rpvE2DQ=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-d+DDNW3pgRaE0MzYgb+MqZxgN/70LO9MiYA6q2Fc7ydJlu3jKx6MmI5EddVeYzl6"  nonce="CM1HShXCON6wj07rpvE2DQ=="></script>
     
   </body>
 </html>
