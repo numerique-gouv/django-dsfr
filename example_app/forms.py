@@ -131,7 +131,7 @@ class ExampleForm(DsfrBaseForm):
         self.set_autofocus_on_first_error()
 
 
-class AuthorCreateForm(ModelForm):
+class AuthorCreateForm(ModelForm, DsfrBaseForm):
     class Meta:
         model = Author
         exclude = []
@@ -153,7 +153,7 @@ BOOK_FORMAT = (
 )
 
 
-class BookCreateForm(ModelForm):
+class BookCreateForm(ModelForm, DsfrBaseForm):
     class Meta:
         model = Book
         exclude = []
