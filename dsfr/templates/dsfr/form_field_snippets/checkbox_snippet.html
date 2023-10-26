@@ -2,13 +2,18 @@
 <div class="fr-checkbox-group{% if field.errors %} fr-checkbox-group--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %}">
   {% if field.errors %}
     {% with aria_describedby="aria-describedby:"|add:field.auto_id|add:"-desc-error" %}
-      {{ field|attr:aria_describedby }}
+      {{ field|attr:"type:checkbox"|attr:aria_describedby }}
     {% endwith %}
   {% else %}
-    {{ field }}
+    {{ field|attr:"type:checkbox" }}
   {% endif %}
     
-    {{ field.label_tag }}
+    <label for="{{ field.id_for_label }}" class="fr-label">
+        {{ field.label_tag }}
+        {% if field.help_text %}
+            <span class="fr-hint-text">{{ field.help_text }}</span>
+        {% endif %}
+    </label>
     
     {% if field.errors %}
       <div id="{{ field.auto_id }}-desc-error" class="fr-error-text">
