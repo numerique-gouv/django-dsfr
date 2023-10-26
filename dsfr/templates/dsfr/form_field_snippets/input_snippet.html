@@ -8,10 +8,10 @@
 
     {% if field.errors %}
       {% with aria_describedby="aria-describedby:"|add:field.auto_id|add:"-desc-error" %}
-        {{ field|add_class:'fr-input'|attr:"aria-invalid:true"|attr:aria_describedby }}
+        {{ field|attr:"aria-invalid:true"|attr:aria_describedby }}
       {% endwith %}
     {% else %}
-      {{ field|add_class:'fr-input' }}
+      {{ field }}
     {% endif %}
 
     {% if field.errors %}
