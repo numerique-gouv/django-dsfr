@@ -241,6 +241,11 @@ class AuthorCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(AuthorCreateView, self).get_context_data(**kwargs)
+
+        payload = init_payload("Formulaire avec formset")
+        for key, value in payload.items():
+            context[key] = value
+
         book_formhelper = BookCreateFormHelper()
 
         instance = None
