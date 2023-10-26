@@ -6,11 +6,7 @@
   </legend>
 
   <div class="fr-fieldset__content">
-    {% if field.field.disabled %}
-      {{ field|attr:"disabled" }}
-    {% else %}
-      {{ field }}
-    {% endif %}
+    {% include "dsfr/form_field_snippets/checkbox_snippet.html" %}
   </div>
 
   {% if field.errors %}
