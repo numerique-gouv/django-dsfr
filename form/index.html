@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-P/HrcdR2S1HqWeTpL67qRmJbz7DTfxg9pFXTa9s2shPpIUXQRZUWc7ypkVgpLPZt">
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-EA/IxIPlPJ/3DE9waDRt3RCsxyuvvEfrS6NEk9aBDjAsh565PkpBzIPVVNddID/W">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-LtcfS1K2I3jMUhzjxpeUO3UUiin8SpxX5rODWf05CrGtS44FrX8oAYCPVaFbM10M">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-STqXIfO4sjaf/YUpwUezCvsCRtEmzt2vrpk5cixx+BPM6SWpOC6K8Bu5b9Svd3sV">
 
 <meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
     
@@ -194,7 +194,7 @@
         
   <h1>Exemple de formulaire</h1>
   <form action="/django-dsfr/form/" method="post">
-      <input type="hidden" name="csrfmiddlewaretoken" value="zZ9HybF9Io6V7JwVofqQnaryS2au4ZNklwaMDiihud5Mb7HNPM12cD7CKDQqDTCg">
+      <input type="hidden" name="csrfmiddlewaretoken" value="4gGN6ZwMMVFdDOp2NuvA5qiO1hVq2hQ7q7KpRtVDKhUPBkXhN979aB1AJNamqMKf">
       
     
 
@@ -202,15 +202,18 @@
   
 
 <div class="fr-input-group">
-    <label for="id_user_name">Nom d’utilisateur :</label> *
+    <label for="id_user_name" class="fr-label">
+        <label for="id_user_name">Nom d’utilisateur:</label> *
     
+    </label>
 
     
-      <input type="text" name="user_name" maxlength="100" class="fr-input" required id="id_user_name">
+      <input type="text" name="user_name" maxlength="100" class="fr-input fr-input" required id="id_user_name">
     
 
     
 </div>
+
 
 
 
@@ -220,15 +223,18 @@
   
 
 <div class="fr-input-group">
-    <label for="id_user_email">Adresse électronique :</label>
+    <label for="id_user_email" class="fr-label">
+        <label for="id_user_email">Adresse électronique:</label>
     <span class="fr-hint-text">Format attendu : prenom.nom@domaine.fr</span>
+    </label>
 
     
-      <input type="email" name="user_email" maxlength="320" class="fr-input" id="id_user_email">
+      <input type="email" name="user_email" maxlength="320" class="fr-input fr-input" id="id_user_email">
     
 
     
 </div>
+
 
 
 
@@ -238,15 +244,18 @@
   
 
 <div class="fr-input-group">
-    <label for="id_password">Mot de passe :</label>
+    <label for="id_password" class="fr-label">
+        <label for="id_password">Mot de passe:</label>
     
+    </label>
 
     
-      <input type="password" name="password" class="fr-input" id="id_password">
+      <input type="password" name="password" class="fr-input fr-input" id="id_password">
     
 
     
 </div>
+
 
 
 
@@ -256,15 +265,18 @@
   
 
 <div class="fr-input-group">
-    <label for="id_sample_number">Nombre entier :</label> *
+    <label for="id_sample_number" class="fr-label">
+        <label for="id_sample_number">Nombre entier:</label> *
     <span class="fr-hint-text">Un nombre inférieur à 0 déclenchera un message d’erreur</span>
+    </label>
 
     
-      <input type="number" name="sample_number" class="fr-input" required id="id_sample_number">
+      <input type="number" name="sample_number" class="fr-input fr-input" required id="id_sample_number">
     
 
     
 </div>
+
 
 
 
@@ -274,15 +286,18 @@
   
 
 <div class="fr-input-group">
-    <label for="id_sample_decimal">Nombre décimal :</label>
+    <label for="id_sample_decimal" class="fr-label">
+        <label for="id_sample_decimal">Nombre décimal:</label>
     
+    </label>
 
     
-      <input type="number" name="sample_decimal" step="any" class="fr-input" id="id_sample_decimal">
+      <input type="number" name="sample_decimal" step="any" class="fr-input fr-input" id="id_sample_decimal">
     
 
     
 </div>
+
 
 
 
@@ -292,15 +307,18 @@
   
 
 <div class="fr-input-group fr-input-group--disabled">
-    <label for="id_sample_disabled_field">Champ désactivé :</label>
+    <label for="id_sample_disabled_field" class="fr-label">
+        <label for="id_sample_disabled_field">Champ désactivé:</label>
     <span class="fr-hint-text">Ce champ est désactivé</span>
+    </label>
 
     
-      <input type="text" name="sample_disabled_field" maxlength="100" class="fr-input" disabled id="id_sample_disabled_field">
+      <input type="text" name="sample_disabled_field" maxlength="100" class="fr-input fr-input" disabled id="id_sample_disabled_field">
     
 
     
 </div>
+
 
 
 
@@ -310,15 +328,18 @@
   
 
 <div class="fr-input-group">
-    <label for="id_sample_date">Date :</label>
+    <label for="id_sample_date" class="fr-label">
+        <label for="id_sample_date">Date:</label>
     
+    </label>
 
     
-      <input type="date" name="sample_date" class="fr-input" id="id_sample_date">
+      <input type="date" name="sample_date" class="fr-input fr-input" id="id_sample_date">
     
 
     
 </div>
+
 
 
 
@@ -331,10 +352,15 @@
     <input type="checkbox" name="sample_boolean" id="id_sample_boolean">
   
     
-    <label for="id_sample_boolean">Cochez la case :</label>
+    <label for="id_sample_boolean" class="fr-label">
+        <label for="id_sample_boolean">Cochez la case:</label>
+        
+    </label>
     
     
 </div>
+
+
 
 
     
@@ -343,11 +369,13 @@
   
 
 <div class="fr-select-group">
-    <label for="id_sample_select">Liste déroulante :</label>
+    <label for="id_sample_select" class="fr-label">
+        <label for="id_sample_select">Liste déroulante:</label>
     
+    </label>
 
     
-      <select name="sample_select" class="fr-select" id="id_sample_select">
+      <select name="sample_select" class="fr-select fr-input" id="id_sample_select">
   <option value="1">Option 1</option>
 
   <option value="2">Option 2</option>
@@ -362,17 +390,20 @@
 
 
 
+
     
 
 
   
 
 <div class="fr-select-group">
-    <label for="id_sample_multiple_select">Liste déroulante à choix multiples :</label>
+    <label for="id_sample_multiple_select" class="fr-label">
+        <label for="id_sample_multiple_select">Liste déroulante à choix multiples:</label>
     
+    </label>
 
     
-      <select name="sample_multiple_select" class="fr-select" id="id_sample_multiple_select" multiple>
+      <select name="sample_multiple_select" class="fr-select fr-input" id="id_sample_multiple_select" multiple>
   <option value="1">Option 1</option>
 
   <option value="2">Option 2</option>
@@ -384,6 +415,7 @@
 
     
 </div>
+
 
 
 
@@ -393,13 +425,14 @@
   
 <fieldset class="fr-fieldset" id="radio-id_sample_radio" aria-labelledby="id_sample_radio-legend">
   <legend class="fr-fieldset__legend fr-text--regular" id="id_sample_radio-legend">
-    <label>Boutons radio :</label>
+    <label>Boutons radio:</label>
     <span class="fr-hint-text">Le troisième choix renvoie une erreur s’il est sélectionné</span>
   </legend>
 
   <div class="fr-fieldset__content">
-      
-        <div class="fr-radio-group">
+      <div class="fr-radio-group">
+          
+            <div class="fr-radio-group">
 <input type="radio" name="sample_radio" value="1" dsfr="dsfr" class="fr-radio-group" id="id_sample_radio_0">
 
 
@@ -438,7 +471,8 @@
     </label>
 
 </div>
-      
+          
+      </div>
   </div>
 
   
@@ -453,13 +487,15 @@
   
 <fieldset class="fr-fieldset" id="checkboxes-id_sample_checkbox" aria-labelledby="id_sample_checkbox-legend">
   <legend class="fr-fieldset__legend fr-text--regular" id="id_sample_checkbox-legend">
-    <label>Cases à cocher :</label>
+    <label>Cases à cocher:</label>
     <span class="fr-hint-text">Le troisième choix renvoie une erreur s’il est sélectionné</span>
   </legend>
 
   <div class="fr-fieldset__content">
     
-      <div class="fr-checkbox-group">
+<div class="fr-checkbox-group">
+  
+    <div class="fr-checkbox-group">
 <input type="checkbox" name="sample_checkbox" value="1" dsfr="dsfr" id="id_sample_checkbox_0">
 
 
@@ -498,11 +534,24 @@
     </label>
 
 </div>
+  
     
+    <label for="" class="fr-label">
+        <label>Cases à cocher:</label>
+        
+            <span class="fr-hint-text">Le troisième choix renvoie une erreur s’il est sélectionné</span>
+        
+    </label>
+    
+    
+</div>
+
   </div>
 
   
 </fieldset>
+
+
 
 
     
@@ -511,11 +560,13 @@
   
 
 <div class="fr-input-group">
-    <label for="id_sample_comment">Sample comment :</label>
+    <label for="id_sample_comment" class="fr-label">
+        <label for="id_sample_comment">Sample comment:</label>
     
+    </label>
 
     
-      <textarea name="sample_comment" cols="40" rows="10" class="fr-input" id="id_sample_comment">
+      <textarea name="sample_comment" cols="40" rows="10" class="fr-input fr-input" id="id_sample_comment">
 </textarea>
     
 
@@ -524,17 +575,20 @@
 
 
 
+
     
 
 
   
 
 <div class="fr-input-group">
-    <label for="id_sample_json">Fichier JSON :</label>
+    <label for="id_sample_json" class="fr-label">
+        <label for="id_sample_json">Fichier JSON:</label>
     
+    </label>
 
     
-      <textarea name="sample_json" cols="40" rows="10" class="fr-input" id="id_sample_json">
+      <textarea name="sample_json" cols="40" rows="10" class="fr-input fr-input" id="id_sample_json">
 null</textarea>
     
 
@@ -543,21 +597,25 @@ null</textarea>
 
 
 
+
     
 
 
   
 
 <div class="fr-input-group">
-    <label for="id_sample_file">Pièce jointe :</label>
+    <label for="id_sample_file" class="fr-label">
+        <label for="id_sample_file">Pièce jointe:</label>
     
+    </label>
 
     
-      <input type="file" name="sample_file" id="id_sample_file">
+      <input type="file" name="sample_file" class="fr-input" id="id_sample_file">
     
 
     
 </div>
+
 
 
 
@@ -640,8 +698,8 @@ null</textarea>
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-sMPQCVtIWjxSI9VUtSJkCZW2YMRNdVOfokLJm7MfIW2/8RrNnGEIYfUxlcHMgzkd" nonce="C2EFh655tXAMRuVem78fCg=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-H+qvxb2A7gd9xqm321FAeM1hY9Jsz0olZ7f2n1k4AmLST5Bydqqga5EMZyj7i5Ey"  nonce="C2EFh655tXAMRuVem78fCg=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-I2h3dQPRm8wpUZxuuDoCO5k+q6jvFHVAcTkMeJJq/noEkqKDlj6TfbB/TRUgp0zO" nonce="6J4ZA9VsPWHutbL5bNA9tQ=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-d+DDNW3pgRaE0MzYgb+MqZxgN/70LO9MiYA6q2Fc7ydJlu3jKx6MmI5EddVeYzl6"  nonce="6J4ZA9VsPWHutbL5bNA9tQ=="></script>
     
   </body>
 </html>

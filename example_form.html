@@ -13,8 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-P/HrcdR2S1HqWeTpL67qRmJbz7DTfxg9pFXTa9s2shPpIUXQRZUWc7ypkVgpLPZt">
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-EA/IxIPlPJ/3DE9waDRt3RCsxyuvvEfrS6NEk9aBDjAsh565PkpBzIPVVNddID/W">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-LtcfS1K2I3jMUhzjxpeUO3UUiin8SpxX5rODWf05CrGtS44FrX8oAYCPVaFbM10M">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-STqXIfO4sjaf/YUpwUezCvsCRtEmzt2vrpk5cixx+BPM6SWpOC6K8Bu5b9Svd3sV">
 
 <meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
     
@@ -28,7 +28,7 @@
     
     <title>
       
-        Design Système de l’État
+        Formulaire avec formset — Design Système de l’État
       
     </title>
     
@@ -39,6 +39,14 @@
         <div class="fr-skiplinks">
     <nav role="navigation" class="fr-container" aria-label="Accès rapide">
         <ul class="fr-skiplinks__list">
+          
+          <li>
+              <a class="fr-link" href="#content">Contenu</a>
+          </li>
+          
+          <li>
+              <a class="fr-link" href="#fr-navigation">Menu</a>
+          </li>
           
         </ul>
     </nav>
@@ -180,11 +188,11 @@
     <div class="fr-collapse" id="breadcrumb-1">
         <ol class="fr-breadcrumb__list">
             <li>
-                <a class="fr-breadcrumb__link" href="/">Accueil</a>
+                <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" aria-current="page"></a>
+                <a class="fr-breadcrumb__link" aria-current="page">Formulaire avec formset</a>
             </li>
         </ol>
     </div>
@@ -198,7 +206,7 @@
 
     <div id="form">
         <form method="POST" enctype="multipart/form-data" id="form-base">
-            <input type="hidden" name="csrfmiddlewaretoken" value="wnyeN9bbboa2YssDakPTo30L5JijILZgij4LRekXwRsjU86lch0EQSfyc59g0kYz">
+            <input type="hidden" name="csrfmiddlewaretoken" value="U4hne7O1CqDMYT3wGpTHA6IPjt2WoaUx8OIfxBcif5LmCdw5ol9S9xa8CYlJlrg4">
             
             
             
@@ -214,69 +222,77 @@
                 
                 
                 
+            
+                
 
-                
-                
-                
-                    <div class="fr-mt-5v">
-                        <div class="fr-input-group ">
-                            <label for="id_first_name" class="fr-label">
-                                Prénom *
-                                
-                            </label>
-                            
-                                <div class="fr-input-wrap fr-icon-alert-line">
-                                    <input type="text" name="first_name" maxlength="250" class="fr-input" required id="id_first_name">
-                                </div>
-                                   
-                            
-                        </div>
-                    </div>
-                
+
+  
+
+<div class="fr-input-group">
+    <label for="id_first_name" class="fr-label">
+        <label for="id_first_name">Prénom:</label> *
+    
+    </label>
+
+    
+      <input type="text" name="first_name" maxlength="250" class="fr-input" required id="id_first_name">
+    
+
+    
+</div>
+
+
+
             
                 
                 
                 
+            
+                
 
-                
-                
-                
-                    <div class="fr-mt-5v">
-                        <div class="fr-input-group ">
-                            <label for="id_last_name" class="fr-label">
-                                Nom *
-                                
-                            </label>
-                            
-                                <div class="fr-input-wrap fr-icon-alert-line">
-                                    <input type="text" name="last_name" maxlength="250" class="fr-input" required id="id_last_name">
-                                </div>
-                                   
-                            
-                        </div>
-                    </div>
-                
+
+  
+
+<div class="fr-input-group">
+    <label for="id_last_name" class="fr-label">
+        <label for="id_last_name">Nom:</label> *
+    
+    </label>
+
+    
+      <input type="text" name="last_name" maxlength="250" class="fr-input" required id="id_last_name">
+    
+
+    
+</div>
+
+
+
             
                 
                 
                 
+            
+                
 
-                
-                
-                
-                    <div class="fr-mt-5v">
-                        <div class="fr-input-group ">
-                                <label for="id_birth_date" class="fr-label">
-                                Birth date *
-                                
-                            </label>            
-                            <input type="date" name="birth_date" class="fr-input" required id="id_birth_date">
-                            
-                        </div>
-                    </div>
-                
-                
-                
+
+  
+
+<div class="fr-input-group">
+    <label for="id_birth_date" class="fr-label">
+        <label for="id_birth_date">Birth date:</label> *
+    
+    </label>
+
+    
+      <input type="date" name="birth_date" class="fr-input" required id="id_birth_date">
+    
+
+    
+</div>
+
+
+
             
             
             
@@ -314,23 +330,25 @@
                 
 
                 
-                
-                
-                    <div class="fr-mt-5v">
-                        <div class="fr-input-group ">
-                            <label for="id_book_set-0-title" class="fr-label">
-                                Titre *
-                                
-                            </label>
-                            
-                                <div class="fr-input-wrap fr-fi-alert-line">
-                                    <input type="text" name="book_set-0-title" maxlength="250" class="fr-input" id="id_book_set-0-title">
-                                </div>
-                            
-                            
-                        </div>
-                    </div>
-                
+
+
+  
+
+<div class="fr-input-group">
+    <label for="id_book_set-0-title" class="fr-label">
+        <label for="id_book_set-0-title">Titre:</label> *
+    
+    </label>
+
+    
+      <input type="text" name="book_set-0-title" maxlength="250" class="fr-input" id="id_book_set-0-title">
+    
+
+    
+</div>
+
+
+
             
 
                 
@@ -338,21 +356,25 @@
                 
 
                 
-                
-                
-                    <div class="fr-mt-5v">
-                        <div class="fr-select-group">
-                            <label for="id_book_set-0-number_of_pages" class="fr-label">
-                                Nombre de pages 
-                                
-                            </label>
-                            <input type="number" name="book_set-0-number_of_pages" maxlength="6" inputmode="numeric" pattern="[0-9]*" class="fr-input" id="id_book_set-0-number_of_pages">
-                            
-                        </div>
-                    </div>
 
-                
-                
+
+  
+
+<div class="fr-input-group">
+    <label for="id_book_set-0-number_of_pages" class="fr-label">
+        <label for="id_book_set-0-number_of_pages">Nombre de pages:</label>
+    
+    </label>
+
+    
+      <input type="number" name="book_set-0-number_of_pages" maxlength="6" class="fr-input" id="id_book_set-0-number_of_pages">
+    
+
+    
+</div>
+
+
+
             
 
                 
@@ -360,19 +382,19 @@
                 
 
                 
-                
-                
-                    <div class="fr-mt-5v">
-                        <div class="fr-form-group">
-                            <fieldset class="fr-fieldset" id="radio-id_book_set-0-book_format" aria-labelledby="id_book_set-0-book_format-legend">
-                                <legend class="fr-fieldset__legend fr-text--regular" id="id_book_set-0-book_format-legend">
-                                  <label>Format :</label> *
-                                  
-                                </legend>
 
-                                <div class="fr-fieldset__content">
-                                    
-                                      <input type="radio" name="book_set-0-book_format" value="PAPER" class="fr-fieldset--inline fr-radio-group" id="id_book_set-0-book_format_0">
+
+  
+<fieldset class="fr-fieldset" id="radio-id_book_set-0-book_format" aria-labelledby="id_book_set-0-book_format-legend">
+  <legend class="fr-fieldset__legend fr-text--regular" id="id_book_set-0-book_format-legend">
+    <label>Format:</label> *
+    
+  </legend>
+
+  <div class="fr-fieldset__content">
+      <div class="fr-radio-group">
+          
+            <input type="radio" name="book_set-0-book_format" value="PAPER" class="fr-fieldset--inline fr-radio-group" id="id_book_set-0-book_format_0">
 
 
     <label class="fr-label" for="id_book_set-0-book_format_0">
@@ -395,15 +417,15 @@
             <span class="fr-hint-text">Livre électronique</span>
         
     </label>
-                                    
-                                </div>
-                                
-                              </fieldset>
-                        </div>
-                    </div>
+          
+      </div>
+  </div>
 
-                
-                
+  
+</fieldset>
+
+
+
             
 
                 
@@ -411,28 +433,39 @@
                 
 
                 
-                
-                
-                    <div class="fr-mt-5v">
-                        <div class="fr-form-group">
-                            <fieldset class="fr-fieldset" id="checkboxes-id_book_set-0-genre" aria-labelledby="id_book_set-0-genre-legend">
-                                <legend class="fr-fieldset__legend fr-text--regular" id="id_book_set-0-genre-legend">
-                                  <label>Genre :</label>
-                                  <span class="fr-hint-text">Veuillez choisir le ou les genres associés au livre</span>
-                                </legend>
 
-                                <div class="fr-fieldset__content">
-                                  
-                                    
-                                  
-                                </div>
-                                
-                              </fieldset>
-                        </div>
-                    </div>
 
-                
-                
+  
+<fieldset class="fr-fieldset" id="checkboxes-id_book_set-0-genre" aria-labelledby="id_book_set-0-genre-legend">
+  <legend class="fr-fieldset__legend fr-text--regular" id="id_book_set-0-genre-legend">
+    <label>Genre:</label>
+    <span class="fr-hint-text">Veuillez choisir le ou les genres associés au livre</span>
+  </legend>
+
+  <div class="fr-fieldset__content">
+    
+<div class="fr-checkbox-group">
+  
+    
+  
+    
+    <label for="" class="fr-label">
+        <label>Genre:</label>
+        
+            <span class="fr-hint-text">Veuillez choisir le ou les genres associés au livre</span>
+        
+    </label>
+    
+    
+</div>
+
+  </div>
+
+  
+</fieldset>
+
+
+
             
 
                 
@@ -440,21 +473,24 @@
                 
 
                 
-                
-                
-                    <div class="fr-mt-5v">
-                        <div class="fr-checkbox-group ">
-                            <input type="checkbox" name="book_set-0-DELETE" id="id_book_set-0-DELETE">
-                            <label for="id_book_set-0-DELETE" class="fr-label">
-                                Supprimer 
-                                
-                            </label>
-                            
-                        </div>
-                    </div>
 
-                
-                
+
+  
+<div class="fr-checkbox-group">
+  
+    <input type="checkbox" name="book_set-0-DELETE" id="id_book_set-0-DELETE">
+  
+    
+    <label for="id_book_set-0-DELETE" class="fr-label">
+        <label for="id_book_set-0-DELETE">Delete:</label>
+        
+    </label>
+    
+    
+</div>
+
+
+
             
 
             <div class="fr-mt-2w">
@@ -564,8 +600,8 @@
     
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-sMPQCVtIWjxSI9VUtSJkCZW2YMRNdVOfokLJm7MfIW2/8RrNnGEIYfUxlcHMgzkd" nonce="4pYkGMU/rdCtuYQkZXAZnw=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-H+qvxb2A7gd9xqm321FAeM1hY9Jsz0olZ7f2n1k4AmLST5Bydqqga5EMZyj7i5Ey"  nonce="4pYkGMU/rdCtuYQkZXAZnw=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-I2h3dQPRm8wpUZxuuDoCO5k+q6jvFHVAcTkMeJJq/noEkqKDlj6TfbB/TRUgp0zO" nonce="jglwCe9Ihn9GQzhnLOPZKw=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-d+DDNW3pgRaE0MzYgb+MqZxgN/70LO9MiYA6q2Fc7ydJlu3jKx6MmI5EddVeYzl6"  nonce="jglwCe9Ihn9GQzhnLOPZKw=="></script>
     
   </body>
 </html>

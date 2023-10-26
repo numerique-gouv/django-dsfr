@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-P/HrcdR2S1HqWeTpL67qRmJbz7DTfxg9pFXTa9s2shPpIUXQRZUWc7ypkVgpLPZt">
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-EA/IxIPlPJ/3DE9waDRt3RCsxyuvvEfrS6NEk9aBDjAsh565PkpBzIPVVNddID/W">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-LtcfS1K2I3jMUhzjxpeUO3UUiin8SpxX5rODWf05CrGtS44FrX8oAYCPVaFbM10M">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-STqXIfO4sjaf/YUpwUezCvsCRtEmzt2vrpk5cixx+BPM6SWpOC6K8Bu5b9Svd3sV">
 
 <meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
     
@@ -400,8 +400,8 @@
       <h2>Documentation du tag</h2>
       <pre>
       
-    Returns a group of accordion items. Takes a list of dicts as parameters (see the
-    accordion tag for the structure of these dicts.)
+    Returns a group of accordion items. Takes a list of dicts as parameters (see the accordion
+    tag for the structure of these dicts.)
 
     **Tag name**::
         dsfr_accordion_group
@@ -419,21 +419,18 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-unyxyhvfkmcddtbf">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-vumbvqdpduurhasg">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-unyxyhvfkmcddtbf">
-        <pre class="code_sample">[{'content': '<p>Contenu d’exemple avec du <strong>gras</strong> et de '
-             'l’<em>italique</em> (1)</p>',
+    <div class="fr-collapse" id="accordion-vumbvqdpduurhasg">
+        <pre class="code_sample">[{'content': '<p><b>Bold</b> and <em>emphatic</em> Example content (1)</p>',
   'id': 'sample-accordion-1',
-  'title': 'Premier accordéon'},
- {'content': '<p>Contenu d’exemple avec du <strong>gras</strong> et de '
-             'l’<em>italique</em> (2)</p>',
+  'title': 'First accordion item'},
+ {'content': '<p><b>Bold</b> and <em>emphatic</em> Example content (2)</p>',
   'id': 'sample-accordion-2',
-  'title': 'Deuxième accordéon'},
- {'content': '<p>Contenu d’exemple avec du <strong>gras</strong> et de '
-             'l’<em>italique</em> (3)</p>',
+  'title': 'Second accordion item'},
+ {'content': '<p><b>Bold</b> and <em>emphatic</em> Example content (3)</p>',
   'id': 'sample-accordion-3',
-  'title': 'Troisième accordéon'}]</pre>
+  'title': 'Third accordion item'}]</pre>
     </div>
 </section>
               
@@ -447,28 +444,28 @@
   
     <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion-1">Premier accordéon</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion-1">First accordion item</button>
     </h3>
     <div class="fr-collapse" id="sample-accordion-1">
-        <p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em> (1)</p>
+        <p><b>Bold</b> and <em>emphatic</em> Example content (1)</p>
     </div>
 </section>
   
     <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion-2">Deuxième accordéon</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion-2">Second accordion item</button>
     </h3>
     <div class="fr-collapse" id="sample-accordion-2">
-        <p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em> (2)</p>
+        <p><b>Bold</b> and <em>emphatic</em> Example content (2)</p>
     </div>
 </section>
   
     <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion-3">Troisième accordéon</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion-3">Third accordion item</button>
     </h3>
     <div class="fr-collapse" id="sample-accordion-3">
-        <p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em> (3)</p>
+        <p><b>Bold</b> and <em>emphatic</em> Example content (3)</p>
     </div>
 </section>
   
@@ -554,8 +551,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-sMPQCVtIWjxSI9VUtSJkCZW2YMRNdVOfokLJm7MfIW2/8RrNnGEIYfUxlcHMgzkd" nonce="tJgOervcB7gF3VhbELM0RQ=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-H+qvxb2A7gd9xqm321FAeM1hY9Jsz0olZ7f2n1k4AmLST5Bydqqga5EMZyj7i5Ey"  nonce="tJgOervcB7gF3VhbELM0RQ=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-I2h3dQPRm8wpUZxuuDoCO5k+q6jvFHVAcTkMeJJq/noEkqKDlj6TfbB/TRUgp0zO" nonce="Xb7+VpNAJtBQeVRbjPWhBg=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-d+DDNW3pgRaE0MzYgb+MqZxgN/70LO9MiYA6q2Fc7ydJlu3jKx6MmI5EddVeYzl6"  nonce="Xb7+VpNAJtBQeVRbjPWhBg=="></script>
     
   </body>
 </html>
