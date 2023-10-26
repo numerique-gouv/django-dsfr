@@ -77,7 +77,6 @@ IMPLEMENTED_TAGS = {
                 "extra_classes": "fr-btn--secondary",
                 "onclick": "alert('Vous avez cliqué sur le bouton secondaire')",
             }
-
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton",
     },
