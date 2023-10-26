@@ -6,11 +6,13 @@
   </legend>
 
   <div class="fr-fieldset__content">
-      {% if field.field.disabled %}
-        {{ field|add_class:"fr-radio-group"|attr:"disabled" }}
-      {% else %}
-        {{ field|add_class:"fr-radio-group" }}
-      {% endif %}
+      <div class="fr-radio-group">
+          {% if field.field.disabled %}
+            {{ field|attr:"type:radio"|add_class:"fr-radio-group"|attr:"disabled" }}
+          {% else %}
+            {{ field|attr:"type:radio"|add_class:"fr-radio-group" }}
+          {% endif %}
+      </div>
   </div>
 
   {% if field.errors %}
@@ -19,4 +21,3 @@
     </div>
   {% endif %}
 </fieldset>
-
