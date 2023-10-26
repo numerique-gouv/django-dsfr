@@ -33,6 +33,6 @@ urlpatterns = [
         "form_formset/",
         AuthorCreateView.as_view(),
         name="form_formset",
-        distill_file="django-dsfr/example_form.html",
+        distill_file="django-dsfr/formsets/index.html",
     ),
 ]
