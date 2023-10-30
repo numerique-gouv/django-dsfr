@@ -5,7 +5,7 @@ L’installation a été testée sur Ubuntu 22.04 avec Python 3.10 et poetry ins
 
 - Faire un `git clone` du projet sur votre machine et ouvrir un terminal
 
-- Installer l’environnement virtuel, les dépendances et initialiser le site d’exemple
+- Installer l’environnement virtuel, les dépendances et initialiser le site d’exemple :
 ```
 make init
 ```
