@@ -416,10 +416,31 @@
         &quot;title&quot;: &quot;Title of the tile item&quot;,
         &quot;url&quot;: &quot;URL of the link of the tile item&quot;,
         &quot;image_path&quot;: &quot;path of the tile image&quot;,
+        &quot;svg_path&quot;: &quot;path of the tile image if this is a SVG&quot;,
+        &quot;description&quot;: &quot;(Optional) description of the tile item&quot;,
+        &quot;detail&quot;: &quot;(Optional) detail zone of the tile tiem
+        &quot;top_detail&quot;: &quot;(Optional) dict with a top detail content and optional tags or badges&quot;,
+        &quot;heading_tag&quot;: &quot;(Optional) Heading tag for the alert title (default: h3)&quot;,
+        &quot;id&quot;: &quot;(Optional) id of the tile item&quot;,
+        &quot;enlarge_link&quot;: (Optional) boolean. If true (default), the link covers the whole card&quot;,
         &quot;extra_classes: (Optional) string with names of extra classes&quot;
     }
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra_classes:
+    - fr-tile--sm: for a small (SM) tile
+    - fr-tile--horizontal: for an horizontal tile
+    - fr-tile--download: Replaces the forward arrow icon with a download one
+
+    Format of the top_detail dict (every field is optional):
+    top_detail = {
+        &quot;tags&quot;: &quot;a list of tag items (mutually exclusive with badges)&quot;,
+        &quot;badges&quot;: &quot;a list of badge items (mutually exclusive with tags)&quot;
+    }
+
+    Note: &quot;image_path&quot; will work even if a SVG is provided, but &quot;svg_path&quot; will use a
+    &lt;svg&gt; html tag instead of the &lt;img&gt; tag.
 
     **Tag name**::
         dsfr_tile
@@ -437,11 +458,11 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-anyldowbtnnlgwtb">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-eihafbcyxxzvzlqq">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-anyldowbtnnlgwtb">
+    <div class="fr-collapse" id="accordion-eihafbcyxxzvzlqq">
         <pre class="code_sample">{'image_path': '/django-dsfr/static/img/placeholder.1x1.svg',
- 'title': 'Titre de la tuile',
+ 'title': 'Tuile basique (verticale, MD)',
  'url': '/'}</pre>
     </div>
 </section>
@@ -452,21 +473,269 @@
           <h3>Résultat</h3>
           
             <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-3">
-                  <div class="fr-tile fr-enlarge-link">
+              <div class="fr-col-12">
+                
+<div class="fr-tile fr-enlarge-link">
   <div class="fr-tile__body">
-    <p class="fr-tile__title">
-      <a class="fr-tile__link" href="/">
-        Titre de la tuile
-      </a>
-    </p>
+    <div class="fr-tile__content">
+      <h3 class="fr-tile__title">
+        <a class="fr-tile__link" href="/">
+          Tuile basique (verticale, MD)
+        </a>
+      </h3>
+      
+      
+      
+    </div>
   </div>
-  <div class="fr-tile__img" role="presentation">
-    <img src="/django-dsfr/static/img/placeholder.1x1.svg" class="fr-responsive-img" alt="" />
+
+  <div class="fr-tile__header">
+    
+      <div class="fr-tile__img" role="presentation">
+        <img src="/django-dsfr/static/img/placeholder.1x1.svg" class="fr-responsive-img" alt="" />
+      </div>
+    
   </div>
 </div>
-                </div>
               </div>
+            </div>
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-cwgctgxngysdqayl">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-cwgctgxngysdqayl">
+        <pre class="code_sample">{'description': 'Tuile horizontale (MD)',
+ 'detail': 'Avec un pictogramme SVG',
+ 'extra_classes': 'fr-tile--horizontal',
+ 'id': 'tile-cityhall',
+ 'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/buildings/city-hall.svg',
+ 'title': 'Tuile horizontale',
+ 'url': '/'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              <div class="fr-col-12">
+                
+<div class="fr-tile fr-enlarge-link fr-tile--horizontal" id="tile-cityhall">
+  <div class="fr-tile__body">
+    <div class="fr-tile__content">
+      <h3 class="fr-tile__title">
+        <a class="fr-tile__link" href="/">
+          Tuile horizontale
+        </a>
+      </h3>
+      <p class="fr-tile__desc">Tuile horizontale (MD)</p>
+      <p class="fr-tile__detail">Avec un pictogramme SVG</p>
+      
+    </div>
+  </div>
+
+  <div class="fr-tile__header">
+    
+      <div class="fr-tile__pictogram">
+          <svg aria-hidden="true" class="fr-artwork" viewBox="0 0 80 80" width="80px" height="80px">
+              <use class="fr-artwork-decorative" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/buildings/city-hall.svg#artwork-decorative"></use>
+              <use class="fr-artwork-minor" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/buildings/city-hall.svg#artwork-minor"></use>
+              <use class="fr-artwork-major" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/buildings/city-hall.svg#artwork-major"></use>
+          </svg>
+      </div>
+    
+  </div>
+</div>
+              </div>
+            </div>
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-gehsbcouffindpvb">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-gehsbcouffindpvb">
+        <pre class="code_sample">{'extra_classes': 'fr-tile--sm',
+ 'id': 'tile-nuclear-plant',
+ 'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/buildings/nuclear-plant.svg',
+ 'title': 'Tuile verticale (SM)',
+ 'url': '/'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              <div class="fr-col-12">
+                
+<div class="fr-tile fr-enlarge-link fr-tile--sm" id="tile-nuclear-plant">
+  <div class="fr-tile__body">
+    <div class="fr-tile__content">
+      <h3 class="fr-tile__title">
+        <a class="fr-tile__link" href="/">
+          Tuile verticale (SM)
+        </a>
+      </h3>
+      
+      
+      
+    </div>
+  </div>
+
+  <div class="fr-tile__header">
+    
+      <div class="fr-tile__pictogram">
+          <svg aria-hidden="true" class="fr-artwork" viewBox="0 0 80 80" width="80px" height="80px">
+              <use class="fr-artwork-decorative" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/buildings/nuclear-plant.svg#artwork-decorative"></use>
+              <use class="fr-artwork-minor" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/buildings/nuclear-plant.svg#artwork-minor"></use>
+              <use class="fr-artwork-major" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/buildings/nuclear-plant.svg#artwork-major"></use>
+          </svg>
+      </div>
+    
+  </div>
+</div>
+              </div>
+            </div>
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-glnlwxyauccgbhvh">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-glnlwxyauccgbhvh">
+        <pre class="code_sample">{'extra_classes': 'fr-tile--horizontal fr-tile--sm',
+ 'id': 'tile-map',
+ 'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/map/map.svg',
+ 'title': 'Tuile horizontale (SM)',
+ 'top_detail': {'badges': [{'extra_classes': 'fr-badge--sm '
+                                             'fr-badge--purple-glycine',
+                            'label': 'Badge coloré'}]},
+ 'url': '/'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              <div class="fr-col-12">
+                
+<div class="fr-tile fr-enlarge-link fr-tile--horizontal fr-tile--sm" id="tile-map">
+  <div class="fr-tile__body">
+    <div class="fr-tile__content">
+      <h3 class="fr-tile__title">
+        <a class="fr-tile__link" href="/">
+          Tuile horizontale (SM)
+        </a>
+      </h3>
+      
+      
+      
+        <div class="fr-tile__start">
+          
+            <ul class="fr-badges-group">
+              
+                  <li>
+                    <p class="fr-badge fr-badge--sm fr-badge--purple-glycine">Badge coloré</p>
+                  </li>
+              
+            </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="fr-tile__header">
+    
+      <div class="fr-tile__pictogram">
+          <svg aria-hidden="true" class="fr-artwork" viewBox="0 0 80 80" width="80px" height="80px">
+              <use class="fr-artwork-decorative" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/map/map.svg#artwork-decorative"></use>
+              <use class="fr-artwork-minor" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/map/map.svg#artwork-minor"></use>
+              <use class="fr-artwork-major" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/map/map.svg#artwork-major"></use>
+          </svg>
+      </div>
+    
+  </div>
+</div>
+              </div>
+            </div>
+          
+        
+          <h3 class="fr-mt-3w">Données</h3>
+          <div class="fr-my-2w">
+            
+              
+                <section class="fr-accordion">
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-dikeeedqhzbenowq">Données d’exemple</button>
+    </h3>
+    <div class="fr-collapse" id="accordion-dikeeedqhzbenowq">
+        <pre class="code_sample">{'detail': 'PDF (1,7 Mo)',
+ 'extra_classes': 'fr-tile--horizontal fr-tile--download',
+ 'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/document/document-signature.svg',
+ 'title': 'Tuile de téléchargement',
+ 'url': '/'}</pre>
+    </div>
+</section>
+              
+            
+          </div>
+
+          <h3>Résultat</h3>
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              <div class="fr-col-12">
+                
+<div class="fr-tile fr-enlarge-link fr-tile--horizontal fr-tile--download">
+  <div class="fr-tile__body">
+    <div class="fr-tile__content">
+      <h3 class="fr-tile__title">
+        <a class="fr-tile__link" href="/">
+          Tuile de téléchargement
+        </a>
+      </h3>
+      
+      <p class="fr-tile__detail">PDF (1,7 Mo)</p>
+      
+    </div>
+  </div>
+
+  <div class="fr-tile__header">
+    
+      <div class="fr-tile__pictogram">
+          <svg aria-hidden="true" class="fr-artwork" viewBox="0 0 80 80" width="80px" height="80px">
+              <use class="fr-artwork-decorative" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/document/document-signature.svg#artwork-decorative"></use>
+              <use class="fr-artwork-minor" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/document/document-signature.svg#artwork-minor"></use>
+              <use class="fr-artwork-major" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/document/document-signature.svg#artwork-major"></use>
+          </svg>
+      </div>
+    
+  </div>
+</div>
+              </div>
+            </div>
           
         
       
@@ -547,8 +816,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-sMPQCVtIWjxSI9VUtSJkCZW2YMRNdVOfokLJm7MfIW2/8RrNnGEIYfUxlcHMgzkd" nonce="YOtQXPruchP9VJG7S6JFOQ=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-H+qvxb2A7gd9xqm321FAeM1hY9Jsz0olZ7f2n1k4AmLST5Bydqqga5EMZyj7i5Ey"  nonce="YOtQXPruchP9VJG7S6JFOQ=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-sMPQCVtIWjxSI9VUtSJkCZW2YMRNdVOfokLJm7MfIW2/8RrNnGEIYfUxlcHMgzkd" nonce="jE7T4IYCddsEx/LLNs0HiA=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-H+qvxb2A7gd9xqm321FAeM1hY9Jsz0olZ7f2n1k4AmLST5Bydqqga5EMZyj7i5Ey"  nonce="jE7T4IYCddsEx/LLNs0HiA=="></script>
     
   </body>
 </html>
