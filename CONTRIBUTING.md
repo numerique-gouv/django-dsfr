@@ -64,12 +64,12 @@ make checkstyle
 
 ## Mise à jour du système de design
 
-Quand une nouvelle version du système de design de l'État est publiée, il est possible de le mettre à jour automatiquement via la commande 
+Quand une nouvelle version du système de design de l’État est publiée, il est possible de le mettre à jour automatiquement via la commande 
 ```
 make update_dsfr
 ```
 
-La commande va récupérer la dernière version sur le dépôt Github, la met dans le répertoire `dsfr/static/dsfr/dist/`, retire des fichiers pour réduire la taille du paquet python et met à jour les sommes de contrôle d'intégrités dans le fichier `dsfr/checksums`.
+La commande télécharge la dernière version depuis le dépôt Github, la met dans le répertoire `dsfr/static/dsfr/dist/`, retire des fichiers pour réduire la taille du paquet Python et met à jour les sommes de contrôle d’intégrité dans le fichier `dsfr/checksums`.
 
 Une fois la mise à jour faite, il reste à :
 - lancer les tests unitaires avec `make test` ;
@@ -87,4 +87,4 @@ La numérotation suit le principe de [versionnage sémantique](https://semver.or
 
 ## Mise à jour de la documentation
 
-De la même manière, lorsqu’une PR est mergée dans la branche `main`, une tâche Github Actions ([deploy-doc.yml]([./.github/workflows/deploy-doc.yml)) met à jour la documentation statique en faisant un export statique du site d’exemple.
+De la même manière, lorsqu’une PR est mergée dans la branche `main`, une tâche Github Actions ([deploy-doc.yml]([./.github/workflows/deploy-doc.yml)) met à jour la [documentation statique](https://entrepreneur-interet-general.github.io/django-dsfr/) en faisant un export statique du site d’exemple.
