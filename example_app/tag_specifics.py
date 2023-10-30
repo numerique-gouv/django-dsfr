@@ -259,6 +259,18 @@ IMPLEMENTED_TAGS = {
                     ]
                 },
             },
+            {
+                "title": "Télécharger le fichier",
+                "description": """Exemple de carte de téléchargement, avec un texte un peu long, qui peut
+                aller jusqu’à 200 caractères.""",
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "bottom_detail": {
+                    "text": "PNG — 1,1 ko",
+                },
+                "extra_classes": "fr-card--horizontal fr-card--download",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte",
     },
@@ -527,7 +539,7 @@ IMPLEMENTED_TAGS = {
             {
                 "title": "Tuile de téléchargement",
                 "extra_classes": "fr-tile--horizontal fr-tile--download",
-                "detail": "PDF (1,7 Mo)",
+                "detail": "PDF — 1,7 Mo",
                 "url": "/",
                 "svg_path": static(
                     "dsfr/dist/artwork/pictograms/document/document-signature.svg"

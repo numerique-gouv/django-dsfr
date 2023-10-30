@@ -392,6 +392,7 @@ def dsfr_card(*args, **kwargs) -> dict:
     - fr-card--horizontal: makes the card horizontal
     - fr-card--horizontal-tier: allows a 33% ratio instead of the 40% default
     - fr-card--horizontal-half: allows a 50% ratio instead of the 40% default
+    - fr-card--download: Replaces the forward arrow icon with a download one
 
     Format of the top_detail dict (every field is optional):
     top_detail = {
