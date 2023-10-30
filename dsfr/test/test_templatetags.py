@@ -233,6 +233,7 @@ class DsfrButtonTagTest(SimpleTestCase):
         "onclick": "alert('test button action')",
         "label": "button label",
         "type": "button",
+        "name": "test-button",
         "extra_classes": "fr-btn--secondary",
     }
 
@@ -244,11 +245,12 @@ class DsfrButtonTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <button
-                type="button"
-                class="fr-btn fr-btn--secondary"
-                onclick="alert(&#x27;test button action&#x27;)"            
+            class="fr-btn fr-btn--secondary"
+            onclick="alert(&#x27;test button action&#x27;)"
+            type="button"
+            name="test-button"
             >
-                button label    
+                button label
             </button>
             """,
             rendered_template,

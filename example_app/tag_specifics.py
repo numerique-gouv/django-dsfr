@@ -67,8 +67,15 @@ IMPLEMENTED_TAGS = {
         "title": "Boutons (buttons)",
         "sample_data": [
             {
-                "label": "Label of the button item",
-                "onclick": "alert('button doing stuff')",
+                "label": "Bouton principal",
+                "onclick": "alert('Vous avez cliqué sur le bouton principal')",
+            },
+            {
+                "label": "Bouton secondaire",
+                "name": "secundary-button",
+                "type": "button",
+                "extra_classes": "fr-btn--secondary",
+                "onclick": "alert('Vous avez cliqué sur le bouton secondaire')",
             }
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton",
