@@ -383,6 +383,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         "top_detail": "(Optional) dict with a top detail content and optional tags or badges",
         "bottom_detail": "(Optional) a detail string and optional icon",
         "call_to_action": "(Optional) a list of buttons or links at the bottom of the card,
+        "id": "(Optional) id of the tile item",
     }
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
@@ -391,6 +392,7 @@ def dsfr_card(*args, **kwargs) -> dict:
     - fr-card--horizontal: makes the card horizontal
     - fr-card--horizontal-tier: allows a 33% ratio instead of the 40% default
     - fr-card--horizontal-half: allows a 50% ratio instead of the 40% default
+    - fr-card--download: Replaces the forward arrow icon with a download one
 
     Format of the top_detail dict (every field is optional):
     top_detail = {
@@ -428,6 +430,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         "top_detail",
         "bottom_detail",
         "call_to_action",
+        "id",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
@@ -834,10 +837,31 @@ def dsfr_tile(*args, **kwargs) -> dict:
         "title": "Title of the tile item",
         "url": "URL of the link of the tile item",
         "image_path": "path of the tile image",
+        "svg_path": "path of the tile image if this is a SVG",
+        "description": "(Optional) description of the tile item",
+        "detail": "(Optional) detail zone of the tile tiem
+        "top_detail": "(Optional) dict with a top detail content and optional tags or badges",
+        "heading_tag": "(Optional) Heading tag for the alert title (default: h3)",
+        "id": "(Optional) id of the tile item",
+        "enlarge_link": (Optional) boolean. If true (default), the link covers the whole card",
         "extra_classes: (Optional) string with names of extra classes"
     }
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra_classes:
+    - fr-tile--sm: for a small (SM) tile
+    - fr-tile--horizontal: for an horizontal tile
+    - fr-tile--download: Replaces the forward arrow icon with a download one
+
+    Format of the top_detail dict (every field is optional):
+    top_detail = {
+        "tags": "a list of tag items (mutually exclusive with badges)",
+        "badges": "a list of badge items (mutually exclusive with tags)"
+    }
+
+    Note: "image_path" will work even if a SVG is provided, but "svg_path" will use a
+    <svg> html tag instead of the <img> tag.
 
     **Tag name**::
         dsfr_tile
@@ -848,9 +872,18 @@ def dsfr_tile(*args, **kwargs) -> dict:
         "title",
         "url",
         "image_path",
+        "svg_path",
+        "description",
+        "detail",
+        "top_detail",
+        "id",
+        "enlarge_link",
         "extra_classes",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "enlarge_link" not in tag_data:
+        tag_data["enlarge_link"] = True
 
     return {"self": tag_data}
 
