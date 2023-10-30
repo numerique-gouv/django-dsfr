@@ -39,7 +39,7 @@ Quick start
         "dsfr",
         <your_app>
     ]
-	
+
 3. In order to use forms and formsets, add to INSTALLED_APPS in your settings.py::
 
 	INSTALLED_APPS = [
@@ -52,7 +52,7 @@ Quick start
 4. Add the following info in the TEMPLATES section in your settings.py so that the choice forms work::
 
     TEMPLATES = [
-        {        
+        {
             [...]
             "DIRS": [
                 os.path.join(BASE_DIR, "dsfr/templates"),

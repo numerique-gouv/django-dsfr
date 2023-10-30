@@ -7,14 +7,14 @@
   {% else %}
     {{ field|attr:"type:checkbox" }}
   {% endif %}
-    
+
     <label for="{{ field.id_for_label }}" class="fr-label">
         {{ field.label_tag }}
         {% if field.help_text %}
             <span class="fr-hint-text">{{ field.help_text }}</span>
         {% endif %}
     </label>
-    
+
     {% if field.errors %}
       <div id="{{ field.auto_id }}-desc-error" class="fr-error-text">
         {{ field.errors }}
