@@ -1,3 +1,5 @@
+from django.templatetags.static import static
+
 IMPLEMENTED_TAGS = {
     "accordion": {
         "title": "Accordéon (accordion)",
@@ -76,7 +78,7 @@ IMPLEMENTED_TAGS = {
                 "type": "button",
                 "extra_classes": "fr-btn--secondary",
                 "onclick": "alert('Vous avez cliqué sur le bouton secondaire')",
-            }
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton",
     },
@@ -483,10 +485,54 @@ IMPLEMENTED_TAGS = {
         "title": "Tuile (tile)",
         "sample_data": [
             {
-                "title": "Titre de la tuile",
+                "title": "Tuile basique (verticale, MD)",
                 "url": "/",
-                "image_path": "/django-dsfr/static/img/placeholder.1x1.svg",
-            }
+                "image_path": static("img/placeholder.1x1.svg"),
+            },
+            {
+                "title": "Tuile horizontale",
+                "description": "Tuile horizontale (MD)",
+                "detail": "Avec un pictogramme SVG",
+                "url": "/",
+                "id": "tile-cityhall",
+                "extra_classes": "fr-tile--horizontal",
+                "svg_path": static(
+                    "dsfr/dist/artwork/pictograms/buildings/city-hall.svg"
+                ),
+            },
+            {
+                "title": "Tuile verticale (SM)",
+                "url": "/",
+                "id": "tile-nuclear-plant",
+                "extra_classes": "fr-tile--sm",
+                "svg_path": static(
+                    "dsfr/dist/artwork/pictograms/buildings/nuclear-plant.svg"
+                ),
+            },
+            {
+                "title": "Tuile horizontale (SM)",
+                "url": "/",
+                "id": "tile-map",
+                "extra_classes": "fr-tile--horizontal fr-tile--sm",
+                "top_detail": {
+                    "badges": [
+                        {
+                            "label": "Badge coloré",
+                            "extra_classes": "fr-badge--sm fr-badge--purple-glycine",
+                        },
+                    ]
+                },
+                "svg_path": static("dsfr/dist/artwork/pictograms/map/map.svg"),
+            },
+            {
+                "title": "Tuile de téléchargement",
+                "extra_classes": "fr-tile--horizontal fr-tile--download",
+                "detail": "PDF (1,7 Mo)",
+                "url": "/",
+                "svg_path": static(
+                    "dsfr/dist/artwork/pictograms/document/document-signature.svg"
+                ),
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tuile",
     },

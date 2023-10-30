@@ -1,12 +1,51 @@
-<div class="fr-tile fr-enlarge-link{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
+{% load dsfr_tags %}
+<div class="fr-tile{% if self.enlarge_link %} fr-enlarge-link{% endif %}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}"{% if self.id %} id="{{ self.id }}"{% endif %}>
   <div class="fr-tile__body">
-    <p class="fr-tile__title">
-      <a class="fr-tile__link" href="{{ self.url }}">
-        {{ self.title }}
-      </a>
-    </p>
+    <div class="fr-tile__content">
+      <{{ self.heading_tag | default:"h3" }} class="fr-tile__title">
+        <a class="fr-tile__link" href="{{ self.url }}">
+          {{ self.title }}
+        </a>
+      </{{ self.heading_tag | default:"h3" }}>
+      {% if self.description %}<p class="fr-tile__desc">{{ self.description }}</p>{% endif %}
+      {% if self.detail %}<p class="fr-tile__detail">{{ self.detail }}</p>{% endif %}
+      {% if self.top_detail %}
+        <div class="fr-tile__start">
+          {% if self.top_detail.tags %}
+            <ul class="fr-tags-group">
+              {% for tag in self.top_detail.tags %}
+                <li>
+                  {% dsfr_tag tag %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% elif self.top_detail.badges %}
+            <ul class="fr-badges-group">
+              {% for badge in self.top_detail.badges %}
+                  <li>
+                    {% dsfr_badge badge %}
+                  </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
   </div>
-  <div class="fr-tile__img" role="presentation">
-    <img src="{{ self.image_path }}" class="fr-responsive-img" alt="" />
+
+  <div class="fr-tile__header">
+    {% if self.svg_path %}
+      <div class="fr-tile__pictogram">
+          <svg aria-hidden="true" class="fr-artwork" viewBox="0 0 80 80" width="80px" height="80px">
+              <use class="fr-artwork-decorative" href="{{ self.svg_path }}#artwork-decorative"></use>
+              <use class="fr-artwork-minor" href="{{ self.svg_path }}#artwork-minor"></use>
+              <use class="fr-artwork-major" href="{{ self.svg_path }}#artwork-major"></use>
+          </svg>
+      </div>
+    {% else %}
+      <div class="fr-tile__img" role="presentation">
+        <img src="{{ self.image_path }}" class="fr-responsive-img" alt="" />
+      </div>
+    {% endif %}
   </div>
 </div>
