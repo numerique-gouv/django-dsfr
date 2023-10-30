@@ -2,7 +2,7 @@ from django import template
 from django.core.paginator import Page
 from django.template.context import Context
 
-from dsfr.constants import (
+from dsfr.checksums import (
     INTEGRITY_CSS,
     INTEGRITY_CSS_ICONS,
     INTEGRITY_FAVICON_APPLE,
@@ -158,8 +158,8 @@ def dsfr_accordion(*args, **kwargs) -> dict:
 @register.inclusion_tag("dsfr/accordion_group.html")
 def dsfr_accordion_group(items: list) -> dict:
     """
-    Returns a group of accordion items. Takes a list of dicts as parameters (see the accordion
-    tag for the structure of these dicts.)
+    Returns a group of accordion items. Takes a list of dicts as parameters (see the
+    accordion tag for the structure of these dicts.)
 
     **Tag name**::
         dsfr_accordion_group
@@ -193,7 +193,7 @@ def dsfr_alert(*args, **kwargs) -> dict:
         dsfr_alert
     **Usage**::
         {% dsfr_alert data_dict %}
-    """
+    """  # noqa
 
     allowed_keys = [
         "id",
@@ -277,7 +277,7 @@ def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
         dsfr_breadcrumb
     **Usage**::
         {% dsfr_breadcrumb data_dict %}
-    """
+    """  # noqa
     if not tag_data:
         if "breadcrumb_data" in context:
             tag_data = context["breadcrumb_data"]
@@ -296,7 +296,8 @@ def dsfr_button(*args, **kwargs) -> dict:
         "onclick": "button action",
         "type": "(Optional) type of button (submit or button - default: submit),
         "name": "(Optional) name of the button",
-        "is_disabled": "(Optional) boolean that indicate if the button is activated (default: False)",
+        "is_disabled": "(Optional) boolean that indicate if the button is activated
+        (default: False)",
         "extra_classes": "(Optional) string with names of extra classes."
     }
 
@@ -304,7 +305,8 @@ def dsfr_button(*args, **kwargs) -> dict:
 
     Relevant extra_classes
     - "fr-btn--secondary" : secundary button
-    - "fr-btn--icon-left" and "fr-btn--icon-right": add an icon to the button (associated with an icon class)
+    - "fr-btn--icon-left" and "fr-btn--icon-right": add an icon to the button
+      (associated with an icon class)
     - "fr-btn--sm" and "fr-btn--lg": button smaller or larger than the default size
 
     **Tag name**::
@@ -411,7 +413,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         dsfr_card
     **Usage**::
         {% dsfr_card data_dict %}
-    """
+    """  # noqa
     allowed_keys = [
         "title",
         "heading_tag",
@@ -655,7 +657,8 @@ def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
     data_dict = {
         "title": "The title of the main menu",
         "items": "a list of similarly structured dictionaries (see below)",
-        "heading_tag": "(Optional) Heading tag for the accordion title (h2, etc. Default: div)"
+        "heading_tag": "(Optional) Heading tag for the accordion title
+        (h2, etc. Default: div)"
         "extra_classes": "(Optional) string with names of extra classes",
     }
 
@@ -798,7 +801,8 @@ def dsfr_tag(*args, **kwargs) -> dict:
 
     Relevant extra_classes:
     - fr-tag--sm: for a small tag
-    - icon classes: an icon for the tag, along with a positional class (eg, fr-icon-arrow-right-line fr-tag--icon-left)
+    - icon classes: an icon for the tag, along with a positional class
+      (eg, fr-icon-arrow-right-line fr-tag--icon-left)
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
