@@ -5,7 +5,6 @@ from django.urls import reverse
 
 
 class DsfrBaseForm(TestCase):
-
     sample_data = {"user_name": "Example Name", "sample_number": 5, "sample_json": "{}"}
 
     def test_valid_form(self):

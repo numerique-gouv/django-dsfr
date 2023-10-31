@@ -381,7 +381,7 @@ class DsfrHighlightTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-            <div class="fr-highlight">  
+            <div class="fr-highlight">
                 <p class="fr-text--sm">
                     Content of the highlight item (can include html)
                 </p>
@@ -426,7 +426,7 @@ class DsfrInputTagTest(SimpleTestCase):
                     id="sample-id"
                     name="sample-id"
                     onchange="doStuff()"
-                    value="Sample value"  
+                    value="Sample value"
                 />
             </div>
             """,
@@ -474,7 +474,7 @@ class DsfrLinkTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-            <a 
+            <a
             class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
             href="http://example.com"
             target="_blank" rel="noopener noreferrer"
@@ -617,7 +617,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                             Page non active
                         </a>
                         </li>
-                    
+
                         <li class="fr-sidemenu__item fr-sidemenu__item--active">
                         <a class="fr-sidemenu__link" href="/django-dsfr/tags/sidemenu/" target="_self"  aria-current="page">
                             Page active
@@ -647,14 +647,14 @@ class DsfrSummaryTagTest(SimpleTestCase):
             <nav role="navigation" class="fr-summary" aria-labelledby="fr-summary-title">
                 <div class="fr-summary__title" id="fr-summary-title">Sommaire</div>
                 <ol class="fr-summary__list">
-                    
+
                     <li>
                         <a class="fr-summary__link" href="link 1">First item title</a>
                     </li>
-                    
+
                     <li>
                         <a class="fr-summary__link" href="link 2">Second item title</a>
-                    </li>  
+                    </li>
                 </ol>
             </nav>
             """,  # noqa

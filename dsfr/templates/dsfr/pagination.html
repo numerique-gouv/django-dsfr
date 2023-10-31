@@ -32,7 +32,7 @@
                 </li>
                 {% else %}
                 <li>
-                    <a 
+                    <a
                     class="fr-pagination__link"
                     {% if item == page_obj.number %}aria-current="page"{% endif %}
                     title="Page {{ item }}"
@@ -46,7 +46,7 @@
             {% endfor %}
         {% else %}
         <li>
-            <a 
+            <a
             class="fr-pagination__link" aria-current="page" title="Page {{ page_obj.number }}"
             href="?{% url_remplace_params page=page_obj.number %}"
             >

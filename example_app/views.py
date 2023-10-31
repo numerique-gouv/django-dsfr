@@ -82,7 +82,6 @@ def tags_index(request):
 
 @require_safe
 def page_tag(request, tag_name):
-
     if tag_name in ALL_IMPLEMENTED_TAGS:
         current_tag = ALL_IMPLEMENTED_TAGS[tag_name]
         payload = init_payload(
