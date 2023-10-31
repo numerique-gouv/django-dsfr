@@ -12,7 +12,7 @@ try {
 		div_remove.remove();
 	}
 }
-catch (TypeError) {}
+catch (error) {}
 
 let firstForm = formsetGroup[0].cloneNode(true); // Clone the formset
 
@@ -31,9 +31,9 @@ function addForm(e) {
 	}
 
 	// Regex
-    let formRegex = RegExp(`\\w+-(\\d+)-`,'g');  // Regex to find all instances of the form number
-	let idRemoveFormRegex = RegExp(`remove-(\\d+)`,'g');  // Regex to find all instances of the form number on remove link
-	let idRemoveFunctionRegex = RegExp(`removeFormset\\((\\d+)\\)`,'g');  // Regex to find all instances of the form number on remove function in link
+    let formRegex = /\w+-(\d+)-/g;  // Regex to find all instances of the form number
+	let idRemoveFormRegex = /remove-(\d+)/g;  // Regex to find all instances of the form number on remove link
+	let idRemoveFunctionRegex = /removeFormset\((\d+)\)/g;  // Regex to find all instances of the form number on remove function in link
 
 	// Get the number of the last form on the page
 	formsetGroup = document.querySelectorAll(".formset");
@@ -41,7 +41,7 @@ function addForm(e) {
 	let last_number = 0;
 	if (formsetGroup.length > 0){
 		let last_form = formsetGroup[formsetGroup.length-1];  // Get the last form in the formset
-		last_number = last_form.innerHTML.match(/\w+-(\d+)-\w+/)[1];  // Get the form number in the last form with a regex (fields in the form have an id following the pattern "form-X-...." where X is the number of the form)
+		last_number = /\w+-(\d+)-\w+/.exec(last_form.innerHTML)[1];  // Get the form number in the last form with a regex (fields in the form have an id following the pattern "form-X-...." where X is the number of the form)
 	}
 
 
@@ -51,7 +51,7 @@ function addForm(e) {
     newForm.innerHTML = newForm.innerHTML.replace(formRegex, `form-${newNumber}-`);  // Update the new form to have the correct form number
     newForm.setAttribute('id', `formset-${newNumber}`);  // Update the new form to have the correct form id
 	newForm.innerHTML = newForm.innerHTML.replace(idRemoveFormRegex, `remove-${newNumber}`);  // Update the new form to have the correct form number on remove link
-	newForm.innerHTML = newForm.innerHTML.replace(idRemoveFunctionRegex, `removeFormset\(${newNumber}\)`);  // Update the new form to have the correct form number on remove function in link
+	newForm.innerHTML = newForm.innerHTML.replace(idRemoveFunctionRegex, `removeFormset(${newNumber})`);  // Update the new form to have the correct form number on remove function in link
 
 	// Insert the new form at the end of the list of forms
 	container.insertBefore(newForm, addButton);
