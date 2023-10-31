@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from example_app.models import Author, Genre, Book
 
+
 # Register your models here.
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):

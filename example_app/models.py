@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+
 # These are example models to show how form and formset can work
 class Author(models.Model):
     first_name = models.CharField("Prénom", max_length=250, null=False, blank=False)

@@ -1,3 +1,4 @@
+exclude: 'dsfr/static/dsfr/dist'
 repos:
 - repo: https://github.com/astral-sh/ruff-pre-commit
   rev: v0.1.3
