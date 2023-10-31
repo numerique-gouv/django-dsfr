@@ -1,3 +1,5 @@
+import markdown
+
 from django.core.paginator import Paginator
 
 from django.shortcuts import render
@@ -314,3 +316,27 @@ class AuthorCreateView(CreateView):
         return self.render_to_response(
             self.get_context_data(form=form, formset=formset)
         )
+
+
+@require_safe
+def doc_contributing(request):
+    payload = init_payload("Contribuer à Django-DSFR")
+    with open("CONTRIBUTING.md") as f:
+        content = f.read()
+        payload["content"] = markdown.markdown(
+            content, extensions=["markdown.extensions.fenced_code"]
+        )
+
+    return render(request, "example_app/doc_markdown.html", payload)
+
+
+@require_safe
+def doc_install(request):
+    payload = init_payload("Installation")
+    with open("INSTALL.md") as f:
+        content = f.read()
+        payload["content"] = markdown.markdown(
+            content, extensions=["markdown.extensions.fenced_code"]
+        )
+
+    return render(request, "example_app/doc_markdown.html", payload)

@@ -72,7 +72,8 @@ pre-commit update
 
 ## Mise à jour du système de design
 
-Quand une nouvelle version du système de design de l’État est publiée, il est possible de le mettre à jour automatiquement via la commande
+Quand une nouvelle version du système de design de l’État est publiée, il est possible de le mettre à jour automatiquement via la commande :
+
 ```
 make update_dsfr
 ```

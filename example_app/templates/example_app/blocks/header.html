@@ -26,18 +26,39 @@
         <nav role="navigation" class="fr-nav" id="fr-navigation" aria-label="Menu principal">
           <ul class="fr-nav__list">
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="{% url 'index' %}" target="_self">Accueil</a>
+              {% url 'index' as home_url %}
+              <a class="fr-nav__link" href="{{ home_url }}" target="_self"{% if request.path == home_url %} aria-current="true"{% endif %}>Accueil</a>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="{% url 'tags_index' %}" target="_self">Composants</a>
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc"{% if '/doc-' in request.path %}aria-current="true"{% endif %}>Documentation</button>
+              <div class="fr-collapse fr-menu" id="menu-doc">
+                <ul class="fr-menu__list">
+                  <li>
+                    <a class="fr-nav__link" href="{% url 'doc_install' %}" target="_self">Installation</a>
+                  </li>
+                  <li>
+                    <a class="fr-nav__link" href="{% url 'doc_contributing' %}" target="_self">Contribuer</a>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="{% url 'page_form' %}" target="_self">Formulaire</a>
+              <a class="fr-nav__link" href="{% url 'tags_index' %}" target="_self" {% if '/tags/' in request.path %}aria-current="true"{% endif %}>Composants</a>
             </li>
-			<li class="fr-nav__item">
-              <a class="fr-nav__link" href="{% url 'form_formset' %}" target="_self">Exemple de formulaire avec formset</a>
-			</li>
-		  </ul>
+            <li class="fr-nav__item">
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-forms"{% if '/form' in request.path %}aria-current="true"{% endif %}>Formulaires</button>
+              <div class="fr-collapse fr-menu" id="menu-forms">
+                <ul class="fr-menu__list">
+                  <li>
+                    <a class="fr-nav__link" href="{% url 'page_form' %}" target="_self">Exemple basique</a>
+                  </li>
+                  <li>
+                    <a class="fr-nav__link" href="{% url 'form_formset' %}" target="_self">Exemple avec formset</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+		      </ul>
         </nav>
       </div>
     </div>
