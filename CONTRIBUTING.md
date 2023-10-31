@@ -96,4 +96,4 @@ La numérotation suit le principe de [versionnage sémantique](https://semver.or
 
 ## Mise à jour de la documentation
 
-De la même manière, lorsqu’une PR est mergée dans la branche `main`, une tâche Github Actions ([deploy-doc.yml]([./.github/workflows/deploy-doc.yml)) met à jour la [documentation statique](https://entrepreneur-interet-general.github.io/django-dsfr/) en faisant un export statique du site d’exemple.
+De la même manière, lorsqu’une PR est mergée dans la branche `main`, une tâche Github Actions ([deploy-doc.yml]([./.github/workflows/deploy-doc.yml)) met à jour la [documentation statique](https://numerique-gouv.github.io/django-dsfr/) en faisant un export statique du site d’exemple.
