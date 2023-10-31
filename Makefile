@@ -13,10 +13,11 @@ endif
 
 # Commands
 checkstyle:
-	poetry run ruff check .
+	poetry run pre-commit run --all-files
 
 init:
 	poetry install
+	poetry run pre-commit install
 	poetry run python manage.py migrate
 	poetry run python manage.py collectstatic --noinput
 	poetry run python manage.py import_sample_data

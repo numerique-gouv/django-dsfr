@@ -5,7 +5,7 @@ L’installation a été testée sur Ubuntu 22.04 avec Python 3.10 et poetry ins
 
 - Faire un `git clone` du projet sur votre machine et ouvrir un terminal
 
-- Installer l’environnement virtuel, les dépendances et initialiser le site d’exemple :
+- Installer l’environnement virtuel, les dépendances, les *pre-commit hooks* et initialiser le site d’exemple :
 ```
 make init
 ```
@@ -62,9 +62,17 @@ Pour vérifier son code, on peut intégrer le linter adapté à son IDE et aussi
 make checkstyle
 ```
 
+Une vérification automatique est faite via des *pre-commit hooks*, qui ont normalement été installés via le `make init`.
+
+Il est possible de les mettre à jour avec la commande :
+
+```
+pre-commit update
+```
+
 ## Mise à jour du système de design
 
-Quand une nouvelle version du système de design de l’État est publiée, il est possible de le mettre à jour automatiquement via la commande 
+Quand une nouvelle version du système de design de l’État est publiée, il est possible de le mettre à jour automatiquement via la commande
 ```
 make update_dsfr
 ```
