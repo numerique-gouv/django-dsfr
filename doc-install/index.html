@@ -18,23 +18,11 @@
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
-<style>
-.example-textarea {
-  border: none;
-  background-color: var(--g300);
-  padding: 1rem;
-}
-.code_sample {
-  background-color: var(--g300);
-  padding: 1rem;
-}
-</style>
-
 
     
     <title>
       
-        Liens d’évitement (skiplinks) — Design Système de l’État
+        Installation — Design Système de l’État
       
     </title>
     
@@ -116,7 +104,7 @@
               <a class="fr-nav__link" href="/django-dsfr/" target="_self">Accueil</a>
             </li>
             <li class="fr-nav__item">
-              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc">Documentation</button>
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc"aria-current="true">Documentation</button>
               <div class="fr-collapse fr-menu" id="menu-doc">
                 <ul class="fr-menu__list">
                   <li>
@@ -129,7 +117,7 @@
               </div>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self" aria-current="true">Composants</a>
+              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self" >Composants</a>
             </li>
             <li class="fr-nav__item">
               <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-forms">Formulaires</button>
@@ -222,11 +210,7 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" href="/django-dsfr/tags/">Composants</a>
-            </li>
-            
-            <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Liens d’évitement (skiplinks)</a>
+                <a class="fr-breadcrumb__link" aria-current="page">Installation</a>
             </li>
         </ol>
     </div>
@@ -235,269 +219,71 @@
 
       <main id="content" role="main">
         
-  <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
-  <!-- Menu -->
-    <div class="fr-col-12 fr-col-md-3">
-      
-<nav role="navigation" class="fr-sidemenu" aria-label="Menu latéral">
-  <div class="fr-sidemenu__inner">
-    <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
-    <div class="fr-collapse" id="fr-sidemenu-wrapper">
-      <div class="fr-sidemenu__title">Composants</div>
-      <ul class="fr-sidemenu__list">
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion/" target="_self" >accordion</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion_group/" target="_self" >accordion_group</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/alert/" target="_self" >alert</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/badge/" target="_self" >badge</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/badge_group/" target="_self" >badge_group</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/breadcrumb/" target="_self" >breadcrumb</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/button/" target="_self" >button</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/callout/" target="_self" >callout</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/card/" target="_self" >card</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/css/" target="_self" >css</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/favicon/" target="_self" >favicon</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/form/" target="_self" >form</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/form_field/" target="_self" >form_field</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/highlight/" target="_self" >highlight</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/input/" target="_self" >input</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/js/" target="_self" >js</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/link/" target="_self" >link</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/pagination/" target="_self" >pagination</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/quote/" target="_self" >quote</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/select/" target="_self" >select</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/sidemenu/" target="_self" >sidemenu</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item fr-sidemenu__item--active">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/skiplinks/" target="_self"  aria-current="page">skiplinks</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/stepper/" target="_self" >stepper</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/summary/" target="_self" >summary</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/table/" target="_self" >table</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/tag/" target="_self" >tag</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/theme_modale/" target="_self" >theme_modale</a>
-            
-          </li>
-        
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/tile/" target="_self" >tile</a>
-            
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
+  <h1>Installation de django-DSFR</h1>
+<h2>Installation basique</h2>
+<ul>
+<li>Installez le paquet</li>
+</ul>
+<pre><code>pip install django-dsfr
+</code></pre>
+<ul>
+<li>Ajoutez <code>widget_tweaks</code> et <code>dsfr</code> à <code>INSTALLED_APPS</code> dans le <code>settings.py</code> avant la ou les app avec laquelle vous voulez l’utiliser :</li>
+</ul>
+<pre><code class="language-python">INSTALLED_APPS = [
+    ...
+    &quot;widget_tweaks&quot;
+    &quot;dsfr&quot;,
+    &lt;votre_app&gt;
+]
+</code></pre>
+<ul>
+<li>Ajouter les lignes suivantes dans la section <code>TEMPLATES</code> du <code>settings.py</code> pour faire fonctionner les formulaires :</li>
+</ul>
+<pre><code>TEMPLATES = [
+    {
+        [...]
+        &quot;DIRS&quot;: [
+            os.path.join(BASE_DIR, &quot;dsfr/templates&quot;),
+            os.path.join(BASE_DIR, &quot;templates&quot;),
+        ],
+    },
+]
+</code></pre>
+<ul>
+<li>Ajouter le <code>FORM_RENDERER</code> in <code>settings.py</code> pour faire fonctionner les formulaires :</li>
+</ul>
+<pre><code>FORM_RENDERER = &quot;django.forms.renderers.TemplatesSetting&quot;
+</code></pre>
+<ul>
+<li>
+<p>Inclure les tags dans votre fichier <code>base.html</code> (voir par exemple sur <a href="https://github.com/numerique-gouv/django-dsfr/blob/main/example_app/templates/example_app/base.html">base.html</a>)</p>
+</li>
+<li>
+<p>Lancer le serveur (<code>python manage.py runserver</code>) et aller sur <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a></p>
+</li>
+</ul>
+<h2>Installation avancée (optionnelle)</h2>
+<h3>Utilisation de la conf en admin</h3>
+<ul>
+<li>Ajoutez le <code>context_processor</code> au fichier <code>settings.py</code> :</li>
+</ul>
+<pre><code>TEMPLATES = [
+    {
+        [...]
+        &quot;OPTIONS&quot;: {
+            &quot;context_processors&quot;: [
+                [...]
+                &quot;dsfr.context_processors.site_config&quot;,
+            ],
+        },
+    },
+]
+</code></pre>
+<ul>
+<li>Créez une un objet "DsfrConfig" dans le panneau d’administration</li>
+</ul>
 
-    </div>
-    <div class="fr-col-12 fr-col-md-9 fr-py-2w">
-      <h1> Liens d’évitement (skiplinks) </h1>
-
-      
-      <p>
-        <a
-  class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
-  href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens-d-evitement"
-   target="_blank" rel="noopener noreferrer"
->
-  Voir la page de documentation du composant sur le Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
-</a>
-
-      </p>
-      
-
-      <h2>Documentation du tag</h2>
-      <pre>
-      
-    Returns a skiplinks item. Takes a list as parameter, with the following structure:
-
-    items = [{ &quot;link&quot;: &quot;item1&quot;, &quot;label&quot;: &quot;First item title&quot;}, {...}]
-
-    If the list is not passed as a parameter, it extracts it from context.
-
-    **Tag name**::
-        dsfr_skiplinks
-    **Usage**::
-        {% dsfr_skiplinks items %}
-    
-      </pre>
-
-      
-        <h2>Exemples</h2>
-        
-          <h3 class="fr-mt-3w">Données</h3>
-          <div class="fr-my-2w">
-            
-              
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-utjungmyrgirjglh">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-utjungmyrgirjglh">
-        <pre class="code_sample">[{'label': 'Contenu', 'link': '#contenu'},
- {'label': 'Menu', 'link': '#navigation-header'}]</pre>
-    </div>
-</section>
-
-              
-            
-          </div>
-
-          <h3>Résultat</h3>
-          
-            <div class="fr-skiplinks">
-    <nav role="navigation" class="fr-container" aria-label="Accès rapide">
-        <ul class="fr-skiplinks__list">
-          
-          <li>
-              <a class="fr-link" href="#contenu">Contenu</a>
-          </li>
-          
-          <li>
-              <a class="fr-link" href="#navigation-header">Menu</a>
-          </li>
-          
-        </ul>
-    </nav>
-</div>
-
-          
-        
-      
-    </div>
-  </div>
-<br />
-
+  
       </main>
     </div>
 
@@ -572,8 +358,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-sMPQCVtIWjxSI9VUtSJkCZW2YMRNdVOfokLJm7MfIW2/8RrNnGEIYfUxlcHMgzkd" nonce="wIJ71MXmlHIbAH1VuXtu2w=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-H+qvxb2A7gd9xqm321FAeM1hY9Jsz0olZ7f2n1k4AmLST5Bydqqga5EMZyj7i5Ey"  nonce="wIJ71MXmlHIbAH1VuXtu2w=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-sMPQCVtIWjxSI9VUtSJkCZW2YMRNdVOfokLJm7MfIW2/8RrNnGEIYfUxlcHMgzkd" nonce="PzxmJzMvLBaxBBRXVnbpJQ=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-H+qvxb2A7gd9xqm321FAeM1hY9Jsz0olZ7f2n1k4AmLST5Bydqqga5EMZyj7i5Ey"  nonce="PzxmJzMvLBaxBBRXVnbpJQ=="></script>
 
     
   </body>

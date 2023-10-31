@@ -112,18 +112,39 @@
         <nav role="navigation" class="fr-nav" id="fr-navigation" aria-label="Menu principal">
           <ul class="fr-nav__list">
             <li class="fr-nav__item">
+              
               <a class="fr-nav__link" href="/django-dsfr/" target="_self">Accueil</a>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self">Composants</a>
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc">Documentation</button>
+              <div class="fr-collapse fr-menu" id="menu-doc">
+                <ul class="fr-menu__list">
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/doc-install" target="_self">Installation</a>
+                  </li>
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/doc-contributing" target="_self">Contribuer</a>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Formulaire</a>
+              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self" aria-current="true">Composants</a>
             </li>
-			<li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/formset/" target="_self">Exemple de formulaire avec formset</a>
-			</li>
-		  </ul>
+            <li class="fr-nav__item">
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-forms">Formulaires</button>
+              <div class="fr-collapse fr-menu" id="menu-forms">
+                <ul class="fr-menu__list">
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Exemple basique</a>
+                  </li>
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/formset/" target="_self">Exemple avec formset</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+		      </ul>
         </nav>
       </div>
     </div>
@@ -478,9 +499,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-mlucbdcjixucvwot">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-wbwqrtgfayfyipwq">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-mlucbdcjixucvwot">
+    <div class="fr-collapse" id="accordion-wbwqrtgfayfyipwq">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -546,9 +567,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ecdcdlsetrnvuswh">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-awwsvyjqqpzujqwe">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-ecdcdlsetrnvuswh">
+    <div class="fr-collapse" id="accordion-awwsvyjqqpzujqwe">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -613,9 +634,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-qszhzhkvwymtldth">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-zssrzfbhhgdzapbk">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-qszhzhkvwymtldth">
+    <div class="fr-collapse" id="accordion-zssrzfbhhgdzapbk">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -680,9 +701,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-obkgyomkzldgstln">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-bchnkygihjqbzmzt">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-obkgyomkzldgstln">
+    <div class="fr-collapse" id="accordion-bchnkygihjqbzmzt">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -747,9 +768,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-tdjcbjfvzcvwzqgx">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fyrfpuyctnxcrhdv">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-tdjcbjfvzcvwzqgx">
+    <div class="fr-collapse" id="accordion-fyrfpuyctnxcrhdv">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
@@ -821,9 +842,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-gnmwczjojomnxwlc">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-tnsgqsmsttluculm">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-gnmwczjojomnxwlc">
+    <div class="fr-collapse" id="accordion-tnsgqsmsttluculm">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
@@ -906,9 +927,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-usinjiukejruwmyx">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-itxakbsznsdbswzi">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-usinjiukejruwmyx">
+    <div class="fr-collapse" id="accordion-itxakbsznsdbswzi">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
@@ -990,9 +1011,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-cnnyockmzmsuvckc">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-jamhdekavpmwaqop">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-cnnyockmzmsuvckc">
+    <div class="fr-collapse" id="accordion-jamhdekavpmwaqop">
         <pre class="code_sample">{'bottom_detail': {'icon': 'fr-icon-warning-fill',
                    'text': 'Détail (optionnel)'},
  'description': 'Texte de la carte.\n'
@@ -1056,9 +1077,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-cehokwsaotnputvs">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-rvbbwjyecokcdrnu">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-cehokwsaotnputvs">
+    <div class="fr-collapse" id="accordion-rvbbwjyecokcdrnu">
         <pre class="code_sample">{'call_to_action': {'buttons': [{'extra_classes': 'fr-btn--secondary',
                                  'label': 'Bouton 1'},
                                 {'label': 'Bouton 2'}]},
@@ -1157,9 +1178,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-foqfvgtzevaxxlgg">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-uoczlmblhklozqao">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-foqfvgtzevaxxlgg">
+    <div class="fr-collapse" id="accordion-uoczlmblhklozqao">
         <pre class="code_sample">{'call_to_action': {'links': [{'label': 'Lien interne', 'url': '/'},
                               {'is_external': True,
                                'label': 'Lien externe',
@@ -1255,9 +1276,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-xvonplmwzhcdsqjb">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ttozzzsaktzxyrmc">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-xvonplmwzhcdsqjb">
+    <div class="fr-collapse" id="accordion-ttozzzsaktzxyrmc">
         <pre class="code_sample">{'bottom_detail': {'text': 'PNG — 1,1 ko'},
  'description': 'Exemple de carte de téléchargement, avec un texte un peu '
                 'long, qui peut\n'
@@ -1397,8 +1418,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-sMPQCVtIWjxSI9VUtSJkCZW2YMRNdVOfokLJm7MfIW2/8RrNnGEIYfUxlcHMgzkd" nonce="s1viQZFEppS/7PTRCDzIdQ=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-H+qvxb2A7gd9xqm321FAeM1hY9Jsz0olZ7f2n1k4AmLST5Bydqqga5EMZyj7i5Ey"  nonce="s1viQZFEppS/7PTRCDzIdQ=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-sMPQCVtIWjxSI9VUtSJkCZW2YMRNdVOfokLJm7MfIW2/8RrNnGEIYfUxlcHMgzkd" nonce="B7pXNmOc5pGKHrQdBiKC3g=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-H+qvxb2A7gd9xqm321FAeM1hY9Jsz0olZ7f2n1k4AmLST5Bydqqga5EMZyj7i5Ey"  nonce="B7pXNmOc5pGKHrQdBiKC3g=="></script>
 
     
   </body>

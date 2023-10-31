@@ -112,18 +112,39 @@
         <nav role="navigation" class="fr-nav" id="fr-navigation" aria-label="Menu principal">
           <ul class="fr-nav__list">
             <li class="fr-nav__item">
+              
               <a class="fr-nav__link" href="/django-dsfr/" target="_self">Accueil</a>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self">Composants</a>
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc">Documentation</button>
+              <div class="fr-collapse fr-menu" id="menu-doc">
+                <ul class="fr-menu__list">
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/doc-install" target="_self">Installation</a>
+                  </li>
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/doc-contributing" target="_self">Contribuer</a>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Formulaire</a>
+              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self" aria-current="true">Composants</a>
             </li>
-			<li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/formset/" target="_self">Exemple de formulaire avec formset</a>
-			</li>
-		  </ul>
+            <li class="fr-nav__item">
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-forms">Formulaires</button>
+              <div class="fr-collapse fr-menu" id="menu-forms">
+                <ul class="fr-menu__list">
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Exemple basique</a>
+                  </li>
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/formset/" target="_self">Exemple avec formset</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+		      </ul>
         </nav>
       </div>
     </div>
@@ -452,9 +473,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-sggqcprweoeaetcv">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-seqlbwakeoeyjxsp">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-sggqcprweoeaetcv">
+    <div class="fr-collapse" id="accordion-seqlbwakeoeyjxsp">
         <pre class="code_sample">{'label': 'Tag simple'}</pre>
     </div>
 </section>
@@ -475,9 +496,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-kqwwtzfyldmrcuxs">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ewgfmmakgbunahhz">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-kqwwtzfyldmrcuxs">
+    <div class="fr-collapse" id="accordion-ewgfmmakgbunahhz">
         <pre class="code_sample">{'label': 'Tag avec lien', 'link': '/django-dsfr/tags'}</pre>
     </div>
 </section>
@@ -498,9 +519,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-zhumklbearhmgvjt">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-bdgvttyoukpbnwmz">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-zhumklbearhmgvjt">
+    <div class="fr-collapse" id="accordion-bdgvttyoukpbnwmz">
         <pre class="code_sample">{'extra_classes': 'fr-tag--sm fr-icon-arrow-right-line fr-tag--icon-left',
  'label': 'Petit tag avec icône'}</pre>
     </div>
@@ -522,9 +543,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-mtwwccjblkpbbadj">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-krzydtrhczumwsfu">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-mtwwccjblkpbbadj">
+    <div class="fr-collapse" id="accordion-krzydtrhczumwsfu">
         <pre class="code_sample">{'extra_classes': 'fr-icon-close-line fr-tag--icon-right',
  'label': 'Tag avec action',
  'link': '#',
@@ -548,9 +569,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-edlefxvlbhwrbsic">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-wvefmsgxwteoubtr">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-edlefxvlbhwrbsic">
+    <div class="fr-collapse" id="accordion-wvefmsgxwteoubtr">
         <pre class="code_sample">{'is_selectable': True, 'label': 'Tag sélectionnable'}</pre>
     </div>
 </section>
@@ -571,9 +592,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-smbuivechxzdxthg">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-yiawvhlcgpchrjes">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-smbuivechxzdxthg">
+    <div class="fr-collapse" id="accordion-yiawvhlcgpchrjes">
         <pre class="code_sample">{'is_dismissable': True, 'label': 'Tag supprimable'}</pre>
     </div>
 </section>
@@ -594,9 +615,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-qgngttwyjuswjnrf">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-beehqdwwynrrqsey">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-qgngttwyjuswjnrf">
+    <div class="fr-collapse" id="accordion-beehqdwwynrrqsey">
         <pre class="code_sample">{'extra_classes': 'fr-tag--green-emeraude', 'label': 'Tag vert', 'link': '#'}</pre>
     </div>
 </section>
@@ -690,8 +711,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-sMPQCVtIWjxSI9VUtSJkCZW2YMRNdVOfokLJm7MfIW2/8RrNnGEIYfUxlcHMgzkd" nonce="gM7xi+HiD7h2b1A2Maq6zA=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-H+qvxb2A7gd9xqm321FAeM1hY9Jsz0olZ7f2n1k4AmLST5Bydqqga5EMZyj7i5Ey"  nonce="gM7xi+HiD7h2b1A2Maq6zA=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-sMPQCVtIWjxSI9VUtSJkCZW2YMRNdVOfokLJm7MfIW2/8RrNnGEIYfUxlcHMgzkd" nonce="/N5A+L6k4igAxrovoSVcNA=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-H+qvxb2A7gd9xqm321FAeM1hY9Jsz0olZ7f2n1k4AmLST5Bydqqga5EMZyj7i5Ey"  nonce="/N5A+L6k4igAxrovoSVcNA=="></script>
 
     
   </body>
