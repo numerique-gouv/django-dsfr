@@ -6,6 +6,20 @@
   {% include "dsfr/form_field_snippets/checkboxselectmultiple_snippet.html" %}
 {% elif field|widget_type == "radioselect" %}
   {% include "dsfr/form_field_snippets/radioselect_snippet.html" %}
+{% elif field|widget_type == "select" or field|widget_type == "selectmultiple" or field|widget_type == "selectdate" %}
+  {% include "dsfr/form_field_snippets/select_snippet.html" %}
+{% elif field|widget_type == 'dateinput' %}
+  {% include "dsfr/form_field_snippets/date_snippet.html" %}
+{% elif field|widget_type == 'datetimeinput' %}
+  {% include "dsfr/form_field_snippets/datetime_snippet.html" %}
+{% elif field|widget_type == 'timeinput' %}
+  {% include "dsfr/form_field_snippets/time_snippet.html" %}
+{% elif 'file' in field|widget_type %}
+  {% include "dsfr/form_field_snippets/file_snippet.html" %}
+{% elif field|widget_type == 'numberinput' %}
+  {% include "dsfr/form_field_snippets/number_snippet.html" %}
+{% elif field|widget_type == 'urlinput' %}
+  {% include "dsfr/form_field_snippets/url_snippet.html" %}
 {% else %}
   {% include "dsfr/form_field_snippets/input_snippet.html" %}
 {% endif %}
