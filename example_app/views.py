@@ -16,7 +16,7 @@ from example_app.tag_specifics import (
 )
 
 # Used by the module = getattr(globals()["dsfr_tags"], f"dsfr_{tag_name}") line
-from dsfr.templatetags import dsfr_tags
+from dsfr.templatetags import dsfr_tags  # noqa
 
 # /!\ In order to test formset
 from django.views.generic import CreateView
@@ -82,7 +82,6 @@ def tags_index(request):
 
 @require_safe
 def page_tag(request, tag_name):
-
     if tag_name in ALL_IMPLEMENTED_TAGS:
         current_tag = ALL_IMPLEMENTED_TAGS[tag_name]
         payload = init_payload(

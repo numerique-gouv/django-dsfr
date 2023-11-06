@@ -2,7 +2,7 @@ from django import template
 from django.core.paginator import Page
 from django.template.context import Context
 
-from dsfr.constants import (
+from dsfr.checksums import (
     INTEGRITY_CSS,
     INTEGRITY_CSS_ICONS,
     INTEGRITY_FAVICON_APPLE,
@@ -158,8 +158,8 @@ def dsfr_accordion(*args, **kwargs) -> dict:
 @register.inclusion_tag("dsfr/accordion_group.html")
 def dsfr_accordion_group(items: list) -> dict:
     """
-    Returns a group of accordion items. Takes a list of dicts as parameters (see the accordion
-    tag for the structure of these dicts.)
+    Returns a group of accordion items. Takes a list of dicts as parameters (see the
+    accordion tag for the structure of these dicts.)
 
     **Tag name**::
         dsfr_accordion_group
@@ -193,7 +193,7 @@ def dsfr_alert(*args, **kwargs) -> dict:
         dsfr_alert
     **Usage**::
         {% dsfr_alert data_dict %}
-    """
+    """  # noqa
 
     allowed_keys = [
         "id",
@@ -277,7 +277,7 @@ def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
         dsfr_breadcrumb
     **Usage**::
         {% dsfr_breadcrumb data_dict %}
-    """
+    """  # noqa
     if not tag_data:
         if "breadcrumb_data" in context:
             tag_data = context["breadcrumb_data"]
@@ -295,7 +295,9 @@ def dsfr_button(*args, **kwargs) -> dict:
         "label": "Label of the button item",
         "onclick": "button action",
         "type": "(Optional) type of button (submit or button - default: submit),
-        "is_disabled": "(Optional) boolean that indicate if the button is activated (default: False)",
+        "name": "(Optional) name of the button",
+        "is_disabled": "(Optional) boolean that indicate if the button is activated
+        (default: False)",
         "extra_classes": "(Optional) string with names of extra classes."
     }
 
@@ -303,7 +305,8 @@ def dsfr_button(*args, **kwargs) -> dict:
 
     Relevant extra_classes
     - "fr-btn--secondary" : secundary button
-    - "fr-btn--icon-left" and "fr-btn--icon-right": add an icon to the button (associated with an icon class)
+    - "fr-btn--icon-left" and "fr-btn--icon-right": add an icon to the button
+      (associated with an icon class)
     - "fr-btn--sm" and "fr-btn--lg": button smaller or larger than the default size
 
     **Tag name**::
@@ -313,6 +316,8 @@ def dsfr_button(*args, **kwargs) -> dict:
     """
     allowed_keys = [
         "label",
+        "name",
+        "type",
         "onclick",
         "is_disabled",
         "extra_classes",
@@ -378,6 +383,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         "top_detail": "(Optional) dict with a top detail content and optional tags or badges",
         "bottom_detail": "(Optional) a detail string and optional icon",
         "call_to_action": "(Optional) a list of buttons or links at the bottom of the card,
+        "id": "(Optional) id of the tile item",
     }
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
@@ -386,6 +392,7 @@ def dsfr_card(*args, **kwargs) -> dict:
     - fr-card--horizontal: makes the card horizontal
     - fr-card--horizontal-tier: allows a 33% ratio instead of the 40% default
     - fr-card--horizontal-half: allows a 50% ratio instead of the 40% default
+    - fr-card--download: Replaces the forward arrow icon with a download one
 
     Format of the top_detail dict (every field is optional):
     top_detail = {
@@ -408,7 +415,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         dsfr_card
     **Usage**::
         {% dsfr_card data_dict %}
-    """
+    """  # noqa
     allowed_keys = [
         "title",
         "heading_tag",
@@ -423,6 +430,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         "top_detail",
         "bottom_detail",
         "call_to_action",
+        "id",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
@@ -652,7 +660,8 @@ def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
     data_dict = {
         "title": "The title of the main menu",
         "items": "a list of similarly structured dictionaries (see below)",
-        "heading_tag": "(Optional) Heading tag for the accordion title (h2, etc. Default: div)"
+        "heading_tag": "(Optional) Heading tag for the accordion title
+        (h2, etc. Default: div)"
         "extra_classes": "(Optional) string with names of extra classes",
     }
 
@@ -795,7 +804,8 @@ def dsfr_tag(*args, **kwargs) -> dict:
 
     Relevant extra_classes:
     - fr-tag--sm: for a small tag
-    - icon classes: an icon for the tag, along with a positional class (eg, fr-icon-arrow-right-line fr-tag--icon-left)
+    - icon classes: an icon for the tag, along with a positional class
+      (eg, fr-icon-arrow-right-line fr-tag--icon-left)
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
@@ -827,10 +837,31 @@ def dsfr_tile(*args, **kwargs) -> dict:
         "title": "Title of the tile item",
         "url": "URL of the link of the tile item",
         "image_path": "path of the tile image",
+        "svg_path": "path of the tile image if this is a SVG",
+        "description": "(Optional) description of the tile item",
+        "detail": "(Optional) detail zone of the tile tiem
+        "top_detail": "(Optional) dict with a top detail content and optional tags or badges",
+        "heading_tag": "(Optional) Heading tag for the alert title (default: h3)",
+        "id": "(Optional) id of the tile item",
+        "enlarge_link": (Optional) boolean. If true (default), the link covers the whole card",
         "extra_classes: (Optional) string with names of extra classes"
     }
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra_classes:
+    - fr-tile--sm: for a small (SM) tile
+    - fr-tile--horizontal: for an horizontal tile
+    - fr-tile--download: Replaces the forward arrow icon with a download one
+
+    Format of the top_detail dict (every field is optional):
+    top_detail = {
+        "tags": "a list of tag items (mutually exclusive with badges)",
+        "badges": "a list of badge items (mutually exclusive with tags)"
+    }
+
+    Note: "image_path" will work even if a SVG is provided, but "svg_path" will use a
+    <svg> html tag instead of the <img> tag.
 
     **Tag name**::
         dsfr_tile
@@ -841,9 +872,18 @@ def dsfr_tile(*args, **kwargs) -> dict:
         "title",
         "url",
         "image_path",
+        "svg_path",
+        "description",
+        "detail",
+        "top_detail",
+        "id",
+        "enlarge_link",
         "extra_classes",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "enlarge_link" not in tag_data:
+        tag_data["enlarge_link"] = True
 
     return {"self": tag_data}
 

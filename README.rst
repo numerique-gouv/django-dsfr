@@ -1,12 +1,15 @@
 .. image:: https://badge.fury.io/py/django-dsfr.svg
     :target: https://pypi.org/project/django-dsfr/
 
-.. image:: https://github.com/entrepreneur-interet-general/django-dsfr/actions/workflows/django.yml/badge.svg
-    :target: https://github.com/entrepreneur-interet-general/django-dsfr/actions/workflows/django.yml
+.. image:: https://github.com/numerique-gouv/django-dsfr/actions/workflows/django.yml/badge.svg
+    :target: https://github.com/numerique-gouv/django-dsfr/actions/workflows/django.yml
 
-.. image:: https://github.com/entrepreneur-interet-general/django-dsfr/actions/workflows/codeql-analysis.yml/badge.svg
-    :target: https://github.com/entrepreneur-interet-general/django-dsfr/actions/workflows/codeql-analysis.yml
+.. image:: https://github.com/numerique-gouv/django-dsfr/actions/workflows/codeql-analysis.yml/badge.svg
+    :target: https://github.com/numerique-gouv/django-dsfr/actions/workflows/codeql-analysis.yml
 
+.. image:: https://img.shields.io/badge/security-bandit-yellow.svg
+    :target: https://github.com/PyCQA/bandit
+    :alt: Security Status
 
 ===========
 Django-DSFR
@@ -15,13 +18,13 @@ Django-DSFR
 Django-DSFR is a Django app to integrate the `French government Design System ("Système de design de l’État français") <https://www.systeme-de-design.gouv.fr/>`_.
 
 
-This app was created as a part of `Open Collectivités <https://github.com/entrepreneur-interet-general/opencollectivites>`_ and is very much a work in progress. See the `documentation (in French) <https://entrepreneur-interet-general.github.io/django-dsfr/>`_ for details.
+This app was created as a part of `Open Collectivités <https://github.com/entrepreneur-interet-general/opencollectivites>`_ and is very much a work in progress. See the `documentation (in French) <https://numerique-gouv.github.io/django-dsfr/>`_ for details.
 
-Django-DSFR (partly) implements the `version 1.9.2 of the DSFR <https://www.systeme-de-design.gouv.fr/a-propos/versions-du-dsfr/version-courante>`_.
+Django-DSFR (partly) implements the `version 1.10.2 of the DSFR <https://www.systeme-de-design.gouv.fr/a-propos/versions/version-courante>`_.
 
 Requirements
 ------------
-Tested with Python 3.7 to 3.10 and Django 3.2.5 to 4.1.16. Per `vermin <https://github.com/netromdk/vermin>`_, it should work with Python >= 3.0, and it should work with old versions of Django too.
+Tested with Python 3.7 to 3.11 and Django 3.2 to 4.2. Per `vermin <https://github.com/netromdk/vermin>`_, it should work with Python >= 3.6, and it should work with old versions of Django too.
 
 Quick start
 -----------
@@ -36,7 +39,7 @@ Quick start
         "dsfr",
         <your_app>
     ]
-	
+
 3. In order to use forms and formsets, add to INSTALLED_APPS in your settings.py::
 
 	INSTALLED_APPS = [
@@ -49,7 +52,7 @@ Quick start
 4. Add the following info in the TEMPLATES section in your settings.py so that the choice forms work::
 
     TEMPLATES = [
-        {        
+        {
             [...]
             "DIRS": [
                 os.path.join(BASE_DIR, "dsfr/templates"),
@@ -76,6 +79,6 @@ Quick start
         },
     ]
 
-7. Include the tags in your base.html file (see example file at https://github.com/entrepreneur-interet-general/django-dsfr/blob/main/example_app/templates/example_app/base.html)
+7. Include the tags in your base.html file (see example file at https://github.com/numerique-gouv/django-dsfr/blob/main/example_app/templates/example_app/base.html)
 
 8. Start the development server and visit http://127.0.0.1:8000/

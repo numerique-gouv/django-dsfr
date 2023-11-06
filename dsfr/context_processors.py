@@ -1,5 +1,3 @@
-from django.conf import settings
-
 from dsfr.models import DsfrConfig
 
 

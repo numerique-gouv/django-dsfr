@@ -30,9 +30,9 @@ urlpatterns = [
         distill_func=get_all_tags,
     ),
     distill_path(
-        "form_formset/",
+        "formset/",
         AuthorCreateView.as_view(),
         name="form_formset",
-        distill_file="django-dsfr/example_form.html",
+        distill_file="django-dsfr/formset/index.html",
     ),
 ]

@@ -9,7 +9,7 @@
 
 {% comment %}
 Radio button and multiple checkboxes :
-    -Help text under each button/checkbox : 
+    -Help text under each button/checkbox :
         In your forms.py, in the ChoiceField or MultipleChoiceField,
         instead of choices=(("a", "label a"), ("b", "label b"), ...),
         put choices=(("a", {"label":"label a", "help_text":"help text a"}), ("b", {"label":"label b", "help_text":"help text b"})),
@@ -32,7 +32,7 @@ Radio button and multiple checkboxes :
     <div id="form">
         <form method="POST" enctype="multipart/form-data" id="form-base">
             {% csrf_token %}
-            
+
             {# Everything that needs to be in the form but before the fields (form title for example) #}
             {% block head_form %}
             {% endblock head_form %}
@@ -46,23 +46,23 @@ Radio button and multiple checkboxes :
                 {# Everything that needs to be in the for loop #}
                 {% block inside_form %}
                 {% endblock inside_form %}
-            
+
                 {% include "dsfr/form_field_snippets/field_snippet.html" %}
             {% endfor %}
-            
+
             {# If you need to add formsets after the form #}
             {% block extra_formset_after %}
             {% endblock extra_formset_after %}
 
             {# Everything that needs to be in the form but after the fields (the buttons for example) #}
-            <div class="foot-form">   
+            <div class="foot-form">
                 {% block foot_form %}
                 {% endblock foot_form %}
             </div>
         </form>
     </div>
-    
+
     {# Everything that needs to be outside the form, after #}
     {% block after_form %}
     {% endblock after_form %}
-{% endblock content %} 
+{% endblock content %}

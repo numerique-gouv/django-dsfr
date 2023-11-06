@@ -1,3 +1,5 @@
+from django.templatetags.static import static
+
 IMPLEMENTED_TAGS = {
     "accordion": {
         "title": "Accordéon (accordion)",
@@ -67,9 +69,16 @@ IMPLEMENTED_TAGS = {
         "title": "Boutons (buttons)",
         "sample_data": [
             {
-                "label": "Label of the button item",
-                "onclick": "alert('button doing stuff')",
-            }
+                "label": "Bouton principal",
+                "onclick": "alert('Vous avez cliqué sur le bouton principal')",
+            },
+            {
+                "label": "Bouton secondaire",
+                "name": "secundary-button",
+                "type": "button",
+                "extra_classes": "fr-btn--secondary",
+                "onclick": "alert('Vous avez cliqué sur le bouton secondaire')",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton",
     },
@@ -105,8 +114,8 @@ IMPLEMENTED_TAGS = {
             {
                 "title": "Carte basique",
                 "description": """Texte de la carte.
-                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
-                    cinq lignes dans le mode vertical, et deux en horizontal.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
+                    à environ cinq lignes dans le mode vertical, et deux en horizontal.
                     """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
@@ -115,8 +124,8 @@ IMPLEMENTED_TAGS = {
             {
                 "title": "Carte horizontale, largeur standard",
                 "description": """Texte de la carte.
-                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
-                    deux lignes dans le mode horizontal, et cinq en vertical.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
+                    à environ deux lignes dans le mode horizontal, et cinq en vertical.
                     """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
@@ -126,8 +135,8 @@ IMPLEMENTED_TAGS = {
             {
                 "title": "Carte horizontale, largeur tiers",
                 "description": """Texte de la carte.
-                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
-                    deux lignes dans le mode horizontal, et cinq en vertical.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
+                    à environ deux lignes dans le mode horizontal, et cinq en vertical.
                     """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
@@ -137,8 +146,8 @@ IMPLEMENTED_TAGS = {
             {
                 "title": "Carte horizontale, largeur moitié",
                 "description": """Texte de la carte.
-                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre à environ
-                    deux lignes dans le mode horizontal, et cinq en vertical.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
+                    à environ deux lignes dans le mode horizontal, et cinq en vertical.
                     """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
@@ -250,6 +259,18 @@ IMPLEMENTED_TAGS = {
                     ]
                 },
             },
+            {
+                "title": "Télécharger le fichier",
+                "description": """Exemple de carte de téléchargement, avec un texte un peu long, qui peut
+                aller jusqu’à 200 caractères.""",
+                "link": "https://www.systeme-de-design.gouv.fr/",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "new_tab": True,
+                "bottom_detail": {
+                    "text": "PNG — 1,1 ko",
+                },
+                "extra_classes": "fr-card--horizontal fr-card--download",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte",
     },
@@ -308,7 +329,7 @@ IMPLEMENTED_TAGS = {
         "title": "Citation (quote)",
         "sample_data": [
             {
-                "text": "Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques",
+                "text": "Développer vos sites et applications en utilisant des composants prêts à l’emploi, accessibles et ergonomiques",  # noqa
                 "source_url": "https://www.systeme-de-design.gouv.fr/",
                 "author": "Auteur",
                 "source": "Système de Design de l'État",
@@ -444,7 +465,7 @@ IMPLEMENTED_TAGS = {
             {"label": "Tag avec lien", "link": "/django-dsfr/tags"},
             {
                 "label": "Petit tag avec icône",
-                "extra_classes": "fr-tag--sm fr-icon-arrow-right-line fr-tag--icon-left",
+                "extra_classes": "fr-tag--sm fr-icon-arrow-right-line fr-tag--icon-left",  # noqa
             },
             {
                 "label": "Tag avec action",
@@ -476,10 +497,54 @@ IMPLEMENTED_TAGS = {
         "title": "Tuile (tile)",
         "sample_data": [
             {
-                "title": "Title of the tile item",
+                "title": "Tuile basique (verticale, MD)",
                 "url": "/",
-                "image_path": "/django-dsfr/static/img/placeholder.1x1.svg",
-            }
+                "image_path": static("img/placeholder.1x1.svg"),
+            },
+            {
+                "title": "Tuile horizontale",
+                "description": "Tuile horizontale (MD)",
+                "detail": "Avec un pictogramme SVG",
+                "url": "/",
+                "id": "tile-cityhall",
+                "extra_classes": "fr-tile--horizontal",
+                "svg_path": static(
+                    "dsfr/dist/artwork/pictograms/buildings/city-hall.svg"
+                ),
+            },
+            {
+                "title": "Tuile verticale (SM)",
+                "url": "/",
+                "id": "tile-nuclear-plant",
+                "extra_classes": "fr-tile--sm",
+                "svg_path": static(
+                    "dsfr/dist/artwork/pictograms/buildings/nuclear-plant.svg"
+                ),
+            },
+            {
+                "title": "Tuile horizontale (SM)",
+                "url": "/",
+                "id": "tile-map",
+                "extra_classes": "fr-tile--horizontal fr-tile--sm",
+                "top_detail": {
+                    "badges": [
+                        {
+                            "label": "Badge coloré",
+                            "extra_classes": "fr-badge--sm fr-badge--purple-glycine",
+                        },
+                    ]
+                },
+                "svg_path": static("dsfr/dist/artwork/pictograms/map/map.svg"),
+            },
+            {
+                "title": "Tuile de téléchargement",
+                "extra_classes": "fr-tile--horizontal fr-tile--download",
+                "detail": "PDF — 1,7 Mo",
+                "url": "/",
+                "svg_path": static(
+                    "dsfr/dist/artwork/pictograms/document/document-signature.svg"
+                ),
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tuile",
     },
@@ -492,18 +557,18 @@ EXTRA_TAGS = {
             [
                 {
                     "id": "sample-accordion-1",
-                    "title": "First accordion item",
-                    "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (1)</p>",
+                    "title": "Premier accordéon",
+                    "content": "<p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em> (1)</p>",  # noqa
                 },
                 {
                     "id": "sample-accordion-2",
-                    "title": "Second accordion item",
-                    "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (2)</p>",
+                    "title": "Deuxième accordéon",
+                    "content": "<p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em> (2)</p>",  # noqa
                 },
                 {
                     "id": "sample-accordion-3",
-                    "title": "Third accordion item",
-                    "content": "<p><b>Bold</b> and <em>emphatic</em> Example content (3)</p>",
+                    "title": "Troisième accordéon",
+                    "content": "<p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em> (3)</p>",  # noqa
                 },
             ]
         ],
@@ -581,6 +646,10 @@ NOT_YET_IMPLEMENTED_TAGS = {
         "title": "Gestionnaire de consentement (consent)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/gestionnaire-de-consentement",
     },
+    "tooltip": {
+        "title": "Infobulle (tooltip)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/infobulle",
+    },
     "toggle": {
         "title": "Interrupteur (toggle)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur",
@@ -593,6 +662,10 @@ NOT_YET_IMPLEMENTED_TAGS = {
         "title": "Modale (modal)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/modale",
     },
+    "password": {
+        "title": "Mot de passe (password)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mot-de-passe",
+    },
     "navigation": {
         "title": "Navigation principale (navigation)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale",
@@ -601,6 +674,10 @@ NOT_YET_IMPLEMENTED_TAGS = {
         "title": "Partage (share)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/partage",
     },
+    "back_to_top": {
+        "title": "Retour en haut de page (back to top)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/retour-en-haut-de-page",
+    },
     "translate": {
         "title": "Sélecteur de langue",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/selecteur-de-langue",
@@ -608,6 +685,10 @@ NOT_YET_IMPLEMENTED_TAGS = {
     "download": {
         "title": "Téléchargement de fichier",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/telechargement-de-fichier",
+    },
+    "transcription": {
+        "title": "Transcription",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/transcription",
     },
 }
 
