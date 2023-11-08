@@ -18,6 +18,8 @@
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
+<link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
+
 
     
     <title>
@@ -227,36 +229,40 @@
 <ul>
 <li>Installez le paquet</li>
 </ul>
-<pre><code>pip install django-dsfr
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>django-dsfr
+</code></pre></div>
+
 <ul>
 <li>Ajoutez <code>widget_tweaks</code> et <code>dsfr</code> à <code>INSTALLED_APPS</code> dans le <code>settings.py</code> avant la ou les app avec laquelle vous voulez l’utiliser :</li>
 </ul>
-<pre><code class="language-python">INSTALLED_APPS = [
-    ...
-    &quot;widget_tweaks&quot;
-    &quot;dsfr&quot;,
-    &lt;votre_app&gt;
-]
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;widget_tweaks&quot;</span>
+    <span class="s2">&quot;dsfr&quot;</span><span class="p">,</span>
+    <span class="o">&lt;</span><span class="n">votre_app</span><span class="o">&gt;</span>
+<span class="p">]</span>
+</code></pre></div>
+
 <ul>
 <li>Ajouter les lignes suivantes dans la section <code>TEMPLATES</code> du <code>settings.py</code> pour faire fonctionner les formulaires :</li>
 </ul>
-<pre><code>TEMPLATES = [
-    {
-        [...]
-        &quot;DIRS&quot;: [
-            os.path.join(BASE_DIR, &quot;dsfr/templates&quot;),
-            os.path.join(BASE_DIR, &quot;templates&quot;),
-        ],
-    },
-]
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code><span class="n">TEMPLATES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+        <span class="s2">&quot;DIRS&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;dsfr/templates&quot;</span><span class="p">),</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;templates&quot;</span><span class="p">),</span>
+        <span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+</code></pre></div>
+
 <ul>
 <li>Ajouter le <code>FORM_RENDERER</code> in <code>settings.py</code> pour faire fonctionner les formulaires :</li>
 </ul>
-<pre><code>FORM_RENDERER = &quot;django.forms.renderers.TemplatesSetting&quot;
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code><span class="n">FORM_RENDERER</span> <span class="o">=</span> <span class="s2">&quot;django.forms.renderers.TemplatesSetting&quot;</span>
+</code></pre></div>
+
 <ul>
 <li>
 <p>Inclure les tags dans votre fichier <code>base.html</code> (voir par exemple sur <a href="https://github.com/numerique-gouv/django-dsfr/blob/main/example_app/templates/example_app/base.html">base.html</a>)</p>
@@ -270,23 +276,23 @@
 <ul>
 <li>Ajoutez le <code>context_processor</code> au fichier <code>settings.py</code> :</li>
 </ul>
-<pre><code>TEMPLATES = [
-    {
-        [...]
-        &quot;OPTIONS&quot;: {
-            &quot;context_processors&quot;: [
-                [...]
-                &quot;dsfr.context_processors.site_config&quot;,
-            ],
-        },
-    },
-]
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code><span class="n">TEMPLATES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+        <span class="s2">&quot;OPTIONS&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;context_processors&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+                <span class="s2">&quot;dsfr.context_processors.site_config&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+</code></pre></div>
+
 <ul>
 <li>Créez une un objet "DsfrConfig" dans le panneau d’administration</li>
 </ul>
 
-  
       </main>
     </div>
 
@@ -361,8 +367,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="DEaam5b4Au8A1pNNbfkz7A=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="DEaam5b4Au8A1pNNbfkz7A=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="NQ7I6Hzbv92UnF4UYI2rKA=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="NQ7I6Hzbv92UnF4UYI2rKA=="></script>
 
     
   </body>

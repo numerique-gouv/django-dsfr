@@ -18,6 +18,8 @@
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
+<link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
+
 
     
     <title>
@@ -233,26 +235,32 @@
 <p>Installer l’environnement virtuel, les dépendances, les <em>pre-commit hooks</em> et initialiser le site d’exemple :</p>
 </li>
 </ul>
-<pre><code>make init
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code>make<span class="w"> </span>init
+</code></pre></div>
+
 <h2>Tests</h2>
 <p>Pour faire tourner les tests :</p>
-<pre><code>make test
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code>make<span class="w"> </span><span class="nb">test</span>
+</code></pre></div>
+
 <h2>Gestion des dépendances avec Poetry</h2>
 <p>Le projet utilise <a href="https://python-poetry.org/">Poetry</a> pour gérer les dépendances de paquets Python et produire des <em>builds</em> déterministes, ainsi que pour créer les nouvelles versions du paquet et les publier sur Pypi.</p>
 <p>Pour installer les dépendances du projet :</p>
-<pre><code>poetry install
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code>poetry<span class="w"> </span>install
+</code></pre></div>
+
 <p>Pour installer un nouveau paquet et l’ajouter aux dépendances :</p>
-<pre><code>poetry add &lt;paquet&gt;
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code>poetry<span class="w"> </span>add<span class="w"> </span>&lt;paquet&gt;
+</code></pre></div>
+
 <p>Pour un paquet ne servant que pour le développement, par exemple <code>black</code> :</p>
-<pre><code>poetry add --group dev &lt;paquet&gt;
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code>poetry<span class="w"> </span>add<span class="w"> </span>--group<span class="w"> </span>dev<span class="w"> </span>&lt;paquet&gt;
+</code></pre></div>
+
 <p>Pour activer l’environnement virtuel :</p>
-<pre><code>poetry shell
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code>poetry<span class="w"> </span>shell
+</code></pre></div>
+
 <h2>Conventions de style et vérifications automatique</h2>
 <p>Ce projet suit globalement les <a href="https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/coding-style/">conventions de style de Django</a>.</p>
 <p>Il utilise <code>ruff</code> et <code>black</code> pour la mise en forme et <code>bandit</code> pour repérer les failles de sécurité les plus communes.</p>
@@ -261,16 +269,19 @@
 - la documentation est en français, de même que les exemples de composants et le nom des PR ;
 - Les <em>issues</em> peuvent être ouvertes dans l’une ou l’autre langue.</p>
 <p>Pour vérifier son code, on peut intégrer le linter adapté à son IDE et aussi faire ceci :</p>
-<pre><code>make checkstyle
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code>make<span class="w"> </span>checkstyle
+</code></pre></div>
+
 <p>Une vérification automatique est faite via des <em>pre-commit hooks</em>, qui ont normalement été installés via le <code>make init</code>.</p>
 <p>Il est possible de les mettre à jour avec la commande :</p>
-<pre><code>pre-commit update
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code>pre-commit<span class="w"> </span>update
+</code></pre></div>
+
 <h2>Mise à jour du système de design</h2>
 <p>Quand une nouvelle version du système de design de l’État est publiée, il est possible de le mettre à jour automatiquement via la commande :</p>
-<pre><code>make update_dsfr
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code>make<span class="w"> </span>update_dsfr
+</code></pre></div>
+
 <p>La commande télécharge la dernière version depuis le dépôt Github, la met dans le répertoire <code>dsfr/static/dsfr/dist/</code>, retire des fichiers pour réduire la taille du paquet Python et met à jour les sommes de contrôle d’intégrité dans le fichier <code>dsfr/checksums</code>.</p>
 <p>Une fois la mise à jour faite, il reste à :
 - lancer les tests unitaires avec <code>make test</code> ;
@@ -285,7 +296,6 @@
 <h2>Mise à jour de la documentation</h2>
 <p>De la même manière, lorsqu’une PR est mergée dans la branche <code>main</code>, une tâche Github Actions (<a href="[./.github/workflows/deploy-doc.yml">deploy-doc.yml</a>) met à jour la <a href="https://numerique-gouv.github.io/django-dsfr/">documentation statique</a> en faisant un export statique du site d’exemple.</p>
 
-  
       </main>
     </div>
 
@@ -360,8 +370,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="DcjU5TR8yVQmD0tZ/ulo5g=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="DcjU5TR8yVQmD0tZ/ulo5g=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="EYaFhXzuvca3rgO399DcpA=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="EYaFhXzuvca3rgO399DcpA=="></script>
 
     
   </body>

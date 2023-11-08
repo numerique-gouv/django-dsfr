@@ -18,6 +18,8 @@
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
+<link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
+
 
     
     <title>
@@ -223,37 +225,37 @@
       <main id="content" role="main">
         
   <p>Les formulaires sont construits en se basant sur la classe <code>DsfrBaseForm</code>, par exemple :</p>
-<pre><code># votre_app/forms.py
+<div class="dsfr-code codehilite"><pre><span></span><code><span class="c1"># votre_app/forms.py</span>
 
-from dsfr.forms import DsfrBaseForm
+<span class="kn">from</span> <span class="nn">dsfr.forms</span> <span class="kn">import</span> <span class="n">DsfrBaseForm</span>
 
 
-class ExampleForm(DsfrBaseForm):
-    # basic fields
-    user_name = forms.CharField(label=&quot;Nom d’utilisateur&quot;, max_length=100)
+<span class="k">class</span> <span class="nc">ExampleForm</span><span class="p">(</span><span class="n">DsfrBaseForm</span><span class="p">):</span>
+    <span class="c1"># basic fields</span>
+    <span class="n">user_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Nom d’utilisateur&quot;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
-    user_email = forms.EmailField(
-        label=&quot;Adresse électronique&quot;,
-        help_text=&quot;Format attendu : prenom.nom@domaine.fr&quot;,
-        required=False,
-    )
-</code></pre>
+    <span class="n">user_email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Adresse électronique&quot;</span><span class="p">,</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="s2">&quot;Format attendu : prenom.nom@domaine.fr&quot;</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div>
+
 <p>Il est possible de multi-classer :</p>
-<pre><code>class AuthorCreateForm(ModelForm, DsfrBaseForm):
-</code></pre>
+<div class="dsfr-code codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">AuthorCreateForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">,</span> <span class="n">DsfrBaseForm</span><span class="p">):</span>
+</code></pre></div>
+
 <p>Le formulaire ajoute la ou les classes appropriées (<code>fr-input</code>, <code>fr-select</code>, etc.) en fonction du type de champ, mais uniquement si une classe n’a pas déjà été ajoutée.</p>
 <p>Si c'est le cas, il faut aussi forcer manuellement les classes à utiliser :</p>
-<pre><code>    password = forms.CharField(
-        label=&quot;Mot de passe&quot;, widget=forms.PasswordInput(
-            &quot;autocomplete&quot;: &quot;current-password&quot;,
-            &quot;required&quot;: True,
-            &quot;class&quot;: &quot;fr-input my-custom-class&quot;
-        )
-    )
+<div class="dsfr-code codehilite"><pre><span></span><code>    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mot de passe&quot;</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span>
+            <span class="s2">&quot;autocomplete&quot;</span><span class="p">:</span> <span class="s2">&quot;current-password&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;fr-input my-custom-class&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
 
-</code></pre>
-
-  
       </main>
     </div>
 
@@ -328,8 +330,8 @@ class ExampleForm(DsfrBaseForm):
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="U3XtcTfM5v9SFWDn+x1NCw=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="U3XtcTfM5v9SFWDn+x1NCw=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="PVs31gNN7HMQ3PhgxWNLWQ=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="PVs31gNN7HMQ3PhgxWNLWQ=="></script>
 
     
   </body>
