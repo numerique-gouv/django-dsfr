@@ -1,3 +1,10 @@
+<!-- Instead of extending base.html, extend form_base.html -->
+<!-- Created on Mon Jan 24 13:32:00 2022 @author: alica.burlot -->
+<!-- base template for all forms -->
+<!-- to be extended in the templates where a form is displayed -->
+<!-- Check django comments for more information -->
+
+<!-- extends your base.html template -->
 
 <!doctype html>
 <html lang="fr" data-fr-scheme="system" >
@@ -18,18 +25,12 @@
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
-<style nonce="J4+5FSzDFFJGe9/KMjfFYw==">
-.code_sample {
-  background-color: var(--g300);
-  padding: 1rem;
-}
-</style>
 
 
     
     <title>
       
-        Accueil — Design Système de l’État
+        Formulaire avec formset — Design Système de l’État
       
     </title>
     
@@ -108,7 +109,7 @@
           <ul class="fr-nav__list">
             <li class="fr-nav__item">
               
-              <a class="fr-nav__link" href="/django-dsfr/" target="_self" aria-current="true">Accueil</a>
+              <a class="fr-nav__link" href="/django-dsfr/" target="_self">Accueil</a>
             </li>
             <li class="fr-nav__item">
               <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc">Documentation</button>
@@ -127,7 +128,7 @@
               <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self" >Composants</a>
             </li>
             <li class="fr-nav__item">
-              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-forms">Formulaires</button>
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-forms"aria-current="true">Formulaires</button>
               <div class="fr-collapse fr-menu" id="menu-forms">
                 <ul class="fr-menu__list">
                   <li>
@@ -220,7 +221,11 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Accueil</a>
+                <a class="fr-breadcrumb__link" href="/django-dsfr/form/">Formulaires</a>
+            </li>
+            
+            <li>
+                <a class="fr-breadcrumb__link" aria-current="page">Formulaire avec formset</a>
             </li>
         </ol>
     </div>
@@ -229,78 +234,375 @@
 
       <main id="content" role="main">
         
-  <h1>Django-DSFR</h1>
-  <h2>Documentation</h2>
-  <div>
-    <p>
-      <strong>Django-dsfr</strong> est une application django permettant d’utiliser le
-      <a href="https://www.systeme-de-design.gouv.fr/">système de design de l’État</a> dans des projets Django.
-    </p>
+    
+    
+    
 
-    <p>
-      Elle a été développée dans le cadre du défi
-      <a href="https://github.com/entrepreneur-interet-general/opencollectivites">Open Collectivités</a>
-      et est un travail en cours (les composants sont actuellement développés au fur et à mesure de leur
-      utilisation dans le cadre d’Open Collectivités), cf. la page <a href="/django-dsfr/tags/">Composants</a>.
-    </p>
+    <div id="form">
+        <form method="POST" enctype="multipart/form-data" id="form-base">
+            <input type="hidden" name="csrfmiddlewaretoken" value="6Q52FPNDISBp778ua40XwpGQCWhFCT9fNM4fe5kFp3MP20ojGwsjir3uWNPQ5rGU">
+
+            
+            
+    <h1>Exemple de formulaire avec formset</h1>
+
+
+            
+            
+            
+
+            
+            
+                
+                
+                
+
+                
+
+
+  
+
+<div class="fr-input-group">
+    <label for="id_first_name" class="fr-label">
+        <label for="id_first_name">Prénom :</label> *
+    
+    </label>
+
+    
+      <input type="text" name="first_name" maxlength="250" class="fr-input" required id="id_first_name">
+    
+
+    
+</div>
+
+
+
+            
+                
+                
+                
+
+                
+
+
+  
+
+<div class="fr-input-group">
+    <label for="id_last_name" class="fr-label">
+        <label for="id_last_name">Nom :</label> *
+    
+    </label>
+
+    
+      <input type="text" name="last_name" maxlength="250" class="fr-input" required id="id_last_name">
+    
+
+    
+</div>
+
+
+
+            
+                
+                
+                
+
+                
+
+
+  
+
+<div class="fr-input-group">
+    <label for="id_birth_date" class="fr-label">
+        <label for="id_birth_date">Birth date :</label> *
+    
+    </label>
+
+    
+      <input type="date" name="birth_date" class="fr-input" required id="id_birth_date">
+    
+
+    
+</div>
+
+
+
+            
+
+            
+            
+    <!-- Instead of extending base.html, extend formset-base.html -->
+<!-- Then, include this template in another template which extends form_base.html -->
+<!-- Created on Wed Feb 09 11:14:00 2022 @author: alica.burlot -->
+<!-- base template for formset -->
+<!-- to be INCLUDED in the templates where form_base.html is extended, if you need formset -->
+<!-- Check django comments for more information -->
+
+
+
+
+
+
+    
+        <div class="formset-book_set formset-group">
+        <input type="hidden" name="book_set-TOTAL_FORMS" value="1" id="id_book_set-TOTAL_FORMS"><input type="hidden" name="book_set-INITIAL_FORMS" value="0" id="id_book_set-INITIAL_FORMS"><input type="hidden" name="book_set-MIN_NUM_FORMS" value="0" id="id_book_set-MIN_NUM_FORMS"><input type="hidden" name="book_set-MAX_NUM_FORMS" value="1000" id="id_book_set-MAX_NUM_FORMS">
+
+        
+	
+		<h3 class="fr-mt-3w">Livres</h3>
+	
+
+
+        
+
+            <div class="row1 formset-row-book_set formset" id="formset-0">
+             <input type="hidden" name="book_set-0-id" id="id_book_set-0-id"> 
+            
+
+                
+                
+                
+
+                
+
+
+  
+
+<div class="fr-select-group">
+    <label for="id_book_set-0-author" class="fr-label">
+        <label for="id_book_set-0-author">Author :</label> *
+    
+    </label>
+
+    
+      <select name="book_set-0-author" class="fr-select" id="id_book_set-0-author">
+  <option value="" selected>---------</option>
+
+</select>
+    
+
+    
+</div>
+
+
+
+            
+
+                
+                
+                
+
+                
+
+
+  
+
+<div class="fr-input-group">
+    <label for="id_book_set-0-title" class="fr-label">
+        <label for="id_book_set-0-title">Titre :</label> *
+    
+    </label>
+
+    
+      <input type="text" name="book_set-0-title" maxlength="250" class="fr-input" id="id_book_set-0-title">
+    
+
+    
+</div>
+
+
+
+            
+
+                
+                
+                
+
+                
+
+
+  
+
+<div class="fr-input-group">
+    <label for="id_book_set-0-number_of_pages" class="fr-label">
+        <label for="id_book_set-0-number_of_pages">Nombre de pages :</label>
+    
+    </label>
+
+    
+      <input type="number" name="book_set-0-number_of_pages" maxlength="6" class="fr-input" id="id_book_set-0-number_of_pages">
+    
+
+    
+</div>
+
+
+
+            
+
+                
+                
+                
+
+                
+
+
+  
+<fieldset class="fr-fieldset" id="radio-id_book_set-0-book_format" aria-labelledby="id_book_set-0-book_format-legend">
+  <legend class="fr-fieldset__legend fr-text--regular" id="id_book_set-0-book_format-legend">
+    <label>Format :</label> *
+    
+  </legend>
+
+  <div class="fr-fieldset__content">
+      <div class="fr-radio-group">
+          
+            <input type="radio" name="book_set-0-book_format" value="PAPER" class="fr-fieldset--inline fr-radio-group" id="id_book_set-0-book_format_0">
+
+
+    <label class="fr-label" for="id_book_set-0-book_format_0">
+        
+            Papier
+        
+    </label>
+
+
+
+		
+	
+		
+			
+<input type="radio" name="book_set-0-book_format" value="NUM" class="fr-fieldset--inline fr-radio-group" id="id_book_set-0-book_format_1">
+
+
+    <label class="fr-label" for="id_book_set-0-book_format_1">
+        
+            Numérique
+            <span class="fr-hint-text">Livre électronique</span>
+        
+    </label>
+          
+      </div>
   </div>
 
-  <div class="fr-grid-row fr-grid-row--gutters fr-mb-3w">
-    <div class="fr-col-12 fr-col-md-4">
-      <nav role="navigation" class="fr-summary" aria-labelledby="fr-summary-title">
-    <div class="fr-summary__title" id="fr-summary-title">Sommaire</div>
-    <ol class="fr-summary__list">
-        
-        <li>
-            <a class="fr-summary__link" href="#installation">Installation</a>
-        </li>
-        
-        <li>
-            <a class="fr-summary__link" href="#utilisation">Utilisation</a>
-        </li>
-        
-        <li>
-            <a class="fr-summary__link" href="#developpement">Développement</a>
-        </li>
-        
-        <li>
-            <a class="fr-summary__link" href="#notes">Notes</a>
-        </li>
-        
-    </ol>
-</nav>
+  
+</fieldset>
 
+
+
+            
+
+                
+                
+                
+
+                
+
+
+  
+<fieldset class="fr-fieldset" id="checkboxes-id_book_set-0-genre" aria-labelledby="id_book_set-0-genre-legend">
+  <legend class="fr-fieldset__legend fr-text--regular" id="id_book_set-0-genre-legend">
+    <label>Genre :</label>
+    <span class="fr-hint-text">Veuillez choisir le ou les genres associés au livre</span>
+  </legend>
+
+  <div class="fr-fieldset__content">
+    
+<div class="fr-checkbox-group">
+  
+    
+  
+
+    <label for="" class="fr-label">
+        <label>Genre :</label>
+        
+            <span class="fr-hint-text">Veuillez choisir le ou les genres associés au livre</span>
+        
+    </label>
+
+    
+</div>
+
+  </div>
+
+  
+</fieldset>
+
+
+
+            
+
+                
+                
+                
+
+                
+
+
+  
+<div class="fr-checkbox-group">
+  
+    <input type="checkbox" name="book_set-0-DELETE" id="id_book_set-0-DELETE">
+  
+
+    <label for="id_book_set-0-DELETE" class="fr-label">
+        <label for="id_book_set-0-DELETE">Supprimer :</label>
+        
+    </label>
+
+    
+</div>
+
+
+
+            
+
+            <div class="fr-mt-2w">
+                <a id="remove-0" href="javascript:void(0)" onclick="removeFormset(0)">Supprimer cet élément <span class="fr-fi-delete-line" aria-hidden="true"></span><br/><br/></a>
+            </div>
+
+        </div>
+        
+
+        <button id="add-form" type="button" class="fr-btn fr-btn--secondary fr-fi-add-circle-line fr-btn--icon-right fr-mt-1w">Ajouter un élément</button>
+        </div>
+        <br/>
+    
+
+
+
+    <script src="/django-dsfr/static/formsets.js"></script>
+
+
+
+
+            
+            <div class="foot-form">
+                
+    <button
+  class="fr-btn"
+  onclick=""
+  
+  type="submit"
+  
+>
+  Soumettre
+</button>
+
+
+            </div>
+        </form>
     </div>
-  </div>
 
-  <h3 id="installation">Installation</h3>
-  <p>
-    Voir la section dédiée dans le <a href="https://github.com/numerique-gouv/django-dsfr/blob/main/README.rst">README</a>.
-  </p>
-
-  <h3 id="utilisation">Utilisation</h3>
-  <p>
-    Les explications sur l’utilisation de chaque composant figurent sur leur entrée dédiée, accessible via la
-    page <a href="/django-dsfr/tags/">Composants</a>.
-  </p>
-
-  <h3 id="developpement">Développement</h3>
-  <p>
-    Voir la page <a href="https://github.com/numerique-gouv/django-dsfr/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.
-  </p>
-
-  <h3 id="notes">Notes</h3>
-  <ul>
-    <li>Il est possible d’utiliser tous les composants du DSFR directement avec leur code HTML, y compris ceux pour lesquels il n’existe pas encore de balise.</li>
-    <li>De même pour certains où il vaut mieux créer un template ad-hoc à chaque utilisation, comme les modales.</li>
-    <li>La présente documentation est un export statique de l’application example_app réalisé avec <a href="https://github.com/meeb/django-distill">Django-distill</a>.</li>
-  </ul>
+    
+    
+    
 
       </main>
     </div>
 
     
-  <footer role="contentinfo" class="fr-footer" id="footer">
+      <footer role="contentinfo" class="fr-footer" id="footer">
   <div class="fr-container">
     <div class="fr-footer__body">
       <div class="fr-footer__brand fr-enlarge-link">
@@ -333,7 +635,6 @@
     <div class="fr-footer__bottom">
       <ul class="fr-footer__bottom-list">
         
-  
           <li class="fr-footer__bottom-item">
             <a class="fr-footer__bottom-link" href="#">Plan du site</a>
           </li>
@@ -350,10 +651,6 @@
             <a class="fr-footer__bottom-link" href="#">Gestion des cookies</a>
           </li>
         
-  <li class="fr-footer__bottom-item">
-    <button class="fr-btn--display fr-btn" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d’affichage</button>
-  </li>
-
       </ul>
       <div class="fr-footer__bottom-copy">
         <p>
@@ -367,11 +664,11 @@
   </div>
 </footer>
 
-
+    
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="J4+5FSzDFFJGe9/KMjfFYw=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="J4+5FSzDFFJGe9/KMjfFYw=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="IEkuVfE9BDVu5+MMKj+8dA=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="IEkuVfE9BDVu5+MMKj+8dA=="></script>
 
     
   </body>

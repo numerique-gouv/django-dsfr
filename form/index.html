@@ -22,7 +22,7 @@
     
     <title>
       
-        Formulaire — Design Système de l’État
+        Installation — Design Système de l’État
       
     </title>
     
@@ -124,10 +124,13 @@
               <div class="fr-collapse fr-menu" id="menu-forms">
                 <ul class="fr-menu__list">
                   <li>
-                    <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Exemple basique</a>
+                    <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Documentation</a>
                   </li>
                   <li>
-                    <a class="fr-nav__link" href="/django-dsfr/formset/" target="_self">Exemple avec formset</a>
+                    <a class="fr-nav__link" href="/django-dsfr/form/example/" target="_self">Exemple basique</a>
+                  </li>
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/form/example-formset/" target="_self">Exemple avec formset</a>
                   </li>
                 </ul>
               </div>
@@ -210,7 +213,7 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Formulaire</a>
+                <a class="fr-breadcrumb__link" aria-current="page">Installation</a>
             </li>
         </ol>
     </div>
@@ -219,444 +222,38 @@
 
       <main id="content" role="main">
         
-  <h1>Exemple de formulaire</h1>
-  <form action="/django-dsfr/form/" method="post">
-      <input type="hidden" name="csrfmiddlewaretoken" value="hqu5s7n94OZuxCn93Cluhjj3siWbvehOqene5gfL3Ru2ktR4u2t39IKL9uqwGSPn">
-      
-    
+  <p>Les formulaires sont construits en se basant sur la classe <code>DsfrBaseForm</code>, par exemple :</p>
+<pre><code># votre_app/forms.py
+
+from dsfr.forms import DsfrBaseForm
 
 
-  
+class ExampleForm(DsfrBaseForm):
+    # basic fields
+    user_name = forms.CharField(label=&quot;Nom d’utilisateur&quot;, max_length=100)
 
-<div class="fr-input-group">
-    <label for="id_user_name" class="fr-label">
-        <label for="id_user_name">Nom d’utilisateur :</label> *
-    
-    </label>
+    user_email = forms.EmailField(
+        label=&quot;Adresse électronique&quot;,
+        help_text=&quot;Format attendu : prenom.nom@domaine.fr&quot;,
+        required=False,
+    )
+</code></pre>
+<p>Il est possible de multi-classer :</p>
+<pre><code>class AuthorCreateForm(ModelForm, DsfrBaseForm):
+</code></pre>
+<p>Le formulaire ajoute la ou les classes appropriées (<code>fr-input</code>, <code>fr-select</code>, etc.) en fonction du type de champ, mais uniquement si une classe n’a pas déjà été ajoutée.</p>
+<p>Si c'est le cas, il faut aussi forcer manuellement les classes à utiliser :</p>
+<pre><code>    password = forms.CharField(
+        label=&quot;Mot de passe&quot;, widget=forms.PasswordInput(
+            &quot;autocomplete&quot;: &quot;current-password&quot;,
+            &quot;required&quot;: True,
+            &quot;class&quot;: &quot;fr-input my-custom-class&quot;
+        )
+    )
 
-    
-      <input type="text" name="user_name" maxlength="100" class="fr-input" required id="id_user_name">
-    
-
-    
-</div>
-
-
-
-
-    
-
-
-  
-
-<div class="fr-input-group">
-    <label for="id_user_email" class="fr-label">
-        <label for="id_user_email">Adresse électronique :</label>
-    <span class="fr-hint-text">Format attendu : prenom.nom@domaine.fr</span>
-    </label>
-
-    
-      <input type="email" name="user_email" maxlength="320" class="fr-input" id="id_user_email">
-    
-
-    
-</div>
-
-
-
-
-    
-
+</code></pre>
 
   
-
-<div class="fr-input-group">
-    <label for="id_password" class="fr-label">
-        <label for="id_password">Mot de passe :</label>
-    
-    </label>
-
-    
-      <input type="password" name="password" class="fr-input" id="id_password">
-    
-
-    
-</div>
-
-
-
-
-    
-
-
-  
-
-<div class="fr-input-group">
-    <label for="id_sample_number" class="fr-label">
-        <label for="id_sample_number">Nombre entier :</label> *
-    <span class="fr-hint-text">Un nombre inférieur à 0 déclenchera un message d’erreur</span>
-    </label>
-
-    
-      <input type="number" name="sample_number" class="fr-input" required id="id_sample_number">
-    
-
-    
-</div>
-
-
-
-
-    
-
-
-  
-
-<div class="fr-input-group">
-    <label for="id_sample_decimal" class="fr-label">
-        <label for="id_sample_decimal">Nombre décimal :</label>
-    
-    </label>
-
-    
-      <input type="number" name="sample_decimal" step="any" class="fr-input" id="id_sample_decimal">
-    
-
-    
-</div>
-
-
-
-
-    
-
-
-  
-
-<div class="fr-input-group fr-input-group--disabled">
-    <label for="id_sample_disabled_field" class="fr-label">
-        <label for="id_sample_disabled_field">Champ désactivé :</label>
-    <span class="fr-hint-text">Ce champ est désactivé</span>
-    </label>
-
-    
-      <input type="text" name="sample_disabled_field" maxlength="100" class="fr-input" disabled id="id_sample_disabled_field">
-    
-
-    
-</div>
-
-
-
-
-    
-
-
-  
-
-<div class="fr-input-group">
-    <label for="id_sample_date" class="fr-label">
-        <label for="id_sample_date">Date :</label>
-    
-    </label>
-
-    
-      <input type="date" name="sample_date" class="fr-input" id="id_sample_date">
-    
-
-    
-</div>
-
-
-
-
-    
-
-
-  
-<div class="fr-checkbox-group">
-  
-    <input type="checkbox" name="sample_boolean" id="id_sample_boolean">
-  
-
-    <label for="id_sample_boolean" class="fr-label">
-        <label for="id_sample_boolean">Cochez la case :</label>
-        
-    </label>
-
-    
-</div>
-
-
-
-
-    
-
-
-  
-
-<div class="fr-select-group">
-    <label for="id_sample_select" class="fr-label">
-        <label for="id_sample_select">Liste déroulante :</label>
-    
-    </label>
-
-    
-      <select name="sample_select" class="fr-select" id="id_sample_select">
-  <option value="1">Option 1</option>
-
-  <option value="2">Option 2</option>
-
-  <option value="3">Option 3</option>
-
-</select>
-    
-
-    
-</div>
-
-
-
-
-    
-
-
-  
-
-<div class="fr-select-group">
-    <label for="id_sample_multiple_select" class="fr-label">
-        <label for="id_sample_multiple_select">Liste déroulante à choix multiples :</label>
-    
-    </label>
-
-    
-      <select name="sample_multiple_select" class="fr-select" id="id_sample_multiple_select" multiple>
-  <option value="1">Option 1</option>
-
-  <option value="2">Option 2</option>
-
-  <option value="3">Option 3</option>
-
-</select>
-    
-
-    
-</div>
-
-
-
-
-    
-
-
-  
-<fieldset class="fr-fieldset" id="radio-id_sample_radio" aria-labelledby="id_sample_radio-legend">
-  <legend class="fr-fieldset__legend fr-text--regular" id="id_sample_radio-legend">
-    <label>Boutons radio :</label>
-    <span class="fr-hint-text">Le troisième choix renvoie une erreur s’il est sélectionné</span>
-  </legend>
-
-  <div class="fr-fieldset__content">
-      <div class="fr-radio-group">
-          
-            <div class="fr-radio-group">
-<input type="radio" name="sample_radio" value="1" dsfr="dsfr" class="fr-radio-group" id="id_sample_radio_0">
-
-
-    <label class="fr-label" for="id_sample_radio_0">
-        
-            Premier choix
-        
-    </label>
-
-</div>
-
-		
-	
-		
-			<div class="fr-radio-group">
-<input type="radio" name="sample_radio" value="2" dsfr="dsfr" class="fr-radio-group" id="id_sample_radio_1">
-
-
-    <label class="fr-label" for="id_sample_radio_1">
-        
-            Second choix
-        
-    </label>
-
-</div>
-
-		
-	
-		
-			<div class="fr-radio-group">
-<input type="radio" name="sample_radio" value="3" dsfr="dsfr" class="fr-radio-group" id="id_sample_radio_2">
-
-
-    <label class="fr-label" for="id_sample_radio_2">
-        
-            Troisième choix
-        
-    </label>
-
-</div>
-          
-      </div>
-  </div>
-
-  
-</fieldset>
-
-
-
-
-    
-
-
-  
-<fieldset class="fr-fieldset" id="checkboxes-id_sample_checkbox" aria-labelledby="id_sample_checkbox-legend">
-  <legend class="fr-fieldset__legend fr-text--regular" id="id_sample_checkbox-legend">
-    <label>Cases à cocher :</label>
-    <span class="fr-hint-text">Le troisième choix renvoie une erreur s’il est sélectionné</span>
-  </legend>
-
-  <div class="fr-fieldset__content">
-    
-<div class="fr-checkbox-group">
-  
-    <div class="fr-checkbox-group">
-<input type="checkbox" name="sample_checkbox" value="1" dsfr="dsfr" id="id_sample_checkbox_0">
-
-
-    <label class="fr-label" for="id_sample_checkbox_0">
-        
-            Premier choix
-        
-    </label>
-
-</div>
-
-		
-	
-		
-			<div class="fr-checkbox-group">
-<input type="checkbox" name="sample_checkbox" value="2" dsfr="dsfr" id="id_sample_checkbox_1">
-
-
-    <label class="fr-label" for="id_sample_checkbox_1">
-        
-            Second choix
-        
-    </label>
-
-</div>
-
-		
-	
-		
-			<div class="fr-checkbox-group">
-<input type="checkbox" name="sample_checkbox" value="3" dsfr="dsfr" id="id_sample_checkbox_2">
-
-
-    <label class="fr-label" for="id_sample_checkbox_2">
-        
-            Troisième choix
-        
-    </label>
-
-</div>
-  
-
-    <label for="" class="fr-label">
-        <label>Cases à cocher :</label>
-        
-            <span class="fr-hint-text">Le troisième choix renvoie une erreur s’il est sélectionné</span>
-        
-    </label>
-
-    
-</div>
-
-  </div>
-
-  
-</fieldset>
-
-
-
-
-    
-
-
-  
-
-<div class="fr-input-group">
-    <label for="id_sample_comment" class="fr-label">
-        <label for="id_sample_comment">Sample comment :</label>
-    
-    </label>
-
-    
-      <textarea name="sample_comment" cols="40" rows="10" class="fr-input" id="id_sample_comment">
-</textarea>
-    
-
-    
-</div>
-
-
-
-
-    
-
-
-  
-
-<div class="fr-input-group">
-    <label for="id_sample_json" class="fr-label">
-        <label for="id_sample_json">Fichier JSON :</label>
-    
-    </label>
-
-    
-      <textarea name="sample_json" cols="40" rows="10" class="fr-input" id="id_sample_json">
-null</textarea>
-    
-
-    
-</div>
-
-
-
-
-    
-
-
-  
-
-<div class="fr-input-group">
-    <label for="id_sample_file" class="fr-label">
-        <label for="id_sample_file">Pièce jointe :</label>
-    
-    </label>
-
-    
-      <input type="file" name="sample_file" id="id_sample_file">
-    
-
-    
-</div>
-
-
-
-
-
-      <div class="fr-input-group fr-my-4w">
-        <button type="submit" class="fr-btn" title="Valider">Valider ce formulaire</button>
-        <button type="" class="fr-btn fr-btn--secondary" title="Annuler">Annuler</button>
-      </div>
-  </form>
-
       </main>
     </div>
 
@@ -731,8 +328,8 @@ null</textarea>
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="ROQK8puqJlFV5dt2Pg0HSQ=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="ROQK8puqJlFV5dt2Pg0HSQ=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="U3XtcTfM5v9SFWDn+x1NCw=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="U3XtcTfM5v9SFWDn+x1NCw=="></script>
 
     
   </body>
