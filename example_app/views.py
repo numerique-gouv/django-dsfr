@@ -209,7 +209,10 @@ def page_form(request):
     else:
         form = ExampleForm()
 
-    payload = init_payload("Formulaire")
+    payload = init_payload(
+        "Formulaire basique",
+        links=[{"url": reverse("doc_form"), "title": "Formulaires"}],
+    )
     payload["form"] = form
 
     return render(request, "example_app/page_form.html", payload)
@@ -243,7 +246,11 @@ class AuthorCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super(AuthorCreateView, self).get_context_data(**kwargs)
 
-        payload = init_payload("Formulaire avec formset")
+        payload = init_payload(
+            "Formulaire avec formset",
+            links=[{"url": reverse("doc_form"), "title": "Formulaires"}],
+        )
+
         for key, value in payload.items():
             context[key] = value
 
@@ -323,7 +330,7 @@ def doc_contributing(request):
     payload = init_payload("Contribuer à Django-DSFR")
     with open("CONTRIBUTING.md") as f:
         content = f.read()
-        payload["content"] = markdown.markdown(
+        payload["documentation"] = markdown.markdown(
             content, extensions=["markdown.extensions.fenced_code"]
         )
 
@@ -335,7 +342,19 @@ def doc_install(request):
     payload = init_payload("Installation")
     with open("INSTALL.md") as f:
         content = f.read()
-        payload["content"] = markdown.markdown(
+        payload["documentation"] = markdown.markdown(
+            content, extensions=["markdown.extensions.fenced_code"]
+        )
+
+    return render(request, "example_app/doc_markdown.html", payload)
+
+
+@require_safe
+def doc_form(request):
+    payload = init_payload("Installation")
+    with open("doc/forms.md") as f:
+        content = f.read()
+        payload["documentation"] = markdown.markdown(
             content, extensions=["markdown.extensions.fenced_code"]
         )
 

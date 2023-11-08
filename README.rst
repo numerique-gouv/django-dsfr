@@ -29,4 +29,4 @@ Tested with Python 3.7 to 3.11 and Django 3.2 to 4.2. Per `vermin <https://githu
 Quick start
 -----------
 
-See the <INSTALL.md>_ file.
+See the `INSTALL.md<INSTALL.md>`_ file.

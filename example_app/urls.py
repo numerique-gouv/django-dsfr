@@ -8,6 +8,7 @@ from example_app.views import (
     AuthorCreateView,
     doc_contributing,
     doc_install,
+    doc_form,
 )
 from example_app.tag_specifics import ALL_TAGS
 
@@ -45,14 +46,20 @@ urlpatterns = [
     ),
     distill_path(
         "form/",
-        page_form,
-        name="page_form",
+        doc_form,
+        name="doc_form",
         distill_file="django-dsfr/form/index.html",
     ),
     distill_path(
-        "formset/",
+        "form/example/",
+        page_form,
+        name="page_form",
+        distill_file="django-dsfr/form/example/index.html",
+    ),
+    distill_path(
+        "form/example-formset/",
         AuthorCreateView.as_view(),
         name="form_formset",
-        distill_file="django-dsfr/formset/index.html",
+        distill_file="django-dsfr/form/example-formset/index.html",
     ),
 ]
