@@ -1,6 +1,6 @@
 Les formulaires sont construits en se basant sur la classe `DsfrBaseForm`, par exemple :
 
-```{ .py .dsfr-code }
+```{ .python .dsfr-code }
 # votre_app/forms.py
 
 from dsfr.forms import DsfrBaseForm
@@ -19,7 +19,7 @@ class ExampleForm(DsfrBaseForm):
 
 Il est possible de multi-classer :
 
-```{ .py .dsfr-code }
+```{ .python .dsfr-code }
 class AuthorCreateForm(ModelForm, DsfrBaseForm):
 ```
 
@@ -27,7 +27,7 @@ Le formulaire ajoute la ou les classes appropriées (`fr-input`, `fr-select`, et
 
 Si c'est le cas, il faut aussi forcer manuellement les classes à utiliser :
 
-```{ .py .dsfr-code }
+```{ .python .dsfr-code }
     password = forms.CharField(
         label="Mot de passe", widget=forms.PasswordInput(
             "autocomplete": "current-password",
