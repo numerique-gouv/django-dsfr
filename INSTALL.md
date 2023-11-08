@@ -4,13 +4,13 @@
 
 - Installez le paquet
 
-```
+```{ .bash .dsfr-code }
 pip install django-dsfr
 ```
 
 - Ajoutez `widget_tweaks` et `dsfr` à `INSTALLED_APPS` dans le `settings.py` avant la ou les app avec laquelle vous voulez l’utiliser :
 
-```{.python}
+```{.py .dsfr-code}
 INSTALLED_APPS = [
     ...
     "widget_tweaks"
@@ -21,7 +21,7 @@ INSTALLED_APPS = [
 
 - Ajouter les lignes suivantes dans la section `TEMPLATES` du `settings.py` pour faire fonctionner les formulaires :
 
-```
+```{.py .dsfr-code}
 TEMPLATES = [
     {
         [...]
@@ -35,7 +35,7 @@ TEMPLATES = [
 
 - Ajouter le `FORM_RENDERER` in `settings.py` pour faire fonctionner les formulaires :
 
-```
+```{.py .dsfr-code}
 FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 ```
 
@@ -48,7 +48,7 @@ FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 ### Utilisation de la conf en admin
 - Ajoutez le `context_processor` au fichier `settings.py` :
 
-```
+```{.py .dsfr-code}
 TEMPLATES = [
     {
         [...]

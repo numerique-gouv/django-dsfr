@@ -1,0 +1,370 @@
+.dsfr-code .hll {
+  background-color: var(--background-contrast-grey)
+}
+
+.dsfr-code pre,
+pre.dsfr-code {
+  background: var(--background-alt-grey);
+  border: 1px solid var(--border-default-grey);
+  color: var(--text-default-grey);
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+/* Comment */
+.dsfr-code .c {
+  color: var(--green-emeraude-sun-425);
+  font-style: italic
+}
+
+/* Error */
+.dsfr-code .err {
+  border: 1px solid var(--red-marianne-main-472)
+}
+
+/* Keyword */
+.dsfr-code .k {
+  color: var(--green-bourgeon-main-640);
+  font-weight: bold
+}
+
+/* Operator */
+.dsfr-code .o {
+  color: var(--beige-gris-galet-sun-407)
+}
+
+/* Comment.Hashbang */
+.dsfr-code .ch {
+  color: var(--green-emeraude-sun-425);
+  font-style: italic
+}
+
+/* Comment.Multiline */
+.dsfr-code .cm {
+  color: var(--green-emeraude-sun-425);
+  font-style: italic
+}
+
+/* Comment.Preproc */
+.dsfr-code .cp {
+  color: var(--warning-main-525)
+}
+
+/* Comment.PreprocFile */
+.dsfr-code .cpf {
+  color: var(--green-emeraude-sun-425);
+  font-style: italic
+}
+
+/* Comment.Single */
+.dsfr-code .c1 {
+  color: var(--green-emeraude-sun-425);
+  font-style: italic
+}
+
+/* Comment.Special */
+.dsfr-code .cs {
+  color: var(--green-emeraude-sun-425);
+  font-style: italic
+}
+
+/* Generic.Deleted */
+.dsfr-code .gd {
+  color: var(--red-marianne-200)
+}
+
+/* Generic.Emph */
+.dsfr-code .ge {
+  font-style: italic
+}
+
+/* Generic.Error */
+.dsfr-code .gr {
+  color: var(--red-marianne-main-472)
+}
+
+/* Generic.Heading */
+.dsfr-code .gh {
+  color: var(--blue-france-125);
+  font-weight: bold
+}
+
+/* Generic.Inserted */
+.dsfr-code .gi {
+  color: var(--green-bourgeon-850)
+}
+
+/* Generic.Output */
+.dsfr-code .go {
+  color: var(--grey-main-525)
+}
+
+/* Generic.Prompt */
+.dsfr-code .gp {
+  color: var(--blue-france-125);
+  font-weight: bold
+}
+
+/* Generic.Strong */
+.dsfr-code .gs {
+  font-weight: bold
+}
+
+/* Generic.Subheading */
+.dsfr-code .gu {
+  color: var(--purple-glycine-sun-319);
+  font-weight: bold
+}
+
+/* Generic.Traceback */
+.dsfr-code .gt {
+  color: var(--blue-cumulus-main-526)
+}
+
+/* Keyword.Constant */
+.dsfr-code .kc {
+  color: var(--green-bourgeon-main-640);
+  font-weight: bold
+}
+
+/* Keyword.Declaration */
+.dsfr-code .kd {
+  color: var(--green-bourgeon-main-640);
+  font-weight: bold
+}
+
+/* Keyword.Namespace */
+.dsfr-code .kn {
+  color: var(--green-bourgeon-main-640);
+  font-weight: bold
+}
+
+/* Keyword.Pseudo */
+.dsfr-code .kp {
+  color: var(--green-bourgeon-main-640)
+}
+
+/* Keyword.Reserved */
+.dsfr-code .kr {
+  color: var(--green-bourgeon-main-640);
+  font-weight: bold
+}
+
+/* Keyword.Type */
+.dsfr-code .kt {
+  color: var(--pink-tuile-200)
+}
+
+/* Literal.Number */
+.dsfr-code .m {
+  color: var(--beige-gris-galet-sun-407)
+}
+
+/* Literal.String */
+.dsfr-code .s {
+  color: var(--pink-tuile-main-556)
+}
+
+/* Name.Attribute */
+.dsfr-code .na {
+  color: var(--green-tilleul-verveine-main-707)
+}
+
+/* Name.Builtin */
+.dsfr-code .nb {
+  color: var(--green-bourgeon-main-640)
+}
+
+/* Name.Class */
+.dsfr-code .nc {
+  color: var(--blue-ecume-main-400);
+  font-weight: bold
+}
+
+/* Name.Constant */
+.dsfr-code .no {
+  color: var(--warning-200)
+}
+
+/* Name.Decorator */
+.dsfr-code .nd {
+  color: var(--purple-glycine-main-494)
+}
+
+/* Name.Entity */
+.dsfr-code .ni {
+  color: var(--grey-625);
+  font-weight: bold
+}
+
+/* Name.Exception */
+.dsfr-code .ne {
+  color: var(--pink-tuile-sun-425);
+  font-weight: bold
+}
+
+/* Name.Function */
+.dsfr-code .nf {
+  color: var(--blue-ecume-main-400)
+}
+
+/* Name.Label */
+.dsfr-code .nl {
+  color: var(--green-tilleul-verveine-main-707)
+}
+
+/* Name.Namespace */
+.dsfr-code .nn {
+  color: var(--blue-ecume-main-400);
+  font-weight: bold
+}
+
+/* Name.Tag */
+.dsfr-code .nt {
+  color: var(--green-bourgeon-main-640);
+  font-weight: bold
+}
+
+/* Name.Variable */
+.dsfr-code .nv {
+  color: var(--blue-cumulus-200)
+}
+
+/* Operator.Word */
+.dsfr-code .ow {
+  color: var(--purple-glycine-main-494);
+  font-weight: bold
+}
+
+/* Text.Whitespace */
+.dsfr-code .w {
+  color: var(--beige-gris-galet-main-702)
+}
+
+/* Literal.Number.Bin */
+.dsfr-code .mb {
+  color: var(--beige-gris-galet-sun-407)
+}
+
+/* Literal.Number.Float */
+.dsfr-code .mf {
+  color: var(--beige-gris-galet-sun-407)
+}
+
+/* Literal.Number.Hex */
+.dsfr-code .mh {
+  color: var(--beige-gris-galet-sun-407)
+}
+
+/* Literal.Number.Integer */
+.dsfr-code .mi {
+  color: var(--beige-gris-galet-sun-407)
+}
+
+/* Literal.Number.Oct */
+.dsfr-code .mo {
+  color: var(--beige-gris-galet-sun-407)
+}
+
+/* Literal.String.Affix */
+.dsfr-code .sa {
+  color: var(--pink-tuile-main-556)
+}
+
+/* Literal.String.Backtick */
+.dsfr-code .sb {
+  color: var(--pink-tuile-main-556)
+}
+
+/* Literal.String.Char */
+.dsfr-code .sc {
+  color: var(--pink-tuile-main-556)
+}
+
+/* Literal.String.Delimiter */
+.dsfr-code .dl {
+  color: var(--pink-tuile-main-556)
+}
+
+/* Literal.String.Doc */
+.dsfr-code .sd {
+  color: var(--pink-tuile-main-556);
+  font-style: italic
+}
+
+/* Literal.String.Double */
+.dsfr-code .s2 {
+  color: var(--pink-tuile-main-556)
+}
+
+/* Literal.String.Escape */
+.dsfr-code .se {
+  color: var(--brown-caramel-main-648);
+  font-weight: bold
+}
+
+/* Literal.String.Heredoc */
+.dsfr-code .sh {
+  color: var(--pink-tuile-main-556)
+}
+
+/* Literal.String.Interpol */
+.dsfr-code .si {
+  color: var(--purple-glycine-main-494);
+  font-weight: bold
+}
+
+/* Literal.String.Other */
+.dsfr-code .sx {
+  color: var(--green-bourgeon-main-640)
+}
+
+/* Literal.String.Regex */
+.dsfr-code .sr {
+  color: var(--purple-glycine-main-494)
+}
+
+/* Literal.String.Single */
+.dsfr-code .s1 {
+  color: var(--pink-tuile-main-556)
+}
+
+/* Literal.String.Symbol */
+.dsfr-code .ss {
+  color: var(--blue-cumulus-200)
+}
+
+/* Name.Builtin.Pseudo */
+.dsfr-code .bp {
+  color: var(--green-bourgeon-main-640)
+}
+
+/* Name.Function.Magic */
+.dsfr-code .fm {
+  color: var(--blue-ecume-main-400)
+}
+
+/* Name.Variable.Class */
+.dsfr-code .vc {
+  color: var(--blue-cumulus-200)
+}
+
+/* Name.Variable.Global */
+.dsfr-code .vg {
+  color: var(--blue-cumulus-200)
+}
+
+/* Name.Variable.Instance */
+.dsfr-code .vi {
+  color: var(--blue-cumulus-200)
+}
+
+/* Name.Variable.Magic */
+.dsfr-code .vm {
+  color: var(--blue-cumulus-200)
+}
+
+/* Literal.Number.Integer.Long */
+.dsfr-code .il {
+  color: var(--beige-gris-galet-sun-407)
+}

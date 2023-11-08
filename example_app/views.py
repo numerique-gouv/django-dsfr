@@ -1,5 +1,3 @@
-import markdown
-
 from django.core.paginator import Paginator
 
 from django.shortcuts import render
@@ -25,6 +23,7 @@ from django.views.generic import CreateView
 from django.http import HttpResponse
 from example_app.forms import AuthorCreateForm, BookCreateFormSet, BookCreateFormHelper
 from example_app.models import Author
+from example_app.utils import format_markdown_from_file
 
 
 def init_payload(page_title: str, links: list = []):
@@ -328,11 +327,7 @@ class AuthorCreateView(CreateView):
 @require_safe
 def doc_contributing(request):
     payload = init_payload("Contribuer à Django-DSFR")
-    with open("CONTRIBUTING.md") as f:
-        content = f.read()
-        payload["documentation"] = markdown.markdown(
-            content, extensions=["markdown.extensions.fenced_code"]
-        )
+    payload["documentation"] = format_markdown_from_file("CONTRIBUTING.md")
 
     return render(request, "example_app/doc_markdown.html", payload)
 
@@ -340,11 +335,7 @@ def doc_contributing(request):
 @require_safe
 def doc_install(request):
     payload = init_payload("Installation")
-    with open("INSTALL.md") as f:
-        content = f.read()
-        payload["documentation"] = markdown.markdown(
-            content, extensions=["markdown.extensions.fenced_code"]
-        )
+    payload["documentation"] = format_markdown_from_file("INSTALL.md")
 
     return render(request, "example_app/doc_markdown.html", payload)
 
@@ -352,10 +343,6 @@ def doc_install(request):
 @require_safe
 def doc_form(request):
     payload = init_payload("Installation")
-    with open("doc/forms.md") as f:
-        content = f.read()
-        payload["documentation"] = markdown.markdown(
-            content, extensions=["markdown.extensions.fenced_code"]
-        )
+    payload["documentation"] = format_markdown_from_file("doc/forms.md")
 
     return render(request, "example_app/doc_markdown.html", payload)
