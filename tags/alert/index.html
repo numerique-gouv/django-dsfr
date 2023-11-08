@@ -112,18 +112,39 @@
         <nav role="navigation" class="fr-nav" id="fr-navigation" aria-label="Menu principal">
           <ul class="fr-nav__list">
             <li class="fr-nav__item">
+              
               <a class="fr-nav__link" href="/django-dsfr/" target="_self">Accueil</a>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self">Composants</a>
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc">Documentation</button>
+              <div class="fr-collapse fr-menu" id="menu-doc">
+                <ul class="fr-menu__list">
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/doc-install" target="_self">Installation</a>
+                  </li>
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/doc-contributing" target="_self">Contribuer</a>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Formulaire</a>
+              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self" aria-current="true">Composants</a>
             </li>
-			<li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/formset/" target="_self">Exemple de formulaire avec formset</a>
-			</li>
-		  </ul>
+            <li class="fr-nav__item">
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-forms">Formulaires</button>
+              <div class="fr-collapse fr-menu" id="menu-forms">
+                <ul class="fr-menu__list">
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Exemple basique</a>
+                  </li>
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/formset/" target="_self">Exemple avec formset</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+		      </ul>
         </nav>
       </div>
     </div>
@@ -451,9 +472,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-aewrnfgalehyvksn">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-chvigbxnobkyrgpx">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-aewrnfgalehyvksn">
+    <div class="fr-collapse" id="accordion-chvigbxnobkyrgpx">
         <pre class="code_sample">{'content': 'Content of the alert item (can include html)',
  'heading_tag': 'h3',
  'id': 'alert-success-tag',
@@ -489,9 +510,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-htfwuwddwvdopbil">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-aesyzbrmvawvujod">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-htfwuwddwvdopbil">
+    <div class="fr-collapse" id="accordion-aesyzbrmvawvujod">
         <pre class="code_sample">{'content': 'Content of the alert item (can include html)',
  'heading_tag': 'h3',
  'is_collapsible': True,
@@ -506,12 +527,12 @@
 
           <h3>Résultat</h3>
           
-            <div class="fr-collapse" id="alert-jtxljmpilmzfdnlb">
+            <div class="fr-collapse" id="alert-zpadziqjxraqzklg">
   <div role="alert" class="fr-alert fr-alert--error">
       <h3 class="fr-alert__title">Title of the alert item</h3>
       <p>Content of the alert item (can include html)</p>
       
-        <button type="button" class="fr-btn fr-btn--close" aria-expanded="true" aria-controls="alert-jtxljmpilmzfdnlb">
+        <button type="button" class="fr-btn fr-btn--close" aria-expanded="true" aria-controls="alert-zpadziqjxraqzklg">
           Masquer le message
         </button>
       
@@ -526,9 +547,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-suvrmhurrcnyfolc">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-sldynmabizuxhhrn">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-suvrmhurrcnyfolc">
+    <div class="fr-collapse" id="accordion-sldynmabizuxhhrn">
         <pre class="code_sample">{'content': 'Content of the alert item (can include html)',
  'heading_tag': 'h3',
  'title': 'Title of the alert item',
@@ -631,8 +652,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="DbhmaV/ksgjT/ayL4S6roA=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="DbhmaV/ksgjT/ayL4S6roA=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="RD3R8kqz+ji7XPRFlB2IJw=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="RD3R8kqz+ji7XPRFlB2IJw=="></script>
 
     
   </body>

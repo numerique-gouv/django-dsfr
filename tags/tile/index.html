@@ -112,18 +112,39 @@
         <nav role="navigation" class="fr-nav" id="fr-navigation" aria-label="Menu principal">
           <ul class="fr-nav__list">
             <li class="fr-nav__item">
+              
               <a class="fr-nav__link" href="/django-dsfr/" target="_self">Accueil</a>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self">Composants</a>
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc">Documentation</button>
+              <div class="fr-collapse fr-menu" id="menu-doc">
+                <ul class="fr-menu__list">
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/doc-install" target="_self">Installation</a>
+                  </li>
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/doc-contributing" target="_self">Contribuer</a>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Formulaire</a>
+              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self" aria-current="true">Composants</a>
             </li>
-			<li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/formset/" target="_self">Exemple de formulaire avec formset</a>
-			</li>
-		  </ul>
+            <li class="fr-nav__item">
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-forms">Formulaires</button>
+              <div class="fr-collapse fr-menu" id="menu-forms">
+                <ul class="fr-menu__list">
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Exemple basique</a>
+                  </li>
+                  <li>
+                    <a class="fr-nav__link" href="/django-dsfr/formset/" target="_self">Exemple avec formset</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+		      </ul>
         </nav>
       </div>
     </div>
@@ -466,9 +487,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-pbkwixvgxcxuvehj">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-xahfowtdkojzxlra">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-pbkwixvgxcxuvehj">
+    <div class="fr-collapse" id="accordion-xahfowtdkojzxlra">
         <pre class="code_sample">{'image_path': '/django-dsfr/static/img/placeholder.1x1.svg',
  'title': 'Tuile basique (verticale, MD)',
  'url': '/'}</pre>
@@ -517,9 +538,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-iauhgypniiwskvxl">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-mpmltstbpccaveys">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-iauhgypniiwskvxl">
+    <div class="fr-collapse" id="accordion-mpmltstbpccaveys">
         <pre class="code_sample">{'description': 'Tuile horizontale (MD)',
  'detail': 'Avec un pictogramme SVG',
  'extra_classes': 'fr-tile--horizontal',
@@ -576,9 +597,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-vqyeuxibktmwwznq">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-hujxfngdruwnezkl">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-vqyeuxibktmwwznq">
+    <div class="fr-collapse" id="accordion-hujxfngdruwnezkl">
         <pre class="code_sample">{'extra_classes': 'fr-tile--sm',
  'id': 'tile-nuclear-plant',
  'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/buildings/nuclear-plant.svg',
@@ -633,9 +654,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-jcmilltdwkiactyh">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ruviplxojqbfydtl">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-jcmilltdwkiactyh">
+    <div class="fr-collapse" id="accordion-ruviplxojqbfydtl">
         <pre class="code_sample">{'extra_classes': 'fr-tile--horizontal fr-tile--sm',
  'id': 'tile-map',
  'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/map/map.svg',
@@ -706,9 +727,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-rhttugsvvbcjrsmi">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-jnangizrnlprgwta">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-rhttugsvvbcjrsmi">
+    <div class="fr-collapse" id="accordion-jnangizrnlprgwta">
         <pre class="code_sample">{'detail': 'PDF — 1,7 Mo',
  'extra_classes': 'fr-tile--horizontal fr-tile--download',
  'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/document/document-signature.svg',
@@ -836,8 +857,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="qlaisF7YiuFt0J/AiEOoig=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="qlaisF7YiuFt0J/AiEOoig=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="IvaxY47EP0go7LIhuW3xOg=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="IvaxY47EP0go7LIhuW3xOg=="></script>
 
     
   </body>

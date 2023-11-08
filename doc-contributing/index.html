@@ -22,7 +22,7 @@
     
     <title>
       
-        Non implémenté — Design Système de l’État
+        Contribuer à Django-DSFR — Design Système de l’État
       
     </title>
     
@@ -104,7 +104,7 @@
               <a class="fr-nav__link" href="/django-dsfr/" target="_self">Accueil</a>
             </li>
             <li class="fr-nav__item">
-              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc">Documentation</button>
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc"aria-current="true">Documentation</button>
               <div class="fr-collapse fr-menu" id="menu-doc">
                 <ul class="fr-menu__list">
                   <li>
@@ -117,7 +117,7 @@
               </div>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self" aria-current="true">Composants</a>
+              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self" >Composants</a>
             </li>
             <li class="fr-nav__item">
               <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-forms">Formulaires</button>
@@ -210,7 +210,7 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Non implémenté</a>
+                <a class="fr-breadcrumb__link" aria-current="page">Contribuer à Django-DSFR</a>
             </li>
         </ol>
     </div>
@@ -219,24 +219,70 @@
 
       <main id="content" role="main">
         
-<h1> Non implémenté </h1>
+  <h1>Contribuer à Django-DSFR</h1>
+<h2>Installation en local</h2>
+<p>L’installation a été testée sur Ubuntu 22.04 avec Python 3.10 et poetry installé.</p>
+<ul>
+<li>
+<p>Faire un <code>git clone</code> du projet sur votre machine et ouvrir un terminal</p>
+</li>
+<li>
+<p>Installer l’environnement virtuel, les dépendances, les <em>pre-commit hooks</em> et initialiser le site d’exemple :</p>
+</li>
+</ul>
+<pre><code>make init
+</code></pre>
+<h2>Tests</h2>
+<p>Pour faire tourner les tests :</p>
+<pre><code>make test
+</code></pre>
+<h2>Gestion des dépendances avec Poetry</h2>
+<p>Le projet utilise <a href="https://python-poetry.org/">Poetry</a> pour gérer les dépendances de paquets Python et produire des <em>builds</em> déterministes, ainsi que pour créer les nouvelles versions du paquet et les publier sur Pypi.</p>
+<p>Pour installer les dépendances du projet :</p>
+<pre><code>poetry install
+</code></pre>
+<p>Pour installer un nouveau paquet et l’ajouter aux dépendances :</p>
+<pre><code>poetry add &lt;paquet&gt;
+</code></pre>
+<p>Pour un paquet ne servant que pour le développement, par exemple <code>black</code> :</p>
+<pre><code>poetry add --group dev &lt;paquet&gt;
+</code></pre>
+<p>Pour activer l’environnement virtuel :</p>
+<pre><code>poetry shell
+</code></pre>
+<h2>Conventions de style et vérifications automatique</h2>
+<p>Ce projet suit globalement les <a href="https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/coding-style/">conventions de style de Django</a>.</p>
+<p>Il utilise <code>ruff</code> et <code>black</code> pour la mise en forme et <code>bandit</code> pour repérer les failles de sécurité les plus communes.</p>
+<p>Concernant les langues :
+- le code est en anglais, y compris les commentaires, de même que le nom des branches git ;
+- la documentation est en français, de même que les exemples de composants et le nom des PR ;
+- Les <em>issues</em> peuvent être ouvertes dans l’une ou l’autre langue.</p>
+<p>Pour vérifier son code, on peut intégrer le linter adapté à son IDE et aussi faire ceci :</p>
+<pre><code>make checkstyle
+</code></pre>
+<p>Une vérification automatique est faite via des <em>pre-commit hooks</em>, qui ont normalement été installés via le <code>make init</code>.</p>
+<p>Il est possible de les mettre à jour avec la commande :</p>
+<pre><code>pre-commit update
+</code></pre>
+<h2>Mise à jour du système de design</h2>
+<p>Quand une nouvelle version du système de design de l’État est publiée, il est possible de le mettre à jour automatiquement via la commande :</p>
+<pre><code>make update_dsfr
+</code></pre>
+<p>La commande télécharge la dernière version depuis le dépôt Github, la met dans le répertoire <code>dsfr/static/dsfr/dist/</code>, retire des fichiers pour réduire la taille du paquet Python et met à jour les sommes de contrôle d’intégrité dans le fichier <code>dsfr/checksums</code>.</p>
+<p>Une fois la mise à jour faite, il reste à :
+- lancer les tests unitaires avec <code>make test</code> ;
+- ouvrir le site de test et vérifier que tous les composants s’affichent toujours bien ;
+- mettre à jour la liste des composants en vérifiant depuis le site du système de design de l’État ;
+- mettre à jour le fichier README.rst pour indiquer la nouvelle version du DSFR ;
+- mettre à jour les composants si nécessaire, en se basant sur le site du système de design de l’État (ou ouvrir des <em>issues</em>)</p>
+<h2>Publication d’une nouvelle version</h2>
+<p>Lorsque qu’une release est publiée sur Github, une tâche Github Actions (<a href="[./.github/workflows/publish-package.yml">publish-package.yml</a>) est lancée pour automatiquement générer une nouvelle version du paquet et la publier sur Pypi.</p>
+<p>Attention ! Il faut mettre à jour le numéro de version dans le fichier <code>pyproject.toml</code> avant de faire la release, sinon la tâche échouera.</p>
+<p>La numérotation suit le principe de <a href="https://semver.org/">versionnage sémantique</a>.</p>
+<h2>Mise à jour de la documentation</h2>
+<p>De la même manière, lorsqu’une PR est mergée dans la branche <code>main</code>, une tâche Github Actions (<a href="[./.github/workflows/deploy-doc.yml">deploy-doc.yml</a>) met à jour la <a href="https://numerique-gouv.github.io/django-dsfr/">documentation statique</a> en faisant un export statique du site d’exemple.</p>
 
-
-<div class="fr-callout ">
   
-    <p class="fr-callout__title">
-      Non implémenté
-    </p>
-  
-  <p class="fr-callout__text">
-      Le contenu recherché n’est pas encore implémenté
-  </p>
-  
-</div>
-
-
-<br />
-
       </main>
     </div>
 
@@ -311,8 +357,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="z6ixCgIuFcEmEtFD3mwrkw=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="z6ixCgIuFcEmEtFD3mwrkw=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="na+C+/Vrr6MdL8GohyY30A=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="na+C+/Vrr6MdL8GohyY30A=="></script>
 
     
   </body>

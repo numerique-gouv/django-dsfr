@@ -22,7 +22,7 @@
     
     <title>
       
-        Non implémenté — Design Système de l’État
+        Installation — Design Système de l’État
       
     </title>
     
@@ -104,7 +104,7 @@
               <a class="fr-nav__link" href="/django-dsfr/" target="_self">Accueil</a>
             </li>
             <li class="fr-nav__item">
-              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc">Documentation</button>
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc"aria-current="true">Documentation</button>
               <div class="fr-collapse fr-menu" id="menu-doc">
                 <ul class="fr-menu__list">
                   <li>
@@ -117,7 +117,7 @@
               </div>
             </li>
             <li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self" aria-current="true">Composants</a>
+              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self" >Composants</a>
             </li>
             <li class="fr-nav__item">
               <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-forms">Formulaires</button>
@@ -210,7 +210,7 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Non implémenté</a>
+                <a class="fr-breadcrumb__link" aria-current="page">Installation</a>
             </li>
         </ol>
     </div>
@@ -219,24 +219,71 @@
 
       <main id="content" role="main">
         
-<h1> Non implémenté </h1>
+  <h1>Installation de django-DSFR</h1>
+<h2>Installation basique</h2>
+<ul>
+<li>Installez le paquet</li>
+</ul>
+<pre><code>pip install django-dsfr
+</code></pre>
+<ul>
+<li>Ajoutez <code>widget_tweaks</code> et <code>dsfr</code> à <code>INSTALLED_APPS</code> dans le <code>settings.py</code> avant la ou les app avec laquelle vous voulez l’utiliser :</li>
+</ul>
+<pre><code class="language-python">INSTALLED_APPS = [
+    ...
+    &quot;widget_tweaks&quot;
+    &quot;dsfr&quot;,
+    &lt;votre_app&gt;
+]
+</code></pre>
+<ul>
+<li>Ajouter les lignes suivantes dans la section <code>TEMPLATES</code> du <code>settings.py</code> pour faire fonctionner les formulaires :</li>
+</ul>
+<pre><code>TEMPLATES = [
+    {
+        [...]
+        &quot;DIRS&quot;: [
+            os.path.join(BASE_DIR, &quot;dsfr/templates&quot;),
+            os.path.join(BASE_DIR, &quot;templates&quot;),
+        ],
+    },
+]
+</code></pre>
+<ul>
+<li>Ajouter le <code>FORM_RENDERER</code> in <code>settings.py</code> pour faire fonctionner les formulaires :</li>
+</ul>
+<pre><code>FORM_RENDERER = &quot;django.forms.renderers.TemplatesSetting&quot;
+</code></pre>
+<ul>
+<li>
+<p>Inclure les tags dans votre fichier <code>base.html</code> (voir par exemple sur <a href="https://github.com/numerique-gouv/django-dsfr/blob/main/example_app/templates/example_app/base.html">base.html</a>)</p>
+</li>
+<li>
+<p>Lancer le serveur (<code>python manage.py runserver</code>) et aller sur <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a></p>
+</li>
+</ul>
+<h2>Installation avancée (optionnelle)</h2>
+<h3>Utilisation de la conf en admin</h3>
+<ul>
+<li>Ajoutez le <code>context_processor</code> au fichier <code>settings.py</code> :</li>
+</ul>
+<pre><code>TEMPLATES = [
+    {
+        [...]
+        &quot;OPTIONS&quot;: {
+            &quot;context_processors&quot;: [
+                [...]
+                &quot;dsfr.context_processors.site_config&quot;,
+            ],
+        },
+    },
+]
+</code></pre>
+<ul>
+<li>Créez une un objet "DsfrConfig" dans le panneau d’administration</li>
+</ul>
 
-
-<div class="fr-callout ">
   
-    <p class="fr-callout__title">
-      Non implémenté
-    </p>
-  
-  <p class="fr-callout__text">
-      Le contenu recherché n’est pas encore implémenté
-  </p>
-  
-</div>
-
-
-<br />
-
       </main>
     </div>
 
@@ -311,8 +358,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="z6ixCgIuFcEmEtFD3mwrkw=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="z6ixCgIuFcEmEtFD3mwrkw=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="gYvJefiqrAQF7y3jJg3AVQ=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="gYvJefiqrAQF7y3jJg3AVQ=="></script>
 
     
   </body>
