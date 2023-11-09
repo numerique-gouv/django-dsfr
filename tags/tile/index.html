@@ -21,13 +21,13 @@
 <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
 <style>
 .example-textarea {
-  border: none;
-  background-color: var(--g300);
+  background: var(--background-alt-grey);
+  border: 1px solid var(--border-default-grey);
+  color: var(--text-default-grey);
   padding: 1rem;
-}
-.code_sample {
-  background-color: var(--g300);
-  padding: 1rem;
+  margin: 2rem 0;
+  font-family: monospace;
+  font-size: 1rem;
 }
 </style>
 
@@ -509,10 +509,10 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-zyepyozydyhwzmhb">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-mdumzdawwfrhjwnu">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-zyepyozydyhwzmhb">
-        <pre class="code_sample">{'image_path': '/django-dsfr/static/img/placeholder.1x1.svg',
+    <div class="fr-collapse" id="accordion-mdumzdawwfrhjwnu">
+        <pre class="dsfr-code">{'image_path': '/django-dsfr/static/img/placeholder.1x1.svg',
  'title': 'Tuile basique (verticale, MD)',
  'url': '/'}</pre>
     </div>
@@ -560,10 +560,10 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ildoihnghzrtcknr">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-reqtnabhhuyuprvp">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-ildoihnghzrtcknr">
-        <pre class="code_sample">{'description': 'Tuile horizontale (MD)',
+    <div class="fr-collapse" id="accordion-reqtnabhhuyuprvp">
+        <pre class="dsfr-code">{'description': 'Tuile horizontale (MD)',
  'detail': 'Avec un pictogramme SVG',
  'extra_classes': 'fr-tile--horizontal',
  'id': 'tile-cityhall',
@@ -619,10 +619,10 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-dbfpbympvnbkdhvr">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-kxnkorroalxfryru">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-dbfpbympvnbkdhvr">
-        <pre class="code_sample">{'extra_classes': 'fr-tile--sm',
+    <div class="fr-collapse" id="accordion-kxnkorroalxfryru">
+        <pre class="dsfr-code">{'extra_classes': 'fr-tile--sm',
  'id': 'tile-nuclear-plant',
  'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/buildings/nuclear-plant.svg',
  'title': 'Tuile verticale (SM)',
@@ -676,10 +676,10 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-vymzbaibursqcwvu">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-yluwynlggazjhhgn">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-vymzbaibursqcwvu">
-        <pre class="code_sample">{'extra_classes': 'fr-tile--horizontal fr-tile--sm',
+    <div class="fr-collapse" id="accordion-yluwynlggazjhhgn">
+        <pre class="dsfr-code">{'extra_classes': 'fr-tile--horizontal fr-tile--sm',
  'id': 'tile-map',
  'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/map/map.svg',
  'title': 'Tuile horizontale (SM)',
@@ -749,10 +749,10 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-rvwytkxmiwfkmgut">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-vkilssmkzdvskncu">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-rvwytkxmiwfkmgut">
-        <pre class="code_sample">{'detail': 'PDF — 1,7 Mo',
+    <div class="fr-collapse" id="accordion-vkilssmkzdvskncu">
+        <pre class="dsfr-code">{'detail': 'PDF — 1,7 Mo',
  'extra_classes': 'fr-tile--horizontal fr-tile--download',
  'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/document/document-signature.svg',
  'title': 'Tuile de téléchargement',
@@ -879,8 +879,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="eNRRiGbVDDhwovpWEg4IEA=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="eNRRiGbVDDhwovpWEg4IEA=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="Ia/webnQILS6RitHQDgYQw=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="Ia/webnQILS6RitHQDgYQw=="></script>
 
     
   </body>
