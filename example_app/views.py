@@ -69,6 +69,7 @@ def index(request):
 @require_safe
 def tags_index(request):
     payload = init_payload("Composants")
+    payload["documentation"] = format_markdown_from_file("doc/components.md")
     payload["implemented_tags"] = dict(
         sorted(IMPLEMENTED_TAGS.items(), key=lambda k: k[1]["title"])
     )

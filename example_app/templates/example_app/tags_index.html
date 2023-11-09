@@ -3,6 +3,10 @@
 
 {% block content %}
   <h1>Composants du système de design de l’État</h1>
+
+  {{documentation|safe}}
+
+  <h2>Liste des composants</h2>
   <div class="fr-tabs">
     <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
         <li role="presentation">
@@ -58,3 +62,7 @@
     </div>
   </div>
 {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
+{% endblock extra_css %}

@@ -34,10 +34,12 @@
               <div class="fr-collapse fr-menu" id="menu-doc">
                 <ul class="fr-menu__list">
                   <li>
-                    <a class="fr-nav__link" href="{% url 'doc_install' %}" target="_self">Installation</a>
+                    {% url 'doc_install' as doc_install_url %}
+                    <a class="fr-nav__link" href="{{ doc_install_url }}" target="_self"{% if request.path == doc_install_url %} aria-current="true"{% endif %}>Installation</a>
                   </li>
                   <li>
-                    <a class="fr-nav__link" href="{% url 'doc_contributing' %}" target="_self">Contribuer</a>
+                    {% url 'doc_contributing' as doc_contributing_url %}
+                    <a class="fr-nav__link" href="{{ doc_contributing_url }}" target="_self"{% if request.path == doc_contributing_url %} aria-current="true"{% endif %}>Contribuer</a>
                   </li>
                 </ul>
               </div>
@@ -50,13 +52,16 @@
               <div class="fr-collapse fr-menu" id="menu-forms">
                 <ul class="fr-menu__list">
                   <li>
-                    <a class="fr-nav__link" href="{% url 'doc_form' %}" target="_self">Documentation</a>
+                    {% url 'doc_form' as doc_form_url %}
+                    <a class="fr-nav__link" href="{{ doc_form_url }}" target="_self"{% if request.path == doc_form_url %} aria-current="true"{% endif %}>Documentation</a>
                   </li>
                   <li>
-                    <a class="fr-nav__link" href="{% url 'page_form' %}" target="_self">Exemple basique</a>
+                    {% url 'page_form' as page_form_url %}
+                    <a class="fr-nav__link" href="{{ page_form_url }}" target="_self"{% if request.path == page_form_url %} aria-current="true"{% endif %}>Exemple basique</a>
                   </li>
                   <li>
-                    <a class="fr-nav__link" href="{% url 'form_formset' %}" target="_self">Exemple avec formset</a>
+                    {% url 'form_formset' as form_formset_url %}
+                    <a class="fr-nav__link" href="{{ form_formset_url }}" target="_self"{% if request.path == form_formset_url %} aria-current="true"{% endif %}>Exemple avec formset</a>
                   </li>
                 </ul>
               </div>
