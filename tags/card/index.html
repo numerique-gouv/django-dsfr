@@ -18,6 +18,7 @@
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
+<link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
 <style>
 .example-textarea {
   border: none;
@@ -148,6 +149,21 @@
                   <li>
                     
                     <a class="fr-nav__link" href="/django-dsfr/form/example-formset/" target="_self">Exemple avec formset</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="fr-nav__item">
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-resources">Ressources</button>
+              <div class="fr-collapse fr-menu" id="menu-resources">
+                <ul class="fr-menu__list">
+                  <li>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/resources/icons" target="_self">Icônes</a>
+                  </li>
+                  <li>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/resources/pictograms" target="_self">Pictogrammes</a>
                   </li>
                 </ul>
               </div>
@@ -445,58 +461,56 @@
       
 
       <h2>Documentation du tag</h2>
-      <pre>
-      
-    Returns a card item. Takes a dict as parameter, with the following structure:
 
-    data_dict = {
-        &quot;title&quot;: &quot;Title of the card item&quot;,
-        &quot;heading_tag&quot;: &quot;(Optional) Heading tag for the title (h2, etc. Default: p)&quot;
-        &quot;description&quot;: &quot;Text of the card item&quot;,
-        &quot;image_url&quot;: &quot;(Optional) url of the image&quot;,
-        &quot;image_alt&quot;: &quot;(Optional) alt text of the image&quot;,
-        &quot;media_badges&quot;: (Optional) list of badges for the media area (similar to a badge_group tag)
-        &quot;new_tab&quot;: &quot;(Optional) if True, forces links to open in a new tab&quot;,
-        &quot;link&quot;: &quot;(Optional) link of the tag&quot;,
-        &quot;enlarge_link&quot;: (Optional) boolean. If true (default), the link covers the whole card&quot;,
-        &quot;extra_classes&quot;: &quot;(Optional) string with names of extra classes&quot;,
-        &quot;top_detail&quot;: &quot;(Optional) dict with a top detail content and optional tags or badges&quot;,
-        &quot;bottom_detail&quot;: &quot;(Optional) a detail string and optional icon&quot;,
-        &quot;call_to_action&quot;: &quot;(Optional) a list of buttons or links at the bottom of the card,
-        &quot;id&quot;: &quot;(Optional) id of the tile item&quot;,
-    }
+      <div class="dsfr-code"><pre><span></span><code><span class="n">Returns</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">card</span><span class="w"> </span><span class="n">item</span><span class="o">.</span><span class="w"> </span><span class="n">Takes</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">dict</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">parameter</span><span class="p">,</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">structure</span><span class="p">:</span>
 
-    All of the keys of the dict can be passed directly as named parameters of the tag.
+<span class="n">data_dict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Title of the card item&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;heading_tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(Optional) Heading tag for the title (h2, etc. Default: p)&quot;</span>
+<span class="w">    </span><span class="s2">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Text of the card item&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;image_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(Optional) url of the image&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;image_alt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(Optional) alt text of the image&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;media_badges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">Optional</span><span class="p">)</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">badges</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">media</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="p">(</span><span class="n">similar</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">badge_group</span><span class="w"> </span><span class="n">tag</span><span class="p">)</span>
+<span class="w">    </span><span class="s2">&quot;new_tab&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(Optional) if True, forces links to open in a new tab&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;link&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(Optional) link of the tag&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;enlarge_link&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">Optional</span><span class="p">)</span><span class="w"> </span><span class="n">boolean</span><span class="o">.</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="bp">true</span><span class="w"> </span><span class="p">(</span><span class="n">default</span><span class="p">),</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">link</span><span class="w"> </span><span class="n">covers</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">whole</span><span class="w"> </span><span class="n">card</span><span class="s2">&quot;,</span>
+<span class="w">    </span><span class="s2">&quot;extra_classes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(Optional) string with names of extra classes&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;top_detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(Optional) dict with a top detail content and optional tags or badges&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;bottom_detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(Optional) a detail string and optional icon&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;call_to_action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(Optional) a list of buttons or links at the bottom of the card,</span>
+<span class="w">    </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(Optional) id of the tile item&quot;</span><span class="p">,</span>
+<span class="p">}</span>
 
-    Relevant extra classes:
-    - fr-card--horizontal: makes the card horizontal
-    - fr-card--horizontal-tier: allows a 33% ratio instead of the 40% default
-    - fr-card--horizontal-half: allows a 50% ratio instead of the 40% default
-    - fr-card--download: Replaces the forward arrow icon with a download one
+<span class="n">All</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">dict</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span><span class="n">directly</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tag</span><span class="o">.</span>
 
-    Format of the top_detail dict (every field is optional):
-    top_detail = {
-        &quot;detail&quot;: {
-            &quot;text&quot;: &quot;the detail text&quot;,
-            &quot;icon_class&quot;: &quot;(Optional) an icon class (eg, fr-icon-warning-fill)&quot;
-        },
-        &quot;tags&quot;: &quot;a list of tag items (mutually exclusive with badges)&quot;,
-        &quot;badges&quot;: &quot;a list of badge items (mutually exclusive with tags)&quot;
-    }
+<span class="n">Relevant</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">classes</span><span class="p">:</span>
+<span class="o">-</span><span class="w"> </span><span class="n">fr</span><span class="o">-</span><span class="n">card</span><span class="o">--</span><span class="n">horizontal</span><span class="p">:</span><span class="w"> </span><span class="n">makes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">card</span><span class="w"> </span><span class="n">horizontal</span>
+<span class="o">-</span><span class="w"> </span><span class="n">fr</span><span class="o">-</span><span class="n">card</span><span class="o">--</span><span class="n">horizontal</span><span class="o">-</span><span class="n">tier</span><span class="p">:</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="mi">33</span><span class="o">%</span><span class="w"> </span><span class="n">ratio</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">40</span><span class="o">%</span><span class="w"> </span><span class="n">default</span>
+<span class="o">-</span><span class="w"> </span><span class="n">fr</span><span class="o">-</span><span class="n">card</span><span class="o">--</span><span class="n">horizontal</span><span class="o">-</span><span class="n">half</span><span class="p">:</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="mi">50</span><span class="o">%</span><span class="w"> </span><span class="n">ratio</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">40</span><span class="o">%</span><span class="w"> </span><span class="n">default</span>
+<span class="o">-</span><span class="w"> </span><span class="n">fr</span><span class="o">-</span><span class="n">card</span><span class="o">--</span><span class="n">download</span><span class="p">:</span><span class="w"> </span><span class="n">Replaces</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">forward</span><span class="w"> </span><span class="n">arrow</span><span class="w"> </span><span class="n">icon</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">download</span><span class="w"> </span><span class="n">one</span>
 
-    Format of the bottom_detail dict :
-    bottom_detail = {
-        &quot;text&quot;: &quot;the detail text&quot;,
-        &quot;icon_class&quot;: &quot;(Optional) an icon class (eg, fr-icon-warning-fill)&quot;
-    },
+<span class="n">Format</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">top_detail</span><span class="w"> </span><span class="n">dict</span><span class="w"> </span><span class="p">(</span><span class="n">every</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">optional</span><span class="p">):</span>
+<span class="n">top_detail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the detail text&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;icon_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(Optional) an icon class (eg, fr-icon-warning-fill)&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="s2">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a list of tag items (mutually exclusive with badges)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;badges&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a list of badge items (mutually exclusive with tags)&quot;</span>
+<span class="p">}</span>
+
+<span class="n">Format</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">bottom_detail</span><span class="w"> </span><span class="n">dict</span><span class="w"> </span><span class="p">:</span>
+<span class="n">bottom_detail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the detail text&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;icon_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(Optional) an icon class (eg, fr-icon-warning-fill)&quot;</span>
+<span class="p">},</span>
 
 
-    **Tag name**::
-        dsfr_card
-    **Usage**::
-        {% dsfr_card data_dict %}
-    
-      </pre>
+<span class="o">**</span><span class="n">Tag</span><span class="w"> </span><span class="n">name</span><span class="o">**</span><span class="p">::</span>
+<span class="w">    </span><span class="n">dsfr_card</span>
+<span class="o">**</span><span class="n">Usage</span><span class="o">**</span><span class="p">::</span>
+<span class="w">    </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="n">dsfr_card</span><span class="w"> </span><span class="n">data_dict</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+</code></pre></div>
 
       
         <h2>Exemples</h2>
@@ -507,9 +521,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fywxdamhyszprmkj">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-epviijbutqloiodg">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-fywxdamhyszprmkj">
+    <div class="fr-collapse" id="accordion-epviijbutqloiodg">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -575,9 +589,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-lxvuodcxzmmrunyn">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-prpejyjmrdxbdmwq">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-lxvuodcxzmmrunyn">
+    <div class="fr-collapse" id="accordion-prpejyjmrdxbdmwq">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -642,9 +656,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ohcbjarcdspdhfoi">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-llqfzvearwvuqipk">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-ohcbjarcdspdhfoi">
+    <div class="fr-collapse" id="accordion-llqfzvearwvuqipk">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -709,9 +723,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-tmjztaczxgvupueb">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-kuonrjyjwafdlkxs">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-tmjztaczxgvupueb">
+    <div class="fr-collapse" id="accordion-kuonrjyjwafdlkxs">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -776,9 +790,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-uvsdopwroxvcvtpi">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-wyeqrgztvgeoqqht">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-uvsdopwroxvcvtpi">
+    <div class="fr-collapse" id="accordion-wyeqrgztvgeoqqht">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
@@ -850,9 +864,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-bnmmffisiloxymqr">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-lnzdlgslkcdjqgee">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-bnmmffisiloxymqr">
+    <div class="fr-collapse" id="accordion-lnzdlgslkcdjqgee">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
@@ -935,9 +949,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-jiitlihzseuzgapr">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-mlxfnjtccnbkmfdm">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-jiitlihzseuzgapr">
+    <div class="fr-collapse" id="accordion-mlxfnjtccnbkmfdm">
         <pre class="code_sample">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
@@ -1019,9 +1033,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-gutxtraelcuzuwtq">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-kotfsrmdqvpgqilr">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-gutxtraelcuzuwtq">
+    <div class="fr-collapse" id="accordion-kotfsrmdqvpgqilr">
         <pre class="code_sample">{'bottom_detail': {'icon': 'fr-icon-warning-fill',
                    'text': 'Détail (optionnel)'},
  'description': 'Texte de la carte.\n'
@@ -1085,9 +1099,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-boswjqaroujfdlco">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-uicqnqdihvdiqzlr">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-boswjqaroujfdlco">
+    <div class="fr-collapse" id="accordion-uicqnqdihvdiqzlr">
         <pre class="code_sample">{'call_to_action': {'buttons': [{'extra_classes': 'fr-btn--secondary',
                                  'label': 'Bouton 1'},
                                 {'label': 'Bouton 2'}]},
@@ -1186,9 +1200,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fiveesyxssrbexjl">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-bgvqgnibddoxmlhm">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-fiveesyxssrbexjl">
+    <div class="fr-collapse" id="accordion-bgvqgnibddoxmlhm">
         <pre class="code_sample">{'call_to_action': {'links': [{'label': 'Lien interne', 'url': '/'},
                               {'is_external': True,
                                'label': 'Lien externe',
@@ -1284,9 +1298,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-lyathtjvqpwgkxaj">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ihybsmbfgfklojyd">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-lyathtjvqpwgkxaj">
+    <div class="fr-collapse" id="accordion-ihybsmbfgfklojyd">
         <pre class="code_sample">{'bottom_detail': {'text': 'PNG — 1,1 ko'},
  'description': 'Exemple de carte de téléchargement, avec un texte un peu '
                 'long, qui peut\n'
@@ -1426,8 +1440,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="2mM4eu8uwuNSzQslvlArgQ=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="2mM4eu8uwuNSzQslvlArgQ=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="Y0u2XnP9I5Jx9FXx6421kQ=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="Y0u2XnP9I5Jx9FXx6421kQ=="></script>
 
     
   </body>

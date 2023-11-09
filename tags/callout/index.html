@@ -18,6 +18,7 @@
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
+<link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
 <style>
 .example-textarea {
   border: none;
@@ -148,6 +149,21 @@
                   <li>
                     
                     <a class="fr-nav__link" href="/django-dsfr/form/example-formset/" target="_self">Exemple avec formset</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="fr-nav__item">
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-resources">Ressources</button>
+              <div class="fr-collapse fr-menu" id="menu-resources">
+                <ul class="fr-menu__list">
+                  <li>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/resources/icons" target="_self">Icônes</a>
+                  </li>
+                  <li>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/resources/pictograms" target="_self">Pictogrammes</a>
                   </li>
                 </ul>
               </div>
@@ -445,29 +461,27 @@
       
 
       <h2>Documentation du tag</h2>
-      <pre>
-      
-    Returns a callout item. Takes a dict as parameter, with the following structure:
 
-    data_dict = {
-        &quot;text&quot;: &quot;Text of the callout item&quot;,
-        &quot;title&quot;: &quot;(Optional) Title of the callout item&quot;,
-        &quot;heading_tag&quot;: &quot;(Optional) Heading tag for the alert title (default: p)&quot;,
-        &quot;icon_class&quot;: &quot; (Optional) Name of the icon class&quot;,
-        &quot;button&quot;: {                                 # Optional
-            &quot;onclick&quot;: &quot;button action&quot;,
-            &quot;label&quot;: &quot;button label&quot;
-        }
+      <div class="dsfr-code"><pre><span></span><code>Returns a callout item. Takes a dict as parameter, with the following structure:
+
+data_dict = {
+    &quot;text&quot;: &quot;Text of the callout item&quot;,
+    &quot;title&quot;: &quot;(Optional) Title of the callout item&quot;,
+    &quot;heading_tag&quot;: &quot;(Optional) Heading tag for the alert title (default: p)&quot;,
+    &quot;icon_class&quot;: &quot; (Optional) Name of the icon class&quot;,
+    &quot;button&quot;: {                                 # Optional
+        &quot;onclick&quot;: &quot;button action&quot;,
+        &quot;label&quot;: &quot;button label&quot;
     }
+}
 
-    All of the keys of the dict can be passed directly as named parameters of the tag.
+All of the keys of the dict can be passed directly as named parameters of the tag.
 
-    **Tag name**::
-        dsfr_callout
-    **Usage**::
-        {% dsfr_callout data_dict %}
-    
-      </pre>
+**Tag name**::
+    dsfr_callout
+**Usage**::
+    {% dsfr_callout data_dict %}
+</code></pre></div>
 
       
         <h2>Exemples</h2>
@@ -478,9 +492,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-lynolhokadobzhyz">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-bdbecrxvxtclrxrt">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-lynolhokadobzhyz">
+    <div class="fr-collapse" id="accordion-bdbecrxvxtclrxrt">
         <pre class="code_sample">{'button': {'extra_classes': 'fr-btn--secondary',
             'label': 'button label',
             'onclick': "alert('button being a button')"},
@@ -530,9 +544,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-gwypdpghrfwwhxrm">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-skomxmkrqlogpidx">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-gwypdpghrfwwhxrm">
+    <div class="fr-collapse" id="accordion-skomxmkrqlogpidx">
         <pre class="code_sample">{'button': {'extra_classes': 'fr-btn--secondary',
             'label': 'button label',
             'url': 'https://www.systeme-de-design.gouv.fr/'},
@@ -646,8 +660,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="tJODoprCBoCNuWLWEw8Kyg=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="tJODoprCBoCNuWLWEw8Kyg=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="VkpcCceX0FN0+ht/GGIXMA=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="VkpcCceX0FN0+ht/GGIXMA=="></script>
 
     
   </body>

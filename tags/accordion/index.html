@@ -18,6 +18,7 @@
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
+<link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
 <style>
 .example-textarea {
   border: none;
@@ -148,6 +149,21 @@
                   <li>
                     
                     <a class="fr-nav__link" href="/django-dsfr/form/example-formset/" target="_self">Exemple avec formset</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="fr-nav__item">
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-resources">Ressources</button>
+              <div class="fr-collapse fr-menu" id="menu-resources">
+                <ul class="fr-menu__list">
+                  <li>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/resources/icons" target="_self">Icônes</a>
+                  </li>
+                  <li>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/resources/pictograms" target="_self">Pictogrammes</a>
                   </li>
                 </ul>
               </div>
@@ -445,27 +461,25 @@
       
 
       <h2>Documentation du tag</h2>
-      <pre>
-      
-    Returns an accordion item. Takes a dict as parameter, with the following structure:
 
-    data_dict = {
-        &quot;id&quot;: &quot;Unique id of the accordion item&quot;,
-        &quot;title&quot;: &quot;Title of the accordion item&quot;,
-        &quot;content&quot;: &quot;Content of the accordion item (can include html)&quot;,
-        &quot;heading_tag&quot;: &quot;(Optional) Heading tag for the accordion title (default: h3)&quot;
-    }
+      <div class="dsfr-code"><pre><span></span><code>Returns an accordion item. Takes a dict as parameter, with the following structure:
 
-    All of the keys of the dict can be passed directly as named parameters of the tag.
+data_dict = {
+    &quot;id&quot;: &quot;Unique id of the accordion item&quot;,
+    &quot;title&quot;: &quot;Title of the accordion item&quot;,
+    &quot;content&quot;: &quot;Content of the accordion item (can include html)&quot;,
+    &quot;heading_tag&quot;: &quot;(Optional) Heading tag for the accordion title (default: h3)&quot;
+}
 
-    Can be used alone or in a group with the tag dsfr_accordion_group.
+All of the keys of the dict can be passed directly as named parameters of the tag.
 
-    **Tag name**::
-        dsfr_accordion
-    **Usage**::
-        {% dsfr_accordion data_dict %}
-    
-      </pre>
+Can be used alone or in a group with the tag dsfr_accordion_group.
+
+**Tag name**::
+    dsfr_accordion
+**Usage**::
+    {% dsfr_accordion data_dict %}
+</code></pre></div>
 
       
         <h2>Exemples</h2>
@@ -476,9 +490,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-pvvzwaekdhpfkfoa">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-hiifvbiltgbpfost">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-pvvzwaekdhpfkfoa">
+    <div class="fr-collapse" id="accordion-hiifvbiltgbpfost">
         <pre class="code_sample">{'content': '<p><b>Bold</b> and <em>emphatic</em> Example content</p>',
  'id': 'sample-accordion',
  'title': 'Title of the accordion item'}</pre>
@@ -581,8 +595,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="yV1fqnBrgFF9pV5i5TVNHg=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="yV1fqnBrgFF9pV5i5TVNHg=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="gNH2+jZBhK0oq31Ur0NIpg=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="gNH2+jZBhK0oq31Ur0NIpg=="></script>
 
     
   </body>

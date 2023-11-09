@@ -18,6 +18,7 @@
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
+<link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
 <style>
 .example-textarea {
   border: none;
@@ -148,6 +149,21 @@
                   <li>
                     
                     <a class="fr-nav__link" href="/django-dsfr/form/example-formset/" target="_self">Exemple avec formset</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="fr-nav__item">
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-resources">Ressources</button>
+              <div class="fr-collapse fr-menu" id="menu-resources">
+                <ul class="fr-menu__list">
+                  <li>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/resources/icons" target="_self">Icônes</a>
+                  </li>
+                  <li>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/resources/pictograms" target="_self">Pictogrammes</a>
                   </li>
                 </ul>
               </div>
@@ -445,24 +461,22 @@
       
 
       <h2>Documentation du tag</h2>
-      <pre>
-      
-    Returns a breadcrumb item. Takes a dict as parameter, with the following structure:
 
-    data_dict = {
-        &quot;links&quot;: [{&quot;url&quot;: &quot;first-url&quot;, &quot;title&quot;: &quot;First title&quot;}, {...}],
-        &quot;current&quot;: &quot;Current page title&quot;,
-        &quot;root_dir&quot;: &quot;the root directory, if the site is not installed at the root of the domain&quot;
-    }
+      <div class="dsfr-code"><pre><span></span><code>Returns a breadcrumb item. Takes a dict as parameter, with the following structure:
 
-    If the dict is not passed as a parameter, it extracts it from context.
+data_dict = {
+    &quot;links&quot;: [{&quot;url&quot;: &quot;first-url&quot;, &quot;title&quot;: &quot;First title&quot;}, {...}],
+    &quot;current&quot;: &quot;Current page title&quot;,
+    &quot;root_dir&quot;: &quot;the root directory, if the site is not installed at the root of the domain&quot;
+}
 
-    **Tag name**::
-        dsfr_breadcrumb
-    **Usage**::
-        {% dsfr_breadcrumb data_dict %}
-    
-      </pre>
+If the dict is not passed as a parameter, it extracts it from context.
+
+**Tag name**::
+    dsfr_breadcrumb
+**Usage**::
+    {% dsfr_breadcrumb data_dict %}
+</code></pre></div>
 
       
         <h2>Résultat</h2>
@@ -566,8 +580,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="QPz5PqXml53xNTRdcjnixQ=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="QPz5PqXml53xNTRdcjnixQ=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="lCNFpejX7Vlb4Pv3+xifNA=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="lCNFpejX7Vlb4Pv3+xifNA=="></script>
 
     
   </body>

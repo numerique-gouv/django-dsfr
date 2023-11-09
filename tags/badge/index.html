@@ -18,6 +18,7 @@
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
+<link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
 <style>
 .example-textarea {
   border: none;
@@ -148,6 +149,21 @@
                   <li>
                     
                     <a class="fr-nav__link" href="/django-dsfr/form/example-formset/" target="_self">Exemple avec formset</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="fr-nav__item">
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-resources">Ressources</button>
+              <div class="fr-collapse fr-menu" id="menu-resources">
+                <ul class="fr-menu__list">
+                  <li>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/resources/icons" target="_self">Icônes</a>
+                  </li>
+                  <li>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/resources/pictograms" target="_self">Pictogrammes</a>
                   </li>
                 </ul>
               </div>
@@ -445,29 +461,27 @@
       
 
       <h2>Documentation du tag</h2>
-      <pre>
-      
-    Returns a badge item. Takes a dict as parameter, with the following structure:
 
-    data_dict = {
-        &quot;label&quot;: &quot;Label of the button item&quot;,
-        &quot;extra_classes&quot;: &quot;(Optional) string with names of extra classes.&quot;
-    }
+      <div class="dsfr-code"><pre><span></span><code>Returns a badge item. Takes a dict as parameter, with the following structure:
 
-    All of the keys of the dict can be passed directly as named parameters of the tag.
+data_dict = {
+    &quot;label&quot;: &quot;Label of the button item&quot;,
+    &quot;extra_classes&quot;: &quot;(Optional) string with names of extra classes.&quot;
+}
 
-    Relevant extra_classes
-    - &quot;fr-badge--sm&quot; : small-sized badge
-    - &quot;fr-badge--green-menthe&quot; other color codes: change the color of the badge
-    - &quot;fr-badge--success&quot; (or error/info/warning/new): system badges
-    - &quot;fr-badge--no-icon&quot;: removes the icon on system badges
+All of the keys of the dict can be passed directly as named parameters of the tag.
 
-    **Tag name**::
-        dsfr_badge
-    **Usage**::
-        {% dsfr_badge data_dict %}
-    
-      </pre>
+Relevant extra_classes
+<span class="k">-</span> &quot;fr-badge--sm&quot; : small-sized badge
+<span class="k">-</span> &quot;fr-badge--green-menthe&quot; other color codes: change the color of the badge
+<span class="k">-</span> &quot;fr-badge--success&quot; (or error/info/warning/new): system badges
+<span class="k">-</span> &quot;fr-badge--no-icon&quot;: removes the icon on system badges
+
+**Tag name**::
+    dsfr_badge
+**Usage**::
+    {% dsfr_badge data_dict %}
+</code></pre></div>
 
       
         <h2>Exemples</h2>
@@ -478,9 +492,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-gfqvvdiizezrdtth">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-zcloyonqfaydibgn">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-gfqvvdiizezrdtth">
+    <div class="fr-collapse" id="accordion-zcloyonqfaydibgn">
         <pre class="code_sample">{'extra_classes': '', 'label': 'Badge simple'}</pre>
     </div>
 </section>
@@ -501,9 +515,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-jyvfcnpskzhgjabi">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-rleftcpylghgtjdu">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-jyvfcnpskzhgjabi">
+    <div class="fr-collapse" id="accordion-rleftcpylghgtjdu">
         <pre class="code_sample">{'extra_classes': 'fr-badge--sm', 'label': 'Petit badge'}</pre>
     </div>
 </section>
@@ -524,9 +538,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-bivwzeifuulxfxpo">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-wtxifwzswqtyjfpv">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-bivwzeifuulxfxpo">
+    <div class="fr-collapse" id="accordion-wtxifwzswqtyjfpv">
         <pre class="code_sample">{'extra_classes': 'fr-badge--green-menthe', 'label': 'Badge coloré'}</pre>
     </div>
 </section>
@@ -547,9 +561,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-tizfggyywdtyurjl">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-gazrgflmzfdyzuxx">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-tizfggyywdtyurjl">
+    <div class="fr-collapse" id="accordion-gazrgflmzfdyzuxx">
         <pre class="code_sample">{'extra_classes': 'fr-badge--success', 'label': 'Badge système'}</pre>
     </div>
 </section>
@@ -643,8 +657,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="lxgRtNuoPkDsAgsGKr3aIg=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="lxgRtNuoPkDsAgsGKr3aIg=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="DBcskSpZS0KbIqUfQaNdJg=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="DBcskSpZS0KbIqUfQaNdJg=="></script>
 
     
   </body>

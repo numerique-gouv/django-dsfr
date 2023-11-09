@@ -18,6 +18,7 @@
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
+<link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
 <style>
 .example-textarea {
   border: none;
@@ -148,6 +149,21 @@
                   <li>
                     
                     <a class="fr-nav__link" href="/django-dsfr/form/example-formset/" target="_self">Exemple avec formset</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="fr-nav__item">
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-resources">Ressources</button>
+              <div class="fr-collapse fr-menu" id="menu-resources">
+                <ul class="fr-menu__list">
+                  <li>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/resources/icons" target="_self">Icônes</a>
+                  </li>
+                  <li>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/resources/pictograms" target="_self">Pictogrammes</a>
                   </li>
                 </ul>
               </div>
@@ -445,34 +461,32 @@
       
 
       <h2>Documentation du tag</h2>
-      <pre>
-      
-    Returns a button item. Takes a dict as parameter, with the following structure:
 
-    data_dict = {
-        &quot;label&quot;: &quot;Label of the button item&quot;,
-        &quot;onclick&quot;: &quot;button action&quot;,
-        &quot;type&quot;: &quot;(Optional) type of button (submit or button - default: submit),
-        &quot;name&quot;: &quot;(Optional) name of the button&quot;,
-        &quot;is_disabled&quot;: &quot;(Optional) boolean that indicate if the button is activated
-        (default: False)&quot;,
-        &quot;extra_classes&quot;: &quot;(Optional) string with names of extra classes.&quot;
-    }
+      <div class="dsfr-code"><pre><span></span><code><span class="nx">Returns</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="w"> </span><span class="nx">Takes</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">dict</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nx">parameter</span><span class="p">,</span><span class="w"> </span><span class="nx">with</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">following</span><span class="w"> </span><span class="nx">structure</span><span class="p">:</span>
 
-    All of the keys of the dict can be passed directly as named parameters of the tag.
+<span class="nx">data_dict</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Label of the button item&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;onclick&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;button action&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;(Optional) type of button (submit or button - default: submit),</span>
+<span class="s">    &quot;</span><span class="nx">name</span><span class="s">&quot;: &quot;</span><span class="p">(</span><span class="nx">Optional</span><span class="p">)</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">button</span><span class="s">&quot;,</span>
+<span class="s">    &quot;</span><span class="nx">is_disabled</span><span class="s">&quot;: &quot;</span><span class="p">(</span><span class="nx">Optional</span><span class="p">)</span><span class="w"> </span><span class="nx">boolean</span><span class="w"> </span><span class="nx">that</span><span class="w"> </span><span class="nx">indicate</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">activated</span>
+<span class="w">    </span><span class="p">(</span><span class="k">default</span><span class="p">:</span><span class="w"> </span><span class="nx">False</span><span class="p">)</span><span class="s">&quot;,</span>
+<span class="s">    &quot;</span><span class="nx">extra_classes</span><span class="s">&quot;: &quot;</span><span class="p">(</span><span class="nx">Optional</span><span class="p">)</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nx">with</span><span class="w"> </span><span class="nx">names</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="nx">extra</span><span class="w"> </span><span class="nx">classes</span><span class="p">.</span><span class="s">&quot;</span>
+<span class="s">}</span>
 
-    Relevant extra_classes
-    - &quot;fr-btn--secondary&quot; : secundary button
-    - &quot;fr-btn--icon-left&quot; and &quot;fr-btn--icon-right&quot;: add an icon to the button
-      (associated with an icon class)
-    - &quot;fr-btn--sm&quot; and &quot;fr-btn--lg&quot;: button smaller or larger than the default size
+<span class="s">All of the keys of the dict can be passed directly as named parameters of the tag.</span>
 
-    **Tag name**::
-        dsfr_button
-    **Usage**::
-        {% dsfr_button data_dict %}
-    
-      </pre>
+<span class="s">Relevant extra_classes</span>
+<span class="s">- &quot;</span><span class="nx">fr</span><span class="o">-</span><span class="nx">btn</span><span class="o">--</span><span class="nx">secondary</span><span class="s">&quot; : secundary button</span>
+<span class="s">- &quot;</span><span class="nx">fr</span><span class="o">-</span><span class="nx">btn</span><span class="o">--</span><span class="nx">icon</span><span class="o">-</span><span class="nx">left</span><span class="s">&quot; and &quot;</span><span class="nx">fr</span><span class="o">-</span><span class="nx">btn</span><span class="o">--</span><span class="nx">icon</span><span class="o">-</span><span class="nx">right</span><span class="s">&quot;: add an icon to the button</span>
+<span class="s">  (associated with an icon class)</span>
+<span class="s">- &quot;</span><span class="nx">fr</span><span class="o">-</span><span class="nx">btn</span><span class="o">--</span><span class="nx">sm</span><span class="s">&quot; and &quot;</span><span class="nx">fr</span><span class="o">-</span><span class="nx">btn</span><span class="o">--</span><span class="nx">lg</span><span class="err">&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="nx">smaller</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="nx">larger</span><span class="w"> </span><span class="nx">than</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">size</span>
+
+<span class="o">**</span><span class="nx">Tag</span><span class="w"> </span><span class="nx">name</span><span class="o">**::</span>
+<span class="w">    </span><span class="nx">dsfr_button</span>
+<span class="o">**</span><span class="nx">Usage</span><span class="o">**::</span>
+<span class="w">    </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">dsfr_button</span><span class="w"> </span><span class="nx">data_dict</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+</code></pre></div>
 
       
         <h2>Exemples</h2>
@@ -483,9 +497,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-kuafwluirfjvgosj">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-qkzrtnfezayuulca">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-kuafwluirfjvgosj">
+    <div class="fr-collapse" id="accordion-qkzrtnfezayuulca">
         <pre class="code_sample">{'label': 'Bouton principal',
  'onclick': "alert('Vous avez cliqué sur le bouton principal')"}</pre>
     </div>
@@ -515,9 +529,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-vaujiazosypafcpm">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ayojodaazonvafrh">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-vaujiazosypafcpm">
+    <div class="fr-collapse" id="accordion-ayojodaazonvafrh">
         <pre class="code_sample">{'extra_classes': 'fr-btn--secondary',
  'label': 'Bouton secondaire',
  'name': 'secundary-button',
@@ -623,8 +637,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="LN6zhbNmjp3OccVv0HLIOQ=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="LN6zhbNmjp3OccVv0HLIOQ=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="u18zVvViOEq1gwr6NgYyGQ=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="u18zVvViOEq1gwr6NgYyGQ=="></script>
 
     
   </body>
