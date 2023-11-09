@@ -4,13 +4,15 @@
 {% block content %}
   <h1>Composants du système de design de l’État</h1>
 
-  {{ documentation|safe }}
-
-  <h2>Liste des composants</h2>
   <div class="fr-tabs">
     <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
         <li role="presentation">
-            <button id="tabpanel-implemented" class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="true" aria-controls="tabpanel-implemented-panel">
+            <button id="tabpanel-documentation" class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="true" aria-controls="tabpanel-documentation-panel">
+              Documentation
+            </button>
+        </li>
+      <li role="presentation">
+            <button id="tabpanel-implemented" class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="false" aria-controls="tabpanel-implemented-panel">
               Composants implémentés
             </button>
         </li>
@@ -25,7 +27,13 @@
             </button>
         </li>
     </ul>
-    <div id="tabpanel-implemented-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tabpanel-implemented" tabindex="0">
+    <div id="tabpanel-documentation-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tabpanel-documentation" tabindex="0">
+      <h2>Documentation</h2>
+      <ul>
+        {{ documentation|safe }}
+      </ul>
+    </div>
+    <div id="tabpanel-implemented-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-implemented" tabindex="0">
       <h2>Composants implémentés</h2>
       <ul>
         {% for tag, data in implemented_tags.items %}
