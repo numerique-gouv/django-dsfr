@@ -5,13 +5,13 @@
 <link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
 <style>
 .example-textarea {
-  border: none;
-  background-color: var(--g300);
+  background: var(--background-alt-grey);
+  border: 1px solid var(--border-default-grey);
+  color: var(--text-default-grey);
   padding: 1rem;
-}
-.code_sample {
-  background-color: var(--g300);
-  padding: 1rem;
+  margin: 2rem 0;
+  font-family: monospace;
+  font-size: 1rem;
 }
 </style>
 {% endblock extra_css %}
@@ -41,7 +41,7 @@
           <h3 class="fr-mt-3w">Données</h3>
           <div class="fr-my-2w">
             {% with sample_data_item|pprint as raw_sample_code %}
-              {% with '<pre class="code_sample">'|concatenate:raw_sample_code|concatenate:"</pre>" as sample_data_code %}
+              {% with '<pre class="dsfr-code">'|concatenate:raw_sample_code|concatenate:"</pre>" as sample_data_code %}
                 {% dsfr_accordion title="Données d’exemple" content=sample_data_code %}
               {% endwith %}
             {% endwith %}
