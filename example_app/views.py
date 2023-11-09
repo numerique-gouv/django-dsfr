@@ -364,6 +364,7 @@ def resource_icons(request):
 
     icons_root = "dsfr/static/dsfr/dist/icons/"
     icons_folders = os.listdir(icons_root)
+    icons_folders.sort()
     all_icons = {}
     for folder in icons_folders:
         files = os.listdir(os.path.join(icons_root, folder))
@@ -382,6 +383,7 @@ def resource_pictograms(request):
 
     picto_root = "dsfr/static/dsfr/dist/artwork/pictograms/"
     picto_folders = os.listdir(picto_root)
+    picto_folders.sort()
     all_pictos = {}
     for folder in picto_folders:
         files = os.listdir(os.path.join(picto_root, folder))
