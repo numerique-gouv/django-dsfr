@@ -18,6 +18,8 @@
 <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
+<link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
+
 
     
     <title>
@@ -108,9 +110,11 @@
               <div class="fr-collapse fr-menu" id="menu-doc">
                 <ul class="fr-menu__list">
                   <li>
+                    
                     <a class="fr-nav__link" href="/django-dsfr/doc-install" target="_self">Installation</a>
                   </li>
                   <li>
+                    
                     <a class="fr-nav__link" href="/django-dsfr/doc-contributing" target="_self">Contribuer</a>
                   </li>
                 </ul>
@@ -124,12 +128,15 @@
               <div class="fr-collapse fr-menu" id="menu-forms">
                 <ul class="fr-menu__list">
                   <li>
+                    
                     <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Documentation</a>
                   </li>
                   <li>
+                    
                     <a class="fr-nav__link" href="/django-dsfr/form/example/" target="_self">Exemple basique</a>
                   </li>
                   <li>
+                    
                     <a class="fr-nav__link" href="/django-dsfr/form/example-formset/" target="_self">Exemple avec formset</a>
                   </li>
                 </ul>
@@ -223,6 +230,35 @@
       <main id="content" role="main">
         
   <h1>Composants du système de design de l’État</h1>
+
+  <p>Le système de design propose <a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants">un certain nombre de composants</a>, et Django-DSFR vise à les implémenter sous forme de balises utilisables dans les templates Django, soit en passant directement les paramètres, soit en les passant depuis la vue via un dictionnaire.</p>
+<p>Par exemple, il est possible de créer un bouton soit en passant directement les paramètres :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="cp">{%</span> <span class="k">dsfr_button</span> <span class="nv">label</span><span class="o">=</span><span class="s2">&quot;Bouton principal&quot;</span> <span class="nv">onclick</span><span class="o">=</span><span class="s2">&quot;alert(&#39;Vous avez cliqué sur le bouton principal&#39;)&quot;</span> <span class="cp">%}</span>
+</code></pre></div>
+
+<p>Soit en définissant un dictionnaire dans la vue :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">context</span><span class="p">[</span><span class="s2">&quot;data_dict&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Bouton principal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;onclick&quot;</span><span class="p">:</span> <span class="s2">&quot;alert(&#39;Vous avez cliqué sur le bouton principal&#39;)&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>et en l’appelant depuis le template :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="cp">{%</span> <span class="k">dsfr_button</span> <span class="nv">data_dict</span> <span class="cp">%}</span>
+</code></pre></div>
+
+<p>L’implémentation de ces balises est un travail en cours, mais il est tout à fait possible d’utiliser directement l’ensemble du système de design de l’État en utilisant directement le code HTML tel que défini dans la documentation officielle :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-btn&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;alert(&#39;Vous avez cliqué sur le bouton principal&#39;)&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>
+  Bouton principal
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>Toutes ces options produisent le même résultat :</p>
+<p><button class="fr-btn" onclick="alert('Vous avez cliqué sur le bouton principal')" type="submit">
+  Bouton principal
+</button></p>
+
+  <h2>Liste des composants</h2>
   <div class="fr-tabs">
     <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
         <li role="presentation">
@@ -532,8 +568,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="FPG8eVExIE+RP9YhTMlLpw=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="FPG8eVExIE+RP9YhTMlLpw=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="CKNbfw9X98BPNKxvgbTr1g=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="CKNbfw9X98BPNKxvgbTr1g=="></script>
 
     
   </body>

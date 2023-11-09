@@ -110,9 +110,11 @@
               <div class="fr-collapse fr-menu" id="menu-doc">
                 <ul class="fr-menu__list">
                   <li>
+                    
                     <a class="fr-nav__link" href="/django-dsfr/doc-install" target="_self">Installation</a>
                   </li>
                   <li>
+                    
                     <a class="fr-nav__link" href="/django-dsfr/doc-contributing" target="_self">Contribuer</a>
                   </li>
                 </ul>
@@ -126,12 +128,15 @@
               <div class="fr-collapse fr-menu" id="menu-forms">
                 <ul class="fr-menu__list">
                   <li>
-                    <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Documentation</a>
+                    
+                    <a class="fr-nav__link" href="/django-dsfr/form/" target="_self" aria-current="true">Documentation</a>
                   </li>
                   <li>
+                    
                     <a class="fr-nav__link" href="/django-dsfr/form/example/" target="_self">Exemple basique</a>
                   </li>
                   <li>
+                    
                     <a class="fr-nav__link" href="/django-dsfr/form/example-formset/" target="_self">Exemple avec formset</a>
                   </li>
                 </ul>
@@ -225,7 +230,7 @@
       <main id="content" role="main">
         
   <p>Les formulaires sont construits en se basant sur la classe <code>DsfrBaseForm</code>, par exemple :</p>
-<div class="dsfr-code codehilite"><pre><span></span><code><span class="c1"># votre_app/forms.py</span>
+<div class="dsfr-code"><pre><span></span><code><span class="c1"># votre_app/forms.py</span>
 
 <span class="kn">from</span> <span class="nn">dsfr.forms</span> <span class="kn">import</span> <span class="n">DsfrBaseForm</span>
 
@@ -242,12 +247,12 @@
 </code></pre></div>
 
 <p>Il est possible de multi-classer :</p>
-<div class="dsfr-code codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">AuthorCreateForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">,</span> <span class="n">DsfrBaseForm</span><span class="p">):</span>
+<div class="dsfr-code"><pre><span></span><code><span class="k">class</span> <span class="nc">AuthorCreateForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">,</span> <span class="n">DsfrBaseForm</span><span class="p">):</span>
 </code></pre></div>
 
 <p>Le formulaire ajoute la ou les classes appropriées (<code>fr-input</code>, <code>fr-select</code>, etc.) en fonction du type de champ, mais uniquement si une classe n’a pas déjà été ajoutée.</p>
 <p>Si c'est le cas, il faut aussi forcer manuellement les classes à utiliser :</p>
-<div class="dsfr-code codehilite"><pre><span></span><code>    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+<div class="dsfr-code"><pre><span></span><code>    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mot de passe&quot;</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span>
             <span class="s2">&quot;autocomplete&quot;</span><span class="p">:</span> <span class="s2">&quot;current-password&quot;</span><span class="p">,</span>
             <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
@@ -330,8 +335,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="bO31EZMebpE24LuvDi28Tg=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="bO31EZMebpE24LuvDi28Tg=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="AzXUoaZJlXbonyWzRP77bQ=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="AzXUoaZJlXbonyWzRP77bQ=="></script>
 
     
   </body>
