@@ -2,6 +2,7 @@
 {% load static dsfr_tags %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}" integrity="sha384-V3EM3vuNP9wDdtAL/Oxn3YIAP6epyj1TSJNBpNqWWr8cnqPLqd3KZOml8qYORZor">
 <style>
 .example-textarea {
   border: none;
@@ -31,9 +32,8 @@
       {% endif %}
 
       <h2>Documentation du tag</h2>
-      <pre>
-      {{ tag_comment }}
-      </pre>
+
+      {{ tag_comment|safe }}
 
       {% if sample_data %}
         <h2>Exemples</h2>

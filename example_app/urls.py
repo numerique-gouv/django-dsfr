@@ -2,6 +2,8 @@ from django_distill import distill_path
 
 from example_app.views import (
     index,
+    resource_icons,
+    resource_pictograms,
     tags_index,
     page_form,
     page_tag,
@@ -61,5 +63,17 @@ urlpatterns = [
         AuthorCreateView.as_view(),
         name="form_formset",
         distill_file="django-dsfr/form/example-formset/index.html",
+    ),
+    distill_path(
+        "resources/icons",
+        resource_icons,
+        name="resource_icons",
+        distill_file="django-dsfr/resources/icons/index.html",
+    ),
+    distill_path(
+        "resources/pictograms",
+        resource_pictograms,
+        name="resource_pictograms",
+        distill_file="django-dsfr/resources/pictograms/index.html",
     ),
 ]

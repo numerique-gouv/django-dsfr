@@ -1,5 +1,8 @@
-from django.core.paginator import Paginator
+import markdown
+from markdown.extensions.codehilite import CodeHiliteExtension
+import os
 
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.http import require_safe
@@ -98,7 +101,13 @@ def page_tag(request, tag_name):
             payload["page_obj"] = paginator.get_page(4)
 
         module = getattr(globals()["dsfr_tags"], f"dsfr_{tag_name}")
-        payload["tag_comment"] = module.__doc__
+        payload["tag_comment"] = markdown.markdown(
+            module.__doc__,
+            extensions=[
+                "markdown.extensions.fenced_code",
+                CodeHiliteExtension(css_class="dsfr-code"),
+            ],
+        )
 
         if "sample_data" in current_tag:
             payload["sample_data"] = current_tag["sample_data"]
@@ -347,3 +356,38 @@ def doc_form(request):
     payload["documentation"] = format_markdown_from_file("doc/forms.md")
 
     return render(request, "example_app/doc_markdown.html", payload)
+
+
+@require_safe
+def resource_icons(request):
+    payload = init_payload("Icônes")
+
+    icons_root = "dsfr/static/dsfr/dist/icons/"
+    icons_folders = os.listdir(icons_root)
+    all_icons = {}
+    for folder in icons_folders:
+        files = os.listdir(os.path.join(icons_root, folder))
+        files_without_extensions = [f.split(".")[0] for f in files]
+        files_without_extensions.sort()
+        all_icons[folder] = files_without_extensions
+
+    payload["icons"] = all_icons
+
+    return render(request, "example_app/page_icons.html", payload)
+
+
+@require_safe
+def resource_pictograms(request):
+    payload = init_payload("Pictogrammes")
+
+    picto_root = "dsfr/static/dsfr/dist/artwork/pictograms/"
+    picto_folders = os.listdir(picto_root)
+    all_pictos = {}
+    for folder in picto_folders:
+        files = os.listdir(os.path.join(picto_root, folder))
+        files.sort()
+        all_pictos[folder] = files
+
+    payload["pictograms"] = all_pictos
+
+    return render(request, "example_app/page_pictograms.html", payload)

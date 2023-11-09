@@ -66,6 +66,21 @@
                 </ul>
               </div>
             </li>
+            <li class="fr-nav__item">
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-resources"{% if '/resources' in request.path %}aria-current="true"{% endif %}>Ressources</button>
+              <div class="fr-collapse fr-menu" id="menu-resources">
+                <ul class="fr-menu__list">
+                  <li>
+                    {% url 'resource_icons' as resource_icons_url %}
+                    <a class="fr-nav__link" href="{{ resource_icons_url }}" target="_self"{% if request.path == resource_icons_url %} aria-current="true"{% endif %}>Icônes</a>
+                  </li>
+                  <li>
+                    {% url 'resource_pictograms' as resource_pictograms_url %}
+                    <a class="fr-nav__link" href="{{ resource_pictograms_url }}" target="_self"{% if request.path == resource_pictograms_url %} aria-current="true"{% endif %}>Pictogrammes</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
 		      </ul>
         </nav>
       </div>
