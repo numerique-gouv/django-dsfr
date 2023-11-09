@@ -246,7 +246,33 @@
         
   <h1>Composants du système de design de l’État</h1>
 
-  <p>Le système de design propose <a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants">un certain nombre de composants</a>, et Django-DSFR vise à les implémenter sous forme de balises utilisables dans les templates Django, soit en passant directement les paramètres, soit en les passant depuis la vue via un dictionnaire.</p>
+  <div class="fr-tabs">
+    <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
+        <li role="presentation">
+            <button id="tabpanel-documentation" class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="true" aria-controls="tabpanel-documentation-panel">
+              Documentation
+            </button>
+        </li>
+      <li role="presentation">
+            <button id="tabpanel-implemented" class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="false" aria-controls="tabpanel-implemented-panel">
+              Composants implémentés
+            </button>
+        </li>
+        <li role="presentation">
+            <button id="tabpanel-notyetimplemented" class="fr-tabs__tab fr-icon-close-circle-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-notyetimplemented-panel">
+              Composants encore non implémentés
+            </button>
+        </li>
+        <li role="presentation">
+            <button id="tabpanel-extratags" class="fr-tabs__tab fr-icon-add-circle-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-extratags-panel">
+              Tags supplémentaires
+            </button>
+        </li>
+    </ul>
+    <div id="tabpanel-documentation-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tabpanel-documentation" tabindex="0">
+      <h2>Documentation</h2>
+      <ul>
+        <p>Le système de design propose <a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants">un certain nombre de composants</a>, et Django-DSFR vise à les implémenter sous forme de balises utilisables dans les templates Django, soit en passant directement les paramètres, soit en les passant depuis la vue via un dictionnaire.</p>
 <p>Par exemple, il est possible de créer un bouton soit en passant directement les paramètres :</p>
 <div class="dsfr-code"><pre><span></span><code><span class="cp">{%</span> <span class="k">dsfr_button</span> <span class="nv">label</span><span class="o">=</span><span class="s2">&quot;Bouton principal&quot;</span> <span class="nv">onclick</span><span class="o">=</span><span class="s2">&quot;alert(&#39;Vous avez cliqué sur le bouton principal&#39;)&quot;</span> <span class="cp">%}</span>
 </code></pre></div>
@@ -272,27 +298,9 @@
 <p><button class="fr-btn" onclick="alert('Vous avez cliqué sur le bouton principal')" type="submit">
   Bouton principal
 </button></p>
-
-  <h2>Liste des composants</h2>
-  <div class="fr-tabs">
-    <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
-        <li role="presentation">
-            <button id="tabpanel-implemented" class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="true" aria-controls="tabpanel-implemented-panel">
-              Composants implémentés
-            </button>
-        </li>
-        <li role="presentation">
-            <button id="tabpanel-notyetimplemented" class="fr-tabs__tab fr-icon-close-circle-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-notyetimplemented-panel">
-              Composants encore non implémentés
-            </button>
-        </li>
-        <li role="presentation">
-            <button id="tabpanel-extratags" class="fr-tabs__tab fr-icon-add-circle-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-extratags-panel">
-              Tags supplémentaires
-            </button>
-        </li>
-    </ul>
-    <div id="tabpanel-implemented-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tabpanel-implemented" tabindex="0">
+      </ul>
+    </div>
+    <div id="tabpanel-implemented-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-implemented" tabindex="0">
       <h2>Composants implémentés</h2>
       <ul>
         
@@ -583,8 +591,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="QnLPq3tzo24fqeWwtowZ1Q=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="QnLPq3tzo24fqeWwtowZ1Q=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="oXyZ2645SA2RKUJ2mv6yTw=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="oXyZ2645SA2RKUJ2mv6yTw=="></script>
 
     
   </body>
