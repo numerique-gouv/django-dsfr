@@ -62,4 +62,4 @@ TEMPLATES = [
 ]
 ```
 
-- Créez une un objet "DsfrConfig" dans le panneau d’administration
+- Créez un objet "DsfrConfig" dans le panneau d’administration
