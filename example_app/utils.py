@@ -1,3 +1,5 @@
+import markdown
+from markdown.extensions.codehilite import CodeHiliteExtension
 from example_app.models import Genre
 
 
@@ -24,3 +26,15 @@ def populate_genre_choices():
         genres_list.append(to_add)
 
     return genres_list
+
+
+def format_markdown_from_file(filename: str) -> str:
+    with open(filename) as f:
+        content = f.read()
+        return markdown.markdown(
+            content,
+            extensions=[
+                "markdown.extensions.fenced_code",
+                CodeHiliteExtension(css_class="dsfr-code"),
+            ],
+        )

@@ -1,6 +1,17 @@
 from django_distill import distill_path
 
-from example_app.views import index, tags_index, page_form, page_tag, AuthorCreateView
+from example_app.views import (
+    index,
+    resource_icons,
+    resource_pictograms,
+    tags_index,
+    page_form,
+    page_tag,
+    AuthorCreateView,
+    doc_contributing,
+    doc_install,
+    doc_form,
+)
 from example_app.tag_specifics import ALL_TAGS
 
 
@@ -12,16 +23,22 @@ def get_all_tags():
 urlpatterns = [
     distill_path("", index, name="index", distill_file="django-dsfr/index.html"),
     distill_path(
+        "doc-contributing",
+        doc_contributing,
+        name="doc_contributing",
+        distill_file="django-dsfr/doc-contributing/index.html",
+    ),
+    distill_path(
+        "doc-install",
+        doc_install,
+        name="doc_install",
+        distill_file="django-dsfr/doc-install/index.html",
+    ),
+    distill_path(
         "tags/",
         tags_index,
         name="tags_index",
         distill_file="django-dsfr/tags/index.html",
-    ),
-    distill_path(
-        "form/",
-        page_form,
-        name="page_form",
-        distill_file="django-dsfr/form/index.html",
     ),
     distill_path(
         "tags/<slug:tag_name>/",
@@ -30,9 +47,33 @@ urlpatterns = [
         distill_func=get_all_tags,
     ),
     distill_path(
-        "formset/",
+        "form/",
+        doc_form,
+        name="doc_form",
+        distill_file="django-dsfr/form/index.html",
+    ),
+    distill_path(
+        "form/example/",
+        page_form,
+        name="page_form",
+        distill_file="django-dsfr/form/example/index.html",
+    ),
+    distill_path(
+        "form/example-formset/",
         AuthorCreateView.as_view(),
         name="form_formset",
-        distill_file="django-dsfr/formset/index.html",
+        distill_file="django-dsfr/form/example-formset/index.html",
+    ),
+    distill_path(
+        "resources/icons",
+        resource_icons,
+        name="resource_icons",
+        distill_file="django-dsfr/resources/icons/index.html",
+    ),
+    distill_path(
+        "resources/pictograms",
+        resource_pictograms,
+        name="resource_pictograms",
+        distill_file="django-dsfr/resources/pictograms/index.html",
     ),
 ]
