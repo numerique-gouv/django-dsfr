@@ -30,7 +30,7 @@
               <a class="fr-nav__link" href="{{ home_url }}" target="_self"{% if request.path == home_url %} aria-current="true"{% endif %}>Accueil</a>
             </li>
             <li class="fr-nav__item">
-              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc"{% if '/doc-' in request.path %}aria-current="true"{% endif %}>Documentation</button>
+              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc"{% if '/doc-' in request.path %} aria-current="true"{% endif %}>Documentation</button>
               <div class="fr-collapse fr-menu" id="menu-doc">
                 <ul class="fr-menu__list">
                   <li>
