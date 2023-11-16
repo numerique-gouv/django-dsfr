@@ -1,0 +1,45 @@
+{% extends "example_app/base.html" %}
+{% load static dsfr_tags %}
+
+{% block content %}
+  <h1>Pictogrammes</h1>
+
+  <p>
+    <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/pictogramme" target="_blank" rel="noopener noreferrer">
+      Voir la page de documentation du composant sur le Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+    </a>
+  </p>
+
+  {% for folder, files in pictograms.items %}
+    <h2>{{ folder|title }}</h2>
+
+    <div class="fr-grid-row fr-grid-row--gutters">
+      {% for file in files %}
+        <div class="fr-col-12 fr-col-md-3 fr-mb-4w">
+          <div class="fr-tile fr-enlarge-link">
+            <div class="fr-tile__body">
+              <div class="fr-tile__content">
+                <h3 class="fr-tile__title">
+                  <a class="fr-tile__link" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/{{ folder }}/{{ file }}">
+                    {{ file }}
+                  </a>
+                </h3>
+              </div>
+            </div>
+
+            <div class="fr-tile__header">
+              <div class="fr-tile__pictogram">
+                  <svg aria-hidden="true" class="fr-artwork" viewBox="0 0 80 80" width="80px" height="80px">
+                      <use class="fr-artwork-decorative" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/{{ folder }}/{{ file }}#artwork-decorative"></use>
+                      <use class="fr-artwork-minor" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/{{ folder }}/{{ file }}#artwork-minor"></use>
+                      <use class="fr-artwork-major" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/{{ folder }}/{{ file }}#artwork-major"></use>
+                  </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+
+{% endblock content %}

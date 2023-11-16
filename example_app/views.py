@@ -1,5 +1,8 @@
-from django.core.paginator import Paginator
+import markdown
+from markdown.extensions.codehilite import CodeHiliteExtension
+import os
 
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.http import require_safe
@@ -23,6 +26,7 @@ from django.views.generic import CreateView
 from django.http import HttpResponse
 from example_app.forms import AuthorCreateForm, BookCreateFormSet, BookCreateFormHelper
 from example_app.models import Author
+from example_app.utils import format_markdown_from_file
 
 
 def init_payload(page_title: str, links: list = []):
@@ -68,6 +72,7 @@ def index(request):
 @require_safe
 def tags_index(request):
     payload = init_payload("Composants")
+    payload["documentation"] = format_markdown_from_file("doc/components.md")
     payload["implemented_tags"] = dict(
         sorted(IMPLEMENTED_TAGS.items(), key=lambda k: k[1]["title"])
     )
@@ -96,7 +101,13 @@ def page_tag(request, tag_name):
             payload["page_obj"] = paginator.get_page(4)
 
         module = getattr(globals()["dsfr_tags"], f"dsfr_{tag_name}")
-        payload["tag_comment"] = module.__doc__
+        payload["tag_comment"] = markdown.markdown(
+            module.__doc__,
+            extensions=[
+                "markdown.extensions.fenced_code",
+                CodeHiliteExtension(css_class="dsfr-code"),
+            ],
+        )
 
         if "sample_data" in current_tag:
             payload["sample_data"] = current_tag["sample_data"]
@@ -207,7 +218,10 @@ def page_form(request):
     else:
         form = ExampleForm()
 
-    payload = init_payload("Formulaire")
+    payload = init_payload(
+        "Formulaire basique",
+        links=[{"url": reverse("doc_form"), "title": "Formulaires"}],
+    )
     payload["form"] = form
 
     return render(request, "example_app/page_form.html", payload)
@@ -241,7 +255,11 @@ class AuthorCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super(AuthorCreateView, self).get_context_data(**kwargs)
 
-        payload = init_payload("Formulaire avec formset")
+        payload = init_payload(
+            "Formulaire avec formset",
+            links=[{"url": reverse("doc_form"), "title": "Formulaires"}],
+        )
+
         for key, value in payload.items():
             context[key] = value
 
@@ -314,3 +332,64 @@ class AuthorCreateView(CreateView):
         return self.render_to_response(
             self.get_context_data(form=form, formset=formset)
         )
+
+
+@require_safe
+def doc_contributing(request):
+    payload = init_payload("Contribuer à Django-DSFR")
+    payload["documentation"] = format_markdown_from_file("CONTRIBUTING.md")
+
+    return render(request, "example_app/doc_markdown.html", payload)
+
+
+@require_safe
+def doc_install(request):
+    payload = init_payload("Installation")
+    payload["documentation"] = format_markdown_from_file("INSTALL.md")
+
+    return render(request, "example_app/doc_markdown.html", payload)
+
+
+@require_safe
+def doc_form(request):
+    payload = init_payload("Installation")
+    payload["documentation"] = format_markdown_from_file("doc/forms.md")
+
+    return render(request, "example_app/doc_markdown.html", payload)
+
+
+@require_safe
+def resource_icons(request):
+    payload = init_payload("Icônes")
+
+    icons_root = "dsfr/static/dsfr/dist/icons/"
+    icons_folders = os.listdir(icons_root)
+    icons_folders.sort()
+    all_icons = {}
+    for folder in icons_folders:
+        files = os.listdir(os.path.join(icons_root, folder))
+        files_without_extensions = [f.split(".")[0] for f in files]
+        files_without_extensions.sort()
+        all_icons[folder] = files_without_extensions
+
+    payload["icons"] = all_icons
+
+    return render(request, "example_app/page_icons.html", payload)
+
+
+@require_safe
+def resource_pictograms(request):
+    payload = init_payload("Pictogrammes")
+
+    picto_root = "dsfr/static/dsfr/dist/artwork/pictograms/"
+    picto_folders = os.listdir(picto_root)
+    picto_folders.sort()
+    all_pictos = {}
+    for folder in picto_folders:
+        files = os.listdir(os.path.join(picto_root, folder))
+        files.sort()
+        all_pictos[folder] = files
+
+    payload["pictograms"] = all_pictos
+
+    return render(request, "example_app/page_pictograms.html", payload)

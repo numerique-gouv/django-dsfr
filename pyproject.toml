@@ -20,6 +20,7 @@ classifiers = [
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
   "Topic :: Software Development :: Libraries",
   "Topic :: Utilities",
 ]
@@ -55,6 +56,8 @@ django-extensions = "^3.2.1"
 pre-commit = "^3.5.0"
 bandit = "^1.7.5"
 ruff = "^0.1.2"
+markdown = "^3.5"
+pygments = "^2.16.1"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"

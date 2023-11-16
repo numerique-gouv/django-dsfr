@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     "dsfr",
     "example_app",
     "django_distill",
-    "crispy_forms",
 ]
 
 MIDDLEWARE = [

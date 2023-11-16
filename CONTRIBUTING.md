@@ -6,7 +6,7 @@ L’installation a été testée sur Ubuntu 22.04 avec Python 3.10 et poetry ins
 - Faire un `git clone` du projet sur votre machine et ouvrir un terminal
 
 - Installer l’environnement virtuel, les dépendances, les *pre-commit hooks* et initialiser le site d’exemple :
-```
+```{ .bash }
 make init
 ```
 
@@ -14,7 +14,7 @@ make init
 
 Pour faire tourner les tests :
 
-```
+```{ .bash }
 make test
 ```
 
@@ -24,24 +24,24 @@ Le projet utilise [Poetry](https://python-poetry.org/) pour gérer les dépendan
 
 Pour installer les dépendances du projet :
 
-```
+```{ .bash }
 poetry install
 ```
 
 Pour installer un nouveau paquet et l’ajouter aux dépendances :
 
-```
+```{ .bash }
 poetry add <paquet>
 ```
 
 Pour un paquet ne servant que pour le développement, par exemple `black` :
 
-```
+```{ .bash }
 poetry add --group dev <paquet>
 ```
 
 Pour activer l’environnement virtuel :
-```
+```{ .bash }
 poetry shell
 ```
 
@@ -58,7 +58,7 @@ Concernant les langues :
 
 Pour vérifier son code, on peut intégrer le linter adapté à son IDE et aussi faire ceci :
 
-```
+```{ .bash }
 make checkstyle
 ```
 
@@ -66,14 +66,15 @@ Une vérification automatique est faite via des *pre-commit hooks*, qui ont norm
 
 Il est possible de les mettre à jour avec la commande :
 
-```
+```{ .bash }
 pre-commit update
 ```
 
 ## Mise à jour du système de design
 
-Quand une nouvelle version du système de design de l’État est publiée, il est possible de le mettre à jour automatiquement via la commande
-```
+Quand une nouvelle version du système de design de l’État est publiée, il est possible de le mettre à jour automatiquement via la commande :
+
+```{ .bash }
 make update_dsfr
 ```
 
