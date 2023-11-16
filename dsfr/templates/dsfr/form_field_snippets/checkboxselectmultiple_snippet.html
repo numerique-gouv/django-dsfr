@@ -6,7 +6,21 @@
   </legend>
 
   <div class="fr-fieldset__content">
-    {% include "dsfr/form_field_snippets/checkbox_snippet.html" %}
+    <div class="fr-checkbox-group{% if field.errors %} fr-checkbox-group--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %}">
+        {% if field.errors %}
+          {% with aria_describedby="aria-describedby:"|add:field.auto_id|add:"-desc-error" %}
+            {{ field|attr:"type:checkbox"|attr:aria_describedby }}
+          {% endwith %}
+        {% else %}
+          {{ field|attr:"type:checkbox" }}
+        {% endif %}
+      
+        {% if field.errors %}
+          <div id="{{ field.auto_id }}-desc-error" class="fr-error-text">
+            {{ field.errors }}
+          </div>
+        {% endif %}
+    </div>
   </div>
 
   {% if field.errors %}
