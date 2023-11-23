@@ -58,7 +58,7 @@ function addForm(e) {
 
 	// Update total number of forms in the management form
     totalForms.setAttribute('value', `${formsetGroup.length+1}`);
-    
+
     // Delete the checkbox "Supprimer" since we use a button "Supprimer cet élément"
     try {
         let id_to_delete = document.querySelector('[id$="-DELETE"]').id;
@@ -66,7 +66,7 @@ function addForm(e) {
         to_delete = to_delete.parentNode;
         to_delete.remove();
     } catch { };
-    
+
 }
 
 function removeFormset(numFormset){

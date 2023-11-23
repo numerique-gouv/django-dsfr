@@ -9,6 +9,7 @@ pre.dsfr-code {
   color: var(--text-default-grey);
   padding: 1rem;
   margin: 2rem 0;
+  white-space: pre-wrap;
 }
 
 /* Comment */
