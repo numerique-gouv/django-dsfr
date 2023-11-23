@@ -18,7 +18,7 @@ IMPLEMENTED_TAGS = {
             {
                 "title": "Alerte refermable de type succès",
                 "type": "success",
-                "content": "Cliquer sur la croix pour fermer l’alerte",
+                "content": "Cliquer sur la croix pour fermer l’alerte.",
                 "heading_tag": "h3",
                 "is_collapsible": True,
                 "id": "alert-success-tag",
@@ -26,14 +26,14 @@ IMPLEMENTED_TAGS = {
             {
                 "title": "Alerte refermable de type erreur",
                 "type": "error",
-                "content": "Cliquer sur la croix pour fermer l’alerte",
+                "content": "Cliquer sur la croix pour fermer l’alerte.",
                 "heading_tag": "h3",
                 "is_collapsible": True,
             },
             {
                 "title": "Alerte non-refermable de type info",
                 "type": "info",
-                "content": "Cette fois, pas de crois croix pour fermer l’alerte",
+                "content": "Cette alerte n’a pas de croix de fermeture.",
                 "heading_tag": "h3",
             },
         ],
