@@ -352,7 +352,7 @@ def doc_install(request):
 
 @require_safe
 def doc_form(request):
-    payload = init_payload("Installation")
+    payload = init_payload("Formulaires – Documentation")
     payload["documentation"] = format_markdown_from_file("doc/forms.md")
 
     return render(request, "example_app/doc_markdown.html", payload)

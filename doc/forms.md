@@ -1,3 +1,6 @@
+# Formulaires – Documentation
+
+## Initialisation des formulaires
 Les formulaires sont construits en se basant sur la classe `DsfrBaseForm`, par exemple :
 
 ```{ .python }
@@ -23,9 +26,10 @@ Il est possible de multi-classer :
 class AuthorCreateForm(ModelForm, DsfrBaseForm):
 ```
 
+## Classes CSS
 Le formulaire ajoute la ou les classes appropriées (`fr-input`, `fr-select`, etc.) en fonction du type de champ, mais uniquement si une classe n’a pas déjà été ajoutée.
 
-Si c'est le cas, il faut aussi forcer manuellement les classes à utiliser :
+Si c’est le cas, il faut soit forcer manuellement les classes à utiliser :
 
 ```{ .python }
     password = forms.CharField(
@@ -35,5 +39,16 @@ Si c'est le cas, il faut aussi forcer manuellement les classes à utiliser :
             "class": "fr-input my-custom-class"
         )
     )
+```
 
+soit les ajouter dans la méthode `init` du formulaire (en faisant attention à laisser une espace au début) :
+
+```{ .python }
+class AuthorCreateForm(ModelForm, DsfrBaseForm):
+
+# [...]
+
+def __init__(self, *args, **kwargs):
+    super().__init__(*args, **kwargs)
+    self.fields["password"].widget.attrs["class"] += " my custom class"
 ```
