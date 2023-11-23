@@ -24,7 +24,7 @@
     
     <title>
       
-        Formulaires – Documentation — Design Système de l’État
+        Installation — Design Système de l’État
       
     </title>
     
@@ -235,7 +235,7 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Formulaires – Documentation</a>
+                <a class="fr-breadcrumb__link" aria-current="page">Installation</a>
             </li>
         </ol>
     </div>
@@ -244,9 +244,7 @@
 
       <main id="content" role="main">
         
-  <h1>Formulaires – Documentation</h1>
-<h2>Initialisation des formulaires</h2>
-<p>Les formulaires sont construits en se basant sur la classe <code>DsfrBaseForm</code>, par exemple :</p>
+  <p>Les formulaires sont construits en se basant sur la classe <code>DsfrBaseForm</code>, par exemple :</p>
 <div class="dsfr-code"><pre><span></span><code><span class="c1"># votre_app/forms.py</span>
 
 <span class="kn">from</span> <span class="nn">dsfr.forms</span> <span class="kn">import</span> <span class="n">DsfrBaseForm</span>
@@ -267,9 +265,8 @@
 <div class="dsfr-code"><pre><span></span><code><span class="k">class</span> <span class="nc">AuthorCreateForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">,</span> <span class="n">DsfrBaseForm</span><span class="p">):</span>
 </code></pre></div>
 
-<h2>Classes CSS</h2>
 <p>Le formulaire ajoute la ou les classes appropriées (<code>fr-input</code>, <code>fr-select</code>, etc.) en fonction du type de champ, mais uniquement si une classe n’a pas déjà été ajoutée.</p>
-<p>Si c’est le cas, il faut soit forcer manuellement les classes à utiliser :</p>
+<p>Si c'est le cas, il faut aussi forcer manuellement les classes à utiliser :</p>
 <div class="dsfr-code"><pre><span></span><code>    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mot de passe&quot;</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span>
             <span class="s2">&quot;autocomplete&quot;</span><span class="p">:</span> <span class="s2">&quot;current-password&quot;</span><span class="p">,</span>
@@ -277,16 +274,6 @@
             <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;fr-input my-custom-class&quot;</span>
         <span class="p">)</span>
     <span class="p">)</span>
-</code></pre></div>
-
-<p>soit les ajouter dans la méthode <code>init</code> du formulaire (en faisant attention à laisser une espace au début) :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="k">class</span> <span class="nc">AuthorCreateForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">,</span> <span class="n">DsfrBaseForm</span><span class="p">):</span>
-
-<span class="c1"># [...]</span>
-
-<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot; my custom class&quot;</span>
 </code></pre></div>
 
       </main>
@@ -363,8 +350,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="1TWmmfaE3MeKp3U20tDTVg=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="1TWmmfaE3MeKp3U20tDTVg=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="ou3w8ulX674DT65cZO3Eew=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="ou3w8ulX674DT65cZO3Eew=="></script>
 
     
   </body>
