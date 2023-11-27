@@ -1,11 +1,9 @@
-{% if self.is_collapsible %}<div class="fr-collapse" id="{{ self.id | default:'collapsible-alert' }}">{% endif %}
-  <div role="alert" class="fr-alert fr-alert--{{ self.type }}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
-      <{{ self.heading_tag | default:"p" }} class="fr-alert__title">{{ self.title }}</{{ self.heading_tag | default:"p" }}>
-      <p>{{ self.content | safe }}</p>
-      {% if self.is_collapsible %}
-        <button type="button" class="fr-btn fr-btn--close" aria-expanded="true" aria-controls="{{ self.id | default:'collapsible-alert' }}">
-          Masquer le message
-        </button>
-      {% endif %}
-  </div>
-{% if self.is_collapsible %}</div>{% endif %}
+<div role="alert" class="fr-alert fr-alert--{{ self.type }}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
+  <{{ self.heading_tag | default:"p" }} class="fr-alert__title">{{ self.title }}</{{ self.heading_tag | default:"p" }}>
+  <p>{{ self.content | safe }}</p>
+  {% if self.is_collapsible %}
+    <button class="fr-btn--close fr-btn" title="Masquer le message" onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)">
+      Masquer le message
+    </button>
+  {% endif %}
+</div>

@@ -175,8 +175,8 @@ class DsfrAlertTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-            <button type="button" class="fr-btn--close fr-btn" aria-expanded="true" aria-controls="test-alert-message">
-                Masquer le message
+            <button class="fr-btn--close fr-btn" title="Masquer le message" onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)">
+              Masquer le message
             </button>
             """,  # noqa
             rendered_template,
