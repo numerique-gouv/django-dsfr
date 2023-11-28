@@ -1,4 +1,24 @@
+from pathlib import Path
+
 from django import forms
+from django.forms.renderers import DjangoTemplates, get_default_renderer
+from django.utils.functional import cached_property
+
+
+class DsfrDjangoTemplates(DjangoTemplates):
+    @cached_property
+    def engine(self):
+        return self.backend(
+            {
+                "APP_DIRS": True,
+                "DIRS": [
+                    Path(__file__).resolve().parent / self.backend.app_dirname,
+                    Path(forms.__path__[0]).resolve() / "templates",
+                ],
+                "NAME": "djangoforms",
+                "OPTIONS": {},
+            }
+        )
 
 
 class DsfrBaseForm(forms.Form):
@@ -12,6 +32,15 @@ class DsfrBaseForm(forms.Form):
         forms.widgets.FileInput,
         forms.widgets.ClearableFileInput,
     ]
+
+    @property
+    def default_renderer(self):
+        from django.conf import settings, global_settings
+        # Settings wasn't modified
+        if settings.FORM_RENDERER == global_settings.FORM_RENDERER:
+            return DsfrDjangoTemplates
+        else:
+            get_default_renderer()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
