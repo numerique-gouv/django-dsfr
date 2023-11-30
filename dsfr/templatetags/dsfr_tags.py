@@ -1,6 +1,10 @@
 from django import template
+from django.conf import settings
+from django.contrib.messages import *
 from django.core.paginator import Page
+from django.template import Template
 from django.template.context import Context
+from django.utils.html import format_html, format_html_join
 
 from dsfr.checksums import (
     INTEGRITY_CSS,
@@ -175,7 +179,7 @@ def dsfr_alert(*args, **kwargs) -> dict:
     Returns an alert item. Takes a dict as parameter, with the following structure:
 
     data_dict = {
-        "title": "Title of the alert item",
+        "title": "(Optional) Title of the alert item",
         "type": "Possible values : info, success, error",
         "content": "Content of the accordion item (can include html)",
         "heading_tag": "(Optional) Heading tag for the alert title (default: p)",
@@ -206,12 +210,78 @@ def dsfr_alert(*args, **kwargs) -> dict:
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
-    if "id" not in tag_data:
-        tag_data["id"] = generate_random_id("alert")
+    tag_data.setdefault("title", None)
+    tag_data.setdefault("id", generate_random_id("alert"))
+    tag_data.setdefault("is_collapsible", False)
 
-    if "is_collapsible" not in tag_data:
-        tag_data["is_collapsible"] = False
     return {"self": tag_data}
+
+
+@register.simple_tag(takes_context=True)
+def dsfr_django_messages(
+    context, is_collapsible=False, extra_classes=None, wrapper_classes=None
+):
+    """
+    Renders django messages in a series a DSFR alerts
+        data_dict = {
+        "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the alert (default: false)",
+        "wrapper_classes": (Optional) extra classes for the wrapper of the alerts (default "fr-my-4v").
+        "extra_classes": (Optional) extra classes for the alert.
+    }
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra_classes
+    - "fr-alert--sm" : small alert
+
+    See: https://docs.djangoproject.com/en/4.2/ref/contrib/messages/
+
+    **Tag name**::
+        dsfr_django_messages
+    **Usage**::
+        {% dsfr_django_messages data_dict %}
+    """  # noqa
+
+    messages = context.get("messages")
+
+    if not messages:
+        return ""
+
+    wrapper_classes = wrapper_classes or "fr-my-4v"
+    extra_classes = extra_classes or ""
+
+    message_tags_css_classes = {
+        DEBUG: "info",
+        INFO: "info",
+        SUCCESS: "success",
+        WARNING: "warning",
+        ERROR: "error",
+        **getattr(settings, "DSFR_MESSAGE_TAGS_CSS_CLASSES", {}),
+    }
+
+    def _render_alert_tag(message):
+        return Template("{% load dsfr_tags %}{% dsfr_alert data_dict %}").render(
+            Context(
+                {
+                    "data_dict": {
+                        "type": message_tags_css_classes.get(message.level, "info"),
+                        "content": str(message),
+                        "extra_classes": "{} {}".format(
+                            extra_classes, message.extra_tags or ""
+                        ).strip(),
+                        "is_collapsible": is_collapsible,
+                    }
+                }
+            )
+        )
+
+    return format_html(
+        "<div{}>{}</div>",
+        format_html(' class="{}"', wrapper_classes) if wrapper_classes else "",
+        format_html_join(
+            "\n", "{}", ((_render_alert_tag(message),) for message in messages)
+        ),
+    )
 
 
 @register.inclusion_tag("dsfr/badge.html")
