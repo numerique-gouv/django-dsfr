@@ -42,5 +42,9 @@
 {% endblock form_set %}
 
 {% block extra_js %}
+    <script type="text/javascript">
+        let objectName = "{{ object_name }}";
+    </script>
+
     <script src="{% static 'js/formsets.js' %}"></script>
 {% endblock %}
