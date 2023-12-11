@@ -2,7 +2,7 @@
 {# Generic input snippet used by most of the field types #}
 <div class="{{ field.field.widget.group_class|default:'fr-input-group' }}{% if field.errors %} {{ field.field.widget.group_class|default:'fr-input-group' }}--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %}">
     <label for="{{ field.id_for_label }}" class="fr-label">
-        {{ field.label_tag }}{% if field.field.required %} *{% endif %}
+        {{ field.label }}{% if field.field.required %} *{% endif %}
     {% if field.help_text %}<span class="fr-hint-text">{{ field.help_text }}</span>{% endif %}
     </label>
 
