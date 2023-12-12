@@ -1,3 +1,5 @@
+from textwrap import dedent
+
 import markdown
 from markdown.extensions.codehilite import CodeHiliteExtension
 import os
@@ -6,6 +8,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.http import require_safe
+from markdown.extensions.nl2br import Nl2BrExtension
 
 from dsfr.utils import generate_summary_items
 
@@ -102,8 +105,10 @@ def page_tag(request, tag_name):
 
         module = getattr(globals()["dsfr_tags"], f"dsfr_{tag_name}")
         payload["tag_comment"] = markdown.markdown(
-            module.__doc__,
+            dedent(module.__doc__),
             extensions=[
+                "markdown.extensions.tables",
+                "markdown.extensions.nl2br",  # Treat newlines as linebreaks
                 "markdown.extensions.fenced_code",
                 CodeHiliteExtension(css_class="dsfr-code"),
             ],

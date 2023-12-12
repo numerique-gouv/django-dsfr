@@ -223,23 +223,70 @@ def dsfr_django_messages(
 ):
     """
     Renders django messages in a series a DSFR alerts
-        data_dict = {
+    
+    ```python
+    data_dict = {
         "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the alert (default: false)",
         "wrapper_classes": (Optional) extra classes for the wrapper of the alerts (default "fr-my-4v").
         "extra_classes": (Optional) extra classes for the alert.
     }
+    ```
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
     Relevant extra_classes
-    - "fr-alert--sm" : small alert
+    - `fr-alert--sm` : small alert
 
-    See: https://docs.djangoproject.com/en/4.2/ref/contrib/messages/
+    See: [https://docs.djangoproject.com/en/4.2/ref/contrib/messages/](https://docs.djangoproject.com/en/4.2/ref/contrib/messages/)
 
-    **Tag name**::
+    By default, the following message level are mapped to the following alert types:
+    
+    Message level | DSFR alert type
+    :------------:|:--------------:
+    `DEBUG`       | `info`
+    `INFO`        | `info`
+    `SUCCESS`     | `success`
+    `WARNING`     | `warning`
+    `ERROR`       | `error`
+    
+    There types are then concatenated with ``fr-alert--`` to form the CSS classe in the template.
+    
+    These classes can be modified by setting ``DSFR_MESSAGE_TAGS_CSS_CLASSES`` in your ``settings.py``, like so:
+    
+    ```python
+    from django.contrib import messages
+    DSFR_MESSAGE_TAGS_CSS_CLASSES = {
+        messages.DEBUG: "error"
+    }
+    ```
+    
+    You can also use this setting to map [custom custom message levels](https://docs.djangoproject.com/en/4.2/ref/contrib/messages/#creating-custom-message-levels) 
+    to alert types:
+    
+    ```python
+    django.conf import global_settings
+    from django.contrib import messages
+    MESSAGE_TAGS = {
+        50: "fatal"
+    }
+    DSFR_MESSAGE_TAGS_CSS_CLASSES = {
+        messages.DEBUG: "debug",
+        50: "warning"
+    }
+    ```
+        
+    With this setting, the following code:
+    
+    ```python
+    messages.add_message(request, 50, "A serious error occurred.")
+    ```
+
+    renders an alert with the following CSS class: `fr-alert--warning`.
+
+    **Tag name**:
         dsfr_django_messages
-    **Usage**::
-        {% dsfr_django_messages data_dict %}
+    **Usage**:
+        `{% dsfr_django_messages data_dict %}`
     """  # noqa
 
     messages = context.get("messages")
