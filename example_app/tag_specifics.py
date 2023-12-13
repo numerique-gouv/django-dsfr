@@ -604,6 +604,7 @@ EXTRA_TAGS = {
     "js": {"title": "JS global"},
     "form": {"title": "Formulaire"},
     "form_field": {"title": "Formulaire - champ"},
+    "django_messages": {"title": "Messages Django dans une alerte"}
 }
 
 unsorted_implemented_tags = {**IMPLEMENTED_TAGS, **EXTRA_TAGS}

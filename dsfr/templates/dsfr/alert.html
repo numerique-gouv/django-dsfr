@@ -1,5 +1,5 @@
 <div role="alert" class="fr-alert fr-alert--{{ self.type }}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
-  <{{ self.heading_tag | default:"p" }} class="fr-alert__title">{{ self.title }}</{{ self.heading_tag | default:"p" }}>
+  {% if self.title %}<{{ self.heading_tag | default:"p" }} class="fr-alert__title">{{ self.title }}</{{ self.heading_tag | default:"p" }}>{% endif %}
   <p>{{ self.content | safe }}</p>
   {% if self.is_collapsible %}
     <button class="fr-btn--close fr-btn" title="Masquer le message" onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)">
