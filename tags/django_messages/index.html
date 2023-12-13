@@ -36,7 +36,7 @@
     
     <title>
       
-        Citation (quote) — Design Système de l’État
+        Messages Django dans une alerte — Design Système de l’État
       
     </title>
     
@@ -251,7 +251,7 @@
             </li>
             
             <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Citation (quote)</a>
+                <a class="fr-breadcrumb__link" aria-current="page">Messages Django dans une alerte</a>
             </li>
         </ol>
     </div>
@@ -331,9 +331,9 @@
             
           </li>
         
-          <li class="fr-sidemenu__item">
+          <li class="fr-sidemenu__item fr-sidemenu__item--active">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/django_messages/" target="_self" >django_messages</a>
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/django_messages/" target="_self"  aria-current="page">django_messages</a>
             
           </li>
         
@@ -385,9 +385,9 @@
             
           </li>
         
-          <li class="fr-sidemenu__item fr-sidemenu__item--active">
+          <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/quote/" target="_self"  aria-current="page">quote</a>
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/quote/" target="_self" >quote</a>
             
           </li>
         
@@ -452,96 +452,88 @@
 
     </div>
     <div class="fr-col-12 fr-col-md-9 fr-py-2w">
-      <h1> Citation (quote) </h1>
+      <h1> Messages Django dans une alerte </h1>
 
-      
-      <p>
-        <a
-  class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
-  href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/citation"
-   target="_blank" rel="noopener noreferrer"
->
-  Voir la page de documentation du composant sur le Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
-</a>
-
-      </p>
       
 
       <h2>Documentation du tag</h2>
 
-      <p>Returns a quote item. Takes a dict as parameter, with the following structure:</p>
-<p>data_dict = {<br />
-    "text": "Text of the quote",<br />
-    "source_url": "(Optional) URL of the source of the quote",<br />
-    "author": "(Optional) The author of the quote",<br />
-    "source": "(Optional) The name of the source of the quote",<br />
-    "details": "(Optional) A list containing detail dicts",<br />
-    "image_url": "(Optional) URL of an illustrative image",<br />
-}</p>
-<p>The "details" dict entries have a mandatory "text" key and an optional "link" key.</p>
+      <p>Renders django messages in a series a DSFR alerts</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;is_collapsible&quot;</span> <span class="p">:</span> <span class="s2">&quot;(Optional) Boolean, set to true to add a &#39;close&#39; button for the alert (default: false)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;wrapper_classes&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">Optional</span><span class="p">)</span> <span class="n">extra</span> <span class="n">classes</span> <span class="k">for</span> <span class="n">the</span> <span class="n">wrapper</span> <span class="n">of</span> <span class="n">the</span> <span class="n">alerts</span> <span class="p">(</span><span class="n">default</span> <span class="s2">&quot;fr-my-4v&quot;</span><span class="p">)</span><span class="o">.</span>
+    <span class="s2">&quot;extra_classes&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">Optional</span><span class="p">)</span> <span class="n">extra</span> <span class="n">classes</span> <span class="k">for</span> <span class="n">the</span> <span class="n">alert</span><span class="o">.</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
-<p><strong>Tag name</strong>::<br />
-    dsfr_quote<br />
-<strong>Usage</strong>::<br />
-    {% dsfr_quote data_dict %}</p>
+<p>Relevant extra_classes<br />
+- <code>fr-alert--sm</code> : small alert</p>
+<p>See: <a href="https://docs.djangoproject.com/en/4.2/ref/contrib/messages/">https://docs.djangoproject.com/en/4.2/ref/contrib/messages/</a></p>
+<p>By default, the following message level are mapped to the following alert types:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Message level</th>
+<th style="text-align: center;">DSFR alert type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>DEBUG</code></td>
+<td style="text-align: center;"><code>info</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>INFO</code></td>
+<td style="text-align: center;"><code>info</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>SUCCESS</code></td>
+<td style="text-align: center;"><code>success</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>WARNING</code></td>
+<td style="text-align: center;"><code>warning</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>ERROR</code></td>
+<td style="text-align: center;"><code>error</code></td>
+</tr>
+</tbody>
+</table>
+<p>There types are then concatenated with <code>fr-alert--</code> to form the CSS classe in the template.</p>
+<p>These classes can be modified by setting <code>DSFR_MESSAGE_TAGS_CSS_CLASSES</code> in your <code>settings.py</code>, like so:</p>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<span class="n">DSFR_MESSAGE_TAGS_CSS_CLASSES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">messages</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>You can also use this setting to map <a href="https://docs.djangoproject.com/en/4.2/ref/contrib/messages/#creating-custom-message-levels">custom custom message levels</a> <br />
+to alert types:</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">django</span><span class="o">.</span><span class="n">conf</span> <span class="kn">import</span> <span class="nn">global_settings</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<span class="n">MESSAGE_TAGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">50</span><span class="p">:</span> <span class="s2">&quot;fatal&quot;</span>
+<span class="p">}</span>
+<span class="n">DSFR_MESSAGE_TAGS_CSS_CLASSES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">messages</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span> <span class="s2">&quot;debug&quot;</span><span class="p">,</span>
+    <span class="mi">50</span><span class="p">:</span> <span class="s2">&quot;warning&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>With this setting, the following code:</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">messages</span><span class="o">.</span><span class="n">add_message</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;A serious error occurred.&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>renders an alert with the following CSS class: <code>fr-alert--warning</code>.</p>
+<p><strong>Tag name</strong>:<br />
+    dsfr_django_messages<br />
+<strong>Usage</strong>:<br />
+<code>{% dsfr_django_messages data_dict %}</code></p>
 
       
-        <h2>Exemples</h2>
-        
-          <h3 class="fr-mt-3w">Données</h3>
-          <div class="fr-my-2w">
-            
-              
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-jtqzmatuizcknamu">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-jtqzmatuizcknamu">
-        <pre class="dsfr-code">{'author': 'Auteur',
- 'details': [{'text': 'Detail sans lien'},
-             {'link': 'https://template.incubateur.net/',
-              'text': 'Detail avec lien'}],
- 'image_url': '/django-dsfr/static/img/placeholder.1x1.svg',
- 'source': "Système de Design de l'État",
- 'source_url': 'https://www.systeme-de-design.gouv.fr/',
- 'text': 'Développer vos sites et applications en utilisant des composants '
-         'prêts à l’emploi, accessibles et ergonomiques'}</pre>
-    </div>
-</section>
-
-              
-            
-          </div>
-
-          <h3>Résultat</h3>
-          
-            <figure class="fr-quote fr-quote--column">
-    <blockquote cite="https://www.systeme-de-design.gouv.fr/">
-        <p>Développer vos sites et applications en utilisant des composants prêts à l’emploi, accessibles et ergonomiques</p>
-    </blockquote>
-    <figcaption>
-        <p class="fr-quote__author">Auteur</p>
-        <ul class="fr-quote__source">
-          <li>
-              <cite>Système de Design de l&#x27;État</cite>
-          </li>
-          
-            
-              <li>Detail sans lien</li>
-            
-          
-            
-              <li><a target="_blank" rel="noopener noreferrer" href="https://template.incubateur.net/">Detail avec lien <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a></li>
-            
-          
-        </ul>
-        <div class="fr-quote__image">
-          <img src="/django-dsfr/static/img/placeholder.1x1.svg" class="fr-responsive-img" alt="" />
-        </div>
-    </figcaption>
-</figure>
-
-          
+        <h2>Résultat</h2>
         
       
     </div>
@@ -624,8 +616,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="xg/auXyrkysfXk2JwGDl+Q=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="xg/auXyrkysfXk2JwGDl+Q=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="Y42YlBimCYWVYzGztjlQWg=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="Y42YlBimCYWVYzGztjlQWg=="></script>
 
     
   </body>

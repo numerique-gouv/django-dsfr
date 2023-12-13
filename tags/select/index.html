@@ -333,6 +333,12 @@
         
           <li class="fr-sidemenu__item">
             
+              <a class="fr-sidemenu__link" href="/django-dsfr/tags/django_messages/" target="_self" >django_messages</a>
+            
+          </li>
+        
+          <li class="fr-sidemenu__item">
+            
               <a class="fr-sidemenu__link" href="/django-dsfr/tags/favicon/" target="_self" >favicon</a>
             
           </li>
@@ -463,31 +469,27 @@
 
       <h2>Documentation du tag</h2>
 
-      <div class="dsfr-code"><pre><span></span><code>Returns a select item. Takes a dict as parameter, with the following structure:
-
-data_dict = {
-    &quot;id&quot;: &quot;The html id of the select item&quot;,
-    &quot;label&quot;: &quot;Label of the select item&quot;,
-    &quot;onchange&quot;: &quot;(Optional) Action that happens when the select is changed&quot;,
-    &quot;selected&quot;: &quot;(Optional) If the item is selected&quot;,
-    &quot;default&quot;: { # Optional
-        &quot;disabled&quot;: &quot;If the item is disabled&quot;,
-        &quot;hidden&quot;: &quot;If the item is hidden&quot;,
-    },
-    &quot;options&quot;: [
-        {&quot;text&quot;: &quot;Option 1&quot;, &quot;value&quot;: 1 },
-        {&quot;text&quot;: &quot;Option 2&quot;, &quot;value&quot;: 2 }
-    ],
-    &quot;extra_classes&quot;: &quot;(Optional) string with names of extra classes&quot;
-}
-
-All of the keys of the dict can be passed directly as named parameters of the tag.
-
-**Tag name**::
-    dsfr_select
-**Usage**::
-    {% dsfr_select data_dict %}
-</code></pre></div>
+      <p>Returns a select item. Takes a dict as parameter, with the following structure:</p>
+<p>data_dict = {<br />
+    "id": "The html id of the select item",<br />
+    "label": "Label of the select item",<br />
+    "onchange": "(Optional) Action that happens when the select is changed",<br />
+    "selected": "(Optional) If the item is selected",<br />
+    "default": { # Optional<br />
+        "disabled": "If the item is disabled",<br />
+        "hidden": "If the item is hidden",<br />
+    },<br />
+    "options": [<br />
+        {"text": "Option 1", "value": 1 },<br />
+        {"text": "Option 2", "value": 2 }<br />
+    ],<br />
+    "extra_classes": "(Optional) string with names of extra classes"<br />
+}</p>
+<p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
+<p><strong>Tag name</strong>::<br />
+    dsfr_select<br />
+<strong>Usage</strong>::<br />
+    {% dsfr_select data_dict %}</p>
 
       
         <h2>Exemples</h2>
@@ -498,9 +500,9 @@ All of the keys of the dict can be passed directly as named parameters of the ta
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-qqqzuyncnujdhcnd">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-kptglksqkfcxkrge">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-qqqzuyncnujdhcnd">
+    <div class="fr-collapse" id="accordion-kptglksqkfcxkrge">
         <pre class="dsfr-code">{'default': {'disabled': True, 'hidden': True, 'text': 'Chose an option'},
  'id': 'select-example-id',
  'label': 'Label of the select item',
@@ -630,8 +632,8 @@ All of the keys of the dict can be passed directly as named parameters of the ta
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="hFl9ZY7DNd3leI+z2hthYw=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="hFl9ZY7DNd3leI+z2hthYw=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="KwNDGo6f90bMN2nd8wslFQ=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="KwNDGo6f90bMN2nd8wslFQ=="></script>
 
     
   </body>
