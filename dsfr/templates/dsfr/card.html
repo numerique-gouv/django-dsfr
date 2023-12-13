@@ -1,12 +1,14 @@
 {% load dsfr_tags %}
 <div class="fr-card{% if self.enlarge_link %} fr-enlarge-link{% endif %}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}"
-     {% if self.id %}id="{{ self.id }}"{% endif %}>
+     {% if self.id %} id="{{ self.id }}"{% endif %}>
   <div class="fr-card__body">
     <div class="fr-card__content">
       <{{ self.heading_tag | default:"p" }} class="fr-card__title">
       <a href="{{ self.link }}"
          target="{% if self.new_tab %}_blank{% else %}_self{% endif %}"
-         {% if self.new_tab %}rel="noopener noreferrer"{% endif %}>{{ self.title |truncatechars:100 }}</a>
+         {% if self.new_tab %} rel="noopener noreferrer" title="{{ self.title }} - Ouvrir dans une nouvelle fenêtre"{% endif %}>
+        {{ self.title |truncatechars:100 }}
+      </a>
       </{{ self.heading_tag | default:"p" }}>
       <p class="fr-card__desc">
         {{ self.description |truncatechars:200 }}
