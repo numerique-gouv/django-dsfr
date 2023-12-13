@@ -1,0 +1,11 @@
+.errorlist {
+  margin-top: 1rem;
+}
+
+.errorlist .fr-error-text {
+  margin-top: 0;
+}
+
+.errorlist.nonfield {
+  padding: 1rem;
+}
