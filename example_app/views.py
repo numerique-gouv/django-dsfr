@@ -231,7 +231,7 @@ def page_form(request):
 class AuthorCreateView(CreateView):
     model = Author
     form_class = AuthorCreateForm
-    formset = BookCreateFormSet  # /!\ Your formset factory
+    formset = None
     template_name = "example_app/example_form.html"
     # /!\ Your template needs to extends form_base.html. If you use formset,
     # your template needs to include another template which extends formset_base.html
@@ -246,12 +246,25 @@ class AuthorCreateView(CreateView):
 
         form_class = self.get_form_class()
         form = self.get_form(form_class)
-        formset = BookCreateFormSet(instance=instance)
+        self.formset = self.get_formset(request)
+        formset = self.formset
+        book_formhelper = BookCreateFormHelper()
 
         return self.render_to_response(
             self.get_context_data(form=form, formset=formset)
         )
 
+    def get_formset(self, request, instance=None):
+        if request.POST and instance:
+            self.formset = BookCreateFormSet(
+                request.POST,
+                request.FILES,
+                instance=instance,
+            )
+        else:
+            self.formset = BookCreateFormSet()
+        return self.formset
+    
     def get_context_data(self, **kwargs):
         context = super(AuthorCreateView, self).get_context_data(**kwargs)
 
@@ -281,8 +294,11 @@ class AuthorCreateView(CreateView):
             context["book_formhelper"] = book_formhelper
         else:
             context["form"] = self.form_class()
-            context["formset"] = BookCreateFormSet(instance=instance)
+            self.formset = self.get_formset(self.request)
+            context["formset"] = self.formset
             context["book_formhelper"] = book_formhelper
+
+        context["object_name"] = "book"
 
         # /!\ Don't forget your dsfr button
         context["btn_submit"] = {
