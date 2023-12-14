@@ -1,69 +1,80 @@
 
-<!doctype html>
-<html lang="fr" data-fr-scheme="system" >
+<!DOCTYPE html>
+<html lang="fr"
+      data-fr-scheme="system"
+      >
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-diNcOMzsBeI3kzBRfiZqv56Oi4WBnUJhcubWpNsTCigDuxMUPJMGgMlE9KSfFyb1">
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-rEPdGS1CzbNKp1iHewzg1GXyWg9OacK//IkYEX1YqrrqQwxWX7+7OiqoCokyCSuQ">
+<link rel="stylesheet"
+      href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"
+      integrity="sha384-Ql2Bzx7mo19G32l4v+XtMIVYTqFTxyNj/kFXPAL60CRE5GJlKnKaFy4MV2+4yE5j">
+<link rel="stylesheet"
+      href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css"
+      integrity="sha384-Aw2puKHTlIDiMlmvTYRVslXy3kBfHAP3KaG0kLtmejQqSOTWwCACAfsOk10ukPaE">
 <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-django-overrides.css">
-
-<meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
-
-    
-<link rel="apple-touch-icon" href="/django-dsfr/static/dsfr/dist/favicon/apple-touch-icon.png" integrity="sha384-bE/sjT09LYXMMjd/7ovUY40XBU2WQoLkIRw4/eBcHdBVsJOhoomJuSSa+qEFGku/" /><!-- 180×180 -->
-<link rel="icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.svg" type="image/svg+xml" integrity="sha384-z4gMU2V+U4skVvrlEwyCe+lUVDhliQY6Tg0az69xNkmyu4H84cy+uJZnWVkHfMrN" />
-<link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.ico" type="image/x-icon" integrity="sha384-esZ1Wf54Wvb66vtrLBKzz2QEZciEIV9R+wc+w7C3e5mID8A1SgJpXXIc+3lY9YqP" /><!-- 32×32 -->
-<link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest" crossorigin="use-credentials" integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
+<meta name="theme-color" content="#000091">
+<!-- Définit la couleur de thème du navigateur (Safari/Android) -->
 
     
-<link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css">
-<style>
-.example-textarea {
-  background: var(--background-alt-grey);
-  border: 1px solid var(--border-default-grey);
-  color: var(--text-default-grey);
-  padding: 1rem;
-  margin: 2rem 0;
-  font-family: monospace;
-  font-size: 1rem;
-}
-p code, li code {
-  background: var(--background-alt-grey);
-  padding: 0.2em;
-}
-</style>
-
+<link rel="apple-touch-icon"
+      href="/django-dsfr/static/dsfr/dist/favicon/apple-touch-icon.png"
+      integrity="sha384-bE/sjT09LYXMMjd/7ovUY40XBU2WQoLkIRw4/eBcHdBVsJOhoomJuSSa+qEFGku/" />
+<!-- 180×180 -->
+<link rel="icon"
+      href="/django-dsfr/static/dsfr/dist/favicon/favicon.svg"
+      type="image/svg+xml"
+      integrity="sha384-z4gMU2V+U4skVvrlEwyCe+lUVDhliQY6Tg0az69xNkmyu4H84cy+uJZnWVkHfMrN" />
+<link rel="shortcut icon"
+      href="/django-dsfr/static/dsfr/dist/favicon/favicon.ico"
+      type="image/x-icon"
+      integrity="sha384-esZ1Wf54Wvb66vtrLBKzz2QEZciEIV9R+wc+w7C3e5mID8A1SgJpXXIc+3lY9YqP" />
+<!-- 32×32 -->
+<link rel="manifest"
+      href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest"
+      crossorigin="use-credentials"
+      integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
-    <title>
-      
-        Carte (card) — Design Système de l’État
-      
-    </title>
-    
+  <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css">
+  <style>
+    .example-textarea {
+      background: var(--background-alt-grey);
+      border: 1px solid var(--border-default-grey);
+      color: var(--text-default-grey);
+      padding: 1rem;
+      margin: 2rem 0;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+  </style>
 
-    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
+    
+      <title>
+        
+          Carte (card) — Système de Design de l’État
+        
+      </title>
+    
   </head>
-
   <body>
     
-        <div class="fr-skiplinks">
-    <nav role="navigation" class="fr-container" aria-label="Accès rapide">
-        <ul class="fr-skiplinks__list">
-          
-          <li>
-              <a class="fr-link" href="#content">Contenu</a>
-          </li>
-          
-          <li>
-              <a class="fr-link" href="#fr-navigation">Menu</a>
-          </li>
-          
-        </ul>
-    </nav>
+      <div class="fr-skiplinks">
+  <nav role="navigation" class="fr-container" aria-label="Accès rapide">
+    <ul class="fr-skiplinks__list">
+      
+        <li>
+          <a class="fr-link" href="#content">Contenu</a>
+        </li>
+      
+        <li>
+          <a class="fr-link" href="#fr-navigation">Menu</a>
+        </li>
+      
+    </ul>
+  </nav>
 </div>
 
     
@@ -77,13 +88,20 @@ p code, li code {
             <div class="fr-header__logo">
               
                 <a href="/" title="Accueil — ">
-                  <p class="fr-logo"></p>
+                  <p class="fr-logo">
+                    
+                  </p>
                 </a>
               
             </div>
             
               <div class="fr-header__navbar">
-                <button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="fr-menu-mobile" aria-haspopup="menu" title="Menu" id="fr-btn-menu-mobile">
+                <button class="fr-btn--menu fr-btn"
+                        data-fr-opened="false"
+                        aria-controls="fr-menu-mobile"
+                        aria-haspopup="menu"
+                        title="Menu"
+                        id="fr-btn-menu-mobile">
                   Menu
                 </button>
               </div>
@@ -91,20 +109,31 @@ p code, li code {
           </div>
           <div class="fr-header__service">
             
-<a href="/" title="Accueil — Django-DSFR">
-    <p class="fr-header__service-title">Django-DSFR</p>
-</a>
+  <a href="/"
+     title="Accueil — Django-DSFR">
+    <p class="fr-header__service-title">
+      Django-DSFR
+    </p>
+  </a>
 
-            <p class="fr-header__service-tagline">Intégration du système de l’État pour les sites utilisant Django</p>
+            <p class="fr-header__service-tagline">
+              
+  Intégration du système de l’État pour les sites utilisant Django
+
+            </p>
           </div>
         </div>
         <div class="fr-header__tools">
           <div class="fr-header__tools-links">
             <ul class="fr-btns-group">
               
-<li>
-    <button class="fr-btn--display fr-btn" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d’affichage</button>
-</li>
+  <li>
+    <button class="fr-btn--display fr-btn"
+            aria-controls="fr-theme-modal"
+            data-fr-opened="false">
+      Paramètres d’affichage
+    </button>
+  </li>
 
             </ul>
           </div>
@@ -113,84 +142,142 @@ p code, li code {
     </div>
   </div>
   
-    <div class="fr-header__menu fr-modal" id="fr-menu-mobile" aria-labelledby="fr-btn-menu-mobile">
-      <div class="fr-container">
-        <button type="button" class="fr-btn--close fr-btn" aria-controls="fr-menu-mobile">Fermer</button>
-        <div class="fr-header__menu-links"></div>
-        <nav role="navigation" class="fr-nav" id="fr-navigation" aria-label="Menu principal">
-          <ul class="fr-nav__list">
-            <li class="fr-nav__item">
-              
-              <a class="fr-nav__link" href="/django-dsfr/" target="_self">Accueil</a>
-            </li>
-            <li class="fr-nav__item">
-              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-doc">Documentation</button>
-              <div class="fr-collapse fr-menu" id="menu-doc">
-                <ul class="fr-menu__list">
-                  <li>
-                    
-                    <a class="fr-nav__link" href="/django-dsfr/doc-install" target="_self">Installation</a>
-                  </li>
-                  <li>
-                    
-                    <a class="fr-nav__link" href="/django-dsfr/doc-contributing" target="_self">Contribuer</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="fr-nav__item">
-              <a class="fr-nav__link" href="/django-dsfr/tags/" target="_self" aria-current="true">Composants</a>
-            </li>
-            <li class="fr-nav__item">
-              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-forms">Formulaires</button>
-              <div class="fr-collapse fr-menu" id="menu-forms">
-                <ul class="fr-menu__list">
-                  <li>
-                    
-                    <a class="fr-nav__link" href="/django-dsfr/form/" target="_self">Documentation</a>
-                  </li>
-                  <li>
-                    
-                    <a class="fr-nav__link" href="/django-dsfr/form/example/" target="_self">Exemple basique</a>
-                  </li>
-                  <li>
-                    
-                    <a class="fr-nav__link" href="/django-dsfr/form/example-formset/" target="_self">Exemple avec formset</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="fr-nav__item">
-              <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-resources">Ressources</button>
-              <div class="fr-collapse fr-menu" id="menu-resources">
-                <ul class="fr-menu__list">
-                  <li>
-                    
-                    <a class="fr-nav__link" href="/django-dsfr/resources/icons" target="_self">Icônes</a>
-                  </li>
-                  <li>
-                    
-                    <a class="fr-nav__link" href="/django-dsfr/resources/pictograms" target="_self">Pictogrammes</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-		      </ul>
-        </nav>
+  <div class="fr-header__menu fr-modal"
+       id="fr-menu-mobile"
+       aria-labelledby="fr-btn-menu-mobile">
+    <div class="fr-container">
+      <button type="button"
+              class="fr-btn--close fr-btn"
+              aria-controls="fr-menu-mobile">
+        Fermer
+      </button>
+      <div class="fr-header__menu-links">
       </div>
+      <nav role="navigation"
+           class="fr-nav"
+           id="fr-navigation"
+           aria-label="Menu principal">
+        <ul class="fr-nav__list">
+          <li class="fr-nav__item">
+            
+            <a class="fr-nav__link"
+               href="/django-dsfr/"
+               target="_self"
+               >Accueil</a>
+          </li>
+          <li class="fr-nav__item">
+            <button class="fr-nav__btn"
+                    aria-expanded="false"
+                    aria-controls="menu-doc"
+                    >
+              Documentation
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-doc">
+              <ul class="fr-menu__list">
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/doc-install"
+                     target="_self"
+                     >Installation</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/doc-contributing"
+                     target="_self"
+                     >Contribuer</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="fr-nav__item">
+            <a class="fr-nav__link"
+               href="/django-dsfr/tags/"
+               target="_self"
+               aria-current="true">Composants</a>
+          </li>
+          <li class="fr-nav__item">
+            <button class="fr-nav__btn"
+                    aria-expanded="false"
+                    aria-controls="menu-forms"
+                    >
+              Formulaires
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-forms">
+              <ul class="fr-menu__list">
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/form/"
+                     target="_self"
+                     >Documentation</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/form/example/"
+                     target="_self"
+                     >Exemple basique</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/form/example-formset/"
+                     target="_self"
+                     >Exemple avec formset</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="fr-nav__item">
+            <button class="fr-nav__btn"
+                    aria-expanded="false"
+                    aria-controls="menu-resources"
+                    >
+              Ressources
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-resources">
+              <ul class="fr-menu__list">
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/resources/icons"
+                     target="_self"
+                     >Icônes</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/resources/pictograms"
+                     target="_self"
+                     >Pictogrammes</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
     </div>
+  </div>
 
 </header>
 
 
     
-<dialog id="fr-theme-modal" class="fr-modal" aria-labelledby="fr-theme-modal-title">
+<dialog id="fr-theme-modal"
+        class="fr-modal"
+        aria-labelledby="fr-theme-modal-title">
   <div class="fr-container fr-container--fluid fr-container-md">
     <div class="fr-grid-row fr-grid-row--center">
       <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
         <div class="fr-modal__body">
           <div class="fr-modal__header">
-            <button class="fr-btn--close fr-btn" aria-describedby="fr-theme-modal-title" aria-controls="fr-theme-modal">Fermer</button>
+            <button class="fr-btn--close fr-btn"
+                    aria-describedby="fr-theme-modal-title"
+                    aria-controls="fr-theme-modal">
+              Fermer
+            </button>
           </div>
           <div class="fr-modal__content">
             <h1 id="fr-theme-modal-title" class="fr-modal__title">
@@ -204,8 +291,12 @@ p code, li code {
                   </legend>
                   <div class="fr-fieldset__content">
                     <div class="fr-radio-group fr-radio-rich">
-                      <input value="light" type="radio" id="fr-radios-theme-light" name="fr-radios-theme" />
-                      <label class="fr-label" for="fr-radios-theme-light">Thème clair
+                      <input value="light"
+                             type="radio"
+                             id="fr-radios-theme-light"
+                             name="fr-radios-theme" />
+                      <label class="fr-label" for="fr-radios-theme-light">
+                        Thème clair
                       </label>
                       <div class="fr-radio-rich__img" data-fr-inject-svg>
                         <img src="/django-dsfr/static/dsfr/dist/artwork/light.svg" alt="" />
@@ -213,8 +304,12 @@ p code, li code {
                       </div>
                     </div>
                     <div class="fr-radio-group fr-radio-rich">
-                      <input value="dark" type="radio" id="fr-radios-theme-dark" name="fr-radios-theme" />
-                      <label class="fr-label" for="fr-radios-theme-dark">Thème sombre
+                      <input value="dark"
+                             type="radio"
+                             id="fr-radios-theme-dark"
+                             name="fr-radios-theme" />
+                      <label class="fr-label" for="fr-radios-theme-dark">
+                        Thème sombre
                       </label>
                       <div class="fr-radio-rich__img" data-fr-inject-svg>
                         <img src="/django-dsfr/static/dsfr/dist/artwork/dark.svg" alt="" />
@@ -222,8 +317,12 @@ p code, li code {
                       </div>
                     </div>
                     <div class="fr-radio-group fr-radio-rich">
-                      <input value="system" type="radio" id="fr-radios-theme-system" name="fr-radios-theme" />
-                      <label class="fr-label" for="fr-radios-theme-system">Système
+                      <input value="system"
+                             type="radio"
+                             id="fr-radios-theme-system"
+                             name="fr-radios-theme" />
+                      <label class="fr-label" for="fr-radios-theme-system">
+                        Système
                         <span class="fr-hint-text">Utilise les paramètres système.</span>
                       </label>
                       <div class="fr-radio-rich__img" data-fr-inject-svg>
@@ -242,214 +341,341 @@ p code, li code {
   </div>
 </dialog>
 
-
     <div class="fr-container fr-mt-4w fr-mb-6w">
       <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
-    <button type="button" class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
-    <div class="fr-collapse" id="breadcrumb-1">
-        <ol class="fr-breadcrumb__list">
-            <li>
-                <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
-            </li>
-            
-            <li>
-                <a class="fr-breadcrumb__link" href="/django-dsfr/tags/">Composants</a>
-            </li>
-            
-            <li>
-                <a class="fr-breadcrumb__link" aria-current="page">Carte (card)</a>
-            </li>
-        </ol>
-    </div>
+  <button type="button"
+          class="fr-breadcrumb__button"
+          aria-expanded="false"
+          aria-controls="breadcrumb-1">
+    Voir le fil d’Ariane
+  </button>
+  <div class="fr-collapse" id="breadcrumb-1">
+    <ol class="fr-breadcrumb__list">
+      <li>
+        <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
+      </li>
+      
+        <li>
+          <a class="fr-breadcrumb__link" href="/django-dsfr/tags/">Composants</a>
+        </li>
+      
+      <li>
+        <a class="fr-breadcrumb__link" aria-current="page">Carte (card)</a>
+      </li>
+    </ol>
+  </div>
 </nav>
-
 
       <main id="content" role="main">
         
   <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
-  <!-- Menu -->
+    <!-- Menu -->
     <div class="fr-col-12 fr-col-md-3">
       
-<nav role="navigation" class="fr-sidemenu" aria-label="Menu latéral">
+<nav role="navigation"
+     class="fr-sidemenu"
+     aria-label="Menu latéral">
   <div class="fr-sidemenu__inner">
-    <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-wrapper" aria-expanded="false">Dans cette rubrique</button>
+    <button type="button"
+            class="fr-sidemenu__btn"
+            aria-controls="fr-sidemenu-wrapper"
+            aria-expanded="false">
+      Dans cette rubrique
+    </button>
     <div class="fr-collapse" id="fr-sidemenu-wrapper">
       <div class="fr-sidemenu__title">Composants</div>
       <ul class="fr-sidemenu__list">
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion/" target="_self" >accordion</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/accordion/"
+                 target="_self"
+                 >accordion</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/accordion_group/" target="_self" >accordion_group</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/accordion_group/"
+                 target="_self"
+                 >accordion_group</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/alert/" target="_self" >alert</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/alert/"
+                 target="_self"
+                 >alert</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/badge/" target="_self" >badge</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/badge/"
+                 target="_self"
+                 >badge</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/badge_group/" target="_self" >badge_group</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/badge_group/"
+                 target="_self"
+                 >badge_group</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/breadcrumb/" target="_self" >breadcrumb</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/breadcrumb/"
+                 target="_self"
+                 >breadcrumb</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/button/" target="_self" >button</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/button/"
+                 target="_self"
+                 >button</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/callout/" target="_self" >callout</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/callout/"
+                 target="_self"
+                 >callout</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item fr-sidemenu__item--active">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/card/" target="_self"  aria-current="page">card</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/card/"
+                 target="_self"
+                 aria-current="page">card</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/css/" target="_self" >css</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/css/"
+                 target="_self"
+                 >css</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/django_messages/" target="_self" >django_messages</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/django_messages/"
+                 target="_self"
+                 >django_messages</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/favicon/" target="_self" >favicon</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/favicon/"
+                 target="_self"
+                 >favicon</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/form/" target="_self" >form</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/form/"
+                 target="_self"
+                 >form</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/form_field/" target="_self" >form_field</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/form_field/"
+                 target="_self"
+                 >form_field</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/highlight/" target="_self" >highlight</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/highlight/"
+                 target="_self"
+                 >highlight</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/input/" target="_self" >input</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/input/"
+                 target="_self"
+                 >input</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/js/" target="_self" >js</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/js/"
+                 target="_self"
+                 >js</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/link/" target="_self" >link</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/link/"
+                 target="_self"
+                 >link</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/pagination/" target="_self" >pagination</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/pagination/"
+                 target="_self"
+                 >pagination</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/quote/" target="_self" >quote</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/quote/"
+                 target="_self"
+                 >quote</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/select/" target="_self" >select</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/select/"
+                 target="_self"
+                 >select</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/sidemenu/" target="_self" >sidemenu</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/sidemenu/"
+                 target="_self"
+                 >sidemenu</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/skiplinks/" target="_self" >skiplinks</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/skiplinks/"
+                 target="_self"
+                 >skiplinks</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/stepper/" target="_self" >stepper</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/stepper/"
+                 target="_self"
+                 >stepper</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/summary/" target="_self" >summary</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/summary/"
+                 target="_self"
+                 >summary</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/table/" target="_self" >table</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/table/"
+                 target="_self"
+                 >table</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/tag/" target="_self" >tag</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/tag/"
+                 target="_self"
+                 >tag</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/theme_modale/" target="_self" >theme_modale</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/theme_modale/"
+                 target="_self"
+                 >theme_modale</a>
             
           </li>
         
+          
           <li class="fr-sidemenu__item">
             
-              <a class="fr-sidemenu__link" href="/django-dsfr/tags/tile/" target="_self" >tile</a>
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/tags/tile/"
+                 target="_self"
+                 >tile</a>
             
           </li>
+        
         
       </ul>
     </div>
@@ -458,82 +684,88 @@ p code, li code {
 
     </div>
     <div class="fr-col-12 fr-col-md-9 fr-py-2w">
-      <h1> Carte (card) </h1>
-
+      <h1>
+        Carte (card)
+      </h1>
       
-      <p>
-        <a
-  class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
-  href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte"
-   target="_blank" rel="noopener noreferrer"
->
-  Voir la page de documentation du composant sur le Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+        <p>
+          <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+   href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte"
+   target="_blank" rel="noopener noreferrer">
+  Voir la page de documentation du composant sur le Système de Design de l’État
+  
+    <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+  
 </a>
 
-      </p>
+        </p>
       
-
-      <h2>Documentation du tag</h2>
-
+      <h2>
+        Documentation du tag
+      </h2>
       <p>Returns a card item. Takes a dict as parameter, with the following structure:</p>
-<div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Title of the card item&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;heading_tag&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Heading tag for the title (h2, etc. Default: p)&quot;</span>
-    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Text of the card item&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) url of the image&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;image_alt&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) alt text of the image&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;media_badges&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) list of badges for the media area (similar to a badge_group tag)&quot;</span>
-    <span class="s2">&quot;new_tab&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) if True, forces links to open in a new tab&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) link of the tag&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;enlarge_link&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) boolean. If true (default), the link covers the whole card&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;extra_classes&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) string with names of extra classes&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;top_detail&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) dict with a top detail content and optional tags or badges&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bottom_detail&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) a detail string and optional icon&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;call_to_action&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) a list of buttons or links at the bottom of the card,</span>
-    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) id of the tile item&quot;</span><span class="p">,</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
-<p>Relevant extra classes:</p>
-<ul>
-<li><code>fr-card--horizontal</code>: makes the card horizontal</li>
-<li><code>fr-card--horizontal-tier</code>: allows a 33% ratio instead of the 40% default</li>
-<li><code>fr-card--horizontal-half</code>: allows a 50% ratio instead of the 40% default</li>
-<li><code>fr-card--download</code>: Replaces the forward arrow icon with a download one</li>
-</ul>
-<p>Format of the top_detail dict (every field is optional):
-top_detail = {
-    "detail": {
-        "text": "the detail text",
-        "icon_class": "(Optional) an icon class (eg, fr-icon-warning-fill)"
-    },
-    "tags": "a list of tag items (mutually exclusive with badges)",
-    "badges": "a list of badge items (mutually exclusive with tags)"
+<p>data_dict = {<br />
+    "title": "Title of the card item",<br />
+    "heading_tag": "(Optional) Heading tag for the title (h2, etc. Default: p)"<br />
+    "description": "Text of the card item",<br />
+    "image_url": "(Optional) url of the image",<br />
+    "image_alt": "(Optional) alt text of the image",<br />
+    "media_badges": (Optional) list of badges for the media area (similar to a badge_group tag)<br />
+    "new_tab": "(Optional) if True, forces links to open in a new tab",<br />
+    "link": "(Optional) link of the tag",<br />
+    "enlarge_link": (Optional) boolean. If true (default), the link covers the whole card",<br />
+    "extra_classes": "(Optional) string with names of extra classes",<br />
+    "top_detail": "(Optional) dict with a top detail content and optional tags or badges",<br />
+    "bottom_detail": "(Optional) a detail string and optional icon",<br />
+    "call_to_action": "(Optional) a list of buttons or links at the bottom of the card,<br />
+    "id": "(Optional) id of the tile item",<br />
 }</p>
-<p>Format of the bottom_detail dict :
-bottom_detail = {
-    "text": "the detail text",
-    "icon_class": "(Optional) an icon class (eg, fr-icon-warning-fill)"
+<p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
+<p>Relevant extra classes:<br />
+- fr-card--horizontal: makes the card horizontal<br />
+- fr-card--horizontal-tier: allows a 33% ratio instead of the 40% default<br />
+- fr-card--horizontal-half: allows a 50% ratio instead of the 40% default<br />
+- fr-card--download: Replaces the forward arrow icon with a download one</p>
+<p>Format of the top_detail dict (every field is optional):<br />
+top_detail = {<br />
+    "detail": {<br />
+        "text": "the detail text",<br />
+        "icon_class": "(Optional) an icon class (eg, fr-icon-warning-fill)"<br />
+    },<br />
+    "tags": "a list of tag items (mutually exclusive with badges)",<br />
+    "badges": "a list of badge items (mutually exclusive with tags)"<br />
+}</p>
+<p>Format of the bottom_detail dict :<br />
+bottom_detail = {<br />
+    "text": "the detail text",<br />
+    "icon_class": "(Optional) an icon class (eg, fr-icon-warning-fill)"<br />
 },</p>
-<p><strong>Tag name</strong>:
-    dsfr_card</p>
-<p><strong>Usage</strong>:
-    <code>{% dsfr_card data_dict %}</code></p>
-
+<p><strong>Tag name</strong>::<br />
+    dsfr_card<br />
+<strong>Usage</strong>::<br />
+    {% dsfr_card data_dict %}</p>
       
-        <h2>Exemples</h2>
+        <h2>
+          Exemples
+        </h2>
         
-          <h3 class="fr-mt-3w">Données</h3>
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
           <div class="fr-my-2w">
             
               
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-sfyxzssjoxtvzbbr">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-sfyxzssjoxtvzbbr">
-        <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
+              <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-rzvbfozqohrtjamp">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-rzvbfozqohrtjamp">
+    <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
                 '                    à environ cinq lignes dans le mode '
@@ -543,19 +775,20 @@ bottom_detail = {
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
  'title': 'Carte basique'}</pre>
-    </div>
+  </div>
 </section>
 
-              
             
-          </div>
-
-          <h3>Résultat</h3>
           
-            
-              <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-4">
-                  
+        </div>
+        <h3>
+          Résultat
+        </h3>
+        
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              <div class="fr-col-12 fr-col-md-4">
+                
 <div class="fr-card fr-enlarge-link"
      >
   <div class="fr-card__body">
@@ -563,14 +796,14 @@ bottom_detail = {
       <p class="fr-card__title">
       <a href="https://www.systeme-de-design.gouv.fr/"
          target="_blank"
-         rel="noopener noreferrer" title="Carte basique - Ouvrir dans une nouvelle fenêtre">
-        Carte basique
-      </a>
+         rel="noopener noreferrer">Carte basique</a>
       </p>
-      <p class="fr-card__desc">Texte de la carte.
+      <p class="fr-card__desc">
+        Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
                     à environ cinq lignes dans le mode vertical, et deux en horizontal.
-    …</p>
+    …
+      </p>
       
       
     </div>
@@ -588,21 +821,28 @@ bottom_detail = {
   </div>
 </div>
 
-                </div>
               </div>
-            
+            </div>
           
         
-          <h3 class="fr-mt-3w">Données</h3>
+      
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
           <div class="fr-my-2w">
             
               
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-tolrvrtbujvpcbsy">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-tolrvrtbujvpcbsy">
-        <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
+              <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-bhofgumgbhezpypm">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-bhofgumgbhezpypm">
+    <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
                 '                    à environ deux lignes dans le mode '
@@ -613,18 +853,19 @@ bottom_detail = {
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
  'title': 'Carte horizontale, largeur standard'}</pre>
-    </div>
+  </div>
 </section>
 
-              
             
-          </div>
-
-          <h3>Résultat</h3>
           
-            
-              <div class="fr-grid-row fr-grid-row--gutters">
-                
+        </div>
+        <h3>
+          Résultat
+        </h3>
+        
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              
 <div class="fr-card fr-enlarge-link fr-card--horizontal"
      >
   <div class="fr-card__body">
@@ -632,14 +873,14 @@ bottom_detail = {
       <p class="fr-card__title">
       <a href="https://www.systeme-de-design.gouv.fr/"
          target="_blank"
-         rel="noopener noreferrer" title="Carte horizontale, largeur standard - Ouvrir dans une nouvelle fenêtre">
-        Carte horizontale, largeur standard
-      </a>
+         rel="noopener noreferrer">Carte horizontale, largeur standard</a>
       </p>
-      <p class="fr-card__desc">Texte de la carte.
+      <p class="fr-card__desc">
+        Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
                     à environ deux lignes dans le mode horizontal, et cinq en vertical.
-    …</p>
+    …
+      </p>
       
       
     </div>
@@ -657,20 +898,27 @@ bottom_detail = {
   </div>
 </div>
 
-              </div>
-            
+            </div>
           
         
-          <h3 class="fr-mt-3w">Données</h3>
+      
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
           <div class="fr-my-2w">
             
               
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-prptbhpwyvgavlon">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-prptbhpwyvgavlon">
-        <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
+              <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-jheizjhiytasjcru">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-jheizjhiytasjcru">
+    <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
                 '                    à environ deux lignes dans le mode '
@@ -681,18 +929,19 @@ bottom_detail = {
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
  'title': 'Carte horizontale, largeur tiers'}</pre>
-    </div>
+  </div>
 </section>
 
-              
             
-          </div>
-
-          <h3>Résultat</h3>
           
-            
-              <div class="fr-grid-row fr-grid-row--gutters">
-                
+        </div>
+        <h3>
+          Résultat
+        </h3>
+        
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              
 <div class="fr-card fr-enlarge-link fr-card--horizontal fr-card--horizontal-tier"
      >
   <div class="fr-card__body">
@@ -700,14 +949,14 @@ bottom_detail = {
       <p class="fr-card__title">
       <a href="https://www.systeme-de-design.gouv.fr/"
          target="_blank"
-         rel="noopener noreferrer" title="Carte horizontale, largeur tiers - Ouvrir dans une nouvelle fenêtre">
-        Carte horizontale, largeur tiers
-      </a>
+         rel="noopener noreferrer">Carte horizontale, largeur tiers</a>
       </p>
-      <p class="fr-card__desc">Texte de la carte.
+      <p class="fr-card__desc">
+        Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
                     à environ deux lignes dans le mode horizontal, et cinq en vertical.
-    …</p>
+    …
+      </p>
       
       
     </div>
@@ -725,20 +974,27 @@ bottom_detail = {
   </div>
 </div>
 
-              </div>
-            
+            </div>
           
         
-          <h3 class="fr-mt-3w">Données</h3>
+      
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
           <div class="fr-my-2w">
             
               
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-xocpexrumpparaxa">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-xocpexrumpparaxa">
-        <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
+              <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-itwjavbkyfiyuykv">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-itwjavbkyfiyuykv">
+    <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
                 '                    à environ deux lignes dans le mode '
@@ -749,18 +1005,19 @@ bottom_detail = {
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
  'title': 'Carte horizontale, largeur moitié'}</pre>
-    </div>
+  </div>
 </section>
 
-              
             
-          </div>
-
-          <h3>Résultat</h3>
           
-            
-              <div class="fr-grid-row fr-grid-row--gutters">
-                
+        </div>
+        <h3>
+          Résultat
+        </h3>
+        
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              
 <div class="fr-card fr-enlarge-link fr-card--horizontal fr-card--horizontal-half"
      >
   <div class="fr-card__body">
@@ -768,14 +1025,14 @@ bottom_detail = {
       <p class="fr-card__title">
       <a href="https://www.systeme-de-design.gouv.fr/"
          target="_blank"
-         rel="noopener noreferrer" title="Carte horizontale, largeur moitié - Ouvrir dans une nouvelle fenêtre">
-        Carte horizontale, largeur moitié
-      </a>
+         rel="noopener noreferrer">Carte horizontale, largeur moitié</a>
       </p>
-      <p class="fr-card__desc">Texte de la carte.
+      <p class="fr-card__desc">
+        Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
                     à environ deux lignes dans le mode horizontal, et cinq en vertical.
-    …</p>
+    …
+      </p>
       
       
     </div>
@@ -793,20 +1050,27 @@ bottom_detail = {
   </div>
 </div>
 
-              </div>
-            
+            </div>
           
         
-          <h3 class="fr-mt-3w">Données</h3>
+      
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
           <div class="fr-my-2w">
             
               
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-vvbtqossxzixfvko">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-vvbtqossxzixfvko">
-        <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
+              <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-vbjqshfwwnrkgeby">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-vbjqshfwwnrkgeby">
+    <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
  'image_url': '/django-dsfr/static/img/placeholder.1x1.svg',
@@ -814,19 +1078,20 @@ bottom_detail = {
  'media_badges': [{'extra_classes': 'fr-badge--new', 'label': 'Nouveau'}],
  'new_tab': True,
  'title': 'Carte avec badge'}</pre>
-    </div>
+  </div>
 </section>
 
-              
             
-          </div>
-
-          <h3>Résultat</h3>
           
-            
-              <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-4">
-                  
+        </div>
+        <h3>
+          Résultat
+        </h3>
+        
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              <div class="fr-col-12 fr-col-md-4">
+                
 <div class="fr-card fr-enlarge-link"
      >
   <div class="fr-card__body">
@@ -834,13 +1099,13 @@ bottom_detail = {
       <p class="fr-card__title">
       <a href="https://www.systeme-de-design.gouv.fr/"
          target="_blank"
-         rel="noopener noreferrer" title="Carte avec badge - Ouvrir dans une nouvelle fenêtre">
-        Carte avec badge
-      </a>
+         rel="noopener noreferrer">Carte avec badge</a>
       </p>
-      <p class="fr-card__desc">Texte de la carte.
+      <p class="fr-card__desc">
+        Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères.
-                    </p>
+                    
+      </p>
       
       
     </div>
@@ -856,8 +1121,12 @@ bottom_detail = {
       
         <ul class="fr-badges-group">
           
-            <li><p class="fr-badge fr-badge--new">Nouveau</p>
-</li>
+            <li>
+              <p class="fr-badge fr-badge--new">
+  Nouveau
+</p>
+
+            </li>
           
         </ul>
       
@@ -865,21 +1134,28 @@ bottom_detail = {
   </div>
 </div>
 
-                </div>
               </div>
-            
+            </div>
           
         
-          <h3 class="fr-mt-3w">Données</h3>
+      
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
           <div class="fr-my-2w">
             
               
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-erxvdwisfamxyejk">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-erxvdwisfamxyejk">
-        <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
+              <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-idxqlnbaqfopmtle">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-idxqlnbaqfopmtle">
+    <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
  'link': 'https://www.systeme-de-design.gouv.fr/',
@@ -889,19 +1165,20 @@ bottom_detail = {
                            'text': 'Détail (optionnel) avec icône '
                                    '(optionnelle)'},
                 'tags': [{'label': 'tag 1'}, {'label': 'tag 2'}]}}</pre>
-    </div>
+  </div>
 </section>
 
-              
             
-          </div>
-
-          <h3>Résultat</h3>
           
-            
-              <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-4">
-                  
+        </div>
+        <h3>
+          Résultat
+        </h3>
+        
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              <div class="fr-col-12 fr-col-md-4">
+                
 <div class="fr-card fr-enlarge-link"
      >
   <div class="fr-card__body">
@@ -909,23 +1186,27 @@ bottom_detail = {
       <p class="fr-card__title">
       <a href="https://www.systeme-de-design.gouv.fr/"
          target="_blank"
-         rel="noopener noreferrer" title="Carte avec détails d’en-tête (tags) - Ouvrir dans une nouvelle fenêtre">
-        Carte avec détails d’en-tête (tags)
-      </a>
+         rel="noopener noreferrer">Carte avec détails d’en-tête (tags)</a>
       </p>
-      <p class="fr-card__desc">Texte de la carte.
+      <p class="fr-card__desc">
+        Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères.
-                    </p>
+                    
+      </p>
       
         <div class="fr-card__start">
           
             <ul class="fr-tags-group">
               
-                <li><p class="fr-tag">tag 1</p>
-</li>
+                <li>
+                  <p class="fr-tag">tag 1</p>
+
+                </li>
               
-                <li><p class="fr-tag">tag 2</p>
-</li>
+                <li>
+                  <p class="fr-tag">tag 2</p>
+
+                </li>
               
             </ul>
           
@@ -945,21 +1226,28 @@ bottom_detail = {
   </div>
 </div>
 
-                </div>
               </div>
-            
+            </div>
           
         
-          <h3 class="fr-mt-3w">Données</h3>
+      
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
           <div class="fr-my-2w">
             
               
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-eyysxizflgbbsycs">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-eyysxizflgbbsycs">
-        <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
+              <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-evllymyoeusigrvw">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-evllymyoeusigrvw">
+    <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
  'link': 'https://www.systeme-de-design.gouv.fr/',
@@ -968,19 +1256,20 @@ bottom_detail = {
  'top_detail': {'badges': [{'label': 'Badge 1'}, {'label': 'Badge 2'}],
                 'detail': {'icon_class': 'fr-icon-warning-fill',
                            'text': 'Détail (optionnel)'}}}</pre>
-    </div>
+  </div>
 </section>
 
-              
             
-          </div>
-
-          <h3>Résultat</h3>
           
-            
-              <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-4">
-                  
+        </div>
+        <h3>
+          Résultat
+        </h3>
+        
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              <div class="fr-col-12 fr-col-md-4">
+                
 <div class="fr-card fr-enlarge-link"
      >
   <div class="fr-card__body">
@@ -988,23 +1277,31 @@ bottom_detail = {
       <p class="fr-card__title">
       <a href="https://www.systeme-de-design.gouv.fr/"
          target="_blank"
-         rel="noopener noreferrer" title="Carte avec détails d’en-tête (badges) - Ouvrir dans une nouvelle fenêtre">
-        Carte avec détails d’en-tête (badges)
-      </a>
+         rel="noopener noreferrer">Carte avec détails d’en-tête (badges)</a>
       </p>
-      <p class="fr-card__desc">Texte de la carte.
+      <p class="fr-card__desc">
+        Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères.
-                    </p>
+                    
+      </p>
       
         <div class="fr-card__start">
           
             <ul class="fr-badges-group">
               
-                <li><p class="fr-badge">Badge 1</p>
-</li>
+                <li>
+                  <p class="fr-badge">
+  Badge 1
+</p>
+
+                </li>
               
-                <li><p class="fr-badge">Badge 2</p>
-</li>
+                <li>
+                  <p class="fr-badge">
+  Badge 2
+</p>
+
+                </li>
               
             </ul>
           
@@ -1024,21 +1321,28 @@ bottom_detail = {
   </div>
 </div>
 
-                </div>
               </div>
-            
+            </div>
           
         
-          <h3 class="fr-mt-3w">Données</h3>
+      
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
           <div class="fr-my-2w">
             
               
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-nutpycnaisiqubcr">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-nutpycnaisiqubcr">
-        <pre class="dsfr-code">{'bottom_detail': {'icon': 'fr-icon-warning-fill',
+              <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-tajojapsrpjqjsvc">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-tajojapsrpjqjsvc">
+    <pre class="dsfr-code">{'bottom_detail': {'icon': 'fr-icon-warning-fill',
                    'text': 'Détail (optionnel)'},
  'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
@@ -1046,19 +1350,20 @@ bottom_detail = {
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
  'title': 'Carte avec détails en pied'}</pre>
-    </div>
+  </div>
 </section>
 
-              
             
-          </div>
-
-          <h3>Résultat</h3>
           
-            
-              <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-4">
-                  
+        </div>
+        <h3>
+          Résultat
+        </h3>
+        
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              <div class="fr-col-12 fr-col-md-4">
+                
 <div class="fr-card fr-enlarge-link"
      >
   <div class="fr-card__body">
@@ -1066,13 +1371,13 @@ bottom_detail = {
       <p class="fr-card__title">
       <a href="https://www.systeme-de-design.gouv.fr/"
          target="_blank"
-         rel="noopener noreferrer" title="Carte avec détails en pied - Ouvrir dans une nouvelle fenêtre">
-        Carte avec détails en pied
-      </a>
+         rel="noopener noreferrer">Carte avec détails en pied</a>
       </p>
-      <p class="fr-card__desc">Texte de la carte.
+      <p class="fr-card__desc">
+        Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères.
-                    </p>
+                    
+      </p>
       
       
         <div class="fr-card__end">
@@ -1089,21 +1394,28 @@ bottom_detail = {
   </div>
 </div>
 
-                </div>
               </div>
-            
+            </div>
           
         
-          <h3 class="fr-mt-3w">Données</h3>
+      
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
           <div class="fr-my-2w">
             
               
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-nplyuifsuhdsytzd">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-nplyuifsuhdsytzd">
-        <pre class="dsfr-code">{'call_to_action': {'buttons': [{'extra_classes': 'fr-btn--secondary',
+              <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-jxjbmbpawhmacvgt">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-jxjbmbpawhmacvgt">
+    <pre class="dsfr-code">{'call_to_action': {'buttons': [{'extra_classes': 'fr-btn--secondary',
                                  'label': 'Bouton 1'},
                                 {'label': 'Bouton 2'}]},
  'description': 'Texte de la carte.\n'
@@ -1115,18 +1427,19 @@ bottom_detail = {
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
  'title': 'Carte horizontale avec zone d’action (boutons)'}</pre>
-    </div>
+  </div>
 </section>
 
-              
             
-          </div>
-
-          <h3>Résultat</h3>
           
-            
-              <div class="fr-grid-row fr-grid-row--gutters">
-                
+        </div>
+        <h3>
+          Résultat
+        </h3>
+        
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              
 <div class="fr-card fr-card--horizontal"
      >
   <div class="fr-card__body">
@@ -1134,13 +1447,13 @@ bottom_detail = {
       <p class="fr-card__title">
       <a href="https://www.systeme-de-design.gouv.fr/"
          target="_blank"
-         rel="noopener noreferrer" title="Carte horizontale avec zone d’action (boutons) - Ouvrir dans une nouvelle fenêtre">
-        Carte horizontale avec zone d’action (boutons)
-      </a>
+         rel="noopener noreferrer">Carte horizontale avec zone d’action (boutons)</a>
       </p>
-      <p class="fr-card__desc">Texte de la carte.
+      <p class="fr-card__desc">
+        Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères.
-                    </p>
+                    
+      </p>
       
       
     </div>
@@ -1149,27 +1462,27 @@ bottom_detail = {
         
           <ul class="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
             
-              <li><button
-  class="fr-btn fr-btn--secondary"
-  onclick=""
-  
-  type="submit"
-  
->
+              <li>
+                <button class="fr-btn fr-btn--secondary"
+        onclick=""
+        
+        type="submit"
+        >
   Bouton 1
 </button>
-</li>
+
+              </li>
             
-              <li><button
-  class="fr-btn"
-  onclick=""
-  
-  type="submit"
-  
->
+              <li>
+                <button class="fr-btn"
+        onclick=""
+        
+        type="submit"
+        >
   Bouton 2
 </button>
-</li>
+
+              </li>
             
           </ul>
         
@@ -1188,20 +1501,27 @@ bottom_detail = {
   </div>
 </div>
 
-              </div>
-            
+            </div>
           
         
-          <h3 class="fr-mt-3w">Données</h3>
+      
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
           <div class="fr-my-2w">
             
               
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-xgqjoskysswkipqu">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-xgqjoskysswkipqu">
-        <pre class="dsfr-code">{'call_to_action': {'links': [{'label': 'Lien interne', 'url': '/'},
+              <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-nijelluxmjqkpgal">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-nijelluxmjqkpgal">
+    <pre class="dsfr-code">{'call_to_action': {'links': [{'label': 'Lien interne', 'url': '/'},
                               {'is_external': True,
                                'label': 'Lien externe',
                                'url': 'https://www.systeme-de-design.gouv.fr/'}]},
@@ -1214,18 +1534,19 @@ bottom_detail = {
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
  'title': 'Carte horizontale avec zone d’action (liens)'}</pre>
-    </div>
+  </div>
 </section>
 
-              
             
-          </div>
-
-          <h3>Résultat</h3>
           
-            
-              <div class="fr-grid-row fr-grid-row--gutters">
-                
+        </div>
+        <h3>
+          Résultat
+        </h3>
+        
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              
 <div class="fr-card fr-card--horizontal"
      >
   <div class="fr-card__body">
@@ -1233,13 +1554,13 @@ bottom_detail = {
       <p class="fr-card__title">
       <a href="https://www.systeme-de-design.gouv.fr/"
          target="_blank"
-         rel="noopener noreferrer" title="Carte horizontale avec zone d’action (liens) - Ouvrir dans une nouvelle fenêtre">
-        Carte horizontale avec zone d’action (liens)
-      </a>
+         rel="noopener noreferrer">Carte horizontale avec zone d’action (liens)</a>
       </p>
-      <p class="fr-card__desc">Texte de la carte.
+      <p class="fr-card__desc">
+        Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères.
-                    </p>
+                    
+      </p>
       
       
     </div>
@@ -1248,23 +1569,27 @@ bottom_detail = {
         
           <ul class="fr-links-group">
             
-              <li><a
-  class="fr-link"
-  href="/"
-  
->
+              <li>
+                <a class="fr-link"
+   href="/"
+   >
   Lien interne
+  
 </a>
-</li>
+
+              </li>
             
-              <li><a
-  class="fr-link fr-icon-external-link-line fr-link--icon-right"
-  href="https://www.systeme-de-design.gouv.fr/"
-   target="_blank" rel="noopener noreferrer"
->
-  Lien externe <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+              <li>
+                <a class="fr-link fr-icon-external-link-line fr-link--icon-right"
+   href="https://www.systeme-de-design.gouv.fr/"
+   target="_blank" rel="noopener noreferrer">
+  Lien externe
+  
+    <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+  
 </a>
-</li>
+
+              </li>
             
           </ul>
         
@@ -1283,20 +1608,27 @@ bottom_detail = {
   </div>
 </div>
 
-              </div>
-            
+            </div>
           
         
-          <h3 class="fr-mt-3w">Données</h3>
+      
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
           <div class="fr-my-2w">
             
               
-                <section class="fr-accordion">
-    <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-zkczospotqgnxmco">Données d’exemple</button>
-    </h3>
-    <div class="fr-collapse" id="accordion-zkczospotqgnxmco">
-        <pre class="dsfr-code">{'bottom_detail': {'text': 'PNG — 1,1 ko'},
+              <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-pmpylampogypyqfc">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-pmpylampogypyqfc">
+    <pre class="dsfr-code">{'bottom_detail': {'text': 'PNG — 1,1 ko'},
  'description': 'Exemple de carte de téléchargement, avec un texte un peu '
                 'long, qui peut\n'
                 '                aller jusqu’à 200 caractères.',
@@ -1305,18 +1637,19 @@ bottom_detail = {
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
  'title': 'Télécharger le fichier'}</pre>
-    </div>
+  </div>
 </section>
 
-              
             
-          </div>
-
-          <h3>Résultat</h3>
           
-            
-              <div class="fr-grid-row fr-grid-row--gutters">
-                
+        </div>
+        <h3>
+          Résultat
+        </h3>
+        
+          
+            <div class="fr-grid-row fr-grid-row--gutters">
+              
 <div class="fr-card fr-enlarge-link fr-card--horizontal fr-card--download"
      >
   <div class="fr-card__body">
@@ -1324,12 +1657,12 @@ bottom_detail = {
       <p class="fr-card__title">
       <a href="https://www.systeme-de-design.gouv.fr/"
          target="_blank"
-         rel="noopener noreferrer" title="Télécharger le fichier - Ouvrir dans une nouvelle fenêtre">
-        Télécharger le fichier
-      </a>
+         rel="noopener noreferrer">Télécharger le fichier</a>
       </p>
-      <p class="fr-card__desc">Exemple de carte de téléchargement, avec un texte un peu long, qui peut
-                aller jusqu’à 200 caractères.</p>
+      <p class="fr-card__desc">
+        Exemple de carte de téléchargement, avec un texte un peu long, qui peut
+                aller jusqu’à 200 caractères.
+      </p>
       
       
         <div class="fr-card__end">
@@ -1353,18 +1686,17 @@ bottom_detail = {
   </div>
 </div>
 
-              </div>
-            
+            </div>
           
         
       
-    </div>
+    
   </div>
+</div>
 <br />
 
       </main>
     </div>
-
     
   <footer role="contentinfo" class="fr-footer" id="footer">
   <div class="fr-container">
@@ -1372,14 +1704,19 @@ bottom_detail = {
       <div class="fr-footer__brand fr-enlarge-link">
         <a href="/" title="Retour à l’accueil">
           
-            <p class="fr-logo" title="république française">
+            <p class="fr-logo"
+               title="république française">
               
             </p>
           
         </a>
       </div>
       <div class="fr-footer__content">
-        <p class="fr-footer__content-desc"></p>
+        <p class="fr-footer__content-desc">
+          
+            
+          
+        </p>
         <ul class="fr-footer__content-list">
           <li class="fr-footer__content-item">
             <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
@@ -1417,7 +1754,11 @@ bottom_detail = {
           </li>
         
   <li class="fr-footer__bottom-item">
-    <button id="footer__bottom-link__parametres-affichage" aria-controls="fr-theme-modal" data-fr-opened="false" class="fr-icon-theme-fill fr-link--icon-left fr-footer__bottom-link" data-fr-js-modal-button="true">
+    <button id="footer__bottom-link__parametres-affichage"
+            aria-controls="fr-theme-modal"
+            data-fr-opened="false"
+            class="fr-icon-theme-fill fr-link--icon-left fr-footer__bottom-link"
+            data-fr-js-modal-button="true">
       Paramètres d’affichage
     </button>
   </li>
@@ -1426,9 +1767,10 @@ bottom_detail = {
       <div class="fr-footer__bottom-copy">
         <p>
           Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous
-          <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener noreferrer" title="Licence etalab-2.0 - Ouvrir dans une nouvelle fenêtre">
-            licence etalab-2.0
-          </a>
+          <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Licence etalab-2.0 - Ouvrir dans une nouvelle fenêtre">licence etalab-2.0</a>
         </p>
       </div>
     </div>
@@ -1436,11 +1778,17 @@ bottom_detail = {
 </footer>
 
 
+    
+<script type="module"
+        src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
+        integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya"
+         nonce="ONBonDCFDbSjIIFBNwAOlA=="></script>
+<script nomodule
+        src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
+        integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"
+         nonce="ONBonDCFDbSjIIFBNwAOlA=="></script>
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-0OQ6Q9ZAssur6KZKIPnF76AYck9k+vzDJ4QWGEQSpmU5qWtHIr9eN2/9/GOKiJeg" nonce="y/cC9hSRCRDGh/IT6GDN6w=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-lbZ4GtXN8+9/PJKGoM35lJokzC+dXV3JFLZgwg7G/rkeZATNoF6VRX+4agY6raLu"  nonce="y/cC9hSRCRDGh/IT6GDN6w=="></script>
-
     
   </body>
 </html>
