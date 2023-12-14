@@ -3,7 +3,10 @@
     <span class="fr-stepper__state">Étape {{ self.current_step_id }} sur {{ self.total_steps }}</span>
     {{ self.current_step_title }}
   </h2>
-  <div class="fr-stepper__steps" data-fr-current-step="{{ self.current_step_id }}" data-fr-steps="{{ self.total_steps }}"></div>
+  <div class="fr-stepper__steps"
+       data-fr-current-step="{{ self.current_step_id }}"
+       data-fr-steps="{{ self.total_steps }}">
+  </div>
   {% if self.next_step_title %}
     <p class="fr-stepper__details">
       <span class="fr-text--bold">Étape suivante :</span> {{ self.next_step_title }}

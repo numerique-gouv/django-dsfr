@@ -8,12 +8,12 @@ let totalForms = document.querySelector('[id$="-TOTAL_FORMS"]');  // Total numbe
 // Hide the checkbox "Supprimer" since we use a button "Supprimer cet élément"
 try {
     let checkbox_remove = document.querySelector('[id$="-DELETE"]');
-    if ( typeof checkbox_remove !== "undefined" ) {
+    if (typeof checkbox_remove !== "undefined") {
         let div_remove = checkbox_remove.parentElement.parentElement;
         div_remove.remove();
     }
 }
-catch (error) {}
+catch (error) { }
 
 let firstForm = formsetGroup[0].cloneNode(true); // Clone the formset
 
@@ -25,10 +25,10 @@ function addForm(e) {
     e.preventDefault();
 
     let newForm;
-    if (formsetGroup[0]){
-	newForm = formsetGroup[0].cloneNode(true);  // Clone the formset
+    if (formsetGroup[0]) {
+        newForm = formsetGroup[0].cloneNode(true);  // Clone the formset
     } else {
-	newForm = firstForm;  // If all other forms have been deleted
+        newForm = firstForm;  // If all other forms have been deleted
     }
 
     // Regex
@@ -40,12 +40,12 @@ function addForm(e) {
     formsetGroup = document.querySelectorAll(".formset");
 
     let last_number = 0;
-    if (formsetGroup.length > 0){
-        let last_form = formsetGroup[formsetGroup.length-1];  // Get the last form in the formset
+    if (formsetGroup.length > 0) {
+        let last_form = formsetGroup[formsetGroup.length - 1];  // Get the last form in the formset
         last_number = /\w+-(\d+)-\w+/.exec(last_form.innerHTML)[1];  // Get the form number in the last form with a regex (fields in the form have an id following the pattern "form-X-...." where X is the number of the form)
     }
 
-    let newNumber = parseInt(last_number)+1;  // Number of the new form
+    let newNumber = parseInt(last_number) + 1;  // Number of the new form
 
     // Replace last number by new number in newForm
     newForm.innerHTML = newForm.innerHTML.replace(formRegex, `${objectName}_set-${newNumber}-`);  // Update the new form to have the correct form number
@@ -58,10 +58,10 @@ function addForm(e) {
 
     // Update total number of forms in the management form
     // +2 because firstForm has to be included too in the total number of forms in the formset
-    totalForms.setAttribute('value', `${formsetGroup.length+2}`);
+    totalForms.setAttribute('value', `${formsetGroup.length + 2}`);
 
     // Hide the checkbox "Supprimer" since we use a button "Supprimer cet élément"
-    try {        
+    try {
         let to_hide = document.querySelectorAll('[id$="-DELETE"]');
         for (const element of to_hide) {
             let hide = element.parentNode;
@@ -70,7 +70,7 @@ function addForm(e) {
     } catch { };
 }
 
-function removeFormset(numFormset){
+function removeFormset(numFormset) {
     // Hide a form from the formset thanks to the form id
 
     // Get the form by its id

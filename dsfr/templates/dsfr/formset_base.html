@@ -2,49 +2,45 @@
 <!-- base template for formset -->
 <!-- to be INCLUDED in the templates where form_base.html is extended, if you need formset -->
 <!-- Check django comments for more information -->
-
 {# Allows to display the fields with DSFR layout #}
 {% load static dsfr_tags widget_tweaks %}
-
 {# if formset #}
 {% block form_set %}
-    {% if formset %}
-        <div class="formset-{{ formset.prefix }} formset-group">
-        {{ formset.management_form }}
-
-        {% block formset_title %}
-        {% endblock formset_title %}
-
-        {% for form in formset %}
-
-            <div class="{% cycle 'row1' 'row2' %} formset-row-{{ formset.prefix }} formset" id="formset-0">
-            {% for hidden in form.hidden_fields %} {{ hidden }} {% endfor %}
-            {% for field in form.visible_fields %}
-
-                {# everything that needs to be in the loop for each field for each form in formset #}
-                {% block inside_formset_field %}
-                {% endblock inside_formset_field %}
-
-                {% include "dsfr/form_field_snippets/field_snippet.html" %}
-            {% endfor %}
-
-            <div class="fr-mt-2w">
-                <a id="remove-0" href="javascript:void(0)" onclick="removeFormset(0)">Supprimer cet élément <span class="fr-fi-delete-line" aria-hidden="true"></span><br/><br/></a>
-            </div>
-
-        </div>
-        {% endfor %}
-
-        <button id="add-form" type="button" class="fr-btn fr-btn--secondary fr-fi-add-circle-line fr-btn--icon-right fr-mt-1w">Ajouter un élément</button>
-        </div>
-        <br/>
-    {% endif %}
+  {% if formset %}
+    <div class="formset-{{ formset.prefix }} formset-group">
+      {{ formset.management_form }}
+      {% block formset_title %}
+      {% endblock formset_title %}
+      {% for form in formset %}
+        <div class="{% cycle 'row1' 'row2' %} formset-row-{{ formset.prefix }} formset"
+             id="formset-0">
+          {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
+          {% for field in form.visible_fields %}
+            {# everything that needs to be in the loop for each field for each form in formset #}
+            {% block inside_formset_field %}
+            {% endblock inside_formset_field %}
+            {% include "dsfr/form_field_snippets/field_snippet.html" %}
+          {% endfor %}
+          <div class="fr-mt-2w">
+          <a id="remove-0" href="#" onclick="removeFormset(0)">Supprimer cet élément <span class="fr-fi-delete-line" aria-hidden="true"></span>
+          <br />
+          <br />
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+  <button id="add-form"
+          type="button"
+          class="fr-btn fr-btn--secondary fr-fi-add-circle-line fr-btn--icon-right fr-mt-1w">
+    Ajouter un élément
+  </button>
+</div>
+<br />
+{% endif %}
 {% endblock form_set %}
-
 {% block extra_js %}
-    <script type="text/javascript">
-        let objectName = "{{ object_name }}";
-    </script>
-
-    <script src="{% static 'js/formsets.js' %}"></script>
-{% endblock %}
+  <script type="text/javascript">let objectName = "{{ object_name }}";</script>
+  <script src="{% static 'js/formsets.js' %}"></script>
+{% endblock extra_js %}

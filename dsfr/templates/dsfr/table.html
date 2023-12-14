@@ -1,23 +1,27 @@
 <div class="fr-table{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
-    <table>
-        <caption>{{ self.caption }}</caption>
-        {% if self.header %}
-            <thead>
-                <tr>
-                    {% for cell in self.header %}
-                        <th scope="col">{{ cell|safe }}</th>
-                    {% endfor %}
-                </tr>
-            </thead>
-        {% endif %}
-        <tbody>
-            {% for row in self.content %}
-            <tr>
-                {% for cell in row %}
-                <td>{{ cell|safe }}</td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+  <table>
+    <caption>{{ self.caption }}</caption>
+    {% if self.header %}
+      <thead>
+        <tr>
+          {% for cell in self.header %}
+            <th scope="col">
+              {{ cell|safe }}
+            </th>
+          {% endfor %}
+        </tr>
+      </thead>
+    {% endif %}
+    <tbody>
+      {% for row in self.content %}
+        <tr>
+          {% for cell in row %}
+            <td>
+              {{ cell|safe }}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>

@@ -137,76 +137,6 @@ def page_tag(request, tag_name):
         return render(request, "example_app/not_yet.html", payload)
 
 
-@require_safe
-def page_tests(request):
-    payload = init_payload("Tests")
-
-    payload["side_menu"] = {
-        "title": "Menu",
-        "items": [
-            {
-                "label": "Components",
-                "items": [
-                    {
-                        "label": "Alert",
-                        "link": reverse("page_tag", kwargs={"tag_name": "alert"}),
-                    },
-                    {
-                        "label": "Breadcrumb",
-                        "link": reverse("page_tag", kwargs={"tag_name": "breadcrumb"}),
-                    },
-                ],
-            },
-            {
-                "label": "Other pages",
-                "items": [
-                    {
-                        "label": "An intermediary menu",
-                        "items": [
-                            {"label": "Some page", "link": "/"},
-                        ],
-                    },
-                    {
-                        "label": "Another intermediary menu",
-                        "items": [
-                            {"label": "A sample page", "link": "#"},
-                            {"label": "Another sample page", "link": "#"},
-                            {
-                                "label": "Test page",
-                                "link": reverse("page_tests"),
-                            },
-                        ],
-                    },
-                ],
-            },
-        ],
-    }
-
-    payload["callout_1"] = {
-        "text": "This callout item has a normal button",
-        "title": "Callout with actionable button",
-        "icon_class": "fr-icon-alert-line",
-        "button": {
-            "onclick": "alert('button being a button')",
-            "label": "button label",
-            "extra_classes": "fr-btn--secondary",
-        },
-    }
-
-    payload["callout_2"] = {
-        "text": "This callout item has a call-to-action link",
-        "title": "Callout with call to action link",
-        "icon_class": "fr-icon-external-link-line",
-        "button": {
-            "label": "button label",
-            "url": "https://www.systeme-de-design.gouv.fr/",
-            "extra_classes": "fr-btn--secondary",
-        },
-    }
-
-    return render(request, "example_app/tests.html", payload)
-
-
 def page_form(request):
     if request.method == "POST":
         # create a form instance and populate it with data from the request:
@@ -269,7 +199,7 @@ class AuthorCreateView(CreateView):
         else:
             self.formset = BookCreateFormSet()
         return self.formset
-    
+
     def get_context_data(self, **kwargs):
         context = super(AuthorCreateView, self).get_context_data(**kwargs)
 

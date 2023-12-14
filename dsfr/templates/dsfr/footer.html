@@ -4,14 +4,19 @@
       <div class="fr-footer__brand fr-enlarge-link">
         <a href="/" title="Retour à l’accueil">
           {% block brand %}
-            <p class="fr-logo" title="{{ SITE_CONFIG.footer_brand|default:'république française' }}">
+            <p class="fr-logo"
+               title="{{ SITE_CONFIG.footer_brand|default:'république française' }}">
               {{ SITE_CONFIG.footer_brand_html| default_if_none:'république<br />française' | safe }}
             </p>
           {% endblock brand %}
         </a>
       </div>
       <div class="fr-footer__content">
-        <p class="fr-footer__content-desc">{% block footer_content %}{{ SITE_CONFIG.footer_description | safe }}{% endblock footer_content %}</p>
+        <p class="fr-footer__content-desc">
+          {% block footer_content %}
+            {{ SITE_CONFIG.footer_description | safe }}
+          {% endblock footer_content %}
+        </p>
         <ul class="fr-footer__content-list">
           <li class="fr-footer__content-item">
             <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
@@ -51,9 +56,10 @@
       <div class="fr-footer__bottom-copy">
         <p>
           Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous
-          <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener noreferrer" title="Licence etalab-2.0 - Ouvrir dans une nouvelle fenêtre">
-            licence etalab-2.0
-          </a>
+          <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Licence etalab-2.0 - Ouvrir dans une nouvelle fenêtre">licence etalab-2.0</a>
         </p>
       </div>
     </div>
