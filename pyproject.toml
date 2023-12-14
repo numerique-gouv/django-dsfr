@@ -62,3 +62,14 @@ pygments = "^2.16.1"
 [build-system]
 build-backend = "poetry.core.masonry.api"
 requires = ["poetry-core>=1.0.0"]
+
+[tool.djlint]
+line_break_after_multiline_tag = true
+ignore = "H030,H031,H006"
+indent = 2
+
+[tool.djlint.per-file-ignores]
+"header.html" = "D018"
+"footer.html" = "D018"
+"page_pictograms.html" = "D018"
+"page_tag.html" = "T002"
