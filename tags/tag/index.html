@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-Ql2Bzx7mo19G32l4v+XtMIVYTqFTxyNj/kFXPAL60CRE5GJlKnKaFy4MV2+4yE5j">
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-Aw2puKHTlIDiMlmvTYRVslXy3kBfHAP3KaG0kLtmejQqSOTWwCACAfsOk10ukPaE">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-diNcOMzsBeI3kzBRfiZqv56Oi4WBnUJhcubWpNsTCigDuxMUPJMGgMlE9KSfFyb1">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-rEPdGS1CzbNKp1iHewzg1GXyWg9OacK//IkYEX1YqrrqQwxWX7+7OiqoCokyCSuQ">
 <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-django-overrides.css">
 
 <meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
@@ -30,6 +30,10 @@
   font-family: monospace;
   font-size: 1rem;
 }
+p code, li code {
+  background: var(--background-alt-grey);
+  padding: 0.2em;
+}
 </style>
 
 
@@ -40,6 +44,8 @@
       
     </title>
     
+
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
   </head>
 
   <body>
@@ -470,23 +476,27 @@
       <h2>Documentation du tag</h2>
 
       <p>Returns a tag item. Takes a dict as parameter, with the following structure:</p>
-<p>data_dict = {<br />
-    "label": "Label of the tag",<br />
-    "link": "(Optional) link of the tag",<br />
-    "onclick": "(Optional) action that happens when the tag is clicked on",<br />
-    "is_selectable": "(Optional) boolean that marks the tag as selectable",<br />
-    "is_dismissable": "(Optional) boolean that marks the tag as dismissable",<br />
-    "extra_classes: (Optional) string with names of extra classes"<br />
-}</p>
-<p>Relevant extra_classes:<br />
-- fr-tag--sm: for a small tag<br />
-- icon classes: an icon for the tag, along with a positional class<br />
-  (eg, fr-icon-arrow-right-line fr-tag--icon-left)</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Label of the tag&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) link of the tag&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;onclick&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) action that happens when the tag is clicked on&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;is_selectable&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) boolean that marks the tag as selectable&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;is_dismissable&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) boolean that marks the tag as dismissable&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extra_classes: (Optional) string with names of extra classes&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Relevant extra_classes:</p>
+<ul>
+<li><code>fr-tag--sm</code>: for a small tag</li>
+<li>icon classes: an icon for the tag, along with a positional class
+  (eg, <code>fr-icon-arrow-right-line</code> <code>fr-tag--icon-left</code>)</li>
+</ul>
 <p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
-<p><strong>Tag name</strong>::<br />
-    dsfr_highlight<br />
-<strong>Usage</strong>::<br />
-    {% dsfr_highlight data_dict %}</p>
+<p><strong>Tag name</strong>:
+    dsfr_highlight</p>
+<p><strong>Usage</strong>:
+    <code>{% dsfr_highlight data_dict %}</code></p>
 
       
         <h2>Exemples</h2>
@@ -497,9 +507,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-lessymiopaqotcft">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ayxaqlcthusscpfl">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-lessymiopaqotcft">
+    <div class="fr-collapse" id="accordion-ayxaqlcthusscpfl">
         <pre class="dsfr-code">{'label': 'Tag simple'}</pre>
     </div>
 </section>
@@ -520,9 +530,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-yejaggypmmnpgwkp">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-btysvmtdiafxthdp">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-yejaggypmmnpgwkp">
+    <div class="fr-collapse" id="accordion-btysvmtdiafxthdp">
         <pre class="dsfr-code">{'label': 'Tag avec lien', 'link': '/django-dsfr/tags'}</pre>
     </div>
 </section>
@@ -543,9 +553,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ouvwvmztavfwjibz">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-uulashmthpxlqcvn">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-ouvwvmztavfwjibz">
+    <div class="fr-collapse" id="accordion-uulashmthpxlqcvn">
         <pre class="dsfr-code">{'extra_classes': 'fr-tag--sm fr-icon-arrow-right-line fr-tag--icon-left',
  'label': 'Petit tag avec icône'}</pre>
     </div>
@@ -567,9 +577,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-vwljavoxredqefvl">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-dzigknwytklwpbhy">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-vwljavoxredqefvl">
+    <div class="fr-collapse" id="accordion-dzigknwytklwpbhy">
         <pre class="dsfr-code">{'extra_classes': 'fr-icon-close-line fr-tag--icon-right',
  'label': 'Tag avec action',
  'link': '#',
@@ -593,9 +603,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-wotwukqcrmyefcuz">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-kxqsbqoudwxmwsdd">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-wotwukqcrmyefcuz">
+    <div class="fr-collapse" id="accordion-kxqsbqoudwxmwsdd">
         <pre class="dsfr-code">{'is_selectable': True, 'label': 'Tag sélectionnable'}</pre>
     </div>
 </section>
@@ -616,9 +626,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-kzwsnwjpugldkuac">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fllpvgijcospkiwu">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-kzwsnwjpugldkuac">
+    <div class="fr-collapse" id="accordion-fllpvgijcospkiwu">
         <pre class="dsfr-code">{'is_dismissable': True, 'label': 'Tag supprimable'}</pre>
     </div>
 </section>
@@ -639,9 +649,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-jdtbtethhzipvxlw">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-ojvilmhdhuearpqy">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-jdtbtethhzipvxlw">
+    <div class="fr-collapse" id="accordion-ojvilmhdhuearpqy">
         <pre class="dsfr-code">{'extra_classes': 'fr-tag--green-emeraude', 'label': 'Tag vert', 'link': '#'}</pre>
     </div>
 </section>
@@ -737,8 +747,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="J5XOpK0ydsgDqa7k//5miA=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="J5XOpK0ydsgDqa7k//5miA=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-0OQ6Q9ZAssur6KZKIPnF76AYck9k+vzDJ4QWGEQSpmU5qWtHIr9eN2/9/GOKiJeg" nonce="jpHMkiCx7PtRatVclaL1vQ=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-lbZ4GtXN8+9/PJKGoM35lJokzC+dXV3JFLZgwg7G/rkeZATNoF6VRX+4agY6raLu"  nonce="jpHMkiCx7PtRatVclaL1vQ=="></script>
 
     
   </body>

@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-Ql2Bzx7mo19G32l4v+XtMIVYTqFTxyNj/kFXPAL60CRE5GJlKnKaFy4MV2+4yE5j">
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-Aw2puKHTlIDiMlmvTYRVslXy3kBfHAP3KaG0kLtmejQqSOTWwCACAfsOk10ukPaE">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-diNcOMzsBeI3kzBRfiZqv56Oi4WBnUJhcubWpNsTCigDuxMUPJMGgMlE9KSfFyb1">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-rEPdGS1CzbNKp1iHewzg1GXyWg9OacK//IkYEX1YqrrqQwxWX7+7OiqoCokyCSuQ">
 <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-django-overrides.css">
 
 <meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
@@ -30,6 +30,10 @@
   font-family: monospace;
   font-size: 1rem;
 }
+p code, li code {
+  background: var(--background-alt-grey);
+  padding: 0.2em;
+}
 </style>
 
 
@@ -40,6 +44,8 @@
       
     </title>
     
+
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
   </head>
 
   <body>
@@ -470,25 +476,29 @@
       <h2>Documentation du tag</h2>
 
       <p>Returns a button item. Takes a dict as parameter, with the following structure:</p>
-<p>data_dict = {<br />
-    "label": "Label of the button item",<br />
-    "onclick": "button action",<br />
-    "type": "(Optional) type of button (submit or button - default: submit),<br />
-    "name": "(Optional) name of the button",<br />
-    "is_disabled": "(Optional) boolean that indicate if the button is activated<br />
-    (default: False)",<br />
-    "extra_classes": "(Optional) string with names of extra classes."<br />
-}</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Label of the button item&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;onclick&quot;</span><span class="p">:</span> <span class="s2">&quot;button action&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) type of button (submit or button - default: submit),</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) name of the button&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;is_disabled&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) boolean that indicate if the button is activated</span>
+    <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="kc">False</span><span class="p">)</span><span class="s2">&quot;,</span>
+    <span class="s2">&quot;extra_classes&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) string with names of extra classes.&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
-<p>Relevant extra_classes<br />
-- "fr-btn--secondary" : secundary button<br />
-- "fr-btn--icon-left" and "fr-btn--icon-right": add an icon to the button<br />
-  (associated with an icon class)<br />
-- "fr-btn--sm" and "fr-btn--lg": button smaller or larger than the default size</p>
-<p><strong>Tag name</strong>::<br />
-    dsfr_button<br />
-<strong>Usage</strong>::<br />
-    {% dsfr_button data_dict %}</p>
+<p>Relevant <code>extra_classes</code>:</p>
+<ul>
+<li><code>fr-btn--secondary</code> : secundary button</li>
+<li><code>fr-btn--icon-left</code> and <code>fr-btn--icon-right</code>: add an icon to the button
+  (associated with an icon class)</li>
+<li><code>fr-btn--sm</code> and <code>fr-btn--lg</code>: button smaller or larger than the default size</li>
+</ul>
+<p><strong>Tag name</strong>:
+    dsfr_button</p>
+<p><strong>Usage</strong>:
+    <code>{% dsfr_button data_dict %}</code></p>
 
       
         <h2>Exemples</h2>
@@ -499,9 +509,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-sgzgilbpghyemavh">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-barobfdiudvcrqvu">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-sgzgilbpghyemavh">
+    <div class="fr-collapse" id="accordion-barobfdiudvcrqvu">
         <pre class="dsfr-code">{'label': 'Bouton principal',
  'onclick': "alert('Vous avez cliqué sur le bouton principal')"}</pre>
     </div>
@@ -531,9 +541,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-aplwqwlksvofzwgz">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-mjmbhdfeytxiazsy">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-aplwqwlksvofzwgz">
+    <div class="fr-collapse" id="accordion-mjmbhdfeytxiazsy">
         <pre class="dsfr-code">{'extra_classes': 'fr-btn--secondary',
  'label': 'Bouton secondaire',
  'name': 'secundary-button',
@@ -641,8 +651,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="zzXcLwpQrGT+3aiWH7ltug=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="zzXcLwpQrGT+3aiWH7ltug=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-0OQ6Q9ZAssur6KZKIPnF76AYck9k+vzDJ4QWGEQSpmU5qWtHIr9eN2/9/GOKiJeg" nonce="UYE/QHFqHgy9aWEahwfcuQ=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-lbZ4GtXN8+9/PJKGoM35lJokzC+dXV3JFLZgwg7G/rkeZATNoF6VRX+4agY6raLu"  nonce="UYE/QHFqHgy9aWEahwfcuQ=="></script>
 
     
   </body>

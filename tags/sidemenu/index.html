@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-Ql2Bzx7mo19G32l4v+XtMIVYTqFTxyNj/kFXPAL60CRE5GJlKnKaFy4MV2+4yE5j">
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-Aw2puKHTlIDiMlmvTYRVslXy3kBfHAP3KaG0kLtmejQqSOTWwCACAfsOk10ukPaE">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-diNcOMzsBeI3kzBRfiZqv56Oi4WBnUJhcubWpNsTCigDuxMUPJMGgMlE9KSfFyb1">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-rEPdGS1CzbNKp1iHewzg1GXyWg9OacK//IkYEX1YqrrqQwxWX7+7OiqoCokyCSuQ">
 <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-django-overrides.css">
 
 <meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
@@ -30,6 +30,10 @@
   font-family: monospace;
   font-size: 1rem;
 }
+p code, li code {
+  background: var(--background-alt-grey);
+  padding: 0.2em;
+}
 </style>
 
 
@@ -40,6 +44,8 @@
       
     </title>
     
+
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
   </head>
 
   <body>
@@ -470,25 +476,28 @@
       <h2>Documentation du tag</h2>
 
       <p>Returns a side menu item. Takes a dict as parameter, with the following structure:</p>
-<p>data_dict = {<br />
-    "title": "The title of the main menu",<br />
-    "items": "a list of similarly structured dictionaries (see below)",<br />
-    "heading_tag": "(Optional) Heading tag for the accordion title<br />
-    (h2, etc. Default: div)"<br />
-    "extra_classes": "(Optional) string with names of extra classes",<br />
-}</p>
-<p>Item-level-dictionaries items can have either links or a sub-level menu list, and<br />
+<div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The title of the main menu&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="s2">&quot;a list of similarly structured dictionaries (see below)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;heading_tag&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Heading tag for the accordion title (h2, etc. Default: div)&quot;</span>
+    <span class="s2">&quot;extra_classes&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) string with names of extra classes&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Item-level-dictionaries items can have either links or a sub-level menu list, and
 it can accept three levels of nested menu entries.</p>
-<p>item_dict = {<br />
-    "label": "The label of the menu item",<br />
-    "items": "(EITHER) a list of similarly structured dictionaries (see below)",<br />
-    "link": "(OR) the link (fragment) of the menu item",<br />
-}</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">item_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;The label of the menu item&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="s2">&quot;(EITHER) a list of similarly structured dictionaries (see below)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;(OR) the link (fragment) of the menu item&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
-<p><strong>Tag name</strong>::<br />
-    dsfr_sidemenu<br />
-<strong>Usage</strong>::<br />
-    {% dsfr_sidemenu data_dict %}</p>
+<p><strong>Tag name</strong>:
+    dsfr_sidemenu</p>
+<p><strong>Usage</strong>:
+    <code>{% dsfr_sidemenu data_dict %}</code></p>
 
       
         <h2>Exemples</h2>
@@ -499,9 +508,9 @@ it can accept three levels of nested menu entries.</p>
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-qfjheeocqchigtys">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-eqqytbesxlmgvsbo">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-qfjheeocqchigtys">
+    <div class="fr-collapse" id="accordion-eqqytbesxlmgvsbo">
         <pre class="dsfr-code">{'items': [{'items': [{'label': 'Une page', 'link': '#'},
                       {'label': 'Une autre page', 'link': '/sidemenu'}],
             'label': 'Menu replié'},
@@ -728,8 +737,8 @@ it can accept three levels of nested menu entries.</p>
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="Rt6xQBwCMPxH2j9REqX+og=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="Rt6xQBwCMPxH2j9REqX+og=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-0OQ6Q9ZAssur6KZKIPnF76AYck9k+vzDJ4QWGEQSpmU5qWtHIr9eN2/9/GOKiJeg" nonce="kY9CbraYzGwCucUFesQM2Q=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-lbZ4GtXN8+9/PJKGoM35lJokzC+dXV3JFLZgwg7G/rkeZATNoF6VRX+4agY6raLu"  nonce="kY9CbraYzGwCucUFesQM2Q=="></script>
 
     
   </body>

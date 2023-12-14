@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-Ql2Bzx7mo19G32l4v+XtMIVYTqFTxyNj/kFXPAL60CRE5GJlKnKaFy4MV2+4yE5j">
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-Aw2puKHTlIDiMlmvTYRVslXy3kBfHAP3KaG0kLtmejQqSOTWwCACAfsOk10ukPaE">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-diNcOMzsBeI3kzBRfiZqv56Oi4WBnUJhcubWpNsTCigDuxMUPJMGgMlE9KSfFyb1">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-rEPdGS1CzbNKp1iHewzg1GXyWg9OacK//IkYEX1YqrrqQwxWX7+7OiqoCokyCSuQ">
 <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-django-overrides.css">
 
 <meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
@@ -30,6 +30,10 @@
   font-family: monospace;
   font-size: 1rem;
 }
+p code, li code {
+  background: var(--background-alt-grey);
+  padding: 0.2em;
+}
 </style>
 
 
@@ -40,6 +44,8 @@
       
     </title>
     
+
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
   </head>
 
   <body>
@@ -470,22 +476,26 @@
       <h2>Documentation du tag</h2>
 
       <p>Returns an alert item. Takes a dict as parameter, with the following structure:</p>
-<p>data_dict = {<br />
-    "title": "(Optional) Title of the alert item",<br />
-    "type": "Possible values : info, success, error",<br />
-    "content": "Content of the accordion item (can include html)",<br />
-    "heading_tag": "(Optional) Heading tag for the alert title (default: p)",<br />
-    "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the alert (default: false)",<br />
-    "id": "Unique id of the alert item (Optional, mandatory if collapsible)",<br />
-    "extra_classes": (Optional) string with names of extra classes.<br />
-}</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Title of the alert item&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Possible values : info, success, error&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Content of the accordion item (can include html)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;heading_tag&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Heading tag for the alert title (default: p)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;is_collapsible&quot;</span> <span class="p">:</span> <span class="s2">&quot;(Optional) Boolean, set to true to add a &#39;close&#39; button for the alert (default: false)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;Unique id of the alert item (Optional, mandatory if collapsible)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extra_classes&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) string with names of extra classes.&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
-<p>Relevant extra_classes<br />
-- "fr-alert--sm" : small alert</p>
-<p><strong>Tag name</strong>::<br />
-    dsfr_alert<br />
-<strong>Usage</strong>::<br />
-    {% dsfr_alert data_dict %}</p>
+<p>Relevant <code>extra_classes</code>:</p>
+<ul>
+<li><code>fr-alert--sm</code> : small alert</li>
+</ul>
+<p><strong>Tag name</strong>:
+    dsfr_alert</p>
+<p><strong>Usage</strong>:
+    <code>{% dsfr_alert data_dict %}</code></p>
 
       
         <h2>Exemples</h2>
@@ -496,9 +506,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-pzeakyxywglfsmzq">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-yktkdblmcvgyumcf">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-pzeakyxywglfsmzq">
+    <div class="fr-collapse" id="accordion-yktkdblmcvgyumcf">
         <pre class="dsfr-code">{'content': 'Cliquer sur la croix pour fermer l’alerte.',
  'heading_tag': 'h3',
  'id': 'alert-success-tag',
@@ -532,9 +542,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-aradsijggbzvfkkv">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-tonoglfpwjfrzwyj">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-aradsijggbzvfkkv">
+    <div class="fr-collapse" id="accordion-tonoglfpwjfrzwyj">
         <pre class="dsfr-code">{'content': 'Cliquer sur la croix pour fermer l’alerte.',
  'heading_tag': 'h3',
  'is_collapsible': True,
@@ -567,9 +577,9 @@
               
                 <section class="fr-accordion">
     <h3 class="fr-accordion__title">
-        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-hzytcnkkxeeidwuj">Données d’exemple</button>
+        <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-enwmlewyamvqbxss">Données d’exemple</button>
     </h3>
-    <div class="fr-collapse" id="accordion-hzytcnkkxeeidwuj">
+    <div class="fr-collapse" id="accordion-enwmlewyamvqbxss">
         <pre class="dsfr-code">{'content': 'Cette alerte n’a pas de croix de fermeture.',
  'heading_tag': 'h3',
  'title': 'Alerte non-refermable de type info',
@@ -672,8 +682,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="2A0M5Y/jIoPuiRfmCEPFYQ=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="2A0M5Y/jIoPuiRfmCEPFYQ=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-0OQ6Q9ZAssur6KZKIPnF76AYck9k+vzDJ4QWGEQSpmU5qWtHIr9eN2/9/GOKiJeg" nonce="YdQfOmxQuxs2r0HDJoIgXg=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-lbZ4GtXN8+9/PJKGoM35lJokzC+dXV3JFLZgwg7G/rkeZATNoF6VRX+4agY6raLu"  nonce="YdQfOmxQuxs2r0HDJoIgXg=="></script>
 
     
   </body>

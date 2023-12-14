@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-Ql2Bzx7mo19G32l4v+XtMIVYTqFTxyNj/kFXPAL60CRE5GJlKnKaFy4MV2+4yE5j">
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-Aw2puKHTlIDiMlmvTYRVslXy3kBfHAP3KaG0kLtmejQqSOTWwCACAfsOk10ukPaE">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-diNcOMzsBeI3kzBRfiZqv56Oi4WBnUJhcubWpNsTCigDuxMUPJMGgMlE9KSfFyb1">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-rEPdGS1CzbNKp1iHewzg1GXyWg9OacK//IkYEX1YqrrqQwxWX7+7OiqoCokyCSuQ">
 <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-django-overrides.css">
 
 <meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
@@ -29,6 +29,8 @@
       
     </title>
     
+
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
   </head>
 
   <body>
@@ -246,62 +248,46 @@
       <main id="content" role="main">
         
   <h1>Composants du système de design de l’État</h1>
-
   <div class="fr-tabs">
     <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
-        <li role="presentation">
-            <button id="tabpanel-documentation" class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="true" aria-controls="tabpanel-documentation-panel">
-              Documentation
-            </button>
-        </li>
       <li role="presentation">
-            <button id="tabpanel-implemented" class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="false" aria-controls="tabpanel-implemented-panel">
-              Composants implémentés
-            </button>
-        </li>
-        <li role="presentation">
-            <button id="tabpanel-notyetimplemented" class="fr-tabs__tab fr-icon-close-circle-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-notyetimplemented-panel">
-              Composants encore non implémentés
-            </button>
-        </li>
-        <li role="presentation">
-            <button id="tabpanel-extratags" class="fr-tabs__tab fr-icon-add-circle-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-extratags-panel">
-              Balises supplémentaires
-            </button>
-        </li>
+        <button id="tabpanel-implemented"
+                class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left"
+                tabindex="0"
+                role="tab"
+                aria-selected="true"
+                aria-controls="tabpanel-implemented-panel">Composants implémentés</button>
+      </li>
+      <li role="presentation">
+        <button id="tabpanel-notyetimplemented"
+                class="fr-tabs__tab fr-icon-close-circle-line fr-tabs__tab--icon-left"
+                tabindex="-1"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tabpanel-notyetimplemented-panel">Composants encore non implémentés</button>
+      </li>
+      <li role="presentation">
+        <button id="tabpanel-extratags"
+                class="fr-tabs__tab fr-icon-add-circle-line fr-tabs__tab--icon-left"
+                tabindex="-1"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tabpanel-extratags-panel">Balises supplémentaires</button>
+      </li>
+      <li role="presentation">
+        <button id="tabpanel-documentation"
+                class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left"
+                tabindex="0"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tabpanel-documentation-panel">Documentation</button>
+      </li>
     </ul>
-    <div id="tabpanel-documentation-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tabpanel-documentation" tabindex="0">
-      <h2>Documentation</h2>
-      <ul>
-        <p>Le système de design propose <a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants">un certain nombre de composants</a>, et Django-DSFR vise à les implémenter sous forme de balises utilisables dans les templates Django, soit en passant directement les paramètres, soit en les passant depuis la vue via un dictionnaire.</p>
-<p>Par exemple, il est possible de créer un bouton soit en passant directement les paramètres :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="cp">{%</span> <span class="k">dsfr_button</span> <span class="nv">label</span><span class="o">=</span><span class="s2">&quot;Bouton principal&quot;</span> <span class="nv">onclick</span><span class="o">=</span><span class="s2">&quot;alert(&#39;Vous avez cliqué sur le bouton principal&#39;)&quot;</span> <span class="cp">%}</span>
-</code></pre></div>
-
-<p>Soit en définissant un dictionnaire dans la vue :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="n">context</span><span class="p">[</span><span class="s2">&quot;data_dict&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Bouton principal&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;onclick&quot;</span><span class="p">:</span> <span class="s2">&quot;alert(&#39;Vous avez cliqué sur le bouton principal&#39;)&quot;</span><span class="p">,</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>et en l’appelant depuis le template :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="cp">{%</span> <span class="k">dsfr_button</span> <span class="nv">data_dict</span> <span class="cp">%}</span>
-</code></pre></div>
-
-<p>L’implémentation de ces balises est un travail en cours, mais il est tout à fait possible d’utiliser directement l’ensemble du système de design de l’État en utilisant directement le code HTML tel que défini dans la documentation officielle :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-btn&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;alert(&#39;Vous avez cliqué sur le bouton principal&#39;)&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>
-  Bouton principal
-<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-</code></pre></div>
-
-<p>Toutes ces options produisent le même résultat :</p>
-<p><button class="fr-btn" onclick="alert('Vous avez cliqué sur le bouton principal')" type="submit">
-  Bouton principal
-</button></p>
-      </ul>
-    </div>
-    <div id="tabpanel-implemented-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-implemented" tabindex="0">
+    <div id="tabpanel-implemented-panel"
+         class="fr-tabs__panel fr-tabs__panel--selected"
+         role="tabpanel"
+         aria-labelledby="tabpanel-implemented"
+         tabindex="0">
       <h2>Composants implémentés</h2>
       <ul>
         
@@ -395,7 +381,11 @@
         
       </ul>
     </div>
-    <div id="tabpanel-notyetimplemented-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-notyetimplemented" tabindex="0">
+    <div id="tabpanel-notyetimplemented-panel"
+         class="fr-tabs__panel"
+         role="tabpanel"
+         aria-labelledby="tabpanel-notyetimplemented"
+         tabindex="0">
       <h2>Composants encore non implémentés</h2>
       <ul>
         
@@ -481,7 +471,11 @@
         
       </ul>
     </div>
-    <div id="tabpanel-extratags-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-extratags" tabindex="0">
+    <div id="tabpanel-extratags-panel"
+         class="fr-tabs__panel"
+         role="tabpanel"
+         aria-labelledby="tabpanel-extratags"
+         tabindex="0">
       <h2>Balises supplémentaires</h2>
       <ul>
         
@@ -514,11 +508,48 @@
           </li>
         
       </ul>
-
       <h2>En-tête et pied de page</h2>
-      <p>Les composants « En-tête (header) » et « Pied de page (footer) » sont actuellement gérés avec
-      des balises include (<code>{% include "dsfr/header.html" %}</code> et <code>{% include "dsfr/footer.html" %}</code>)
-      et non des balises dédiées.</p>
+      <p>
+        Les composants « En-tête (header) » et « Pied de page (footer) » sont actuellement gérés avec
+        des balises include (<code> {% include "dsfr/header.html" %} </code>
+        et <code> {% include "dsfr/footer.html" %} </code>)
+        et non des balises dédiées.
+      </p>
+    </div>
+    <div id="tabpanel-documentation-panel"
+         class="fr-tabs__panel"
+         role="tabpanel"
+         aria-labelledby="tabpanel-documentation"
+         tabindex="0">
+      <h2>Documentation</h2>
+      <ul>
+        <p>Le système de design propose <a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants">un certain nombre de composants</a>, et Django-DSFR vise à les implémenter sous forme de balises utilisables dans les templates Django, soit en passant directement les paramètres, soit en les passant depuis la vue via un dictionnaire.</p>
+<p>Par exemple, il est possible de créer un bouton soit en passant directement les paramètres :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="cp">{%</span> <span class="k">dsfr_button</span> <span class="nv">label</span><span class="o">=</span><span class="s2">&quot;Bouton principal&quot;</span> <span class="nv">onclick</span><span class="o">=</span><span class="s2">&quot;alert(&#39;Vous avez cliqué sur le bouton principal&#39;)&quot;</span> <span class="cp">%}</span>
+</code></pre></div>
+
+<p>Soit en définissant un dictionnaire dans la vue :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">context</span><span class="p">[</span><span class="s2">&quot;data_dict&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Bouton principal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;onclick&quot;</span><span class="p">:</span> <span class="s2">&quot;alert(&#39;Vous avez cliqué sur le bouton principal&#39;)&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>et en l’appelant depuis le template :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="cp">{%</span> <span class="k">dsfr_button</span> <span class="nv">data_dict</span> <span class="cp">%}</span>
+</code></pre></div>
+
+<p>L’implémentation de ces balises est un travail en cours, mais il est tout à fait possible d’utiliser directement l’ensemble du système de design de l’État en utilisant directement le code HTML tel que défini dans la documentation officielle :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-btn&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;alert(&#39;Vous avez cliqué sur le bouton principal&#39;)&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>
+  Bouton principal
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>Toutes ces options produisent le même résultat :</p>
+<p><button class="fr-btn" onclick="alert('Vous avez cliqué sur le bouton principal')" type="submit">
+  Bouton principal
+</button></p>
+      </ul>
     </div>
   </div>
 
@@ -598,8 +629,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="CMAdt+clj5y4TaJ3oxkL8g=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="CMAdt+clj5y4TaJ3oxkL8g=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-0OQ6Q9ZAssur6KZKIPnF76AYck9k+vzDJ4QWGEQSpmU5qWtHIr9eN2/9/GOKiJeg" nonce="23vCDM+snc06Z11Qu5dC+w=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-lbZ4GtXN8+9/PJKGoM35lJokzC+dXV3JFLZgwg7G/rkeZATNoF6VRX+4agY6raLu"  nonce="23vCDM+snc06Z11Qu5dC+w=="></script>
 
     
   </body>
