@@ -10,10 +10,10 @@
     
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"
-      integrity="sha384-Ql2Bzx7mo19G32l4v+XtMIVYTqFTxyNj/kFXPAL60CRE5GJlKnKaFy4MV2+4yE5j">
+      integrity="sha384-diNcOMzsBeI3kzBRfiZqv56Oi4WBnUJhcubWpNsTCigDuxMUPJMGgMlE9KSfFyb1">
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css"
-      integrity="sha384-Aw2puKHTlIDiMlmvTYRVslXy3kBfHAP3KaG0kLtmejQqSOTWwCACAfsOk10ukPaE">
+      integrity="sha384-rEPdGS1CzbNKp1iHewzg1GXyWg9OacK//IkYEX1YqrrqQwxWX7+7OiqoCokyCSuQ">
 <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-django-overrides.css">
 <meta name="theme-color" content="#000091">
 <!-- Définit la couleur de thème du navigateur (Safari/Android) -->
@@ -49,6 +49,10 @@
       font-family: monospace;
       font-size: 1rem;
     }
+p code, li code {
+  background: var(--background-alt-grey);
+  padding: 0.2em;
+}
   </style>
 
     
@@ -58,6 +62,8 @@
         
       </title>
     
+
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
   </head>
   <body>
     
@@ -704,35 +710,41 @@
         Documentation du tag
       </h2>
       <p>Returns a tile item. Takes a dict as parameter, with the following structure:</p>
-<p>data_dict = {<br />
-    "title": "Title of the tile item",<br />
-    "url": "URL of the link of the tile item",<br />
-    "image_path": "path of the tile image",<br />
-    "svg_path": "path of the tile image if this is a SVG",<br />
-    "description": "(Optional) description of the tile item",<br />
-    "detail": "(Optional) detail zone of the tile tiem<br />
-    "top_detail": "(Optional) dict with a top detail content and optional tags or badges",<br />
-    "heading_tag": "(Optional) Heading tag for the alert title (default: h3)",<br />
-    "id": "(Optional) id of the tile item",<br />
-    "enlarge_link": (Optional) boolean. If true (default), the link covers the whole card",<br />
-    "extra_classes: (Optional) string with names of extra classes"<br />
-}</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Title of the tile item&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;URL of the link of the tile item&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;image_path&quot;</span><span class="p">:</span> <span class="s2">&quot;path of the tile image&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;svg_path&quot;</span><span class="p">:</span> <span class="s2">&quot;path of the tile image if this is a SVG&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) description of the tile item&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) detail zone of the tile tiem</span>
+    <span class="s2">&quot;top_detail&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) dict with a top detail content and optional tags or badges&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;heading_tag&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Heading tag for the alert title (default: h3)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) id of the tile item&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;enlarge_link&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">Optional</span><span class="p">)</span> <span class="n">boolean</span><span class="o">.</span> <span class="n">If</span> <span class="n">true</span> <span class="p">(</span><span class="n">default</span><span class="p">),</span> <span class="n">the</span> <span class="n">link</span> <span class="n">covers</span> <span class="n">the</span> <span class="n">whole</span> <span class="n">card</span><span class="s2">&quot;,</span>
+    <span class="s2">&quot;extra_classes: (Optional) string with names of extra classes&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
-<p>Relevant extra_classes:<br />
-- fr-tile--sm: for a small (SM) tile<br />
-- fr-tile--horizontal: for an horizontal tile<br />
-- fr-tile--download: Replaces the forward arrow icon with a download one</p>
-<p>Format of the top_detail dict (every field is optional):<br />
-top_detail = {<br />
-    "tags": "a list of tag items (mutually exclusive with badges)",<br />
-    "badges": "a list of badge items (mutually exclusive with tags)"<br />
-}</p>
-<p>Note: "image_path" will work even if a SVG is provided, but "svg_path" will use a<br />
-<svg> html tag instead of the <img> tag.</p>
-<p><strong>Tag name</strong>::<br />
-    dsfr_tile<br />
-<strong>Usage</strong>::<br />
-    {% dsfr_tile data_dict %}</p>
+<p>Relevant extra_classes:</p>
+<ul>
+<li><code>fr-tile--sm</code>: for a small (SM) tile</li>
+<li><code>fr-tile--horizontal</code>: for an horizontal tile</li>
+<li><code>fr-tile--download</code>: Replaces the forward arrow icon with a download one</li>
+</ul>
+<p>Format of the top_detail dict (every field is optional):</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">top_detail</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="s2">&quot;a list of tag items (mutually exclusive with badges)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;badges&quot;</span><span class="p">:</span> <span class="s2">&quot;a list of badge items (mutually exclusive with tags)&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Note: <code>image_path</code> will work even if a SVG is provided, but <code>svg_path</code> will use a
+<code>&lt;svg&gt;</code> html tag instead of the <code>&lt;img&gt;</code> tag.</p>
+<p><strong>Tag name</strong>:
+    dsfr_tile</p>
+<p><strong>Usage</strong>:
+    <code>{% dsfr_tile data_dict %}</code></p>
       
         <h2>
           Exemples
@@ -749,11 +761,11 @@ top_detail = {<br />
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-ljhqkndvvvfxkled">
+          aria-controls="accordion-cntbcffjhxlrvnae">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-ljhqkndvvvfxkled">
+  <div class="fr-collapse" id="accordion-cntbcffjhxlrvnae">
     <pre class="dsfr-code">{'image_path': '/django-dsfr/static/img/placeholder.1x1.svg',
  'title': 'Tuile basique (verticale, MD)',
  'url': '/'}</pre>
@@ -806,11 +818,11 @@ top_detail = {<br />
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-fxwcweawzkqfujdt">
+          aria-controls="accordion-rjtfrxomxfiuifqd">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-fxwcweawzkqfujdt">
+  <div class="fr-collapse" id="accordion-rjtfrxomxfiuifqd">
     <pre class="dsfr-code">{'description': 'Tuile horizontale (MD)',
  'detail': 'Avec un pictogramme SVG',
  'extra_classes': 'fr-tile--horizontal',
@@ -883,11 +895,11 @@ top_detail = {<br />
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-xkfzohwqfdqrkwof">
+          aria-controls="accordion-qdbvypobunimrzlx">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-xkfzohwqfdqrkwof">
+  <div class="fr-collapse" id="accordion-qdbvypobunimrzlx">
     <pre class="dsfr-code">{'extra_classes': 'fr-tile--sm',
  'id': 'tile-nuclear-plant',
  'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/buildings/nuclear-plant.svg',
@@ -950,11 +962,11 @@ top_detail = {<br />
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-nwmtbisgmycbxkwc">
+          aria-controls="accordion-dlwoqavkdkzmiswj">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-nwmtbisgmycbxkwc">
+  <div class="fr-collapse" id="accordion-dlwoqavkdkzmiswj">
     <pre class="dsfr-code">{'extra_classes': 'fr-tile--horizontal fr-tile--sm',
  'id': 'tile-map',
  'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/map/map.svg',
@@ -1035,11 +1047,11 @@ top_detail = {<br />
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-xqwaismmsbgclgow">
+          aria-controls="accordion-wtugiuhfkvmlqkhi">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-xqwaismmsbgclgow">
+  <div class="fr-collapse" id="accordion-wtugiuhfkvmlqkhi">
     <pre class="dsfr-code">{'detail': 'PDF — 1,7 Mo',
  'extra_classes': 'fr-tile--horizontal fr-tile--download',
  'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/document/document-signature.svg',
@@ -1186,12 +1198,12 @@ top_detail = {<br />
     
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
-        integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya"
-         nonce="9OM/7KFJKF0MOq+wDiKkDg=="></script>
+        integrity="sha384-0OQ6Q9ZAssur6KZKIPnF76AYck9k+vzDJ4QWGEQSpmU5qWtHIr9eN2/9/GOKiJeg"
+         nonce="gjiXEVmIYuK5QIAYWrTPAg=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
-        integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"
-         nonce="9OM/7KFJKF0MOq+wDiKkDg=="></script>
+        integrity="sha384-lbZ4GtXN8+9/PJKGoM35lJokzC+dXV3JFLZgwg7G/rkeZATNoF6VRX+4agY6raLu"
+         nonce="gjiXEVmIYuK5QIAYWrTPAg=="></script>
 
     
     

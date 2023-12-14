@@ -10,10 +10,10 @@
     
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"
-      integrity="sha384-Ql2Bzx7mo19G32l4v+XtMIVYTqFTxyNj/kFXPAL60CRE5GJlKnKaFy4MV2+4yE5j">
+      integrity="sha384-diNcOMzsBeI3kzBRfiZqv56Oi4WBnUJhcubWpNsTCigDuxMUPJMGgMlE9KSfFyb1">
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css"
-      integrity="sha384-Aw2puKHTlIDiMlmvTYRVslXy3kBfHAP3KaG0kLtmejQqSOTWwCACAfsOk10ukPaE">
+      integrity="sha384-rEPdGS1CzbNKp1iHewzg1GXyWg9OacK//IkYEX1YqrrqQwxWX7+7OiqoCokyCSuQ">
 <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-django-overrides.css">
 <meta name="theme-color" content="#000091">
 <!-- Définit la couleur de thème du navigateur (Safari/Android) -->
@@ -49,6 +49,10 @@
       font-family: monospace;
       font-size: 1rem;
     }
+p code, li code {
+  background: var(--background-alt-grey);
+  padding: 0.2em;
+}
   </style>
 
     
@@ -58,6 +62,8 @@
         
       </title>
     
+
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
   </head>
   <body>
     
@@ -704,17 +710,19 @@
         Documentation du tag
       </h2>
       <p>Returns a stepper item. Takes a dict as parameter, with the following structure:</p>
-<p>data_dict = {<br />
-    "current_step_id": "Number of current step",<br />
-    "current_step_title": "Title of current step",<br />
-    "next_step_title": "(Optional) Title of next step",<br />
-    "total_steps": "Total number of steps",<br />
-}</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;current_step_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Number of current step&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;current_step_title&quot;</span><span class="p">:</span> <span class="s2">&quot;Title of current step&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;next_step_title&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Title of next step&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;total_steps&quot;</span><span class="p">:</span> <span class="s2">&quot;Total number of steps&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
-<p><strong>Tag name</strong>::<br />
-    dsfr_stepper<br />
-<strong>Usage</strong>::<br />
-    {% dsfr_stepper data_dict %}</p>
+<p><strong>Tag name</strong>:
+    dsfr_stepper</p>
+<p><strong>Usage</strong>:
+    <code>{% dsfr_stepper data_dict %}</code></p>
       
         <h2>
           Exemples
@@ -731,11 +739,11 @@
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-vdpoqamxasocriwn">
+          aria-controls="accordion-sgkdektzjzpkmsxv">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-vdpoqamxasocriwn">
+  <div class="fr-collapse" id="accordion-sgkdektzjzpkmsxv">
     <pre class="dsfr-code">{'current_step_id': '1',
  'current_step_title': 'Titre de l’étape en cours',
  'next_step_title': 'Titre de la prochaine étape',
@@ -779,11 +787,11 @@
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-mxoitykeylvfxpnz">
+          aria-controls="accordion-qfavkxyitavdlymb">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-mxoitykeylvfxpnz">
+  <div class="fr-collapse" id="accordion-qfavkxyitavdlymb">
     <pre class="dsfr-code">{'current_step_id': '4',
  'current_step_title': 'Titre de la dernière étape',
  'total_steps': '4'}</pre>
@@ -902,12 +910,12 @@
     
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
-        integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya"
-         nonce="/ip6CHYvWjWSNSiiUqAFbQ=="></script>
+        integrity="sha384-0OQ6Q9ZAssur6KZKIPnF76AYck9k+vzDJ4QWGEQSpmU5qWtHIr9eN2/9/GOKiJeg"
+         nonce="QySV5pjQTUaDkI7SZz/cKQ=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
-        integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"
-         nonce="/ip6CHYvWjWSNSiiUqAFbQ=="></script>
+        integrity="sha384-lbZ4GtXN8+9/PJKGoM35lJokzC+dXV3JFLZgwg7G/rkeZATNoF6VRX+4agY6raLu"
+         nonce="QySV5pjQTUaDkI7SZz/cKQ=="></script>
 
     
     
