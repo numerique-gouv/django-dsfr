@@ -1,23 +1,29 @@
 {% load widget_tweaks %}
-<fieldset class="fr-fieldset{% if field.errors %} fr-fieldset--error{% endif %}" id="radio-{{ field.auto_id }}" aria-labelledby="{{ field.auto_id }}-legend{% if field.errors %} {{ field.auto_id }}-messages{% endif %}">
-  <legend class="fr-fieldset__legend fr-text--regular" id="{{ field.auto_id }}-legend">
-    {{ field.label_tag }}{% if field.field.required %} *{% endif %}
-    {% if field.help_text %}<span class="fr-hint-text">{{ field.help_text }}</span>{% endif %}
+<fieldset class="fr-fieldset{% if field.errors %} fr-fieldset--error{% endif %}"
+          id="radio-{{ field.auto_id }}"
+          aria-labelledby="{{ field.auto_id }}-legend{% if field.errors %} {{ field.auto_id }}-messages{% endif %}">
+  <legend class="fr-fieldset__legend fr-text--regular"
+          id="{{ field.auto_id }}-legend">
+    {{ field.label_tag }}
+    {% if field.field.required %}
+      *
+    {% endif %}
+    {% if field.help_text %}
+      <span class="fr-hint-text">{{ field.help_text }}</span>
+    {% endif %}
   </legend>
-
   <div class="fr-fieldset__content">
-      <div class="fr-radio-group">
-          {% if field.field.disabled %}
-            {{ field|attr:"type:radio"|add_class:"fr-radio-group"|attr:"disabled" }}
-          {% else %}
-            {{ field|attr:"type:radio"|add_class:"fr-radio-group" }}
-          {% endif %}
-      </div>
+    <div class="fr-radio-group">
+      {% if field.field.disabled %}
+        {{ field|attr:"type:radio"|add_class:"fr-radio-group"|attr:"disabled" }}
+      {% else %}
+        {{ field|attr:"type:radio"|add_class:"fr-radio-group" }}
+      {% endif %}
+    </div>
   </div>
-
   {% if field.errors %}
     <div class="fr-messages-group" id="{{ field.auto_id }}-messages">
-        {{ field.errors }}
+      {{ field.errors }}
     </div>
   {% endif %}
 </fieldset>

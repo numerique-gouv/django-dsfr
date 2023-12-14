@@ -1,11 +1,8 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
-
 {% block content %}
-  {{ documentation|safe}}
+  {{ documentation|safe }}
 {% endblock content %}
-
-
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}">
 {% endblock extra_css %}

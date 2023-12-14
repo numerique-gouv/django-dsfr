@@ -1,24 +1,25 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
-
 {% block extra_css %}
-<style nonce="{{ request.csp_nonce }}">
+  <style nonce="{{ request.csp_nonce }}">
 .code_sample {
   background-color: var(--g300);
   padding: 1rem;
 }
-</style>
-{% endblock %}
-
+  </style>
+{% endblock extra_css %}
 {% block content %}
-  <h1>Django-DSFR</h1>
-  <h2>Documentation</h2>
+  <h1>
+    Django-DSFR
+  </h1>
+  <h2>
+    Documentation
+  </h2>
   <div>
     <p>
       <strong>Django-dsfr</strong> est une application django permettant d’utiliser le
       <a href="https://www.systeme-de-design.gouv.fr/">système de design de l’État</a> dans des projets Django.
     </p>
-
     <p>
       Elle a été développée dans le cadre du défi
       <a href="https://github.com/entrepreneur-interet-general/opencollectivites">Open Collectivités</a>
@@ -26,33 +27,42 @@
       utilisation dans le cadre d’Open Collectivités), cf. la page <a href="{% url 'tags_index' %}">Composants</a>.
     </p>
   </div>
-
   <div class="fr-grid-row fr-grid-row--gutters fr-mb-3w">
     <div class="fr-col-12 fr-col-md-4">
       {% dsfr_summary summary_data %}
     </div>
   </div>
-
-  <h3 id="installation">Installation</h3>
+  <h3 id="installation">
+    Installation
+  </h3>
   <p>
     Voir la page <a href="{% url 'doc_install' %}">Installation</a>.
   </p>
-
-  <h3 id="utilisation">Utilisation</h3>
+  <h3 id="utilisation">
+    Utilisation
+  </h3>
   <p>
     Les explications sur l’utilisation de chaque composant figurent sur leur entrée dédiée, accessible via la
     page <a href="{% url 'tags_index' %}">Composants</a>.
   </p>
-
-  <h3 id="developpement">Développement</h3>
+  <h3 id="developpement">
+    Développement
+  </h3>
   <p>
     Voir la page <a href="{% url 'doc_contributing' %}">Contribuer</a>.
   </p>
-
-  <h3 id="notes">Notes</h3>
+  <h3 id="notes">
+    Notes
+  </h3>
   <ul>
-    <li>Il est possible d’utiliser tous les composants du DSFR directement avec leur code HTML, y compris ceux pour lesquels il n’existe pas encore de balise.</li>
-    <li>De même pour certains où il vaut mieux créer un template ad-hoc à chaque utilisation, comme les modales.</li>
-    <li>La présente documentation est un export statique de l’application example_app réalisé avec <a href="https://github.com/meeb/django-distill">Django-distill</a>.</li>
+    <li>
+      Il est possible d’utiliser tous les composants du DSFR directement avec leur code HTML, y compris ceux pour lesquels il n’existe pas encore de balise.
+    </li>
+    <li>
+      De même pour certains où il vaut mieux créer un template ad-hoc à chaque utilisation, comme les modales.
+    </li>
+    <li>
+      La présente documentation est un export statique de l’application example_app réalisé avec <a href="https://github.com/meeb/django-distill">Django-distill</a>.
+    </li>
   </ul>
-{% endblock %}
+{% endblock content %}

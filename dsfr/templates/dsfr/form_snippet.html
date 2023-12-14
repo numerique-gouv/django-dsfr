@@ -1,6 +1,8 @@
 {% if form.non_field_errors %}
-  <section class="fr-my-4v fr-input-group fr-input-group--error">{{ form.non_field_errors }}</section>
+  <section class="fr-my-4v fr-input-group fr-input-group--error">
+    {{ form.non_field_errors }}
+  </section>
 {% endif %}
 {% for field in form %}
-    {% include "dsfr/form_field_snippets/field_snippet.html" %}
+  {% include "dsfr/form_field_snippets/field_snippet.html" %}
 {% endfor %}

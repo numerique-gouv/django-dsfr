@@ -1,40 +1,72 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
-
 {% block content %}
-  <h1>Composants du système de design de l’État</h1>
-
+  <h1>
+    Composants du système de design de l’État
+  </h1>
   <div class="fr-tabs">
     <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
-        <li role="presentation">
-            <button id="tabpanel-documentation" class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="true" aria-controls="tabpanel-documentation-panel">
-              Documentation
-            </button>
-        </li>
       <li role="presentation">
-            <button id="tabpanel-implemented" class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="false" aria-controls="tabpanel-implemented-panel">
-              Composants implémentés
-            </button>
-        </li>
-        <li role="presentation">
-            <button id="tabpanel-notyetimplemented" class="fr-tabs__tab fr-icon-close-circle-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-notyetimplemented-panel">
-              Composants encore non implémentés
-            </button>
-        </li>
-        <li role="presentation">
-            <button id="tabpanel-extratags" class="fr-tabs__tab fr-icon-add-circle-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-extratags-panel">
-              Balises supplémentaires
-            </button>
-        </li>
+        <button id="tabpanel-documentation"
+                class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left"
+                tabindex="0"
+                role="tab"
+                aria-selected="true"
+                aria-controls="tabpanel-documentation-panel">
+          Documentation
+        </button>
+      </li>
+      <li role="presentation">
+        <button id="tabpanel-implemented"
+                class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left"
+                tabindex="0"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tabpanel-implemented-panel">
+          Composants implémentés
+        </button>
+      </li>
+      <li role="presentation">
+        <button id="tabpanel-notyetimplemented"
+                class="fr-tabs__tab fr-icon-close-circle-line fr-tabs__tab--icon-left"
+                tabindex="-1"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tabpanel-notyetimplemented-panel">
+          Composants encore non implémentés
+        </button>
+      </li>
+      <li role="presentation">
+        <button id="tabpanel-extratags"
+                class="fr-tabs__tab fr-icon-add-circle-line fr-tabs__tab--icon-left"
+                tabindex="-1"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tabpanel-extratags-panel">
+          Balises supplémentaires
+        </button>
+      </li>
     </ul>
-    <div id="tabpanel-documentation-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tabpanel-documentation" tabindex="0">
-      <h2>Documentation</h2>
+    <div id="tabpanel-documentation-panel"
+         class="fr-tabs__panel fr-tabs__panel--selected"
+         role="tabpanel"
+         aria-labelledby="tabpanel-documentation"
+         tabindex="0">
+      <h2>
+        Documentation
+      </h2>
       <ul>
         {{ documentation|safe }}
       </ul>
     </div>
-    <div id="tabpanel-implemented-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-implemented" tabindex="0">
-      <h2>Composants implémentés</h2>
+    <div id="tabpanel-implemented-panel"
+         class="fr-tabs__panel"
+         role="tabpanel"
+         aria-labelledby="tabpanel-implemented"
+         tabindex="0">
+      <h2>
+        Composants implémentés
+      </h2>
       <ul>
         {% for tag, data in implemented_tags.items %}
           <li class="fr-mb-1w">
@@ -43,8 +75,14 @@
         {% endfor %}
       </ul>
     </div>
-    <div id="tabpanel-notyetimplemented-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-notyetimplemented" tabindex="0">
-      <h2>Composants encore non implémentés</h2>
+    <div id="tabpanel-notyetimplemented-panel"
+         class="fr-tabs__panel"
+         role="tabpanel"
+         aria-labelledby="tabpanel-notyetimplemented"
+         tabindex="0">
+      <h2>
+        Composants encore non implémentés
+      </h2>
       <ul>
         {% for tag, data in not_yet.items %}
           <li class="fr-mb-1w">
@@ -53,8 +91,14 @@
         {% endfor %}
       </ul>
     </div>
-    <div id="tabpanel-extratags-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-extratags" tabindex="0">
-      <h2>Balises supplémentaires</h2>
+    <div id="tabpanel-extratags-panel"
+         class="fr-tabs__panel"
+         role="tabpanel"
+         aria-labelledby="tabpanel-extratags"
+         tabindex="0">
+      <h2>
+        Balises supplémentaires
+      </h2>
       <ul>
         {% for tag, data in extra_tags.items %}
           <li class="fr-mb-1w">
@@ -62,15 +106,25 @@
           </li>
         {% endfor %}
       </ul>
-
-      <h2>En-tête et pied de page</h2>
-      <p>Les composants « En-tête (header) » et « Pied de page (footer) » sont actuellement gérés avec
-      des balises include (<code>{% verbatim %}{% include "dsfr/header.html" %}{% endverbatim %}</code> et <code>{% verbatim %}{% include "dsfr/footer.html" %}{% endverbatim %}</code>)
-      et non des balises dédiées.</p>
-    </div>
-  </div>
-{% endblock %}
-
+      <h2>
+        En-tête et pied de page
+      </h2>
+      <p>
+        Les composants « En-tête (header) » et « Pied de page (footer) » sont actuellement gérés avec
+        des balises include (<code>
+        {% verbatim %}
+          {% include "dsfr/header.html" %}
+        {% endverbatim %}
+      </code> et <code>
+      {% verbatim %}
+        {% include "dsfr/footer.html" %}
+      {% endverbatim %}
+    </code>)
+    et non des balises dédiées.
+  </p>
+</div>
+</div>
+{% endblock content %}
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}">
 {% endblock extra_css %}

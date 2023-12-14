@@ -1,22 +1,25 @@
 {% load widget_tweaks %}
 {# Generic input snippet used by most of the field types #}
 <div class="{{ field.field.widget.group_class|default:'fr-input-group' }}{% if field.errors %} {{ field.field.widget.group_class|default:'fr-input-group' }}--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %}">
-    <label for="{{ field.id_for_label }}" class="fr-label">
-        {{ field.label }}{% if field.field.required %} *{% endif %}
-    {% if field.help_text %}<span class="fr-hint-text">{{ field.help_text }}</span>{% endif %}
-    </label>
-
-    {% if field.errors %}
-      {% with aria_describedby="aria-describedby:"|add:field.auto_id|add:"-desc-error" %}
-        {{ field|attr:"aria-invalid:true"|attr:aria_describedby }}
-      {% endwith %}
-    {% else %}
-      {{ field }}
+  <label for="{{ field.id_for_label }}" class="fr-label">
+    {{ field.label }}
+    {% if field.field.required %}
+      *
     {% endif %}
-
-    {% if field.errors %}
-      <div id="{{ field.auto_id }}-desc-error">
-        {{ field.errors }}
-      </div>
+    {% if field.help_text %}
+      <span class="fr-hint-text">{{ field.help_text }}</span>
     {% endif %}
+  </label>
+  {% if field.errors %}
+    {% with aria_describedby="aria-describedby:"|add:field.auto_id|add:"-desc-error" %}
+      {{ field|attr:"aria-invalid:true"|attr:aria_describedby }}
+    {% endwith %}
+  {% else %}
+    {{ field }}
+  {% endif %}
+  {% if field.errors %}
+    <div id="{{ field.auto_id }}-desc-error">
+      {{ field.errors }}
+    </div>
+  {% endif %}
 </div>

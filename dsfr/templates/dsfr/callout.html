@@ -2,11 +2,11 @@
 <div class="fr-callout {% if self.icon_class %}{{ self.icon_class }}{% endif %}">
   {% if self.title %}
     <{{ self.heading_tag | default:"p" }} class="fr-callout__title">
-      {{ self.title }}
+    {{ self.title }}
     </{{ self.heading_tag | default:"p" }}>
   {% endif %}
   <p class="fr-callout__text">
-      {{ self.text }}
+    {{ self.text }}
   </p>
   {% if self.button %}
     {% if self.button.onclick %}
