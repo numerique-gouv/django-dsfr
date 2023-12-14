@@ -7,6 +7,7 @@
 ```{ .bash }
 pip install django-dsfr
 ```
+### Pour Django 5.0+
 
 - Ajoutez `widget_tweaks` et `dsfr` à `INSTALLED_APPS` dans le `settings.py` avant la ou les app avec laquelle vous voulez l’utiliser :
 
@@ -19,25 +20,29 @@ INSTALLED_APPS = [
 ]
 ```
 
-- Ajouter les lignes suivantes dans la section `TEMPLATES` du `settings.py` pour faire fonctionner les formulaires :
+### Pour Django 4.2 et avant
+
+- Ajoutez `widget_tweaks`, `dsfr` et `django.forms` à `INSTALLED_APPS` dans le `settings.py` avant la ou les app avec laquelle vous voulez l’utiliser :
 
 ```{ .python }
-TEMPLATES = [
-    {
-        [...]
-        "DIRS": [
-            os.path.join(BASE_DIR, "dsfr/templates"),
-            os.path.join(BASE_DIR, "templates"),
-        ],
-    },
+INSTALLED_APPS = [
+    ...
+    "widget_tweaks"
+    "dsfr",
+    "django.forms",
+    <votre_app>
 ]
 ```
+
+**Attention** : si `django.forms` apparait déjà dans `INSTALLED_APPS`, il doit être placé *après* `dsfr`. Sinon les `FormSet`s ne seront pas correctement rendus.
 
 - Ajouter le `FORM_RENDERER` in `settings.py` pour faire fonctionner les formulaires :
 
 ```{ .python }
 FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 ```
+
+### Pour toutes les versions
 
 - Inclure les tags dans votre fichier `base.html` (voir par exemple sur [base.html](https://github.com/numerique-gouv/django-dsfr/blob/main/example_app/templates/example_app/base.html))
 
