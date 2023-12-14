@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-diNcOMzsBeI3kzBRfiZqv56Oi4WBnUJhcubWpNsTCigDuxMUPJMGgMlE9KSfFyb1">
-<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-rEPdGS1CzbNKp1iHewzg1GXyWg9OacK//IkYEX1YqrrqQwxWX7+7OiqoCokyCSuQ">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css" integrity="sha384-Ql2Bzx7mo19G32l4v+XtMIVYTqFTxyNj/kFXPAL60CRE5GJlKnKaFy4MV2+4yE5j">
+<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/utility/icons/icons.min.css" integrity="sha384-Aw2puKHTlIDiMlmvTYRVslXy3kBfHAP3KaG0kLtmejQqSOTWwCACAfsOk10ukPaE">
 <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-django-overrides.css">
 
 <meta name="theme-color" content="#000091"><!-- Définit la couleur de thème du navigateur (Safari/Android) -->
@@ -29,8 +29,6 @@
       
     </title>
     
-
-    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
   </head>
 
   <body>
@@ -255,6 +253,7 @@
 <div class="dsfr-code"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>django-dsfr
 </code></pre></div>
 
+<h3>Pour Django 5.0+</h3>
 <ul>
 <li>Ajoutez <code>widget_tweaks</code> et <code>dsfr</code> à <code>INSTALLED_APPS</code> dans le <code>settings.py</code> avant la ou les app avec laquelle vous voulez l’utiliser :</li>
 </ul>
@@ -266,26 +265,27 @@
 <span class="p">]</span>
 </code></pre></div>
 
+<h3>Pour Django 4.2 et avant</h3>
 <ul>
-<li>Ajouter les lignes suivantes dans la section <code>TEMPLATES</code> du <code>settings.py</code> pour faire fonctionner les formulaires :</li>
+<li>Ajoutez <code>widget_tweaks</code>, <code>dsfr</code> et <code>django.forms</code> à <code>INSTALLED_APPS</code> dans le <code>settings.py</code> avant la ou les app avec laquelle vous voulez l’utiliser :</li>
 </ul>
-<div class="dsfr-code"><pre><span></span><code><span class="n">TEMPLATES</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="p">[</span><span class="o">...</span><span class="p">]</span>
-        <span class="s2">&quot;DIRS&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;dsfr/templates&quot;</span><span class="p">),</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;templates&quot;</span><span class="p">),</span>
-        <span class="p">],</span>
-    <span class="p">},</span>
+<div class="dsfr-code"><pre><span></span><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;widget_tweaks&quot;</span>
+    <span class="s2">&quot;dsfr&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;django.forms&quot;</span><span class="p">,</span>
+    <span class="o">&lt;</span><span class="n">votre_app</span><span class="o">&gt;</span>
 <span class="p">]</span>
 </code></pre></div>
 
+<p><strong>Attention</strong> : si <code>django.forms</code> apparait déjà dans <code>INSTALLED_APPS</code>, il doit être placé <em>après</em> <code>dsfr</code>. Sinon les <code>FormSet</code>s ne seront pas correctement rendus.</p>
 <ul>
 <li>Ajouter le <code>FORM_RENDERER</code> in <code>settings.py</code> pour faire fonctionner les formulaires :</li>
 </ul>
 <div class="dsfr-code"><pre><span></span><code><span class="n">FORM_RENDERER</span> <span class="o">=</span> <span class="s2">&quot;django.forms.renderers.TemplatesSetting&quot;</span>
 </code></pre></div>
 
+<h3>Pour toutes les versions</h3>
 <ul>
 <li>
 <p>Inclure les tags dans votre fichier <code>base.html</code> (voir par exemple sur <a href="https://github.com/numerique-gouv/django-dsfr/blob/main/example_app/templates/example_app/base.html">base.html</a>)</p>
@@ -392,8 +392,8 @@
 
 
     
-<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-0OQ6Q9ZAssur6KZKIPnF76AYck9k+vzDJ4QWGEQSpmU5qWtHIr9eN2/9/GOKiJeg" nonce="D/lSs9ryXs2fuSDDCJ4FaQ=="></script>
-<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-lbZ4GtXN8+9/PJKGoM35lJokzC+dXV3JFLZgwg7G/rkeZATNoF6VRX+4agY6raLu"  nonce="D/lSs9ryXs2fuSDDCJ4FaQ=="></script>
+<script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="sha384-rlzqWQPlHP3pTABPn6MP5B2iwaNWwTBrbb7TO0uNb0z81/dhniKud/Uoh156djya" nonce="H7gZTrYu1mNgdBGsB43aCw=="></script>
+<script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="sha384-Dagjgl2Hn5wy/29s4vzP9RuGQwEhgBPe6o1g4lfbJ8ytOS5L6R8e4l9kltEs8XbI"  nonce="H7gZTrYu1mNgdBGsB43aCw=="></script>
 
     
   </body>
