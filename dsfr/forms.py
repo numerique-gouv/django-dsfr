@@ -36,11 +36,12 @@ class DsfrBaseForm(forms.Form):
     @property
     def default_renderer(self):
         from django.conf import settings, global_settings
-        # Settings wasn't modified
-        if settings.FORM_RENDERER == global_settings.FORM_RENDERER:
-            return DsfrDjangoTemplates
-        else:
-            get_default_renderer()
+
+        return (
+            DsfrDjangoTemplates  # Settings wasn't modified
+            if settings.FORM_RENDERER == global_settings.FORM_RENDERER
+            else get_default_renderer()
+        )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

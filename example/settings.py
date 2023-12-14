@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from django import VERSION as DJANGO_VERSION
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +38,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django.forms",
     "django_extensions",
     "csp",
     "widget_tweaks",
@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     "example_app",
     "django_distill",
 ]
+
+if DJANGO_VERSION < (5, 0):
+    INSTALLED_APPS.append("django.forms")
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -75,6 +78,9 @@ TEMPLATES = [
         },
     },
 ]
+
+if DJANGO_VERSION < (5, 0):
+    FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 
 WSGI_APPLICATION = "example.wsgi.application"
 
