@@ -7,21 +7,11 @@
   <div class="fr-tabs">
     <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
       <li role="presentation">
-        <button id="tabpanel-documentation"
-                class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left"
-                tabindex="0"
-                role="tab"
-                aria-selected="true"
-                aria-controls="tabpanel-documentation-panel">
-          Documentation
-        </button>
-      </li>
-      <li role="presentation">
         <button id="tabpanel-implemented"
                 class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left"
                 tabindex="0"
                 role="tab"
-                aria-selected="false"
+                aria-selected="true"
                 aria-controls="tabpanel-implemented-panel">
           Composants implémentés
         </button>
@@ -46,21 +36,19 @@
           Balises supplémentaires
         </button>
       </li>
+      <li role="presentation">
+        <button id="tabpanel-documentation"
+                class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left"
+                tabindex="0"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tabpanel-documentation-panel">
+          Documentation
+        </button>
+      </li>
     </ul>
-    <div id="tabpanel-documentation-panel"
-         class="fr-tabs__panel fr-tabs__panel--selected"
-         role="tabpanel"
-         aria-labelledby="tabpanel-documentation"
-         tabindex="0">
-      <h2>
-        Documentation
-      </h2>
-      <ul>
-        {{ documentation|safe }}
-      </ul>
-    </div>
     <div id="tabpanel-implemented-panel"
-         class="fr-tabs__panel"
+         class="fr-tabs__panel fr-tabs__panel--selected"
          role="tabpanel"
          aria-labelledby="tabpanel-implemented"
          tabindex="0">
@@ -115,13 +103,26 @@
         {% verbatim %}
           {% include "dsfr/header.html" %}
         {% endverbatim %}
-      </code> et <code>
+      </code>
+      et <code>
       {% verbatim %}
         {% include "dsfr/footer.html" %}
       {% endverbatim %}
     </code>)
     et non des balises dédiées.
   </p>
+</div>
+<div id="tabpanel-documentation-panel"
+     class="fr-tabs__panel"
+     role="tabpanel"
+     aria-labelledby="tabpanel-documentation"
+     tabindex="0">
+  <h2>
+    Documentation
+  </h2>
+  <ul>
+    {{ documentation|safe }}
+  </ul>
 </div>
 </div>
 {% endblock content %}

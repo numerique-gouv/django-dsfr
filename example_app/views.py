@@ -8,7 +8,6 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.http import require_safe
-from markdown.extensions.nl2br import Nl2BrExtension
 
 from dsfr.utils import generate_summary_items
 
@@ -108,7 +107,7 @@ def page_tag(request, tag_name):
             dedent(module.__doc__),
             extensions=[
                 "markdown.extensions.tables",
-                "markdown.extensions.nl2br",  # Treat newlines as linebreaks
+                "md_in_html",
                 "markdown.extensions.fenced_code",
                 CodeHiliteExtension(css_class="dsfr-code"),
             ],
@@ -172,10 +171,10 @@ class AuthorCreateView(CreateView):
     # your template needs to include another template which extends formset_base.html
 
     def get(self, request, *args, **kwargs):
-        instance = None
+        instance = None  # noqa: F841
         try:
             if self.object:
-                instance = self.object
+                instance = self.object  # noqa: F841
         except Exception:
             self.object = None
 
@@ -183,7 +182,7 @@ class AuthorCreateView(CreateView):
         form = self.get_form(form_class)
         self.formset = self.get_formset(request)
         formset = self.formset
-        book_formhelper = BookCreateFormHelper()
+        book_formhelper = BookCreateFormHelper()  # noqa: F841
 
         return self.render_to_response(
             self.get_context_data(form=form, formset=formset)
