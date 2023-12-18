@@ -241,8 +241,8 @@ def dsfr_django_messages(
     ```python
     data_dict = {
         "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the alert (default: false)",
-        "wrapper_classes": (Optional) extra classes for the wrapper of the alerts (default "fr-my-4v").
-        "extra_classes": (Optional) extra classes for the alert.
+        "wrapper_classes": "(Optional) extra classes for the wrapper of the alerts (default `fr-my-4v`)",
+        "extra_classes": "(Optional) extra classes for the alert."
     }
     ```
 
