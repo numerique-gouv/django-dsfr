@@ -24,7 +24,12 @@ Django-DSFR (partly) implements the `version 1.11 of the DSFR <https://www.syste
 
 Requirements
 ------------
-Tested with Python 3.7 to 3.11 and Django 3.2 to 4.2. Per `vermin <https://github.com/netromdk/vermin>`_, it should work with Python >= 3.6, and it should work with old versions of Django too.
+Tested with Python 3.8 to 3.11 and Django 3.2 to 5.0. Per `vermin <https://github.com/netromdk/vermin>`_, it should work with Python >= 3.6, and it should work with old versions of Django too.
+
+Note: Only supported versions of Django and Python are supported by this project. You can check the supported versions and their end of life on the following pages:
+
+- `Python <https://devguide.python.org/versions/>`_
+- `Django <https://www.djangoproject.com/download/#supported-versions>`_
 
 Quick start
 -----------
