@@ -4,6 +4,7 @@ import markdown
 from markdown.extensions.codehilite import CodeHiliteExtension
 import os
 
+from django.contrib import messages
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse
@@ -97,10 +98,16 @@ def page_tag(request, tag_name):
         )
         payload["tag_name"] = tag_name
 
+        # Tag-specific context
         if tag_name == "pagination":
             sample_content = list(range(0, 100))
             paginator = Paginator(sample_content, 10)
             payload["page_obj"] = paginator.get_page(4)
+        elif tag_name == "django_messages":
+            messages.info(request, "Ceci est une information")
+            messages.success(request, "Ceci est un succès")
+            messages.warning(request, "Ceci est un avertissement")
+            messages.error(request, "Ceci est une erreur")
 
         module = getattr(globals()["dsfr_tags"], f"dsfr_{tag_name}")
         payload["tag_comment"] = markdown.markdown(

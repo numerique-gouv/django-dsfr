@@ -46,122 +46,126 @@ p code, li code {
             Données
           </h3>
           <div class="fr-my-2w">
+            {# djlint:off #}
             {% with sample_data_item|pprint as raw_sample_code %}
               {% with '<pre class="dsfr-code">'|concatenate:raw_sample_code|concatenate:"</pre>" as sample_data_code %}
-              {% dsfr_accordion title="Données d’exemple" content=sample_data_code %}
+                {% dsfr_accordion title="Données d’exemple" content=sample_data_code %}
+              {% endwith %}
             {% endwith %}
-          {% endwith %}
-        </div>
-        <h3>
-          Résultat
-        </h3>
-        {% if tag_name == "accordion" %}
-          {% dsfr_accordion sample_data_item %}
-        {% elif tag_name == "accordion_group" %}
-          {% dsfr_accordion_group sample_data_item %}
-        {% elif tag_name == "alert" %}
-          {% dsfr_alert sample_data_item %}
-        {% elif tag_name == "badge" %}
-          {% dsfr_badge sample_data_item %}
-        {% elif tag_name == "badge_group" %}
-          {% dsfr_badge_group sample_data_item %}
-        {% elif tag_name == "button" %}
-          {% dsfr_button sample_data_item %}
-        {% elif tag_name == "callout" %}
-          {% dsfr_callout sample_data_item %}
-        {% elif tag_name == "card" %}
-          {% if not "horizontal" in sample_data_item.extra_classes %}
-            <div class="fr-grid-row fr-grid-row--gutters">
-              <div class="fr-col-12 fr-col-md-4">
+            {# djlint:on #}
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          {% if tag_name == "accordion" %}
+            {% dsfr_accordion sample_data_item %}
+          {% elif tag_name == "accordion_group" %}
+            {% dsfr_accordion_group sample_data_item %}
+          {% elif tag_name == "alert" %}
+            {% dsfr_alert sample_data_item %}
+          {% elif tag_name == "badge" %}
+            {% dsfr_badge sample_data_item %}
+          {% elif tag_name == "badge_group" %}
+            {% dsfr_badge_group sample_data_item %}
+          {% elif tag_name == "button" %}
+            {% dsfr_button sample_data_item %}
+          {% elif tag_name == "callout" %}
+            {% dsfr_callout sample_data_item %}
+          {% elif tag_name == "card" %}
+            {% if not "horizontal" in sample_data_item.extra_classes %}
+              <div class="fr-grid-row fr-grid-row--gutters">
+                <div class="fr-col-12 fr-col-md-4">
+                  {% dsfr_card sample_data_item %}
+                </div>
+              </div>
+            {% else %}
+              <div class="fr-grid-row fr-grid-row--gutters">
                 {% dsfr_card sample_data_item %}
               </div>
-            </div>
-          {% else %}
+            {% endif %}
+          {% elif tag_name == "django_messages" %}
+            {% dsfr_django_messages sample_data_item %}
+          {% elif tag_name == "highlight" %}
+            {% dsfr_highlight sample_data_item %}
+          {% elif tag_name == "input" %}
+            {% dsfr_input sample_data_item %}
+          {% elif tag_name == "link" %}
+            {% dsfr_link sample_data_item %}
+          {% elif tag_name == "quote" %}
+            {% dsfr_quote sample_data_item %}
+          {% elif tag_name == "select" %}
+            {% dsfr_select sample_data_item %}
+          {% elif tag_name == "sidemenu" %}
+            {% dsfr_sidemenu sample_data_item %}
+          {% elif tag_name == "skiplinks" %}
+            {% dsfr_skiplinks sample_data_item %}
+          {% elif tag_name == "stepper" %}
+            {% dsfr_stepper sample_data_item %}
+          {% elif tag_name == "summary" %}
+            {% dsfr_summary sample_data_item %}
+          {% elif tag_name == "table" %}
+            {% dsfr_table sample_data_item %}
+          {% elif tag_name == "tag" %}
+            {% dsfr_tag sample_data_item %}
+          {% elif tag_name == "tile" %}
             <div class="fr-grid-row fr-grid-row--gutters">
-              {% dsfr_card sample_data_item %}
+              <div class="fr-col-12">
+                {% dsfr_tile sample_data_item %}
+              </div>
             </div>
           {% endif %}
-        {% elif tag_name == "highlight" %}
-          {% dsfr_highlight sample_data_item %}
-        {% elif tag_name == "input" %}
-          {% dsfr_input sample_data_item %}
-        {% elif tag_name == "link" %}
-          {% dsfr_link sample_data_item %}
-        {% elif tag_name == "quote" %}
-          {% dsfr_quote sample_data_item %}
-        {% elif tag_name == "select" %}
-          {% dsfr_select sample_data_item %}
-        {% elif tag_name == "sidemenu" %}
-          {% dsfr_sidemenu sample_data_item %}
-        {% elif tag_name == "skiplinks" %}
-          {% dsfr_skiplinks sample_data_item %}
-        {% elif tag_name == "stepper" %}
-          {% dsfr_stepper sample_data_item %}
-        {% elif tag_name == "summary" %}
-          {% dsfr_summary sample_data_item %}
-        {% elif tag_name == "table" %}
-          {% dsfr_table sample_data_item %}
-        {% elif tag_name == "tag" %}
-          {% dsfr_tag sample_data_item %}
-        {% elif tag_name == "tile" %}
-          <div class="fr-grid-row fr-grid-row--gutters">
-            <div class="fr-col-12">
-              {% dsfr_tile sample_data_item %}
-            </div>
-          </div>
+        {% endfor %}
+      {% else %}
+        <h2>
+          Résultat
+        </h2>
+        {% if tag_name == "breadcrumb" %}
+          {% dsfr_breadcrumb %}
+        {% elif tag_name == "css" %}
+          <label for="example-textarea">
+            Code source :
+          </label>
+          <textarea id="example-textarea"
+                    readonly
+                    rows="8"
+                    cols="90"
+                    class="example-textarea">{% dsfr_css %}</textarea>
+          <br />
+        {% elif tag_name == "favicon" %}
+          <label for="example-textarea">
+            Code source :
+          </label>
+          <textarea id="example-textarea"
+                    readonly
+                    rows="14"
+                    cols="90"
+                    class="example-textarea">{% dsfr_favicon %}</textarea>
+          <br />
+        {% elif tag_name == "js" %}
+          <label for="example-textarea">
+            Code source :
+          </label>
+          <textarea id="example-textarea"
+                    readonly
+                    rows="6"
+                    cols="90"
+                    class="example-textarea">{% dsfr_js %}</textarea>
+          <br />
+        {% elif tag_name == "pagination" %}
+          {% dsfr_pagination page_obj %}
+        {% elif tag_name == "theme_modale" %}
+          <label for="example-textarea">
+            Code source :
+          </label>
+          <textarea id="example-textarea"
+                    readonly
+                    rows="62"
+                    cols="120"
+                    class="example-textarea">{% dsfr_theme_modale %}</textarea>
+          <br />
         {% endif %}
-      {% endfor %}
-    {% else %}
-      <h2>
-        Résultat
-      </h2>
-      {% if tag_name == "breadcrumb" %}
-        {% dsfr_breadcrumb %}
-      {% elif tag_name == "css" %}
-        <label for="example-textarea">
-          Code source :
-        </label>
-        <textarea id="example-textarea"
-                  readonly
-                  rows="8"
-                  cols="90"
-                  class="example-textarea">{% dsfr_css %}</textarea>
-        <br />
-      {% elif tag_name == "favicon" %}
-        <label for="example-textarea">
-          Code source :
-        </label>
-        <textarea id="example-textarea"
-                  readonly
-                  rows="14"
-                  cols="90"
-                  class="example-textarea">{% dsfr_favicon %}</textarea>
-        <br />
-      {% elif tag_name == "js" %}
-        <label for="example-textarea">
-          Code source :
-        </label>
-        <textarea id="example-textarea"
-                  readonly
-                  rows="6"
-                  cols="90"
-                  class="example-textarea">{% dsfr_js %}</textarea>
-        <br />
-      {% elif tag_name == "pagination" %}
-        {% dsfr_pagination page_obj %}
-      {% elif tag_name == "theme_modale" %}
-        <label for="example-textarea">
-          Code source :
-        </label>
-        <textarea id="example-textarea"
-                  readonly
-                  rows="62"
-                  cols="120"
-                  class="example-textarea">{% dsfr_theme_modale %}</textarea>
-        <br />
       {% endif %}
-    {% endif %}
+    </div>
   </div>
-</div>
-<br />
+  <br />
 {% endblock content %}
