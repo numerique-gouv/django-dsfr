@@ -18,7 +18,7 @@ Django-DSFR
 Django-DSFR is a Django app to integrate the `French government Design System ("Système de design de l’État français") <https://www.systeme-de-design.gouv.fr/>`_.
 
 
-This app was created as a part of `Open Collectivités <https://github.com/entrepreneur-interet-general/opencollectivites>`_ and is very much a work in progress. See the `documentation (in French) <https://numerique-gouv.github.io/django-dsfr/>`_ for details.
+This app is very much a work in progress. See the `documentation (in French) <https://numerique-gouv.github.io/django-dsfr/>`_ for details.
 
 Django-DSFR (partly) implements the `version 1.11 of the DSFR <https://www.systeme-de-design.gouv.fr/a-propos/versions/version-courante>`_.
 
@@ -35,3 +35,8 @@ Quick start
 -----------
 
 See the `INSTALL.md <INSTALL.md>`_ file.
+
+History
+-------
+
+This app was originally created as a part of `Open Collectivités <https://github.com/entrepreneur-interet-general/opencollectivites>`_ in 2020. In 2022, I continued to manage it as part of my mission at `Aides-territoires <https://github.com/MTES-MCT/aides-territoires>`_ and I now continue to do so at `@numerique-gouv <https://github.com/numerique-gouv>`_ along with the Wagtail-based `Content Manager <https://github.com/numerique-gouv/content-manager/>`_.
