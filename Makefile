@@ -34,3 +34,11 @@ update_dsfr:
 	poetry run python manage.py trim_dist
 	poetry run python manage.py integrity_checksums
 	poetry run python manage.py collecstatic --noinput
+
+static_server:
+	python -m http.server $(local_port) -d docs/
+
+export_static:
+	poetry run python manage.py migrate
+	poetry run python manage.py distill-local docs --force --collectstatic
+	poetry run python manage.py export_json
