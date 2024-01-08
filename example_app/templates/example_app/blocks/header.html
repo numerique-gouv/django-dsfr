@@ -142,3 +142,29 @@
     </div>
   </div>
 {% endblock main_menu %}
+{% block header_search %}
+  <div class="fr-header__search fr-modal" id="modal-search">
+    <div class="fr-container fr-container-lg--fluid">
+      <button class="fr-btn--close fr-btn"
+              aria-controls="modal-search"
+              title="Fermer">
+        Fermer
+      </button>
+      <form action="{% url 'page_search' %}" method="get">
+        <div class="fr-search-bar" id="search-bar" role="search">
+          <label class="fr-label" for="search-bar-input">
+            Rechercher
+          </label>
+          <input class="fr-input"
+                 placeholder="Rechercher"
+                 type="search"
+                 id="query"
+                 name="q">
+          <button class="fr-btn" title="Rechercher">
+            Rechercher
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock header_search %}

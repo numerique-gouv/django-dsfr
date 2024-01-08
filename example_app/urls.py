@@ -11,6 +11,7 @@ from example_app.views import (
     doc_contributing,
     doc_install,
     doc_form,
+    search,
 )
 from example_app.tag_specifics import ALL_TAGS
 
@@ -75,5 +76,11 @@ urlpatterns = [
         resource_pictograms,
         name="resource_pictograms",
         distill_file="django-dsfr/resources/pictograms/index.html",
+    ),
+    distill_path(
+        "search/",
+        search,
+        name="page_search",
+        distill_file="django-dsfr/search/index.html",
     ),
 ]
