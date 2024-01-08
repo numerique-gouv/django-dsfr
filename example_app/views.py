@@ -350,3 +350,10 @@ def resource_pictograms(request):
     payload["pictograms"] = all_pictos
 
     return render(request, "example_app/page_pictograms.html", payload)
+
+
+@require_safe
+def search(request):
+    payload = init_payload("Recherche")
+
+    return render(request, "example_app/search.html", payload)
