@@ -38,27 +38,16 @@
       integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
 
     
-  <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css">
   <style>
-    .example-textarea {
-      background: var(--background-alt-grey);
-      border: 1px solid var(--border-default-grey);
-      color: var(--text-default-grey);
-      padding: 1rem;
-      margin: 2rem 0;
-      font-family: monospace;
-      font-size: 1rem;
+    .alert-hidden {
+      display:none;
     }
-p code, li code {
-  background: var(--background-alt-grey);
-  padding: 0.2em;
-}
   </style>
 
     
       <title>
         
-          Paramètres d&#x27;affichage (display) — Système de Design de l’État
+          Recherche — Système de Design de l’État
         
       </title>
     
@@ -227,7 +216,7 @@ p code, li code {
             <a class="fr-nav__link"
                href="/django-dsfr/tags/"
                target="_self"
-               aria-current="true">Composants</a>
+               >Composants</a>
           </li>
           <li class="fr-nav__item">
             <button class="fr-nav__btn"
@@ -387,12 +376,8 @@ p code, li code {
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
       </li>
       
-        <li>
-          <a class="fr-breadcrumb__link" href="/django-dsfr/tags/">Composants</a>
-        </li>
-      
       <li>
-        <a class="fr-breadcrumb__link" aria-current="page">Paramètres d&#x27;affichage (display)</a>
+        <a class="fr-breadcrumb__link" aria-current="page">Recherche</a>
       </li>
     </ol>
   </div>
@@ -400,441 +385,17 @@ p code, li code {
 
       <main id="content" role="main">
         
-  <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
-    <!-- Menu -->
-    <div class="fr-col-12 fr-col-md-3">
-      
-<nav role="navigation"
-     class="fr-sidemenu"
-     aria-label="Menu latéral">
-  <div class="fr-sidemenu__inner">
-    <button type="button"
-            class="fr-sidemenu__btn"
-            aria-controls="fr-sidemenu-wrapper"
-            aria-expanded="false">
-      Dans cette rubrique
-    </button>
-    <div class="fr-collapse" id="fr-sidemenu-wrapper">
-      <div class="fr-sidemenu__title">Composants</div>
-      <ul class="fr-sidemenu__list">
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/accordion/"
-                 target="_self"
-                 >accordion</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/accordion_group/"
-                 target="_self"
-                 >accordion_group</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/alert/"
-                 target="_self"
-                 >alert</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/badge/"
-                 target="_self"
-                 >badge</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/badge_group/"
-                 target="_self"
-                 >badge_group</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/breadcrumb/"
-                 target="_self"
-                 >breadcrumb</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/button/"
-                 target="_self"
-                 >button</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/callout/"
-                 target="_self"
-                 >callout</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/card/"
-                 target="_self"
-                 >card</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/css/"
-                 target="_self"
-                 >css</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/django_messages/"
-                 target="_self"
-                 >django_messages</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/favicon/"
-                 target="_self"
-                 >favicon</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/form/"
-                 target="_self"
-                 >form</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/form_field/"
-                 target="_self"
-                 >form_field</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/highlight/"
-                 target="_self"
-                 >highlight</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/input/"
-                 target="_self"
-                 >input</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/js/"
-                 target="_self"
-                 >js</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/link/"
-                 target="_self"
-                 >link</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/pagination/"
-                 target="_self"
-                 >pagination</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/quote/"
-                 target="_self"
-                 >quote</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/select/"
-                 target="_self"
-                 >select</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/sidemenu/"
-                 target="_self"
-                 >sidemenu</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/skiplinks/"
-                 target="_self"
-                 >skiplinks</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/stepper/"
-                 target="_self"
-                 >stepper</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/summary/"
-                 target="_self"
-                 >summary</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/table/"
-                 target="_self"
-                 >table</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/tag/"
-                 target="_self"
-                 >tag</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item fr-sidemenu__item--active">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/theme_modale/"
-                 target="_self"
-                 aria-current="page">theme_modale</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/tags/tile/"
-                 target="_self"
-                 >tile</a>
-            
-          </li>
-        
-        
-      </ul>
-    </div>
+  <h1>
+    Recherche
+  </h1>
+  <div class="fr-alert fr-alert--info fr-alert--sm alert-hidden"
+       id="no-query">
+    <p>
+      Merci de taper votre recherche ci-dessus.
+    </p>
   </div>
-</nav>
-
-    </div>
-    <div class="fr-col-12 fr-col-md-9 fr-py-2w">
-      <h1>
-        Paramètres d&#x27;affichage (display)
-      </h1>
-      
-        <p>
-          <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
-   href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/parametres-d-affichage"
-   target="_blank" rel="noopener noreferrer">
-  Voir la page de documentation du composant sur le Système de Design de l’État
-  
-    <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
-  
-</a>
-
-        </p>
-      
-      <h2>
-        Documentation du tag
-      </h2>
-      <p>Returns the HTML for the theme selection modale for DSFR</p>
-<p><strong>Tag name</strong>:
-    dsfr_theme_modale</p>
-<p><strong>Usage</strong>:
-    <code>{% dsfr_theme_modale %}</code></p>
-      
-        <h2>
-          Résultat
-        </h2>
-        
-          <label for="example-textarea">
-            Code source :
-          </label>
-          <textarea id="example-textarea"
-                    readonly
-                    rows="62"
-                    cols="120"
-                    class="example-textarea">
-<dialog id="fr-theme-modal"
-        class="fr-modal"
-        aria-labelledby="fr-theme-modal-title">
-  <div class="fr-container fr-container--fluid fr-container-md">
-    <div class="fr-grid-row fr-grid-row--center">
-      <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
-        <div class="fr-modal__body">
-          <div class="fr-modal__header">
-            <button class="fr-btn--close fr-btn"
-                    aria-describedby="fr-theme-modal-title"
-                    aria-controls="fr-theme-modal">
-              Fermer
-            </button>
-          </div>
-          <div class="fr-modal__content">
-            <h1 id="fr-theme-modal-title" class="fr-modal__title">
-              Paramètres d’affichage
-            </h1>
-            <div id="fr-display" class="fr-form-group fr-display">
-              <div class="fr-form-group">
-                <fieldset class="fr-fieldset">
-                  <legend class="fr-fieldset__legend fr-text--regular" id="-legend">
-                    Choisissez un thème pour personnaliser l’apparence du site.
-                  </legend>
-                  <div class="fr-fieldset__content">
-                    <div class="fr-radio-group fr-radio-rich">
-                      <input value="light"
-                             type="radio"
-                             id="fr-radios-theme-light"
-                             name="fr-radios-theme" />
-                      <label class="fr-label" for="fr-radios-theme-light">
-                        Thème clair
-                      </label>
-                      <div class="fr-radio-rich__img" data-fr-inject-svg>
-                        <img src="/django-dsfr/static/dsfr/dist/artwork/light.svg" alt="" />
-                        <!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
-                      </div>
-                    </div>
-                    <div class="fr-radio-group fr-radio-rich">
-                      <input value="dark"
-                             type="radio"
-                             id="fr-radios-theme-dark"
-                             name="fr-radios-theme" />
-                      <label class="fr-label" for="fr-radios-theme-dark">
-                        Thème sombre
-                      </label>
-                      <div class="fr-radio-rich__img" data-fr-inject-svg>
-                        <img src="/django-dsfr/static/dsfr/dist/artwork/dark.svg" alt="" />
-                        <!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
-                      </div>
-                    </div>
-                    <div class="fr-radio-group fr-radio-rich">
-                      <input value="system"
-                             type="radio"
-                             id="fr-radios-theme-system"
-                             name="fr-radios-theme" />
-                      <label class="fr-label" for="fr-radios-theme-system">
-                        Système
-                        <span class="fr-hint-text">Utilise les paramètres système.</span>
-                      </label>
-                      <div class="fr-radio-rich__img" data-fr-inject-svg>
-                        <img src="/django-dsfr/static/dsfr/dist/artwork/system.svg" alt="" />
-                        <!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
-                      </div>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div id="results">
   </div>
-</dialog>
-</textarea>
-          <br />
-        
-      
-    </div>
-  </div>
-  <br />
 
       </main>
     </div>
@@ -923,13 +484,63 @@ p code, li code {
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-0OQ6Q9ZAssur6KZKIPnF76AYck9k+vzDJ4QWGEQSpmU5qWtHIr9eN2/9/GOKiJeg"
-         nonce="IzBgKEchcXFUM/H4LT4W2A=="></script>
+         nonce="LYKjFSXdeV66F6FDzL747w=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-lbZ4GtXN8+9/PJKGoM35lJokzC+dXV3JFLZgwg7G/rkeZATNoF6VRX+4agY6raLu"
-         nonce="IzBgKEchcXFUM/H4LT4W2A=="></script>
+         nonce="LYKjFSXdeV66F6FDzL747w=="></script>
 
     
-    
+  <script src="/django-dsfr/static/lib/fuse.min.js"></script>
+  <script type="text/javascript">
+    const pluralize = (count, noun, suffix = 's') => `${count} ${noun}${count !== 1 ? suffix : ''}`;
+
+    let fuseOptions = {
+      shouldSort: true,
+      includeScore: true,
+      keys: [
+        {name:"title",weight:0.8},
+        {name:"text",weight:0.5},
+      ]
+    };
+
+    let params = new URLSearchParams(window.location.search);
+    let query = params.get('q')
+
+    if (!query) {
+      const NoQueryAlert = document.getElementById("no-query");
+      NoQueryAlert.classList.remove("alert-hidden");
+    } else {
+      const ResultsDiv = document.getElementById("results");
+
+      fetch("/django-dsfr/static/json/search_data.json")
+      .then((response) => response.json())
+      .then((search_data) => {
+        const fuse = new Fuse(search_data, fuseOptions);
+
+        let results = fuse.search(query);
+
+        // Filter results with too bad a score (perfect score = 0, worst = 1)
+        results = results.filter((r) => r.score < 0.7);
+
+        if ( results.length) {
+          let ResultsDivTemp = "<h2>" + pluralize(results.length, "résultat") + " pour la recherche « " + query + " »</h2><ul>"
+          for (const r of results) {
+            ResultsDivTemp += '<li><a href="'+ r.item.path + '">'+  r.item.title + "</a></li>";
+          }
+          ResultsDiv.innerHTML = ResultsDivTemp + "</ul>";
+        } else {
+          ResultsDiv.innerHTML = "<p>Aucun résultat trouvé</p>";
+        }
+
+      });
+
+    }
+
+
+
+
+  </script>
+
   </body>
 </html>
