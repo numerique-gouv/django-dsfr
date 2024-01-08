@@ -58,6 +58,8 @@ bandit = "^1.7.5"
 ruff = "^0.1.2"
 markdown = "^3.5"
 pygments = "^2.16.1"
+beautifulsoup4 = "^4.12.2"
+lxml = "^5.1.0"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
