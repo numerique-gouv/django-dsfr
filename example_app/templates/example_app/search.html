@@ -1,0 +1,70 @@
+{% extends "example_app/base.html" %}
+{% load static dsfr_tags %}
+{% block extra_css %}
+  <style>
+    .alert-hidden {
+      display:none;
+    }
+  </style>
+{% endblock extra_css %}
+{% block content %}
+  <h1>
+    Recherche
+  </h1>
+  <div class="fr-alert fr-alert--info fr-alert--sm alert-hidden"
+       id="no-query">
+    <p>
+      Merci de taper votre recherche ci-dessus.
+    </p>
+  </div>
+  <div id="results">
+  </div>
+{% endblock content %}
+{% block extra_js %}
+  <script src="{% static 'lib/fuse.min.js' %}"></script>
+  <script type="text/javascript">
+    const pluralize = (count, noun, suffix = 's') => `${count} ${noun}${count !== 1 ? suffix : ''}`;
+
+    let fuseOptions = {
+      shouldSort: true,
+      includeScore: true,
+      keys: [
+        {name:"title",weight:0.8},
+        {name:"text",weight:0.5},
+      ]
+    };
+
+    let params = new URLSearchParams(window.location.search);
+    let query = params.get('q')
+
+    if (!query) {
+      const NoQueryAlert = document.getElementById("no-query");
+      NoQueryAlert.classList.remove("alert-hidden");
+    } else {
+      const ResultsDiv = document.getElementById("results");
+
+      fetch("{% static 'json/search_data.json' %}")
+      .then((response) => response.json())
+      .then((search_data) => {
+        const fuse = new Fuse(search_data, fuseOptions);
+
+        let results = fuse.search(query);
+
+        // Filter results with too bad a score (perfect score = 0, worst = 1)
+        results = results.filter((r) => r.score < 0.7);
+
+        if ( results.length) {
+          let ResultsDivTemp = "<h2>" + pluralize(results.length, "résultat") + " pour la recherche « " + query + " »</h2><ul>"
+          for (const r of results) {
+            ResultsDivTemp += '<li><a href="'+ r.item.path + '">'+  r.item.title + "</a></li>";
+          }
+          ResultsDiv.innerHTML = ResultsDivTemp + "</ul>";
+        } else {
+          ResultsDiv.innerHTML = "<p>Aucun résultat trouvé</p>";
+        }
+
+      });
+
+    }
+  </script>
+{% endblock extra_js %}
