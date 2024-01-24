@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from django import forms
+from django.forms import widgets, Form
 from django.forms.renderers import DjangoTemplates, get_default_renderer
 from django.utils.functional import cached_property
 
@@ -21,16 +21,16 @@ class DsfrDjangoTemplates(DjangoTemplates):
         )
 
 
-class DsfrBaseForm(forms.Form):
+class DsfrBaseForm(Form):
     """
     A base form that adds the necessary class on relevant fields
     """
 
     # These input widgets don't need the fr-input class
     WIDGETS_NO_FR_INPUT = [
-        forms.widgets.CheckboxInput,
-        forms.widgets.FileInput,
-        forms.widgets.ClearableFileInput,
+        widgets.CheckboxInput,
+        widgets.FileInput,
+        widgets.ClearableFileInput,
     ]
 
     @property
@@ -55,15 +55,15 @@ class DsfrBaseForm(forms.Form):
             """
             if "class" not in visible.field.widget.attrs:
                 if type(visible.field.widget) in [
-                    forms.widgets.Select,
-                    forms.widgets.SelectMultiple,
+                    widgets.Select,
+                    widgets.SelectMultiple,
                 ]:
                     visible.field.widget.attrs["class"] = "fr-select"
                     visible.field.widget.group_class = "fr-select-group"
-                elif type(visible.field.widget) == forms.widgets.RadioSelect:
+                elif type(visible.field.widget) == widgets.RadioSelect:
                     visible.field.widget.attrs["dsfr"] = "dsfr"
                     visible.field.widget.group_class = "fr-radio-group"
-                elif type(visible.field.widget) == forms.widgets.CheckboxSelectMultiple:
+                elif type(visible.field.widget) == widgets.CheckboxSelectMultiple:
                     visible.field.widget.attrs["dsfr"] = "dsfr"
                 elif type(visible.field.widget) not in self.WIDGETS_NO_FR_INPUT:
                     visible.field.widget.attrs["class"] = "fr-input"

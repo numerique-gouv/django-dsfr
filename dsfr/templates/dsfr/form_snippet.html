@@ -3,6 +3,9 @@
     {{ form.non_field_errors }}
   </section>
 {% endif %}
-{% for field in form %}
+{% for hidden in form.hidden_fields %}
+  {{ hidden }}
+{% endfor %}
+{% for field in form.visible_fields %}
   {% include "dsfr/form_field_snippets/field_snippet.html" %}
 {% endfor %}
