@@ -1,4 +1,4 @@
-{% load widget_tweaks %}
+{% load widget_tweaks dsfr_tags %}
 <fieldset class="fr-fieldset{% if field.errors %} fr-fieldset--error{% endif %}"
           id="radio-{{ field.auto_id }}"
           aria-labelledby="{{ field.auto_id }}-legend{% if field.errors %} {{ field.auto_id }}-messages{% endif %}">
@@ -15,9 +15,9 @@
   <div class="fr-fieldset__content">
     <div class="fr-radio-group">
       {% if field.field.disabled %}
-        {{ field|attr:"type:radio"|add_class:"fr-radio-group"|attr:"disabled" }}
+        {{ field|dsfr_input_class_attr|attr:"type:radio"|attr:"disabled" }}
       {% else %}
-        {{ field|attr:"type:radio"|add_class:"fr-radio-group" }}
+        {{ field|dsfr_input_class_attr|attr:"type:radio" }}
       {% endif %}
     </div>
   </div>
