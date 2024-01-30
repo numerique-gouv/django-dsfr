@@ -16,6 +16,7 @@ class Command(BaseCommand):
             {"path": "dsfr/dsfr.module.min.js", "constant": "INTEGRITY_JS_MODULE"},
             {"path": "dsfr/dsfr.nomodule.min.js", "constant": "INTEGRITY_JS_NOMODULE"},
             {"path": "dsfr/dsfr.min.css", "constant": "INTEGRITY_CSS"},
+            {"path": "utility/utility.min.css", "constant": "INTEGRITY_UTILITY_CSS"},
             {"path": "utility/icons/icons.min.css", "constant": "INTEGRITY_CSS_ICONS"},
             {
                 "path": "favicon/apple-touch-icon.png",

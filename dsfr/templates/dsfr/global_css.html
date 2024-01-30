@@ -1,10 +1,15 @@
 {% load static %}
-<link rel="stylesheet"
-      href="{% static 'dsfr/dist/dsfr/dsfr.min.css' %}"
-      integrity="{{ self.INTEGRITY_CSS }}">
-<link rel="stylesheet"
-      href="{% static 'dsfr/dist/utility/icons/icons.min.css' %}"
-      integrity="{{ self.INTEGRITY_CSS_ICONS }}">
+<link
+  rel="stylesheet"
+  href="{% static 'dsfr/dist/dsfr/dsfr.min.css' %}"
+  integrity="{{ self.INTEGRITY_CSS }}"
+>
+<link
+  rel="stylesheet"
+  href="{% static 'dsfr/dist/utility/utility.min.css' %}"
+  integrity="{{ self.INTEGRITY_UTILITY_CSS }}"
+>
 <link rel="stylesheet" href="{% static 'css/dsfr-django-overrides.css' %}">
+
 <meta name="theme-color" content="#000091">
 <!-- Définit la couleur de thème du navigateur (Safari/Android) -->
