@@ -99,8 +99,10 @@ class ExampleForm(DsfrBaseForm):
     sample_json = forms.JSONField(label="Fichier JSON", required=False)
 
     # files
-
     sample_file = forms.FileField(label="Pièce jointe", required=False)
+
+    # hidden field
+    hidden_input = forms.CharField(widget=forms.HiddenInput(), initial="value")
 
     def clean_sample_number(self):
         sample_number = self.cleaned_data["sample_number"]
