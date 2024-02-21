@@ -1,6 +1,6 @@
 {% extends "dsfr/header.html" %}
 {% block service_title %}
-  <a href="/"
+  <a href="{{ home_url }}"
      title="Accueil — {{ SITE_CONFIG.site_title|default:"Django-DSFR" }}">
     <p class="fr-header__service-title">
       {{ SITE_CONFIG.site_title|default:"Django-DSFR" }}
