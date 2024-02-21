@@ -18,6 +18,11 @@ INTEGRITY_CSS = (
     "sha384-diNcOMzsBeI3kzBRfiZqv56Oi4WBnUJhcubWpNsTCigDuxMUPJMGgMlE9KSfFyb1"
 )
 
+# dsfr/static/dsfr/dist/utility/utility.min.css
+INTEGRITY_UTILITY_CSS = (
+    "sha384-vOc3XkofBfoLSvbeQlBwi+97miTEHOov9VEn2sRVxml5nJ7hsGR2pSQsrMqstPjD"
+)
+
 # dsfr/static/dsfr/dist/utility/icons/icons.min.css
 INTEGRITY_CSS_ICONS = (
     "sha384-rEPdGS1CzbNKp1iHewzg1GXyWg9OacK//IkYEX1YqrrqQwxWX7+7OiqoCokyCSuQ"
