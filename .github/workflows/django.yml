@@ -33,3 +33,7 @@ jobs:
       run: |
         poetry add django@^4.1
         poetry run python manage.py test
+    - name: 🧪 Run Tests - Django 5
+      run: |
+        poetry add django@^5.0
+        poetry run python manage.py test
