@@ -393,7 +393,7 @@
     Exemple de formulaire
   </h1>
   <form action="/django-dsfr/form/example/" method="post">
-    <input type="hidden" name="csrfmiddlewaretoken" value="mpjDJZf58dtVUWKj8WywHJbMgeTfxg6TrHt39iXNdlSAd2wU4khzE8EWrqx3G0OL">
+    <input type="hidden" name="csrfmiddlewaretoken" value="WL2hH5HjjCs48dRbXU6saHXoePI0g8QwsgnES5C2ItE4iborOELGwD8WXIaWnSz4">
     
 
   <input type="hidden" name="hidden_input" value="value" id="id_hidden_input">
@@ -405,10 +405,7 @@
 
 <div class="fr-input-group">
   <label for="id_user_name" class="fr-label">
-    Nom d’utilisateur
-    
-      *
-    
+    Nom d’utilisateur*
     
   </label>
   
@@ -419,7 +416,6 @@
 
 
 
-
   
 
   
@@ -427,7 +423,6 @@
 <div class="fr-input-group">
   <label for="id_user_email" class="fr-label">
     Adresse électronique
-    
     
       <span class="fr-hint-text">Format attendu : prenom.nom@domaine.fr</span>
     
@@ -440,7 +435,6 @@
 
 
 
-
   
 
   
@@ -448,7 +442,6 @@
 <div class="fr-input-group">
   <label for="id_password" class="fr-label">
     Mot de passe
-    
     
   </label>
   
@@ -459,17 +452,13 @@
 
 
 
-
   
 
   
 
 <div class="fr-input-group">
   <label for="id_sample_number" class="fr-label">
-    Nombre entier
-    
-      *
-    
+    Nombre entier*
     
       <span class="fr-hint-text">Un nombre inférieur à 0 déclenchera un message d’erreur</span>
     
@@ -482,7 +471,6 @@
 
 
 
-
   
 
   
@@ -490,7 +478,6 @@
 <div class="fr-input-group">
   <label for="id_sample_decimal" class="fr-label">
     Nombre décimal
-    
     
   </label>
   
@@ -501,7 +488,6 @@
 
 
 
-
   
 
   
@@ -509,7 +495,6 @@
 <div class="fr-input-group fr-input-group--disabled">
   <label for="id_sample_disabled_field" class="fr-label">
     Champ désactivé
-    
     
       <span class="fr-hint-text">Ce champ est désactivé</span>
     
@@ -522,7 +507,6 @@
 
 
 
-
   
 
   
@@ -531,14 +515,12 @@
   <label for="id_sample_date" class="fr-label">
     Date
     
-    
   </label>
   
     <input type="date" name="sample_date" class="fr-input" id="id_sample_date">
   
   
 </div>
-
 
 
 
@@ -567,7 +549,6 @@
   <label for="id_sample_select" class="fr-label">
     Liste déroulante
     
-    
   </label>
   
     <select name="sample_select" class="fr-select" id="id_sample_select">
@@ -584,7 +565,6 @@
 
 
 
-
   
 
   
@@ -592,7 +572,6 @@
 <div class="fr-select-group">
   <label for="id_sample_multiple_select" class="fr-label">
     Liste déroulante à choix multiples
-    
     
   </label>
   
@@ -607,7 +586,6 @@
   
   
 </div>
-
 
 
 
@@ -630,7 +608,7 @@
       
         <div class="fr-radio-group">
   
-  <input type="radio" name="sample_radio" value="1" dsfr="dsfr" class="fr-radio-group" id="id_sample_radio_0">
+  <input type="radio" name="sample_radio" value="1" dsfr="dsfr" id="id_sample_radio_0">
 
   
     <label class="fr-label"
@@ -650,7 +628,7 @@
       
   <div class="fr-radio-group">
   
-  <input type="radio" name="sample_radio" value="2" dsfr="dsfr" class="fr-radio-group" id="id_sample_radio_1">
+  <input type="radio" name="sample_radio" value="2" dsfr="dsfr" id="id_sample_radio_1">
 
   
     <label class="fr-label"
@@ -670,7 +648,7 @@
       
   <div class="fr-radio-group">
   
-  <input type="radio" name="sample_radio" value="3" dsfr="dsfr" class="fr-radio-group" id="id_sample_radio_2">
+  <input type="radio" name="sample_radio" value="3" dsfr="dsfr" id="id_sample_radio_2">
 
   
     <label class="fr-label"
@@ -780,7 +758,6 @@
   <label for="id_sample_comment" class="fr-label">
     Sample comment
     
-    
   </label>
   
     <textarea name="sample_comment" cols="40" rows="10" class="fr-input" id="id_sample_comment">
@@ -788,7 +765,6 @@
   
   
 </div>
-
 
 
 
@@ -800,7 +776,6 @@
   <label for="id_sample_json" class="fr-label">
     Fichier JSON
     
-    
   </label>
   
     <textarea name="sample_json" cols="40" rows="10" class="fr-input" id="id_sample_json">
@@ -808,7 +783,6 @@ null</textarea>
   
   
 </div>
-
 
 
 
@@ -820,14 +794,12 @@ null</textarea>
   <label for="id_sample_file" class="fr-label">
     Pièce jointe
     
-    
   </label>
   
     <input type="file" name="sample_file" id="id_sample_file">
   
   
 </div>
-
 
 
 
@@ -929,11 +901,11 @@ null</textarea>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-0OQ6Q9ZAssur6KZKIPnF76AYck9k+vzDJ4QWGEQSpmU5qWtHIr9eN2/9/GOKiJeg"
-         nonce="wJzy88enWyd8nI9HsAZmIw=="></script>
+         nonce="VafNntXGg8ioBS0KcaOAnw=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-lbZ4GtXN8+9/PJKGoM35lJokzC+dXV3JFLZgwg7G/rkeZATNoF6VRX+4agY6raLu"
-         nonce="wJzy88enWyd8nI9HsAZmIw=="></script>
+         nonce="VafNntXGg8ioBS0KcaOAnw=="></script>
 
     
     
