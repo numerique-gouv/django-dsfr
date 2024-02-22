@@ -14,11 +14,11 @@ from dsfr.utils import generate_summary_items
 
 from example_app.forms import ColorForm, ExampleForm
 
-from example_app.tag_specifics import (
-    ALL_IMPLEMENTED_TAGS,
-    IMPLEMENTED_TAGS,
-    EXTRA_TAGS,
-    NOT_YET_IMPLEMENTED_TAGS,
+from example_app.dsfr_components import (
+    ALL_IMPLEMENTED_COMPONENTS,
+    IMPLEMENTED_COMPONENTS,
+    EXTRA_COMPONENTS,
+    NOT_YET_IMPLEMENTED_COMPONENTS,
 )
 
 # Used by the module = getattr(globals()["dsfr_tags"], f"dsfr_{tag_name}") line
@@ -77,21 +77,21 @@ def tags_index(request):
     payload = init_payload("Composants")
     payload["documentation"] = format_markdown_from_file("doc/components.md")
     payload["implemented_tags"] = dict(
-        sorted(IMPLEMENTED_TAGS.items(), key=lambda k: k[1]["title"])
+        sorted(IMPLEMENTED_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
     payload["extra_tags"] = dict(
-        sorted(EXTRA_TAGS.items(), key=lambda k: k[1]["title"])
+        sorted(EXTRA_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
     payload["not_yet"] = dict(
-        sorted(NOT_YET_IMPLEMENTED_TAGS.items(), key=lambda k: k[1]["title"])
+        sorted(NOT_YET_IMPLEMENTED_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
     return render(request, "example_app/tags_index.html", payload)
 
 
 @require_safe
 def page_tag(request, tag_name):
-    if tag_name in ALL_IMPLEMENTED_TAGS:
-        current_tag = ALL_IMPLEMENTED_TAGS[tag_name]
+    if tag_name in ALL_IMPLEMENTED_COMPONENTS:
+        current_tag = ALL_IMPLEMENTED_COMPONENTS[tag_name]
         payload = init_payload(
             current_tag["title"],
             links=[{"url": reverse("tags_index"), "title": "Composants"}],
@@ -127,7 +127,7 @@ def page_tag(request, tag_name):
             payload["doc_url"] = current_tag["doc_url"]
 
         sidemenu_items = []
-        for key in ALL_IMPLEMENTED_TAGS.keys():
+        for key in ALL_IMPLEMENTED_COMPONENTS.keys():
             sidemenu_items.append(
                 {"label": key, "link": reverse("page_tag", kwargs={"tag_name": key})}
             )

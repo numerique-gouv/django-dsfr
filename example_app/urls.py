@@ -14,7 +14,7 @@ from example_app.views import (
     doc_form,
     search,
 )
-from example_app.tag_specifics import ALL_TAGS
+from example_app.dsfr_components import ALL_TAGS
 
 
 def get_all_tags():

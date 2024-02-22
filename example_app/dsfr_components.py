@@ -610,8 +610,8 @@ EXTRA_COMPONENTS = {
     },
 }
 
-unsorted_implemented_tags = {**IMPLEMENTED_COMPONENTS, **EXTRA_COMPONENTS}
-ALL_IMPLEMENTED_COMPONENTS = dict(sorted(unsorted_implemented_tags.items()))
+unsorted_IMPLEMENTED_COMPONENTS = {**IMPLEMENTED_COMPONENTS, **EXTRA_COMPONENTS}
+ALL_IMPLEMENTED_COMPONENTS = dict(sorted(unsorted_IMPLEMENTED_COMPONENTS.items()))
 
 NOT_YET_IMPLEMENTED_COMPONENTS = {
     "file_upload": {
