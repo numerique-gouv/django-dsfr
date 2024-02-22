@@ -338,7 +338,7 @@ def dsfr_django_messages(
                         "type": message_tags_css_classes.get(message.level, "info"),
                         "content": str(message),
                         "extra_classes": "{} {}".format(
-                            extra_classes, message.extra_components or ""
+                            extra_classes, message.extra_tags or ""
                         ).strip(),
                         "is_collapsible": is_collapsible,
                     }
