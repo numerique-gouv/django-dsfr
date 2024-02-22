@@ -34,6 +34,6 @@ jobs:
         poetry run python manage.py test
     - name: 🧪 Run Tests - Django 5
       run: |
-        poetry add python@^3.10
+        sed -i 's/python = "^3.8"/python = "^3.10"/g' pyproject.toml
         poetry add django@^5.0
         poetry run python manage.py test
