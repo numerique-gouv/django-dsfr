@@ -15,11 +15,14 @@ endif
 checkstyle:
 	poetry run pre-commit run --all-files
 
+collectstatic:
+	poetry run python manage.py collectstatic --noinput
+
 init:
 	poetry install
 	poetry run pre-commit install
 	poetry run python manage.py migrate
-	poetry run python manage.py collectstatic --noinput
+	make collectstatic
 	poetry run python manage.py import_sample_data
 	poetry shell
 
@@ -33,7 +36,7 @@ update_dsfr:
 	bash scripts/download_latest.sh
 	poetry run python manage.py trim_dist
 	poetry run python manage.py integrity_checksums
-	poetry run python manage.py collecstatic --noinput
+	make collectstatic
 
 static_server:
 	python -m http.server $(local_port) -d docs/
