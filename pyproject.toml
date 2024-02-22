@@ -77,4 +77,5 @@ indent = 2
 "page_component.html" = "T002"
 
 [tool.pyright]
+reportAttributeAccessIssue = false
 reportOperatorIssue = false
