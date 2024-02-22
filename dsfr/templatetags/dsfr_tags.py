@@ -1,7 +1,8 @@
-from django import template
+from django import template, forms
 from django.conf import settings
 from django.contrib.messages.constants import DEBUG, INFO, SUCCESS, WARNING, ERROR
 from django.core.paginator import Page
+from django.forms import BoundField
 from django.template import Template
 from django.template.context import Context
 from django.utils.html import format_html, format_html_join
@@ -20,6 +21,7 @@ from dsfr.utils import (
     find_active_menu_items,
     generate_random_id,
     parse_tag_args,
+    dsfr_input_class_attr,
 )
 
 register = template.Library()
@@ -118,6 +120,9 @@ def dsfr_form_field(field) -> dict:
         `{% dsfr_form_field field %}`
     """
     return {"field": field}
+
+
+register.filter(name="dsfr_input_class_attr", filter_func=dsfr_input_class_attr)
 
 
 @register.inclusion_tag("dsfr/theme_modale.html")

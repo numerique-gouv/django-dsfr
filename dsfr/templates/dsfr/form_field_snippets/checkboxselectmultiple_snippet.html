@@ -1,4 +1,4 @@
-{% load widget_tweaks %}
+{% load widget_tweaks dsfr_tags %}
 <fieldset class="fr-fieldset{% if field.errors %} fr-fieldset--error{% endif %}"
           id="checkboxes-{{ field.auto_id }}"
           aria-labelledby="{{ field.auto_id }}-legend{% if field.errors %} {{ field.auto_id }}-messages{% endif %}">
@@ -16,10 +16,10 @@
     <div class="fr-checkbox-group{% if field.errors %} fr-checkbox-group--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %}">
       {% if field.errors %}
         {% with aria_describedby="aria-describedby:"|add:field.auto_id|add:"-desc-error" %}
-          {{ field|attr:"type:checkbox"|attr:aria_describedby }}
+          {{ field|dsfr_input_class_attr|attr:"type:checkbox"|attr:aria_describedby }}
         {% endwith %}
       {% else %}
-        {{ field|attr:"type:checkbox" }}
+        {{ field|dsfr_input_class_attr|attr:"type:checkbox" }}
       {% endif %}
       {% if field.errors %}
         <div id="{{ field.auto_id }}-desc-error" class="fr-error-text">

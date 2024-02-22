@@ -1,3 +1,4 @@
+from django.forms import BoundField, widgets
 from django.core.paginator import Page
 from django.utils.text import slugify
 import random
@@ -103,3 +104,27 @@ def generate_summary_items(sections_names: list) -> list:
         )
 
     return items
+
+
+def dsfr_input_class_attr(bf: BoundField):
+    if not bf.is_hidden and "class" not in bf.field.widget.attrs:
+        if isinstance(
+            bf.field.widget, (widgets.Select, widgets.SelectMultiple)
+        ):
+            bf.field.widget.attrs["class"] = "fr-select"
+            bf.field.widget.group_class = "fr-select-group"
+        elif isinstance(bf.field.widget, widgets.RadioSelect):
+            bf.field.widget.attrs["dsfr"] = "dsfr"
+            bf.field.widget.group_class = "fr-radio-group"
+        elif isinstance(bf.field.widget, widgets.CheckboxSelectMultiple):
+            bf.field.widget.attrs["dsfr"] = "dsfr"
+        elif not isinstance(
+            bf.field.widget,
+            (
+                widgets.CheckboxInput,
+                widgets.FileInput,
+                widgets.ClearableFileInput,
+            ),
+        ):
+            bf.field.widget.attrs["class"] = "fr-input"
+    return bf
