@@ -646,6 +646,14 @@ NOT_YET_IMPLEMENTED_TAGS = {
         "title": "Contenu média (responsive_medias)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias",
     },
+    "segmented_control": {
+        "title": "Contrôle segmenté (segmented_control)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/controle-segmente",
+    },
+    "cursor": {
+        "title": "Curseur (range)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/curseur-range",
+    },
     "consent": {
         "title": "Gestionnaire de consentement (consent)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/gestionnaire-de-consentement",
