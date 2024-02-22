@@ -73,28 +73,28 @@ def index(request):
 
 
 @require_safe
-def tags_index(request):
+def components_index(request):
     payload = init_payload("Composants")
     payload["documentation"] = format_markdown_from_file("doc/components.md")
     payload["implemented_tags"] = dict(
         sorted(IMPLEMENTED_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
-    payload["extra_tags"] = dict(
+    payload["extra_components"] = dict(
         sorted(EXTRA_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
     payload["not_yet"] = dict(
         sorted(NOT_YET_IMPLEMENTED_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
-    return render(request, "example_app/tags_index.html", payload)
+    return render(request, "example_app/components_index.html", payload)
 
 
 @require_safe
-def page_tag(request, tag_name):
+def page_component(request, tag_name):
     if tag_name in ALL_IMPLEMENTED_COMPONENTS:
         current_tag = ALL_IMPLEMENTED_COMPONENTS[tag_name]
         payload = init_payload(
             current_tag["title"],
-            links=[{"url": reverse("tags_index"), "title": "Composants"}],
+            links=[{"url": reverse("components_index"), "title": "Composants"}],
         )
         payload["tag_name"] = tag_name
 
@@ -129,11 +129,14 @@ def page_tag(request, tag_name):
         sidemenu_items = []
         for key in ALL_IMPLEMENTED_COMPONENTS.keys():
             sidemenu_items.append(
-                {"label": key, "link": reverse("page_tag", kwargs={"tag_name": key})}
+                {
+                    "label": key,
+                    "link": reverse("page_component", kwargs={"tag_name": key}),
+                }
             )
 
         payload["side_menu"] = {"title": "Composants", "items": sidemenu_items}
-        return render(request, "example_app/page_tag.html", payload)
+        return render(request, "example_app/page_component.html", payload)
     else:
         payload = init_payload("Non implémenté")
         payload["not_yet"] = {
