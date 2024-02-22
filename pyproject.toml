@@ -75,3 +75,6 @@ indent = 2
 "footer.html" = "D018"
 "page_pictograms.html" = "D018"
 "page_component.html" = "T002"
+
+[tool.pyright]
+reportOperatorIssue = false
