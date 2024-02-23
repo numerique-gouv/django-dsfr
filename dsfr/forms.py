@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from django import forms
 from django.forms import Form
 from django.forms.renderers import DjangoTemplates, get_default_renderer
 from django.utils.functional import cached_property
