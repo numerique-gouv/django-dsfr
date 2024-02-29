@@ -14,9 +14,9 @@
     {% block title %}
       <title>
         {% if title %}
-          {{ title }} — Système de Design de l’État
+          {{ title }} — {{ SITE_CONFIG.site_title }}
         {% else %}
-          Système de Design de l’État
+          {{ SITE_CONFIG.site_title }}
         {% endif %}
       </title>
     {% endblock title %}

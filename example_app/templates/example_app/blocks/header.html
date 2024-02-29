@@ -121,6 +121,13 @@
             <div class="fr-collapse fr-menu" id="menu-resources">
               <ul class="fr-menu__list">
                 <li>
+                  {% url 'resource_colors' as resource_colors_url %}
+                  <a class="fr-nav__link"
+                     href="{{ resource_colors_url }}"
+                     target="_self"
+                     {% if request.path == resource_colors_url %}aria-current="true"{% endif %}>Couleurs</a>
+                </li>
+                <li>
                   {% url 'resource_icons' as resource_icons_url %}
                   <a class="fr-nav__link"
                      href="{{ resource_icons_url }}"

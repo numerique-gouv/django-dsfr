@@ -1,0 +1,156 @@
+{% extends "example_app/base.html" %}
+{% load static dsfr_tags %}
+{% block content %}
+  <h1>
+    Couleurs
+  </h1>
+  <ul class="fr-mb-4w">
+    <li>
+      <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+         href="https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-de-l-identite-de-l-etat/couleurs-palette/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Voir la page de présentation de la palette de couleurs sur le Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+      </a>
+    </li>
+    <li>
+      <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+         href="https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-de-l-identite-de-l-etat/couleurs-utilisation-dans-le-dsfr"
+         target="_blank"
+         rel="noopener noreferrer">
+        Voir la page de règles d’utilisation de la palette de couleurs sur le Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+      </a>
+    </li>
+  </ul>
+  <h2>
+    Cartes et tuiles
+  </h2>
+  <p>
+    Les cartes et tuiles peuvent prendre un fond gris à la place de la couleur par défaut.
+  </p>
+  <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
+    <div class="fr-col-12 fr-col-md-6">
+      {% dsfr_card components_data.card.sample_data.0 %}
+    </div>
+    <div class="fr-col-12 fr-col-md-6">
+      {% dsfr_card components_data.card.sample_data.0 extra_classes="fr-card--grey" %}
+    </div>
+  </div>
+  <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
+    <div class="fr-col-12 fr-col-md-3">
+      {% dsfr_tile components_data.tile.sample_data.0 %}
+    </div>
+    <div class="fr-col-12 fr-col-md-3">
+      {% dsfr_tile components_data.tile.sample_data.0 extra_classes="fr-tile--grey" %}
+    </div>
+    <div class="fr-col-12 fr-col-md-3">
+      {% dsfr_tile components_data.tile.sample_data.0 %}
+    </div>
+    <div class="fr-col-12 fr-col-md-3">
+      {% dsfr_tile components_data.tile.sample_data.0 extra_classes="fr-tile--grey" %}
+    </div>
+  </div>
+  <h2>
+    Couleurs d’accentuation
+  </h2>
+  <p>
+    Certains composants prennent une couleur d’accentuation comme paramètre. Seules les couleurs illustratives sont prises en compte.
+  </p>
+  <form class="fr-mb-4w">
+    {% dsfr_form %}
+  </form>
+  <div class="example-use">
+    <h3>
+      Citation
+    </h3>
+    <p>
+      Personnalise la couleur de l’icône.
+    </p>
+    {% dsfr_quote components_data.quote.sample_data.0 %}
+    <h3>
+      Mise en avant
+    </h3>
+    <p>
+      Personnalise la couleur du fond et de la bordure.
+    </p>
+    {% dsfr_callout components_data.callout.sample_data.0 %}
+    <h3>
+      Mise en exergue
+    </h3>
+    <p>
+      Personnalise la couleur de la bordure.
+    </p>
+    {% dsfr_highlight components_data.highlight.sample_data.0 %}
+    <h3>
+      Tableau
+    </h3>
+    <p>
+      Personnalise la couleur de la bordure et du fond.
+    </p>
+    {% dsfr_table components_data.table.sample_data.0 %}
+    <h3>
+      Tag
+    </h3>
+    <p>
+      Personnalise la couleur de la bordure, du fond et de l’icône. Seuls les tags cliquables sont pris en compte.
+    </p>
+    <ul class="fr-tags-group">
+      <li>
+        {% dsfr_tag components_data.tag.sample_data.1 %}
+      </li>
+      <li>
+        {% dsfr_tag components_data.tag.sample_data.3 %}
+      </li>
+    </ul>
+  </div>
+{% endblock content %}
+{% block extra_js %}
+  <script>
+    const colors_list = [
+      "green-tilleul-verveine",
+      "green-bourgeon",
+      "green-emeraude",
+      "green-menthe",
+      "green-archipel",
+      "blue-ecume",
+      "blue-cumulus",
+      "purple-glycine",
+      "pink-macaron",
+      "pink-tuile",
+      "yellow-tournesol",
+      "yellow-moutarde",
+      "orange-terre-battue",
+      "brown-cafe-creme",
+      "brown-caramel",
+      "brown-opera",
+      "beige-gris-galet",
+    ];
+
+
+    function manageColorClasses(base_class, color) {
+      const items = document.getElementsByClassName(base_class);
+
+      let item_color_classes = [];
+      for (let c of colors_list) {
+        item_color_classes.push(base_class + "--" + c);
+      }
+
+      for (const item of items) {
+        item.classList.remove(...item_color_classes)
+
+        if (color !== "") {
+          item.classList.add(base_class + "--" + color);
+        }
+      }
+    }
+
+
+    document.getElementById('id_color').addEventListener('input', function (event) {
+      manageColorClasses("fr-quote", event.target.value);
+      manageColorClasses("fr-callout", event.target.value);
+      manageColorClasses("fr-highlight", event.target.value);
+      manageColorClasses("fr-table", event.target.value);
+      manageColorClasses("fr-tag", event.target.value);
+    }, false);
+  </script>
+{% endblock extra_js %}

@@ -44,10 +44,10 @@ def parse_tag_args(args, kwargs, allowed_keys: list) -> dict:
     """
     Allows to use a tag with either all the arguments in a dict or by declaring them separately
     """
+    tag_data = {}
+
     if args:
-        tag_data = args[0]
-    else:
-        tag_data = {}
+        tag_data = args[0].copy()
 
     for k in kwargs:
         if k in allowed_keys:
@@ -108,9 +108,7 @@ def generate_summary_items(sections_names: list) -> list:
 
 def dsfr_input_class_attr(bf: BoundField):
     if not bf.is_hidden and "class" not in bf.field.widget.attrs:
-        if isinstance(
-            bf.field.widget, (widgets.Select, widgets.SelectMultiple)
-        ):
+        if isinstance(bf.field.widget, (widgets.Select, widgets.SelectMultiple)):
             bf.field.widget.attrs["class"] = "fr-select"
             bf.field.widget.group_class = "fr-select-group"
         elif isinstance(bf.field.widget, widgets.RadioSelect):
