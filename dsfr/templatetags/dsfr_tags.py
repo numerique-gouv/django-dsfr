@@ -1,8 +1,7 @@
-from django import template, forms
+from django import template
 from django.conf import settings
 from django.contrib.messages.constants import DEBUG, INFO, SUCCESS, WARNING, ERROR
 from django.core.paginator import Page
-from django.forms import BoundField
 from django.template import Template
 from django.template.context import Context
 from django.utils.html import format_html, format_html_join
@@ -897,7 +896,7 @@ def dsfr_skiplinks(context: Context, items: list) -> dict:
         if "skiplinks" in context:
             items = context["skiplinks"]
         else:
-            items = {}
+            items = []
     return {"self": {"items": items}}
 
 

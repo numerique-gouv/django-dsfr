@@ -12,7 +12,7 @@ from django.views.decorators.http import require_safe
 
 from dsfr.utils import generate_summary_items
 
-from example_app.forms import ExampleForm
+from example_app.forms import ColorForm, ExampleForm
 
 from example_app.tag_specifics import (
     ALL_IMPLEMENTED_TAGS,
@@ -350,6 +350,18 @@ def resource_pictograms(request):
     payload["pictograms"] = all_pictos
 
     return render(request, "example_app/page_pictograms.html", payload)
+
+
+@require_safe
+def resource_colors(request):
+    payload = init_payload("Couleurs")
+
+    form = ColorForm()
+
+    payload["form"] = form
+    payload["components_data"] = IMPLEMENTED_TAGS
+
+    return render(request, "example_app/page_colors.html", payload)
 
 
 @require_safe
