@@ -1,0 +1,979 @@
+
+<!DOCTYPE html>
+<html lang="fr"
+      data-fr-scheme="system"
+      >
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+<link
+  rel="stylesheet"
+  href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"
+  integrity="sha384-diNcOMzsBeI3kzBRfiZqv56Oi4WBnUJhcubWpNsTCigDuxMUPJMGgMlE9KSfFyb1"
+>
+<link
+  rel="stylesheet"
+  href="/django-dsfr/static/dsfr/dist/utility/utility.min.css"
+  integrity=""
+>
+<link rel="stylesheet" href="/django-dsfr/static/css/dsfr-django-overrides.css">
+
+<meta name="theme-color" content="#000091">
+<!-- Définit la couleur de thème du navigateur (Safari/Android) -->
+
+    
+<link rel="apple-touch-icon"
+      href="/django-dsfr/static/dsfr/dist/favicon/apple-touch-icon.png"
+      integrity="sha384-bE/sjT09LYXMMjd/7ovUY40XBU2WQoLkIRw4/eBcHdBVsJOhoomJuSSa+qEFGku/" />
+<!-- 180×180 -->
+<link rel="icon"
+      href="/django-dsfr/static/dsfr/dist/favicon/favicon.svg"
+      type="image/svg+xml"
+      integrity="sha384-z4gMU2V+U4skVvrlEwyCe+lUVDhliQY6Tg0az69xNkmyu4H84cy+uJZnWVkHfMrN" />
+<link rel="shortcut icon"
+      href="/django-dsfr/static/dsfr/dist/favicon/favicon.ico"
+      type="image/x-icon"
+      integrity="sha384-esZ1Wf54Wvb66vtrLBKzz2QEZciEIV9R+wc+w7C3e5mID8A1SgJpXXIc+3lY9YqP" />
+<!-- 32×32 -->
+<link rel="manifest"
+      href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest"
+      crossorigin="use-credentials"
+      integrity="sha384-9rQ8jBh6MztX7GlSBVwj2yJEUaxKTCy3pYRLq1Qu57zkdJ3P5ftf6GyfYJwFuR7j" />
+
+    
+    
+    
+      <title>
+        
+          Couleurs — 
+        
+      </title>
+    
+    <meta name="format-detection"
+          content="telephone=no,date=no,address=no,email=no,url=no">
+  </head>
+  <body>
+    
+      <div class="fr-skiplinks">
+  <nav role="navigation" class="fr-container" aria-label="Accès rapide">
+    <ul class="fr-skiplinks__list">
+      
+        <li>
+          <a class="fr-link" href="#content">Contenu</a>
+        </li>
+      
+        <li>
+          <a class="fr-link" href="#fr-navigation">Menu</a>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+
+    
+    
+  <header role="banner" class="fr-header">
+  <div class="fr-header__body">
+    <div class="fr-container">
+      <div class="fr-header__body-row">
+        <div class="fr-header__brand fr-enlarge-link">
+          <div class="fr-header__brand-top">
+            <div class="fr-header__logo">
+              
+                <a href="/" title="Accueil — ">
+                  <p class="fr-logo">
+                    
+                  </p>
+                </a>
+              
+            </div>
+            
+              <div class="fr-header__navbar">
+                <button class="fr-btn--menu fr-btn"
+                        data-fr-opened="false"
+                        aria-controls="fr-menu-mobile"
+                        aria-haspopup="menu"
+                        title="Menu"
+                        id="fr-btn-menu-mobile">
+                  Menu
+                </button>
+              </div>
+            
+          </div>
+          <div class="fr-header__service">
+            
+  <a href=""
+     title="Accueil — Django-DSFR">
+    <p class="fr-header__service-title">
+      Django-DSFR
+    </p>
+  </a>
+
+            <p class="fr-header__service-tagline">
+              
+  Intégration du système de l’État pour les sites utilisant Django
+
+            </p>
+          </div>
+        </div>
+        <div class="fr-header__tools">
+          <div class="fr-header__tools-links">
+            <ul class="fr-btns-group">
+              
+  <li>
+    <button class="fr-btn--display fr-btn"
+            aria-controls="fr-theme-modal"
+            data-fr-opened="false">
+      Paramètres d’affichage
+    </button>
+  </li>
+
+            </ul>
+          </div>
+          
+  <div class="fr-header__search fr-modal" id="modal-search">
+    <div class="fr-container fr-container-lg--fluid">
+      <button class="fr-btn--close fr-btn"
+              aria-controls="modal-search"
+              title="Fermer">
+        Fermer
+      </button>
+      <form action="/django-dsfr/search/" method="get">
+        <div class="fr-search-bar" id="search-bar" role="search">
+          <label class="fr-label" for="search-bar-input">
+            Rechercher
+          </label>
+          <input class="fr-input"
+                 placeholder="Rechercher"
+                 type="search"
+                 id="query"
+                 name="q">
+          <button class="fr-btn" title="Rechercher">
+            Rechercher
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="fr-header__menu fr-modal"
+       id="fr-menu-mobile"
+       aria-labelledby="fr-btn-menu-mobile">
+    <div class="fr-container">
+      <button type="button"
+              class="fr-btn--close fr-btn"
+              aria-controls="fr-menu-mobile">
+        Fermer
+      </button>
+      <div class="fr-header__menu-links">
+      </div>
+      <nav role="navigation"
+           class="fr-nav"
+           id="fr-navigation"
+           aria-label="Menu principal">
+        <ul class="fr-nav__list">
+          <li class="fr-nav__item">
+            
+            <a class="fr-nav__link"
+               href="/django-dsfr/"
+               target="_self"
+               >Accueil</a>
+          </li>
+          <li class="fr-nav__item">
+            <button class="fr-nav__btn"
+                    aria-expanded="false"
+                    aria-controls="menu-doc"
+                    >
+              Documentation
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-doc">
+              <ul class="fr-menu__list">
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/doc-install"
+                     target="_self"
+                     >Installation</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/doc-contributing"
+                     target="_self"
+                     >Contribuer</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="fr-nav__item">
+            <a class="fr-nav__link"
+               href="/django-dsfr/tags/"
+               target="_self"
+               >Composants</a>
+          </li>
+          <li class="fr-nav__item">
+            <button class="fr-nav__btn"
+                    aria-expanded="false"
+                    aria-controls="menu-forms"
+                    >
+              Formulaires
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-forms">
+              <ul class="fr-menu__list">
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/form/"
+                     target="_self"
+                     >Documentation</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/form/example/"
+                     target="_self"
+                     >Exemple basique</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/form/example-formset/"
+                     target="_self"
+                     >Exemple avec formset</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="fr-nav__item">
+            <button class="fr-nav__btn"
+                    aria-expanded="false"
+                    aria-controls="menu-resources"
+                    aria-current="true">
+              Ressources
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-resources">
+              <ul class="fr-menu__list">
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/resources/colors"
+                     target="_self"
+                     aria-current="true">Couleurs</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/resources/icons"
+                     target="_self"
+                     >Icônes</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/resources/pictograms"
+                     target="_self"
+                     >Pictogrammes</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+</header>
+
+
+    
+<dialog id="fr-theme-modal"
+        class="fr-modal"
+        aria-labelledby="fr-theme-modal-title">
+  <div class="fr-container fr-container--fluid fr-container-md">
+    <div class="fr-grid-row fr-grid-row--center">
+      <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+        <div class="fr-modal__body">
+          <div class="fr-modal__header">
+            <button class="fr-btn--close fr-btn"
+                    aria-describedby="fr-theme-modal-title"
+                    aria-controls="fr-theme-modal">
+              Fermer
+            </button>
+          </div>
+          <div class="fr-modal__content">
+            <h1 id="fr-theme-modal-title" class="fr-modal__title">
+              Paramètres d’affichage
+            </h1>
+            <div id="fr-display" class="fr-form-group fr-display">
+              <div class="fr-form-group">
+                <fieldset class="fr-fieldset">
+                  <legend class="fr-fieldset__legend fr-text--regular" id="-legend">
+                    Choisissez un thème pour personnaliser l’apparence du site.
+                  </legend>
+                  <div class="fr-fieldset__content">
+                    <div class="fr-radio-group fr-radio-rich">
+                      <input value="light"
+                             type="radio"
+                             id="fr-radios-theme-light"
+                             name="fr-radios-theme" />
+                      <label class="fr-label" for="fr-radios-theme-light">
+                        Thème clair
+                      </label>
+                      <div class="fr-radio-rich__img" data-fr-inject-svg>
+                        <img src="/django-dsfr/static/dsfr/dist/artwork/light.svg" alt="" />
+                        <!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+                      </div>
+                    </div>
+                    <div class="fr-radio-group fr-radio-rich">
+                      <input value="dark"
+                             type="radio"
+                             id="fr-radios-theme-dark"
+                             name="fr-radios-theme" />
+                      <label class="fr-label" for="fr-radios-theme-dark">
+                        Thème sombre
+                      </label>
+                      <div class="fr-radio-rich__img" data-fr-inject-svg>
+                        <img src="/django-dsfr/static/dsfr/dist/artwork/dark.svg" alt="" />
+                        <!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+                      </div>
+                    </div>
+                    <div class="fr-radio-group fr-radio-rich">
+                      <input value="system"
+                             type="radio"
+                             id="fr-radios-theme-system"
+                             name="fr-radios-theme" />
+                      <label class="fr-label" for="fr-radios-theme-system">
+                        Système
+                        <span class="fr-hint-text">Utilise les paramètres système.</span>
+                      </label>
+                      <div class="fr-radio-rich__img" data-fr-inject-svg>
+                        <img src="/django-dsfr/static/dsfr/dist/artwork/system.svg" alt="" />
+                        <!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+    <div class="fr-container fr-mt-4w fr-mb-6w">
+      <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+  <button type="button"
+          class="fr-breadcrumb__button"
+          aria-expanded="false"
+          aria-controls="breadcrumb-1">
+    Voir le fil d’Ariane
+  </button>
+  <div class="fr-collapse" id="breadcrumb-1">
+    <ol class="fr-breadcrumb__list">
+      <li>
+        <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
+      </li>
+      
+      <li>
+        <a class="fr-breadcrumb__link" aria-current="page">Couleurs</a>
+      </li>
+    </ol>
+  </div>
+</nav>
+
+      <main id="content" role="main">
+        
+  <h1>
+    Couleurs
+  </h1>
+  <ul class="fr-mb-4w">
+    <li>
+      <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+         href="https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-de-l-identite-de-l-etat/couleurs-palette/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Voir la page de présentation de la palette de couleurs sur le Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+      </a>
+    </li>
+    <li>
+      <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+         href="https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-de-l-identite-de-l-etat/couleurs-utilisation-dans-le-dsfr"
+         target="_blank"
+         rel="noopener noreferrer">
+        Voir la page de règles d’utilisation de la palette de couleurs sur le Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+      </a>
+    </li>
+  </ul>
+  <h2>
+    Cartes et tuiles
+  </h2>
+  <p>
+    Les cartes et tuiles peuvent prendre un fond gris à la place de la couleur par défaut.
+  </p>
+  <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
+    <div class="fr-col-12 fr-col-md-6">
+      
+<div class="fr-card fr-enlarge-link"
+     >
+  <div class="fr-card__body">
+    <div class="fr-card__content">
+      <p class="fr-card__title">
+      <a href="https://www.systeme-de-design.gouv.fr/"
+         target="_blank"
+         rel="noopener noreferrer" title="Carte basique - Ouvrir dans une nouvelle fenêtre">
+        Carte basique
+      </a>
+      </p>
+      <p class="fr-card__desc">
+        Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
+                    à environ cinq lignes dans le mode vertical, et deux en horizontal.
+    …
+      </p>
+      
+      
+    </div>
+    
+  </div>
+  <div class="fr-card__header">
+    
+      <div class="fr-card__img">
+        <img class="fr-responsive-img"
+             src="/django-dsfr/static/img/placeholder.16x9.svg"
+             alt="" />
+      </div>
+      
+    
+  </div>
+</div>
+
+    </div>
+    <div class="fr-col-12 fr-col-md-6">
+      
+<div class="fr-card fr-enlarge-link fr-card--grey"
+     >
+  <div class="fr-card__body">
+    <div class="fr-card__content">
+      <p class="fr-card__title">
+      <a href="https://www.systeme-de-design.gouv.fr/"
+         target="_blank"
+         rel="noopener noreferrer" title="Carte basique - Ouvrir dans une nouvelle fenêtre">
+        Carte basique
+      </a>
+      </p>
+      <p class="fr-card__desc">
+        Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
+                    à environ cinq lignes dans le mode vertical, et deux en horizontal.
+    …
+      </p>
+      
+      
+    </div>
+    
+  </div>
+  <div class="fr-card__header">
+    
+      <div class="fr-card__img">
+        <img class="fr-responsive-img"
+             src="/django-dsfr/static/img/placeholder.16x9.svg"
+             alt="" />
+      </div>
+      
+    
+  </div>
+</div>
+
+    </div>
+  </div>
+  <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
+    <div class="fr-col-12 fr-col-md-3">
+      
+<div class="fr-tile fr-enlarge-link"
+     >
+  <div class="fr-tile__body">
+    <div class="fr-tile__content">
+      <h3 class="fr-tile__title">
+      <a class="fr-tile__link" href="/">Tuile basique (verticale, MD)</a>
+      </h3>
+      
+      
+      
+    </div>
+  </div>
+  <div class="fr-tile__header">
+    
+      <div class="fr-tile__img" role="presentation">
+        <img src="/django-dsfr/static/img/placeholder.1x1.svg" class="fr-responsive-img" alt="" />
+      </div>
+    
+  </div>
+</div>
+
+    </div>
+    <div class="fr-col-12 fr-col-md-3">
+      
+<div class="fr-tile fr-enlarge-link fr-tile--grey"
+     >
+  <div class="fr-tile__body">
+    <div class="fr-tile__content">
+      <h3 class="fr-tile__title">
+      <a class="fr-tile__link" href="/">Tuile basique (verticale, MD)</a>
+      </h3>
+      
+      
+      
+    </div>
+  </div>
+  <div class="fr-tile__header">
+    
+      <div class="fr-tile__img" role="presentation">
+        <img src="/django-dsfr/static/img/placeholder.1x1.svg" class="fr-responsive-img" alt="" />
+      </div>
+    
+  </div>
+</div>
+
+    </div>
+    <div class="fr-col-12 fr-col-md-3">
+      
+<div class="fr-tile fr-enlarge-link"
+     >
+  <div class="fr-tile__body">
+    <div class="fr-tile__content">
+      <h3 class="fr-tile__title">
+      <a class="fr-tile__link" href="/">Tuile basique (verticale, MD)</a>
+      </h3>
+      
+      
+      
+    </div>
+  </div>
+  <div class="fr-tile__header">
+    
+      <div class="fr-tile__img" role="presentation">
+        <img src="/django-dsfr/static/img/placeholder.1x1.svg" class="fr-responsive-img" alt="" />
+      </div>
+    
+  </div>
+</div>
+
+    </div>
+    <div class="fr-col-12 fr-col-md-3">
+      
+<div class="fr-tile fr-enlarge-link fr-tile--grey"
+     >
+  <div class="fr-tile__body">
+    <div class="fr-tile__content">
+      <h3 class="fr-tile__title">
+      <a class="fr-tile__link" href="/">Tuile basique (verticale, MD)</a>
+      </h3>
+      
+      
+      
+    </div>
+  </div>
+  <div class="fr-tile__header">
+    
+      <div class="fr-tile__img" role="presentation">
+        <img src="/django-dsfr/static/img/placeholder.1x1.svg" class="fr-responsive-img" alt="" />
+      </div>
+    
+  </div>
+</div>
+
+    </div>
+  </div>
+  <h2>
+    Couleurs d’accentuation
+  </h2>
+  <p>
+    Certains composants prennent une couleur d’accentuation comme paramètre. Seules les couleurs illustratives sont prises en compte.
+  </p>
+  <form class="fr-mb-4w">
+    
+
+
+  
+
+  
+
+<div class="fr-select-group">
+  <label for="id_color" class="fr-label">
+    Choisissez une couleur
+    
+  </label>
+  
+    <select name="color" class="fr-select" id="id_color">
+  <option value="" selected>----</option>
+
+  <option value="green-tilleul-verveine">Thilleul verveine</option>
+
+  <option value="green-bourgeon">Bourgeon</option>
+
+  <option value="green-emeraude">Émeraude</option>
+
+  <option value="green-menthe">Menthe</option>
+
+  <option value="green-archipel">Archipel</option>
+
+  <option value="blue-ecume">Écume</option>
+
+  <option value="blue-cumulus">Cumulus</option>
+
+  <option value="purple-glycine">Glycine</option>
+
+  <option value="pink-macaron">Macaron</option>
+
+  <option value="pink-tuile">Tuile</option>
+
+  <option value="yellow-tournesol">Tournesol</option>
+
+  <option value="yellow-moutarde">Moutarde</option>
+
+  <option value="orange-terre-battue">Terre battue</option>
+
+  <option value="brown-cafe-creme">Café crème</option>
+
+  <option value="brown-caramel">Caramel</option>
+
+  <option value="brown-opera">Opéra</option>
+
+  <option value="beige-gris-galet">Gris galet</option>
+
+</select>
+  
+  
+</div>
+
+
+
+
+  </form>
+  <div class="example-use">
+    <h3>
+      Citation
+    </h3>
+    <p>
+      Personnalise la couleur de l’icône.
+    </p>
+    <figure class="fr-quote fr-quote--column">
+  <blockquote cite="https://www.systeme-de-design.gouv.fr/">
+    <p>
+      Développer vos sites et applications en utilisant des composants prêts à l’emploi, accessibles et ergonomiques
+    </p>
+  </blockquote>
+  <figcaption>
+    
+      <p class="fr-quote__author">
+        Auteur
+      </p>
+    
+    
+      <ul class="fr-quote__source">
+        <li>
+          <cite>Système de Design de l&#x27;État</cite>
+        </li>
+        
+          
+            <li>
+              Detail sans lien
+            </li>
+          
+        
+          
+            <li>
+              <a target="_blank" rel="noopener noreferrer" href="https://template.incubateur.net/">Detail avec lien <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
+            </li>
+          
+        
+      </ul>
+    
+    
+      <div class="fr-quote__image">
+        <img src="/django-dsfr/static/img/placeholder.1x1.svg" class="fr-responsive-img" alt="" />
+      </div>
+    
+  </figcaption>
+</figure>
+
+    <h3>
+      Mise en avant
+    </h3>
+    <p>
+      Personnalise la couleur du fond et de la bordure.
+    </p>
+    
+<div class="fr-callout fr-icon-alert-line">
+  
+    <p class="fr-callout__title">
+    Mise en avant avec bouton normal
+    </p>
+  
+  <p class="fr-callout__text">
+    This callout item has a normal button
+  </p>
+  
+    
+      <button class="fr-btn fr-btn--secondary"
+        onclick="alert(&#x27;button being a button&#x27;)"
+        
+        type="submit"
+        >
+  button label
+</button>
+
+    
+  
+</div>
+
+    <h3>
+      Mise en exergue
+    </h3>
+    <p>
+      Personnalise la couleur de la bordure.
+    </p>
+    <div class="fr-highlight">
+  <p class="fr-text--sm">
+    Content of the highlight item (can include html)
+  </p>
+</div>
+
+    <h3>
+      Tableau
+    </h3>
+    <p>
+      Personnalise la couleur de la bordure et du fond.
+    </p>
+    <div class="fr-table">
+  <table>
+    <caption>Titre du tableau</caption>
+    
+      <thead>
+        <tr>
+          
+            <th scope="col">
+              Colonne 1
+            </th>
+          
+            <th scope="col">
+              Colonne 2
+            </th>
+          
+            <th scope="col">
+              Colonne 3
+            </th>
+          
+        </tr>
+      </thead>
+    
+    <tbody>
+      
+        <tr>
+          
+            <td>
+              a
+            </td>
+          
+            <td>
+              b
+            </td>
+          
+            <td>
+              c
+            </td>
+          
+        </tr>
+      
+        <tr>
+          
+            <td>
+              d
+            </td>
+          
+            <td>
+              e
+            </td>
+          
+            <td>
+              f
+            </td>
+          
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+    <h3>
+      Tag
+    </h3>
+    <p>
+      Personnalise la couleur de la bordure, du fond et de l’icône. Seuls les tags cliquables sont pris en compte.
+    </p>
+    <ul class="fr-tags-group">
+      <li>
+        <a href="/django-dsfr/tags" class="fr-tag">Tag avec lien</a>
+
+      </li>
+      <li>
+        <a href="#" class="fr-tag fr-icon-close-line fr-tag--icon-right" onclick="alert(&#x27;clicked&#x27;); return false;">Tag avec action</a>
+
+      </li>
+    </ul>
+  </div>
+
+      </main>
+    </div>
+    
+  <footer role="contentinfo" class="fr-footer" id="footer">
+  <div class="fr-container">
+    <div class="fr-footer__body">
+      <div class="fr-footer__brand fr-enlarge-link">
+        <a href="/" title="Retour à l’accueil">
+          
+            <p class="fr-logo"
+               title="république française">
+              
+            </p>
+          
+        </a>
+      </div>
+      <div class="fr-footer__content">
+        <p class="fr-footer__content-desc">
+          
+            
+          
+        </p>
+        <ul class="fr-footer__content-list">
+          <li class="fr-footer__content-item">
+            <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+          </li>
+          <li class="fr-footer__content-item">
+            <a class="fr-footer__content-link" href="https://gouvernement.fr">gouvernement.fr</a>
+          </li>
+          <li class="fr-footer__content-item">
+            <a class="fr-footer__content-link" href="https://service-public.fr">service-public.fr</a>
+          </li>
+          <li class="fr-footer__content-item">
+            <a class="fr-footer__content-link" href="https://data.gouv.fr">data.gouv.fr</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="fr-footer__bottom">
+      <ul class="fr-footer__bottom-list">
+        
+  
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">Plan du site</a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">Accessibilité: non conforme</a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">Mentions légales</a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">Données personnelles</a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">Gestion des cookies</a>
+          </li>
+        
+  <li class="fr-footer__bottom-item">
+    <button id="footer__bottom-link__parametres-affichage"
+            aria-controls="fr-theme-modal"
+            data-fr-opened="false"
+            class="fr-icon-theme-fill fr-link--icon-left fr-footer__bottom-link"
+            data-fr-js-modal-button="true">
+      Paramètres d’affichage
+    </button>
+  </li>
+
+      </ul>
+      <div class="fr-footer__bottom-copy">
+        <p>
+          Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous
+          <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Licence etalab-2.0 - Ouvrir dans une nouvelle fenêtre">licence etalab-2.0</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    
+<script type="module"
+        src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
+        integrity="sha384-0OQ6Q9ZAssur6KZKIPnF76AYck9k+vzDJ4QWGEQSpmU5qWtHIr9eN2/9/GOKiJeg"
+         nonce="Iz2Kbfi1MZN15HsxB/+eTw=="></script>
+<script nomodule
+        src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
+        integrity="sha384-lbZ4GtXN8+9/PJKGoM35lJokzC+dXV3JFLZgwg7G/rkeZATNoF6VRX+4agY6raLu"
+         nonce="Iz2Kbfi1MZN15HsxB/+eTw=="></script>
+
+    
+  <script>
+    const colors_list = [
+      "green-tilleul-verveine",
+      "green-bourgeon",
+      "green-emeraude",
+      "green-menthe",
+      "green-archipel",
+      "blue-ecume",
+      "blue-cumulus",
+      "purple-glycine",
+      "pink-macaron",
+      "pink-tuile",
+      "yellow-tournesol",
+      "yellow-moutarde",
+      "orange-terre-battue",
+      "brown-cafe-creme",
+      "brown-caramel",
+      "brown-opera",
+      "beige-gris-galet",
+    ];
+
+
+    function manageColorClasses(base_class, color) {
+      const items = document.getElementsByClassName(base_class);
+
+      let item_color_classes = [];
+      for (let c of colors_list) {
+        item_color_classes.push(base_class + "--" + c);
+      }
+
+      for (const item of items) {
+        item.classList.remove(...item_color_classes)
+
+        if (color !== "") {
+          item.classList.add(base_class + "--" + color);
+        }
+      }
+    }
+
+
+    document.getElementById('id_color').addEventListener('input', function (event) {
+      manageColorClasses("fr-quote", event.target.value);
+      manageColorClasses("fr-callout", event.target.value);
+      manageColorClasses("fr-highlight", event.target.value);
+      manageColorClasses("fr-table", event.target.value);
+      manageColorClasses("fr-tag", event.target.value);
+    }, false);
+  </script>
+
+  </body>
+</html>
