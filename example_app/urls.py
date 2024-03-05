@@ -5,16 +5,16 @@ from example_app.views import (
     resource_colors,
     resource_icons,
     resource_pictograms,
-    tags_index,
+    components_index,
     page_form,
-    page_tag,
+    page_component,
     AuthorCreateView,
     doc_contributing,
     doc_install,
     doc_form,
     search,
 )
-from example_app.tag_specifics import ALL_TAGS
+from example_app.dsfr_components import ALL_TAGS
 
 
 def get_all_tags():
@@ -37,15 +37,15 @@ urlpatterns = [
         distill_file="django-dsfr/doc-install/index.html",
     ),
     distill_path(
-        "tags/",
-        tags_index,
-        name="tags_index",
-        distill_file="django-dsfr/tags/index.html",
+        "components/",
+        components_index,
+        name="components_index",
+        distill_file="django-dsfr/components/index.html",
     ),
     distill_path(
-        "tags/<slug:tag_name>/",
-        page_tag,
-        name="page_tag",
+        "components/<slug:tag_name>/",
+        page_component,
+        name="page_component",
         distill_func=get_all_tags,
     ),
     distill_path(

@@ -1,5 +1,6 @@
 {% extends "dsfr/header.html" %}
 {% block service_title %}
+  {% url 'index' as home_url %}
   <a href="{{ home_url }}"
      title="Accueil — {{ SITE_CONFIG.site_title|default:"Django-DSFR" }}">
     <p class="fr-header__service-title">
@@ -40,7 +41,6 @@
            aria-label="Menu principal">
         <ul class="fr-nav__list">
           <li class="fr-nav__item">
-            {% url 'index' as home_url %}
             <a class="fr-nav__link"
                href="{{ home_url }}"
                target="_self"
@@ -74,9 +74,9 @@
           </li>
           <li class="fr-nav__item">
             <a class="fr-nav__link"
-               href="{% url 'tags_index' %}"
+               href="{% url 'components_index' %}"
                target="_self"
-               {% if '/tags/' in request.path %}aria-current="true"{% endif %}>Composants</a>
+               {% if '/components/' in request.path %}aria-current="true"{% endif %}>Composants</a>
           </li>
           <li class="fr-nav__item">
             <button class="fr-nav__btn"

@@ -1,13 +1,13 @@
 from django.templatetags.static import static
 
-IMPLEMENTED_TAGS = {
+IMPLEMENTED_COMPONENTS = {
     "accordion": {
         "title": "Accordéon (accordion)",
         "sample_data": [
             {
                 "id": "sample-accordion",
-                "title": "Title of the accordion item",
-                "content": "<p><b>Bold</b> and <em>emphatic</em> Example content</p>",
+                "title": "Titre de l’objet accordéon",
+                "content": "<p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em></p>",
             }
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/accordeon",
@@ -87,20 +87,20 @@ IMPLEMENTED_TAGS = {
         "sample_data": [
             {
                 "title": "Mise en avant avec bouton normal",
-                "text": "This callout item has a normal button",
+                "text": "Cette mise en avant a un bouton normal",
                 "icon_class": "fr-icon-alert-line",
                 "button": {
-                    "onclick": "alert('button being a button')",
-                    "label": "button label",
+                    "onclick": "alert('Ce bouton est bien un bouton')",
+                    "label": "Bouton normal",
                     "extra_classes": "fr-btn--secondary",
                 },
             },
             {
                 "title": "Mise en avant avec lien",
-                "text": "This callout item has a call-to-action link",
+                "text": "Cette mise en avant a un lien d’appel à action",
                 "icon_class": "fr-icon-external-link-line",
                 "button": {
-                    "label": "button label",
+                    "label": "Bouton qui est un lien",
                     "url": "https://www.systeme-de-design.gouv.fr/",
                     "extra_classes": "fr-btn--secondary",
                 },
@@ -282,7 +282,7 @@ IMPLEMENTED_TAGS = {
         "title": "Mise en exergue (highlight)",
         "sample_data": [
             {
-                "content": "Content of the highlight item (can include html)",
+                "content": "Contenu de la mise en exergue",
                 "size_class": "fr-text--sm",
             }
         ],
@@ -334,9 +334,9 @@ IMPLEMENTED_TAGS = {
                 "author": "Auteur",
                 "source": "Système de Design de l'État",
                 "details": [
-                    {"text": "Detail sans lien"},
+                    {"text": "Détail sans lien"},
                     {
-                        "text": "Detail avec lien",
+                        "text": "Détail avec lien",
                         "link": "https://template.incubateur.net/",
                     },
                 ],
@@ -350,12 +350,12 @@ IMPLEMENTED_TAGS = {
         "sample_data": [
             {
                 "id": "select-example-id",
-                "label": "Label of the select item",
+                "label": "Label de l’élément select",
                 "onchange": "console.log(value)",
-                "default": {  # Optional
+                "default": {
                     "disabled": True,
                     "hidden": True,
-                    "text": "Chose an option",
+                    "text": "Choisissez une option",
                 },
                 "options": [
                     {"text": "Option 1", "value": 1},
@@ -399,7 +399,7 @@ IMPLEMENTED_TAGS = {
                                     {"label": "Page non active", "link": "#"},
                                     {
                                         "label": "Page active",
-                                        "link": "/django-dsfr/tags/sidemenu/",
+                                        "link": "/django-dsfr/components/sidemenu/",
                                     },
                                 ],
                             },
@@ -441,8 +441,8 @@ IMPLEMENTED_TAGS = {
         "title": "Sommaire (summary)",
         "sample_data": [
             [
-                {"link": "link_1", "label": "First item title"},
-                {"link": "link_2", "label": "Second item title"},
+                {"link": "link_1", "label": "Titre du premier élément"},
+                {"link": "link_2", "label": "Titre du second élément"},
             ]
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/sommaire",
@@ -462,7 +462,7 @@ IMPLEMENTED_TAGS = {
         "title": "Tag (tag)",
         "sample_data": [
             {"label": "Tag simple"},
-            {"label": "Tag avec lien", "link": "/django-dsfr/tags"},
+            {"label": "Tag avec lien", "link": "/django-dsfr/components"},
             {
                 "label": "Petit tag avec icône",
                 "extra_classes": "fr-tag--sm fr-icon-arrow-right-line fr-tag--icon-left",  # noqa
@@ -470,7 +470,7 @@ IMPLEMENTED_TAGS = {
             {
                 "label": "Tag avec action",
                 "link": "#",
-                "extra_classes": "fr-icon-close-line fr-tag--icon-right",
+                "extra_classes": "fr-icon-cursor-line fr-tag--icon-right",
                 "onclick": "alert('clicked'); return false;",
             },
             {
@@ -490,7 +490,7 @@ IMPLEMENTED_TAGS = {
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tag",
     },
     "theme_modale": {
-        "title": "Paramètres d'affichage (display)",
+        "title": "Paramètres d’affichage (display)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/parametres-d-affichage",
     },
     "tile": {
@@ -550,7 +550,7 @@ IMPLEMENTED_TAGS = {
     },
 }
 
-EXTRA_TAGS = {
+EXTRA_COMPONENTS = {
     "accordion_group": {
         "title": "Groupe d’accordéons (accordion_group)",
         "sample_data": [
@@ -610,10 +610,10 @@ EXTRA_TAGS = {
     },
 }
 
-unsorted_implemented_tags = {**IMPLEMENTED_TAGS, **EXTRA_TAGS}
-ALL_IMPLEMENTED_TAGS = dict(sorted(unsorted_implemented_tags.items()))
+unsorted_IMPLEMENTED_COMPONENTS = {**IMPLEMENTED_COMPONENTS, **EXTRA_COMPONENTS}
+ALL_IMPLEMENTED_COMPONENTS = dict(sorted(unsorted_IMPLEMENTED_COMPONENTS.items()))
 
-NOT_YET_IMPLEMENTED_TAGS = {
+NOT_YET_IMPLEMENTED_COMPONENTS = {
     "file_upload": {
         "title": "Ajout de fichier (file upload)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
@@ -645,6 +645,14 @@ NOT_YET_IMPLEMENTED_TAGS = {
     "responsive_medias": {
         "title": "Contenu média (responsive_medias)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias",
+    },
+    "segmented_control": {
+        "title": "Contrôle segmenté (segmented_control)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/controle-segmente",
+    },
+    "cursor": {
+        "title": "Curseur (range)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/curseur-range",
     },
     "consent": {
         "title": "Gestionnaire de consentement (consent)",
@@ -709,9 +717,9 @@ WONT_BE_IMPLEMENTED = {
 }
 
 all_tags_unsorted = {
-    **IMPLEMENTED_TAGS,
-    **EXTRA_TAGS,
-    **NOT_YET_IMPLEMENTED_TAGS,
+    **IMPLEMENTED_COMPONENTS,
+    **EXTRA_COMPONENTS,
+    **NOT_YET_IMPLEMENTED_COMPONENTS,
     **WONT_BE_IMPLEMENTED,
 }
 ALL_TAGS = dict(sorted(all_tags_unsorted.items()))
