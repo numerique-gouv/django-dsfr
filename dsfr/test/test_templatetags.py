@@ -493,9 +493,9 @@ class DsfrQuoteTagTest(SimpleTestCase):
         "author": "Auteur",
         "source": "Système de Design de l'État",
         "details": [
-            {"text": "Detail sans lien"},
+            {"text": "Détail sans lien"},
             {
-                "text": "Detail avec lien",
+                "text": "Détail avec lien",
                 "link": "https://template.incubateur.net/",
             },
         ],
@@ -518,8 +518,8 @@ class DsfrQuoteTagTest(SimpleTestCase):
                     <li>
                         <cite>Système de Design de l&#x27;État</cite>
                     </li>
-                    <li>Detail sans lien</li>
-                    <li><a target="_blank" rel="noopener noreferrer" href="https://template.incubateur.net/">Detail avec lien <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a></li>
+                    <li>Détail sans lien</li>
+                    <li><a target="_blank" rel="noopener noreferrer" href="https://template.incubateur.net/">Détail avec lien <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a></li>
                     </ul>
                     <div class="fr-quote__image">
                     <img src="https://via.placeholder.com/150x150" class="fr-responsive-img" alt="" />
@@ -564,7 +564,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                             {"label": "Page non active", "link": "#"},
                             {
                                 "label": "Page active",
-                                "link": "/django-dsfr/tags/sidemenu/",
+                                "link": "/django-dsfr/components/sidemenu/",
                             },
                         ],
                     },
@@ -574,7 +574,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
     }
 
     request_mock = MagicMock()
-    request_mock.path = "/django-dsfr/tags/sidemenu/"
+    request_mock.path = "/django-dsfr/components/sidemenu/"
     context = Context({"request": request_mock, "test_data": test_data})
     template_to_render = Template("{% load dsfr_tags %} {% dsfr_sidemenu test_data %}")
     rendered_template = template_to_render.render(context)
@@ -619,7 +619,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                         </li>
 
                         <li class="fr-sidemenu__item fr-sidemenu__item--active">
-                        <a class="fr-sidemenu__link" href="/django-dsfr/tags/sidemenu/" target="_self"  aria-current="page">
+                        <a class="fr-sidemenu__link" href="/django-dsfr/components/sidemenu/" target="_self"  aria-current="page">
                             Page active
                         </a>
                         </li>
@@ -706,13 +706,13 @@ class DsfrTagTagTest(SimpleTestCase):
         )
 
     def test_tag_with_link_rendered(self):
-        test_data = {"label": "Label of the tag item", "link": "/tags"}
+        test_data = {"label": "Label of the tag item", "link": "/components"}
 
         context = Context({"test_data": test_data})
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_tag test_data %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<a href="/tags" class="fr-tag">Label of the tag item</a>""",
+            """<a href="/components" class="fr-tag">Label of the tag item</a>""",
             rendered_template,
         )
 

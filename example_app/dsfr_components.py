@@ -6,8 +6,8 @@ IMPLEMENTED_COMPONENTS = {
         "sample_data": [
             {
                 "id": "sample-accordion",
-                "title": "Title of the accordion item",
-                "content": "<p><b>Bold</b> and <em>emphatic</em> Example content</p>",
+                "title": "Titre de l’objet accordéon",
+                "content": "<p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em></p>",
             }
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/accordeon",
@@ -87,20 +87,20 @@ IMPLEMENTED_COMPONENTS = {
         "sample_data": [
             {
                 "title": "Mise en avant avec bouton normal",
-                "text": "This callout item has a normal button",
+                "text": "Cette mise en avant a un bouton normal",
                 "icon_class": "fr-icon-alert-line",
                 "button": {
-                    "onclick": "alert('button being a button')",
-                    "label": "button label",
+                    "onclick": "alert('Ce bouton est bien un bouton')",
+                    "label": "Bouton normal",
                     "extra_classes": "fr-btn--secondary",
                 },
             },
             {
                 "title": "Mise en avant avec lien",
-                "text": "This callout item has a call-to-action link",
+                "text": "Cette mise en avant a un lien d’appel à action",
                 "icon_class": "fr-icon-external-link-line",
                 "button": {
-                    "label": "button label",
+                    "label": "Bouton qui est un lien",
                     "url": "https://www.systeme-de-design.gouv.fr/",
                     "extra_classes": "fr-btn--secondary",
                 },
@@ -282,7 +282,7 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Mise en exergue (highlight)",
         "sample_data": [
             {
-                "content": "Content of the highlight item (can include html)",
+                "content": "Contenu de la mise en exergue",
                 "size_class": "fr-text--sm",
             }
         ],
@@ -334,9 +334,9 @@ IMPLEMENTED_COMPONENTS = {
                 "author": "Auteur",
                 "source": "Système de Design de l'État",
                 "details": [
-                    {"text": "Detail sans lien"},
+                    {"text": "Détail sans lien"},
                     {
-                        "text": "Detail avec lien",
+                        "text": "Détail avec lien",
                         "link": "https://template.incubateur.net/",
                     },
                 ],
@@ -350,12 +350,12 @@ IMPLEMENTED_COMPONENTS = {
         "sample_data": [
             {
                 "id": "select-example-id",
-                "label": "Label of the select item",
+                "label": "Label de l’élément select",
                 "onchange": "console.log(value)",
-                "default": {  # Optional
+                "default": {
                     "disabled": True,
                     "hidden": True,
-                    "text": "Chose an option",
+                    "text": "Choisissez une option",
                 },
                 "options": [
                     {"text": "Option 1", "value": 1},
@@ -399,7 +399,7 @@ IMPLEMENTED_COMPONENTS = {
                                     {"label": "Page non active", "link": "#"},
                                     {
                                         "label": "Page active",
-                                        "link": "/django-dsfr/tags/sidemenu/",
+                                        "link": "/django-dsfr/components/sidemenu/",
                                     },
                                 ],
                             },
@@ -441,8 +441,8 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Sommaire (summary)",
         "sample_data": [
             [
-                {"link": "link_1", "label": "First item title"},
-                {"link": "link_2", "label": "Second item title"},
+                {"link": "link_1", "label": "Titre du premier élément"},
+                {"link": "link_2", "label": "Titre du second élément"},
             ]
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/sommaire",
@@ -462,7 +462,7 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Tag (tag)",
         "sample_data": [
             {"label": "Tag simple"},
-            {"label": "Tag avec lien", "link": "/django-dsfr/tags"},
+            {"label": "Tag avec lien", "link": "/django-dsfr/components"},
             {
                 "label": "Petit tag avec icône",
                 "extra_classes": "fr-tag--sm fr-icon-arrow-right-line fr-tag--icon-left",  # noqa
@@ -470,7 +470,7 @@ IMPLEMENTED_COMPONENTS = {
             {
                 "label": "Tag avec action",
                 "link": "#",
-                "extra_classes": "fr-icon-close-line fr-tag--icon-right",
+                "extra_classes": "fr-icon-cursor-line fr-tag--icon-right",
                 "onclick": "alert('clicked'); return false;",
             },
             {
@@ -490,7 +490,7 @@ IMPLEMENTED_COMPONENTS = {
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tag",
     },
     "theme_modale": {
-        "title": "Paramètres d'affichage (display)",
+        "title": "Paramètres d’affichage (display)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/parametres-d-affichage",
     },
     "tile": {

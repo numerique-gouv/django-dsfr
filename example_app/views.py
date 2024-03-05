@@ -362,7 +362,7 @@ def resource_colors(request):
     form = ColorForm()
 
     payload["form"] = form
-    payload["components_data"] = IMPLEMENTED_TAGS
+    payload["components_data"] = IMPLEMENTED_COMPONENTS
 
     return render(request, "example_app/page_colors.html", payload)
 
