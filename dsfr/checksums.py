@@ -5,27 +5,27 @@
 
 # dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js
 INTEGRITY_JS_MODULE = (
-    "sha384-ToZ2KPANcYOYrPshKd8bJxk+utYf7qGe3ob4+NkCjeda5DRDtM9tp5GTyMGXakre"
+    "sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
 )
 
 # dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js
 INTEGRITY_JS_NOMODULE = (
-    "sha384-OJq7jonDJ6QWsuRqnCWE3Gep7eKu0DEaasALVb40NLARi4cGCIjgVHHhnGJuByNq"
+    "sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
 )
 
 # dsfr/static/dsfr/dist/dsfr/dsfr.min.css
 INTEGRITY_CSS = (
-    "sha384-dPQgYpB1TxmQr6BYJVjZno5onyq5FTc2Y1VkxUIteXfWQjORdOWc/Zh0lODQsnx+"
+    "sha384-o120rAaup4CzJrQdFEFO9kOQOtOgnU638Gfc2I0G4weygChe91oP/niuETDUHtUo"
 )
 
 # dsfr/static/dsfr/dist/utility/utility.min.css
 INTEGRITY_UTILITY_CSS = (
-    "sha384-zyJ07edvc/zdLxAnpNVT3jkcNOeweHoBlOrSwGeWsxRPByiIJaeEKdeV0FgNwW3K"
+    "sha384-YR4AxNhFVy1qsQ0Hp7Rosg06e4sj2m9dLxiYZrtqJ0boIOiDbD8XkIsIPMMkf0VL"
 )
 
 # dsfr/static/dsfr/dist/utility/icons/icons.min.css
 INTEGRITY_CSS_ICONS = (
-    "sha384-hA1C/qFm8PMx34t5U8FWKqgBEpwdfdZNZFnwJjfMVEaRo8ug9qk78uDwa+3CPByj"
+    "sha384-UKf0W85KB7U0w/zmH6760XIKn5dSyfePNpOLyPyk0C8sutElQ4N2hU6zjsJ0yihr"
 )
 
 # dsfr/static/dsfr/dist/favicon/apple-touch-icon.png
