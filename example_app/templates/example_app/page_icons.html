@@ -2,7 +2,7 @@
 {% load static dsfr_tags %}
 {% block content %}
   <h1>
-    Pictogrammes
+    Icônes
   </h1>
   <p>
     <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
@@ -12,16 +12,29 @@
       Voir la page de documentation du composant sur le Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
     </a>
   </p>
+  <p>
+    Cliquer sur une icône ci-dessous pour copier le nom de sa classe.
+  </p>
   {% for folder, items in icons.items %}
     <h2>
       {{ folder|title }}
     </h2>
     <div class="fr-mb-4w">
       {% for item in items %}
-        <span class="fr-icon-{{ item }}"
+        <span class="fr-icon-{{ item }} click-to-copy"
               title="fr-icon-{{ item }}"
               aria-hidden="true"></span>
       {% endfor %}
     </div>
   {% endfor %}
 {% endblock content %}
+{% block extra_js %}
+  <script type="text/javascript">
+    let iconSpans = document.getElementsByClassName("click-to-copy");
+    for (let iconSpan of iconSpans) {
+      iconSpan.addEventListener("click", function(){
+        navigator.clipboard.writeText(this.title);
+      })
+    }
+  </script>
+{% endblock extra_js %}
