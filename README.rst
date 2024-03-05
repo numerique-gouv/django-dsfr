@@ -4,8 +4,11 @@
 .. image:: https://badge.fury.io/py/django-dsfr.svg
     :target: https://pypi.org/project/django-dsfr/
 
-.. image:: https://github.com/numerique-gouv/django-dsfr/actions/workflows/django.yml/badge.svg
-    :target: https://github.com/numerique-gouv/django-dsfr/actions/workflows/django.yml
+.. image:: https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci-3-8.yml/badge.svg
+    :target: https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci-3-8.yml
+
+.. image:: https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci-3-10.yml/badge.svg
+    :target: https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci-3-10.yml
 
 .. image:: https://github.com/numerique-gouv/django-dsfr/actions/workflows/codeql-analysis.yml/badge.svg
     :target: https://github.com/numerique-gouv/django-dsfr/actions/workflows/codeql-analysis.yml
