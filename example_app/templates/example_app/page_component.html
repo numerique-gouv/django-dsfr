@@ -28,11 +28,18 @@ p code, li code {
       <h1>
         {{ title }}
       </h1>
-      {% if doc_url %}
-        <p>
-          {% dsfr_link url=doc_url label="Voir la page de documentation du composant sur le Système de Design de l’État" is_external=True extra_classes="fr-link--lg" %}
-        </p>
-      {% endif %}
+      <ul>
+        {% if doc_url %}
+          <li>
+            {% dsfr_link url=doc_url label="Voir la page de documentation du composant sur le Système de Design de l’État" is_external=True extra_classes="fr-link--lg" %}
+          </li>
+        {% endif %}
+        {% if example_url %}
+          <li>
+            {% dsfr_link url=example_url label="Voir la page d’exemple du Système de Design de l’État" is_external=True extra_classes="fr-link--lg" %}
+          </li>
+        {% endif %}
+      </ul>
       <h2>
         Documentation du tag
       </h2>

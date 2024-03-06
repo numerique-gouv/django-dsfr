@@ -11,6 +11,7 @@ IMPLEMENTED_COMPONENTS = {
             }
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/accordeon",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/accordion/",
     },
     "alert": {
         "title": "Alertes (alerts)",
@@ -38,6 +39,7 @@ IMPLEMENTED_COMPONENTS = {
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/alerte",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/alert/",
     },
     "badge": {
         "title": "Badge",
@@ -60,10 +62,12 @@ IMPLEMENTED_COMPONENTS = {
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/badge",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/badge/",
     },
     "breadcrumb": {
         "title": "Fil d’Ariane (breadcrumb)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/fil-d-ariane",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/breadcrumb/",
     },
     "button": {
         "title": "Boutons (buttons)",
@@ -81,6 +85,7 @@ IMPLEMENTED_COMPONENTS = {
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/button/",
     },
     "callout": {
         "title": "Mise en avant (callout)",
@@ -107,6 +112,7 @@ IMPLEMENTED_COMPONENTS = {
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-avant",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/callout/",
     },
     "card": {
         "title": "Carte (card)",
@@ -273,10 +279,12 @@ IMPLEMENTED_COMPONENTS = {
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/card/",
     },
     "favicon": {
         "title": "Icône de favoris (favicon)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/icones-de-favoris",
+        "example_url": "https://main--ds-gouv.netlify.app/example/core/favicon/",
     },
     "highlight": {
         "title": "Mise en exergue (highlight)",
@@ -287,6 +295,7 @@ IMPLEMENTED_COMPONENTS = {
             }
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-exergue",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/highlight/",
     },
     "input": {
         "title": "Champs de saisie (input)",
@@ -308,6 +317,7 @@ IMPLEMENTED_COMPONENTS = {
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/champ-de-saisie",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/input/",
     },
     "link": {
         "title": "Lien (link)",
@@ -320,10 +330,12 @@ IMPLEMENTED_COMPONENTS = {
             }
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/link/",
     },
     "pagination": {
         "title": "Pagination (pagination)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pagination",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/pagination/",
     },
     "quote": {
         "title": "Citation (quote)",
@@ -344,6 +356,7 @@ IMPLEMENTED_COMPONENTS = {
             }
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/citation",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/quote/",
     },
     "select": {
         "title": "Listes déroulantes (selects)",
@@ -364,6 +377,7 @@ IMPLEMENTED_COMPONENTS = {
             }
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liste-deroulante",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/select/",
     },
     "sidemenu": {
         "title": "Menu latéral (sidemenu)",
@@ -409,6 +423,7 @@ IMPLEMENTED_COMPONENTS = {
             }
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/menu-lateral",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/sidemenu/",
     },
     "skiplinks": {
         "title": "Liens d’évitement (skiplinks)",
@@ -419,6 +434,7 @@ IMPLEMENTED_COMPONENTS = {
             ]
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens-d-evitement",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/skiplink/",
     },
     "stepper": {
         "title": "Indicateur d’étapes (stepper)",
@@ -436,6 +452,7 @@ IMPLEMENTED_COMPONENTS = {
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/indicateur-d-etapes",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/stepper/",
     },
     "summary": {
         "title": "Sommaire (summary)",
@@ -446,6 +463,7 @@ IMPLEMENTED_COMPONENTS = {
             ]
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/sommaire",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/summary/",
     },
     "table": {
         "title": "Tableau (table)",
@@ -457,6 +475,7 @@ IMPLEMENTED_COMPONENTS = {
             }
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tableau",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/table/",
     },
     "tag": {
         "title": "Tag (tag)",
@@ -488,10 +507,12 @@ IMPLEMENTED_COMPONENTS = {
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tag",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/tag/",
     },
     "theme_modale": {
         "title": "Paramètres d’affichage (display)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/parametres-d-affichage",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/display/",
     },
     "tile": {
         "title": "Tuile (tile)",
@@ -547,6 +568,7 @@ IMPLEMENTED_COMPONENTS = {
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tuile",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/tile/",
     },
 }
 
@@ -617,90 +639,112 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
     "file_upload": {
         "title": "Ajout de fichier (file upload)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/upload/",
     },
     "notice": {
         "title": "Bandeau d’information importante (notice)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bandeau-d-information-importante",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/notice/",
     },
     "search_bar": {
         "title": "Barre de recherche (search bar)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/search/",
     },
     "franceconnect": {
         "title": "Bouton FranceConnect",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-franceconnect",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/connect/",
     },
     "radio": {
         "title": "Bouton radio (radio)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
     },
     "radio_rich": {
         "title": "Bouton radio riche (radio_rich)",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio-riches",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-radio-riche",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
     },
     "checkbox": {
         "title": "Case à cocher (checkbox)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/checkbox/",
     },
-    "responsive_medias": {
+    "content": {
         "title": "Contenu média (responsive_medias)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/content/",
     },
     "segmented_control": {
         "title": "Contrôle segmenté (segmented_control)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/controle-segmente",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/segmented/",
     },
-    "cursor": {
+    "range": {
         "title": "Curseur (range)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/curseur-range",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/range/",
     },
     "consent": {
         "title": "Gestionnaire de consentement (consent)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/gestionnaire-de-consentement",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/consent/",
     },
     "tooltip": {
         "title": "Infobulle (tooltip)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/infobulle",
+        "example_url": "Information contextuelle et Infobulle (tooltip)",
     },
     "toggle": {
         "title": "Interrupteur (toggle)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/toggle/",
     },
     "newsletter_follow": {
         "title": "Lettre d’information et réseaux sociaux (newsletter & follow)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lettre-d-info-et-reseaux-sociaux",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/follow/",
     },
     "modal": {
         "title": "Modale (modal)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/modale",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/modal/",
     },
     "password": {
         "title": "Mot de passe (password)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mot-de-passe",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/password/",
     },
     "navigation": {
         "title": "Navigation principale (navigation)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/navigation/",
     },
     "share": {
         "title": "Partage (share)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/partage",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/share/",
     },
     "back_to_top": {
         "title": "Retour en haut de page (back to top)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/retour-en-haut-de-page",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/link/back-to-top/",
     },
     "translate": {
         "title": "Sélecteur de langue",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/selecteur-de-langue",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/translate/",
     },
     "download": {
         "title": "Téléchargement de fichier",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/telechargement-de-fichier",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/download/",
     },
     "transcription": {
         "title": "Transcription",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/transcription",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/transcription/",
     },
 }
 
