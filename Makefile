@@ -43,5 +43,6 @@ static_server:
 
 export_static:
 	poetry run python manage.py migrate
+	poetry run python manage.py import_sample_data
 	poetry run python manage.py distill-local docs --force --collectstatic
 	poetry run python manage.py export_json
