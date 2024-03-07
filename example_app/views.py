@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse
+from django.utils.text import slugify
 from django.views.decorators.http import require_safe
 
 from dsfr.utils import generate_summary_items
@@ -125,6 +126,9 @@ def page_component(request, tag_name):
 
         if "doc_url" in current_tag:
             payload["doc_url"] = current_tag["doc_url"]
+
+        if "example_url" in current_tag:
+            payload["example_url"] = current_tag["example_url"]
 
         sidemenu_items = []
         for key in ALL_IMPLEMENTED_COMPONENTS.keys():
@@ -326,13 +330,16 @@ def resource_icons(request):
     icons_folders = os.listdir(icons_root)
     icons_folders.sort()
     all_icons = {}
+    summary = []
     for folder in icons_folders:
         files = os.listdir(os.path.join(icons_root, folder))
-        files_without_extensions = [f.split(".")[0] for f in files]
+        files_without_extensions = [f.split(".")[0].replace("fr--", "") for f in files]
         files_without_extensions.sort()
         all_icons[folder] = files_without_extensions
+        summary.append({"link": f"#{slugify(folder)}", "label": folder.capitalize()})
 
     payload["icons"] = all_icons
+    payload["summary"] = summary
 
     return render(request, "example_app/page_icons.html", payload)
 
@@ -345,12 +352,15 @@ def resource_pictograms(request):
     picto_folders = os.listdir(picto_root)
     picto_folders.sort()
     all_pictos = {}
+    summary = []
     for folder in picto_folders:
         files = os.listdir(os.path.join(picto_root, folder))
         files.sort()
         all_pictos[folder] = files
+        summary.append({"link": f"#{slugify(folder)}", "label": folder.capitalize()})
 
     payload["pictograms"] = all_pictos
+    payload["summary"] = summary
 
     return render(request, "example_app/page_pictograms.html", payload)
 

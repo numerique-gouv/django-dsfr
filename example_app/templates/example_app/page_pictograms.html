@@ -4,16 +4,29 @@
   <h1>
     Pictogrammes
   </h1>
-  <p>
-    <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
-       href="https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/pictogramme"
-       target="_blank"
-       rel="noopener noreferrer">
-      Voir la page de documentation du composant sur le Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
-    </a>
-  </p>
+  <div class="fr-mb-4w">
+    {% dsfr_summary summary %}
+  </div>
+  <ul>
+    <li>
+      <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+         href="https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/pictogramme"
+         target="_blank"
+         rel="noopener noreferrer">
+        Voir la page de documentation du composant sur le Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+      </a>
+    </li>
+    <li>
+      <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+         href="https://main--ds-gouv.netlify.app/example/utility/pictograms/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Voir la page sur le site d’exemples du Système de Design de l’État <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+      </a>
+    </li>
+  </ul>
   {% for folder, files in pictograms.items %}
-    <h2>
+    <h2 id="{{ folder|slugify }}" tabindex="-1">
       {{ folder|title }}
     </h2>
     <div class="fr-grid-row fr-grid-row--gutters">
