@@ -11,3 +11,16 @@
     </button>
   </li>
 {% endblock footer_links %}
+{% block footer_brand %}
+  {% url 'index' as home_url %}
+  <div class="fr-footer__brand fr-enlarge-link">
+    <a id="footer-operator"
+       href="{{ home_url }}"
+       title="Retour à l’accueil du site - Nom de l’entité (ministère, secrétariat d’État, gouvernement)">
+      <p class="fr-logo"
+         title="{{ SITE_CONFIG.footer_brand|default:'république française' }}">
+        {{ SITE_CONFIG.footer_brand_html| default_if_none:'république<br />française' | safe }}
+      </p>
+    </a>
+  </div>
+{% endblock footer_brand %}

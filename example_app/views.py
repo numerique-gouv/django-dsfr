@@ -150,6 +150,28 @@ def page_component(request, tag_name):
         return render(request, "example_app/not_yet.html", payload)
 
 
+@require_safe
+def page_component_header(request):
+    payload = init_payload(
+        page_title="En-tête",
+        links=[{"url": reverse("components_index"), "title": "Composants"}],
+    )
+    payload["documentation"] = format_markdown_from_file("doc/header.md")
+
+    return render(request, "example_app/doc_markdown.html", payload)
+
+
+@require_safe
+def page_component_footer(request):
+    payload = init_payload(
+        page_title="Pied de page",
+        links=[{"url": reverse("components_index"), "title": "Composants"}],
+    )
+    payload["documentation"] = format_markdown_from_file("doc/footer.md")
+
+    return render(request, "example_app/doc_markdown.html", payload)
+
+
 def page_form(request):
     if request.method == "POST":
         # create a form instance and populate it with data from the request:
@@ -310,6 +332,14 @@ def doc_contributing(request):
 def doc_install(request):
     payload = init_payload("Installation")
     payload["documentation"] = format_markdown_from_file("INSTALL.md")
+
+    return render(request, "example_app/doc_markdown.html", payload)
+
+
+@require_safe
+def doc_usage(request):
+    payload = init_payload("Utiliser Django-DSFR")
+    payload["documentation"] = format_markdown_from_file("doc/usage.md")
 
     return render(request, "example_app/doc_markdown.html", payload)
 

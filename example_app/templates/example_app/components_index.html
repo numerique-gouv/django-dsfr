@@ -100,34 +100,28 @@
       <h2>
         En-tête et pied de page
       </h2>
-      <p>
-        Les composants « En-tête (header) » et « Pied de page (footer) » sont actuellement gérés avec
-        des balises include (<code>
-        {% verbatim %}
-          {% include "dsfr/header.html" %}
-        {% endverbatim %}
-      </code>
-      et <code>
-      {% verbatim %}
-        {% include "dsfr/footer.html" %}
-      {% endverbatim %}
-    </code>)
-    et non des balises dédiées.
-  </p>
-</div>
-<div id="tabpanel-documentation-panel"
-     class="fr-tabs__panel"
-     role="tabpanel"
-     aria-labelledby="tabpanel-documentation"
-     tabindex="0">
-  <h2>
-    Documentation
-  </h2>
-  <ul>
-    {{ documentation|safe }}
-  </ul>
-</div>
-</div>
+      <ul>
+        <li>
+          <a href="{% url 'page_component_header' %}">En-tête (header)</a>
+        </li>
+        <li>
+          <a href="{% url 'page_component_footer' %}">Pied de page (footer)</a>
+        </li>
+      </ul>
+    </div>
+    <div id="tabpanel-documentation-panel"
+         class="fr-tabs__panel"
+         role="tabpanel"
+         aria-labelledby="tabpanel-documentation"
+         tabindex="0">
+      <h2>
+        Documentation
+      </h2>
+      <ul>
+        {{ documentation|safe }}
+      </ul>
+    </div>
+  </div>
 {% endblock content %}
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}">
