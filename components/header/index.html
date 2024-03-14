@@ -44,26 +44,11 @@
 
     
   <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css">
-  <style>
-    .example-textarea {
-      background: var(--background-alt-grey);
-      border: 1px solid var(--border-default-grey);
-      color: var(--text-default-grey);
-      padding: 1rem;
-      margin: 2rem 0;
-      font-family: monospace;
-      font-size: 1rem;
-    }
-p code, li code {
-  background: var(--background-alt-grey);
-  padding: 0.2em;
-}
-  </style>
 
     
       <title>
         
-          Messages Django dans une alerte — Django-DSFR
+          En-tête — Django-DSFR
         
       </title>
     
@@ -413,7 +398,7 @@ p code, li code {
         </li>
       
       <li>
-        <a class="fr-breadcrumb__link" aria-current="page">Messages Django dans une alerte</a>
+        <a class="fr-breadcrumb__link" aria-current="page">En-tête</a>
       </li>
     </ol>
   </div>
@@ -421,509 +406,60 @@ p code, li code {
 
       <main id="content" role="main">
         
-  <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
-    <!-- Menu -->
-    <div class="fr-col-12 fr-col-md-3">
-      
-<nav role="navigation"
-     class="fr-sidemenu"
-     aria-label="Menu latéral">
-  <div class="fr-sidemenu__inner">
-    <button type="button"
-            class="fr-sidemenu__btn"
-            aria-controls="fr-sidemenu-wrapper"
-            aria-expanded="false">
-      Dans cette rubrique
-    </button>
-    <div class="fr-collapse" id="fr-sidemenu-wrapper">
-      <div class="fr-sidemenu__title">Composants</div>
-      <ul class="fr-sidemenu__list">
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/accordion/"
-                 target="_self"
-                 >accordion</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/accordion_group/"
-                 target="_self"
-                 >accordion_group</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/alert/"
-                 target="_self"
-                 >alert</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/badge/"
-                 target="_self"
-                 >badge</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/badge_group/"
-                 target="_self"
-                 >badge_group</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/breadcrumb/"
-                 target="_self"
-                 >breadcrumb</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/button/"
-                 target="_self"
-                 >button</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/callout/"
-                 target="_self"
-                 >callout</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/card/"
-                 target="_self"
-                 >card</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/css/"
-                 target="_self"
-                 >css</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item fr-sidemenu__item--active">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/django_messages/"
-                 target="_self"
-                 aria-current="page">django_messages</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/favicon/"
-                 target="_self"
-                 >favicon</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/form/"
-                 target="_self"
-                 >form</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/form_field/"
-                 target="_self"
-                 >form_field</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/highlight/"
-                 target="_self"
-                 >highlight</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/input/"
-                 target="_self"
-                 >input</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/js/"
-                 target="_self"
-                 >js</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/link/"
-                 target="_self"
-                 >link</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/pagination/"
-                 target="_self"
-                 >pagination</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/quote/"
-                 target="_self"
-                 >quote</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/select/"
-                 target="_self"
-                 >select</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/sidemenu/"
-                 target="_self"
-                 >sidemenu</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/skiplinks/"
-                 target="_self"
-                 >skiplinks</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/stepper/"
-                 target="_self"
-                 >stepper</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/summary/"
-                 target="_self"
-                 >summary</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/table/"
-                 target="_self"
-                 >table</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/tag/"
-                 target="_self"
-                 >tag</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/theme_modale/"
-                 target="_self"
-                 >theme_modale</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/tile/"
-                 target="_self"
-                 >tile</a>
-            
-          </li>
-        
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    </div>
-    <div class="fr-col-12 fr-col-md-9 fr-py-2w">
-      <h1>
-        Messages Django dans une alerte
-      </h1>
-      <ul>
-        
-        
-      </ul>
-      <h2>
-        Documentation du tag
-      </h2>
-      <p>Renders django messages in a series a DSFR alerts</p>
-<div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;is_collapsible&quot;</span> <span class="p">:</span> <span class="s2">&quot;(Optional) Boolean, set to true to add a &#39;close&#39; button for the alert (default: false)&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;wrapper_classes&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) extra classes for the wrapper of the alerts (default `fr-my-4v`)&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;extra_classes&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) extra classes for the alert.&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
-<p>Relevant extra_classes:</p>
+  <h1>En-tête</h1>
+<p>L’en-tête est géré grâce à une balise <code>include</code> dans le fichier <code>base.html</code>. Si vous n’avez pas besoin de le personnaliser, vous n’avez rien à faire.</p>
+<p>Il est alors possible de personnaliser le titre, le sous-titre, ainsi que le bloc-marque, via la configuration du site dans l’administration de Django.</p>
 <ul>
-<li><code>fr-alert--sm</code> : small alert</li>
+<li><a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/en-tete" target="_blank" rel="noopener noreferrer">
+        Voir la page de documentation du composant sur le Système de Design de l’État
+        <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+  </a></li>
+<li><a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://main--ds-gouv.netlify.app/example/component/header/" target="_blank" rel="noopener noreferrer">
+        Voir la page d’exemple du Système de Design de l’État
+        <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+  </a></li>
 </ul>
-<p>See: <a href="https://docs.djangoproject.com/en/4.2/ref/contrib/messages/">https://docs.djangoproject.com/en/4.2/ref/contrib/messages/</a></p>
-<p>By default, the following message level are mapped to the following alert types:</p>
-<div class="fr-table">
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Message level</th>
-<th style="text-align: center;">DSFR alert type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;"><code>DEBUG</code></td>
-<td style="text-align: center;"><code>info</code></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>INFO</code></td>
-<td style="text-align: center;"><code>info</code></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>SUCCESS</code></td>
-<td style="text-align: center;"><code>success</code></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>WARNING</code></td>
-<td style="text-align: center;"><code>warning</code></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>ERROR</code></td>
-<td style="text-align: center;"><code>error</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>There types are then concatenated with <code>fr-alert--</code> to form the CSS classe in the template.</p>
-<p>These classes can be modified by setting <code>DSFR_MESSAGE_TAGS_CSS_CLASSES</code> in your <code>settings.py</code>, like so:</p>
-<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
-<span class="n">DSFR_MESSAGE_TAGS_CSS_CLASSES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">messages</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span>
-<span class="p">}</span>
+<h2>Personnaliser</h2>
+<p>Il est possible de l’étendre pour le personnaliser, par exemple pour ajouter la barre de recherche :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="x">&lt;!-- &lt;votre_app&gt;/templates/&lt;votre_app&gt;/base.html --&gt;</span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;dsfr/base.html&quot;</span> <span class="cp">%}</span>
+
+<span class="x">&lt;!-- [...] --&gt;</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">header</span> <span class="cp">%}</span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">include</span> <span class="s2">&quot;&lt;votre_app&gt;/blocks/header.html&quot;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">header</span> <span class="cp">%}</span>
 </code></pre></div>
 
-<p>You can also use this setting to map <a href="https://docs.djangoproject.com/en/4.2/ref/contrib/messages/#creating-custom-message-levels">custom custom message levels</a>
-to alert types:</p>
-<div class="dsfr-code"><pre><span></span><code><span class="n">django</span><span class="o">.</span><span class="n">conf</span> <span class="kn">import</span> <span class="nn">global_settings</span>
-<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
-<span class="n">MESSAGE_TAGS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">50</span><span class="p">:</span> <span class="s2">&quot;fatal&quot;</span>
-<span class="p">}</span>
-<span class="n">DSFR_MESSAGE_TAGS_CSS_CLASSES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">messages</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span> <span class="s2">&quot;debug&quot;</span><span class="p">,</span>
-    <span class="mi">50</span><span class="p">:</span> <span class="s2">&quot;warning&quot;</span>
-<span class="p">}</span>
+<div class="dsfr-code"><pre><span></span><code><span class="cm">&lt;!-- &lt;votre_app&gt;/templates/&lt;votre_app&gt;/blocks/header.html --&gt;</span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;dsfr/header.html&quot;</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">header_search</span> <span class="cp">%}</span>
+<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;fr-header__search fr-modal&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;modal-search&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;fr-container fr-container-lg--fluid&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;button</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;fr-btn--close fr-btn&quot;</span>
+<span class="w">              </span><span class="na">aria-controls=</span><span class="s">&quot;modal-search&quot;</span>
+<span class="w">              </span><span class="na">title=</span><span class="s">&quot;Fermer&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span>Fermer
+<span class="w">      </span><span class="nt">&lt;/button&gt;</span>
+<span class="w">      </span><span class="nt">&lt;form</span><span class="w"> </span><span class="na">action=</span><span class="s">&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;page_search&#39;</span> <span class="cp">%}</span><span class="s">&quot;</span><span class="w"> </span><span class="na">method=</span><span class="s">&quot;get&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;fr-search-bar&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;search-bar&quot;</span><span class="w"> </span><span class="na">role=</span><span class="s">&quot;search&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;label</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;fr-label&quot;</span><span class="w"> </span><span class="na">for=</span><span class="s">&quot;search-bar-input&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span>Rechercher
+<span class="w">          </span><span class="nt">&lt;/label&gt;</span>
+<span class="w">          </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;fr-input&quot;</span>
+<span class="w">                 </span><span class="na">placeholder=</span><span class="s">&quot;Rechercher&quot;</span>
+<span class="w">                 </span><span class="na">type=</span><span class="s">&quot;search&quot;</span>
+<span class="w">                 </span><span class="na">id=</span><span class="s">&quot;query&quot;</span>
+<span class="w">                 </span><span class="na">name=</span><span class="s">&quot;q&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;button</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;fr-btn&quot;</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Rechercher&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span>Rechercher
+<span class="w">          </span><span class="nt">&lt;/button&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/form&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/div&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">header_search</span> <span class="cp">%}</span>
 </code></pre></div>
-
-<p>With this setting, the following code:</p>
-<div class="dsfr-code"><pre><span></span><code><span class="n">messages</span><span class="o">.</span><span class="n">add_message</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;A serious error occurred.&quot;</span><span class="p">)</span>
-</code></pre></div>
-
-<p>renders an alert with the following CSS class: <code>fr-alert--warning</code>.</p>
-<p><strong>Tag name</strong>:
-    dsfr_django_messages</p>
-<p><strong>Usage</strong>:
-    <code>{% dsfr_django_messages data_dict %}</code></p>
-      
-        <h2>
-          Exemples
-        </h2>
-        
-          <h3 class="fr-mt-3w">
-            Données
-          </h3>
-          <div class="fr-my-2w">
-            
-            
-              
-                <section class="fr-accordion">
-  <h3 class="fr-accordion__title">
-  <button type="button"
-          class="fr-accordion__btn"
-          aria-expanded="false"
-          aria-controls="accordion-vtiufmsvtdiqiipd">
-    Données d’exemple
-  </button>
-  </h3>
-  <div class="fr-collapse" id="accordion-vtiufmsvtdiqiipd">
-    <pre class="dsfr-code">{'is_collapsible': True}</pre>
-  </div>
-</section>
-
-              
-            
-            
-          </div>
-          <h3>
-            Résultat
-          </h3>
-          
-            <div class="fr-my-4v"><div role="alert"
-     class="fr-alert fr-alert--info">
-  
-  <p>
-    Ceci est une information
-  </p>
-  
-    <button class="fr-btn--close fr-btn"
-            title="Masquer le message"
-            onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)">
-      Masquer le message
-    </button>
-  
-</div>
-
-<div role="alert"
-     class="fr-alert fr-alert--success">
-  
-  <p>
-    Ceci est un succès
-  </p>
-  
-    <button class="fr-btn--close fr-btn"
-            title="Masquer le message"
-            onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)">
-      Masquer le message
-    </button>
-  
-</div>
-
-<div role="alert"
-     class="fr-alert fr-alert--warning">
-  
-  <p>
-    Ceci est un avertissement
-  </p>
-  
-    <button class="fr-btn--close fr-btn"
-            title="Masquer le message"
-            onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)">
-      Masquer le message
-    </button>
-  
-</div>
-
-<div role="alert"
-     class="fr-alert fr-alert--error">
-  
-  <p>
-    Ceci est une erreur
-  </p>
-  
-    <button class="fr-btn--close fr-btn"
-            title="Masquer le message"
-            onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)">
-      Masquer le message
-    </button>
-  
-</div>
-</div>
-          
-        
-      
-    </div>
-  </div>
-  <br />
 
       </main>
     </div>
@@ -1043,11 +579,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="daeM1ObQY1sxTGwHJaw7Yw=="></script>
+         nonce="c8uE+J32HSiVQ0nPch6BZw=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="daeM1ObQY1sxTGwHJaw7Yw=="></script>
+         nonce="c8uE+J32HSiVQ0nPch6BZw=="></script>
 
     
     
