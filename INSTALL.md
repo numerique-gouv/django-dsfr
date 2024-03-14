@@ -14,7 +14,7 @@ pip install django-dsfr
 ```{ .python }
 INSTALLED_APPS = [
     ...
-    "widget_tweaks"
+    "widget_tweaks",
     "dsfr",
     <votre_app>
 ]
@@ -27,7 +27,7 @@ INSTALLED_APPS = [
 ```{ .python }
 INSTALLED_APPS = [
     ...
-    "widget_tweaks"
+    "widget_tweaks",
     "dsfr",
     "django.forms",
     <votre_app>
