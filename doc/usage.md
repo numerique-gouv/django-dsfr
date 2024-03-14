@@ -10,8 +10,6 @@ Vous pouvez faire appel aux [composants du système de design implémentés](/dj
 ## Étendre les gabarits de base
 Si vous avez besoin d'aller plus loin, vous pouvez étendre `base.html` (et potentiellement `header.html` et `footer.html`).
 
-Vous pouvez prendre exemple sur cette application (cf. [code source](https://github.com/numerique-gouv/django-dsfr/tree/main/example_app))
-
 ### Fichier base.html
 Dans le répertoire de votre application, créez le ficher `<votre_app>/templates/<votre_app>/base.html` avec le contenu suivant :
 
@@ -67,3 +65,6 @@ TEMPLATES = [
 ```
 
 - Créez un objet "DsfrConfig" dans le panneau d’administration (section Système de design de l’État > Configurations.)
+
+## Application d’exemple
+Vous pouvez prendre exemple sur cette application (cf. [code source](https://github.com/numerique-gouv/django-dsfr/tree/main/example_app)). Elle consiste en un générateur pour la présente documentation. Dans la mesure où celle-ci est hébergée de manière statique, un export est fait automatiquement via <a href="https://github.com/meeb/django-distill">Django-distill</a>.
