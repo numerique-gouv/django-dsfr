@@ -166,138 +166,129 @@
   </div>
   
   <div class="fr-header__menu fr-modal"
-     id="fr-menu-mobile"
-     aria-labelledby="fr-btn-menu-mobile">
-  <div class="fr-container">
-    <button type="button"
-            class="fr-btn--close fr-btn"
-            aria-controls="fr-menu-mobile">
-      Fermer
-    </button>
-    <div class="fr-header__menu-links">
+       id="fr-menu-mobile"
+       aria-labelledby="fr-btn-menu-mobile">
+    <div class="fr-container">
+      <button type="button"
+              class="fr-btn--close fr-btn"
+              aria-controls="fr-menu-mobile">
+        Fermer
+      </button>
+      <div class="fr-header__menu-links">
+      </div>
+      <nav role="navigation"
+           class="fr-nav"
+           id="fr-navigation"
+           aria-label="Menu principal">
+        <ul class="fr-nav__list">
+          <li class="fr-nav__item">
+            <a class="fr-nav__link"
+               href=""
+               target="_self"
+               >Accueil</a>
+          </li>
+          <li class="fr-nav__item">
+            <button class="fr-nav__btn"
+                    aria-expanded="false"
+                    aria-controls="menu-doc"
+                    >
+              Documentation
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-doc">
+              <ul class="fr-menu__list">
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/doc-install"
+                     target="_self"
+                     >Installation</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/doc-contributing"
+                     target="_self"
+                     >Contribuer</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="fr-nav__item">
+            <a class="fr-nav__link"
+               href="/django-dsfr/components/"
+               target="_self"
+               aria-current="true">Composants</a>
+          </li>
+          <li class="fr-nav__item">
+            <button class="fr-nav__btn"
+                    aria-expanded="false"
+                    aria-controls="menu-forms"
+                    >
+              Formulaires
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-forms">
+              <ul class="fr-menu__list">
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/form/"
+                     target="_self"
+                     >Documentation</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/form/example/"
+                     target="_self"
+                     >Exemple basique</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/form/example-formset/"
+                     target="_self"
+                     >Exemple avec formset</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="fr-nav__item">
+            <button class="fr-nav__btn"
+                    aria-expanded="false"
+                    aria-controls="menu-resources"
+                    >
+              Ressources
+            </button>
+            <div class="fr-collapse fr-menu" id="menu-resources">
+              <ul class="fr-menu__list">
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/resources/colors"
+                     target="_self"
+                     >Couleurs</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/resources/icons"
+                     target="_self"
+                     >Icônes</a>
+                </li>
+                <li>
+                  
+                  <a class="fr-nav__link"
+                     href="/django-dsfr/resources/pictograms"
+                     target="_self"
+                     >Pictogrammes</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <nav role="navigation"
-         class="fr-nav"
-         id="fr-navigation"
-         aria-label="Menu principal">
-      <ul class="fr-nav__list">
-        <li class="fr-nav__item">
-          
-          <a class="fr-nav__link"
-             href="/django-dsfr/"
-             target="_self"
-             >Accueil</a>
-        </li>
-        <li class="fr-nav__item">
-          <button class="fr-nav__btn"
-                  aria-expanded="false"
-                  aria-controls="menu-doc"
-                  >
-            Documentation
-          </button>
-          <div class="fr-collapse fr-menu" id="menu-doc">
-            <ul class="fr-menu__list">
-              <li>
-                
-                <a class="fr-nav__link"
-                   href="/django-dsfr/doc-install"
-                   target="_self"
-                   >Installation</a>
-              </li>
-              <li>
-                
-                <a class="fr-nav__link"
-                   href="/django-dsfr/doc-usage"
-                   target="_self"
-                   >Utilisation</a>
-              </li>
-              <li>
-                
-                <a class="fr-nav__link"
-                   href="/django-dsfr/doc-contributing"
-                   target="_self"
-                   >Contribuer</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="fr-nav__item">
-          <a class="fr-nav__link"
-             href="/django-dsfr/components/"
-             target="_self"
-             aria-current="true">Composants</a>
-        </li>
-        <li class="fr-nav__item">
-          <button class="fr-nav__btn"
-                  aria-expanded="false"
-                  aria-controls="menu-forms"
-                  >
-            Formulaires
-          </button>
-          <div class="fr-collapse fr-menu" id="menu-forms">
-            <ul class="fr-menu__list">
-              <li>
-                
-                <a class="fr-nav__link"
-                   href="/django-dsfr/form/"
-                   target="_self"
-                   >Documentation</a>
-              </li>
-              <li>
-                
-                <a class="fr-nav__link"
-                   href="/django-dsfr/form/example/"
-                   target="_self"
-                   >Exemple basique</a>
-              </li>
-              <li>
-                
-                <a class="fr-nav__link"
-                   href="/django-dsfr/form/example-formset/"
-                   target="_self"
-                   >Exemple avec formset</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="fr-nav__item">
-          <button class="fr-nav__btn"
-                  aria-expanded="false"
-                  aria-controls="menu-resources"
-                  >
-            Ressources
-          </button>
-          <div class="fr-collapse fr-menu" id="menu-resources">
-            <ul class="fr-menu__list">
-              <li>
-                
-                <a class="fr-nav__link"
-                   href="/django-dsfr/resources/colors"
-                   target="_self"
-                   >Couleurs</a>
-              </li>
-              <li>
-                
-                <a class="fr-nav__link"
-                   href="/django-dsfr/resources/icons"
-                   target="_self"
-                   >Icônes</a>
-              </li>
-              <li>
-                
-                <a class="fr-nav__link"
-                   href="/django-dsfr/resources/pictograms"
-                   target="_self"
-                   >Pictogrammes</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </nav>
   </div>
-</div>
-
 
 </header>
 
@@ -756,25 +747,31 @@
       <h2>
         En-tête et pied de page
       </h2>
-      <ul>
-        <li>
-          <a href="/django-dsfr/components/header/">En-tête (header)</a>
-        </li>
-        <li>
-          <a href="/django-dsfr/components/footer/">Pied de page (footer)</a>
-        </li>
-      </ul>
-    </div>
-    <div id="tabpanel-documentation-panel"
-         class="fr-tabs__panel"
-         role="tabpanel"
-         aria-labelledby="tabpanel-documentation"
-         tabindex="0">
-      <h2>
-        Documentation
-      </h2>
-      <ul>
-        <p>Le système de design propose <a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants">un certain nombre de composants</a>, et Django-DSFR vise à les implémenter sous forme de balises utilisables dans les templates Django, soit en passant directement les paramètres, soit en les passant depuis la vue via un dictionnaire.</p>
+      <p>
+        Les composants « En-tête (header) » et « Pied de page (footer) » sont actuellement gérés avec
+        des balises include (<code>
+        
+          {% include "dsfr/header.html" %}
+        
+      </code>
+      et <code>
+      
+        {% include "dsfr/footer.html" %}
+      
+    </code>)
+    et non des balises dédiées.
+  </p>
+</div>
+<div id="tabpanel-documentation-panel"
+     class="fr-tabs__panel"
+     role="tabpanel"
+     aria-labelledby="tabpanel-documentation"
+     tabindex="0">
+  <h2>
+    Documentation
+  </h2>
+  <ul>
+    <p>Le système de design propose <a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants">un certain nombre de composants</a>, et Django-DSFR vise à les implémenter sous forme de balises utilisables dans les templates Django, soit en passant directement les paramètres, soit en les passant depuis la vue via un dictionnaire.</p>
 <p>Par exemple, il est possible de créer un bouton soit en passant directement les paramètres :</p>
 <div class="dsfr-code"><pre><span></span><code><span class="cp">{%</span> <span class="k">dsfr_button</span> <span class="nv">label</span><span class="o">=</span><span class="s2">&quot;Bouton principal&quot;</span> <span class="nv">onclick</span><span class="o">=</span><span class="s2">&quot;alert(&#39;Vous avez cliqué sur le bouton principal&#39;)&quot;</span> <span class="cp">%}</span>
 </code></pre></div>
@@ -800,80 +797,49 @@
 <p><button class="fr-btn" onclick="alert('Vous avez cliqué sur le bouton principal')" type="submit">
   Bouton principal
 </button></p>
-      </ul>
-    </div>
-  </div>
+  </ul>
+</div>
+</div>
 
       </main>
     </div>
     
-  <footer class="fr-footer" role="contentinfo" id="footer">
-  
-  
+  <footer role="contentinfo" class="fr-footer" id="footer">
   <div class="fr-container">
     <div class="fr-footer__body">
-      
-  
-  <div class="fr-footer__brand fr-enlarge-link">
-    <a id="footer-operator"
-       href="/django-dsfr/"
-       title="Retour à l’accueil du site - Nom de l’entité (ministère, secrétariat d’État, gouvernement)">
-      <p class="fr-logo"
-         title="République française">
-        République<br />française
-      </p>
-    </a>
-  </div>
-
+      <div class="fr-footer__brand fr-enlarge-link">
+        <a href="/" title="Retour à l’accueil">
+          
+            <p class="fr-logo"
+               title="République française">
+              République<br />française
+            </p>
+          
+        </a>
+      </div>
       <div class="fr-footer__content">
-        
-          <p class="fr-footer__content-desc">
-            
-              <a href="https://github.com/numerique-gouv/django-dsfr" 
+        <p class="fr-footer__content-desc">
+          
+            <a href="https://github.com/numerique-gouv/django-dsfr" 
 target="_blank" rel="noreferrer noopener">Dépôt Github</a>
-            
-          </p>
-        
+          
+        </p>
         <ul class="fr-footer__content-list">
           <li class="fr-footer__content-item">
-            <a target="_blank"
-               rel="noopener external"
-               title="legifrance.gouv.fr - nouvelle fenêtre"
-               id="footer__content-link-legifrance"
-               class="fr-footer__content-link"
-               href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+            <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
           </li>
           <li class="fr-footer__content-item">
-            <a target="_blank"
-               rel="noopener external"
-               title="gouvernement.fr - nouvelle fenêtre"
-               id="footer__content-link-gouvernement"
-               class="fr-footer__content-link"
-               href="https://gouvernement.fr">gouvernement.fr</a>
+            <a class="fr-footer__content-link" href="https://gouvernement.fr">gouvernement.fr</a>
           </li>
           <li class="fr-footer__content-item">
-            <a target="_blank"
-               rel="noopener external"
-               title="service-public.fr - nouvelle fenêtre"
-               id="footer__content-link-servicepublic"
-               class="fr-footer__content-link"
-               href="https://service-public.fr">service-public.fr</a>
+            <a class="fr-footer__content-link" href="https://service-public.fr">service-public.fr</a>
           </li>
           <li class="fr-footer__content-item">
-            <a target="_blank"
-               rel="noopener external"
-               title="data.gouv.fr - nouvelle fenêtre"
-               id="footer__content-link-datagouv"
-               class="fr-footer__content-link"
-               href="https://data.gouv.fr">data.gouv.fr</a>
+            <a class="fr-footer__content-link" href="https://data.gouv.fr">data.gouv.fr</a>
           </li>
-          
-          
         </ul>
       </div>
     </div>
-    
-    
     <div class="fr-footer__bottom">
       <ul class="fr-footer__bottom-list">
         
@@ -907,10 +873,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
       </ul>
       <div class="fr-footer__bottom-copy">
         <p>
-          Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
-    target="_blank"
-    rel="noopener external"
-    title="Lience Etalab 2.0 - nouvelle fenêtre">licence etalab-2.0</a>
+          Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous
+          <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Licence etalab-2.0 - Ouvrir dans une nouvelle fenêtre">licence etalab-2.0</a>
         </p>
       </div>
     </div>
@@ -922,11 +889,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="MW8ReXD5/nQexZtLpJUSfA=="></script>
+         nonce="PzCyBC1z5np14QaPBYUEgQ=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="MW8ReXD5/nQexZtLpJUSfA=="></script>
+         nonce="PzCyBC1z5np14QaPBYUEgQ=="></script>
 
     
     
