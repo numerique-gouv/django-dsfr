@@ -2,6 +2,7 @@ from textwrap import dedent
 
 import markdown
 from markdown.extensions.codehilite import CodeHiliteExtension
+
 import os
 
 from django.contrib import messages
@@ -76,7 +77,8 @@ def index(request):
 @require_safe
 def components_index(request):
     payload = init_payload("Composants")
-    payload["documentation"] = format_markdown_from_file("doc/components.md")
+    md = format_markdown_from_file("doc/components.md")
+    payload["documentation"] = md["text"]
     payload["implemented_tags"] = dict(
         sorted(IMPLEMENTED_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
@@ -156,7 +158,10 @@ def page_component_header(request):
         page_title="En-tête",
         links=[{"url": reverse("components_index"), "title": "Composants"}],
     )
-    payload["documentation"] = format_markdown_from_file("doc/header.md")
+
+    md = format_markdown_from_file("doc/header.md")
+    payload["documentation"] = md["text"]
+    # payload["summary_data"] = md["summary"]
 
     return render(request, "example_app/doc_markdown.html", payload)
 
@@ -167,7 +172,9 @@ def page_component_footer(request):
         page_title="Pied de page",
         links=[{"url": reverse("components_index"), "title": "Composants"}],
     )
-    payload["documentation"] = format_markdown_from_file("doc/footer.md")
+    md = format_markdown_from_file("doc/footer.md")
+    payload["documentation"] = md["text"]
+    # payload["summary_data"] = md["summary"]
 
     return render(request, "example_app/doc_markdown.html", payload)
 
@@ -323,15 +330,20 @@ class AuthorCreateView(CreateView):
 @require_safe
 def doc_contributing(request):
     payload = init_payload("Contribuer à Django-DSFR")
-    payload["documentation"] = format_markdown_from_file("CONTRIBUTING.md")
+    md = format_markdown_from_file("CONTRIBUTING.md", ignore_first_line=True)
+    payload["documentation"] = md["text"]
+    payload["summary_data"] = md["summary"]
 
     return render(request, "example_app/doc_markdown.html", payload)
 
 
 @require_safe
 def doc_install(request):
-    payload = init_payload("Installation")
-    payload["documentation"] = format_markdown_from_file("INSTALL.md")
+    payload = init_payload("Installation de Django-DSFR")
+
+    md = format_markdown_from_file("INSTALL.md", ignore_first_line=True)
+    payload["documentation"] = md["text"]
+    payload["summary_data"] = md["summary"]
 
     return render(request, "example_app/doc_markdown.html", payload)
 
@@ -339,7 +351,10 @@ def doc_install(request):
 @require_safe
 def doc_usage(request):
     payload = init_payload("Utiliser Django-DSFR")
-    payload["documentation"] = format_markdown_from_file("doc/usage.md")
+
+    md = format_markdown_from_file("doc/usage.md")
+    payload["documentation"] = md["text"]
+    payload["summary_data"] = md["summary"]
 
     return render(request, "example_app/doc_markdown.html", payload)
 
@@ -347,7 +362,9 @@ def doc_usage(request):
 @require_safe
 def doc_form(request):
     payload = init_payload("Formulaires – Documentation")
-    payload["documentation"] = format_markdown_from_file("doc/forms.md")
+    md = format_markdown_from_file("doc/forms.md", ignore_first_line=True)
+    payload["documentation"] = md["text"]
+    # payload["summary_data"] = md["summary"]
 
     return render(request, "example_app/doc_markdown.html", payload)
 

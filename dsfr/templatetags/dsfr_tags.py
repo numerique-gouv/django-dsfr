@@ -790,7 +790,14 @@ def dsfr_summary(items: list) -> dict:
     Returns a summary item. Takes a list as parameter, with the following structure:
 
     ```python
-    items = [{ "link": "item1", "label": "First item title"}, {...}]
+    items = [
+        { "link": "item1", "label": "First item label"},
+        { "link": "item2", "label": "Second item label", "children": [
+            { "link": "item2-1", "label": "First nested item label"},
+            { "link": "item2-2", "label": "Second nested item label"},
+            ]},
+        {...}
+    ]
     ```
 
     **Tag name**:

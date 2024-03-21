@@ -1,5 +1,3 @@
-#  Utiliser Django-DSFR
-
 ## Bien commencer
 
 Pour utiliser Django-DSFR dans votre application après l’installation, vous pouvez commencer à utiliser la balise `{% extends "dsfr/base.html" %}` dans vos [gabarits Django](https://docs.djangoproject.com/fr/5.0/topics/templates/) et mettre votre contenu dans le bloc `{% block content %}{% endblock content %}`.

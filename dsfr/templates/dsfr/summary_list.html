@@ -1,0 +1,10 @@
+<li>
+  <a class="fr-summary__link" href="{{ item.link }}">{{ item.label }}</a>
+  {% if item.children %}
+    <ol>
+      {% for child in item.children %}
+        {% include "dsfr/summary_list.html" with item=child %}
+      {% endfor %}
+    </ol>
+  {% endif %}
+</li>
