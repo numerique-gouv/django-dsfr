@@ -458,9 +458,36 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Sommaire (summary)",
         "sample_data": [
             [
-                {"link": "link_1", "label": "Titre du premier élément"},
-                {"link": "link_2", "label": "Titre du second élément"},
-            ]
+                {"link": "#", "label": "Titre du premier élément"},
+                {"link": "#", "label": "Titre du second élément"},
+            ],
+            [
+                {"link": "#", "label": "Titre du premier élément"},
+                {
+                    "link": "#",
+                    "label": "Titre du second élément",
+                    "children": [
+                        {
+                            "link": "#",
+                            "label": "Titre du premier élément imbriqué",
+                        },
+                        {
+                            "link": "#",
+                            "label": "Titre du second élément imbriqué",
+                            "children": [
+                                {
+                                    "link": "#",
+                                    "label": "Titre du premier élément imbriqué (niveau inférieur)",
+                                },
+                                {
+                                    "link": "#",
+                                    "label": "Titre du second élément imbriqué (niveau inférieur)",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/sommaire",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/summary/",
