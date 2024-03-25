@@ -58,7 +58,7 @@
           <button class="fr-nav__btn"
                   aria-expanded="false"
                   aria-controls="mega-menu-components"
-                  aria-current="true">
+                  {% if '/components/' in request.path %}aria-current="true"{% endif %}>
             Composants
           </button>
           <div class="fr-collapse fr-mega-menu"

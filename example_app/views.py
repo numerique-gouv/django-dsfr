@@ -118,7 +118,7 @@ def components_index(request):
 
     for k, v in wont_be.items():
         wont_be[k]["reason"] = (
-            md.convert(v["reason"]).removeprefix("<p>").removesuffix("</p>")
+            md.convert(v["reason"]).replace("<p>", "").replace("</p>", "")
         )
 
     payload["wont_be"] = wont_be
@@ -127,7 +127,12 @@ def components_index(request):
 
 @require_safe
 def page_component(request, tag_name):
-    if tag_name in ALL_IMPLEMENTED_COMPONENTS:
+    # First two ifs are required for django-distill
+    if tag_name == "footer":
+        return page_component_footer(request)
+    elif tag_name == "header":
+        return page_component_header(request)
+    elif tag_name in ALL_IMPLEMENTED_COMPONENTS:
         current_tag = ALL_IMPLEMENTED_COMPONENTS[tag_name]
         payload = init_payload(
             current_tag["title"],
