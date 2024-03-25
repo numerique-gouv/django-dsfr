@@ -730,38 +730,13 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
     },
     "newsletter_follow": {
         "title": "Lettre d’information et réseaux sociaux (newsletter & follow)",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lettre-d-info-et-reseaux-sociaux",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lettre-d-information-et-reseaux-sociaux",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/follow/",
-    },
-    "modal": {
-        "title": "Modale (modal)",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/modale",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/modal/",
-    },
-    "password": {
-        "title": "Mot de passe (password)",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mot-de-passe",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/password/",
-    },
-    "navigation": {
-        "title": "Navigation principale (navigation)",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/navigation/",
     },
     "share": {
         "title": "Partage (share)",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/partage",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/share/",
-    },
-    "back_to_top": {
-        "title": "Retour en haut de page (back to top)",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/retour-en-haut-de-page",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/link/back-to-top/",
-    },
-    "translate": {
-        "title": "Sélecteur de langue",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/selecteur-de-langue",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/translate/",
     },
     "download": {
         "title": "Téléchargement de fichier",
@@ -779,12 +754,42 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
 # (either because the DSFR is implemented globally or because they are
 # broken down into more specific tags)
 WONT_BE_IMPLEMENTED = {
-    "core": {"title": "Fondamentaux (core)"},
-    "forms": {"title": "Formulaire (forms)"},
-    "legacy": {"title": "Systèmes antérieurs (legacy)"},
-    "logo": {"title": "Bloc marque (logo)"},
-    "utilites": {"title": "Outil (utilities)"},
-    "tab": {"title": "Onglet (tab)"},
+    "modal": {
+        "title": "Modale (modal)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/modale",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/modal/",
+        "reason": "Une balise rendrait l’utilisation plus complexe au lieu de la simplifier.",
+    },
+    "password": {
+        "title": "Mot de passe (password)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mot-de-passe",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/password/",
+        "reason": "Dépendant de l’implémentation des comptes utilisateurs dans le projet Django",
+    },
+    "navigation": {
+        "title": "Navigation principale (navigation)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/navigation/",
+        "reason": "Partie de l’en-tête, voir la documentation de ce composant.",
+    },
+    "tab": {
+        "title": "Onglet (tab)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/onglet",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/tab/",
+        "reason": "Une balise rendrait l’utilisation plus complexe au lieu de la simplifier.",
+    },
+    "back_to_top": {
+        "title": "Retour en haut de page (back to top)",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/retour-en-haut-de-page",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/link/back-to-top/",
+        "reason": "Utilisez une balise Lien (`dsfr_link`)",
+    },
+    "translate": {
+        "title": "Sélecteur de langue",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/selecteur-de-langue",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/translate/",
+        "reason": "Partie de l’en-tête, voir la documentation de ce composant.",
+    },
 }
 
 all_tags_unsorted = {

@@ -21,6 +21,7 @@ from example_app.dsfr_components import (
     IMPLEMENTED_COMPONENTS,
     EXTRA_COMPONENTS,
     NOT_YET_IMPLEMENTED_COMPONENTS,
+    WONT_BE_IMPLEMENTED,
 )
 
 # Used by the module = getattr(globals()["dsfr_tags"], f"dsfr_{tag_name}") line
@@ -88,6 +89,21 @@ def components_index(request):
     payload["not_yet"] = dict(
         sorted(NOT_YET_IMPLEMENTED_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
+    wont_be = dict(sorted(WONT_BE_IMPLEMENTED.items(), key=lambda k: k[1]["title"]))
+
+    md = markdown.Markdown(
+        extensions=[
+            "markdown.extensions.fenced_code",
+            CodeHiliteExtension(css_class="dsfr-code"),
+        ],
+    )
+
+    for k, v in wont_be.items():
+        wont_be[k]["reason"] = (
+            md.convert(v["reason"]).removeprefix("<p>").removesuffix("</p>")
+        )
+
+    payload["wont_be"] = wont_be
     return render(request, "example_app/components_index.html", payload)
 
 

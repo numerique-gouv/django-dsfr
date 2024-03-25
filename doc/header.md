@@ -11,6 +11,13 @@ Il est alors possible de personnaliser le titre, le sous-titre, ainsi que le blo
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
 
+## Composants liés
+Le gabarit d’en-tête est également l’endroit où inclure les composants suivants :
+
+- Navigation principale (navigation) ([Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale) — [Exemple](https://main--ds-gouv.netlify.app/example/component/navigation/)), à insérer dans le bloc `main_menu`.
+- Sélecteur de langue (translate) : ([Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/selecteur-de-langue) — [Exemple](https://main--ds-gouv.netlify.app/example/component/translate/)), à insérer dans le bloc `header_tools`.
+
+
 ## Personnaliser
 
 Il est possible de l’étendre pour le personnaliser, par exemple pour ajouter la barre de recherche :

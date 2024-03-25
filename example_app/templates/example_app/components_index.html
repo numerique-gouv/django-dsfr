@@ -23,7 +23,7 @@
                 role="tab"
                 aria-selected="false"
                 aria-controls="tabpanel-notyetimplemented-panel">
-          Composants encore non implémentés
+          Composants non implémentés
         </button>
       </li>
       <li role="presentation">
@@ -69,7 +69,7 @@
          aria-labelledby="tabpanel-notyetimplemented"
          tabindex="0">
       <h2>
-        Composants encore non implémentés
+        Composants pas encore implémentés
       </h2>
       <ul>
         {% for tag, data in not_yet.items %}
@@ -77,7 +77,25 @@
             {{ data.title }}
             (<a href="{{ data.doc_url }}" target="_blank" rel="noopener">Documentation <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
             —
-            <a href="{{ data.example }}" target="_blank" rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
+            <a href="{{ data.example_url }}" target="_blank" rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
+          </li>
+        {% endfor %}
+      </ul>
+      <h2>
+        Composants qui ne seront pas implémentés
+      </h2>
+      <ul>
+        {% for tag, data in wont_be.items %}
+          <li>
+            {{ data.title }}
+            (<a href="{{ data.doc_url }}" target="_blank" rel="noopener">Documentation <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
+            —
+            <a href="{{ data.example_url }}" target="_blank" rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
+            <ul>
+              <li>
+                Raison : {{ data.reason|safe }}
+              </li>
+            </ul>
           </li>
         {% endfor %}
       </ul>
