@@ -1,16 +1,4 @@
 {% extends "dsfr/header.html" %}
-{% block service_title %}
-  {% url 'index' as home_url %}
-  <a href="{{ home_url }}"
-     title="Accueil — {{ SITE_CONFIG.site_title|default:"Django-DSFR" }}">
-    <p class="fr-header__service-title">
-      {{ SITE_CONFIG.site_title|default:"Django-DSFR" }}
-    </p>
-  </a>
-{% endblock service_title %}
-{% block service_tagline %}
-  {{ SITE_CONFIG.site_tagline|default:"Intégration du système de l’État pour les sites utilisant Django" }}
-{% endblock service_tagline %}
 {% block header_tools %}
   <li>
     <button class="fr-btn--display fr-btn"
@@ -21,8 +9,24 @@
   </li>
 {% endblock header_tools %}
 {# Leave burger_menu and main_menu blocks empty if the main menu is not used #}
-{# block burger_menu #}
-{# endblock burger_menu #}
+{% block burger_menu %}
+  <div class="fr-header__navbar">
+    <button class="fr-btn--search fr-btn"
+            data-fr-opened="false"
+            aria-controls="modal-search"
+            id="fr-btn-search-mobile"
+            title="Rechercher">
+      Rechercher
+    </button>
+    <button class="fr-btn--menu fr-btn"
+            data-fr-opened="false"
+            aria-controls="fr-menu-mobile"
+            id="fr-btn-menu-mobile"
+            title="Menu">
+      Menu
+    </button>
+  </div>
+{% endblock burger_menu %}
 {% block main_menu %}
   {% include "example_app/blocks/main_menu.html" %}
 {% endblock main_menu %}

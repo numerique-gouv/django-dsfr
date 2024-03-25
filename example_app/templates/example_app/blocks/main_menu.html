@@ -55,10 +55,50 @@
           </div>
         </li>
         <li class="fr-nav__item">
-          <a class="fr-nav__link"
-             href="{% url 'components_index' %}"
-             target="_self"
-             {% if '/components/' in request.path %}aria-current="true"{% endif %}>Composants</a>
+          <button class="fr-nav__btn"
+                  aria-expanded="false"
+                  aria-controls="mega-menu-components"
+                  aria-current="true">
+            Composants
+          </button>
+          <div class="fr-collapse fr-mega-menu"
+               id="mega-menu-components"
+               tabindex="-1">
+            <div class="fr-container fr-container--fluid fr-container-lg">
+              <button class="fr-link--close fr-link" aria-controls="mega-menu-components">
+                Fermer
+              </button>
+              <div class="fr-grid-row fr-grid-row-lg--gutters">
+                <div class="fr-col-12 fr-col-lg-8 fr-col-offset-lg-4--right">
+                  <div class="fr-mega-menu__leader">
+                    <h2 class="fr-h4 fr-mb-2v">
+                      Composants
+                    </h2>
+                    <a class="fr-link fr-fi-arrow-right-line fr-link--icon-right fr-link--align-on-content"
+                       href="{% url 'components_index' %}">Voir toute la rubrique</a>
+                  </div>
+                </div>
+                {% for category in mega_menu_categories %}
+                  <div class="fr-col-12 fr-col-lg-3">
+                    <h5 class="fr-mega-menu__category">
+                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
+                    </h5>
+                    <ul class="fr-mega-menu__list">
+                      {% for key, entry in category.items %}
+                        <li>
+                          {% url 'page_component' key as entry_url %}
+                          <a class="fr-nav__link"
+                             href="{{ entry_url }}"
+                             {% if request.path == entry_url %}aria-current="true"{% endif %}
+                             target="_self">{{ entry.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
         </li>
         <li class="fr-nav__item">
           <button class="fr-nav__btn"

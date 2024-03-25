@@ -1,3 +1,4 @@
+from itertools import islice
 from textwrap import dedent
 
 import markdown
@@ -35,6 +36,12 @@ from example_app.models import Author
 from example_app.utils import format_markdown_from_file
 
 
+def chunks(data, SIZE=10000):
+    it = iter(data)
+    for _i in range(0, len(data), SIZE):
+        yield {k: data[k] for k in islice(it, SIZE)}
+
+
 def init_payload(page_title: str, links: list = []):
     # Returns the common payload passed to most pages:
     # title: the page title
@@ -52,8 +59,19 @@ def init_payload(page_title: str, links: list = []):
         {"link": "#fr-navigation", "label": "Menu"},
     ]
 
+    implemented_component_tags_unsorted = {
+        **IMPLEMENTED_COMPONENTS,
+        **EXTRA_COMPONENTS,
+    }
+    implemented_component_tags = dict(
+        sorted(implemented_component_tags_unsorted.items(), key=lambda k: k[1]["title"])
+    )
+
+    mega_menu_categories = chunks(implemented_component_tags, 8)
+
     return {
         "title": page_title,
+        "mega_menu_categories": mega_menu_categories,
         "breadcrumb_data": breadcrumb_data,
         "skiplinks": skiplinks,
     }
@@ -80,7 +98,7 @@ def components_index(request):
     payload = init_payload("Composants")
     md = format_markdown_from_file("doc/components.md")
     payload["documentation"] = md["text"]
-    payload["implemented_tags"] = dict(
+    payload["implemented_components"] = dict(
         sorted(IMPLEMENTED_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
     payload["extra_components"] = dict(

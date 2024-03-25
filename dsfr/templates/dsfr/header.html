@@ -13,14 +13,23 @@
                 </a>
               {% endblock brand %}
             </div>
+            {% block operator_logo %}
+              {% if SITE_CONFIG.operator_logo_file and SITE_CONFIG.operator_logo_alt %}
+                <div class="fr-header__operator">
+                  <img class="fr-responsive-img"
+                       src="{{ SITE_CONFIG.operator_logo_file.url }}"
+                       alt="{{ SITE_CONFIG.operator_logo_alt }}"
+                       {% if SITE_CONFIG.operator_logo_width >= 1 %}style="max-width:{{ SITE_CONFIG.operator_logo_width }}rem;"{% endif %} />
+                </div>
+              {% endif %}
+            {% endblock operator_logo %}
             {% block burger_menu %}
               <div class="fr-header__navbar">
                 <button class="fr-btn--menu fr-btn"
                         data-fr-opened="false"
-                        aria-controls="fr-menu-mobile"
-                        aria-haspopup="menu"
-                        title="Menu"
-                        id="fr-btn-menu-mobile">
+                        aria-controls="fr-modal-menu-mobile"
+                        id="fr-btn-menu-mobile"
+                        title="Menu">
                   Menu
                 </button>
               </div>
@@ -31,6 +40,9 @@
               <a href="/" title="Accueil — {{ SITE_CONFIG.site_title }}">
                 <p class="fr-header__service-title">
                   {{ SITE_CONFIG.site_title }}
+                  {% if SITE_CONFIG.beta_tag %}
+                    <span class="fr-badge fr-badge--sm fr-badge--green-emeraude">BETA</span>
+                  {% endif %}
                 </p>
               </a>
             {% endblock service_title %}
@@ -46,13 +58,13 @@
             <ul class="fr-btns-group">
               {% block header_tools %}
                 <li>
-                  <a class="fr-btn fr-icon-add-circle-line" href="[url - à modifier]">Créer un espace</a>
+                  <a class="fr-icon-add-circle-line fr-btn" href="[url - à modifier]">Créer un espace</a>
                 </li>
                 <li>
-                  <a class="fr-btn fr-icon-lock-line" href="[url - à modifier]">Se connecter</a>
+                  <a class="fr-icon-lock-line fr-btn" href="[url - à modifier]">Se connecter</a>
                 </li>
                 <li>
-                  <a class="fr-btn fr-icon-account-line" href="[url - à modifier]">S’enregistrer</a>
+                  <a class="fr-icon-account-line fr-btn" href="[url - à modifier]">S’enregistrer</a>
                 </li>
               {% endblock header_tools %}
             </ul>
