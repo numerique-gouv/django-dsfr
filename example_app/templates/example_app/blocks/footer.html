@@ -11,3 +11,36 @@
     </button>
   </li>
 {% endblock footer_links %}
+{% block footer_brand %}
+  {% url 'index' as home_url %}
+  {% if SITE_CONFIG.operator_logo_file and SITE_CONFIG.operator_logo_alt %}
+    <div class="fr-footer__brand fr-enlarge-link">
+      <p class="fr-logo"
+         title="{{ SITE_CONFIG.footer_brand|default:'république française' }}">
+        {{ SITE_CONFIG.footer_brand_html| default_if_none:'république<br />française' | safe }}
+      </p>
+      <a class="fr-footer__brand-link"
+         href="{{ home_url }}"
+         title="Retour à l’accueil du site - {{ SITE_CONFIG.operator_logo_alt }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}">
+        <img class="fr-footer__logo"
+             src="{{ SITE_CONFIG.operator_logo_file.url }}"
+             alt="{{ SITE_CONFIG.operator_logo_alt }}"
+             {% if SITE_CONFIG.operator_logo_width >= 1 %}style="max-width:{{ SITE_CONFIG.operator_logo_width }}rem;"{% endif %} />
+        <!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+      </a>
+    </div>
+  {% else %}
+    <div class="fr-footer__brand fr-enlarge-link">
+      <a id="footer-operator"
+         href="{{ home_url }}"
+         title="Retour à l’accueil du site - {{ SITE_CONFIG.site_title }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}"
+         None="{{ SITE_CONFIG.footer_brand|default:'république française' }}">
+        {% block brand %}
+          <p class="fr-logo">
+            {{ SITE_CONFIG.footer_brand_html| default_if_none:'république<br />française' | safe }}
+          </p>
+        {% endblock brand %}
+      </a>
+    </div>
+  {% endif %}
+{% endblock footer_brand %}

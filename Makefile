@@ -39,7 +39,7 @@ update_dsfr:
 	make collectstatic
 
 static_server:
-	python -m http.server $(local_port) -d docs/
+	python -m http.server 1$(local_port) -d docs/
 
 export_static:
 	poetry run python manage.py migrate

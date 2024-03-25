@@ -1,16 +1,4 @@
 {% extends "dsfr/header.html" %}
-{% block service_title %}
-  {% url 'index' as home_url %}
-  <a href="{{ home_url }}"
-     title="Accueil — {{ SITE_CONFIG.site_title|default:"Django-DSFR" }}">
-    <p class="fr-header__service-title">
-      {{ SITE_CONFIG.site_title|default:"Django-DSFR" }}
-    </p>
-  </a>
-{% endblock service_title %}
-{% block service_tagline %}
-  {{ SITE_CONFIG.site_tagline|default:"Intégration du système de l’État pour les sites utilisant Django" }}
-{% endblock service_tagline %}
 {% block header_tools %}
   <li>
     <button class="fr-btn--display fr-btn"
@@ -21,133 +9,26 @@
   </li>
 {% endblock header_tools %}
 {# Leave burger_menu and main_menu blocks empty if the main menu is not used #}
-{# block burger_menu #}
-{# endblock burger_menu #}
-{% block main_menu %}
-  <div class="fr-header__menu fr-modal"
-       id="fr-menu-mobile"
-       aria-labelledby="fr-btn-menu-mobile">
-    <div class="fr-container">
-      <button type="button"
-              class="fr-btn--close fr-btn"
-              aria-controls="fr-menu-mobile">
-        Fermer
-      </button>
-      <div class="fr-header__menu-links">
-      </div>
-      <nav role="navigation"
-           class="fr-nav"
-           id="fr-navigation"
-           aria-label="Menu principal">
-        <ul class="fr-nav__list">
-          <li class="fr-nav__item">
-            <a class="fr-nav__link"
-               href="{{ home_url }}"
-               target="_self"
-               {% if request.path == home_url %}aria-current="true"{% endif %}>Accueil</a>
-          </li>
-          <li class="fr-nav__item">
-            <button class="fr-nav__btn"
-                    aria-expanded="false"
-                    aria-controls="menu-doc"
-                    {% if '/doc-' in request.path %}aria-current="true"{% endif %}>
-              Documentation
-            </button>
-            <div class="fr-collapse fr-menu" id="menu-doc">
-              <ul class="fr-menu__list">
-                <li>
-                  {% url 'doc_install' as doc_install_url %}
-                  <a class="fr-nav__link"
-                     href="{{ doc_install_url }}"
-                     target="_self"
-                     {% if request.path == doc_install_url %}aria-current="true"{% endif %}>Installation</a>
-                </li>
-                <li>
-                  {% url 'doc_contributing' as doc_contributing_url %}
-                  <a class="fr-nav__link"
-                     href="{{ doc_contributing_url }}"
-                     target="_self"
-                     {% if request.path == doc_contributing_url %}aria-current="true"{% endif %}>Contribuer</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="fr-nav__item">
-            <a class="fr-nav__link"
-               href="{% url 'components_index' %}"
-               target="_self"
-               {% if '/components/' in request.path %}aria-current="true"{% endif %}>Composants</a>
-          </li>
-          <li class="fr-nav__item">
-            <button class="fr-nav__btn"
-                    aria-expanded="false"
-                    aria-controls="menu-forms"
-                    {% if '/form' in request.path %}aria-current="true"{% endif %}>
-              Formulaires
-            </button>
-            <div class="fr-collapse fr-menu" id="menu-forms">
-              <ul class="fr-menu__list">
-                <li>
-                  {% url 'doc_form' as doc_form_url %}
-                  <a class="fr-nav__link"
-                     href="{{ doc_form_url }}"
-                     target="_self"
-                     {% if request.path == doc_form_url %}aria-current="true"{% endif %}>Documentation</a>
-                </li>
-                <li>
-                  {% url 'page_form' as page_form_url %}
-                  <a class="fr-nav__link"
-                     href="{{ page_form_url }}"
-                     target="_self"
-                     {% if request.path == page_form_url %}aria-current="true"{% endif %}>Exemple basique</a>
-                </li>
-                <li>
-                  {% url 'form_formset' as form_formset_url %}
-                  <a class="fr-nav__link"
-                     href="{{ form_formset_url }}"
-                     target="_self"
-                     {% if request.path == form_formset_url %}aria-current="true"{% endif %}>Exemple avec formset</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="fr-nav__item">
-            <button class="fr-nav__btn"
-                    aria-expanded="false"
-                    aria-controls="menu-resources"
-                    {% if '/resources' in request.path %}aria-current="true"{% endif %}>
-              Ressources
-            </button>
-            <div class="fr-collapse fr-menu" id="menu-resources">
-              <ul class="fr-menu__list">
-                <li>
-                  {% url 'resource_colors' as resource_colors_url %}
-                  <a class="fr-nav__link"
-                     href="{{ resource_colors_url }}"
-                     target="_self"
-                     {% if request.path == resource_colors_url %}aria-current="true"{% endif %}>Couleurs</a>
-                </li>
-                <li>
-                  {% url 'resource_icons' as resource_icons_url %}
-                  <a class="fr-nav__link"
-                     href="{{ resource_icons_url }}"
-                     target="_self"
-                     {% if request.path == resource_icons_url %}aria-current="true"{% endif %}>Icônes</a>
-                </li>
-                <li>
-                  {% url 'resource_pictograms' as resource_pictograms_url %}
-                  <a class="fr-nav__link"
-                     href="{{ resource_pictograms_url }}"
-                     target="_self"
-                     {% if request.path == resource_pictograms_url %}aria-current="true"{% endif %}>Pictogrammes</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </nav>
-    </div>
+{% block burger_menu %}
+  <div class="fr-header__navbar">
+    <button class="fr-btn--search fr-btn"
+            data-fr-opened="false"
+            aria-controls="modal-search"
+            id="fr-btn-search-mobile"
+            title="Rechercher">
+      Rechercher
+    </button>
+    <button class="fr-btn--menu fr-btn"
+            data-fr-opened="false"
+            aria-controls="fr-menu-mobile"
+            id="fr-btn-menu-mobile"
+            title="Menu">
+      Menu
+    </button>
   </div>
+{% endblock burger_menu %}
+{% block main_menu %}
+  {% include "example_app/blocks/main_menu.html" %}
 {% endblock main_menu %}
 {% block header_search %}
   <div class="fr-header__search fr-modal" id="modal-search">

@@ -93,37 +93,6 @@ def dsfr_favicon() -> dict:
     return {"self": tag_data}
 
 
-@register.inclusion_tag("dsfr/form_snippet.html", takes_context=True)
-def dsfr_form(context) -> dict:
-    """
-    Returns the HTML for a form snippet
-
-    **Tag name**:
-        dsfr_form
-
-    **Usage**:
-        `{% dsfr_form %}`
-    """
-    return context
-
-
-@register.inclusion_tag("dsfr/form_field_snippets/field_snippet.html")
-def dsfr_form_field(field) -> dict:
-    """
-    Returns the HTML for a form field snippet
-
-    **Tag name**:
-        dsfr_form_field
-
-    **Usage**:
-        `{% dsfr_form_field field %}`
-    """
-    return {"field": field}
-
-
-register.filter(name="dsfr_input_class_attr", filter_func=dsfr_input_class_attr)
-
-
 @register.inclusion_tag("dsfr/theme_modale.html")
 def dsfr_theme_modale() -> None:
     """
@@ -138,7 +107,9 @@ def dsfr_theme_modale() -> None:
     return None
 
 
-# Components
+# DSFR components
+
+
 @register.inclusion_tag("dsfr/accordion.html")
 def dsfr_accordion(*args, **kwargs) -> dict:
     """
@@ -233,126 +204,6 @@ def dsfr_alert(*args, **kwargs) -> dict:
     tag_data.setdefault("is_collapsible", False)
 
     return {"self": tag_data}
-
-
-@register.simple_tag(takes_context=True)
-def dsfr_django_messages(
-    context, is_collapsible=False, extra_classes=None, wrapper_classes=None
-):
-    """
-    Renders django messages in a series a DSFR alerts
-
-    ```python
-    data_dict = {
-        "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the alert (default: false)",
-        "wrapper_classes": "(Optional) extra classes for the wrapper of the alerts (default `fr-my-4v`)",
-        "extra_classes": "(Optional) extra classes for the alert."
-    }
-    ```
-
-    All of the keys of the dict can be passed directly as named parameters of the tag.
-
-    Relevant extra_classes:
-
-    - `fr-alert--sm` : small alert
-
-    See: [https://docs.djangoproject.com/en/4.2/ref/contrib/messages/](https://docs.djangoproject.com/en/4.2/ref/contrib/messages/)
-
-    By default, the following message level are mapped to the following alert types:
-
-    <div class="fr-table" markdown="1">
-
-    Message level | DSFR alert type
-    :------------:|:--------------:
-    `DEBUG`       | `info`
-    `INFO`        | `info`
-    `SUCCESS`     | `success`
-    `WARNING`     | `warning`
-    `ERROR`       | `error`
-
-    </div>
-
-    There types are then concatenated with ``fr-alert--`` to form the CSS classe in the template.
-
-    These classes can be modified by setting ``DSFR_MESSAGE_TAGS_CSS_CLASSES`` in your ``settings.py``, like so:
-
-    ```python
-    from django.contrib import messages
-    DSFR_MESSAGE_TAGS_CSS_CLASSES = {
-        messages.DEBUG: "error"
-    }
-    ```
-
-    You can also use this setting to map [custom custom message levels](https://docs.djangoproject.com/en/4.2/ref/contrib/messages/#creating-custom-message-levels)
-    to alert types:
-
-    ```python
-    django.conf import global_settings
-    from django.contrib import messages
-    MESSAGE_TAGS = {
-        50: "fatal"
-    }
-    DSFR_MESSAGE_TAGS_CSS_CLASSES = {
-        messages.DEBUG: "debug",
-        50: "warning"
-    }
-    ```
-
-    With this setting, the following code:
-
-    ```python
-    messages.add_message(request, 50, "A serious error occurred.")
-    ```
-
-    renders an alert with the following CSS class: `fr-alert--warning`.
-
-    **Tag name**:
-        dsfr_django_messages
-
-    **Usage**:
-        `{% dsfr_django_messages data_dict %}`
-    """  # noqa
-
-    messages = context.get("messages")
-
-    if not messages:
-        return ""
-
-    wrapper_classes = wrapper_classes or "fr-my-4v"
-    extra_classes = extra_classes or ""
-
-    message_tags_css_classes = {
-        DEBUG: "info",
-        INFO: "info",
-        SUCCESS: "success",
-        WARNING: "warning",
-        ERROR: "error",
-        **getattr(settings, "DSFR_MESSAGE_TAGS_CSS_CLASSES", {}),
-    }
-
-    def _render_alert_tag(message):
-        return Template("{% load dsfr_tags %}{% dsfr_alert data_dict %}").render(
-            Context(
-                {
-                    "data_dict": {
-                        "type": message_tags_css_classes.get(message.level, "info"),
-                        "content": str(message),
-                        "extra_classes": "{} {}".format(
-                            extra_classes, message.extra_tags or ""
-                        ).strip(),
-                        "is_collapsible": is_collapsible,
-                    }
-                }
-            )
-        )
-
-    return format_html(
-        "<div{}>{}</div>",
-        format_html(' class="{}"', wrapper_classes) if wrapper_classes else "",
-        format_html_join(
-            "\n", "{}", ((_render_alert_tag(message),) for message in messages)
-        ),
-    )
 
 
 @register.inclusion_tag("dsfr/badge.html")
@@ -939,7 +790,14 @@ def dsfr_summary(items: list) -> dict:
     Returns a summary item. Takes a list as parameter, with the following structure:
 
     ```python
-    items = [{ "link": "item1", "label": "First item title"}, {...}]
+    items = [
+        { "link": "item1", "label": "First item label"},
+        { "link": "item2", "label": "Second item label", "children": [
+            { "link": "item2-1", "label": "First nested item label"},
+            { "link": "item2-2", "label": "Second nested item label"},
+            ]},
+        {...}
+    ]
     ```
 
     **Tag name**:
@@ -1094,6 +952,160 @@ def dsfr_tile(*args, **kwargs) -> dict:
         tag_data["enlarge_link"] = True
 
     return {"self": tag_data}
+
+
+# Extra components
+
+
+@register.simple_tag(takes_context=True)
+def dsfr_django_messages(
+    context, is_collapsible=False, extra_classes=None, wrapper_classes=None
+):
+    """
+    Renders django messages in a series a DSFR alerts
+
+    ```python
+    data_dict = {
+        "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the alert (default: false)",
+        "wrapper_classes": "(Optional) extra classes for the wrapper of the alerts (default `fr-my-4v`)",
+        "extra_classes": "(Optional) extra classes for the alert."
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra_classes:
+
+    - `fr-alert--sm` : small alert
+
+    See: [https://docs.djangoproject.com/en/4.2/ref/contrib/messages/](https://docs.djangoproject.com/en/4.2/ref/contrib/messages/)
+
+    By default, the following message level are mapped to the following alert types:
+
+    <div class="fr-table" markdown="1">
+
+    Message level | DSFR alert type
+    :------------:|:--------------:
+    `DEBUG`       | `info`
+    `INFO`        | `info`
+    `SUCCESS`     | `success`
+    `WARNING`     | `warning`
+    `ERROR`       | `error`
+
+    </div>
+
+    There types are then concatenated with ``fr-alert--`` to form the CSS classe in the template.
+
+    These classes can be modified by setting ``DSFR_MESSAGE_TAGS_CSS_CLASSES`` in your ``settings.py``, like so:
+
+    ```python
+    from django.contrib import messages
+    DSFR_MESSAGE_TAGS_CSS_CLASSES = {
+        messages.DEBUG: "error"
+    }
+    ```
+
+    You can also use this setting to map [custom custom message levels](https://docs.djangoproject.com/en/4.2/ref/contrib/messages/#creating-custom-message-levels)
+    to alert types:
+
+    ```python
+    django.conf import global_settings
+    from django.contrib import messages
+    MESSAGE_TAGS = {
+        50: "fatal"
+    }
+    DSFR_MESSAGE_TAGS_CSS_CLASSES = {
+        messages.DEBUG: "debug",
+        50: "warning"
+    }
+    ```
+
+    With this setting, the following code:
+
+    ```python
+    messages.add_message(request, 50, "A serious error occurred.")
+    ```
+
+    renders an alert with the following CSS class: `fr-alert--warning`.
+
+    **Tag name**:
+        dsfr_django_messages
+
+    **Usage**:
+        `{% dsfr_django_messages data_dict %}`
+    """  # noqa
+
+    messages = context.get("messages")
+
+    if not messages:
+        return ""
+
+    wrapper_classes = wrapper_classes or "fr-my-4v"
+    extra_classes = extra_classes or ""
+
+    message_tags_css_classes = {
+        DEBUG: "info",
+        INFO: "info",
+        SUCCESS: "success",
+        WARNING: "warning",
+        ERROR: "error",
+        **getattr(settings, "DSFR_MESSAGE_TAGS_CSS_CLASSES", {}),
+    }
+
+    def _render_alert_tag(message):
+        return Template("{% load dsfr_tags %}{% dsfr_alert data_dict %}").render(
+            Context(
+                {
+                    "data_dict": {
+                        "type": message_tags_css_classes.get(message.level, "info"),
+                        "content": str(message),
+                        "extra_classes": "{} {}".format(
+                            extra_classes, message.extra_tags or ""
+                        ).strip(),
+                        "is_collapsible": is_collapsible,
+                    }
+                }
+            )
+        )
+
+    return format_html(
+        "<div{}>{}</div>",
+        format_html(' class="{}"', wrapper_classes) if wrapper_classes else "",
+        format_html_join(
+            "\n", "{}", ((_render_alert_tag(message),) for message in messages)
+        ),
+    )
+
+
+@register.inclusion_tag("dsfr/form_snippet.html", takes_context=True)
+def dsfr_form(context) -> dict:
+    """
+    Returns the HTML for a form snippet
+
+    **Tag name**:
+        dsfr_form
+
+    **Usage**:
+        `{% dsfr_form %}`
+    """
+    return context
+
+
+@register.inclusion_tag("dsfr/form_field_snippets/field_snippet.html")
+def dsfr_form_field(field) -> dict:
+    """
+    Returns the HTML for a form field snippet
+
+    **Tag name**:
+        dsfr_form_field
+
+    **Usage**:
+        `{% dsfr_form_field field %}`
+    """
+    return {"field": field}
+
+
+register.filter(name="dsfr_input_class_attr", filter_func=dsfr_input_class_attr)
 
 
 # Other tags and helpers

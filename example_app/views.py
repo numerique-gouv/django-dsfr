@@ -1,7 +1,9 @@
+from itertools import islice
 from textwrap import dedent
 
 import markdown
 from markdown.extensions.codehilite import CodeHiliteExtension
+
 import os
 
 from django.contrib import messages
@@ -20,6 +22,7 @@ from example_app.dsfr_components import (
     IMPLEMENTED_COMPONENTS,
     EXTRA_COMPONENTS,
     NOT_YET_IMPLEMENTED_COMPONENTS,
+    WONT_BE_IMPLEMENTED,
 )
 
 # Used by the module = getattr(globals()["dsfr_tags"], f"dsfr_{tag_name}") line
@@ -31,6 +34,12 @@ from django.http import HttpResponse
 from example_app.forms import AuthorCreateForm, BookCreateFormSet, BookCreateFormHelper
 from example_app.models import Author
 from example_app.utils import format_markdown_from_file
+
+
+def chunks(data, SIZE=10000):
+    it = iter(data)
+    for _i in range(0, len(data), SIZE):
+        yield {k: data[k] for k in islice(it, SIZE)}
 
 
 def init_payload(page_title: str, links: list = []):
@@ -50,8 +59,19 @@ def init_payload(page_title: str, links: list = []):
         {"link": "#fr-navigation", "label": "Menu"},
     ]
 
+    implemented_component_tags_unsorted = {
+        **IMPLEMENTED_COMPONENTS,
+        **EXTRA_COMPONENTS,
+    }
+    implemented_component_tags = dict(
+        sorted(implemented_component_tags_unsorted.items(), key=lambda k: k[1]["title"])
+    )
+
+    mega_menu_categories = chunks(implemented_component_tags, 8)
+
     return {
         "title": page_title,
+        "mega_menu_categories": mega_menu_categories,
         "breadcrumb_data": breadcrumb_data,
         "skiplinks": skiplinks,
     }
@@ -76,8 +96,9 @@ def index(request):
 @require_safe
 def components_index(request):
     payload = init_payload("Composants")
-    payload["documentation"] = format_markdown_from_file("doc/components.md")
-    payload["implemented_tags"] = dict(
+    md = format_markdown_from_file("doc/components.md")
+    payload["documentation"] = md["text"]
+    payload["implemented_components"] = dict(
         sorted(IMPLEMENTED_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
     payload["extra_components"] = dict(
@@ -86,12 +107,32 @@ def components_index(request):
     payload["not_yet"] = dict(
         sorted(NOT_YET_IMPLEMENTED_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
+    wont_be = dict(sorted(WONT_BE_IMPLEMENTED.items(), key=lambda k: k[1]["title"]))
+
+    md = markdown.Markdown(
+        extensions=[
+            "markdown.extensions.fenced_code",
+            CodeHiliteExtension(css_class="dsfr-code"),
+        ],
+    )
+
+    for k, v in wont_be.items():
+        wont_be[k]["reason"] = (
+            md.convert(v["reason"]).replace("<p>", "").replace("</p>", "")
+        )
+
+    payload["wont_be"] = wont_be
     return render(request, "example_app/components_index.html", payload)
 
 
 @require_safe
 def page_component(request, tag_name):
-    if tag_name in ALL_IMPLEMENTED_COMPONENTS:
+    # First two ifs are required for django-distill
+    if tag_name == "footer":
+        return page_component_footer(request)
+    elif tag_name == "header":
+        return page_component_header(request)
+    elif tag_name in ALL_IMPLEMENTED_COMPONENTS:
         current_tag = ALL_IMPLEMENTED_COMPONENTS[tag_name]
         payload = init_payload(
             current_tag["title"],
@@ -148,6 +189,33 @@ def page_component(request, tag_name):
             "title": "Non implémenté",
         }
         return render(request, "example_app/not_yet.html", payload)
+
+
+@require_safe
+def page_component_header(request):
+    payload = init_payload(
+        page_title="En-tête",
+        links=[{"url": reverse("components_index"), "title": "Composants"}],
+    )
+
+    md = format_markdown_from_file("doc/header.md")
+    payload["documentation"] = md["text"]
+    # payload["summary_data"] = md["summary"]
+
+    return render(request, "example_app/doc_markdown.html", payload)
+
+
+@require_safe
+def page_component_footer(request):
+    payload = init_payload(
+        page_title="Pied de page",
+        links=[{"url": reverse("components_index"), "title": "Composants"}],
+    )
+    md = format_markdown_from_file("doc/footer.md")
+    payload["documentation"] = md["text"]
+    # payload["summary_data"] = md["summary"]
+
+    return render(request, "example_app/doc_markdown.html", payload)
 
 
 def page_form(request):
@@ -301,15 +369,31 @@ class AuthorCreateView(CreateView):
 @require_safe
 def doc_contributing(request):
     payload = init_payload("Contribuer à Django-DSFR")
-    payload["documentation"] = format_markdown_from_file("CONTRIBUTING.md")
+    md = format_markdown_from_file("CONTRIBUTING.md", ignore_first_line=True)
+    payload["documentation"] = md["text"]
+    payload["summary_data"] = md["summary"]
 
     return render(request, "example_app/doc_markdown.html", payload)
 
 
 @require_safe
 def doc_install(request):
-    payload = init_payload("Installation")
-    payload["documentation"] = format_markdown_from_file("INSTALL.md")
+    payload = init_payload("Installation de Django-DSFR")
+
+    md = format_markdown_from_file("INSTALL.md", ignore_first_line=True)
+    payload["documentation"] = md["text"]
+    payload["summary_data"] = md["summary"]
+
+    return render(request, "example_app/doc_markdown.html", payload)
+
+
+@require_safe
+def doc_usage(request):
+    payload = init_payload("Utiliser Django-DSFR")
+
+    md = format_markdown_from_file("doc/usage.md")
+    payload["documentation"] = md["text"]
+    payload["summary_data"] = md["summary"]
 
     return render(request, "example_app/doc_markdown.html", payload)
 
@@ -317,7 +401,9 @@ def doc_install(request):
 @require_safe
 def doc_form(request):
     payload = init_payload("Formulaires – Documentation")
-    payload["documentation"] = format_markdown_from_file("doc/forms.md")
+    md = format_markdown_from_file("doc/forms.md", ignore_first_line=True)
+    payload["documentation"] = md["text"]
+    # payload["summary_data"] = md["summary"]
 
     return render(request, "example_app/doc_markdown.html", payload)
 

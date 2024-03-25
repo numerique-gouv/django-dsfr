@@ -1,6 +1,16 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
 {% block content %}
+  <h1>
+    {{ title }}
+  </h1>
+  <div class="fr-grid-row fr-grid-row--gutters fr-mb-3w">
+    <div class="fr-col-12 fr-col-md-4">
+      {% if summary_data %}
+        {% dsfr_summary summary_data %}
+      {% endif %}
+    </div>
+  </div>
   {{ documentation|safe }}
 {% endblock content %}
 {% block extra_css %}

@@ -7,11 +7,21 @@
   <div class="fr-tabs">
     <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
       <li role="presentation">
+        <li role="presentation">
+          <button id="tabpanel-documentation"
+                  class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left"
+                  tabindex="0"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tabpanel-documentation-panel">
+            Documentation
+          </button>
+        </li>
         <button id="tabpanel-implemented"
                 class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left"
                 tabindex="0"
                 role="tab"
-                aria-selected="true"
+                aria-selected="false"
                 aria-controls="tabpanel-implemented-panel">
           Composants implémentés
         </button>
@@ -23,7 +33,7 @@
                 role="tab"
                 aria-selected="false"
                 aria-controls="tabpanel-notyetimplemented-panel">
-          Composants encore non implémentés
+          Composants non implémentés
         </button>
       </li>
       <li role="presentation">
@@ -36,19 +46,21 @@
           Balises supplémentaires
         </button>
       </li>
-      <li role="presentation">
-        <button id="tabpanel-documentation"
-                class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left"
-                tabindex="0"
-                role="tab"
-                aria-selected="false"
-                aria-controls="tabpanel-documentation-panel">
-          Documentation
-        </button>
-      </li>
     </ul>
-    <div id="tabpanel-implemented-panel"
+    <div id="tabpanel-documentation-panel"
          class="fr-tabs__panel fr-tabs__panel--selected"
+         role="tabpanel"
+         aria-labelledby="tabpanel-documentation"
+         tabindex="0">
+      <h2>
+        Documentation
+      </h2>
+      <ul>
+        {{ documentation|safe }}
+      </ul>
+    </div>
+    <div id="tabpanel-implemented-panel"
+         class="fr-tabs__panel"
          role="tabpanel"
          aria-labelledby="tabpanel-implemented"
          tabindex="0">
@@ -56,9 +68,9 @@
         Composants implémentés
       </h2>
       <ul>
-        {% for tag, data in implemented_tags.items %}
+        {% for component, data in implemented_components.items %}
           <li class="fr-mb-1w">
-            <a href="{% url 'page_component' tag %}">{{ data.title }}</a>
+            <a href="{% url 'page_component' component %}">{{ data.title }} ({{ component }})</a>
           </li>
         {% endfor %}
       </ul>
@@ -69,15 +81,33 @@
          aria-labelledby="tabpanel-notyetimplemented"
          tabindex="0">
       <h2>
-        Composants encore non implémentés
+        Composants pas encore implémentés
       </h2>
       <ul>
-        {% for tag, data in not_yet.items %}
+        {% for component, data in not_yet.items %}
           <li class="fr-mb-1w">
-            {{ data.title }}
+            {{ data.title }} ({{ component }})
             (<a href="{{ data.doc_url }}" target="_blank" rel="noopener">Documentation <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
             —
-            <a href="{{ data.example }}" target="_blank" rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
+            <a href="{{ data.example_url }}" target="_blank" rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
+          </li>
+        {% endfor %}
+      </ul>
+      <h2>
+        Composants qui ne seront pas implémentés
+      </h2>
+      <ul>
+        {% for component, data in wont_be.items %}
+          <li>
+            {{ data.title }} ({{ component }})
+            (<a href="{{ data.doc_url }}" target="_blank" rel="noopener">Documentation <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
+            —
+            <a href="{{ data.example_url }}" target="_blank" rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
+            <ul>
+              <li>
+                Raison : {{ data.reason|safe }}
+              </li>
+            </ul>
           </li>
         {% endfor %}
       </ul>
@@ -93,41 +123,12 @@
       <ul>
         {% for component, data in extra_components.items %}
           <li class="fr-mb-1w">
-            <a href="{% url 'page_component' component %}">{{ data.title }}</a>
+            <a href="{% url 'page_component' component %}">{{ data.title }} ({{ component }})</a>
           </li>
         {% endfor %}
       </ul>
-      <h2>
-        En-tête et pied de page
-      </h2>
-      <p>
-        Les composants « En-tête (header) » et « Pied de page (footer) » sont actuellement gérés avec
-        des balises include (<code>
-        {% verbatim %}
-          {% include "dsfr/header.html" %}
-        {% endverbatim %}
-      </code>
-      et <code>
-      {% verbatim %}
-        {% include "dsfr/footer.html" %}
-      {% endverbatim %}
-    </code>)
-    et non des balises dédiées.
-  </p>
-</div>
-<div id="tabpanel-documentation-panel"
-     class="fr-tabs__panel"
-     role="tabpanel"
-     aria-labelledby="tabpanel-documentation"
-     tabindex="0">
-  <h2>
-    Documentation
-  </h2>
-  <ul>
-    {{ documentation|safe }}
-  </ul>
-</div>
-</div>
+    </div>
+  </div>
 {% endblock content %}
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}">
