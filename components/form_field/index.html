@@ -106,32 +106,40 @@ p code, li code {
               
             </div>
             
-              <div class="fr-header__navbar">
-                <button class="fr-btn--menu fr-btn"
-                        data-fr-opened="false"
-                        aria-controls="fr-menu-mobile"
-                        aria-haspopup="menu"
-                        title="Menu"
-                        id="fr-btn-menu-mobile">
-                  Menu
-                </button>
-              </div>
+              
             
+            
+  <div class="fr-header__navbar">
+    <button class="fr-btn--search fr-btn"
+            data-fr-opened="false"
+            aria-controls="modal-search"
+            id="fr-btn-search-mobile"
+            title="Rechercher">
+      Rechercher
+    </button>
+    <button class="fr-btn--menu fr-btn"
+            data-fr-opened="false"
+            aria-controls="fr-menu-mobile"
+            id="fr-btn-menu-mobile"
+            title="Menu">
+      Menu
+    </button>
+  </div>
+
           </div>
           <div class="fr-header__service">
             
-  
-  <a href="/django-dsfr/"
-     title="Accueil — Django-DSFR">
-    <p class="fr-header__service-title">
-      Django-DSFR
-    </p>
-  </a>
-
+              <a href="/" title="Accueil — Django-DSFR">
+                <p class="fr-header__service-title">
+                  Django-DSFR
+                  
+                </p>
+              </a>
+            
             <p class="fr-header__service-tagline">
               
-  Intégration du système de design de l’État pour les sites utilisant Django
-
+                Intégration du système de design de l’État pour les sites utilisant Django
+              
             </p>
           </div>
         </div>
@@ -237,10 +245,317 @@ p code, li code {
           </div>
         </li>
         <li class="fr-nav__item">
-          <a class="fr-nav__link"
-             href="/django-dsfr/components/"
-             target="_self"
-             aria-current="true">Composants</a>
+          <button class="fr-nav__btn"
+                  aria-expanded="false"
+                  aria-controls="mega-menu-components"
+                  aria-current="true">
+            Composants
+          </button>
+          <div class="fr-collapse fr-mega-menu"
+               id="mega-menu-components"
+               tabindex="-1">
+            <div class="fr-container fr-container--fluid fr-container-lg">
+              <button class="fr-link--close fr-link" aria-controls="mega-menu-components">
+                Fermer
+              </button>
+              <div class="fr-grid-row fr-grid-row-lg--gutters">
+                <div class="fr-col-12 fr-col-lg-8 fr-col-offset-lg-4--right">
+                  <div class="fr-mega-menu__leader">
+                    <h2 class="fr-h4 fr-mb-2v">
+                      Composants
+                    </h2>
+                    <a class="fr-link fr-fi-arrow-right-line fr-link--icon-right fr-link--align-on-content"
+                       href="/django-dsfr/components/">Voir toute la rubrique</a>
+                  </div>
+                </div>
+                
+                  <div class="fr-col-12 fr-col-lg-3">
+                    <h5 class="fr-mega-menu__category">
+                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
+                    </h5>
+                    <ul class="fr-mega-menu__list">
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/accordion/"
+                             
+                             target="_self">Accordéon</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/accordion_group/"
+                             
+                             target="_self">Accordéons – Groupe</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/alert/"
+                             
+                             target="_self">Alertes</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/badge/"
+                             
+                             target="_self">Badge</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/badge_group/"
+                             
+                             target="_self">Badges – Groupe</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/button/"
+                             
+                             target="_self">Boutons</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/css/"
+                             
+                             target="_self">CSS global</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/card/"
+                             
+                             target="_self">Carte</a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                
+                  <div class="fr-col-12 fr-col-lg-3">
+                    <h5 class="fr-mega-menu__category">
+                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
+                    </h5>
+                    <ul class="fr-mega-menu__list">
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/input/"
+                             
+                             target="_self">Champs de saisie</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/quote/"
+                             
+                             target="_self">Citation</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/header/"
+                             
+                             target="_self">En-tête</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/breadcrumb/"
+                             
+                             target="_self">Fil d’Ariane</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/form/"
+                             
+                             target="_self">Formulaire</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/form_field/"
+                             aria-current="true"
+                             target="_self">Formulaire - champ</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/favicon/"
+                             
+                             target="_self">Icône de favoris</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/stepper/"
+                             
+                             target="_self">Indicateur d’étapes</a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                
+                  <div class="fr-col-12 fr-col-lg-3">
+                    <h5 class="fr-mega-menu__category">
+                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
+                    </h5>
+                    <ul class="fr-mega-menu__list">
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/js/"
+                             
+                             target="_self">JS global</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/link/"
+                             
+                             target="_self">Lien</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/skiplinks/"
+                             
+                             target="_self">Liens d’évitement</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/select/"
+                             
+                             target="_self">Listes déroulantes</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/sidemenu/"
+                             
+                             target="_self">Menu latéral</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/django_messages/"
+                             
+                             target="_self">Messages Django dans une alerte</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/callout/"
+                             
+                             target="_self">Mise en avant</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/highlight/"
+                             
+                             target="_self">Mise en exergue</a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                
+                  <div class="fr-col-12 fr-col-lg-3">
+                    <h5 class="fr-mega-menu__category">
+                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
+                    </h5>
+                    <ul class="fr-mega-menu__list">
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/pagination/"
+                             
+                             target="_self">Pagination</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/theme_modale/"
+                             
+                             target="_self">Paramètres d’affichage</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/footer/"
+                             
+                             target="_self">Pied de page</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/summary/"
+                             
+                             target="_self">Sommaire</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/table/"
+                             
+                             target="_self">Tableau</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/tag/"
+                             
+                             target="_self">Tag</a>
+                        </li>
+                      
+                        <li>
+                          
+                          <a class="fr-nav__link"
+                             href="/django-dsfr/components/tile/"
+                             
+                             target="_self">Tuile</a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
         </li>
         <li class="fr-nav__item">
           <button class="fr-nav__btn"
@@ -563,6 +878,16 @@ p code, li code {
           <li class="fr-sidemenu__item">
             
               <a class="fr-sidemenu__link"
+                 href="/django-dsfr/components/footer/"
+                 target="_self"
+                 >footer</a>
+            
+          </li>
+        
+          
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link"
                  href="/django-dsfr/components/form/"
                  target="_self"
                  >form</a>
@@ -576,6 +901,16 @@ p code, li code {
                  href="/django-dsfr/components/form_field/"
                  target="_self"
                  aria-current="page">form_field</a>
+            
+          </li>
+        
+          
+          <li class="fr-sidemenu__item">
+            
+              <a class="fr-sidemenu__link"
+                 href="/django-dsfr/components/header/"
+                 target="_self"
+                 >header</a>
             
           </li>
         
@@ -772,16 +1107,20 @@ p code, li code {
     <div class="fr-footer__body">
       
   
-  <div class="fr-footer__brand fr-enlarge-link">
-    <a id="footer-operator"
-       href="/django-dsfr/"
-       title="Retour à l’accueil du site - Nom de l’entité (ministère, secrétariat d’État, gouvernement)">
-      <p class="fr-logo"
-         title="République française">
-        République<br />française
-      </p>
-    </a>
-  </div>
+  
+    <div class="fr-footer__brand fr-enlarge-link">
+      <a id="footer-operator"
+         href="/django-dsfr/"
+         title="Retour à l’accueil du site - Django-DSFR - République française"
+         None="République française">
+        
+          <p class="fr-logo">
+            République<br />française
+          </p>
+        
+      </a>
+    </div>
+  
 
       <div class="fr-footer__content">
         
@@ -880,11 +1219,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="QaNgKe6Ks327PFNEuneuQg=="></script>
+         nonce="xUes1AqArCXWvHjLPyj7PA=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="QaNgKe6Ks327PFNEuneuQg=="></script>
+         nonce="xUes1AqArCXWvHjLPyj7PA=="></script>
 
     
     
