@@ -1,16 +1,20 @@
+{% load i18n %}
+{% translate "Hide message" as hide_message %}
 <div role="alert"
      class="fr-alert fr-alert--{{ self.type }}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
   {% if self.title %}
     <{{ self.heading_tag | default:"p" }} class="fr-alert__title">{{ self.title }}</{{ self.heading_tag | default:"p" }}>
   {% endif %}
-  <p>
-    {{ self.content | safe }}
-  </p>
+  {% if self.content %}
+    <p>
+      {{ self.content | safe }}
+    </p>
+  {% endif %}
   {% if self.is_collapsible %}
     <button class="fr-btn--close fr-btn"
-            title="Masquer le message"
+            title="{{ hide_message }}"
             onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)">
-      Masquer le message
+      {{ hide_message }}
     </button>
   {% endif %}
 </div>
