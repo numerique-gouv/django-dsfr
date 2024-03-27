@@ -109,6 +109,7 @@ p code, li code {
               
             
             
+  
   <div class="fr-header__navbar">
     <button class="fr-btn--search fr-btn"
             data-fr-opened="false"
@@ -117,6 +118,7 @@ p code, li code {
             title="Rechercher">
       Rechercher
     </button>
+    
     <button class="fr-btn--menu fr-btn"
             data-fr-opened="false"
             aria-controls="fr-menu-mobile"
@@ -154,12 +156,53 @@ p code, li code {
       Paramètres d’affichage
     </button>
   </li>
+  <li>
+    
+<nav role="navigation" class="fr-translate fr-nav">
+  
+  
+  
+  <div class="fr-nav__item">
+    <button class="fr-translate__btn fr-btn fr-btn--tertiary"
+            aria-controls="translate-menu"
+            aria-expanded="false"
+            title="Sélectionner une langue">
+      FR
+      <span class="fr-hidden-lg"> - Français</span>
+    </button>
+    <div class="fr-collapse fr-translate__menu fr-menu" id="translate-menu">
+      <ul class="fr-menu__list">
+        
+          <li>
+            <a class="fr-translate__language fr-nav__link"
+               hreflang="en"
+               lang="en"
+               href="#"
+               >EN - English</a>
+          </li>
+        
+          <li>
+            <a class="fr-translate__language fr-nav__link"
+               hreflang="fr"
+               lang="fr"
+               href="#"
+               aria-current="true">FR - français</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  </li>
 
             </ul>
           </div>
           
+  
   <div class="fr-header__search fr-modal" id="modal-search">
     <div class="fr-container fr-container-lg--fluid">
+      
       <button class="fr-btn--close fr-btn"
               aria-controls="modal-search"
               title="Fermer">
@@ -1159,11 +1202,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-fjlmzcxthoqqhdjq">
+          aria-controls="accordion-hraxncaatpssxeym">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-fjlmzcxthoqqhdjq">
+  <div class="fr-collapse" id="accordion-hraxncaatpssxeym">
     <pre class="dsfr-code">{'image_path': '/django-dsfr/static/img/placeholder.1x1.svg',
  'title': 'Tuile basique (verticale, MD)',
  'url': '/'}</pre>
@@ -1218,11 +1261,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-tajnnlawtdtzccrg">
+          aria-controls="accordion-dnkvssxnbncbnvin">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-tajnnlawtdtzccrg">
+  <div class="fr-collapse" id="accordion-dnkvssxnbncbnvin">
     <pre class="dsfr-code">{'description': 'Tuile horizontale (MD)',
  'detail': 'Avec un pictogramme SVG',
  'extra_classes': 'fr-tile--horizontal',
@@ -1297,11 +1340,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-hosogsjotgzvndtj">
+          aria-controls="accordion-rkkuhkvzbzeclgqw">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-hosogsjotgzvndtj">
+  <div class="fr-collapse" id="accordion-rkkuhkvzbzeclgqw">
     <pre class="dsfr-code">{'extra_classes': 'fr-tile--sm',
  'id': 'tile-nuclear-plant',
  'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/buildings/nuclear-plant.svg',
@@ -1366,11 +1409,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-izxrdsrkwyglhstx">
+          aria-controls="accordion-vvpkswcmxevulzxr">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-izxrdsrkwyglhstx">
+  <div class="fr-collapse" id="accordion-vvpkswcmxevulzxr">
     <pre class="dsfr-code">{'extra_classes': 'fr-tile--horizontal fr-tile--sm',
  'id': 'tile-map',
  'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/map/map.svg',
@@ -1453,11 +1496,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-wwajkccynwxqzldw">
+          aria-controls="accordion-lrfvottbopobovma">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-wwajkccynwxqzldw">
+  <div class="fr-collapse" id="accordion-lrfvottbopobovma">
     <pre class="dsfr-code">{'detail': 'PDF — 1,7 Mo',
  'extra_classes': 'fr-tile--horizontal fr-tile--download',
  'svg_path': '/django-dsfr/static/dsfr/dist/artwork/pictograms/document/document-signature.svg',
@@ -1641,13 +1684,15 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="BdTmLb7MJR61SKW7CwXciQ=="></script>
+         nonce="OvaMWrHDPcUr90cX9M2ynA=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="BdTmLb7MJR61SKW7CwXciQ=="></script>
+         nonce="OvaMWrHDPcUr90cX9M2ynA=="></script>
 
     
-    
+  <script src="/django-dsfr/static/js/common.js">
+  </script>
+
   </body>
 </html>

@@ -109,6 +109,7 @@ p code, li code {
               
             
             
+  
   <div class="fr-header__navbar">
     <button class="fr-btn--search fr-btn"
             data-fr-opened="false"
@@ -117,6 +118,7 @@ p code, li code {
             title="Rechercher">
       Rechercher
     </button>
+    
     <button class="fr-btn--menu fr-btn"
             data-fr-opened="false"
             aria-controls="fr-menu-mobile"
@@ -154,12 +156,53 @@ p code, li code {
       Paramètres d’affichage
     </button>
   </li>
+  <li>
+    
+<nav role="navigation" class="fr-translate fr-nav">
+  
+  
+  
+  <div class="fr-nav__item">
+    <button class="fr-translate__btn fr-btn fr-btn--tertiary"
+            aria-controls="translate-menu"
+            aria-expanded="false"
+            title="Sélectionner une langue">
+      FR
+      <span class="fr-hidden-lg"> - Français</span>
+    </button>
+    <div class="fr-collapse fr-translate__menu fr-menu" id="translate-menu">
+      <ul class="fr-menu__list">
+        
+          <li>
+            <a class="fr-translate__language fr-nav__link"
+               hreflang="en"
+               lang="en"
+               href="#"
+               >EN - English</a>
+          </li>
+        
+          <li>
+            <a class="fr-translate__language fr-nav__link"
+               hreflang="fr"
+               lang="fr"
+               href="#"
+               aria-current="true">FR - français</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  </li>
 
             </ul>
           </div>
           
+  
   <div class="fr-header__search fr-modal" id="modal-search">
     <div class="fr-container fr-container-lg--fluid">
+      
       <button class="fr-btn--close fr-btn"
               aria-controls="modal-search"
               title="Fermer">
@@ -1141,11 +1184,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-lauxwdoxmkgxcjxl">
+          aria-controls="accordion-waujdwvgknklqdkn">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-lauxwdoxmkgxcjxl">
+  <div class="fr-collapse" id="accordion-waujdwvgknklqdkn">
     <pre class="dsfr-code">{'id': 'example-input-id',
  'label': 'Label of the input item',
  'onchange': 'alert(value)',
@@ -1190,11 +1233,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-gthdlapfwdghmctl">
+          aria-controls="accordion-yslinrpmwrwnetwl">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-gthdlapfwdghmctl">
+  <div class="fr-collapse" id="accordion-yslinrpmwrwnetwl">
     <pre class="dsfr-code">{'label': 'Label of the input item',
  'max': '2021-09-23',
  'min': '2021-09-04',
@@ -1213,13 +1256,13 @@ p code, li code {
           </h3>
           
             <div class="fr-input-group ">
-  <label class="fr-label" for="input-zoecfbabviycoldt">
+  <label class="fr-label" for="input-krqgalxrstpxihtk">
     Label of the input item
   </label>
   <input class="fr-input"
          type="date"
-         id="input-zoecfbabviycoldt"
-         name="input-zoecfbabviycoldt"
+         id="input-krqgalxrstpxihtk"
+         name="input-krqgalxrstpxihtk"
          onchange="alert(value)"
          value="2021-09-16"
          min="2021-09-04"
@@ -1355,13 +1398,15 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="FJPxniAiQT4PZA/SPI1aMg=="></script>
+         nonce="T+e6C1hIimXDkZkx8DRVmQ=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="FJPxniAiQT4PZA/SPI1aMg=="></script>
+         nonce="T+e6C1hIimXDkZkx8DRVmQ=="></script>
 
     
-    
+  <script src="/django-dsfr/static/js/common.js">
+  </script>
+
   </body>
 </html>

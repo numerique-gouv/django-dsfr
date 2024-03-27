@@ -93,6 +93,7 @@
               
             
             
+  
   <div class="fr-header__navbar">
     <button class="fr-btn--search fr-btn"
             data-fr-opened="false"
@@ -101,6 +102,7 @@
             title="Rechercher">
       Rechercher
     </button>
+    
     <button class="fr-btn--menu fr-btn"
             data-fr-opened="false"
             aria-controls="fr-menu-mobile"
@@ -138,12 +140,53 @@
       Paramètres d’affichage
     </button>
   </li>
+  <li>
+    
+<nav role="navigation" class="fr-translate fr-nav">
+  
+  
+  
+  <div class="fr-nav__item">
+    <button class="fr-translate__btn fr-btn fr-btn--tertiary"
+            aria-controls="translate-menu"
+            aria-expanded="false"
+            title="Sélectionner une langue">
+      FR
+      <span class="fr-hidden-lg"> - Français</span>
+    </button>
+    <div class="fr-collapse fr-translate__menu fr-menu" id="translate-menu">
+      <ul class="fr-menu__list">
+        
+          <li>
+            <a class="fr-translate__language fr-nav__link"
+               hreflang="en"
+               lang="en"
+               href="#"
+               >EN - English</a>
+          </li>
+        
+          <li>
+            <a class="fr-translate__language fr-nav__link"
+               hreflang="fr"
+               lang="fr"
+               href="#"
+               aria-current="true">FR - français</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  </li>
 
             </ul>
           </div>
           
+  
   <div class="fr-header__search fr-modal" id="modal-search">
     <div class="fr-container fr-container-lg--fluid">
+      
       <button class="fr-btn--close fr-btn"
               aria-controls="modal-search"
               title="Fermer">
@@ -724,7 +767,7 @@
     Exemple de formulaire
   </h1>
   <form action="/django-dsfr/form/example/" method="post">
-    <input type="hidden" name="csrfmiddlewaretoken" value="tHiRssKv9do9DqKngZcNGTkTGCS9u4x8mfbxJdaVs7VEHklDofTOG8QxbLY3JsI0">
+    <input type="hidden" name="csrfmiddlewaretoken" value="zgKHgCqWtzKZGVkNLqd23ADrczLjzAUwS2LRYktAD9Ns6DFK6UY1BsrFcVD74HMu">
     
 
   <input type="hidden" name="hidden_input" value="value" id="id_hidden_input">
@@ -1267,13 +1310,15 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="hA0nBAk5qrPXJptTOCnXaw=="></script>
+         nonce="T93r5L7erXPSLHye70fWDw=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="hA0nBAk5qrPXJptTOCnXaw=="></script>
+         nonce="T93r5L7erXPSLHye70fWDw=="></script>
 
     
-    
+  <script src="/django-dsfr/static/js/common.js">
+  </script>
+
   </body>
 </html>
