@@ -1108,9 +1108,9 @@ p code, li code {
       </h2>
       <p>Returns an alert item. Takes a dict as parameter, with the following structure:</p>
 <div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Title of the alert item&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional if small) Title of the alert item&quot;</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Possible values : info, success, error&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Content of the accordion item (can include html)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional if median) Content of the accordion item (can include html)&quot;</span><span class="p">,</span>
     <span class="s2">&quot;heading_tag&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Heading tag for the alert title (default: p)&quot;</span><span class="p">,</span>
     <span class="s2">&quot;is_collapsible&quot;</span> <span class="p">:</span> <span class="s2">&quot;(Optional) Boolean, set to true to add a &#39;close&#39; button for the alert (default: false)&quot;</span><span class="p">,</span>
     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;Unique id of the alert item (Optional, mandatory if collapsible)&quot;</span><span class="p">,</span>
@@ -1123,6 +1123,8 @@ p code, li code {
 <ul>
 <li><code>fr-alert--sm</code> : small alert</li>
 </ul>
+<p>On normal (median) alerts, the title is mandatory, the content is optional.
+On small alerts, the title is optional, the content is mandatory.</p>
 <p><strong>Tag name</strong>:
     dsfr_alert</p>
 <p><strong>Usage</strong>:
@@ -1144,11 +1146,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-eigrpeanbdjwwngr">
+          aria-controls="accordion-ndjotbdvsqrywfps">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-eigrpeanbdjwwngr">
+  <div class="fr-collapse" id="accordion-ndjotbdvsqrywfps">
     <pre class="dsfr-code">{'content': 'Cliquer sur la croix pour fermer l’alerte.',
  'heading_tag': 'h3',
  'id': 'alert-success-tag',
@@ -1166,14 +1168,18 @@ p code, li code {
             Résultat
           </h3>
           
-            <div role="alert"
+            
+
+<div role="alert"
      class="fr-alert fr-alert--success">
   
     <h3 class="fr-alert__title">Alerte refermable de type succès</h3>
   
-  <p>
-    Cliquer sur la croix pour fermer l’alerte.
-  </p>
+  
+    <p>
+      Cliquer sur la croix pour fermer l’alerte.
+    </p>
+  
   
     <button class="fr-btn--close fr-btn"
             title="Masquer le message"
@@ -1197,11 +1203,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-pfwpdqjvklkcmjtk">
+          aria-controls="accordion-uxhiuxtpjjkrlnrz">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-pfwpdqjvklkcmjtk">
+  <div class="fr-collapse" id="accordion-uxhiuxtpjjkrlnrz">
     <pre class="dsfr-code">{'content': 'Cliquer sur la croix pour fermer l’alerte.',
  'heading_tag': 'h3',
  'is_collapsible': True,
@@ -1218,14 +1224,18 @@ p code, li code {
             Résultat
           </h3>
           
-            <div role="alert"
+            
+
+<div role="alert"
      class="fr-alert fr-alert--error">
   
     <h3 class="fr-alert__title">Alerte refermable de type erreur</h3>
   
-  <p>
-    Cliquer sur la croix pour fermer l’alerte.
-  </p>
+  
+    <p>
+      Cliquer sur la croix pour fermer l’alerte.
+    </p>
+  
   
     <button class="fr-btn--close fr-btn"
             title="Masquer le message"
@@ -1249,11 +1259,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-pyfnhvgjbdcdncfl">
+          aria-controls="accordion-naxemchuygejbaga">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-pyfnhvgjbdcdncfl">
+  <div class="fr-collapse" id="accordion-naxemchuygejbaga">
     <pre class="dsfr-code">{'content': 'Cette alerte n’a pas de croix de fermeture.',
  'heading_tag': 'h3',
  'title': 'Alerte non-refermable de type info',
@@ -1269,14 +1279,106 @@ p code, li code {
             Résultat
           </h3>
           
-            <div role="alert"
+            
+
+<div role="alert"
      class="fr-alert fr-alert--info">
   
     <h3 class="fr-alert__title">Alerte non-refermable de type info</h3>
   
-  <p>
-    Cette alerte n’a pas de croix de fermeture.
-  </p>
+  
+    <p>
+      Cette alerte n’a pas de croix de fermeture.
+    </p>
+  
+  
+</div>
+
+          
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-qmmdvbmqffdmebik">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-qmmdvbmqffdmebik">
+    <pre class="dsfr-code">{'heading_tag': 'h3', 'title': 'Alerte medium sans contenu', 'type': 'warning'}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          
+            
+
+<div role="alert"
+     class="fr-alert fr-alert--warning">
+  
+    <h3 class="fr-alert__title">Alerte medium sans contenu</h3>
+  
+  
+  
+</div>
+
+          
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-owmcvjoepnnkdmac">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-owmcvjoepnnkdmac">
+    <pre class="dsfr-code">{'content': 'Petite alerte sans titre.',
+ 'extra_classes': 'fr-alert--sm',
+ 'type': 'warning'}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          
+            
+
+<div role="alert"
+     class="fr-alert fr-alert--warning fr-alert--sm">
+  
+  
+    <p>
+      Petite alerte sans titre.
+    </p>
+  
   
 </div>
 
@@ -1409,11 +1511,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="mJSiBJJuZo/SFiEW8c5LaQ=="></script>
+         nonce="Y9CgWzqCX08OcoLdwaIhTw=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="mJSiBJJuZo/SFiEW8c5LaQ=="></script>
+         nonce="Y9CgWzqCX08OcoLdwaIhTw=="></script>
 
     
     
