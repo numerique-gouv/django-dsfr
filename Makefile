@@ -26,6 +26,14 @@ init:
 	poetry run python manage.py import_sample_data
 	poetry shell
 
+.PHONY: messages
+messages:
+	poetry run django-admin makemessages -l fr --ignore=manage.py
+
+.PHONY: compilemessages
+compilemessages:
+	poetry run django-admin compilemessages
+
 runserver:
 	poetry run python manage.py runserver $(local_port)
 
