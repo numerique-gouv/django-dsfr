@@ -165,9 +165,9 @@ def dsfr_alert(*args, **kwargs) -> dict:
 
     ```python
     data_dict = {
-        "title": "(Optional) Title of the alert item",
+        "title": "(Optional if small) Title of the alert item",
         "type": "Possible values : info, success, error",
-        "content": "Content of the accordion item (can include html)",
+        "content": "(Optional if median) Content of the accordion item (can include html)",
         "heading_tag": "(Optional) Heading tag for the alert title (default: p)",
         "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the alert (default: false)",
         "id": "Unique id of the alert item (Optional, mandatory if collapsible)",
@@ -180,6 +180,9 @@ def dsfr_alert(*args, **kwargs) -> dict:
     Relevant `extra_classes`:
 
     - `fr-alert--sm` : small alert
+
+    On normal (median) alerts, the title is mandatory, the content is optional.
+    On small alerts, the title is optional, the content is mandatory.
 
     **Tag name**:
         dsfr_alert

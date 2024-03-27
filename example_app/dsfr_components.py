@@ -37,6 +37,16 @@ IMPLEMENTED_COMPONENTS = {
                 "content": "Cette alerte n’a pas de croix de fermeture.",
                 "heading_tag": "h3",
             },
+            {
+                "type": "warning",
+                "heading_tag": "h3",
+                "title": "Alerte medium sans contenu",
+            },
+            {
+                "type": "warning",
+                "content": "Petite alerte sans titre.",
+                "extra_classes": "fr-alert--sm",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/alerte",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/alert/",
@@ -669,11 +679,6 @@ unsorted_IMPLEMENTED_COMPONENTS = {**IMPLEMENTED_COMPONENTS, **EXTRA_COMPONENTS}
 ALL_IMPLEMENTED_COMPONENTS = dict(sorted(unsorted_IMPLEMENTED_COMPONENTS.items()))
 
 NOT_YET_IMPLEMENTED_COMPONENTS = {
-    "file_upload": {
-        "title": "Ajout de fichier",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/upload/",
-    },
     "notice": {
         "title": "Bandeau d’information importante",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bandeau-d-information-importante",
@@ -760,6 +765,12 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
 # (either because the DSFR is implemented globally or because they are
 # broken down into more specific tags)
 WONT_BE_IMPLEMENTED = {
+    "file_upload": {
+        "title": "Ajout de fichier",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/upload/",
+        "reason": "Champ de formulaire.",
+    },
     "modal": {
         "title": "Modale",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/modale",
