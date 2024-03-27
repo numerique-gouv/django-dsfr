@@ -1,7 +1,12 @@
 {% extends "dsfr/base.html" %}
+{% load static %}
 {% block header %}
   {% include "example_app/blocks/header.html" %}
 {% endblock header %}
 {% block footer %}
   {% include "example_app/blocks/footer.html" %}
 {% endblock footer %}
+{% block extra_js %}
+  <script src="{% static 'js/common.js' %}">
+  </script>
+{% endblock extra_js %}
