@@ -1,29 +1,35 @@
 {% extends "dsfr/header.html" %}
+{% load i18n %}
 {% block header_tools %}
   <li>
     <button class="fr-btn--display fr-btn"
             aria-controls="fr-theme-modal"
             data-fr-opened="false">
-      Paramètres d’affichage
+      {% translate "Display settings" %}
     </button>
+  </li>
+  <li>
+    {% include "example_app/blocks/language_selector.html" %}
   </li>
 {% endblock header_tools %}
 {# Leave burger_menu and main_menu blocks empty if the main menu is not used #}
 {% block burger_menu %}
+  {% translate "Search" as search_label %}
   <div class="fr-header__navbar">
     <button class="fr-btn--search fr-btn"
             data-fr-opened="false"
             aria-controls="modal-search"
             id="fr-btn-search-mobile"
-            title="Rechercher">
-      Rechercher
+            title="{{ search_label }}">
+      {{ search_label }}
     </button>
+    {% translate "Menu" as menu_label %}
     <button class="fr-btn--menu fr-btn"
             data-fr-opened="false"
             aria-controls="fr-menu-mobile"
             id="fr-btn-menu-mobile"
-            title="Menu">
-      Menu
+            title="{{ menu_label }}">
+      {{ menu_label }}
     </button>
   </div>
 {% endblock burger_menu %}
@@ -31,25 +37,27 @@
   {% include "example_app/blocks/main_menu.html" %}
 {% endblock main_menu %}
 {% block header_search %}
+  {% translate "Search" as search_label %}
   <div class="fr-header__search fr-modal" id="modal-search">
     <div class="fr-container fr-container-lg--fluid">
+      {% translate "Close" as close_label %}
       <button class="fr-btn--close fr-btn"
               aria-controls="modal-search"
-              title="Fermer">
-        Fermer
+              title="{{ close_label }}">
+        {{ close_label }}
       </button>
       <form action="{% url 'page_search' %}" method="get">
         <div class="fr-search-bar" id="search-bar" role="search">
           <label class="fr-label" for="search-bar-input">
-            Rechercher
+            {{ search_label }}
           </label>
           <input class="fr-input"
-                 placeholder="Rechercher"
+                 placeholder="{{ search_label }}"
                  type="search"
                  id="query"
                  name="q">
-          <button class="fr-btn" title="Rechercher">
-            Rechercher
+          <button class="fr-btn" title="{{ search_label }}">
+            {{ search_label }}
           </button>
         </div>
       </form>

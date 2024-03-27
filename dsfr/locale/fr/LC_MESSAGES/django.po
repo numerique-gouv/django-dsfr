@@ -3,20 +3,49 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-27 16:12+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2024-03-27 19:08+0100\n"
+"PO-Revision-Date: 2024-03-27 19:10+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.4\n"
+
 #: dsfr/templates/dsfr/alert.html:2
 msgid "Hide message"
 msgstr "Masquer le message"
+
+#: dsfr/templates/dsfr/theme_modale.html:13
+msgid "Close"
+msgstr "Fermer"
+
+#: dsfr/templates/dsfr/theme_modale.html:18
+msgid "Display settings"
+msgstr "Paramètres d’affichage"
+
+#: dsfr/templates/dsfr/theme_modale.html:24
+msgid "Choose a theme to customize the appearance of the site."
+msgstr "Choisissez un thème pour personnaliser l’apparence du site."
+
+#: dsfr/templates/dsfr/theme_modale.html:33
+msgid "Light theme"
+msgstr "Thème clair"
+
+#: dsfr/templates/dsfr/theme_modale.html:46
+msgid "Dark theme"
+msgstr "Thème sombre"
+
+#: dsfr/templates/dsfr/theme_modale.html:59
+msgid "System"
+msgstr "Système"
+
+#: dsfr/templates/dsfr/theme_modale.html:60
+msgid "Uses system settings."
+msgstr "Utilise les paramètres système."
