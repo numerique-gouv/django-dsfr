@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-27 19:08+0100\n"
-"PO-Revision-Date: 2024-03-27 19:10+0100\n"
+"POT-Creation-Date: 2024-04-02 15:47+0200\n"
+"PO-Revision-Date: 2024-04-02 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -18,9 +18,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.4\n"
 
-#: dsfr/templates/dsfr/alert.html:2
+#: dsfr/templates/dsfr/alert.html:2 dsfr/templates/dsfr/notice.html:2
 msgid "Hide message"
 msgstr "Masquer le message"
+
+#: dsfr/templates/dsfr/breadcrumb.html:2
+msgid "you are here:"
+msgstr "vous êtes ici :"
+
+#: dsfr/templates/dsfr/breadcrumb.html:10
+msgid "See breadcrumb"
+msgstr "Voir le fil d’Ariane"
+
+#: dsfr/templates/dsfr/breadcrumb.html:15 dsfr/templates/dsfr/header.html:9
+msgid "Home page"
+msgstr "Accueil"
+
+#: dsfr/templates/dsfr/header.html:28
+msgid "Menu"
+msgstr "Menu"
+
+#: dsfr/templates/dsfr/header.html:90
+msgid "Main menu"
+msgstr "Menu principal"
 
 #: dsfr/templates/dsfr/theme_modale.html:13
 msgid "Close"

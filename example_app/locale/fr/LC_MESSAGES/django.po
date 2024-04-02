@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-27 19:17+0100\n"
-"PO-Revision-Date: 2024-03-27 19:18+0100\n"
+"POT-Creation-Date: 2024-04-02 15:47+0200\n"
+"PO-Revision-Date: 2024-04-02 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -18,22 +18,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.4\n"
 
-#: example_app/templates/example_app/blocks/header.html:9
+#: example_app/templates/example_app/blocks/header.html:8
 msgid "Display settings"
 msgstr "Paramètres d’affichage"
 
-#: example_app/templates/example_app/blocks/header.html:19
+#: example_app/templates/example_app/blocks/header.html:17
+#: example_app/templates/example_app/blocks/header.html:40
 msgid "Search"
 msgstr "Rechercher"
 
-#: example_app/templates/example_app/blocks/header.html:28
+#: example_app/templates/example_app/blocks/header.html:26
 msgid "Menu"
 msgstr "Menu"
 
-#: example_app/templates/example_app/blocks/header.html:46
+#: example_app/templates/example_app/blocks/header.html:43
 msgid "Close"
 msgstr "Fermer"
 
-#: example_app/templates/example_app/blocks/language_selector.html:12
+#: example_app/templates/example_app/blocks/language_selector.html:10
 msgid "Select language"
 msgstr "Sélectionner une langue"
