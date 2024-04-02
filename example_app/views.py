@@ -64,7 +64,18 @@ def init_payload(page_title: str, links: list = []):
         **EXTRA_COMPONENTS,
     }
     implemented_component_tags = dict(
-        sorted(implemented_component_tags_unsorted.items(), key=lambda k: k[1]["title"])
+        sorted(
+            implemented_component_tags_unsorted.items(), key=lambda k: k[1]["title"]
+        )[:31]
+        + [
+            (
+                "see_all",
+                {
+                    "title": "Voir tous les composants",
+                    "url": "/django-dsfr/components/",
+                },
+            )
+        ]
     )
 
     mega_menu_categories = chunks(implemented_component_tags, 8)

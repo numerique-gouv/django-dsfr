@@ -340,6 +340,43 @@ def dsfr_button(*args, **kwargs) -> dict:
     return {"self": tag_data}
 
 
+@register.inclusion_tag("dsfr/button_group.html")
+def dsfr_button_group(*args, **kwargs) -> dict:
+    """
+    Returns a group of button items. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "items": "List of dicts (see the button tag for the structure of these dicts.)",
+        "extra_classes": "(Optional) string with names of extra classes."
+    }
+    ```
+    Relevant `extra_classes`:
+
+    - `fr-btns-group--inline-sm`: Inline group, small size
+    - `fr-btns-group--inline-md`: Inline group, normal size
+    - `fr-btns-group--inline-lg`: Inline group, large size
+    - `fr-btns-group--sm`: Vertical group, small size
+    - `fr-btns-group--lg`: Vertical group, large size
+    - `fr-btns-group--equisized`: Width adjusted in Javascript
+    - `fr-btns-group--icon-left`: Buttons with an icon on the left side
+    - `fr-btns-group--icon-right`: Buttons with an icon on the right side
+
+    **Tag name**:
+        dsfr_button_group
+
+    **Usage**:
+        `{% dsfr_button_group data_dict %}`
+    """
+    allowed_keys = [
+        "items",
+        "extra_classes",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    return {"self": tag_data}
+
+
 @register.inclusion_tag("dsfr/callout.html")
 def dsfr_callout(*args, **kwargs) -> dict:
     """
@@ -458,6 +495,42 @@ def dsfr_card(*args, **kwargs) -> dict:
     if "call_to_action" in tag_data:
         # Forcing the enlarge_link to false if there is a CTA
         tag_data["enlarge_link"] = False
+
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/france_connect.html")
+def dsfr_france_connect(*args, **kwargs) -> dict:
+    """
+    Returns a FranceConnect button item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "id": "(optional) Id of the FranceConnect button item",
+        "plus": "(optional) Set to True for FranceConnect+. Default: False"
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**:
+        dsfr_link
+
+    **Usage**:
+        `{% dsfr_link data_dict %}`
+    """
+
+    allowed_keys = [
+        "id",
+        "plus",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id("franceconnect")
+
+    if "plus" not in tag_data:
+        tag_data["plus"] = False
 
     return {"self": tag_data}
 

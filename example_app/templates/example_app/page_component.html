@@ -79,6 +79,8 @@ p code, li code {
             {% dsfr_badge_group sample_data_item %}
           {% elif tag_name == "button" %}
             {% dsfr_button sample_data_item %}
+          {% elif tag_name == "button_group" %}
+            {% dsfr_button_group sample_data_item %}
           {% elif tag_name == "callout" %}
             {% dsfr_callout sample_data_item %}
           {% elif tag_name == "card" %}
@@ -95,6 +97,8 @@ p code, li code {
             {% endif %}
           {% elif tag_name == "django_messages" %}
             {% dsfr_django_messages sample_data_item %}
+          {% elif tag_name == "france_connect" %}
+            {% dsfr_france_connect sample_data_item %}
           {% elif tag_name == "highlight" %}
             {% dsfr_highlight sample_data_item %}
           {% elif tag_name == "input" %}

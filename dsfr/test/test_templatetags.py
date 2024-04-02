@@ -257,6 +257,60 @@ class DsfrButtonTagTest(SimpleTestCase):
         )
 
 
+class DsfrButtonGroupTagTest(SimpleTestCase):
+    test_data = {
+        "extra_classes": "fr-btns-group--equisized",
+        "items": [
+            {
+                "onclick": "alert('test button action')",
+                "label": "Button label",
+                "type": "button",
+                "name": "test-button",
+                "extra_classes": "",
+            },
+            {
+                "onclick": "alert('test button action')",
+                "label": "Button 2 label",
+                "type": "button",
+                "name": "test-button-2",
+                "extra_classes": "fr-btn--secondary",
+            },
+        ],
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template(
+        "{% load dsfr_tags %} {% dsfr_button_group test_data %}"
+    )
+
+    def test_button_group_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <ul class="fr-btns-group fr-btns-group--equisized">
+                <li>
+                    <button class="fr-btn"
+                        onclick="alert(&#x27;test button action&#x27;)"
+                        type="button"
+                        name="test-button">
+                    Button label
+                    </button>
+                </li>
+
+                <li>
+                    <button class="fr-btn fr-btn--secondary"
+                        onclick="alert(&#x27;test button action&#x27;)"
+                        type="button"
+                        name="test-button-2">
+                        Button 2 label
+                    </button>
+                </li>
+            </ul>
+            """,
+            rendered_template,
+        )
+
+
 class DsfrCalloutTagTest(SimpleTestCase):
     test_data = {
         "text": "Text of the callout item",
@@ -362,6 +416,70 @@ class DsfrCardTagTest(SimpleTestCase):
                 <img src="https://test.gouv.fr/test.png" class="fr-responsive-img" alt="">
             </div>
             """,  # noqa
+            rendered_template,
+        )
+
+
+class DsfrFranceConnectTagTest(SimpleTestCase):
+    test_data = {"id": "france-connect"}
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template(
+        "{% load dsfr_tags %} {% dsfr_france_connect test_data %}"
+    )
+
+    def test_highlight_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-connect-group">
+                <button class="fr-connect"
+                        id="france-connect">
+                    <span class="fr-connect__login">S’identifier avec</span>
+                    <span class="fr-connect__brand">FranceConnect</span>
+                </button>
+                <p>
+
+                        <a href="https://franceconnect.gouv.fr/"
+                        target="_blank"
+                        rel="noopener"
+                        title="Qu’est-ce que FranceConnect ? - nouvelle fenêtre">Qu’est-ce que FranceConnect ?</a>
+
+                </p>
+            </div>
+            """,
+            rendered_template,
+        )
+
+
+class DsfrFranceConnectPlusTagTest(SimpleTestCase):
+    test_data = {"id": "france-connect-plus", "plus": True}
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template(
+        "{% load dsfr_tags %} {% dsfr_france_connect test_data %}"
+    )
+
+    def test_highlight_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-connect-group">
+                <button class="fr-connect fr-connect--plus"
+                        id="france-connect-plus">
+                    <span class="fr-connect__login">S’identifier avec</span>
+                    <span class="fr-connect__brand">FranceConnect</span>
+                </button>
+                <p>
+
+                        <a href="https://franceconnect.gouv.fr/france-connect-plus"
+                        target="_blank"
+                        rel="noopener"
+                        title="Qu’est-ce que FranceConnect+ ? - nouvelle fenêtre">Qu’est-ce que FranceConnect+ ?</a>
+
+                </p>
+            </div>
+            """,
             rendered_template,
         )
 

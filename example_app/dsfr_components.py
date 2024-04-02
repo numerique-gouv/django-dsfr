@@ -108,6 +108,84 @@ IMPLEMENTED_COMPONENTS = {
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/button/",
     },
+    "button_group": {
+        "title": "Boutons – Groupe",
+        "sample_data": [
+            {
+                "items": [
+                    {
+                        "label": "Bouton principal",
+                        "onclick": "alert('Vous avez cliqué sur le bouton principal')",
+                        "extra_classes": "fr-icon-checkbox-circle-line fr-btn--icon-left",
+                    },
+                    {
+                        "label": "Bouton secondaire",
+                        "name": "secundary-button",
+                        "type": "button",
+                        "extra_classes": "fr-icon-checkbox-circle-line fr-btn--icon-left fr-btn--secondary",
+                        "onclick": "alert('Vous avez cliqué sur le bouton secondaire')",
+                    },
+                ],
+                "extra_classes": "fr-btns-group--icon-left",
+            },
+            {
+                "items": [
+                    {
+                        "label": "Bouton principal",
+                        "onclick": "alert('Vous avez cliqué sur le bouton principal')",
+                    },
+                    {
+                        "label": "Bouton secondaire",
+                        "name": "secundary-button",
+                        "type": "button",
+                        "extra_classes": "fr-btn--secondary",
+                        "onclick": "alert('Vous avez cliqué sur le bouton secondaire')",
+                    },
+                    {
+                        "label": "Bouton tertiaire",
+                        "extra_classes": "fr-btn--tertiary",
+                        "onclick": "alert('Vous avez cliqué sur le bouton tertiaire')",
+                    },
+                    {
+                        "label": "Bouton tertiaire sans bordure",
+                        "type": "button",
+                        "extra_classes": "fr-btn--tertiary-no-outline",
+                        "onclick": "alert('Vous avez cliqué sur le bouton tertiaire sans bordure')",
+                    },
+                ],
+                "extra_classes": "fr-btns-group--equisized",
+            },
+            {
+                "items": [
+                    {
+                        "label": "Bouton principal",
+                        "onclick": "alert('Vous avez cliqué sur le bouton principal')",
+                    },
+                    {
+                        "label": "Bouton secondaire",
+                        "name": "secundary-button",
+                        "type": "button",
+                        "extra_classes": "fr-btn--secondary",
+                        "onclick": "alert('Vous avez cliqué sur le bouton secondaire')",
+                    },
+                    {
+                        "label": "Bouton tertiaire",
+                        "extra_classes": "fr-btn--tertiary",
+                        "onclick": "alert('Vous avez cliqué sur le bouton tertiaire')",
+                    },
+                    {
+                        "label": "Bouton tertiaire sans bordure",
+                        "type": "button",
+                        "extra_classes": "fr-btn--tertiary-no-outline",
+                        "onclick": "alert('Vous avez cliqué sur le bouton tertiaire sans bordure')",
+                    },
+                ],
+                "extra_classes": "fr-btns-group--inline-sm",
+            },
+        ],
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/groupe-de-boutons",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/button/",
+    },
     "callout": {
         "title": "Mise en avant",
         "sample_data": [
@@ -309,6 +387,15 @@ IMPLEMENTED_COMPONENTS = {
     },
     "footer": {
         "title": "Pied de page",
+    },
+    "france_connect": {
+        "title": "Bouton FranceConnect",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-franceconnect",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/connect/",
+        "sample_data": [
+            {},
+            {"id": "france-connect-plus", "plus": True},
+        ],
     },
     "header": {
         "title": "En-tête",
@@ -709,11 +796,6 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
         "title": "Barre de recherche",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/search/",
-    },
-    "franceconnect": {
-        "title": "Bouton FranceConnect",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-franceconnect",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/connect/",
     },
     "radio": {
         "title": "Bouton radio",
