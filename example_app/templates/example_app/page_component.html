@@ -1,5 +1,6 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
+
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}">
   <style>
@@ -18,6 +19,7 @@ p code, li code {
 }
   </style>
 {% endblock extra_css %}
+
 {% block content %}
   <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
     <!-- Menu -->
