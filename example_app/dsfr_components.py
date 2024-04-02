@@ -93,6 +93,17 @@ IMPLEMENTED_COMPONENTS = {
                 "extra_classes": "fr-btn--secondary",
                 "onclick": "alert('Vous avez cliqué sur le bouton secondaire')",
             },
+            {
+                "label": "Bouton tertiaire",
+                "extra_classes": "fr-btn--tertiary",
+                "onclick": "alert('Vous avez cliqué sur le bouton tertiaire')",
+            },
+            {
+                "label": "Bouton tertiaire sans bordure",
+                "type": "button",
+                "extra_classes": "fr-btn--tertiary-no-outline",
+                "onclick": "alert('Vous avez cliqué sur le bouton tertiaire sans bordure')",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/button/",

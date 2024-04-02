@@ -312,7 +312,9 @@ def dsfr_button(*args, **kwargs) -> dict:
 
     Relevant `extra_classes`:
 
-    - `fr-btn--secondary` : secundary button
+    - `fr-btn--secondary`: secundary button
+    - `fr-btn--tertiary`: tertiary button
+    - `fr-btn--tertiary-no-outline`: tertiary button with no outline
     - `fr-btn--icon-left` and `fr-btn--icon-right`: add an icon to the button
       (associated with an icon class)
     - `fr-btn--sm` and `fr-btn--lg`: button smaller or larger than the default size
