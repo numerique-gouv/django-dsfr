@@ -348,6 +348,21 @@ IMPLEMENTED_COMPONENTS = {
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/link/",
     },
+    "notice": {
+        "title": "Bandeau d’information importante",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bandeau-d-information-importante",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/notice/",
+        "sample_data": [
+            {
+                "title": """Label titre du bandeau d’information importante, comprenant un texte assez long
+                            pour être sur deux lignes, et <a href='#'
+                            rel='noopener external'
+                            title="intitulé - nouvelle fenêtre" target='_blank'>
+                            un lien au fil du texte</a>, ainsi qu’une croix de fermeture.""",
+                "is_collapsible": True,
+            }
+        ],
+    },
     "pagination": {
         "title": "Pagination",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pagination",
@@ -679,11 +694,6 @@ unsorted_IMPLEMENTED_COMPONENTS = {**IMPLEMENTED_COMPONENTS, **EXTRA_COMPONENTS}
 ALL_IMPLEMENTED_COMPONENTS = dict(sorted(unsorted_IMPLEMENTED_COMPONENTS.items()))
 
 NOT_YET_IMPLEMENTED_COMPONENTS = {
-    "notice": {
-        "title": "Bandeau d’information importante",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bandeau-d-information-importante",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/notice/",
-    },
     "search_bar": {
         "title": "Barre de recherche",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",

@@ -25,6 +25,12 @@ class DsfrConfig(models.Model):
     site_tagline = models.CharField(
         "Sous-titre du site", max_length=200, default="Sous-titre du site", blank=True
     )
+    notice = models.CharField(
+        "Bandeau d’information importante",
+        max_length=200,
+        default="",
+        blank=True,
+    )
 
     # Header
     header_brand = models.CharField(

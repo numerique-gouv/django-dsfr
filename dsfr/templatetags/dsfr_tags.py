@@ -582,6 +582,36 @@ def dsfr_link(*args, **kwargs) -> dict:
     return {"self": tag_data}
 
 
+@register.inclusion_tag("dsfr/notice.html")
+def dsfr_notice(*args, **kwargs) -> dict:
+    """
+    Returns a notice item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "title": "Content of the notice item (can include html)",
+        "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the notice (default: false)",
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**:
+        dsfr_notice
+
+    **Usage**:
+        `{% dsfr_notice data_dict %}`
+    """
+
+    allowed_keys = [
+        "title",
+        "is_collapsible",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    return {"self": tag_data}
+
+
 @register.inclusion_tag("dsfr/pagination.html", takes_context=True)
 def dsfr_pagination(context: Context, page_obj: Page) -> dict:
     """

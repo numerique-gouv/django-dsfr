@@ -1,6 +1,6 @@
 {% load static dsfr_tags %}
 <!DOCTYPE html>
-<html lang="fr"
+<html lang="{% block lang %}fr{% endblock lang %}"
       data-fr-scheme="system"
       {% if SITE_CONFIG.mourning %}data-fr-mourning{% endif %}>
   <head>
@@ -30,6 +30,9 @@
     {% block header %}
     {% endblock header %}
     {% dsfr_theme_modale %}
+    {% if SITE_CONFIG.notice %}
+      {% dsfr_notice title=SITE_CONFIG.notice %}
+    {% endif %}
     <div class="fr-container fr-mt-4w fr-mb-6w">
       {% dsfr_breadcrumb %}
       <main id="content" role="main">

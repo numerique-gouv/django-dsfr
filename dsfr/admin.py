@@ -5,7 +5,7 @@ from dsfr.models import DsfrConfig
 @admin.register(DsfrConfig)
 class DsfrConfigAdmin(admin.ModelAdmin):
     fieldsets = (
-        ("Site", {"fields": ("site_title", "site_tagline", "mourning")}),
+        ("Site", {"fields": ("site_title", "site_tagline", "notice", "mourning")}),
         (
             "En-tête",
             {

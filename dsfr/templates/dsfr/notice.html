@@ -1,0 +1,18 @@
+{% load i18n %}
+{% translate "Hide message" as hide_message %}
+<div class="fr-notice fr-notice--info">
+  <div class="fr-container">
+    <div class="fr-notice__body">
+      <p class="fr-notice__title">
+        {{ self.title|safe }}
+      </p>
+      {% if self.is_collapsible %}
+        <button class="fr-btn--close fr-btn"
+                title="{{ hide_message }}"
+                onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
+          {{ hide_message }}
+        </button>
+      {% endif %}
+    </div>
+  </div>
+</div>
