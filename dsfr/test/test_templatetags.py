@@ -486,6 +486,40 @@ class DsfrLinkTagTest(SimpleTestCase):
         )
 
 
+class DsfrNoticeTagTest(SimpleTestCase):
+    test_data = {
+        "title": """Bandeau d’information importante avec <a href='#'
+                            rel='noopener external'
+                            title="intitulé - nouvelle fenêtre" target='_blank'>
+                            lien</a>.""",
+        "is_collapsible": True,
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_notice test_data %}")
+
+    def test_notice_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-notice__body">
+                <p class="fr-notice__title">
+                    Bandeau d’information importante avec <a href='#'
+                        rel='noopener external'
+                        title="intitulé - nouvelle fenêtre" target='_blank'>
+                        lien</a>.
+                </p>
+                    <button class="fr-btn--close fr-btn"
+                        title="Masquer le message"
+                        onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
+                    Masquer le message
+                    </button>
+                </div>
+            """,  # noqa
+            rendered_template,
+        )
+
+
 class DsfrQuoteTagTest(SimpleTestCase):
     test_data = {
         "text": "Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques",  # noqa
