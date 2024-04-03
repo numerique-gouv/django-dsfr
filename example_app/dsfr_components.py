@@ -913,7 +913,7 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
         "title": "Bouton radio riche",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-radio-riche",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
-        "note": """À implémenter au sein des formulaires et non comme un composant à part.
+        "note": """À implémenter au sein des formulaires et non comme une balise.
         cf. [#126](https://github.com/numerique-gouv/django-dsfr/issues/126)
         """,
     },
@@ -921,11 +921,17 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
         "title": "Contrôle segmenté",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/controle-segmente",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/segmented/",
+        "note": """À implémenter au sein des formulaires et non comme une balise.
+        cf. [#128](https://github.com/numerique-gouv/django-dsfr/issues/128)
+        """,
     },
     "range": {
         "title": "Curseur",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/curseur-range",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/range/",
+        "note": """À implémenter au sein des formulaires et non comme une balise.
+        cf. [#129](https://github.com/numerique-gouv/django-dsfr/issues/129)
+        """,
     },
     "consent": {
         "title": "Gestionnaire de consentement",
