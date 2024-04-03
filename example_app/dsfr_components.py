@@ -290,24 +290,21 @@ IMPLEMENTED_COMPONENTS = {
                 },
             },
             {
-                "title": "Carte avec détails d’en-tête (badges)",
+                "title": "Carte avec image et détails d’en-tête (badges)",
                 "description": """Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères.
                     """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "new_tab": True,
+                "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
                 "top_detail": {
                     "detail": {
                         "icon_class": "fr-icon-warning-fill",
                         "text": "Détail (optionnel)",
                     },
                     "badges": [
-                        {
-                            "label": "Badge 1",
-                        },
-                        {
-                            "label": "Badge 2",
-                        },
+                        {"label": "Badge 1"},
+                        {"extra_classes": "fr-badge--warning", "label": "Badge 2"},
                     ],
                 },
             },
@@ -365,16 +362,22 @@ IMPLEMENTED_COMPONENTS = {
                 },
             },
             {
-                "title": "Télécharger le fichier",
-                "description": """Exemple de carte de téléchargement, avec un texte un peu long, qui peut
-                aller jusqu’à 200 caractères.""",
+                "title": "Carte avec un fond gris et une ombre",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
+                    à environ cinq lignes dans le mode vertical, et deux en horizontal.
+                    """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
-                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
                 "new_tab": True,
-                "bottom_detail": {
-                    "text": "PNG — 1,1 ko",
-                },
-                "extra_classes": "fr-card--horizontal fr-card--download",
+                "extra_classes": "fr-card--grey fr-card--shadow",
+            },
+            {
+                "title": "Carte sans lien",
+                "description": """Peut être utile au besoin.""",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "enlarge_link": False,
+                "extra_classes": "fr-card--horizontal",
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte",
@@ -416,13 +419,13 @@ IMPLEMENTED_COMPONENTS = {
         "sample_data": [
             {
                 "id": "example-input-id",
-                "label": "Label of the input item",
+                "label": "Label du champ de saisie",
                 "type": "text",
                 "onchange": "alert(value)",
-                "value": "(Optional) Value of the input item",
+                "value": "(Optionnel) valeur du champ de saisie",
             },
             {
-                "label": "Label of the input item",
+                "label": "Champ de saisie de date",
                 "type": "date",
                 "onchange": "alert(value)",
                 "value": "2021-09-16",
@@ -482,7 +485,10 @@ IMPLEMENTED_COMPONENTS = {
                     },
                 ],
                 "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
-            }
+            },
+            {
+                "text": "Citation très basique, sans aucun des champs optionnels.",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/citation",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/quote/",
@@ -792,25 +798,13 @@ unsorted_IMPLEMENTED_COMPONENTS = {**IMPLEMENTED_COMPONENTS, **EXTRA_COMPONENTS}
 ALL_IMPLEMENTED_COMPONENTS = dict(sorted(unsorted_IMPLEMENTED_COMPONENTS.items()))
 
 NOT_YET_IMPLEMENTED_COMPONENTS = {
-    "search_bar": {
-        "title": "Barre de recherche",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/search/",
-    },
-    "radio": {
-        "title": "Bouton radio",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
-    },
     "radio_rich": {
         "title": "Bouton radio riche",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-radio-riche",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
-    },
-    "checkbox": {
-        "title": "Case à cocher",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/checkbox/",
+        "note": """À implémenter au sein des formulaires et non comme un composant à part.
+        cf. [#126](https://github.com/numerique-gouv/django-dsfr/issues/126)
+        """,
     },
     "content": {
         "title": "Contenu média",
@@ -872,6 +866,24 @@ WONT_BE_IMPLEMENTED = {
         "title": "Ajout de fichier",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/upload/",
+        "reason": "Champ de formulaire.",
+    },
+    "search_bar": {
+        "title": "Barre de recherche",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/search/",
+        "reason": "Champ de formulaire.",
+    },
+    "radio": {
+        "title": "Bouton radio",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
+        "reason": "Champ de formulaire.",
+    },
+    "checkbox": {
+        "title": "Case à cocher",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/checkbox/",
         "reason": "Champ de formulaire.",
     },
     "modal": {

@@ -429,7 +429,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         "image_alt": "(Optional) alt text of the image",
         "media_badges": "(Optional) list of badges for the media area (similar to a badge_group tag)"
         "new_tab": "(Optional) if True, forces links to open in a new tab",
-        "link": "(Optional) link of the tag",
+        "link": "(Optional) link of the card item",
         "enlarge_link": "(Optional) boolean. If true (default), the link covers the whole card",
         "extra_classes": "(Optional) string with names of extra classes",
         "top_detail": "(Optional) dict with a top detail content and optional tags or badges",
@@ -446,9 +446,15 @@ def dsfr_card(*args, **kwargs) -> dict:
     - `fr-card--horizontal`: makes the card horizontal
     - `fr-card--horizontal-tier`: allows a 33% ratio instead of the 40% default
     - `fr-card--horizontal-half`: allows a 50% ratio instead of the 40% default
-    - `fr-card--download`: Replaces the forward arrow icon with a download one
+    - `fr-card--download`: replaces the forward arrow icon with a download one
+    - `fr-card--grey`: adds a grey background on the card
+    - `fr-card--no-border`: removes the card border
+    - `fr-card--no-background`: removes the card background
+    - `fr-card--shadow`: adds a shadow to the card border
 
     Format of the top_detail dict (every field is optional):
+
+    ```python
     top_detail = {
         "detail": {
             "text": "the detail text",
@@ -457,12 +463,16 @@ def dsfr_card(*args, **kwargs) -> dict:
         "tags": "a list of tag items (mutually exclusive with badges)",
         "badges": "a list of badge items (mutually exclusive with tags)"
     }
+    ```
 
     Format of the bottom_detail dict :
+
+    ```python
     bottom_detail = {
         "text": "the detail text",
         "icon_class": "(Optional) an icon class (eg, fr-icon-warning-fill)"
-    },
+    }
+    ```
 
 
     **Tag name**:
@@ -573,7 +583,9 @@ def dsfr_highlight(*args, **kwargs) -> dict:
 @register.inclusion_tag("dsfr/input.html")
 def dsfr_input(*args, **kwargs) -> dict:
     """
-    Returns a input item. Takes a dict as parameter, with the following structure:
+    Returns a input item. Prefer the use of an actual form (see documentation)
+
+    Takes a dict as parameter, with the following structure:
 
     ```python
     data_dict = {
