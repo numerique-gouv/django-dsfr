@@ -108,6 +108,7 @@ def generate_summary_items(sections_names: list) -> list:
 
 def dsfr_input_class_attr(bf: BoundField):
     if not bf.is_hidden and "class" not in bf.field.widget.attrs:
+        bf.field.label_suffix = ""
         if isinstance(bf.field.widget, (widgets.Select, widgets.SelectMultiple)):
             bf.field.widget.attrs["class"] = "fr-select"
             bf.field.widget.group_class = "fr-select-group"

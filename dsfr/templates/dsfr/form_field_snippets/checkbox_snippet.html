@@ -1,5 +1,5 @@
 {% load widget_tweaks dsfr_tags %}
-<div class="fr-checkbox-group{% if field.errors %} fr-checkbox-group--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %}">
+<div class="fr-checkbox-group{% if field.errors %} fr-checkbox-group--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %} fr-mb-2w">
   {% if field.errors %}
     {% with aria_describedby="aria-describedby:"|add:field.auto_id|add:"-desc-error" %}
       {{ field|dsfr_input_class_attr|attr:"type:checkbox"|attr:aria_describedby }}
