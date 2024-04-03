@@ -1,8 +1,7 @@
 from django.templatetags.static import static
-from django.conf import settings
 
 # Sample SVG file
-with open(settings.STATIC_ROOT + "/img/gouvernement.svg") as svg_file:
+with open("example_app/static/img/gouvernement.svg") as svg_file:
     gov_svg = svg_file.read()
 
 # Lorem ipsum paragraphs
