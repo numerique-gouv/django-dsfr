@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-03 17:46+0200\n"
-"PO-Revision-Date: 2024-04-03 17:47+0200\n"
+"POT-Creation-Date: 2024-04-03 19:29+0200\n"
+"PO-Revision-Date: 2024-04-03 19:29+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -34,17 +34,21 @@ msgstr "Voir le fil d’Ariane"
 msgid "Home page"
 msgstr "Accueil"
 
-#: dsfr/templates/dsfr/content.html:34 dsfr/templates/dsfr/content.html:57
+#: dsfr/templates/dsfr/card.html:2
+msgid "New tab"
+msgstr "Nouvel onglet"
+
+#: dsfr/templates/dsfr/content.html:33 dsfr/templates/dsfr/content.html:67
 msgid "Transcript"
 msgstr "Transcription"
 
-#: dsfr/templates/dsfr/content.html:47 dsfr/templates/dsfr/theme_modale.html:13
-msgid "Close"
-msgstr "Fermer"
-
-#: dsfr/templates/dsfr/content.html:63
+#: dsfr/templates/dsfr/content.html:39
 msgid "Enlarge"
 msgstr "Agrandir"
+
+#: dsfr/templates/dsfr/content.html:57 dsfr/templates/dsfr/theme_modale.html:13
+msgid "Close"
+msgstr "Fermer"
 
 #: dsfr/templates/dsfr/header.html:29
 msgid "Menu"
