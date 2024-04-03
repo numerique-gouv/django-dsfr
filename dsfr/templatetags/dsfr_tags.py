@@ -509,6 +509,86 @@ def dsfr_card(*args, **kwargs) -> dict:
     return {"self": tag_data}
 
 
+@register.inclusion_tag("dsfr/content.html")
+def dsfr_content(*args, **kwargs) -> dict:
+    """
+    Returns a media content item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "image_url": "URL of the image file (use either image_url, svg or iframe_url parameter)",
+        "svg": "the full content of a SVG file (use either image_url, svg or iframe_url parameter)",
+        "iframe": "dictionary with data for an iframe, see below (use either image_url, svg or iframe_url parameter)",
+        "caption": "(optional) Caption of the media. Can contain HTML",
+        "alt_text": "(optional) Alternative text of the media"
+        "extra_classes": "(Optional) string with names of extra classes for the whole component",
+        "ratio_class": "(Optional) string with the name of a ratio class",
+        "transcription_id": "(Optional) id for the transcription accordion",
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Structure of the iframe dict:
+
+    ```python
+    {
+        "title": "The title of the iframe",
+        "url": "The URL of the iframe"
+        "width": "(optional) The width of the iframe",
+        "height": "(optional) The height of the iframe",
+        "sandbox": "(optional) a string with the sandbox attribute of the iframe",
+        "allow": "(optional) a string with the allow attribute of the iframe",
+    }
+    ```
+
+    Relevant extra classes:
+
+    - `fr-content-media--lg`: media is 125% of the main text width.
+    - `fr-content-media--sm`: media is 75% of the the main text width.
+
+    Relevant ratio classes for images:
+
+    - `fr-ratio-32x9`
+    - `fr-ratio-16x9`
+    - `fr-ratio-3x2`
+    - `fr-ratio-4x3`
+    - `fr-ratio-1x1`
+    - `fr-ratio-3x4`
+    - `fr-ratio-2x3`
+
+    Relevant ratio classes for videos:
+
+    - `fr-ratio-16x9`
+    - `fr-ratio-4x3`
+    - `fr-ratio-1x1`
+
+    **Tag name**:
+        dsfr_content
+
+    **Usage**:
+        `{% dsfr_content data_dict %}`
+    """
+
+    allowed_keys = [
+        "image_url",
+        "iframe_url",
+        "svg",
+        "caption",
+        "alt_text",
+        "extra_classes",
+        "ratio_class",
+        "transcription_id",
+    ]
+
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "transcription_id" not in tag_data:
+        tag_data["transcription_id"] = generate_random_id("transcription")
+
+    return {"self": tag_data}
+
+
 @register.inclusion_tag("dsfr/france_connect.html")
 def dsfr_france_connect(*args, **kwargs) -> dict:
     """
@@ -524,10 +604,10 @@ def dsfr_france_connect(*args, **kwargs) -> dict:
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
     **Tag name**:
-        dsfr_link
+        dsfr_france_connect
 
     **Usage**:
-        `{% dsfr_link data_dict %}`
+        `{% dsfr_france_connect data_dict %}`
     """
 
     allowed_keys = [

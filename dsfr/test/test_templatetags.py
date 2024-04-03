@@ -366,6 +366,7 @@ class DsfrCardTagTest(SimpleTestCase):
         "title": "Title of the card item",
         "description": "Text of the card item",
         "image_url": "https://test.gouv.fr/test.png",
+        "link": "https://test.gouv.fr",
     }
 
     extra_classes = "test-extraclass"
@@ -394,7 +395,7 @@ class DsfrCardTagTest(SimpleTestCase):
         self.assertInHTML(
             """
                 <p class="fr-card__title">
-                <a href="" target="_self">
+                <a href="https://test.gouv.fr" target="_self">
                     Title of the card item
                 </a>
             </p>""",
@@ -416,6 +417,35 @@ class DsfrCardTagTest(SimpleTestCase):
                 <img src="https://test.gouv.fr/test.png" class="fr-responsive-img" alt="">
             </div>
             """,  # noqa
+            rendered_template,
+        )
+
+
+class DsfrContentTagTest(SimpleTestCase):
+    test_data = {
+        "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
+        "caption": "Image en largeur normale et en 4x3",
+        "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
+        "ratio_class": "fr-ratio-4x3",
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_content test_data %}")
+
+    def test_content_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <figure class="fr-content-media" role="group" aria-label="Image en largeur normale et en 4x3">
+            <div class="fr-content-media__img">
+                <img class="fr-responsive-img fr-ratio-4x3"
+                    src="/django-dsfr/static/img/placeholder.16x9.svg"
+                    alt="Silhouette stylisée représentant le soleil au-dessus de deux montagnes." />
+            </div>
+                <figcaption class="fr-content-media__caption">
+                Image en largeur normale et en 4x3
+                </figcaption>
+            </figure>""",
             rendered_template,
         )
 

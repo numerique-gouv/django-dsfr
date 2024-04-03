@@ -1,0 +1,79 @@
+{% load i18n %}
+<figure class="fr-content-media{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}"
+        role="group"
+        {% if self.caption %} aria-label="{{ self.caption }}"{% endif %}>
+  <div class="fr-content-media__img">
+    {% if self.image_url %}
+      <img class="fr-responsive-img{% if self.ratio_class %} {{ self.ratio_class }}{% endif %}"
+           src="{{ self.image_url }}"
+           alt="{{ self.alt_text }}" />
+    {% elif self.svg %}
+      {{ self.svg|safe }}
+    {% elif self.iframe %}
+      <iframe title="{{ self.iframe.title }}"
+              class="fr-responsive-vid{% if self.ratio_class %} {{ self.ratio_class }}{% endif %}"
+              src="{{ self.iframe.url }}"
+              {% if self.iframe.width %}width="{{ self.iframe.width }}"{% endif %}
+              {% if self.iframe.height %}height="{{ self.iframe.height }}"{% endif %}
+              {% if self.iframe.allow %}allow="{{ self.iframe.allow }}"{% endif %}
+              {% if self.iframe.sandbox %}sandbox="{{ self.iframe.sandbox }}"{% endif %}
+              allowfullscreen></iframe>
+    {% endif %}
+  </div>
+  {% if self.caption %}
+    <figcaption class="fr-content-media__caption">
+      {{ self.caption|safe }}
+    </figcaption>
+  {% endif %}
+  {% if self.transcription %}
+    <div class="fr-transcription">
+      <button class="fr-transcription__btn"
+              aria-expanded="false"
+              aria-controls="fr-transcription__collapse-{{ self.transcription_id }}">
+        {% translate "Transcript" %}
+      </button>
+      <div class="fr-collapse"
+           id="fr-transcription__collapse-{{ self.transcription_id }}">
+        <div class="fr-transcription__footer">
+          <div class="fr-transcription__actions-group">
+            {% translate "Enlarge" as enlarge_label %}
+            <button class="fr-btn fr-btn--fullscreen"
+                    aria-controls="fr-transcription-modal-{{ self.transcription_id }}"
+                    data-fr-opened="false"
+                    title="{{ enlarge_label }}">
+              {{ enlarge_label }}
+            </button>
+          </div>
+        </div>
+        <dialog id="fr-transcription-modal-{{ self.transcription_id }}"
+                class="fr-modal"
+                role="dialog"
+                aria-labelledby="fr-transcription-modal-{{ self.transcription_id }}-title">
+          <div class="fr-container fr-container--fluid fr-container-md">
+            <div class="fr-grid-row fr-grid-row--center">
+              <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
+                <div class="fr-modal__body">
+                  <div class="fr-modal__header">
+                    {% translate "Close" as close_label %}
+                    <button class="fr-btn--close fr-btn"
+                            aria-controls="fr-transcription-modal-{{ self.transcription_id }}"
+                            title="{{ close_label }}">
+                      {{ close_label }}
+                    </button>
+                  </div>
+                  <div class="fr-modal__content">
+                    <h1 id="fr-transcription-modal-{{ self.transcription_id }}-title"
+                        class="fr-modal__title">
+                      {% translate "Transcript" %}
+                    </h1>
+                    {{ self.transcription|safe }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </dialog>
+      </div>
+    </div>
+  {% endif %}
+</figure>

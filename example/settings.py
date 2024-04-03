@@ -149,7 +149,7 @@ MEDIA_URL = "django-dsfr/media/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Content security policies
-CSP_DEFAULT_SRC = ("'self'",)
+CSP_DEFAULT_SRC = ("'self'", "tube-numerique-educatif.apps.education.fr")
 CSP_SCRIPT_SRC = ("'self'", "'unsafe-eval'", "'unsafe-inline'")
 CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
 CSP_OBJECT_SRC = ("'none'",)

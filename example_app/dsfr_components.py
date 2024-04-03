@@ -1,4 +1,70 @@
 from django.templatetags.static import static
+from django.conf import settings
+
+# Sample SVG file
+with open(settings.STATIC_ROOT + "/img/gouvernement.svg") as svg_file:
+    gov_svg = svg_file.read()
+
+# Lorem ipsum paragraphs
+lorem_ipsum = """
+<p class="fr-mb-2w">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. At quis risus sed vulputate odio ut enim. At risus viverra
+    adipiscing at in tellus integer feugiat. Aliquam purus sit amet luctus venenatis lectus.
+    Pellentesque id nibh tortor id aliquet lectus proin. Ultricies leo integer malesuada nunc vel
+    risus. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Iaculis eu non diam
+    phasellus vestibulum lorem sed risus ultricies. Quis varius quam quisque id diam. Vehicula
+    ipsum a arcu cursus vitae congue mauris rhoncus. Sed id semper risus in hendrerit gravida.
+</p>
+
+<p class="fr-mb-2w">
+    Suspendisse potenti nullam ac tortor vitae purus faucibus. Condimentum lacinia quis vel eros.
+    Pellentesque sit amet porttitor eget dolor. Varius duis at consectetur lorem donec massa sapien
+    faucibus. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Tristique magna
+    sit amet purus gravida. Nec ullamcorper sit amet risus nullam eget felis eget nunc. Aenean vel
+    elit scelerisque mauris pellentesque pulvinar. Vitae proin sagittis nisl rhoncus mattis rhoncus
+    urna neque viverra. Quam viverra orci sagittis eu volutpat odio. Sapien faucibus et molestie
+    ac. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Nunc sed
+    velit dignissim sodales ut eu sem integer.
+</p>
+
+<p class="fr-mb-2w">
+    Diam maecenas ultricies mi eget mauris pharetra et ultrices. Justo nec ultrices dui sapien eget
+    mi proin. Viverra mauris in aliquam sem fringilla ut. Pretium lectus quam id leo in vitae
+    turpis massa. Ultricies integer quis auctor elit sed vulputate mi sit amet. Non quam lacus
+    suspendisse faucibus interdum posuere lorem. Feugiat in fermentum posuere urna nec. Bibendum
+    enim facilisis gravida neque. Vitae aliquet nec ullamcorper sit amet risus. Et netus et
+    malesuada fames ac turpis. Ut eu sem integer vitae. Aliquam eleifend mi in nulla posuere
+    sollicitudin aliquam ultrices sagittis. Eget sit amet tellus cras adipiscing enim. Massa eget
+    egestas purus viverra accumsan. Urna neque viverra justo nec. Bibendum est ultricies integer
+    quis auctor elit. Sagittis vitae et leo duis ut diam.
+</p>
+
+<p class="fr-mb-2w">
+    Urna porttitor rhoncus dolor purus. Enim eu turpis egestas pretium. Risus ultricies tristique
+    nulla aliquet enim tortor at auctor urna. Etiam non quam lacus suspendisse faucibus interdum
+    posuere lorem. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Ac tortor
+    vitae purus faucibus ornare suspendisse sed nisi lacus. Accumsan lacus vel facilisis volutpat
+    est velit egestas dui. Enim eu turpis egestas pretium aenean pharetra. Arcu cursus vitae congue
+    mauris rhoncus. A cras semper auctor neque vitae tempus. Viverra ipsum nunc aliquet bibendum
+    enim facilisis gravida neque convallis. Ac tortor dignissim convallis aenean et tortor. Sed id
+    semper risus in hendrerit gravida rutrum. Tempus iaculis urna id volutpat lacus laoreet.
+</p>
+
+<p class="fr-mb-2w">
+    Massa tempor nec feugiat nisl pretium fusce. Urna porttitor rhoncus dolor purus non enim
+    praesent. Suspendisse ultrices gravida dictum fusce. Habitant morbi tristique senectus et netus.
+    Adipiscing vitae proin sagittis nisl. Bibendum ut tristique et egestas quis. Dictum non
+    consectetur a erat nam at lectus. Vulputate dignissim suspendisse in est ante in nibh mauris
+    cursus. Faucibus turpis in eu mi bibendum neque egestas congue quisque. Neque laoreet
+    suspendisse interdum consectetur libero id faucibus. Gravida rutrum quisque non tellus orci ac
+    auctor augue mauris. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Quam viverra orci
+    sagittis eu volutpat odio. Id interdum velit laoreet id donec ultrices tincidunt arcu non.
+    Viverra nibh cras pulvinar mattis nunc sed. Risus sed vulputate odio ut enim blandit volutpat
+    maecenas volutpat. Augue neque gravida in fermentum et sollicitudin ac orci. Commodo odio
+    aenean sed adipiscing diam.
+</p>
+"""
 
 IMPLEMENTED_COMPONENTS = {
     "accordion": {
@@ -382,6 +448,52 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/card/",
+    },
+    "content": {
+        "title": "Contenu média",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/content/",
+        "sample_data": [
+            {
+                "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
+                "caption": "Image en largeur normale et en 16x9",
+                "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
+                "ratio_class": "fr-ratio-16x9",
+            },
+            {
+                "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
+                "caption": "Image en largeur normale et en 4x3",
+                "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
+                "ratio_class": "fr-ratio-4x3",
+            },
+            {
+                "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
+                "caption": "Image plus large que la colonne de contenu",
+                "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
+                "extra_classes": "fr-content-media--lg",
+            },
+            {
+                "svg": gov_svg,
+                "caption": """Image SVG avec un lien dans la légende.
+                                <a class="fr-link" href="https://main--ds-gouv.netlify.app/example/component/content/"
+                                    rel=noopener external'
+                                    title="Source - nouvelle fenêtre" target='_blank'>Source</a>.""",
+                "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
+            },
+            {
+                "iframe": {
+                    "title": "Présentation du portail tubes",
+                    "width": "894",
+                    "height": "450",
+                    "url": "https://tube-numerique-educatif.apps.education.fr/videos/embed/9d0b132d-f836-459a-9b9b-97b1a647232d",
+                    "sandbox": "allow-same-origin allow-scripts allow-popups",
+                },
+                "ratio_class": "fr-ratio-4x3",
+                "caption": "Vidéo avec transcription",
+                "alt_text": "",
+                "transcription": f"<div>{lorem_ipsum}</div>",
+            },
+        ],
     },
     "favicon": {
         "title": "Icône de favoris",
@@ -805,11 +917,6 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
         "note": """À implémenter au sein des formulaires et non comme un composant à part.
         cf. [#126](https://github.com/numerique-gouv/django-dsfr/issues/126)
         """,
-    },
-    "content": {
-        "title": "Contenu média",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/content/",
     },
     "segmented_control": {
         "title": "Contrôle segmenté",

@@ -95,6 +95,8 @@ p code, li code {
                 {% dsfr_card sample_data_item %}
               </div>
             {% endif %}
+          {% elif tag_name == "content" %}
+            {% dsfr_content sample_data_item %}
           {% elif tag_name == "django_messages" %}
             {% dsfr_django_messages sample_data_item %}
           {% elif tag_name == "france_connect" %}
