@@ -1,4 +1,6 @@
 {% extends "dsfr/footer.html" %}
+{% load i18n %}
+
 {% block footer_links %}
   {{ block.super }}
   <li class="fr-footer__bottom-item">
@@ -11,7 +13,9 @@
     </button>
   </li>
 {% endblock footer_links %}
+
 {% block footer_brand %}
+  {% translate "Back to home page" as back_to_home_label %}
   {% url 'index' as home_url %}
   {% if SITE_CONFIG.operator_logo_file and SITE_CONFIG.operator_logo_alt %}
     <div class="fr-footer__brand fr-enlarge-link">
@@ -21,7 +25,7 @@
       </p>
       <a class="fr-footer__brand-link"
          href="{{ home_url }}"
-         title="Retour à l’accueil du site - {{ SITE_CONFIG.operator_logo_alt }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}">
+         title="{{ back_to_home_label }} - {{ SITE_CONFIG.operator_logo_alt }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}">
         <img class="fr-footer__logo"
              src="{{ SITE_CONFIG.operator_logo_file.url }}"
              alt="{{ SITE_CONFIG.operator_logo_alt }}"
@@ -33,7 +37,7 @@
     <div class="fr-footer__brand fr-enlarge-link">
       <a id="footer-operator"
          href="{{ home_url }}"
-         title="Retour à l’accueil du site - {{ SITE_CONFIG.site_title }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}"
+         title="{{ back_to_home_label }} - {{ SITE_CONFIG.site_title }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}"
          None="{{ SITE_CONFIG.footer_brand|default:'république française' }}">
         {% block brand %}
           <p class="fr-logo">
