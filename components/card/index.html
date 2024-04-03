@@ -1267,7 +1267,7 @@ p code, li code {
     <span class="s2">&quot;image_alt&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) alt text of the image&quot;</span><span class="p">,</span>
     <span class="s2">&quot;media_badges&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) list of badges for the media area (similar to a badge_group tag)&quot;</span>
     <span class="s2">&quot;new_tab&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) if True, forces links to open in a new tab&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) link of the tag&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) link of the card item&quot;</span><span class="p">,</span>
     <span class="s2">&quot;enlarge_link&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) boolean. If true (default), the link covers the whole card&quot;</span><span class="p">,</span>
     <span class="s2">&quot;extra_classes&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) string with names of extra classes&quot;</span><span class="p">,</span>
     <span class="s2">&quot;top_detail&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) dict with a top detail content and optional tags or badges&quot;</span><span class="p">,</span>
@@ -1283,22 +1283,30 @@ p code, li code {
 <li><code>fr-card--horizontal</code>: makes the card horizontal</li>
 <li><code>fr-card--horizontal-tier</code>: allows a 33% ratio instead of the 40% default</li>
 <li><code>fr-card--horizontal-half</code>: allows a 50% ratio instead of the 40% default</li>
-<li><code>fr-card--download</code>: Replaces the forward arrow icon with a download one</li>
+<li><code>fr-card--download</code>: replaces the forward arrow icon with a download one</li>
+<li><code>fr-card--grey</code>: adds a grey background on the card</li>
+<li><code>fr-card--no-border</code>: removes the card border</li>
+<li><code>fr-card--no-background</code>: removes the card background</li>
+<li><code>fr-card--shadow</code>: adds a shadow to the card border</li>
 </ul>
-<p>Format of the top_detail dict (every field is optional):
-top_detail = {
-    "detail": {
-        "text": "the detail text",
-        "icon_class": "(Optional) an icon class (eg, fr-icon-warning-fill)"
-    },
-    "tags": "a list of tag items (mutually exclusive with badges)",
-    "badges": "a list of badge items (mutually exclusive with tags)"
-}</p>
-<p>Format of the bottom_detail dict :
-bottom_detail = {
-    "text": "the detail text",
-    "icon_class": "(Optional) an icon class (eg, fr-icon-warning-fill)"
-},</p>
+<p>Format of the top_detail dict (every field is optional):</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">top_detail</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;the detail text&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;icon_class&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) an icon class (eg, fr-icon-warning-fill)&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="s2">&quot;a list of tag items (mutually exclusive with badges)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;badges&quot;</span><span class="p">:</span> <span class="s2">&quot;a list of badge items (mutually exclusive with tags)&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Format of the bottom_detail dict :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">bottom_detail</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;the detail text&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;icon_class&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) an icon class (eg, fr-icon-warning-fill)&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p><strong>Tag name</strong>:
     dsfr_card</p>
 <p><strong>Usage</strong>:
@@ -1321,11 +1329,11 @@ bottom_detail = {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-cymcmmszxvxdwypt">
+          aria-controls="accordion-lhopqjbrnpcliqwn">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-cymcmmszxvxdwypt">
+  <div class="fr-collapse" id="accordion-lhopqjbrnpcliqwn">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -1356,11 +1364,13 @@ bottom_detail = {
   <div class="fr-card__body">
     <div class="fr-card__content">
       <p class="fr-card__title">
-      <a href="https://www.systeme-de-design.gouv.fr/"
-         target="_blank"
-         rel="noopener noreferrer" title="Carte basique - Ouvrir dans une nouvelle fenêtre">
-        Carte basique
-      </a>
+      
+        <a href="https://www.systeme-de-design.gouv.fr/"
+           target="_blank"
+           rel="noopener noreferrer" title="Carte basique - Ouvrir dans une nouvelle fenêtre">
+          Carte basique
+        </a>
+      
       </p>
       <p class="fr-card__desc">
         Texte de la carte.
@@ -1403,11 +1413,11 @@ bottom_detail = {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-bnrikkfuhzkfpsey">
+          aria-controls="accordion-hrneyhdrouhuubjq">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-bnrikkfuhzkfpsey">
+  <div class="fr-collapse" id="accordion-hrneyhdrouhuubjq">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -1438,11 +1448,13 @@ bottom_detail = {
   <div class="fr-card__body">
     <div class="fr-card__content">
       <p class="fr-card__title">
-      <a href="https://www.systeme-de-design.gouv.fr/"
-         target="_blank"
-         rel="noopener noreferrer" title="Carte horizontale, largeur standard - Ouvrir dans une nouvelle fenêtre">
-        Carte horizontale, largeur standard
-      </a>
+      
+        <a href="https://www.systeme-de-design.gouv.fr/"
+           target="_blank"
+           rel="noopener noreferrer" title="Carte horizontale, largeur standard - Ouvrir dans une nouvelle fenêtre">
+          Carte horizontale, largeur standard
+        </a>
+      
       </p>
       <p class="fr-card__desc">
         Texte de la carte.
@@ -1484,11 +1496,11 @@ bottom_detail = {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-robcewkjpyfwrecp">
+          aria-controls="accordion-bijjijfxfyogpuno">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-robcewkjpyfwrecp">
+  <div class="fr-collapse" id="accordion-bijjijfxfyogpuno">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -1519,11 +1531,13 @@ bottom_detail = {
   <div class="fr-card__body">
     <div class="fr-card__content">
       <p class="fr-card__title">
-      <a href="https://www.systeme-de-design.gouv.fr/"
-         target="_blank"
-         rel="noopener noreferrer" title="Carte horizontale, largeur tiers - Ouvrir dans une nouvelle fenêtre">
-        Carte horizontale, largeur tiers
-      </a>
+      
+        <a href="https://www.systeme-de-design.gouv.fr/"
+           target="_blank"
+           rel="noopener noreferrer" title="Carte horizontale, largeur tiers - Ouvrir dans une nouvelle fenêtre">
+          Carte horizontale, largeur tiers
+        </a>
+      
       </p>
       <p class="fr-card__desc">
         Texte de la carte.
@@ -1565,11 +1579,11 @@ bottom_detail = {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-uzbmpyhquiofefmw">
+          aria-controls="accordion-dipeugybbvncmjuc">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-uzbmpyhquiofefmw">
+  <div class="fr-collapse" id="accordion-dipeugybbvncmjuc">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -1600,11 +1614,13 @@ bottom_detail = {
   <div class="fr-card__body">
     <div class="fr-card__content">
       <p class="fr-card__title">
-      <a href="https://www.systeme-de-design.gouv.fr/"
-         target="_blank"
-         rel="noopener noreferrer" title="Carte horizontale, largeur moitié - Ouvrir dans une nouvelle fenêtre">
-        Carte horizontale, largeur moitié
-      </a>
+      
+        <a href="https://www.systeme-de-design.gouv.fr/"
+           target="_blank"
+           rel="noopener noreferrer" title="Carte horizontale, largeur moitié - Ouvrir dans une nouvelle fenêtre">
+          Carte horizontale, largeur moitié
+        </a>
+      
       </p>
       <p class="fr-card__desc">
         Texte de la carte.
@@ -1646,11 +1662,11 @@ bottom_detail = {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-sunnxmcsggirnfek">
+          aria-controls="accordion-nnkjlnrayslvaroh">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-sunnxmcsggirnfek">
+  <div class="fr-collapse" id="accordion-nnkjlnrayslvaroh">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
@@ -1679,11 +1695,13 @@ bottom_detail = {
   <div class="fr-card__body">
     <div class="fr-card__content">
       <p class="fr-card__title">
-      <a href="https://www.systeme-de-design.gouv.fr/"
-         target="_blank"
-         rel="noopener noreferrer" title="Carte avec badge - Ouvrir dans une nouvelle fenêtre">
-        Carte avec badge
-      </a>
+      
+        <a href="https://www.systeme-de-design.gouv.fr/"
+           target="_blank"
+           rel="noopener noreferrer" title="Carte avec badge - Ouvrir dans une nouvelle fenêtre">
+          Carte avec badge
+        </a>
+      
       </p>
       <p class="fr-card__desc">
         Texte de la carte.
@@ -1736,11 +1754,11 @@ bottom_detail = {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-apmcmdwgioehpnmy">
+          aria-controls="accordion-eilcgmogvlsrhpni">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-apmcmdwgioehpnmy">
+  <div class="fr-collapse" id="accordion-eilcgmogvlsrhpni">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
@@ -1771,11 +1789,13 @@ bottom_detail = {
   <div class="fr-card__body">
     <div class="fr-card__content">
       <p class="fr-card__title">
-      <a href="https://www.systeme-de-design.gouv.fr/"
-         target="_blank"
-         rel="noopener noreferrer" title="Carte avec détails d’en-tête (tags) - Ouvrir dans une nouvelle fenêtre">
-        Carte avec détails d’en-tête (tags)
-      </a>
+      
+        <a href="https://www.systeme-de-design.gouv.fr/"
+           target="_blank"
+           rel="noopener noreferrer" title="Carte avec détails d’en-tête (tags) - Ouvrir dans une nouvelle fenêtre">
+          Carte avec détails d’en-tête (tags)
+        </a>
+      
       </p>
       <p class="fr-card__desc">
         Texte de la carte.
@@ -1833,18 +1853,21 @@ bottom_detail = {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-ncxrokwpmopizlvu">
+          aria-controls="accordion-tgiephrerxagkczu">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-ncxrokwpmopizlvu">
+  <div class="fr-collapse" id="accordion-tgiephrerxagkczu">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
+ 'image_url': '/django-dsfr/static/img/placeholder.16x9.svg',
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
- 'title': 'Carte avec détails d’en-tête (badges)',
- 'top_detail': {'badges': [{'label': 'Badge 1'}, {'label': 'Badge 2'}],
+ 'title': 'Carte avec image et détails d’en-tête (badges)',
+ 'top_detail': {'badges': [{'label': 'Badge 1'},
+                           {'extra_classes': 'fr-badge--warning',
+                            'label': 'Badge 2'}],
                 'detail': {'icon_class': 'fr-icon-warning-fill',
                            'text': 'Détail (optionnel)'}}}</pre>
   </div>
@@ -1867,11 +1890,13 @@ bottom_detail = {
   <div class="fr-card__body">
     <div class="fr-card__content">
       <p class="fr-card__title">
-      <a href="https://www.systeme-de-design.gouv.fr/"
-         target="_blank"
-         rel="noopener noreferrer" title="Carte avec détails d’en-tête (badges) - Ouvrir dans une nouvelle fenêtre">
-        Carte avec détails d’en-tête (badges)
-      </a>
+      
+        <a href="https://www.systeme-de-design.gouv.fr/"
+           target="_blank"
+           rel="noopener noreferrer" title="Carte avec image et détails d’en-tête (badges) - Ouvrir dans une nouvelle fenêtre">
+          Carte avec image et détails d’en-tête (badges)
+        </a>
+      
       </p>
       <p class="fr-card__desc">
         Texte de la carte.
@@ -1891,7 +1916,7 @@ bottom_detail = {
                 </li>
               
                 <li>
-                  <p class="fr-badge">
+                  <p class="fr-badge fr-badge--warning">
   Badge 2
 </p>
 
@@ -1911,6 +1936,13 @@ bottom_detail = {
     
   </div>
   <div class="fr-card__header">
+    
+      <div class="fr-card__img">
+        <img class="fr-responsive-img"
+             src="/django-dsfr/static/img/placeholder.16x9.svg"
+             alt="" />
+      </div>
+      
     
   </div>
 </div>
@@ -1933,11 +1965,11 @@ bottom_detail = {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-wctzzvtgyvwqckoi">
+          aria-controls="accordion-crzwhmvrftakpiwr">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-wctzzvtgyvwqckoi">
+  <div class="fr-collapse" id="accordion-crzwhmvrftakpiwr">
     <pre class="dsfr-code">{'bottom_detail': {'icon': 'fr-icon-warning-fill',
                    'text': 'Détail (optionnel)'},
  'description': 'Texte de la carte.\n'
@@ -1966,11 +1998,13 @@ bottom_detail = {
   <div class="fr-card__body">
     <div class="fr-card__content">
       <p class="fr-card__title">
-      <a href="https://www.systeme-de-design.gouv.fr/"
-         target="_blank"
-         rel="noopener noreferrer" title="Carte avec détails en pied - Ouvrir dans une nouvelle fenêtre">
-        Carte avec détails en pied
-      </a>
+      
+        <a href="https://www.systeme-de-design.gouv.fr/"
+           target="_blank"
+           rel="noopener noreferrer" title="Carte avec détails en pied - Ouvrir dans une nouvelle fenêtre">
+          Carte avec détails en pied
+        </a>
+      
       </p>
       <p class="fr-card__desc">
         Texte de la carte.
@@ -2011,11 +2045,11 @@ bottom_detail = {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-wzrcpseooqisxtxe">
+          aria-controls="accordion-ovypqbobfjrssqad">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-wzrcpseooqisxtxe">
+  <div class="fr-collapse" id="accordion-ovypqbobfjrssqad">
     <pre class="dsfr-code">{'call_to_action': {'buttons': [{'extra_classes': 'fr-btn--secondary',
                                  'label': 'Bouton 1'},
                                 {'label': 'Bouton 2'}]},
@@ -2047,11 +2081,13 @@ bottom_detail = {
   <div class="fr-card__body">
     <div class="fr-card__content">
       <p class="fr-card__title">
-      <a href="https://www.systeme-de-design.gouv.fr/"
-         target="_blank"
-         rel="noopener noreferrer" title="Carte horizontale avec zone d’action (boutons) - Ouvrir dans une nouvelle fenêtre">
-        Carte horizontale avec zone d’action (boutons)
-      </a>
+      
+        <a href="https://www.systeme-de-design.gouv.fr/"
+           target="_blank"
+           rel="noopener noreferrer" title="Carte horizontale avec zone d’action (boutons) - Ouvrir dans une nouvelle fenêtre">
+          Carte horizontale avec zone d’action (boutons)
+        </a>
+      
       </p>
       <p class="fr-card__desc">
         Texte de la carte.
@@ -2122,11 +2158,11 @@ bottom_detail = {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-obkssykbcuxvnkod">
+          aria-controls="accordion-loepakkrokfvmopj">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-obkssykbcuxvnkod">
+  <div class="fr-collapse" id="accordion-loepakkrokfvmopj">
     <pre class="dsfr-code">{'call_to_action': {'links': [{'label': 'Lien interne', 'url': '/'},
                               {'is_external': True,
                                'label': 'Lien externe',
@@ -2159,11 +2195,13 @@ bottom_detail = {
   <div class="fr-card__body">
     <div class="fr-card__content">
       <p class="fr-card__title">
-      <a href="https://www.systeme-de-design.gouv.fr/"
-         target="_blank"
-         rel="noopener noreferrer" title="Carte horizontale avec zone d’action (liens) - Ouvrir dans une nouvelle fenêtre">
-        Carte horizontale avec zone d’action (liens)
-      </a>
+      
+        <a href="https://www.systeme-de-design.gouv.fr/"
+           target="_blank"
+           rel="noopener noreferrer" title="Carte horizontale avec zone d’action (liens) - Ouvrir dans une nouvelle fenêtre">
+          Carte horizontale avec zone d’action (liens)
+        </a>
+      
       </p>
       <p class="fr-card__desc">
         Texte de la carte.
@@ -2234,20 +2272,101 @@ bottom_detail = {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-qbladhevcqyflmdb">
+          aria-controls="accordion-wxbtorcynjhjkdlt">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-qbladhevcqyflmdb">
-    <pre class="dsfr-code">{'bottom_detail': {'text': 'PNG — 1,1 ko'},
- 'description': 'Exemple de carte de téléchargement, avec un texte un peu '
-                'long, qui peut\n'
-                '                aller jusqu’à 200 caractères.',
- 'extra_classes': 'fr-card--horizontal fr-card--download',
- 'image_url': '/django-dsfr/static/img/placeholder.1x1.svg',
+  <div class="fr-collapse" id="accordion-wxbtorcynjhjkdlt">
+    <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
+                '                    Il peut prendre jusqu’à 200 caractères, '
+                'ce qui devrait correspondre\n'
+                '                    à environ cinq lignes dans le mode '
+                'vertical, et deux en horizontal.\n'
+                '                    ',
+ 'extra_classes': 'fr-card--grey fr-card--shadow',
+ 'image_url': '/django-dsfr/static/img/placeholder.16x9.svg',
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
- 'title': 'Télécharger le fichier'}</pre>
+ 'title': 'Carte avec un fond gris et une ombre'}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          
+            
+              <div class="fr-grid-row fr-grid-row--gutters">
+                <div class="fr-col-12 fr-col-md-4">
+                  
+<div class="fr-card fr-enlarge-link fr-card--grey fr-card--shadow"
+     >
+  <div class="fr-card__body">
+    <div class="fr-card__content">
+      <p class="fr-card__title">
+      
+        <a href="https://www.systeme-de-design.gouv.fr/"
+           target="_blank"
+           rel="noopener noreferrer" title="Carte avec un fond gris et une ombre - Ouvrir dans une nouvelle fenêtre">
+          Carte avec un fond gris et une ombre
+        </a>
+      
+      </p>
+      <p class="fr-card__desc">
+        Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
+                    à environ cinq lignes dans le mode vertical, et deux en horizontal.
+    …
+      </p>
+      
+      
+    </div>
+    
+  </div>
+  <div class="fr-card__header">
+    
+      <div class="fr-card__img">
+        <img class="fr-responsive-img"
+             src="/django-dsfr/static/img/placeholder.16x9.svg"
+             alt="" />
+      </div>
+      
+    
+  </div>
+</div>
+
+                </div>
+              </div>
+            
+          
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-tjaleatwtpwgvmmn">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-tjaleatwtpwgvmmn">
+    <pre class="dsfr-code">{'description': 'Peut être utile au besoin.',
+ 'enlarge_link': False,
+ 'extra_classes': 'fr-card--horizontal',
+ 'image_url': '/django-dsfr/static/img/placeholder.1x1.svg',
+ 'title': 'Carte sans lien'}</pre>
   </div>
 </section>
 
@@ -2262,28 +2381,19 @@ bottom_detail = {
             
               <div class="fr-grid-row fr-grid-row--gutters">
                 
-<div class="fr-card fr-enlarge-link fr-card--horizontal fr-card--download"
+<div class="fr-card fr-card--horizontal"
      >
   <div class="fr-card__body">
     <div class="fr-card__content">
       <p class="fr-card__title">
-      <a href="https://www.systeme-de-design.gouv.fr/"
-         target="_blank"
-         rel="noopener noreferrer" title="Télécharger le fichier - Ouvrir dans une nouvelle fenêtre">
-        Télécharger le fichier
-      </a>
+      
+        Carte sans lien
+      
       </p>
       <p class="fr-card__desc">
-        Exemple de carte de téléchargement, avec un texte un peu long, qui peut
-                aller jusqu’à 200 caractères.
+        Peut être utile au besoin.
       </p>
       
-      
-        <div class="fr-card__end">
-          <p class="fr-card__detail">
-            PNG — 1,1 ko
-          </p>
-        </div>
       
     </div>
     
@@ -2431,11 +2541,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="M26HJCpTzrpscoiN/Ojryw=="></script>
+         nonce="m5HHvFVspaR3SzYytqdggw=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="M26HJCpTzrpscoiN/Ojryw=="></script>
+         nonce="m5HHvFVspaR3SzYytqdggw=="></script>
 
     
   <script src="/django-dsfr/static/js/common.js">
