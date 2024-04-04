@@ -1,7 +1,8 @@
 import os
 
-from django.db import models
 from django.core.exceptions import ValidationError
+from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 def validate_image_extension(value):
@@ -13,9 +14,9 @@ def validate_image_extension(value):
 
 class DsfrConfig(models.Model):
     A11Y_CHOICES = [
-        ("FULL", "totalement"),
-        ("PART", "partiellement"),
-        ("NOT", "non"),
+        ("FULL", _("fully")),
+        ("PART", _("partially")),
+        ("NOT", _("not")),
     ]
 
     # Site

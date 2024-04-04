@@ -90,28 +90,34 @@
       <ul class="fr-footer__bottom-list">
         {% block footer_links %}
           <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">Plan du site</a>
+            <a class="fr-footer__bottom-link" href="#">{% translate "Sitemap" %}</a>
           </li>
           <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">Accessibilité: {{ SITE_CONFIG.get_accessibility_status_display|default:'non' }} conforme</a>
+            <a class="fr-footer__bottom-link" href="#">
+              {% with accessibility_status=SITE_CONFIG.get_accessibility_status_display|default:"non" %}
+                {% blocktranslate %}Accessibility: {{ accessibility_status }} compliant{% endblocktranslate %}
+              {% endwith %}
+            </a>
           </li>
           <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">Mentions légales</a>
+            <a class="fr-footer__bottom-link" href="#">{% translate "Legal notice" %}</a>
           </li>
           <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">Données personnelles</a>
+            <a class="fr-footer__bottom-link" href="#">{% translate "Personal data" %}</a>
           </li>
           <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">Gestion des cookies</a>
+            <a class="fr-footer__bottom-link" href="#">{% translate "Cookie management" %}</a>
           </li>
         {% endblock footer_links %}
       </ul>
       <div class="fr-footer__bottom-copy">
         <p>
-          Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
-    target="_blank"
-    rel="noopener external"
-    title="Licence Etalab 2.0 - nouvelle fenêtre">licence etalab-2.0</a>
+          {% translate "etalab-2.0 license" as etalab_license %}
+          {% translate "Unless explicit mention of intellectual property held by third parties, the contents of this site are offered under" %}
+          <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
+             target="_blank"
+             rel="noopener external"
+             title="{{ etalab_license|capfirst }} - {{ new_tab_label }}">{{ etalab_license }}</a>
         </p>
       </div>
     </div>

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-03 19:35+0200\n"
-"PO-Revision-Date: 2024-04-03 19:35+0200\n"
+"POT-Creation-Date: 2024-04-04 15:08+0200\n"
+"PO-Revision-Date: 2024-04-04 15:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -17,6 +17,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.4\n"
+
+#: dsfr/models.py:17
+msgid "fully"
+msgstr "totalement"
+
+#: dsfr/models.py:18
+msgid "partially"
+msgstr "partiellement"
+
+#: dsfr/models.py:19
+msgid "not"
+msgstr "non"
 
 #: dsfr/templates/dsfr/alert.html:2 dsfr/templates/dsfr/notice.html:2
 msgid "Hide message"
@@ -34,7 +46,8 @@ msgstr "Voir le fil d’Ariane"
 msgid "Home page"
 msgstr "Accueil"
 
-#: dsfr/templates/dsfr/card.html:2
+#: dsfr/templates/dsfr/card.html:2 dsfr/templates/dsfr/footer.html:2
+#: dsfr/templates/dsfr/footer.html:116
 msgid "New tab"
 msgstr "Nouvel onglet"
 
@@ -46,13 +59,47 @@ msgstr "Transcription"
 msgid "Enlarge"
 msgstr "Agrandir"
 
-#: dsfr/templates/dsfr/content.html:57 dsfr/templates/dsfr/theme_modale.html:13
+#: dsfr/templates/dsfr/content.html:57 dsfr/templates/dsfr/header.html:87
+#: dsfr/templates/dsfr/theme_modale.html:13
 msgid "Close"
 msgstr "Fermer"
 
-#: dsfr/templates/dsfr/footer.html:8
+#: dsfr/templates/dsfr/footer.html:9
 msgid "Back to home page"
 msgstr "Retour à l’accueil du site"
+
+#: dsfr/templates/dsfr/footer.html:93
+msgid "Sitemap"
+msgstr "Plan du site"
+
+#: dsfr/templates/dsfr/footer.html:98
+#, python-format
+msgid "Accessibility: %(accessibility_status)s compliant"
+msgstr "Accessibilité : %(accessibility_status)s conforme"
+
+#: dsfr/templates/dsfr/footer.html:103
+msgid "Legal notice"
+msgstr "Mentions légales"
+
+#: dsfr/templates/dsfr/footer.html:106
+msgid "Personal data"
+msgstr "Données personnelles"
+
+#: dsfr/templates/dsfr/footer.html:109
+msgid "Cookie management"
+msgstr "Gestion des cookies"
+
+#: dsfr/templates/dsfr/footer.html:115
+msgid "etalab-2.0 license"
+msgstr "licence etalab-2.0"
+
+#: dsfr/templates/dsfr/footer.html:117
+msgid ""
+"Unless explicit mention of intellectual property held by third parties, the "
+"contents of this site are offered under"
+msgstr ""
+"Sauf mention explicite de propriété intellectuelle détenue par des tiers, "
+"les contenus de ce site sont proposés sous"
 
 #: dsfr/templates/dsfr/header.html:29
 msgid "Menu"
