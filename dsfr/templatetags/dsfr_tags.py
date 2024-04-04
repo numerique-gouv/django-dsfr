@@ -994,6 +994,7 @@ def dsfr_stepper(*args, **kwargs) -> dict:
         "current_step_title": "Title of current step",
         "next_step_title": "(Optional) Title of next step",
         "total_steps": "Total number of steps",
+        "heading_tag": "(Optional) Heading tag for the current step title (Default: h2)"
     }
     ```
 
@@ -1010,6 +1011,7 @@ def dsfr_stepper(*args, **kwargs) -> dict:
         "current_step_title",
         "next_step_title",
         "total_steps",
+        "heading_tag",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
