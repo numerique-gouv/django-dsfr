@@ -95,6 +95,11 @@ p code, li code {
                 {% dsfr_card sample_data_item %}
               </div>
             {% endif %}
+          {% elif tag_name == "consent" %}
+            <p>
+              Voir en bas de votre écran.
+            </p>
+            {% dsfr_consent sample_data_item %}
           {% elif tag_name == "content" %}
             {% dsfr_content sample_data_item %}
           {% elif tag_name == "django_messages" %}

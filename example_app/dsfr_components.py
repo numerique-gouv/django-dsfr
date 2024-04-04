@@ -448,6 +448,22 @@ IMPLEMENTED_COMPONENTS = {
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/card/",
     },
+    "consent": {
+        "title": "Gestionnaire de consentement",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/gestionnaire-de-consentement",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/consent/",
+        "sample_data": [
+            {
+                "title": "À propos des cookies sur Django-DSFR",
+                "content": """
+                Bienvenue ! Nous utilisons des cookies pour améliorer votre expérience et les
+                services disponibles sur ce site. Pour en savoir plus, visitez la page <a href="#">
+                Données personnelles et cookies</a>. Vous pouvez, à tout moment, avoir le contrôle
+                sur les cookies que vous souhaitez activer.
+                """,
+            }
+        ],
+    },
     "content": {
         "title": "Contenu média",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias",
@@ -679,7 +695,7 @@ IMPLEMENTED_COMPONENTS = {
                 {"link": "#navigation-header", "label": "Menu"},
             ]
         ],
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens-d-evitement",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lien-d-evitement",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/skiplink/",
     },
     "stepper": {
@@ -932,11 +948,6 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
         "note": """À implémenter au sein des formulaires et non comme une balise.
         cf. [#129](https://github.com/numerique-gouv/django-dsfr/issues/129)
         """,
-    },
-    "consent": {
-        "title": "Gestionnaire de consentement",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/gestionnaire-de-consentement",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/consent/",
     },
     "tooltip": {
         "title": "Infobulle",

@@ -421,6 +421,64 @@ class DsfrCardTagTest(SimpleTestCase):
         )
 
 
+class DsfrConsentTagTest(SimpleTestCase):
+    test_data = {
+        "title": "À propos des cookies sur Django-DSFR",
+        "content": """
+                Bienvenue ! Nous utilisons des cookies pour améliorer votre expérience et les
+                services disponibles sur ce site. Pour en savoir plus, visitez la page <a href="#">
+                Données personnelles et cookies</a>. Vous pouvez, à tout moment, avoir le contrôle
+                sur les cookies que vous souhaitez activer.
+                """,
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_consent test_data %}")
+
+    def test_consent_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-consent-banner">
+                <h2 class="fr-h6">
+                    À propos des cookies sur Django-DSFR
+                </h2>
+                <div class="fr-consent-banner__content">
+                    <p class="fr-text--sm">
+
+                            Bienvenue ! Nous utilisons des cookies pour améliorer votre expérience et les
+                            services disponibles sur ce site. Pour en savoir plus, visitez la page <a href="#">
+                            Données personnelles et cookies</a>. Vous pouvez, à tout moment, avoir le contrôle
+                            sur les cookies que vous souhaitez activer.
+                    </p>
+                </div>
+                <ul class="fr-consent-banner__buttons fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-sm">
+                    <li>
+                        <button class="fr-btn" id="consent-accept-all" title="Allow all cookies">
+                            Accept all
+                        </button>
+                    </li>
+                    <li>
+                        <button class="fr-btn" id="consent-reject-all" title="Reject all cookies">
+                            Reject all
+                        </button>
+                    </li>
+                    <li>
+                        <button class="fr-btn fr-btn--secondary"
+                                id="consent-customize"
+                                data-fr-opened="false"
+                                aria-controls="fr-consent-modal"
+                                title="Customize cookies">
+                            Customize
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            """,
+            rendered_template,
+        )
+
+
 class DsfrContentTagTest(SimpleTestCase):
     test_data = {
         "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",

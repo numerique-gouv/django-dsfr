@@ -509,6 +509,38 @@ def dsfr_card(*args, **kwargs) -> dict:
     return {"self": tag_data}
 
 
+@register.inclusion_tag("dsfr/consent.html")
+def dsfr_consent(*args, **kwargs) -> dict:
+    """
+    Returns a consent banner item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "title": "Title of the banner",
+        "content": "Content of the banner. Can contain HTML."
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    The tag only manages the banner. The logic needs to be implemented.
+
+    **Tag name**:
+        dsfr_consent
+
+    **Usage**:
+        `{% dsfr_consent data_dict %}`
+    """
+
+    allowed_keys = [
+        "title",
+        "content",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    return {"self": tag_data}
+
+
 @register.inclusion_tag("dsfr/content.html")
 def dsfr_content(*args, **kwargs) -> dict:
     """
