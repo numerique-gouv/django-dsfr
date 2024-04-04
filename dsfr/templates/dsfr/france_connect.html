@@ -1,20 +1,24 @@
+{% load i18n %}
 <div class="fr-connect-group">
   <button class="fr-connect{% if self.plus %} fr-connect--plus{% endif %}"
           id="{{ self.id }}">
-    <span class="fr-connect__login">S’identifier avec</span>
+    <span class="fr-connect__login">{% translate "Login with" %}</span>
     <span class="fr-connect__brand">FranceConnect</span>
   </button>
   <p>
+    {% translate "Opens a new window" as new_window_label %}
+    {% translate "What is FranceConnect+?" as what_is_franceconnect_plus %}
+    {% translate "What is FranceConnect?" as what_is_franceconnect %}
     {% if self.plus %}
       <a href="https://franceconnect.gouv.fr/france-connect-plus"
          target="_blank"
          rel="noopener"
-         title="Qu’est-ce que FranceConnect+ ? - nouvelle fenêtre">Qu’est-ce que FranceConnect+ ?</a>
+         title="{{ what_is_franceconnect_plus }} - {{ new_window_label }}">{{ what_is_franceconnect_plus }}</a>
     {% else %}
       <a href="https://franceconnect.gouv.fr/"
          target="_blank"
          rel="noopener"
-         title="Qu’est-ce que FranceConnect ? - nouvelle fenêtre">Qu’est-ce que FranceConnect ?</a>
+         title="{{ what_is_franceconnect }} - {{ new_window_label }}">{{ what_is_franceconnect }}</a>
     {% endif %}
   </p>
 </div>

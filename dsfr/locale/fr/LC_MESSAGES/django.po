@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-04 15:08+0200\n"
-"PO-Revision-Date: 2024-04-04 15:08+0200\n"
+"POT-Creation-Date: 2024-04-04 16:34+0200\n"
+"PO-Revision-Date: 2024-04-04 16:38+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -36,7 +36,7 @@ msgstr "Masquer le message"
 
 #: dsfr/templates/dsfr/breadcrumb.html:2
 msgid "you are here:"
-msgstr "vous êtes ici :"
+msgstr "vous êtes ici :"
 
 #: dsfr/templates/dsfr/breadcrumb.html:10
 msgid "See breadcrumb"
@@ -47,9 +47,10 @@ msgid "Home page"
 msgstr "Accueil"
 
 #: dsfr/templates/dsfr/card.html:2 dsfr/templates/dsfr/footer.html:2
-#: dsfr/templates/dsfr/footer.html:116
-msgid "New tab"
-msgstr "Nouvel onglet"
+#: dsfr/templates/dsfr/france_connect.html:9 dsfr/templates/dsfr/link.html:7
+#: dsfr/templates/dsfr/quote.html:2
+msgid "Opens a new window"
+msgstr "Ouvre une nouvelle fenêtre"
 
 #: dsfr/templates/dsfr/content.html:33 dsfr/templates/dsfr/content.html:67
 msgid "Transcript"
@@ -93,13 +94,33 @@ msgstr "Gestion des cookies"
 msgid "etalab-2.0 license"
 msgstr "licence etalab-2.0"
 
-#: dsfr/templates/dsfr/footer.html:117
+#: dsfr/templates/dsfr/footer.html:116
 msgid ""
 "Unless explicit mention of intellectual property held by third parties, the "
 "contents of this site are offered under"
 msgstr ""
 "Sauf mention explicite de propriété intellectuelle détenue par des tiers, "
 "les contenus de ce site sont proposés sous"
+
+#: dsfr/templates/dsfr/formset_base.html:27
+msgid "Delete this item"
+msgstr "Supprimer cet élément"
+
+#: dsfr/templates/dsfr/formset_base.html:37
+msgid "Add an item"
+msgstr "Ajouter un élément"
+
+#: dsfr/templates/dsfr/france_connect.html:5
+msgid "Login with"
+msgstr "S’identifier avec"
+
+#: dsfr/templates/dsfr/france_connect.html:10
+msgid "What is FranceConnect+?"
+msgstr "Qu’est-ce que FranceConnect+ ?"
+
+#: dsfr/templates/dsfr/france_connect.html:11
+msgid "What is FranceConnect?"
+msgstr "Qu’est-ce que FranceConnect ?"
 
 #: dsfr/templates/dsfr/header.html:29
 msgid "Menu"
@@ -108,6 +129,59 @@ msgstr "Menu"
 #: dsfr/templates/dsfr/header.html:91
 msgid "Main menu"
 msgstr "Menu principal"
+
+#: dsfr/templates/dsfr/pagination.html:2
+msgid "Pagination"
+msgstr "Pagination"
+
+#: dsfr/templates/dsfr/pagination.html:9
+msgid "First page"
+msgstr "Première page"
+
+#: dsfr/templates/dsfr/pagination.html:14
+msgid "Previous page"
+msgstr "Page précédente"
+
+#: dsfr/templates/dsfr/pagination.html:25
+msgid "Page"
+msgstr "Page"
+
+#: dsfr/templates/dsfr/pagination.html:46
+msgid "Next page"
+msgstr "Page suivante"
+
+#: dsfr/templates/dsfr/pagination.html:52
+msgid "Last page"
+msgstr "Dernière page"
+
+#: dsfr/templates/dsfr/sidemenu.html:2
+msgid "Side menu"
+msgstr "Menu latéral"
+
+#: dsfr/templates/dsfr/sidemenu.html:11
+msgid "In this section"
+msgstr "Dans cette rubrique"
+
+#: dsfr/templates/dsfr/skiplinks.html:2
+msgid "Skip links"
+msgstr "Accès rapide"
+
+#: dsfr/templates/dsfr/stepper.html:6
+#, python-format
+msgid "Step %(current_step_id)s of %(total_steps)s"
+msgstr "Étape %(current_step_id)s sur %(total_steps)s"
+
+#: dsfr/templates/dsfr/stepper.html:17
+msgid "Next step:"
+msgstr "Étape suivante :"
+
+#: dsfr/templates/dsfr/summary.html:6
+msgid "Summary"
+msgstr "Sommaire"
+
+#: dsfr/templates/dsfr/tag.html:3
+msgid "Remove filter"
+msgstr "Retirer le filtre"
 
 #: dsfr/templates/dsfr/theme_modale.html:18
 msgid "Display settings"

@@ -784,7 +784,7 @@ IMPLEMENTED_COMPONENTS = {
     },
     "theme_modale": {
         "title": "Paramètres d’affichage",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/parametres-d-affichage",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/parametre-d-affichage",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/display/",
     },
     "tile": {

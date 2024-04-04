@@ -1,5 +1,5 @@
 {% load dsfr_tags i18n %}
-{% translate "New tab" as new_tab_label %}
+{% translate "Opens a new window" as new_window_label %}
 <div class="fr-card{% if self.enlarge_link %} fr-enlarge-link{% endif %}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}"
      {% if self.id %}id="{{ self.id }}"{% endif %}>
   <div class="fr-card__body">
@@ -8,7 +8,7 @@
       {% if self.link %}
         <a href="{{ self.link }}"
            target="{% if self.new_tab %}_blank{% else %}_self{% endif %}"
-           {% if self.new_tab %}rel="noopener noreferrer" title="{{ self.title }} - {{ new_tab_label }}"{% endif %}>
+           {% if self.new_tab %}rel="noopener noreferrer" title="{{ self.title }} - {{ new_window_label }}"{% endif %}>
           {{ self.title |truncatechars:100 }}
         </a>
       {% else %}
