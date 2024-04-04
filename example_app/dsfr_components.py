@@ -476,7 +476,7 @@ IMPLEMENTED_COMPONENTS = {
                 "caption": """Image SVG avec un lien dans la légende.
                                 <a class="fr-link" href="https://main--ds-gouv.netlify.app/example/component/content/"
                                     rel=noopener external'
-                                    title="Source - nouvelle fenêtre" target='_blank'>Source</a>.""",
+                                    title="Source - Ouvre une nouvelle fenêtre" target='_blank'>Source</a>.""",
                 "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
             },
             {
@@ -569,7 +569,7 @@ IMPLEMENTED_COMPONENTS = {
                 "title": """Label titre du bandeau d’information importante, comprenant un texte assez long
                             pour être sur deux lignes, et <a href='#'
                             rel='noopener external'
-                            title="intitulé - nouvelle fenêtre" target='_blank'>
+                            title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
                             un lien au fil du texte</a>, ainsi qu’une croix de fermeture.""",
                 "is_collapsible": True,
             }

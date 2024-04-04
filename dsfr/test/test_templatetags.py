@@ -458,7 +458,7 @@ class DsfrFranceConnectTagTest(SimpleTestCase):
         "{% load dsfr_tags %} {% dsfr_france_connect test_data %}"
     )
 
-    def test_highlight_tag_rendered(self):
+    def test_franceconnect_tag_rendered(self):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
@@ -469,12 +469,10 @@ class DsfrFranceConnectTagTest(SimpleTestCase):
                     <span class="fr-connect__brand">FranceConnect</span>
                 </button>
                 <p>
-
-                        <a href="https://franceconnect.gouv.fr/"
+                    <a href="https://franceconnect.gouv.fr/"
                         target="_blank"
                         rel="noopener"
-                        title="Qu’est-ce que FranceConnect ? - nouvelle fenêtre">Qu’est-ce que FranceConnect ?</a>
-
+                        title="Qu’est-ce que FranceConnect ? - Ouvre une nouvelle fenêtre">Qu’est-ce que FranceConnect ?</a>
                 </p>
             </div>
             """,
@@ -490,7 +488,7 @@ class DsfrFranceConnectPlusTagTest(SimpleTestCase):
         "{% load dsfr_tags %} {% dsfr_france_connect test_data %}"
     )
 
-    def test_highlight_tag_rendered(self):
+    def test_franceconnectplus_tag_rendered(self):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
@@ -501,12 +499,10 @@ class DsfrFranceConnectPlusTagTest(SimpleTestCase):
                     <span class="fr-connect__brand">FranceConnect</span>
                 </button>
                 <p>
-
-                        <a href="https://franceconnect.gouv.fr/france-connect-plus"
+                    <a href="https://franceconnect.gouv.fr/france-connect-plus"
                         target="_blank"
                         rel="noopener"
-                        title="Qu’est-ce que FranceConnect+ ? - nouvelle fenêtre">Qu’est-ce que FranceConnect+ ?</a>
-
+                        title="Qu’est-ce que FranceConnect+ ? - Ouvre une nouvelle fenêtre">Qu’est-ce que FranceConnect+ ?</a>
                 </p>
             </div>
             """,
@@ -638,7 +634,7 @@ class DsfrNoticeTagTest(SimpleTestCase):
     test_data = {
         "title": """Bandeau d’information importante avec <a href='#'
                             rel='noopener external'
-                            title="intitulé - nouvelle fenêtre" target='_blank'>
+                            title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
                             lien</a>.""",
         "is_collapsible": True,
     }
@@ -654,7 +650,7 @@ class DsfrNoticeTagTest(SimpleTestCase):
                 <p class="fr-notice__title">
                     Bandeau d’information importante avec <a href='#'
                         rel='noopener external'
-                        title="intitulé - nouvelle fenêtre" target='_blank'>
+                        title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
                         lien</a>.
                 </p>
                     <button class="fr-btn--close fr-btn"
