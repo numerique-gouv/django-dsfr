@@ -12,7 +12,7 @@
                   class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left"
                   tabindex="0"
                   role="tab"
-                  aria-selected="true"
+                  aria-selected="false"
                   aria-controls="tabpanel-documentation-panel">
             Documentation
           </button>
@@ -90,6 +90,13 @@
             (<a href="{{ data.doc_url }}" target="_blank" rel="noopener">Documentation <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
             —
             <a href="{{ data.example_url }}" target="_blank" rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
+            {% if data.note %}
+              <ul>
+                <li>
+                  Note : {{ data.note|safe }}
+                </li>
+              </ul>
+            {% endif %}
           </li>
         {% endfor %}
       </ul>

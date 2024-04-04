@@ -1,3 +1,5 @@
+{% load i18n %}
+{% translate "Opens a new window" as new_window_label %}
 <figure class="fr-quote fr-quote--column">
   <blockquote {% if self.source_url %}cite="{{ self.source_url }}"{% endif %}>
     <p>
@@ -18,7 +20,7 @@
         {% for detail in self.details %}
           {% if detail.link %}
             <li>
-              <a target="_blank" rel="noopener noreferrer" href="{{ detail.link }}">{{ detail.text }} <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
+              <a target="_blank" rel="noopener noreferrer" href="{{ detail.link }}">{{ detail.text }} <span class="fr-sr-only">{{ new_window_label }}</span></a>
             </li>
           {% else %}
             <li>

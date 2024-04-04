@@ -165,9 +165,9 @@ def dsfr_alert(*args, **kwargs) -> dict:
 
     ```python
     data_dict = {
-        "title": "(Optional) Title of the alert item",
+        "title": "(Optional if small) Title of the alert item",
         "type": "Possible values : info, success, error",
-        "content": "Content of the accordion item (can include html)",
+        "content": "(Optional if median) Content of the accordion item (can include html)",
         "heading_tag": "(Optional) Heading tag for the alert title (default: p)",
         "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the alert (default: false)",
         "id": "Unique id of the alert item (Optional, mandatory if collapsible)",
@@ -180,6 +180,9 @@ def dsfr_alert(*args, **kwargs) -> dict:
     Relevant `extra_classes`:
 
     - `fr-alert--sm` : small alert
+
+    On normal (median) alerts, the title is mandatory, the content is optional.
+    On small alerts, the title is optional, the content is mandatory.
 
     **Tag name**:
         dsfr_alert
@@ -309,7 +312,9 @@ def dsfr_button(*args, **kwargs) -> dict:
 
     Relevant `extra_classes`:
 
-    - `fr-btn--secondary` : secundary button
+    - `fr-btn--secondary`: secundary button
+    - `fr-btn--tertiary`: tertiary button
+    - `fr-btn--tertiary-no-outline`: tertiary button with no outline
     - `fr-btn--icon-left` and `fr-btn--icon-right`: add an icon to the button
       (associated with an icon class)
     - `fr-btn--sm` and `fr-btn--lg`: button smaller or larger than the default size
@@ -332,6 +337,43 @@ def dsfr_button(*args, **kwargs) -> dict:
 
     if "is_disabled" not in tag_data:
         tag_data["is_disabled"] = False
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/button_group.html")
+def dsfr_button_group(*args, **kwargs) -> dict:
+    """
+    Returns a group of button items. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "items": "List of dicts (see the button tag for the structure of these dicts.)",
+        "extra_classes": "(Optional) string with names of extra classes."
+    }
+    ```
+    Relevant `extra_classes`:
+
+    - `fr-btns-group--inline-sm`: Inline group, small size
+    - `fr-btns-group--inline-md`: Inline group, normal size
+    - `fr-btns-group--inline-lg`: Inline group, large size
+    - `fr-btns-group--sm`: Vertical group, small size
+    - `fr-btns-group--lg`: Vertical group, large size
+    - `fr-btns-group--equisized`: Width adjusted in Javascript
+    - `fr-btns-group--icon-left`: Buttons with an icon on the left side
+    - `fr-btns-group--icon-right`: Buttons with an icon on the right side
+
+    **Tag name**:
+        dsfr_button_group
+
+    **Usage**:
+        `{% dsfr_button_group data_dict %}`
+    """
+    allowed_keys = [
+        "items",
+        "extra_classes",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
     return {"self": tag_data}
 
 
@@ -387,7 +429,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         "image_alt": "(Optional) alt text of the image",
         "media_badges": "(Optional) list of badges for the media area (similar to a badge_group tag)"
         "new_tab": "(Optional) if True, forces links to open in a new tab",
-        "link": "(Optional) link of the tag",
+        "link": "(Optional) link of the card item",
         "enlarge_link": "(Optional) boolean. If true (default), the link covers the whole card",
         "extra_classes": "(Optional) string with names of extra classes",
         "top_detail": "(Optional) dict with a top detail content and optional tags or badges",
@@ -404,9 +446,15 @@ def dsfr_card(*args, **kwargs) -> dict:
     - `fr-card--horizontal`: makes the card horizontal
     - `fr-card--horizontal-tier`: allows a 33% ratio instead of the 40% default
     - `fr-card--horizontal-half`: allows a 50% ratio instead of the 40% default
-    - `fr-card--download`: Replaces the forward arrow icon with a download one
+    - `fr-card--download`: replaces the forward arrow icon with a download one
+    - `fr-card--grey`: adds a grey background on the card
+    - `fr-card--no-border`: removes the card border
+    - `fr-card--no-background`: removes the card background
+    - `fr-card--shadow`: adds a shadow to the card border
 
     Format of the top_detail dict (every field is optional):
+
+    ```python
     top_detail = {
         "detail": {
             "text": "the detail text",
@@ -415,12 +463,16 @@ def dsfr_card(*args, **kwargs) -> dict:
         "tags": "a list of tag items (mutually exclusive with badges)",
         "badges": "a list of badge items (mutually exclusive with tags)"
     }
+    ```
 
     Format of the bottom_detail dict :
+
+    ```python
     bottom_detail = {
         "text": "the detail text",
         "icon_class": "(Optional) an icon class (eg, fr-icon-warning-fill)"
-    },
+    }
+    ```
 
 
     **Tag name**:
@@ -453,6 +505,122 @@ def dsfr_card(*args, **kwargs) -> dict:
     if "call_to_action" in tag_data:
         # Forcing the enlarge_link to false if there is a CTA
         tag_data["enlarge_link"] = False
+
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/content.html")
+def dsfr_content(*args, **kwargs) -> dict:
+    """
+    Returns a media content item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "image_url": "URL of the image file (use either image_url, svg or iframe_url parameter)",
+        "svg": "the full content of a SVG file (use either image_url, svg or iframe_url parameter)",
+        "iframe": "dictionary with data for an iframe, see below (use either image_url, svg or iframe_url parameter)",
+        "caption": "(optional) Caption of the media. Can contain HTML",
+        "alt_text": "(optional) Alternative text of the media"
+        "extra_classes": "(Optional) string with names of extra classes for the whole component",
+        "ratio_class": "(Optional) string with the name of a ratio class",
+        "transcription_id": "(Optional) id for the transcription accordion",
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Structure of the iframe dict:
+
+    ```python
+    {
+        "title": "The title of the iframe",
+        "url": "The URL of the iframe"
+        "width": "(optional) The width of the iframe",
+        "height": "(optional) The height of the iframe",
+        "sandbox": "(optional) a string with the sandbox attribute of the iframe",
+        "allow": "(optional) a string with the allow attribute of the iframe",
+    }
+    ```
+
+    Relevant extra classes:
+
+    - `fr-content-media--lg`: media is 125% of the main text width.
+    - `fr-content-media--sm`: media is 75% of the the main text width.
+
+    Relevant ratio classes for images:
+
+    - `fr-ratio-32x9`
+    - `fr-ratio-16x9`
+    - `fr-ratio-3x2`
+    - `fr-ratio-4x3`
+    - `fr-ratio-1x1`
+    - `fr-ratio-3x4`
+    - `fr-ratio-2x3`
+
+    Relevant ratio classes for videos:
+
+    - `fr-ratio-16x9`
+    - `fr-ratio-4x3`
+    - `fr-ratio-1x1`
+
+    **Tag name**:
+        dsfr_content
+
+    **Usage**:
+        `{% dsfr_content data_dict %}`
+    """
+
+    allowed_keys = [
+        "image_url",
+        "iframe_url",
+        "svg",
+        "caption",
+        "alt_text",
+        "extra_classes",
+        "ratio_class",
+        "transcription_id",
+    ]
+
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "transcription_id" not in tag_data:
+        tag_data["transcription_id"] = generate_random_id("transcription")
+
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/france_connect.html")
+def dsfr_france_connect(*args, **kwargs) -> dict:
+    """
+    Returns a FranceConnect button item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "id": "(optional) Id of the FranceConnect button item",
+        "plus": "(optional) Set to True for FranceConnect+. Default: False"
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**:
+        dsfr_france_connect
+
+    **Usage**:
+        `{% dsfr_france_connect data_dict %}`
+    """
+
+    allowed_keys = [
+        "id",
+        "plus",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id("franceconnect")
+
+    if "plus" not in tag_data:
+        tag_data["plus"] = False
 
     return {"self": tag_data}
 
@@ -495,7 +663,9 @@ def dsfr_highlight(*args, **kwargs) -> dict:
 @register.inclusion_tag("dsfr/input.html")
 def dsfr_input(*args, **kwargs) -> dict:
     """
-    Returns a input item. Takes a dict as parameter, with the following structure:
+    Returns a input item. Prefer the use of an actual form (see documentation)
+
+    Takes a dict as parameter, with the following structure:
 
     ```python
     data_dict = {
@@ -573,6 +743,36 @@ def dsfr_link(*args, **kwargs) -> dict:
         "label",
         "is_external",
         "extra_classes",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/notice.html")
+def dsfr_notice(*args, **kwargs) -> dict:
+    """
+    Returns a notice item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "title": "Content of the notice item (can include html)",
+        "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the notice (default: false)",
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**:
+        dsfr_notice
+
+    **Usage**:
+        `{% dsfr_notice data_dict %}`
+    """
+
+    allowed_keys = [
+        "title",
+        "is_collapsible",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 

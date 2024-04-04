@@ -53,6 +53,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "csp.middleware.CSPMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -118,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = "fr-fr"
+LANGUAGE_CODE = "fr"
 
 TIME_ZONE = "UTC"
 
@@ -128,6 +129,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+LANGUAGES = [
+    ("en", "English"),
+    ("fr", "Français"),
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -144,7 +149,7 @@ MEDIA_URL = "django-dsfr/media/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Content security policies
-CSP_DEFAULT_SRC = ("'self'",)
+CSP_DEFAULT_SRC = ("'self'", "tube-numerique-educatif.apps.education.fr")
 CSP_SCRIPT_SRC = ("'self'", "'unsafe-eval'", "'unsafe-inline'")
 CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
 CSP_OBJECT_SRC = ("'none'",)

@@ -1,5 +1,9 @@
+{% load i18n %}
+{% translate "Skip links" as skiplinks_label %}
 <div class="fr-skiplinks">
-  <nav role="navigation" class="fr-container" aria-label="Accès rapide">
+  <nav role="navigation"
+       class="fr-container"
+       aria-label="{{ skiplinks_label }}">
     <ul class="fr-skiplinks__list">
       {% for item in self.items %}
         <li>

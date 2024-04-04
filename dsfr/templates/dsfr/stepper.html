@@ -1,6 +1,11 @@
+{% load i18n %}
 <div class="fr-stepper">
   <h2 class="fr-stepper__title">
-    <span class="fr-stepper__state">Étape {{ self.current_step_id }} sur {{ self.total_steps }}</span>
+    <span class="fr-stepper__state">
+      {% with current_step_id=self.current_step_id total_steps=self.total_steps %}
+        {% blocktranslate %}Step {{ current_step_id }} of {{ total_steps }}{% endblocktranslate %}
+      {% endwith %}
+    </span>
     {{ self.current_step_title }}
   </h2>
   <div class="fr-stepper__steps"
@@ -9,7 +14,7 @@
   </div>
   {% if self.next_step_title %}
     <p class="fr-stepper__details">
-      <span class="fr-text--bold">Étape suivante :</span> {{ self.next_step_title }}
+      <span class="fr-text--bold">{% translate "Next step:" %}</span> {{ self.next_step_title }}
     </p>
   {% endif %}
 </div>

@@ -1,8 +1,9 @@
+{% load i18n %}
 <nav role="navigation"
      class="fr-summary"
      aria-labelledby="fr-summary-title">
   <div class="fr-summary__title" id="fr-summary-title">
-    Sommaire
+    {% translate "Summary" %}
   </div>
   <ol class="fr-summary__list">
     {% for item in self.items %}

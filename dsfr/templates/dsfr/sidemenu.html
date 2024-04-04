@@ -1,13 +1,14 @@
-{% load dsfr_tags %}
+{% load dsfr_tags i18n %}
+{% translate "Side menu" as side_menu_label %}
 <nav role="navigation"
      class="fr-sidemenu{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}"
-     aria-label="Menu latéral">
+     aria-label="{{ side_menu_label }}">
   <div class="fr-sidemenu__inner">
     <button type="button"
             class="fr-sidemenu__btn"
             aria-controls="fr-sidemenu-wrapper"
             aria-expanded="false">
-      Dans cette rubrique
+      {% translate "In this section" %}
     </button>
     <div class="fr-collapse" id="fr-sidemenu-wrapper">
       <{{ self.heading_tag|default:"div" }} class="fr-sidemenu__title">{{ self.title }}</{{ self.heading_tag|default:"div" }}>

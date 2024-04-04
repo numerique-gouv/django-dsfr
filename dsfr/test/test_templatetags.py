@@ -257,6 +257,60 @@ class DsfrButtonTagTest(SimpleTestCase):
         )
 
 
+class DsfrButtonGroupTagTest(SimpleTestCase):
+    test_data = {
+        "extra_classes": "fr-btns-group--equisized",
+        "items": [
+            {
+                "onclick": "alert('test button action')",
+                "label": "Button label",
+                "type": "button",
+                "name": "test-button",
+                "extra_classes": "",
+            },
+            {
+                "onclick": "alert('test button action')",
+                "label": "Button 2 label",
+                "type": "button",
+                "name": "test-button-2",
+                "extra_classes": "fr-btn--secondary",
+            },
+        ],
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template(
+        "{% load dsfr_tags %} {% dsfr_button_group test_data %}"
+    )
+
+    def test_button_group_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <ul class="fr-btns-group fr-btns-group--equisized">
+                <li>
+                    <button class="fr-btn"
+                        onclick="alert(&#x27;test button action&#x27;)"
+                        type="button"
+                        name="test-button">
+                    Button label
+                    </button>
+                </li>
+
+                <li>
+                    <button class="fr-btn fr-btn--secondary"
+                        onclick="alert(&#x27;test button action&#x27;)"
+                        type="button"
+                        name="test-button-2">
+                        Button 2 label
+                    </button>
+                </li>
+            </ul>
+            """,
+            rendered_template,
+        )
+
+
 class DsfrCalloutTagTest(SimpleTestCase):
     test_data = {
         "text": "Text of the callout item",
@@ -312,6 +366,7 @@ class DsfrCardTagTest(SimpleTestCase):
         "title": "Title of the card item",
         "description": "Text of the card item",
         "image_url": "https://test.gouv.fr/test.png",
+        "link": "https://test.gouv.fr",
     }
 
     extra_classes = "test-extraclass"
@@ -340,7 +395,7 @@ class DsfrCardTagTest(SimpleTestCase):
         self.assertInHTML(
             """
                 <p class="fr-card__title">
-                <a href="" target="_self">
+                <a href="https://test.gouv.fr" target="_self">
                     Title of the card item
                 </a>
             </p>""",
@@ -362,6 +417,95 @@ class DsfrCardTagTest(SimpleTestCase):
                 <img src="https://test.gouv.fr/test.png" class="fr-responsive-img" alt="">
             </div>
             """,  # noqa
+            rendered_template,
+        )
+
+
+class DsfrContentTagTest(SimpleTestCase):
+    test_data = {
+        "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
+        "caption": "Image en largeur normale et en 4x3",
+        "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
+        "ratio_class": "fr-ratio-4x3",
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_content test_data %}")
+
+    def test_content_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <figure class="fr-content-media" role="group" aria-label="Image en largeur normale et en 4x3">
+            <div class="fr-content-media__img">
+                <img class="fr-responsive-img fr-ratio-4x3"
+                    src="/django-dsfr/static/img/placeholder.16x9.svg"
+                    alt="Silhouette stylisée représentant le soleil au-dessus de deux montagnes." />
+            </div>
+                <figcaption class="fr-content-media__caption">
+                Image en largeur normale et en 4x3
+                </figcaption>
+            </figure>""",
+            rendered_template,
+        )
+
+
+class DsfrFranceConnectTagTest(SimpleTestCase):
+    test_data = {"id": "france-connect"}
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template(
+        "{% load dsfr_tags %} {% dsfr_france_connect test_data %}"
+    )
+
+    def test_franceconnect_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-connect-group">
+                <button class="fr-connect"
+                        id="france-connect">
+                    <span class="fr-connect__login">S’identifier avec</span>
+                    <span class="fr-connect__brand">FranceConnect</span>
+                </button>
+                <p>
+                    <a href="https://franceconnect.gouv.fr/"
+                        target="_blank"
+                        rel="noopener"
+                        title="Qu’est-ce que FranceConnect ? - Ouvre une nouvelle fenêtre">Qu’est-ce que FranceConnect ?</a>
+                </p>
+            </div>
+            """,
+            rendered_template,
+        )
+
+
+class DsfrFranceConnectPlusTagTest(SimpleTestCase):
+    test_data = {"id": "france-connect-plus", "plus": True}
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template(
+        "{% load dsfr_tags %} {% dsfr_france_connect test_data %}"
+    )
+
+    def test_franceconnectplus_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-connect-group">
+                <button class="fr-connect fr-connect--plus"
+                        id="france-connect-plus">
+                    <span class="fr-connect__login">S’identifier avec</span>
+                    <span class="fr-connect__brand">FranceConnect</span>
+                </button>
+                <p>
+                    <a href="https://franceconnect.gouv.fr/france-connect-plus"
+                        target="_blank"
+                        rel="noopener"
+                        title="Qu’est-ce que FranceConnect+ ? - Ouvre une nouvelle fenêtre">Qu’est-ce que FranceConnect+ ?</a>
+                </p>
+            </div>
+            """,
             rendered_template,
         )
 
@@ -481,6 +625,40 @@ class DsfrLinkTagTest(SimpleTestCase):
             >
               Label of the link item <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
             </a>
+            """,  # noqa
+            rendered_template,
+        )
+
+
+class DsfrNoticeTagTest(SimpleTestCase):
+    test_data = {
+        "title": """Bandeau d’information importante avec <a href='#'
+                            rel='noopener external'
+                            title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
+                            lien</a>.""",
+        "is_collapsible": True,
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_notice test_data %}")
+
+    def test_notice_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-notice__body">
+                <p class="fr-notice__title">
+                    Bandeau d’information importante avec <a href='#'
+                        rel='noopener external'
+                        title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
+                        lien</a>.
+                </p>
+                    <button class="fr-btn--close fr-btn"
+                        title="Masquer le message"
+                        onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
+                    Masquer le message
+                    </button>
+                </div>
             """,  # noqa
             rendered_template,
         )

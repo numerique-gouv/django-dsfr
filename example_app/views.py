@@ -64,7 +64,18 @@ def init_payload(page_title: str, links: list = []):
         **EXTRA_COMPONENTS,
     }
     implemented_component_tags = dict(
-        sorted(implemented_component_tags_unsorted.items(), key=lambda k: k[1]["title"])
+        sorted(
+            implemented_component_tags_unsorted.items(), key=lambda k: k[1]["title"]
+        )[:31]
+        + [
+            (
+                "see_all",
+                {
+                    "title": "Voir tous les composants",
+                    "url": "/django-dsfr/components/",
+                },
+            )
+        ]
     )
 
     mega_menu_categories = chunks(implemented_component_tags, 8)
@@ -104,7 +115,7 @@ def components_index(request):
     payload["extra_components"] = dict(
         sorted(EXTRA_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
-    payload["not_yet"] = dict(
+    not_yet = dict(
         sorted(NOT_YET_IMPLEMENTED_COMPONENTS.items(), key=lambda k: k[1]["title"])
     )
     wont_be = dict(sorted(WONT_BE_IMPLEMENTED.items(), key=lambda k: k[1]["title"]))
@@ -116,11 +127,17 @@ def components_index(request):
         ],
     )
 
+    for k, v in not_yet.items():
+        if "note" in not_yet[k]:
+            not_yet[k]["note"] = (
+                md.convert(v["note"]).replace("<p>", "").replace("</p>", "")
+            )
+    payload["not_yet"] = not_yet
+
     for k, v in wont_be.items():
         wont_be[k]["reason"] = (
             md.convert(v["reason"]).replace("<p>", "").replace("</p>", "")
         )
-
     payload["wont_be"] = wont_be
     return render(request, "example_app/components_index.html", payload)
 

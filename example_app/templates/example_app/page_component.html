@@ -1,5 +1,6 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
+
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}">
   <style>
@@ -18,6 +19,7 @@ p code, li code {
 }
   </style>
 {% endblock extra_css %}
+
 {% block content %}
   <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
     <!-- Menu -->
@@ -55,6 +57,7 @@ p code, li code {
           <div class="fr-my-2w">
             {# djlint:off #}
             {% with sample_data_item|pprint as raw_sample_code %}
+              {# djlint:off #}
               {% with '<pre class="dsfr-code">'|concatenate:raw_sample_code|concatenate:"</pre>" as sample_data_code %}
                 {% dsfr_accordion title="Données d’exemple" content=sample_data_code %}
               {% endwith %}
@@ -76,6 +79,8 @@ p code, li code {
             {% dsfr_badge_group sample_data_item %}
           {% elif tag_name == "button" %}
             {% dsfr_button sample_data_item %}
+          {% elif tag_name == "button_group" %}
+            {% dsfr_button_group sample_data_item %}
           {% elif tag_name == "callout" %}
             {% dsfr_callout sample_data_item %}
           {% elif tag_name == "card" %}
@@ -90,14 +95,20 @@ p code, li code {
                 {% dsfr_card sample_data_item %}
               </div>
             {% endif %}
+          {% elif tag_name == "content" %}
+            {% dsfr_content sample_data_item %}
           {% elif tag_name == "django_messages" %}
             {% dsfr_django_messages sample_data_item %}
+          {% elif tag_name == "france_connect" %}
+            {% dsfr_france_connect sample_data_item %}
           {% elif tag_name == "highlight" %}
             {% dsfr_highlight sample_data_item %}
           {% elif tag_name == "input" %}
             {% dsfr_input sample_data_item %}
           {% elif tag_name == "link" %}
             {% dsfr_link sample_data_item %}
+          {% elif tag_name == "notice" %}
+            {% dsfr_notice sample_data_item %}
           {% elif tag_name == "quote" %}
             {% dsfr_quote sample_data_item %}
           {% elif tag_name == "select" %}

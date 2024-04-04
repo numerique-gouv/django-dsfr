@@ -1,0 +1,208 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-04 16:34+0200\n"
+"PO-Revision-Date: 2024-04-04 16:38+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.4\n"
+
+#: dsfr/models.py:17
+msgid "fully"
+msgstr "totalement"
+
+#: dsfr/models.py:18
+msgid "partially"
+msgstr "partiellement"
+
+#: dsfr/models.py:19
+msgid "not"
+msgstr "non"
+
+#: dsfr/templates/dsfr/alert.html:2 dsfr/templates/dsfr/notice.html:2
+msgid "Hide message"
+msgstr "Masquer le message"
+
+#: dsfr/templates/dsfr/breadcrumb.html:2
+msgid "you are here:"
+msgstr "vous êtes ici :"
+
+#: dsfr/templates/dsfr/breadcrumb.html:10
+msgid "See breadcrumb"
+msgstr "Voir le fil d’Ariane"
+
+#: dsfr/templates/dsfr/breadcrumb.html:15 dsfr/templates/dsfr/header.html:10
+msgid "Home page"
+msgstr "Accueil"
+
+#: dsfr/templates/dsfr/card.html:2 dsfr/templates/dsfr/footer.html:2
+#: dsfr/templates/dsfr/france_connect.html:9 dsfr/templates/dsfr/link.html:7
+#: dsfr/templates/dsfr/quote.html:2
+msgid "Opens a new window"
+msgstr "Ouvre une nouvelle fenêtre"
+
+#: dsfr/templates/dsfr/content.html:33 dsfr/templates/dsfr/content.html:67
+msgid "Transcript"
+msgstr "Transcription"
+
+#: dsfr/templates/dsfr/content.html:39
+msgid "Enlarge"
+msgstr "Agrandir"
+
+#: dsfr/templates/dsfr/content.html:57 dsfr/templates/dsfr/header.html:87
+#: dsfr/templates/dsfr/theme_modale.html:13
+msgid "Close"
+msgstr "Fermer"
+
+#: dsfr/templates/dsfr/footer.html:9
+msgid "Back to home page"
+msgstr "Retour à l’accueil du site"
+
+#: dsfr/templates/dsfr/footer.html:93
+msgid "Sitemap"
+msgstr "Plan du site"
+
+#: dsfr/templates/dsfr/footer.html:98
+#, python-format
+msgid "Accessibility: %(accessibility_status)s compliant"
+msgstr "Accessibilité : %(accessibility_status)s conforme"
+
+#: dsfr/templates/dsfr/footer.html:103
+msgid "Legal notice"
+msgstr "Mentions légales"
+
+#: dsfr/templates/dsfr/footer.html:106
+msgid "Personal data"
+msgstr "Données personnelles"
+
+#: dsfr/templates/dsfr/footer.html:109
+msgid "Cookie management"
+msgstr "Gestion des cookies"
+
+#: dsfr/templates/dsfr/footer.html:115
+msgid "etalab-2.0 license"
+msgstr "licence etalab-2.0"
+
+#: dsfr/templates/dsfr/footer.html:116
+msgid ""
+"Unless explicit mention of intellectual property held by third parties, the "
+"contents of this site are offered under"
+msgstr ""
+"Sauf mention explicite de propriété intellectuelle détenue par des tiers, "
+"les contenus de ce site sont proposés sous"
+
+#: dsfr/templates/dsfr/formset_base.html:27
+msgid "Delete this item"
+msgstr "Supprimer cet élément"
+
+#: dsfr/templates/dsfr/formset_base.html:37
+msgid "Add an item"
+msgstr "Ajouter un élément"
+
+#: dsfr/templates/dsfr/france_connect.html:5
+msgid "Login with"
+msgstr "S’identifier avec"
+
+#: dsfr/templates/dsfr/france_connect.html:10
+msgid "What is FranceConnect+?"
+msgstr "Qu’est-ce que FranceConnect+ ?"
+
+#: dsfr/templates/dsfr/france_connect.html:11
+msgid "What is FranceConnect?"
+msgstr "Qu’est-ce que FranceConnect ?"
+
+#: dsfr/templates/dsfr/header.html:29
+msgid "Menu"
+msgstr "Menu"
+
+#: dsfr/templates/dsfr/header.html:91
+msgid "Main menu"
+msgstr "Menu principal"
+
+#: dsfr/templates/dsfr/pagination.html:2
+msgid "Pagination"
+msgstr "Pagination"
+
+#: dsfr/templates/dsfr/pagination.html:9
+msgid "First page"
+msgstr "Première page"
+
+#: dsfr/templates/dsfr/pagination.html:14
+msgid "Previous page"
+msgstr "Page précédente"
+
+#: dsfr/templates/dsfr/pagination.html:25
+msgid "Page"
+msgstr "Page"
+
+#: dsfr/templates/dsfr/pagination.html:46
+msgid "Next page"
+msgstr "Page suivante"
+
+#: dsfr/templates/dsfr/pagination.html:52
+msgid "Last page"
+msgstr "Dernière page"
+
+#: dsfr/templates/dsfr/sidemenu.html:2
+msgid "Side menu"
+msgstr "Menu latéral"
+
+#: dsfr/templates/dsfr/sidemenu.html:11
+msgid "In this section"
+msgstr "Dans cette rubrique"
+
+#: dsfr/templates/dsfr/skiplinks.html:2
+msgid "Skip links"
+msgstr "Accès rapide"
+
+#: dsfr/templates/dsfr/stepper.html:6
+#, python-format
+msgid "Step %(current_step_id)s of %(total_steps)s"
+msgstr "Étape %(current_step_id)s sur %(total_steps)s"
+
+#: dsfr/templates/dsfr/stepper.html:17
+msgid "Next step:"
+msgstr "Étape suivante :"
+
+#: dsfr/templates/dsfr/summary.html:6
+msgid "Summary"
+msgstr "Sommaire"
+
+#: dsfr/templates/dsfr/tag.html:3
+msgid "Remove filter"
+msgstr "Retirer le filtre"
+
+#: dsfr/templates/dsfr/theme_modale.html:18
+msgid "Display settings"
+msgstr "Paramètres d’affichage"
+
+#: dsfr/templates/dsfr/theme_modale.html:24
+msgid "Choose a theme to customize the appearance of the site."
+msgstr "Choisissez un thème pour personnaliser l’apparence du site."
+
+#: dsfr/templates/dsfr/theme_modale.html:33
+msgid "Light theme"
+msgstr "Thème clair"
+
+#: dsfr/templates/dsfr/theme_modale.html:46
+msgid "Dark theme"
+msgstr "Thème sombre"
+
+#: dsfr/templates/dsfr/theme_modale.html:59
+msgid "System"
+msgstr "Système"
+
+#: dsfr/templates/dsfr/theme_modale.html:60
+msgid "Uses system settings."
+msgstr "Utilise les paramètres système."

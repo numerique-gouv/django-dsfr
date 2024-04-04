@@ -1,5 +1,70 @@
 from django.templatetags.static import static
 
+# Sample SVG file
+with open("example_app/static/img/gouvernement.svg") as svg_file:
+    gov_svg = svg_file.read()
+
+# Lorem ipsum paragraphs
+lorem_ipsum = """
+<p class="fr-mb-2w">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. At quis risus sed vulputate odio ut enim. At risus viverra
+    adipiscing at in tellus integer feugiat. Aliquam purus sit amet luctus venenatis lectus.
+    Pellentesque id nibh tortor id aliquet lectus proin. Ultricies leo integer malesuada nunc vel
+    risus. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Iaculis eu non diam
+    phasellus vestibulum lorem sed risus ultricies. Quis varius quam quisque id diam. Vehicula
+    ipsum a arcu cursus vitae congue mauris rhoncus. Sed id semper risus in hendrerit gravida.
+</p>
+
+<p class="fr-mb-2w">
+    Suspendisse potenti nullam ac tortor vitae purus faucibus. Condimentum lacinia quis vel eros.
+    Pellentesque sit amet porttitor eget dolor. Varius duis at consectetur lorem donec massa sapien
+    faucibus. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Tristique magna
+    sit amet purus gravida. Nec ullamcorper sit amet risus nullam eget felis eget nunc. Aenean vel
+    elit scelerisque mauris pellentesque pulvinar. Vitae proin sagittis nisl rhoncus mattis rhoncus
+    urna neque viverra. Quam viverra orci sagittis eu volutpat odio. Sapien faucibus et molestie
+    ac. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Nunc sed
+    velit dignissim sodales ut eu sem integer.
+</p>
+
+<p class="fr-mb-2w">
+    Diam maecenas ultricies mi eget mauris pharetra et ultrices. Justo nec ultrices dui sapien eget
+    mi proin. Viverra mauris in aliquam sem fringilla ut. Pretium lectus quam id leo in vitae
+    turpis massa. Ultricies integer quis auctor elit sed vulputate mi sit amet. Non quam lacus
+    suspendisse faucibus interdum posuere lorem. Feugiat in fermentum posuere urna nec. Bibendum
+    enim facilisis gravida neque. Vitae aliquet nec ullamcorper sit amet risus. Et netus et
+    malesuada fames ac turpis. Ut eu sem integer vitae. Aliquam eleifend mi in nulla posuere
+    sollicitudin aliquam ultrices sagittis. Eget sit amet tellus cras adipiscing enim. Massa eget
+    egestas purus viverra accumsan. Urna neque viverra justo nec. Bibendum est ultricies integer
+    quis auctor elit. Sagittis vitae et leo duis ut diam.
+</p>
+
+<p class="fr-mb-2w">
+    Urna porttitor rhoncus dolor purus. Enim eu turpis egestas pretium. Risus ultricies tristique
+    nulla aliquet enim tortor at auctor urna. Etiam non quam lacus suspendisse faucibus interdum
+    posuere lorem. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Ac tortor
+    vitae purus faucibus ornare suspendisse sed nisi lacus. Accumsan lacus vel facilisis volutpat
+    est velit egestas dui. Enim eu turpis egestas pretium aenean pharetra. Arcu cursus vitae congue
+    mauris rhoncus. A cras semper auctor neque vitae tempus. Viverra ipsum nunc aliquet bibendum
+    enim facilisis gravida neque convallis. Ac tortor dignissim convallis aenean et tortor. Sed id
+    semper risus in hendrerit gravida rutrum. Tempus iaculis urna id volutpat lacus laoreet.
+</p>
+
+<p class="fr-mb-2w">
+    Massa tempor nec feugiat nisl pretium fusce. Urna porttitor rhoncus dolor purus non enim
+    praesent. Suspendisse ultrices gravida dictum fusce. Habitant morbi tristique senectus et netus.
+    Adipiscing vitae proin sagittis nisl. Bibendum ut tristique et egestas quis. Dictum non
+    consectetur a erat nam at lectus. Vulputate dignissim suspendisse in est ante in nibh mauris
+    cursus. Faucibus turpis in eu mi bibendum neque egestas congue quisque. Neque laoreet
+    suspendisse interdum consectetur libero id faucibus. Gravida rutrum quisque non tellus orci ac
+    auctor augue mauris. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Quam viverra orci
+    sagittis eu volutpat odio. Id interdum velit laoreet id donec ultrices tincidunt arcu non.
+    Viverra nibh cras pulvinar mattis nunc sed. Risus sed vulputate odio ut enim blandit volutpat
+    maecenas volutpat. Augue neque gravida in fermentum et sollicitudin ac orci. Commodo odio
+    aenean sed adipiscing diam.
+</p>
+"""
+
 IMPLEMENTED_COMPONENTS = {
     "accordion": {
         "title": "Accordéon",
@@ -36,6 +101,16 @@ IMPLEMENTED_COMPONENTS = {
                 "type": "info",
                 "content": "Cette alerte n’a pas de croix de fermeture.",
                 "heading_tag": "h3",
+            },
+            {
+                "type": "warning",
+                "heading_tag": "h3",
+                "title": "Alerte medium sans contenu",
+            },
+            {
+                "type": "warning",
+                "content": "Petite alerte sans titre.",
+                "extra_classes": "fr-alert--sm",
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/alerte",
@@ -83,8 +158,97 @@ IMPLEMENTED_COMPONENTS = {
                 "extra_classes": "fr-btn--secondary",
                 "onclick": "alert('Vous avez cliqué sur le bouton secondaire')",
             },
+            {
+                "label": "Bouton tertiaire",
+                "extra_classes": "fr-btn--tertiary",
+                "onclick": "alert('Vous avez cliqué sur le bouton tertiaire')",
+            },
+            {
+                "label": "Bouton tertiaire sans bordure",
+                "type": "button",
+                "extra_classes": "fr-btn--tertiary-no-outline",
+                "onclick": "alert('Vous avez cliqué sur le bouton tertiaire sans bordure')",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/button/",
+    },
+    "button_group": {
+        "title": "Boutons – Groupe",
+        "sample_data": [
+            {
+                "items": [
+                    {
+                        "label": "Bouton principal",
+                        "onclick": "alert('Vous avez cliqué sur le bouton principal')",
+                        "extra_classes": "fr-icon-checkbox-circle-line fr-btn--icon-left",
+                    },
+                    {
+                        "label": "Bouton secondaire",
+                        "name": "secundary-button",
+                        "type": "button",
+                        "extra_classes": "fr-icon-checkbox-circle-line fr-btn--icon-left fr-btn--secondary",
+                        "onclick": "alert('Vous avez cliqué sur le bouton secondaire')",
+                    },
+                ],
+                "extra_classes": "fr-btns-group--icon-left",
+            },
+            {
+                "items": [
+                    {
+                        "label": "Bouton principal",
+                        "onclick": "alert('Vous avez cliqué sur le bouton principal')",
+                    },
+                    {
+                        "label": "Bouton secondaire",
+                        "name": "secundary-button",
+                        "type": "button",
+                        "extra_classes": "fr-btn--secondary",
+                        "onclick": "alert('Vous avez cliqué sur le bouton secondaire')",
+                    },
+                    {
+                        "label": "Bouton tertiaire",
+                        "extra_classes": "fr-btn--tertiary",
+                        "onclick": "alert('Vous avez cliqué sur le bouton tertiaire')",
+                    },
+                    {
+                        "label": "Bouton tertiaire sans bordure",
+                        "type": "button",
+                        "extra_classes": "fr-btn--tertiary-no-outline",
+                        "onclick": "alert('Vous avez cliqué sur le bouton tertiaire sans bordure')",
+                    },
+                ],
+                "extra_classes": "fr-btns-group--equisized",
+            },
+            {
+                "items": [
+                    {
+                        "label": "Bouton principal",
+                        "onclick": "alert('Vous avez cliqué sur le bouton principal')",
+                    },
+                    {
+                        "label": "Bouton secondaire",
+                        "name": "secundary-button",
+                        "type": "button",
+                        "extra_classes": "fr-btn--secondary",
+                        "onclick": "alert('Vous avez cliqué sur le bouton secondaire')",
+                    },
+                    {
+                        "label": "Bouton tertiaire",
+                        "extra_classes": "fr-btn--tertiary",
+                        "onclick": "alert('Vous avez cliqué sur le bouton tertiaire')",
+                    },
+                    {
+                        "label": "Bouton tertiaire sans bordure",
+                        "type": "button",
+                        "extra_classes": "fr-btn--tertiary-no-outline",
+                        "onclick": "alert('Vous avez cliqué sur le bouton tertiaire sans bordure')",
+                    },
+                ],
+                "extra_classes": "fr-btns-group--inline-sm",
+            },
+        ],
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/groupe-de-boutons",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/button/",
     },
     "callout": {
@@ -191,24 +355,21 @@ IMPLEMENTED_COMPONENTS = {
                 },
             },
             {
-                "title": "Carte avec détails d’en-tête (badges)",
+                "title": "Carte avec image et détails d’en-tête (badges)",
                 "description": """Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères.
                     """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "new_tab": True,
+                "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
                 "top_detail": {
                     "detail": {
                         "icon_class": "fr-icon-warning-fill",
                         "text": "Détail (optionnel)",
                     },
                     "badges": [
-                        {
-                            "label": "Badge 1",
-                        },
-                        {
-                            "label": "Badge 2",
-                        },
+                        {"label": "Badge 1"},
+                        {"extra_classes": "fr-badge--warning", "label": "Badge 2"},
                     ],
                 },
             },
@@ -266,20 +427,72 @@ IMPLEMENTED_COMPONENTS = {
                 },
             },
             {
-                "title": "Télécharger le fichier",
-                "description": """Exemple de carte de téléchargement, avec un texte un peu long, qui peut
-                aller jusqu’à 200 caractères.""",
+                "title": "Carte avec un fond gris et une ombre",
+                "description": """Texte de la carte.
+                    Il peut prendre jusqu’à 200 caractères, ce qui devrait correspondre
+                    à environ cinq lignes dans le mode vertical, et deux en horizontal.
+                    """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
-                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
                 "new_tab": True,
-                "bottom_detail": {
-                    "text": "PNG — 1,1 ko",
-                },
-                "extra_classes": "fr-card--horizontal fr-card--download",
+                "extra_classes": "fr-card--grey fr-card--shadow",
+            },
+            {
+                "title": "Carte sans lien",
+                "description": """Peut être utile au besoin.""",
+                "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "enlarge_link": False,
+                "extra_classes": "fr-card--horizontal",
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/card/",
+    },
+    "content": {
+        "title": "Contenu média",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/content/",
+        "sample_data": [
+            {
+                "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
+                "caption": "Image en largeur normale et en 16x9",
+                "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
+                "ratio_class": "fr-ratio-16x9",
+            },
+            {
+                "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
+                "caption": "Image en largeur normale et en 4x3",
+                "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
+                "ratio_class": "fr-ratio-4x3",
+            },
+            {
+                "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
+                "caption": "Image plus large que la colonne de contenu",
+                "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
+                "extra_classes": "fr-content-media--lg",
+            },
+            {
+                "svg": gov_svg,
+                "caption": """Image SVG avec un lien dans la légende.
+                                <a class="fr-link" href="https://main--ds-gouv.netlify.app/example/component/content/"
+                                    rel=noopener external'
+                                    title="Source - Ouvre une nouvelle fenêtre" target='_blank'>Source</a>.""",
+                "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
+            },
+            {
+                "iframe": {
+                    "title": "Présentation du portail tubes",
+                    "width": "894",
+                    "height": "450",
+                    "url": "https://tube-numerique-educatif.apps.education.fr/videos/embed/9d0b132d-f836-459a-9b9b-97b1a647232d",
+                    "sandbox": "allow-same-origin allow-scripts allow-popups",
+                },
+                "ratio_class": "fr-ratio-4x3",
+                "caption": "Vidéo avec transcription",
+                "alt_text": "",
+                "transcription": f"<div>{lorem_ipsum}</div>",
+            },
+        ],
     },
     "favicon": {
         "title": "Icône de favoris",
@@ -288,6 +501,15 @@ IMPLEMENTED_COMPONENTS = {
     },
     "footer": {
         "title": "Pied de page",
+    },
+    "france_connect": {
+        "title": "Bouton FranceConnect",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-franceconnect",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/connect/",
+        "sample_data": [
+            {},
+            {"id": "france-connect-plus", "plus": True},
+        ],
     },
     "header": {
         "title": "En-tête",
@@ -308,13 +530,13 @@ IMPLEMENTED_COMPONENTS = {
         "sample_data": [
             {
                 "id": "example-input-id",
-                "label": "Label of the input item",
+                "label": "Label du champ de saisie",
                 "type": "text",
                 "onchange": "alert(value)",
-                "value": "(Optional) Value of the input item",
+                "value": "(Optionnel) valeur du champ de saisie",
             },
             {
-                "label": "Label of the input item",
+                "label": "Champ de saisie de date",
                 "type": "date",
                 "onchange": "alert(value)",
                 "value": "2021-09-16",
@@ -338,6 +560,21 @@ IMPLEMENTED_COMPONENTS = {
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/link/",
     },
+    "notice": {
+        "title": "Bandeau d’information importante",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bandeau-d-information-importante",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/notice/",
+        "sample_data": [
+            {
+                "title": """Label titre du bandeau d’information importante, comprenant un texte assez long
+                            pour être sur deux lignes, et <a href='#'
+                            rel='noopener external'
+                            title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
+                            un lien au fil du texte</a>, ainsi qu’une croix de fermeture.""",
+                "is_collapsible": True,
+            }
+        ],
+    },
     "pagination": {
         "title": "Pagination",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pagination",
@@ -359,7 +596,10 @@ IMPLEMENTED_COMPONENTS = {
                     },
                 ],
                 "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
-            }
+            },
+            {
+                "text": "Citation très basique, sans aucun des champs optionnels.",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/citation",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/quote/",
@@ -544,7 +784,7 @@ IMPLEMENTED_COMPONENTS = {
     },
     "theme_modale": {
         "title": "Paramètres d’affichage",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/parametres-d-affichage",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/parametre-d-affichage",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/display/",
     },
     "tile": {
@@ -669,55 +909,29 @@ unsorted_IMPLEMENTED_COMPONENTS = {**IMPLEMENTED_COMPONENTS, **EXTRA_COMPONENTS}
 ALL_IMPLEMENTED_COMPONENTS = dict(sorted(unsorted_IMPLEMENTED_COMPONENTS.items()))
 
 NOT_YET_IMPLEMENTED_COMPONENTS = {
-    "file_upload": {
-        "title": "Ajout de fichier",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/upload/",
-    },
-    "notice": {
-        "title": "Bandeau d’information importante",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bandeau-d-information-importante",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/notice/",
-    },
-    "search_bar": {
-        "title": "Barre de recherche",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/search/",
-    },
-    "franceconnect": {
-        "title": "Bouton FranceConnect",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-franceconnect",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/connect/",
-    },
-    "radio": {
-        "title": "Bouton radio",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
-    },
     "radio_rich": {
         "title": "Bouton radio riche",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-radio-riche",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
-    },
-    "checkbox": {
-        "title": "Case à cocher",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/checkbox/",
-    },
-    "content": {
-        "title": "Contenu média",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/content/",
+        "note": """À implémenter au sein des formulaires et non comme une balise.
+        cf. [#126](https://github.com/numerique-gouv/django-dsfr/issues/126)
+        """,
     },
     "segmented_control": {
         "title": "Contrôle segmenté",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/controle-segmente",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/segmented/",
+        "note": """À implémenter au sein des formulaires et non comme une balise.
+        cf. [#128](https://github.com/numerique-gouv/django-dsfr/issues/128)
+        """,
     },
     "range": {
         "title": "Curseur",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/curseur-range",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/range/",
+        "note": """À implémenter au sein des formulaires et non comme une balise.
+        cf. [#129](https://github.com/numerique-gouv/django-dsfr/issues/129)
+        """,
     },
     "consent": {
         "title": "Gestionnaire de consentement",
@@ -760,6 +974,30 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
 # (either because the DSFR is implemented globally or because they are
 # broken down into more specific tags)
 WONT_BE_IMPLEMENTED = {
+    "file_upload": {
+        "title": "Ajout de fichier",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/upload/",
+        "reason": "Champ de formulaire.",
+    },
+    "search_bar": {
+        "title": "Barre de recherche",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/search/",
+        "reason": "Champ de formulaire.",
+    },
+    "radio": {
+        "title": "Bouton radio",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
+        "reason": "Champ de formulaire.",
+    },
+    "checkbox": {
+        "title": "Case à cocher",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/checkbox/",
+        "reason": "Champ de formulaire.",
+    },
     "modal": {
         "title": "Modale",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/modale",

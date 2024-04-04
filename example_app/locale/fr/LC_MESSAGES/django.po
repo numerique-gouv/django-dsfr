@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-04 15:34+0200\n"
+"PO-Revision-Date: 2024-04-04 16:39+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.4\n"
+
+#: example_app/templates/example_app/blocks/footer.html:12
+#: example_app/templates/example_app/blocks/header.html:8
+msgid "Display settings"
+msgstr "Paramètres d’affichage"
+
+#: example_app/templates/example_app/blocks/footer.html:18
+msgid "Back to home page"
+msgstr "Retour à l’accueil du site"
+
+#: example_app/templates/example_app/blocks/header.html:17
+#: example_app/templates/example_app/blocks/header.html:40
+msgid "Search"
+msgstr "Rechercher"
+
+#: example_app/templates/example_app/blocks/header.html:26
+msgid "Menu"
+msgstr "Menu"
+
+#: example_app/templates/example_app/blocks/header.html:43
+msgid "Close"
+msgstr "Fermer"
+
+#: example_app/templates/example_app/blocks/language_selector.html:10
+msgid "Select language"
+msgstr "Sélectionner une langue"

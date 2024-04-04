@@ -1,8 +1,9 @@
+{% load i18n %}
 <a class="fr-link{% if self.is_external %} fr-icon-external-link-line fr-link--icon-right{% endif %}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}"
    href="{{ self.url }}"
    {% if self.is_external %}target="_blank" rel="noopener noreferrer"{% endif %}>
   {{ self.label }}
   {% if self.is_external %}
-    <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+    <span class="fr-sr-only">{% translate "Opens a new window" %}</span>
   {% endif %}
 </a>

@@ -1,3 +1,4 @@
+{% load i18n %}
 <header role="banner" class="fr-header">
   <div class="fr-header__body">
     <div class="fr-container">
@@ -6,7 +7,8 @@
           <div class="fr-header__brand-top">
             <div class="fr-header__logo">
               {% block brand %}
-                <a href="/" title="Accueil — {{ SITE_CONFIG.site_title }}">
+                {% translate "Home page" as home_page %}
+                <a href="/" title="{{ home_page }} — {{ SITE_CONFIG.site_title }}">
                   <p class="fr-logo">
                     {{ SITE_CONFIG.header_brand_html|default_if_none:"république<br />française" | safe }}
                   </p>
@@ -24,13 +26,14 @@
               {% endif %}
             {% endblock operator_logo %}
             {% block burger_menu %}
+              {% translate "Menu" as menu_label %}
               <div class="fr-header__navbar">
                 <button class="fr-btn--menu fr-btn"
                         data-fr-opened="false"
                         aria-controls="fr-modal-menu-mobile"
                         id="fr-btn-menu-mobile"
-                        title="Menu">
-                  Menu
+                        title="{{ menu_label }}">
+                  {{ menu_label }}
                 </button>
               </div>
             {% endblock burger_menu %}
@@ -81,14 +84,15 @@
          aria-labelledby="fr-btn-menu-mobile">
       <div class="fr-container">
         <button class="fr-btn--close fr-btn" aria-controls="fr-menu-mobile">
-          Fermer
+          {% translate "Close" %}
         </button>
         <div class="fr-header__menu-links">
         </div>
+        {% translate "Main menu" as main_menu_label %}
         <nav role="navigation"
              class="fr-nav"
              id="fr-navigation"
-             aria-label="Menu principal">
+             aria-label="{{ main_menu_label }}">
           <ul class="fr-nav__list">
             <li class="fr-nav__item">
               <a class="fr-nav__link" href="#" target="_self">accès direct</a>

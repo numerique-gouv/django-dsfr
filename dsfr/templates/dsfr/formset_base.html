@@ -3,7 +3,7 @@
 <!-- to be INCLUDED in the templates where form_base.html is extended, if you need formset -->
 <!-- Check django comments for more information -->
 {# Allows to display the fields with DSFR layout #}
-{% load static dsfr_tags widget_tweaks %}
+{% load static dsfr_tags widget_tweaks i18n %}
 {# if formset #}
 {% block form_set %}
   {% if formset %}
@@ -24,7 +24,7 @@
             {% include "dsfr/form_field_snippets/field_snippet.html" %}
           {% endfor %}
           <div class="fr-mt-2w">
-          <a id="remove-0" href="#" onclick="removeFormset(0)">Supprimer cet élément <span class="fr-fi-delete-line" aria-hidden="true"></span>
+          <a id="remove-0" href="#" onclick="removeFormset(0)">{% translate "Delete this item" %} <span class="fr-fi-delete-line" aria-hidden="true"></span>
           <br />
           <br />
         </a>
@@ -34,7 +34,7 @@
   <button id="add-form"
           type="button"
           class="fr-btn fr-btn--secondary fr-fi-add-circle-line fr-btn--icon-right fr-mt-1w">
-    Ajouter un élément
+    {% translate "Add an item" %}
   </button>
 </div>
 <br />
