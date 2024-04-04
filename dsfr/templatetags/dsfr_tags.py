@@ -1188,6 +1188,43 @@ def dsfr_tile(*args, **kwargs) -> dict:
     return {"self": tag_data}
 
 
+@register.inclusion_tag("dsfr/tooltip.html")
+def dsfr_tooltip(*args, **kwargs) -> dict:
+    """
+    Returns a tooltip item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "content": "Content of the tooltip",
+        "label": "(optional) Label of the link item",
+        "is_button": "(optional) Boolean indicating if this is a button",
+        "id": "(optional) Id of the item",
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**:
+        dsfr_tooltip
+
+    **Usage**:
+        `{% dsfr_tooltip data_dict %}`
+    """
+
+    allowed_keys = [
+        "title",
+        "content",
+        "id",
+        "is_button",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id("tooltip")
+
+    return {"self": tag_data}
+
+
 # Extra components
 
 

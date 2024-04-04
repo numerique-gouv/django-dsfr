@@ -981,6 +981,37 @@ class DsfrTagTagTest(SimpleTestCase):
         )
 
 
+class DsfrTooltipTagTest(SimpleTestCase):
+    def test_tooltip_rendered(self):
+        test_data = {
+            "content": "Contenu d’une infobule activée au survol",
+            "label": "Libellé du lien",
+            "id": "tooltip-test",
+        }
+
+        context = Context({"test_data": test_data})
+        template_to_render = Template(
+            "{% load dsfr_tags %} {% dsfr_tooltip test_data %}"
+        )
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """
+            <a class="fr-link"
+                aria-describedby="tooltip-test"
+                id="link-tooltip-test"
+                href="#">
+                Libellé du lien
+            </a>
+
+            <span class="fr-tooltip fr-placement"
+                id="tooltip-test"
+                role="tooltip"
+                aria-hidden="true">Contenu d’une infobule activée au survol</span>
+            """,
+            rendered_template,
+        )
+
+
 class ConcatenateTestCase(SimpleTestCase):
     def test_normal_concatenation(self):
         result = concatenate("test ", "value")

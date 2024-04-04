@@ -136,6 +136,8 @@ p code, li code {
                 {% dsfr_tile sample_data_item %}
               </div>
             </div>
+          {% elif tag_name == "tooltip" %}
+            {% dsfr_tooltip sample_data_item %}
           {% endif %}
         {% endfor %}
       {% else %}

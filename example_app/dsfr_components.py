@@ -859,6 +859,22 @@ IMPLEMENTED_COMPONENTS = {
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tuile",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/tile/",
     },
+    "tooltip": {
+        "title": "Infobulle",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/infobulle",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/tooltip/",
+        "sample_data": [
+            {
+                "content": "Contenu d’une infobule activée au survol",
+                "label": "Libellé du lien",
+            },
+            {
+                "content": "Contenu d’une infobule cliquable",
+                "is_button": True,
+                "id": "tooltip-b",
+            },
+        ],
+    },
 }
 
 EXTRA_COMPONENTS = {
@@ -948,11 +964,6 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
         "note": """À implémenter au sein des formulaires et non comme une balise.
         cf. [#129](https://github.com/numerique-gouv/django-dsfr/issues/129)
         """,
-    },
-    "tooltip": {
-        "title": "Infobulle",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/infobulle",
-        "example_url": "Information contextuelle et Infobulle",
     },
     "toggle": {
         "title": "Interrupteur",
