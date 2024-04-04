@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-04 16:34+0200\n"
-"PO-Revision-Date: 2024-04-04 16:38+0200\n"
+"POT-Creation-Date: 2024-04-04 19:02+0200\n"
+"PO-Revision-Date: 2024-04-04 19:02+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -51,6 +51,30 @@ msgstr "Accueil"
 #: dsfr/templates/dsfr/quote.html:2
 msgid "Opens a new window"
 msgstr "Ouvre une nouvelle fenêtre"
+
+#: dsfr/templates/dsfr/consent.html:13
+msgid "Allow all cookies"
+msgstr "Autoriser tous les cookies"
+
+#: dsfr/templates/dsfr/consent.html:17
+msgid "Accept all"
+msgstr "Tout accepter"
+
+#: dsfr/templates/dsfr/consent.html:21
+msgid "Reject all cookies"
+msgstr "Refuser tous les cookies"
+
+#: dsfr/templates/dsfr/consent.html:25
+msgid "Reject all"
+msgstr "Tout refuser"
+
+#: dsfr/templates/dsfr/consent.html:29
+msgid "Customize cookies"
+msgstr "Personnaliser les cookies"
+
+#: dsfr/templates/dsfr/consent.html:35
+msgid "Customize"
+msgstr "Personnaliser"
 
 #: dsfr/templates/dsfr/content.html:33 dsfr/templates/dsfr/content.html:67
 msgid "Transcript"
@@ -206,3 +230,15 @@ msgstr "Système"
 #: dsfr/templates/dsfr/theme_modale.html:60
 msgid "Uses system settings."
 msgstr "Utilise les paramètres système."
+
+#: dsfr/templates/dsfr/toggle.html:2
+msgid "Checked"
+msgstr "Activé"
+
+#: dsfr/templates/dsfr/toggle.html:3
+msgid "Unchecked"
+msgstr "Désactivé"
+
+#: dsfr/templates/dsfr/tooltip.html:6
+msgid "Contextual information"
+msgstr "Information contextuelle"

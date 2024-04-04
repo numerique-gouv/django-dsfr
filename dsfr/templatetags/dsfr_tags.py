@@ -1212,10 +1212,10 @@ def dsfr_tooltip(*args, **kwargs) -> dict:
     """
 
     allowed_keys = [
-        "title",
         "content",
-        "id",
+        "label",
         "is_button",
+        "id",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
