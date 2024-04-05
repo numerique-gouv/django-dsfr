@@ -1136,8 +1136,8 @@ def dsfr_tile(*args, **kwargs) -> dict:
         "top_detail": "(Optional) dict with a top detail content and optional tags or badges",
         "heading_tag": "(Optional) Heading tag for the alert title (default: h3)",
         "id": "(Optional) id of the tile item",
-        "enlarge_link": (Optional) boolean. If true (default), the link covers the whole card",
-        "extra_classes: (Optional) string with names of extra classes"
+        "enlarge_link": "(Optional) boolean. If true (default), the link covers the whole card",
+        "extra_classes": "(Optional) string with names of extra classes"
     }
     ```
 
@@ -1184,6 +1184,55 @@ def dsfr_tile(*args, **kwargs) -> dict:
 
     if "enlarge_link" not in tag_data:
         tag_data["enlarge_link"] = True
+
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/toggle.html")
+def dsfr_toggle(*args, **kwargs) -> dict:
+    """
+    Returns a toggle item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "label": "Label of the item",
+        "help_text": "(Optional) string explaining the intended use of the item",
+        "is_disabled": '''(Optional) boolean that indicate if the toggle is activated
+        (default: False)''',
+        "extra_classes": "(Optional) string with names of extra classes",
+        "id": "(optional) Id of the item",
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra_classes:
+
+    - `fr-toggle--label-left`: sets the label on the left side
+    - `fr-toggle--border-bottom`: adds a border at the bottom
+
+
+    **Tag name**:
+        dsfr_toggle
+
+    **Usage**:
+        `{% dsfr_toggle data_dict %}`
+    """
+
+    allowed_keys = [
+        "label",
+        "help_text",
+        "is_disabled",
+        "extra_classes",
+        "id",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id("toggle")
+
+    if "is_disabled" not in tag_data:
+        tag_data["is_disabled"] = False
 
     return {"self": tag_data}
 

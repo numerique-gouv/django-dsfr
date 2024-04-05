@@ -91,7 +91,7 @@
                             <a class="fr-nav__link"
                                href="{{ components_index_url }}#tabpanel-implemented-panel"
                                {% if request.path == components_index_url %}aria-current="true"{% endif %}
-                               target="_self">{{ entry.title }}</a>
+                               target="_self"><strong>{{ entry.title }}</strong></a>
                           </li>
                         {% else %}
                           <li>

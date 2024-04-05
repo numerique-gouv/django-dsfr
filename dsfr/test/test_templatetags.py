@@ -440,39 +440,42 @@ class DsfrConsentTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <div class="fr-consent-banner">
-                <h2 class="fr-h6">
-                    À propos des cookies sur Django-DSFR
-                </h2>
-                <div class="fr-consent-banner__content">
-                    <p class="fr-text--sm">
-
-                            Bienvenue ! Nous utilisons des cookies pour améliorer votre expérience et les
-                            services disponibles sur ce site. Pour en savoir plus, visitez la page <a href="#">
-                            Données personnelles et cookies</a>. Vous pouvez, à tout moment, avoir le contrôle
-                            sur les cookies que vous souhaitez activer.
-                    </p>
-                </div>
-                <ul class="fr-consent-banner__buttons fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-sm">
-                    <li>
-                        <button class="fr-btn" id="consent-accept-all" title="Allow all cookies">
-                            Accept all
-                        </button>
-                    </li>
-                    <li>
-                        <button class="fr-btn" id="consent-reject-all" title="Reject all cookies">
-                            Reject all
-                        </button>
-                    </li>
-                    <li>
-                        <button class="fr-btn fr-btn--secondary"
-                                id="consent-customize"
-                                data-fr-opened="false"
-                                aria-controls="fr-consent-modal"
-                                title="Customize cookies">
-                            Customize
-                        </button>
-                    </li>
-                </ul>
+            <h2 class="fr-h6">
+                À propos des cookies sur Django-DSFR
+            </h2>
+            <div class="fr-consent-banner__content">
+                <p class="fr-text--sm">
+                    Bienvenue ! Nous utilisons des cookies pour améliorer votre expérience et les
+                    services disponibles sur ce site. Pour en savoir plus, visitez la page <a href="#">
+                    Données personnelles et cookies</a>. Vous pouvez, à tout moment, avoir le contrôle
+                    sur les cookies que vous souhaitez activer.
+                </p>
+            </div>
+            <ul class="fr-consent-banner__buttons fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-sm">
+                <li>
+                <button class="fr-btn"
+                        id="consent-accept-all"
+                        title="Autoriser tous les cookies">
+                    Tout accepter
+                </button>
+                </li>
+                <li>
+                <button class="fr-btn"
+                        id="consent-reject-all"
+                        title="Refuser tous les cookies">
+                    Tout refuser
+                </button>
+                </li>
+                <li>
+                <button class="fr-btn fr-btn--secondary"
+                        id="consent-customize"
+                        data-fr-opened="false"
+                        aria-controls="fr-consent-modal"
+                        title="Personnaliser les cookies">
+                    Personnaliser
+                </button>
+                </li>
+            </ul>
             </div>
             """,
             rendered_template,
@@ -977,6 +980,43 @@ class DsfrTagTagTest(SimpleTestCase):
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             """<a href="#" class="fr-tag" onclick="console.log(&#x27;clicked&#x27;);">Label of the tag item</a>""",  # noqa
+            rendered_template,
+        )
+
+
+class DsfrToggleTagTest(SimpleTestCase):
+    def test_toggle_rendered(self):
+        test_data = {
+            "label": "Interrupteur complet aligné à gauche",
+            "help_text": "Cet interrupteur présente toutes les options disponibles",
+            "is_disabled": False,
+            "extra_classes": "fr-toggle--label-left fr-toggle--border-bottom",
+            "id": "toggle-full",
+        }
+
+        context = Context({"test_data": test_data})
+        template_to_render = Template(
+            "{% load dsfr_tags %} {% dsfr_toggle test_data %}"
+        )
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """
+            <div class="fr-toggle fr-toggle--label-left fr-toggle--border-bottom">
+                <input type="checkbox"
+                        class="fr-toggle__input"
+                        aria-describedby="toggle-full-hint-text"
+                        id="toggle-full">
+                <label class="fr-toggle__label"
+                        for="toggle-full"
+                        data-fr-checked-label="Activé"
+                        data-fr-unchecked-label="Désactivé">
+                    Interrupteur complet aligné à gauche
+                </label>
+                    <p class="fr-hint-text" id="toggle-full-hint-text">
+                    Cet interrupteur présente toutes les options disponibles
+                    </p>
+                </div>
+            """,
             rendered_template,
         )
 

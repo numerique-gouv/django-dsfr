@@ -859,6 +859,28 @@ IMPLEMENTED_COMPONENTS = {
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tuile",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/tile/",
     },
+    "toggle": {
+        "title": "Interrupteur",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/toggle/",
+        "sample_data": [
+            {
+                "label": "Interrupteur basique",
+            },
+            {
+                "label": "Interrupteur basique désactivé avec aide",
+                "help_text": "Vous ne pouvez pas utiliser cet interrupteur.",
+                "is_disabled": True,
+            },
+            {
+                "label": "Interrupteur complet aligné à gauche",
+                "help_text": "Cet interrupteur présente toutes les options disponibles",
+                "is_disabled": False,
+                "extra_classes": "fr-toggle--label-left fr-toggle--border-bottom",
+                "id": "toggle-full",
+            },
+        ],
+    },
     "tooltip": {
         "title": "Infobulle",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/infobulle",
@@ -964,11 +986,6 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
         "note": """À implémenter au sein des formulaires et non comme une balise.
         cf. [#129](https://github.com/numerique-gouv/django-dsfr/issues/129)
         """,
-    },
-    "toggle": {
-        "title": "Interrupteur",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/toggle/",
     },
     "newsletter_follow": {
         "title": "Lettre d’information et réseaux sociaux (newsletter & follow)",

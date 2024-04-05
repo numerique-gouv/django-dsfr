@@ -1,0 +1,21 @@
+{% load i18n %}
+{% translate "Checked" as checked_label %}
+{% translate "Unchecked" as unchecked_label %}
+<div class="fr-toggle{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
+  <input type="checkbox"
+         {% if self.is_disabled %}disabled{% endif %}
+         class="fr-toggle__input"
+         aria-describedby="{{ self.id }}-hint-text"
+         id="{{ self.id }}">
+  <label class="fr-toggle__label"
+         for="{{ self.id }}"
+         data-fr-checked-label="{{ checked_label }}"
+         data-fr-unchecked-label="{{ unchecked_label }}">
+    {{ self.label }}
+  </label>
+  {% if self.help_text %}
+    <p class="fr-hint-text" id="{{ self.id }}-hint-text">
+      {{ self.help_text }}
+    </p>
+  {% endif %}
+</div>
