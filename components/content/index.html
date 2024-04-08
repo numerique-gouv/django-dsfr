@@ -1292,6 +1292,16 @@ p code, li code {
                       <li class="fr-sidemenu__item">
                         
                           <a class="fr-sidemenu__link"
+                             href="/django-dsfr/components/transcription/"
+                             target="_self"
+                             >Transcription (transcription)</a>
+                        
+                        
+                      </li>
+                    
+                      <li class="fr-sidemenu__item">
+                        
+                          <a class="fr-sidemenu__link"
                              href="/django-dsfr/components/tile/"
                              target="_self"
                              >Tuile (tile)</a>
@@ -1368,7 +1378,7 @@ p code, li code {
     <span class="s2">&quot;alt_text&quot;</span><span class="p">:</span> <span class="s2">&quot;(optional) Alternative text of the media&quot;</span>
     <span class="s2">&quot;extra_classes&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) string with names of extra classes for the whole component&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ratio_class&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) string with the name of a ratio class&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;transcription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) id for the transcription accordion&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transcription&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) A transcription item dictionary, see [component documentation](/django-dsfr/components/transcription/)&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -1427,11 +1437,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-fndvvxnkvktadhsr">
+          aria-controls="accordion-lkuuxvvvubivvznf">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-fndvvxnkvktadhsr">
+  <div class="fr-collapse" id="accordion-lkuuxvvvubivvznf">
     <pre class="dsfr-code">{'alt_text': 'Silhouette stylisée représentant le soleil au-dessus de deux '
              'montagnes.',
  'caption': 'Image en largeur normale et en 16x9',
@@ -1482,11 +1492,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-mojhnbevgfguvhfg">
+          aria-controls="accordion-dayfmjvxbuttwzqx">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-mojhnbevgfguvhfg">
+  <div class="fr-collapse" id="accordion-dayfmjvxbuttwzqx">
     <pre class="dsfr-code">{'alt_text': 'Silhouette stylisée représentant le soleil au-dessus de deux '
              'montagnes.',
  'caption': 'Image en largeur normale et en 4x3',
@@ -1537,11 +1547,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-jyjmsprrqifqrbri">
+          aria-controls="accordion-rukddubbudotihnn">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-jyjmsprrqifqrbri">
+  <div class="fr-collapse" id="accordion-rukddubbudotihnn">
     <pre class="dsfr-code">{'alt_text': 'Silhouette stylisée représentant le soleil au-dessus de deux '
              'montagnes.',
  'caption': 'Image plus large que la colonne de contenu',
@@ -1592,11 +1602,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-invwmpriylpaojcq">
+          aria-controls="accordion-tmxblerjfrzdxamx">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-invwmpriylpaojcq">
+  <div class="fr-collapse" id="accordion-tmxblerjfrzdxamx">
     <pre class="dsfr-code">{'alt_text': 'Silhouette stylisée représentant le soleil au-dessus de deux '
              'montagnes.',
  'caption': 'Image SVG avec un lien dans la légende.\n'
@@ -2190,11 +2200,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-ypvxuwoaamzzieyc">
+          aria-controls="accordion-sspnjwhkhduqmapx">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-ypvxuwoaamzzieyc">
+  <div class="fr-collapse" id="accordion-sspnjwhkhduqmapx">
     <pre class="dsfr-code">{'alt_text': '',
  'caption': 'Vidéo avec transcription',
  'iframe': {'height': '450',
@@ -2203,105 +2213,142 @@ p code, li code {
             'url': 'https://tube-numerique-educatif.apps.education.fr/videos/embed/9d0b132d-f836-459a-9b9b-97b1a647232d',
             'width': '894'},
  'ratio_class': 'fr-ratio-4x3',
- 'transcription': '<div>\n'
-                  '<p class="fr-mb-2w">\n'
-                  '    Lorem ipsum dolor sit amet, consectetur adipiscing '
-                  'elit, sed do eiusmod tempor incididunt ut\n'
-                  '    labore et dolore magna aliqua. At quis risus sed '
-                  'vulputate odio ut enim. At risus viverra\n'
-                  '    adipiscing at in tellus integer feugiat. Aliquam purus '
-                  'sit amet luctus venenatis lectus.\n'
-                  '    Pellentesque id nibh tortor id aliquet lectus proin. '
-                  'Ultricies leo integer malesuada nunc vel\n'
-                  '    risus. Euismod elementum nisi quis eleifend quam '
-                  'adipiscing vitae proin. Iaculis eu non diam\n'
-                  '    phasellus vestibulum lorem sed risus ultricies. Quis '
-                  'varius quam quisque id diam. Vehicula\n'
-                  '    ipsum a arcu cursus vitae congue mauris rhoncus. Sed id '
-                  'semper risus in hendrerit gravida.\n'
-                  '</p>\n'
-                  '\n'
-                  '<p class="fr-mb-2w">\n'
-                  '    Suspendisse potenti nullam ac tortor vitae purus '
-                  'faucibus. Condimentum lacinia quis vel eros.\n'
-                  '    Pellentesque sit amet porttitor eget dolor. Varius duis '
-                  'at consectetur lorem donec massa sapien\n'
-                  '    faucibus. Egestas pretium aenean pharetra magna ac '
-                  'placerat vestibulum lectus. Tristique magna\n'
-                  '    sit amet purus gravida. Nec ullamcorper sit amet risus '
-                  'nullam eget felis eget nunc. Aenean vel\n'
-                  '    elit scelerisque mauris pellentesque pulvinar. Vitae '
-                  'proin sagittis nisl rhoncus mattis rhoncus\n'
-                  '    urna neque viverra. Quam viverra orci sagittis eu '
-                  'volutpat odio. Sapien faucibus et molestie\n'
-                  '    ac. Rhoncus aenean vel elit scelerisque mauris '
-                  'pellentesque pulvinar pellentesque. Nunc sed\n'
-                  '    velit dignissim sodales ut eu sem integer.\n'
-                  '</p>\n'
-                  '\n'
-                  '<p class="fr-mb-2w">\n'
-                  '    Diam maecenas ultricies mi eget mauris pharetra et '
-                  'ultrices. Justo nec ultrices dui sapien eget\n'
-                  '    mi proin. Viverra mauris in aliquam sem fringilla ut. '
-                  'Pretium lectus quam id leo in vitae\n'
-                  '    turpis massa. Ultricies integer quis auctor elit sed '
-                  'vulputate mi sit amet. Non quam lacus\n'
-                  '    suspendisse faucibus interdum posuere lorem. Feugiat in '
-                  'fermentum posuere urna nec. Bibendum\n'
-                  '    enim facilisis gravida neque. Vitae aliquet nec '
-                  'ullamcorper sit amet risus. Et netus et\n'
-                  '    malesuada fames ac turpis. Ut eu sem integer vitae. '
-                  'Aliquam eleifend mi in nulla posuere\n'
-                  '    sollicitudin aliquam ultrices sagittis. Eget sit amet '
-                  'tellus cras adipiscing enim. Massa eget\n'
-                  '    egestas purus viverra accumsan. Urna neque viverra '
-                  'justo nec. Bibendum est ultricies integer\n'
-                  '    quis auctor elit. Sagittis vitae et leo duis ut diam.\n'
-                  '</p>\n'
-                  '\n'
-                  '<p class="fr-mb-2w">\n'
-                  '    Urna porttitor rhoncus dolor purus. Enim eu turpis '
-                  'egestas pretium. Risus ultricies tristique\n'
-                  '    nulla aliquet enim tortor at auctor urna. Etiam non '
-                  'quam lacus suspendisse faucibus interdum\n'
-                  '    posuere lorem. Ut enim blandit volutpat maecenas '
-                  'volutpat blandit aliquam etiam. Ac tortor\n'
-                  '    vitae purus faucibus ornare suspendisse sed nisi lacus. '
-                  'Accumsan lacus vel facilisis volutpat\n'
-                  '    est velit egestas dui. Enim eu turpis egestas pretium '
-                  'aenean pharetra. Arcu cursus vitae congue\n'
-                  '    mauris rhoncus. A cras semper auctor neque vitae '
-                  'tempus. Viverra ipsum nunc aliquet bibendum\n'
-                  '    enim facilisis gravida neque convallis. Ac tortor '
-                  'dignissim convallis aenean et tortor. Sed id\n'
-                  '    semper risus in hendrerit gravida rutrum. Tempus '
-                  'iaculis urna id volutpat lacus laoreet.\n'
-                  '</p>\n'
-                  '\n'
-                  '<p class="fr-mb-2w">\n'
-                  '    Massa tempor nec feugiat nisl pretium fusce. Urna '
-                  'porttitor rhoncus dolor purus non enim\n'
-                  '    praesent. Suspendisse ultrices gravida dictum fusce. '
-                  'Habitant morbi tristique senectus et netus.\n'
-                  '    Adipiscing vitae proin sagittis nisl. Bibendum ut '
-                  'tristique et egestas quis. Dictum non\n'
-                  '    consectetur a erat nam at lectus. Vulputate dignissim '
-                  'suspendisse in est ante in nibh mauris\n'
-                  '    cursus. Faucibus turpis in eu mi bibendum neque egestas '
-                  'congue quisque. Neque laoreet\n'
-                  '    suspendisse interdum consectetur libero id faucibus. '
-                  'Gravida rutrum quisque non tellus orci ac\n'
-                  '    auctor augue mauris. Turpis nunc eget lorem dolor sed '
-                  'viverra ipsum nunc. Quam viverra orci\n'
-                  '    sagittis eu volutpat odio. Id interdum velit laoreet id '
-                  'donec ultrices tincidunt arcu non.\n'
-                  '    Viverra nibh cras pulvinar mattis nunc sed. Risus sed '
-                  'vulputate odio ut enim blandit volutpat\n'
-                  '    maecenas volutpat. Augue neque gravida in fermentum et '
-                  'sollicitudin ac orci. Commodo odio\n'
-                  '    aenean sed adipiscing diam.\n'
-                  '</p>\n'
-                  '</div>'}</pre>
+ 'transcription': {'content': '<div>\n'
+                              '<p class="fr-mb-2w">\n'
+                              '    Lorem ipsum dolor sit amet, consectetur '
+                              'adipiscing elit, sed do eiusmod tempor '
+                              'incididunt ut\n'
+                              '    labore et dolore magna aliqua. At quis '
+                              'risus sed vulputate odio ut enim. At risus '
+                              'viverra\n'
+                              '    adipiscing at in tellus integer feugiat. '
+                              'Aliquam purus sit amet luctus venenatis '
+                              'lectus.\n'
+                              '    Pellentesque id nibh tortor id aliquet '
+                              'lectus proin. Ultricies leo integer malesuada '
+                              'nunc vel\n'
+                              '    risus. Euismod elementum nisi quis eleifend '
+                              'quam adipiscing vitae proin. Iaculis eu non '
+                              'diam\n'
+                              '    phasellus vestibulum lorem sed risus '
+                              'ultricies. Quis varius quam quisque id diam. '
+                              'Vehicula\n'
+                              '    ipsum a arcu cursus vitae congue mauris '
+                              'rhoncus. Sed id semper risus in hendrerit '
+                              'gravida.\n'
+                              '</p>\n'
+                              '\n'
+                              '<p class="fr-mb-2w">\n'
+                              '    Suspendisse potenti nullam ac tortor vitae '
+                              'purus faucibus. Condimentum lacinia quis vel '
+                              'eros.\n'
+                              '    Pellentesque sit amet porttitor eget dolor. '
+                              'Varius duis at consectetur lorem donec massa '
+                              'sapien\n'
+                              '    faucibus. Egestas pretium aenean pharetra '
+                              'magna ac placerat vestibulum lectus. Tristique '
+                              'magna\n'
+                              '    sit amet purus gravida. Nec ullamcorper sit '
+                              'amet risus nullam eget felis eget nunc. Aenean '
+                              'vel\n'
+                              '    elit scelerisque mauris pellentesque '
+                              'pulvinar. Vitae proin sagittis nisl rhoncus '
+                              'mattis rhoncus\n'
+                              '    urna neque viverra. Quam viverra orci '
+                              'sagittis eu volutpat odio. Sapien faucibus et '
+                              'molestie\n'
+                              '    ac. Rhoncus aenean vel elit scelerisque '
+                              'mauris pellentesque pulvinar pellentesque. Nunc '
+                              'sed\n'
+                              '    velit dignissim sodales ut eu sem integer.\n'
+                              '</p>\n'
+                              '\n'
+                              '<p class="fr-mb-2w">\n'
+                              '    Diam maecenas ultricies mi eget mauris '
+                              'pharetra et ultrices. Justo nec ultrices dui '
+                              'sapien eget\n'
+                              '    mi proin. Viverra mauris in aliquam sem '
+                              'fringilla ut. Pretium lectus quam id leo in '
+                              'vitae\n'
+                              '    turpis massa. Ultricies integer quis auctor '
+                              'elit sed vulputate mi sit amet. Non quam lacus\n'
+                              '    suspendisse faucibus interdum posuere '
+                              'lorem. Feugiat in fermentum posuere urna nec. '
+                              'Bibendum\n'
+                              '    enim facilisis gravida neque. Vitae aliquet '
+                              'nec ullamcorper sit amet risus. Et netus et\n'
+                              '    malesuada fames ac turpis. Ut eu sem '
+                              'integer vitae. Aliquam eleifend mi in nulla '
+                              'posuere\n'
+                              '    sollicitudin aliquam ultrices sagittis. '
+                              'Eget sit amet tellus cras adipiscing enim. '
+                              'Massa eget\n'
+                              '    egestas purus viverra accumsan. Urna neque '
+                              'viverra justo nec. Bibendum est ultricies '
+                              'integer\n'
+                              '    quis auctor elit. Sagittis vitae et leo '
+                              'duis ut diam.\n'
+                              '</p>\n'
+                              '\n'
+                              '<p class="fr-mb-2w">\n'
+                              '    Urna porttitor rhoncus dolor purus. Enim eu '
+                              'turpis egestas pretium. Risus ultricies '
+                              'tristique\n'
+                              '    nulla aliquet enim tortor at auctor urna. '
+                              'Etiam non quam lacus suspendisse faucibus '
+                              'interdum\n'
+                              '    posuere lorem. Ut enim blandit volutpat '
+                              'maecenas volutpat blandit aliquam etiam. Ac '
+                              'tortor\n'
+                              '    vitae purus faucibus ornare suspendisse sed '
+                              'nisi lacus. Accumsan lacus vel facilisis '
+                              'volutpat\n'
+                              '    est velit egestas dui. Enim eu turpis '
+                              'egestas pretium aenean pharetra. Arcu cursus '
+                              'vitae congue\n'
+                              '    mauris rhoncus. A cras semper auctor neque '
+                              'vitae tempus. Viverra ipsum nunc aliquet '
+                              'bibendum\n'
+                              '    enim facilisis gravida neque convallis. Ac '
+                              'tortor dignissim convallis aenean et tortor. '
+                              'Sed id\n'
+                              '    semper risus in hendrerit gravida rutrum. '
+                              'Tempus iaculis urna id volutpat lacus laoreet.\n'
+                              '</p>\n'
+                              '\n'
+                              '<p class="fr-mb-2w">\n'
+                              '    Massa tempor nec feugiat nisl pretium '
+                              'fusce. Urna porttitor rhoncus dolor purus non '
+                              'enim\n'
+                              '    praesent. Suspendisse ultrices gravida '
+                              'dictum fusce. Habitant morbi tristique senectus '
+                              'et netus.\n'
+                              '    Adipiscing vitae proin sagittis nisl. '
+                              'Bibendum ut tristique et egestas quis. Dictum '
+                              'non\n'
+                              '    consectetur a erat nam at lectus. Vulputate '
+                              'dignissim suspendisse in est ante in nibh '
+                              'mauris\n'
+                              '    cursus. Faucibus turpis in eu mi bibendum '
+                              'neque egestas congue quisque. Neque laoreet\n'
+                              '    suspendisse interdum consectetur libero id '
+                              'faucibus. Gravida rutrum quisque non tellus '
+                              'orci ac\n'
+                              '    auctor augue mauris. Turpis nunc eget lorem '
+                              'dolor sed viverra ipsum nunc. Quam viverra '
+                              'orci\n'
+                              '    sagittis eu volutpat odio. Id interdum '
+                              'velit laoreet id donec ultrices tincidunt arcu '
+                              'non.\n'
+                              '    Viverra nibh cras pulvinar mattis nunc sed. '
+                              'Risus sed vulputate odio ut enim blandit '
+                              'volutpat\n'
+                              '    maecenas volutpat. Augue neque gravida in '
+                              'fermentum et sollicitudin ac orci. Commodo '
+                              'odio\n'
+                              '    aenean sed adipiscing diam.\n'
+                              '</p>\n'
+                              '</div>'}}</pre>
   </div>
 </section>
 
@@ -2335,47 +2382,48 @@ p code, li code {
     </figcaption>
   
   
-    <div class="fr-transcription">
-      <button class="fr-transcription__btn"
-              aria-expanded="false"
-              aria-controls="fr-transcription__collapse-transcription-qsidjlbiahaqpqkk">
-        Transcription
-      </button>
-      <div class="fr-collapse"
-           id="fr-transcription__collapse-transcription-qsidjlbiahaqpqkk">
-        <div class="fr-transcription__footer">
-          <div class="fr-transcription__actions-group">
-            
-            <button class="fr-btn fr-btn--fullscreen"
-                    aria-controls="fr-transcription-modal-transcription-qsidjlbiahaqpqkk"
-                    data-fr-opened="false"
-                    title="Agrandir">
-              Agrandir
-            </button>
-          </div>
-        </div>
-        <dialog id="fr-transcription-modal-transcription-qsidjlbiahaqpqkk"
-                class="fr-modal"
-                role="dialog"
-                aria-labelledby="fr-transcription-modal-transcription-qsidjlbiahaqpqkk-title">
-          <div class="fr-container fr-container--fluid fr-container-md">
-            <div class="fr-grid-row fr-grid-row--center">
-              <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
-                <div class="fr-modal__body">
-                  <div class="fr-modal__header">
-                    
-                    <button class="fr-btn--close fr-btn"
-                            aria-controls="fr-transcription-modal-transcription-qsidjlbiahaqpqkk"
-                            title="Fermer">
-                      Fermer
-                    </button>
-                  </div>
-                  <div class="fr-modal__content">
-                    <h1 id="fr-transcription-modal-transcription-qsidjlbiahaqpqkk-title"
-                        class="fr-modal__title">
-                      Transcription
-                    </h1>
-                    <div>
+    
+
+<div class="fr-transcription">
+  <button class="fr-transcription__btn"
+          aria-expanded="false"
+          aria-controls="fr-transcription__collapse-transcription-iqdwdmjtkbhgohwx">
+    Transcription
+  </button>
+  <div class="fr-collapse" id="fr-transcription__collapse-transcription-iqdwdmjtkbhgohwx">
+    <div class="fr-transcription__footer">
+      <div class="fr-transcription__actions-group">
+        
+        <button class="fr-btn fr-btn--fullscreen"
+                aria-controls="fr-transcription-modal-transcription-iqdwdmjtkbhgohwx"
+                data-fr-opened="false"
+                title="Agrandir">
+          Agrandir
+        </button>
+      </div>
+    </div>
+    <dialog id="fr-transcription-modal-transcription-iqdwdmjtkbhgohwx"
+            class="fr-modal"
+            role="dialog"
+            aria-labelledby="fr-transcription-modal-transcription-iqdwdmjtkbhgohwx-title">
+      <div class="fr-container fr-container--fluid fr-container-md">
+        <div class="fr-grid-row fr-grid-row--center">
+          <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
+            <div class="fr-modal__body">
+              <div class="fr-modal__header">
+                
+                <button class="fr-btn--close fr-btn"
+                        aria-controls="fr-transcription-modal-transcription-iqdwdmjtkbhgohwx"
+                        title="Fermer">
+                  Fermer
+                </button>
+              </div>
+              <div class="fr-modal__content">
+                <h1 id="fr-transcription-modal-transcription-iqdwdmjtkbhgohwx-title"
+                    class="fr-modal__title">
+                  Transcription
+                </h1>
+                <div>
 <p class="fr-mb-2w">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
     labore et dolore magna aliqua. At quis risus sed vulputate odio ut enim. At risus viverra
@@ -2434,14 +2482,15 @@ p code, li code {
     aenean sed adipiscing diam.
 </p>
 </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-        </dialog>
+        </div>
       </div>
-    </div>
+    </dialog>
+  </div>
+</div>
+
   
 </figure>
 
@@ -2588,11 +2637,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="t4ZrwH32i0Gyu0D09jKsXQ=="></script>
+         nonce="F36EDdpwA2arRnVpDTEWUw=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="t4ZrwH32i0Gyu0D09jKsXQ=="></script>
+         nonce="F36EDdpwA2arRnVpDTEWUw=="></script>
 
 
     
