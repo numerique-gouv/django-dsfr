@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-08 14:39+0200\n"
-"PO-Revision-Date: 2024-04-08 14:40+0200\n"
+"POT-Creation-Date: 2024-04-08 18:24+0200\n"
+"PO-Revision-Date: 2024-04-08 18:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -100,19 +100,6 @@ msgstr "Personnaliser les cookies"
 msgid "Customize"
 msgstr "Personnaliser"
 
-#: dsfr/templates/dsfr/content.html:33 dsfr/templates/dsfr/content.html:67
-msgid "Transcript"
-msgstr "Transcription"
-
-#: dsfr/templates/dsfr/content.html:39
-msgid "Enlarge"
-msgstr "Agrandir"
-
-#: dsfr/templates/dsfr/content.html:57 dsfr/templates/dsfr/header.html:87
-#: dsfr/templates/dsfr/theme_modale.html:13
-msgid "Close"
-msgstr "Fermer"
-
 #: dsfr/templates/dsfr/follow.html:11
 msgctxt "Section title"
 msgid "Subscribe to our newsletter"
@@ -191,6 +178,11 @@ msgstr "Qu’est-ce que FranceConnect ?"
 #: dsfr/templates/dsfr/header.html:29
 msgid "Menu"
 msgstr "Menu"
+
+#: dsfr/templates/dsfr/header.html:87 dsfr/templates/dsfr/theme_modale.html:13
+#: dsfr/templates/dsfr/transcription.html:30
+msgid "Close"
+msgstr "Fermer"
 
 #: dsfr/templates/dsfr/header.html:91
 msgid "Main menu"
@@ -284,3 +276,11 @@ msgstr "Désactivé"
 #: dsfr/templates/dsfr/tooltip.html:6
 msgid "Contextual information"
 msgstr "Information contextuelle"
+
+#: dsfr/templates/dsfr/transcription.html:2
+msgid "Transcript"
+msgstr "Transcription"
+
+#: dsfr/templates/dsfr/transcription.html:12
+msgid "Enlarge"
+msgstr "Agrandir"
