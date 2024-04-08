@@ -1182,6 +1182,11 @@ def dsfr_tile(*args, **kwargs) -> dict:
     - `fr-tile--sm`: for a small (SM) tile
     - `fr-tile--horizontal`: for an horizontal tile
     - `fr-tile--download`: Replaces the forward arrow icon with a download one
+    - `fr-tile--grey`: adds a grey background on the tile
+    - `fr-tile--no-border`: removes the tile border
+    - `fr-tile--no-background`: removes the tile background
+    - `fr-tile--shadow`: adds a shadow to the tile border
+
 
     Format of the top_detail dict (every field is optional):
 

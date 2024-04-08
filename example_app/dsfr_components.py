@@ -849,6 +849,13 @@ IMPLEMENTED_COMPONENTS = {
                 "svg_path": static("dsfr/dist/artwork/pictograms/map/map.svg"),
             },
             {
+                "title": "Tuile à fond gris et ombre sans bordure",
+                "url": "/",
+                "id": "tile-map",
+                "extra_classes": "fr-tile--horizontal fr-tile--grey fr-tile--shadow fr-tile--no-border",
+                "svg_path": static("dsfr/dist/artwork/pictograms/leisure/paint.svg"),
+            },
+            {
                 "title": "Tuile de téléchargement",
                 "extra_classes": "fr-tile--horizontal fr-tile--download",
                 "detail": "PDF — 1,7 Mo",
