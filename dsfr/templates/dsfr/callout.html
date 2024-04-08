@@ -1,5 +1,5 @@
 {% load dsfr_tags %}
-<div class="fr-callout {% if self.icon_class %}{{ self.icon_class }}{% endif %}">
+<div class="fr-callout {% if self.icon_class %}{{ self.icon_class }}{% endif %}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
   {% if self.title %}
     <{{ self.heading_tag | default:"p" }} class="fr-callout__title">
     {{ self.title }}

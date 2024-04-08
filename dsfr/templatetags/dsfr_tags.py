@@ -388,6 +388,7 @@ def dsfr_callout(*args, **kwargs) -> dict:
         "title": "(Optional) Title of the callout item",
         "heading_tag": "(Optional) Heading tag for the alert title (default: p)",
         "icon_class": " (Optional) Name of the icon class",
+        "extra_classes": "(Optional) string with names of extra classes."
         "button": {                                 # Optional
             "onclick": "button action",
             "label": "button label"
@@ -396,6 +397,10 @@ def dsfr_callout(*args, **kwargs) -> dict:
     ```
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant `extra_classes`:
+
+    - Color classes ([See the list](/django-dsfr/resources/colors)), for example `fr-callout--green-emeraude`
 
     **Tag name**:
         dsfr_callout
@@ -408,6 +413,7 @@ def dsfr_callout(*args, **kwargs) -> dict:
         "title",
         "heading_tag",
         "icon_class",
+        "extra_classes",
         "button",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)

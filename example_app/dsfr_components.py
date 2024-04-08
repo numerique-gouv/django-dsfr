@@ -274,6 +274,12 @@ IMPLEMENTED_COMPONENTS = {
                     "extra_classes": "fr-btn--secondary",
                 },
             },
+            {
+                "title": "Mise en avant en couleur",
+                "text": "Cette mise en avant a une classe de couleur",
+                "icon_class": "fr-icon-palette-line",
+                "extra_classes": "fr-callout--green-emeraude",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-avant",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/callout/",
