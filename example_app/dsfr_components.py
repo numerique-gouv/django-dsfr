@@ -913,7 +913,7 @@ IMPLEMENTED_COMPONENTS = {
             },
             {
                 "content": "Contenu d’une infobule cliquable",
-                "is_button": True,
+                "is_clickable": True,
                 "id": "tooltip-b",
             },
         ],

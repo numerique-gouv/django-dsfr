@@ -1,5 +1,5 @@
 {% load i18n %}
-{% if self.is_button|default:False %}
+{% if self.is_clickable|default:False %}
   <button class="fr-btn--tooltip fr-btn"
           id="button-{{ self.id }}"
           aria-describedby="{{ self.id }}">

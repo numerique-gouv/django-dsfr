@@ -1259,7 +1259,7 @@ def dsfr_tooltip(*args, **kwargs) -> dict:
     data_dict = {
         "content": "Content of the tooltip",
         "label": "(optional) Label of the link item",
-        "is_button": "(optional) Boolean indicating if this is a button",
+        "is_clickable": "(optional) Boolean indicating if this is a button",
         "id": "(optional) Id of the item",
     }
     ```
@@ -1276,7 +1276,7 @@ def dsfr_tooltip(*args, **kwargs) -> dict:
     allowed_keys = [
         "content",
         "label",
-        "is_button",
+        "is_clickable",
         "id",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
