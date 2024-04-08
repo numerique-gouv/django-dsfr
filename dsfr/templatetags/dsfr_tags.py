@@ -869,7 +869,9 @@ def dsfr_quote(*args, **kwargs) -> dict:
 @register.inclusion_tag("dsfr/select.html")
 def dsfr_select(*args, **kwargs) -> dict:
     """
-    Returns a select item. Takes a dict as parameter, with the following structure:
+    Returns a select item. Prefer the use of an actual form (see documentation)
+
+    Takes a dict as parameter, with the following structure:
 
     ```python
     data_dict = {
@@ -888,6 +890,11 @@ def dsfr_select(*args, **kwargs) -> dict:
         "extra_classes": "(Optional) string with names of extra classes"
     }
     ```
+    Relevant extra_classes:
+
+    - `fr-sidemenu--sticky`: Makes the menu sticky
+    - `fr-sidemenu--sticky-full-height`: Makes the menu take the full height of the screen
+    - `fr-sidemenu--right`: Moves the menu to the right side of the screen
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
@@ -922,8 +929,8 @@ def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
 
     ```python
     data_dict = {
-        "title": "The title of the main menu",
         "items": "a list of similarly structured dictionaries (see below)",
+        "title": "(Optional) The title of the main menu",
         "heading_tag": "(Optional) Heading tag for the accordion title (h2, etc. Default: div)"
         "extra_classes": "(Optional) string with names of extra classes",
     }

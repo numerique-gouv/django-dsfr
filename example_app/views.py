@@ -59,10 +59,7 @@ def init_payload(page_title: str, links: list = []):
         {"link": "#fr-navigation", "label": "Menu"},
     ]
 
-    implemented_component_tags_unsorted = {
-        **IMPLEMENTED_COMPONENTS,
-        **EXTRA_COMPONENTS,
-    }
+    implemented_component_tags_unsorted = ALL_IMPLEMENTED_COMPONENTS
     implemented_component_tags = dict(
         sorted(
             implemented_component_tags_unsorted.items(), key=lambda k: k[1]["title"]
@@ -190,16 +187,34 @@ def page_component(request, tag_name):  # NOSONAR
         if "example_url" in current_tag:
             payload["example_url"] = current_tag["example_url"]
 
-        sidemenu_items = []
-        for key in ALL_IMPLEMENTED_COMPONENTS.keys():
-            sidemenu_items.append(
+        sidemenu_implemented_items = []
+        for key, value in ALL_IMPLEMENTED_COMPONENTS.items():
+            sidemenu_implemented_items.append(
                 {
-                    "label": key,
+                    "label": f"{value['title']} ({key})",
                     "link": reverse("page_component", kwargs={"tag_name": key}),
                 }
             )
 
-        payload["side_menu"] = {"title": "Composants", "items": sidemenu_items}
+        sidemenu_implemented = {
+            "label": "Composants implémentés",
+            "items": sidemenu_implemented_items,
+        }
+
+        if "/components/" in request.path:
+            sidemenu_implemented["is_active"] = True
+
+        payload["side_menu"] = {
+            "items": [
+                {"label": "Documentation", "link": reverse("components_index")},
+                sidemenu_implemented,
+                {
+                    "label": "Composants non implémentés",
+                    "link": reverse("components_index")
+                    + "#tabpanel-notyetimplemented-panel",
+                },
+            ]
+        }
         return render(request, "example_app/page_component.html", payload)
     else:
         payload = init_payload("Non implémenté")

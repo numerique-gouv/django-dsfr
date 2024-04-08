@@ -11,7 +11,9 @@
       {% translate "In this section" %}
     </button>
     <div class="fr-collapse" id="fr-sidemenu-wrapper">
-      <{{ self.heading_tag|default:"div" }} class="fr-sidemenu__title">{{ self.title }}</{{ self.heading_tag|default:"div" }}>
+      {% if self.title %}
+        <{{ self.heading_tag|default:"div" }} class="fr-sidemenu__title">{{ self.title }}</{{ self.heading_tag|default:"div" }}>
+      {% endif %}
       <ul class="fr-sidemenu__list">
         {% for item in self.items %}
           {# Level 1 #}
