@@ -672,6 +672,7 @@ def dsfr_highlight(*args, **kwargs) -> dict:
     data_dict = {
         "content": "Content of the highlight item (can include html)",
         "size_class": "(Optional) string with name of text-size related classes",
+        "extra_classes": "(Optional) string with names of extra classes",
     }
     ```
 
@@ -679,6 +680,10 @@ def dsfr_highlight(*args, **kwargs) -> dict:
 
     - `fr-text--sm`
     - `fr-text--lg`
+
+    Relevant `extra_classes`:
+
+    - Color classes ([See the list](/django-dsfr/resources/colors)), for example `fr-highlight--green-emeraude`
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
@@ -692,6 +697,7 @@ def dsfr_highlight(*args, **kwargs) -> dict:
     allowed_keys = [
         "content",
         "size_class",
+        "extra_classes",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
@@ -845,12 +851,17 @@ def dsfr_quote(*args, **kwargs) -> dict:
         "source": "(Optional) The name of the source of the quote",
         "details": "(Optional) A list containing detail dicts",
         "image_url": "(Optional) URL of an illustrative image",
+        "extra_classes": "(Optional) string with names of extra classes"
     }
     ```
 
     The `details` dict entries have a mandatory `text` key and an optional `link` key.
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant `extra_classes`:
+
+    - Color classes ([See the list](/django-dsfr/resources/colors)), for example `fr-quote--green-emeraude`
 
     **Tag name**:
         dsfr_quote
@@ -866,6 +877,7 @@ def dsfr_quote(*args, **kwargs) -> dict:
         "source",
         "details",
         "image_url",
+        "extra_classes",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
@@ -1032,7 +1044,7 @@ def dsfr_stepper(*args, **kwargs) -> dict:
 
 
 @register.inclusion_tag("dsfr/summary.html")
-def dsfr_summary(items: list) -> dict:
+def dsfr_summary(items: list, heading_tag: str = "p") -> dict:
     """
     Returns a summary item. Takes a list as parameter, with the following structure:
 
@@ -1047,13 +1059,15 @@ def dsfr_summary(items: list) -> dict:
     ]
     ```
 
+    Also takes an optional "heading_tag" parameter, which can be "p" (default) or h2>h6.
+
     **Tag name**:
         dsfr_summary
 
     **Usage**:
-        `{% dsfr_summary items %}`
+        `{% dsfr_summary items heading_tag %}`
     """
-    return {"self": {"items": items}}
+    return {"self": {"items": items, "heading_tag": heading_tag}}
 
 
 @register.inclusion_tag("dsfr/table.html")

@@ -33,7 +33,7 @@ def list_pages(page_obj: Page) -> Page:
         if difference == 2:
             list_with_separators.append(unique_pages_items[i - 1] + 1)
         elif difference > 1:
-            list_with_separators.append("…")
+            list_with_separators.append("…")  # type: ignore
         list_with_separators.append(unique_pages_items[i])
 
     page_obj.pages_list = list_with_separators

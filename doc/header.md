@@ -63,3 +63,27 @@ Il est possible de l’étendre pour le personnaliser, par exemple pour ajouter 
   </div>
 {% endblock header_search %}
 ```
+
+## Opengraph
+
+Un bloc `opengraph`, vide par défaut, est fourni pour permettre d’entrer des données de partage sur les réseaux sociaux.
+
+
+```{.django}
+<!-- <votre_app>/templates/<votre_app>/base.html -->
+{% extends "dsfr/base.html" %}
+
+<!-- [...] -->
+{% block opengraph }
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="[À MODIFIER - @usernameTwitter]">
+  <meta property="og:title" content="[À MODIFIER - Système de Design de l'État]">
+  <meta property="og:description" content="[À MODIFIER - Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques]">
+  <meta property="og:image" content="[À MODIFIER - https://systeme-de-design.gouv.fr/src/img/systeme-de-design.gouv.fr.jpg]">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="[À MODIFIER - https://systeme-de-design.gouv.fr/]">
+  <meta property="og:site_name" content="[À MODIFIER - Site officiel du Système de Design de l'État]">
+  <meta property="og:image:alt" content="[À MODIFIER - République Française - Système de Design de l'État]">
+  <meta name="twitter:image:alt" content="[À MODIFIER - République Française - Système de Design de l'État]">
+{% endblock opengraph }
+```

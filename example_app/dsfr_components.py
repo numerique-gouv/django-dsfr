@@ -547,7 +547,11 @@ IMPLEMENTED_COMPONENTS = {
             {
                 "content": "Contenu de la mise en exergue",
                 "size_class": "fr-text--sm",
-            }
+            },
+            {
+                "content": "Mise en exergue avec bordure colorée",
+                "extra_classes": "fr-highlight--green-emeraude",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-exergue",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/highlight/",
@@ -633,6 +637,7 @@ IMPLEMENTED_COMPONENTS = {
                     },
                 ],
                 "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "extra_classes": "fr-quote--green-emeraude",
             },
             {
                 "text": "Citation très basique, sans aucun des champs optionnels.",
@@ -1010,11 +1015,6 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
         cf. [#129](https://github.com/numerique-gouv/django-dsfr/issues/129)
         """,
     },
-    "share": {
-        "title": "Partage",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/partage",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/share/",
-    },
     "download": {
         "title": "Téléchargement de fichier",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/telechargement-de-fichier",
@@ -1031,28 +1031,22 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
 # (either because the DSFR is implemented globally or because they are
 # broken down into more specific tags)
 WONT_BE_IMPLEMENTED = {
-    "file_upload": {
-        "title": "Ajout de fichier",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/upload/",
-        "reason": "Champ de formulaire.",
-    },
-    "search_bar": {
-        "title": "Barre de recherche",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/search/",
-        "reason": "Champ de formulaire.",
-    },
-    "radio": {
-        "title": "Bouton radio",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
-        "reason": "Champ de formulaire.",
+    "back_to_top": {
+        "title": "Retour en haut de page",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/retour-en-haut-de-page",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/link/back-to-top/",
+        "reason": "Utilisez une balise Lien (`dsfr_link`)",
     },
     "checkbox": {
         "title": "Case à cocher",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/checkbox/",
+        "reason": "Champ de formulaire.",
+    },
+    "file_upload": {
+        "title": "Ajout de fichier",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/upload/",
         "reason": "Champ de formulaire.",
     },
     "modal": {
@@ -1061,29 +1055,41 @@ WONT_BE_IMPLEMENTED = {
         "example_url": "https://main--ds-gouv.netlify.app/example/component/modal/",
         "reason": "Une balise rendrait l’utilisation plus complexe au lieu de la simplifier.",
     },
-    "password": {
-        "title": "Mot de passe",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mot-de-passe",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/password/",
-        "reason": "Dépendant de l’implémentation des comptes utilisateurs dans le projet Django",
-    },
     "navigation": {
         "title": "Navigation principale",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/navigation/",
         "reason": "Partie de l’en-tête, voir la documentation de ce composant.",
     },
+    "password": {
+        "title": "Mot de passe",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mot-de-passe",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/password/",
+        "reason": "Dépendant de l’implémentation des comptes utilisateurs dans le projet Django",
+    },
+    "radio": {
+        "title": "Bouton radio",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
+        "reason": "Champ de formulaire.",
+    },
+    "search_bar": {
+        "title": "Barre de recherche",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/search/",
+        "reason": "Champ de formulaire.",
+    },
+    "share": {
+        "title": "Partage",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/partage",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/share/",
+        "reason": "Une balise rendrait l’utilisation plus complexe au lieu de la simplifier.",
+    },
     "tab": {
         "title": "Onglet",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/onglet",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/tab/",
         "reason": "Une balise rendrait l’utilisation plus complexe au lieu de la simplifier.",
-    },
-    "back_to_top": {
-        "title": "Retour en haut de page",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/retour-en-haut-de-page",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/link/back-to-top/",
-        "reason": "Utilisez une balise Lien (`dsfr_link`)",
     },
     "translate": {
         "title": "Sélecteur de langue",
