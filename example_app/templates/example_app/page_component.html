@@ -140,6 +140,8 @@ p code, li code {
             {% dsfr_toggle sample_data_item %}
           {% elif tag_name == "tooltip" %}
             {% dsfr_tooltip sample_data_item %}
+          {% elif tag_name == "transcription" %}
+            {% dsfr_transcription sample_data_item %}
           {% endif %}
         {% endfor %}
       {% else %}

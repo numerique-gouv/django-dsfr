@@ -884,7 +884,7 @@ class DsfrSummaryTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <nav role="navigation" class="fr-summary" aria-labelledby="fr-summary-title">
-                <div class="fr-summary__title" id="fr-summary-title">Sommaire</div>
+                <p class="fr-summary__title" id="fr-summary-title">Sommaire</p>
                 <ol class="fr-summary__list">
 
                     <li>
@@ -1048,6 +1048,74 @@ class DsfrTooltipTagTest(SimpleTestCase):
                 role="tooltip"
                 aria-hidden="true">Contenu d’une infobule activée au survol</span>
             """,
+            rendered_template,
+        )
+
+
+class DsfrTranscriptionTagTest(SimpleTestCase):
+    test_data = {
+        "content": "<div><p>Courte transcription basique</p></div>",
+        "id": "transcription-test",
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template(
+        "{% load dsfr_tags %} {% dsfr_transcription test_data %}"
+    )
+
+    def test_summary_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-transcription">
+                <button class="fr-transcription__btn"
+                        aria-expanded="false"
+                        aria-controls="fr-transcription__collapse-transcription-test">
+                    Transcription
+                </button>
+                <div class="fr-collapse" id="fr-transcription__collapse-transcription-test">
+                    <div class="fr-transcription__footer">
+                        <div class="fr-transcription__actions-group">
+
+                            <button class="fr-btn fr-btn--fullscreen"
+                                    aria-controls="fr-transcription-modal-transcription-test"
+                                    data-fr-opened="false"
+                                    title="Agrandir">
+                                Agrandir
+                            </button>
+                        </div>
+                    </div>
+                    <dialog id="fr-transcription-modal-transcription-test"
+                            class="fr-modal"
+                            role="dialog"
+                            aria-labelledby="fr-transcription-modal-transcription-test-title">
+                        <div class="fr-container fr-container--fluid fr-container-md">
+                            <div class="fr-grid-row fr-grid-row--center">
+                                <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
+                                    <div class="fr-modal__body">
+                                        <div class="fr-modal__header">
+
+                                            <button class="fr-btn--close fr-btn"
+                                                    aria-controls="fr-transcription-modal-transcription-test"
+                                                    title="Fermer">
+                                                Fermer
+                                            </button>
+                                        </div>
+                                        <div class="fr-modal__content">
+                                            <h1 id="fr-transcription-modal-transcription-test-title"
+                                                class="fr-modal__title">
+                                                Transcription
+                                            </h1>
+                                            <div><p>Courte transcription basique</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </dialog>
+                </div>
+            </div>
+            """,  # noqa
             rendered_template,
         )
 

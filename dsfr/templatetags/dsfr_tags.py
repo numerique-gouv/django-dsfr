@@ -561,7 +561,7 @@ def dsfr_content(*args, **kwargs) -> dict:
         "alt_text": "(optional) Alternative text of the media"
         "extra_classes": "(Optional) string with names of extra classes for the whole component",
         "ratio_class": "(Optional) string with the name of a ratio class",
-        "transcription_id": "(Optional) id for the transcription accordion",
+        "transcription": "(Optional) A transcription item dictionary, see [component documentation](/django-dsfr/components/transcription/)",
     }
     ```
 
@@ -616,13 +616,10 @@ def dsfr_content(*args, **kwargs) -> dict:
         "alt_text",
         "extra_classes",
         "ratio_class",
-        "transcription_id",
+        "transcription",
     ]
 
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
-
-    if "transcription_id" not in tag_data:
-        tag_data["transcription_id"] = generate_random_id("transcription")
 
     return {"self": tag_data}
 
@@ -1307,6 +1304,41 @@ def dsfr_tooltip(*args, **kwargs) -> dict:
 
     if "id" not in tag_data:
         tag_data["id"] = generate_random_id("tooltip")
+
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/transcription.html")
+def dsfr_transcription(*args, **kwargs) -> dict:
+    """
+    Returns a transcription item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "content": "Content of the transcription. Can contain HTML",
+        "title": "(optional) A title that appear in the modal. Defaults to 'Transcription'",
+        "id": "(optional) Id of the item",
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**:
+        dsfr_transcription
+
+    **Usage**:
+        `{% dsfr_transcription data_dict %}`
+    """
+
+    allowed_keys = [
+        "content",
+        "title",
+        "id",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id("transcription")
 
     return {"self": tag_data}
 
