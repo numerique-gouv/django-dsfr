@@ -26,9 +26,8 @@ class DsfrConfig(models.Model):
     site_tagline = models.CharField(
         "Sous-titre du site", max_length=200, default="Sous-titre du site", blank=True
     )
-    notice = models.CharField(
+    notice = models.TextField(
         "Bandeau d’information importante",
-        max_length=200,
         default="",
         blank=True,
     )
@@ -59,6 +58,16 @@ class DsfrConfig(models.Model):
         blank=True,
     )
     footer_description = models.TextField("Description", default="", blank=True)
+
+    newsletter_description = models.TextField(
+        "Description de la newsletter", default="", blank=True
+    )
+
+    newsletter_url = models.URLField(
+        "URL d’inscription à la newsletter",
+        default="",
+        blank=True,
+    )
 
     # Operator logo
     operator_logo_file = models.FileField(
@@ -104,3 +113,27 @@ class DsfrConfig(models.Model):
         if not self.pk and DsfrConfig.objects.exists():
             raise ValidationError("There can be only one DsfrBaseSettings instance")
         return super(DsfrConfig, self).save(*args, **kwargs)
+
+    def social_media(self):
+        return self.dsfrsocialmedia_set.all()
+
+
+class DsfrSocialMedia(models.Model):
+    site_config = models.ForeignKey(DsfrConfig, on_delete=models.CASCADE, null=True)
+    title = models.CharField(_("Title"), max_length=200, default="", blank=True)
+
+    url = models.URLField(
+        _("URL"),
+        default="",
+        blank=True,
+    )
+    icon_class = models.CharField(
+        _("Icon class"), max_length=200, default="", blank=True
+    )
+
+    def __str__(self):
+        return str(self.title)
+
+    class Meta:
+        verbose_name = _("Social media")
+        verbose_name_plural = _("Social medias")

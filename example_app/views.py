@@ -143,12 +143,14 @@ def components_index(request):
 
 
 @require_safe
-def page_component(request, tag_name):
-    # First two ifs are required for django-distill
+def page_component(request, tag_name):  # NOSONAR
+    # First three ifs are required for django-distill
     if tag_name == "footer":
         return page_component_footer(request)
     elif tag_name == "header":
         return page_component_header(request)
+    elif tag_name == "follow":
+        return page_component_follow(request)
     elif tag_name in ALL_IMPLEMENTED_COMPONENTS:
         current_tag = ALL_IMPLEMENTED_COMPONENTS[tag_name]
         payload = init_payload(
@@ -233,6 +235,19 @@ def page_component_footer(request):
     # payload["summary_data"] = md["summary"]
 
     return render(request, "example_app/doc_markdown.html", payload)
+
+
+@require_safe
+def page_component_follow(request):
+    payload = init_payload(
+        page_title="Lettre d’information et Réseaux Sociaux",
+        links=[{"url": reverse("components_index"), "title": "Composants"}],
+    )
+    md = format_markdown_from_file("doc/follow.md")
+    payload["documentation"] = md["text"]
+    # payload["summary_data"] = md["summary"]
+
+    return render(request, "example_app/doc_follow.html", payload)
 
 
 def page_form(request):
@@ -359,7 +374,7 @@ class AuthorCreateView(CreateView):
             return self.form_valid(form, formset)
         return self.form_invalid(form, formset)
 
-    def form_valid(self, form, formset):
+    def form_valid(self, form, formset):  # type: ignore
         """
         Called if all forms are valid. Creates a Author instance along
         with associated books and then redirects to a success page.
@@ -373,7 +388,7 @@ class AuthorCreateView(CreateView):
 
         return HttpResponse(b"Success !")
 
-    def form_invalid(self, form, formset):
+    def form_invalid(self, form, formset):  # type: ignore
         """
         Called if whether a form is invalid. Re-renders the context
         data with the data-filled forms and errors.

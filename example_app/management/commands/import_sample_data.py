@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from dsfr.models import DsfrConfig
+from dsfr.models import DsfrConfig, DsfrSocialMedia
 from example_app.models import Genre
 
 
@@ -10,7 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # Note: the command should be able to be run several times without creating
         # duplicate objects.
-        DsfrConfig.objects.get_or_create(
+        config, _created = DsfrConfig.objects.get_or_create(
             id=1,
             defaults={
                 "header_brand": "République française",
@@ -22,7 +22,17 @@ class Command(BaseCommand):
                 "footer_description": '<a href="https://github.com/numerique-gouv/django-dsfr" \r\ntarget="_blank" rel="noreferrer noopener">Dépôt Github</a>',
                 "mourning": False,
                 "accessibility_status": "NOT",
+                "newsletter_description": """Nous n’avons pas de lettre d’information mais vous pouvez trouver
+                les dernières publications sur cette page.""",
+                "newsletter_url": "https://github.com/numerique-gouv/django-dsfr/releases",
             },
+        )
+
+        DsfrSocialMedia.objects.get_or_create(
+            site_config=config,
+            title="Mastodon",
+            url="https://social.numerique.gouv.fr/explore",
+            icon_class="fr-btn--mastodon",
         )
 
         Genre.objects.get_or_create(code="SF", designation="Science-Fiction")

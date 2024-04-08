@@ -515,6 +515,11 @@ IMPLEMENTED_COMPONENTS = {
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/icones-de-favoris",
         "example_url": "https://main--ds-gouv.netlify.app/example/core/favicon/",
     },
+    "follow": {
+        "title": "Lettre d’information et réseaux sociaux",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lettre-d-information-et-reseaux-sociaux",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/follow/",
+    },
     "footer": {
         "title": "Pied de page",
     },
@@ -986,11 +991,6 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
         "note": """À implémenter au sein des formulaires et non comme une balise.
         cf. [#129](https://github.com/numerique-gouv/django-dsfr/issues/129)
         """,
-    },
-    "newsletter_follow": {
-        "title": "Lettre d’information et réseaux sociaux (newsletter & follow)",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lettre-d-information-et-reseaux-sociaux",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/follow/",
     },
     "share": {
         "title": "Partage",
