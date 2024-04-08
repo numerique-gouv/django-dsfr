@@ -572,11 +572,21 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Lien",
         "sample_data": [
             {
+                "url": "/django-dsfr/components/link/",
+                "label": "Lien interne",
+            },
+            {
                 "url": "https://www.systeme-de-design.gouv.fr/",
-                "label": "Texte du lien",
+                "label": "Lien externe, large",
                 "is_external": True,
                 "extra_classes": "fr-link--lg",
-            }
+            },
+            {
+                "url": "/django-dsfr/components/link/",
+                "label": "Petit lien interne avec flèche",
+                "is_external": False,
+                "extra_classes": "fr-icon-arrow-right-line fr-link--icon-right fr-link--sm",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/link/",

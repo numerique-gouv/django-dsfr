@@ -12,33 +12,33 @@ Le bandeau de Lettre d’information et Réseaux Sociaux est géré grâce à un
 ```
 
 Il est alors possible de personnaliser la description de la lettre d’information, l’URL d’inscription ainsi que les réseaux sociaux via la configuration du site dans l’administration de Django.
-
-- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pied-de-page" target="_blank" rel="noopener noreferrer">
+`
+- `<a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pied-de-page" target="_blank" rel="noopener noreferrer">
         Voir la page de documentation du composant sur le Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
-  </a>
-- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://main--ds-gouv.netlify.app/example/component/footer/" target="_blank" rel="noopener noreferrer">
+  </a>`
+- `<a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://main--ds-gouv.netlify.app/example/component/footer/" target="_blank" rel="noopener noreferrer">
         Voir la page d’exemple du Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
 
 ## Classes pour les boutons des réseaux sociaux
 
-- fr-btn--dailymotion
-- fr-btn--facebook
-- fr-btn--github
-- fr-btn--instagram
-- fr-btn--linkedin
-- fr-btn--mastodon
-- fr-btn--snapchat
-- fr-btn--telegram
-- fr-btn--threads
-- fr-btn--tiktok
-- fr-btn--twitch
-- fr-btn--twitter
-- fr-btn--twitter-x
-- fr-btn--vimeo
-- fr-btn--youtube
+- `fr-btn--dailymotion`
+- `fr-btn--facebook`
+- `fr-btn--github`
+- `fr-btn--instagram`
+- `fr-btn--linkedin`
+- `fr-btn--mastodon`
+- `fr-btn--snapchat`
+- `fr-btn--telegram`
+- `fr-btn--threads`
+- `fr-btn--tiktok`
+- `fr-btn--twitch`
+- `fr-btn--twitter`
+- `fr-btn--twitter-x`
+- `fr-btn--vimeo`
+- `fr-btn--youtube`
 
 ## Personnaliser
 Il est possible de le remplacer par votre propre bloc pour étendre ses capacités (par exemple pour n’afficher qu’un des deux blocs ou pour inclure le champ d’adhésion directement dans le bandeau.)
@@ -54,7 +54,7 @@ Il est possible de le remplacer par votre propre bloc pour étendre ses capacit�
 
 ```
 
-```
+```{.django}
 <!-- <votre_app>/templates/<votre_app>/blocks/follow.html -->
 {% extends "dsfr/follow.html" %}
 {% block follow_newsletter %}
