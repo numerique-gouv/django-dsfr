@@ -52,6 +52,9 @@
     
     <meta name="format-detection"
           content="telephone=no,date=no,address=no,email=no,url=no">
+
+    
+    
   </head>
   <body>
     
@@ -917,6 +920,26 @@
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">header_search</span> <span class="cp">%}</span>
 </code></pre></div>
 
+<h2 id="opengraph">Opengraph</h2>
+<p>Un bloc <code>opengraph</code>, vide par défaut, est fourni pour permettre d’entrer des données de partage sur les réseaux sociaux.</p>
+<div class="dsfr-code"><pre><span></span><code><span class="x">&lt;!-- &lt;votre_app&gt;/templates/&lt;votre_app&gt;/base.html --&gt;</span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;dsfr/base.html&quot;</span> <span class="cp">%}</span>
+
+<span class="x">&lt;!-- [...] --&gt;</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">opengraph</span> <span class="o">}</span>
+  <span class="o">&lt;</span><span class="nv">meta</span> <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;twitter:card&quot;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&quot;summary_large_image&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">meta</span> <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;twitter:site&quot;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&quot;[À MODIFIER - @usernameTwitter]&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">meta</span> <span class="nv">property</span><span class="o">=</span><span class="s2">&quot;og:title&quot;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&quot;[À MODIFIER - Système de Design de l&#39;État]&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">meta</span> <span class="nv">property</span><span class="o">=</span><span class="s2">&quot;og:description&quot;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&quot;[À MODIFIER - Développer vos sites et applications en utilisant des composants prêts à l&#39;emploi, accessibles et ergonomiques]&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">meta</span> <span class="nv">property</span><span class="o">=</span><span class="s2">&quot;og:image&quot;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&quot;[À MODIFIER - https://systeme-de-design.gouv.fr/src/img/systeme-de-design.gouv.fr.jpg]&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">meta</span> <span class="nv">property</span><span class="o">=</span><span class="s2">&quot;og:type&quot;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&quot;website&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">meta</span> <span class="nv">property</span><span class="o">=</span><span class="s2">&quot;og:url&quot;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&quot;[À MODIFIER - https://systeme-de-design.gouv.fr/]&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">meta</span> <span class="nv">property</span><span class="o">=</span><span class="s2">&quot;og:site_name&quot;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&quot;[À MODIFIER - Site officiel du Système de Design de l&#39;État]&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">meta</span> <span class="nv">property</span><span class="o">=</span><span class="s2">&quot;og:image:alt&quot;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&quot;[À MODIFIER - République Française - Système de Design de l&#39;État]&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nv">meta</span> <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;twitter:image:alt&quot;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&quot;[À MODIFIER - République Française - Système de Design de l&#39;État]&quot;</span><span class="o">&gt;</span>
+<span class="o">{%</span> <span class="nv">endblock</span> <span class="nv">opengraph</span> <span class="o">}</span>
+</code></pre></div>
+
       </main>
     </div>
 
@@ -1053,11 +1076,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="Aw8xDCgXU9DyAe8uXbNGdg=="></script>
+         nonce="d0Jr5/gQ72eoWkqgtQuMPA=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="Aw8xDCgXU9DyAe8uXbNGdg=="></script>
+         nonce="d0Jr5/gQ72eoWkqgtQuMPA=="></script>
 
 
     

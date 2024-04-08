@@ -67,6 +67,9 @@ p code, li code {
     
     <meta name="format-detection"
           content="telephone=no,date=no,address=no,email=no,url=no">
+
+    
+    
   </head>
   <body>
     
@@ -1364,11 +1367,16 @@ p code, li code {
     <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) The name of the source of the quote&quot;</span><span class="p">,</span>
     <span class="s2">&quot;details&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) A list containing detail dicts&quot;</span><span class="p">,</span>
     <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) URL of an illustrative image&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extra_classes&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) string with names of extra classes&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <p>The <code>details</code> dict entries have a mandatory <code>text</code> key and an optional <code>link</code> key.</p>
 <p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
+<p>Relevant <code>extra_classes</code>:</p>
+<ul>
+<li>Color classes (<a href="/django-dsfr/resources/colors">See the list</a>), for example <code>fr-quote--green-emeraude</code></li>
+</ul>
 <p><strong>Tag name</strong>:
     dsfr_quote</p>
 <p><strong>Usage</strong>:
@@ -1391,15 +1399,16 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-dgnwtfdiamykugke">
+          aria-controls="accordion-sihowjyxygayorou">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-dgnwtfdiamykugke">
+  <div class="fr-collapse" id="accordion-sihowjyxygayorou">
     <pre class="dsfr-code">{'author': 'Auteur',
  'details': [{'text': 'Détail sans lien'},
              {'link': 'https://template.incubateur.net/',
               'text': 'Détail avec lien'}],
+ 'extra_classes': 'fr-quote--green-emeraude',
  'image_url': '/django-dsfr/static/img/placeholder.1x1.svg',
  'source': "Système de Design de l'État",
  'source_url': 'https://www.systeme-de-design.gouv.fr/',
@@ -1418,7 +1427,7 @@ p code, li code {
           
             
 
-<figure class="fr-quote fr-quote--column">
+<figure class="fr-quote fr-quote--column fr-quote--green-emeraude">
   <blockquote cite="https://www.systeme-de-design.gouv.fr/">
     <p>
       Développer vos sites et applications en utilisant des composants prêts à l’emploi, accessibles et ergonomiques
@@ -1473,11 +1482,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-uqpeamfedswdjxpg">
+          aria-controls="accordion-hsmyhxgjketqavuz">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-uqpeamfedswdjxpg">
+  <div class="fr-collapse" id="accordion-hsmyhxgjketqavuz">
     <pre class="dsfr-code">{'text': 'Citation très basique, sans aucun des champs optionnels.'}</pre>
   </div>
 </section>
@@ -1648,11 +1657,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="p5Ys8otI/ANEsa5NorjHKQ=="></script>
+         nonce="nxvSCzyHeY46PxlXpOpjrw=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="p5Ys8otI/ANEsa5NorjHKQ=="></script>
+         nonce="nxvSCzyHeY46PxlXpOpjrw=="></script>
 
 
     
