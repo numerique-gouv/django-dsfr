@@ -784,10 +784,40 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Tableau",
         "sample_data": [
             {
-                "caption": "Titre du tableau",
+                "caption": "Tableau basique",
                 "header": ["Colonne 1", "Colonne 2", "Colonne 3"],
                 "content": [["a", "b", "c"], ["d", "e", "f"]],
-            }
+            },
+            {
+                "caption": "Tableau vert",
+                "header": [
+                    "Colonne 1",
+                    "Colonne 2",
+                    "Colonne 3",
+                    "Colonne 4",
+                    "Colonne 5",
+                    "Colonne 6",
+                ],
+                "content": [
+                    [
+                        "Lorem ipsum dolor sit amet",
+                        "consectetur adipiscing elit",
+                        "sed do eiusmod tempor incididunt ut",
+                        "labore et dolore magna aliqua",
+                        "At quis risus sed vulputate odio ut enim",
+                        100.0,
+                    ],
+                    [
+                        "At risus viverra",
+                        "adipiscing at in tellus",
+                        "integer feugiat",
+                        "Aliquam purus sit amet luctus venenatis lectus",
+                        "Pellentesque id nibh tortor id aliquet lectus proin",
+                        2,
+                    ],
+                ],
+                "extra_classes": "fr-table--green-emeraude fr-table--bordered",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tableau",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/table/",

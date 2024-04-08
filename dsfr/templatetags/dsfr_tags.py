@@ -1086,6 +1086,16 @@ def dsfr_table(*args, **kwargs) -> dict:
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
+
+    Relevant `extra_classes`:
+
+    - Color classes ([See the list](/django-dsfr/resources/colors)), for example `fr-table--green-emeraude`
+    - `fr-table--bordered`: adds a border under each line
+    - `fr-table--no-scroll` prevents horizontal scrolling on mobile
+    - `fr-table--layout-fixed`: forces the table at 100% and equal size columns
+    - `fr-table--no-caption`: hides the caption
+    - `fr-table--caption-bottom`: sets the caption after the table instead of before
+
     **Tag name**:
         dsfr_table
 
