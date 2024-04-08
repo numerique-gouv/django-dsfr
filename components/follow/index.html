@@ -867,34 +867,31 @@
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">follow_newsletter_social_media</span> <span class="cp">%}</span>
 </code></pre></div>
 
-<p>Il est alors possible de personnaliser la description de la lettre d’information, l’URL d’inscription ainsi que les réseaux sociaux via la configuration du site dans l’administration de Django.</p>
-<ul>
-<li><a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pied-de-page" target="_blank" rel="noopener noreferrer">
+<p>Il est alors possible de personnaliser la description de la lettre d’information, l’URL d’inscription ainsi que les réseaux sociaux via la configuration du site dans l’administration de Django.
+<code>-</code><a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pied-de-page" target="_blank" rel="noopener noreferrer">
         Voir la page de documentation du composant sur le Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
-  </a></li>
-<li><a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://main--ds-gouv.netlify.app/example/component/footer/" target="_blank" rel="noopener noreferrer">
+  </a><code>-</code><a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://main--ds-gouv.netlify.app/example/component/footer/" target="_blank" rel="noopener noreferrer">
         Voir la page d’exemple du Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
-  </a></li>
-</ul>
+  </a></p>
 <h2 id="classes-pour-les-boutons-des-reseaux-sociaux">Classes pour les boutons des réseaux sociaux</h2>
 <ul>
-<li>fr-btn--dailymotion</li>
-<li>fr-btn--facebook</li>
-<li>fr-btn--github</li>
-<li>fr-btn--instagram</li>
-<li>fr-btn--linkedin</li>
-<li>fr-btn--mastodon</li>
-<li>fr-btn--snapchat</li>
-<li>fr-btn--telegram</li>
-<li>fr-btn--threads</li>
-<li>fr-btn--tiktok</li>
-<li>fr-btn--twitch</li>
-<li>fr-btn--twitter</li>
-<li>fr-btn--twitter-x</li>
-<li>fr-btn--vimeo</li>
-<li>fr-btn--youtube</li>
+<li><code>fr-btn--dailymotion</code></li>
+<li><code>fr-btn--facebook</code></li>
+<li><code>fr-btn--github</code></li>
+<li><code>fr-btn--instagram</code></li>
+<li><code>fr-btn--linkedin</code></li>
+<li><code>fr-btn--mastodon</code></li>
+<li><code>fr-btn--snapchat</code></li>
+<li><code>fr-btn--telegram</code></li>
+<li><code>fr-btn--threads</code></li>
+<li><code>fr-btn--tiktok</code></li>
+<li><code>fr-btn--twitch</code></li>
+<li><code>fr-btn--twitter</code></li>
+<li><code>fr-btn--twitter-x</code></li>
+<li><code>fr-btn--vimeo</code></li>
+<li><code>fr-btn--youtube</code></li>
 </ul>
 <h2 id="personnaliser">Personnaliser</h2>
 <p>Il est possible de le remplacer par votre propre bloc pour étendre ses capacités (par exemple pour n’afficher qu’un des deux blocs ou pour inclure le champ d’adhésion directement dans le bandeau.)</p>
@@ -907,39 +904,39 @@
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">follow_newsletter_social_media</span> <span class="cp">%}</span>
 </code></pre></div>
 
-<div class="dsfr-code"><pre><span></span><code><span class="o">&lt;!--</span><span class="w"> </span><span class="o">&lt;</span><span class="n">votre_app</span><span class="o">&gt;/</span><span class="n">templates</span><span class="o">/&lt;</span><span class="n">votre_app</span><span class="o">&gt;/</span><span class="n">blocks</span><span class="o">/</span><span class="n">follow</span><span class="p">.</span><span class="n">html</span><span class="w"> </span><span class="o">--&gt;</span>
-<span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="s">&quot;dsfr/follow.html&quot;</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
-<span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">follow_newsletter</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="s">&quot;fr-col-12&quot;</span><span class="o">&gt;</span>
-<span class="w">      </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="s">&quot;fr-follow__newsletter&quot;</span><span class="o">&gt;</span>
-<span class="w">          </span><span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="w">              </span><span class="o">&lt;</span><span class="n">h2</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="s">&quot;fr-h5&quot;</span><span class="o">&gt;</span><span class="n">Abonnez</span><span class="o">-</span><span class="n">vous</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">notre</span><span class="w"> </span><span class="n">lettre</span><span class="w"> </span><span class="n">d</span><span class="err">’</span><span class="n">information</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
-<span class="w">              </span><span class="o">&lt;</span><span class="n">p</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="s">&quot;fr-text--sm&quot;</span><span class="o">&gt;</span><span class="n">Lorem</span><span class="w"> </span><span class="n">ipsum</span><span class="w"> </span><span class="n">dolor</span><span class="w"> </span><span class="n">sit</span><span class="w"> </span><span class="n">amet</span><span class="p">,</span><span class="w"> </span><span class="n">consectetur</span><span class="w"> </span><span class="n">adipiscing</span><span class="w"> </span><span class="n">elit</span><span class="p">.</span><span class="w"> </span><span class="n">Maecenas</span><span class="w"> </span><span class="n">varius</span><span class="w"> </span><span class="n">tortor</span><span class="w"> </span><span class="n">nibh</span><span class="p">,</span><span class="w"> </span><span class="n">sit</span><span class="w"> </span><span class="n">amet</span><span class="w"> </span><span class="n">tempor</span><span class="w"> </span><span class="n">nibh</span><span class="w"> </span><span class="n">finibus</span><span class="w"> </span><span class="n">et</span><span class="p">.</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-<span class="w">          </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="w">          </span><span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="w">              </span><span class="o">&lt;</span><span class="n">form</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">&gt;</span>
-<span class="w">                  </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="s">&quot;fr-input-group&quot;</span><span class="o">&gt;</span>
-<span class="w">                      </span><span class="o">&lt;</span><span class="n">label</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="s">&quot;fr-label&quot;</span><span class="w"> </span><span class="k">for</span><span class="o">=</span><span class="s">&quot;newsletter-email&quot;</span><span class="o">&gt;</span>
-<span class="w">                          </span><span class="n">Votre</span><span class="w"> </span><span class="n">adresse</span><span class="w"> </span><span class="n">électronique</span><span class="w"> </span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">nom</span><span class="p">@</span><span class="n">domaine</span><span class="p">.</span><span class="n">fr</span><span class="p">)</span>
-<span class="w">                      </span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
-<span class="w">                      </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="s">&quot;fr-input-wrap fr-input-wrap--addon&quot;</span><span class="o">&gt;</span>
-<span class="w">                          </span><span class="o">&lt;</span><span class="n">input</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="s">&quot;fr-input&quot;</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Votre adresse électronique (ex. : nom@domaine.fr)&quot;</span><span class="w"> </span><span class="n">autocomplete</span><span class="o">=</span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="n">attributes</span><span class="o">=</span><span class="s">&quot;[object Object]&quot;</span><span class="w"> </span><span class="n">aria</span><span class="o">-</span><span class="n">describedby</span><span class="o">=</span><span class="s">&quot;newsletter-email-hint-text newsletter-email-messages&quot;</span><span class="w"> </span><span class="n">placeholder</span><span class="o">=</span><span class="s">&quot;Votre adresse électronique (ex. : nom@domaine.fr)&quot;</span><span class="w"> </span><span class="kt">id</span><span class="o">=</span><span class="s">&quot;newsletter-email&quot;</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span><span class="o">&gt;</span>
-<span class="w">                          </span><span class="o">&lt;</span><span class="n">button</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="s">&quot;fr-btn&quot;</span><span class="w"> </span><span class="kt">id</span><span class="o">=</span><span class="s">&quot;newsletter-button&quot;</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s">&quot;S’abonner à notre lettre d’information&quot;</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="o">&gt;</span>
-<span class="w">                              </span><span class="n">S</span><span class="err">’</span><span class="n">abonner</span>
-<span class="w">                          </span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
-<span class="w">                      </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="w">                      </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="s">&quot;fr-messages-group&quot;</span><span class="w"> </span><span class="kt">id</span><span class="o">=</span><span class="s">&quot;newsletter-email-messages&quot;</span><span class="w"> </span><span class="n">aria</span><span class="o">-</span><span class="n">live</span><span class="o">=</span><span class="s">&quot;assertive&quot;</span><span class="o">&gt;</span>
-<span class="w">                      </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="w">                  </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="w">                  </span><span class="o">&lt;</span><span class="n">p</span><span class="w"> </span><span class="kt">id</span><span class="o">=</span><span class="s">&quot;newsletter-email-hint-text&quot;</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="s">&quot;fr-hint-text&quot;</span><span class="o">&gt;</span><span class="n">En</span><span class="w"> </span><span class="n">renseignant</span><span class="w"> </span><span class="n">votre</span><span class="w"> </span><span class="n">adresse</span><span class="w"> </span><span class="n">électronique</span><span class="p">,</span><span class="w"> </span><span class="n">vous</span><span class="w"> </span><span class="n">acceptez</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">recevoir</span><span class="w"> </span><span class="n">nos</span><span class="w"> </span><span class="n">actualités</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">courriel</span><span class="p">.</span><span class="w"> </span><span class="n">Vous</span><span class="w"> </span><span class="n">pouvez</span><span class="w"> </span><span class="n">vous</span><span class="w"> </span><span class="n">désinscrire</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">tout</span><span class="w"> </span><span class="n">moment</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">l</span><span class="err">’</span><span class="n">aide</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">liens</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">désinscription</span><span class="w"> </span><span class="n">ou</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">nous</span><span class="w"> </span><span class="n">contactant</span><span class="p">.</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-<span class="w">              </span><span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
-<span class="w">          </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="w">      </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="n">endblock</span><span class="w"> </span><span class="n">follow_newsletter</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+<div class="dsfr-code"><pre><span></span><code><span class="x">&lt;!-- &lt;votre_app&gt;/templates/&lt;votre_app&gt;/blocks/follow.html --&gt;</span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;dsfr/follow.html&quot;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">follow_newsletter</span> <span class="cp">%}</span>
+<span class="x">  &lt;div class=&quot;fr-col-12&quot;&gt;</span>
+<span class="x">      &lt;div class=&quot;fr-follow__newsletter&quot;&gt;</span>
+<span class="x">          &lt;div&gt;</span>
+<span class="x">              &lt;h2 class=&quot;fr-h5&quot;&gt;Abonnez-vous à notre lettre d’information&lt;/h2&gt;</span>
+<span class="x">              &lt;p class=&quot;fr-text--sm&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.&lt;/p&gt;</span>
+<span class="x">          &lt;/div&gt;</span>
+<span class="x">          &lt;div&gt;</span>
+<span class="x">              &lt;form action=&quot;&quot;&gt;</span>
+<span class="x">                  &lt;div class=&quot;fr-input-group&quot;&gt;</span>
+<span class="x">                      &lt;label class=&quot;fr-label&quot; for=&quot;newsletter-email&quot;&gt;</span>
+<span class="x">                          Votre adresse électronique (ex. : nom@domaine.fr)</span>
+<span class="x">                      &lt;/label&gt;</span>
+<span class="x">                      &lt;div class=&quot;fr-input-wrap fr-input-wrap--addon&quot;&gt;</span>
+<span class="x">                          &lt;input class=&quot;fr-input&quot; title=&quot;Votre adresse électronique (ex. : nom@domaine.fr)&quot; autocomplete=&quot;email&quot; attributes=&quot;[object Object]&quot; aria-describedby=&quot;newsletter-email-hint-text newsletter-email-messages&quot; placeholder=&quot;Votre adresse électronique (ex. : nom@domaine.fr)&quot; id=&quot;newsletter-email&quot; type=&quot;email&quot;&gt;</span>
+<span class="x">                          &lt;button class=&quot;fr-btn&quot; id=&quot;newsletter-button&quot; title=&quot;S’abonner à notre lettre d’information&quot; type=&quot;submit&quot;&gt;</span>
+<span class="x">                              S’abonner</span>
+<span class="x">                          &lt;/button&gt;</span>
+<span class="x">                      &lt;/div&gt;</span>
+<span class="x">                      &lt;div class=&quot;fr-messages-group&quot; id=&quot;newsletter-email-messages&quot; aria-live=&quot;assertive&quot;&gt;</span>
+<span class="x">                      &lt;/div&gt;</span>
+<span class="x">                  &lt;/div&gt;</span>
+<span class="x">                  &lt;p id=&quot;newsletter-email-hint-text&quot; class=&quot;fr-hint-text&quot;&gt;En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l’aide des liens de désinscription ou en nous contactant.&lt;/p&gt;</span>
+<span class="x">              &lt;/form&gt;</span>
+<span class="x">          &lt;/div&gt;</span>
+<span class="x">      &lt;/div&gt;</span>
+<span class="x">  &lt;/div&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">follow_newsletter</span> <span class="cp">%}</span>
 
-<span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">follow_social</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
-<span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="n">endblock</span><span class="w"> </span><span class="n">follow_social</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">follow_social</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">follow_social</span> <span class="cp">%}</span>
 </code></pre></div>
 
       </main>
@@ -1134,11 +1131,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="MP5tp9eoCf6J6l80Kt8Hhg=="></script>
+         nonce="GT8G+aOt+Tkyj9OhEyUWIA=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="MP5tp9eoCf6J6l80Kt8Hhg=="></script>
+         nonce="GT8G+aOt+Tkyj9OhEyUWIA=="></script>
 
 
     
