@@ -1362,6 +1362,7 @@ p code, li code {
     <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Title of the callout item&quot;</span><span class="p">,</span>
     <span class="s2">&quot;heading_tag&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Heading tag for the alert title (default: p)&quot;</span><span class="p">,</span>
     <span class="s2">&quot;icon_class&quot;</span><span class="p">:</span> <span class="s2">&quot; (Optional) Name of the icon class&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extra_classes&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) string with names of extra classes.&quot;</span>
     <span class="s2">&quot;button&quot;</span><span class="p">:</span> <span class="p">{</span>                                 <span class="c1"># Optional</span>
         <span class="s2">&quot;onclick&quot;</span><span class="p">:</span> <span class="s2">&quot;button action&quot;</span><span class="p">,</span>
         <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;button label&quot;</span>
@@ -1370,6 +1371,10 @@ p code, li code {
 </code></pre></div>
 
 <p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
+<p>Relevant <code>extra_classes</code>:</p>
+<ul>
+<li>Color classes (<a href="/django-dsfr/resources/colors">See the list</a>), for example <code>fr-callout--green-emeraude</code></li>
+</ul>
 <p><strong>Tag name</strong>:
     dsfr_callout</p>
 <p><strong>Usage</strong>:
@@ -1392,11 +1397,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-vtnnxieqmbvkhlno">
+          aria-controls="accordion-lqlpgwcvvuslkqmp">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-vtnnxieqmbvkhlno">
+  <div class="fr-collapse" id="accordion-lqlpgwcvvuslkqmp">
     <pre class="dsfr-code">{'button': {'extra_classes': 'fr-btn--secondary',
             'label': 'Bouton normal',
             'onclick': "alert('Ce bouton est bien un bouton')"},
@@ -1453,11 +1458,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-qrijrtxskqrcujov">
+          aria-controls="accordion-saignxlxytlvxegl">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-qrijrtxskqrcujov">
+  <div class="fr-collapse" id="accordion-saignxlxytlvxegl">
     <pre class="dsfr-code">{'button': {'extra_classes': 'fr-btn--secondary',
             'label': 'Bouton qui est un lien',
             'url': 'https://www.systeme-de-design.gouv.fr/'},
@@ -1489,6 +1494,54 @@ p code, li code {
     
       <a href="https://www.systeme-de-design.gouv.fr/" class="fr-btn">Bouton qui est un lien</a>
     
+  
+</div>
+
+          
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-pmgzrmjcdhydilxv">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-pmgzrmjcdhydilxv">
+    <pre class="dsfr-code">{'extra_classes': 'fr-callout--green-emeraude',
+ 'icon_class': 'fr-icon-palette-line',
+ 'text': 'Cette mise en avant a une classe de couleur',
+ 'title': 'Mise en avant en couleur'}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          
+            
+<div class="fr-callout fr-icon-palette-line fr-callout--green-emeraude">
+  
+    <p class="fr-callout__title">
+    Mise en avant en couleur
+    </p>
+  
+  <p class="fr-callout__text">
+    Cette mise en avant a une classe de couleur
+  </p>
   
 </div>
 
@@ -1635,11 +1688,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="ylJUFOgoTYpSHaliqdAKjw=="></script>
+         nonce="erHjE59sgaipfjo63c6CcQ=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="ylJUFOgoTYpSHaliqdAKjw=="></script>
+         nonce="erHjE59sgaipfjo63c6CcQ=="></script>
 
 
     
