@@ -8,9 +8,11 @@
       {% translate "Display settings" %}
     </button>
   </li>
-  <li>
-    {% include "example_app/blocks/language_selector.html" %}
-  </li>
+  {% if DEBUG %}
+    <li>
+      {% include "example_app/blocks/language_selector.html" %}
+    </li>
+  {% endif %}
 {% endblock header_tools %}
 {# Leave burger_menu and main_menu blocks empty if the main menu is not used #}
 {% block burger_menu %}
