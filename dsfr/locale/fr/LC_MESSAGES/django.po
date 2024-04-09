@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-09 11:10+0200\n"
-"PO-Revision-Date: 2024-04-09 11:13+0200\n"
+"POT-Creation-Date: 2024-04-09 15:48+0200\n"
+"PO-Revision-Date: 2024-04-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -125,8 +125,8 @@ msgid ""
 "To be adjusted according to the width of the logo.            Example for a "
 "vertical logo: 3.5, Example for a horizontal logo: 8."
 msgstr ""
-"À ajuster en fonction de la largeur du logo.  Exemple pour un logo "
-"vertical: 3.5, Exemple pour un logo horizontal: 8."
+"À ajuster en fonction de la largeur du logo.  Exemple pour un logo vertical: "
+"3.5, Exemple pour un logo horizontal: 8."
 
 #: dsfr/models.py:118
 msgid "Mourning"
@@ -139,6 +139,10 @@ msgstr "Statut de conformité de l’accessibilité"
 #: dsfr/models.py:128
 msgid "Configuration"
 msgstr "Configuration"
+
+#: dsfr/models.py:131
+msgid "Site config:"
+msgstr "Configuration du site :"
 
 #: dsfr/models.py:139
 msgid "Title"

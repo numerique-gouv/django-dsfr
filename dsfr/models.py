@@ -128,7 +128,7 @@ class DsfrConfig(models.Model):
         verbose_name = _("Configuration")
 
     def __str__(self):
-        return f"{_('Site config:')} {self.site_title} ({self.language})"
+        return _("Site config:") + f" {self.site_title} ({self.language})"
 
     def social_media(self):
         return self.dsfrsocialmedia_set.all()

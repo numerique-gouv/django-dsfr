@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-09 11:02+0200\n"
-"PO-Revision-Date: 2024-04-09 11:15+0200\n"
+"POT-Creation-Date: 2024-04-09 15:44+0200\n"
+"PO-Revision-Date: 2024-04-09 15:45+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -83,16 +83,16 @@ msgstr "Paramètres d’affichage"
 msgid "Back to home page"
 msgstr "Retour à l’accueil du site"
 
-#: example_app/templates/example_app/blocks/header.html:17
-#: example_app/templates/example_app/blocks/header.html:40
+#: example_app/templates/example_app/blocks/header.html:19
+#: example_app/templates/example_app/blocks/header.html:42
 msgid "Search"
 msgstr "Rechercher"
 
-#: example_app/templates/example_app/blocks/header.html:26
+#: example_app/templates/example_app/blocks/header.html:28
 msgid "Menu"
 msgstr "Menu"
 
-#: example_app/templates/example_app/blocks/header.html:43
+#: example_app/templates/example_app/blocks/header.html:45
 msgid "Close"
 msgstr "Fermer"
 
