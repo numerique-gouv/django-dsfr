@@ -1,8 +1,8 @@
 {% extends "dsfr/header.html" %}
 {% load i18n %}
+{% url 'index' as home_url %}
 
 {% block brand %}
-  {% url 'index' as home_url %}
   {% translate "Home page" as home_page %}
   <a href="{{ home_url }}"
      title="{{ home_page }} — {{ SITE_CONFIG.site_title }}">
@@ -11,6 +11,17 @@
     </p>
   </a>
 {% endblock brand %}
+
+{% block service_title %}
+  <a href="{{ home_url }}" title="Accueil — {{ SITE_CONFIG.site_title }}">
+    <p class="fr-header__service-title">
+      {{ SITE_CONFIG.site_title }}
+      {% if SITE_CONFIG.beta_tag %}
+        <span class="fr-badge fr-badge--sm fr-badge--green-emeraude">BETA</span>
+      {% endif %}
+    </p>
+  </a>
+{% endblock service_title %}
 
 {% block header_tools %}
   <li>
