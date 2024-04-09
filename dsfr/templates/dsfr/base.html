@@ -43,7 +43,9 @@
     {% endif %}
 
     <div class="fr-container fr-mt-4w fr-mb-6w">
-      {% dsfr_breadcrumb %}
+      {% block breadcrumb %}
+        {% dsfr_breadcrumb %}
+      {% endblock breadcrumb %}
       <main id="content" role="main">
         {% block content %}
         {% endblock content %}
