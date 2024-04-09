@@ -1,5 +1,13 @@
 from django.contrib import admin
-from dsfr.models import DsfrConfig
+from dsfr.models import DsfrConfig, DsfrSocialMedia
+
+from django.utils.translation import gettext_lazy as _
+
+
+class DsfrSocialMediaInline(admin.TabularInline):
+    model = DsfrSocialMedia
+    readonly_fields = ("id",)
+    extra = 1
 
 
 @admin.register(DsfrConfig)
@@ -46,4 +54,14 @@ class DsfrConfigAdmin(admin.ModelAdmin):
                 ),
             },
         ),
+        (
+            _("Newsletter"),
+            {
+                "fields": (
+                    "newsletter_description",
+                    "newsletter_url",
+                )
+            },
+        ),
     )
+    inlines = [DsfrSocialMediaInline]

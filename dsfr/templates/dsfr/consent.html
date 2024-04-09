@@ -1,0 +1,39 @@
+{% load i18n %}
+<div class="fr-consent-banner">
+  <h2 class="fr-h6">
+    {{ self.title }}
+  </h2>
+  <div class="fr-consent-banner__content">
+    <p class="fr-text--sm">
+      {{ self.content|safe }}
+    </p>
+  </div>
+  <ul class="fr-consent-banner__buttons fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-sm">
+    <li>
+      {% translate "Allow all cookies" as allow_all_cookies %}
+      <button class="fr-btn"
+              id="consent-accept-all"
+              title="{{ allow_all_cookies }}">
+        {% translate "Accept all" %}
+      </button>
+    </li>
+    <li>
+      {% translate "Reject all cookies" as reject_all_cookies %}
+      <button class="fr-btn"
+              id="consent-reject-all"
+              title="{{ reject_all_cookies }}">
+        {% translate "Reject all" %}
+      </button>
+    </li>
+    <li>
+      {% translate "Customize cookies" as customize_cookies %}
+      <button class="fr-btn fr-btn--secondary"
+              id="consent-customize"
+              data-fr-opened="false"
+              aria-controls="fr-consent-modal"
+              title="{{ customize_cookies }}">
+        {% translate "Customize" %}
+      </button>
+    </li>
+  </ul>
+</div>

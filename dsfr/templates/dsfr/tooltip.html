@@ -1,0 +1,19 @@
+{% load i18n %}
+{% if self.is_clickable|default:False %}
+  <button class="fr-btn--tooltip fr-btn"
+          id="button-{{ self.id }}"
+          aria-describedby="{{ self.id }}">
+    {% translate "Contextual information" %}
+  </button>
+{% else %}
+  <a class="fr-link"
+     aria-describedby="{{ self.id }}"
+     id="link-{{ self.id }}"
+     href="#">
+    {{ self.label }}
+  </a>
+{% endif %}
+<span class="fr-tooltip fr-placement"
+      id="{{ self.id }}"
+      role="tooltip"
+      aria-hidden="true">{{ self.content }}</span>

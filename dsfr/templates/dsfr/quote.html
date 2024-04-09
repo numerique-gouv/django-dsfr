@@ -1,6 +1,6 @@
 {% load i18n %}
 {% translate "Opens a new window" as new_window_label %}
-<figure class="fr-quote fr-quote--column">
+<figure class="fr-quote fr-quote--column{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
   <blockquote {% if self.source_url %}cite="{{ self.source_url }}"{% endif %}>
     <p>
       {{ self.text }}

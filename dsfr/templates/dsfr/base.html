@@ -9,8 +9,10 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     {% dsfr_css %}
     {% dsfr_favicon %}
+
     {% block extra_css %}
     {% endblock extra_css %}
+
     {% block title %}
       <title>
         {% if title %}
@@ -22,17 +24,24 @@
     {% endblock title %}
     <meta name="format-detection"
           content="telephone=no,date=no,address=no,email=no,url=no">
+
+    {% block opengraph %}
+    {% endblock opengraph %}
   </head>
   <body>
     {% block skiplinks %}
       {% dsfr_skiplinks skiplinks %}
     {% endblock skiplinks %}
+
     {% block header %}
     {% endblock header %}
+
     {% dsfr_theme_modale %}
+
     {% if SITE_CONFIG.notice %}
       {% dsfr_notice title=SITE_CONFIG.notice %}
     {% endif %}
+
     <div class="fr-container fr-mt-4w fr-mb-6w">
       {% dsfr_breadcrumb %}
       <main id="content" role="main">
@@ -40,10 +49,16 @@
         {% endblock content %}
       </main>
     </div>
+
+    {% block follow_newsletter_social_media %}
+    {% endblock follow_newsletter_social_media %}
+
     {% block footer %}
       {% include "dsfr/footer.html" %}
     {% endblock footer %}
+
     {% dsfr_js nonce=request.csp_nonce %}
+
     {% block extra_js %}
     {% endblock extra_js %}
   </body>

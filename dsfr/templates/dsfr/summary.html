@@ -2,9 +2,9 @@
 <nav role="navigation"
      class="fr-summary"
      aria-labelledby="fr-summary-title">
-  <div class="fr-summary__title" id="fr-summary-title">
-    {% translate "Summary" %}
-  </div>
+  <{{ self.heading_tag | default:"p" }} class="fr-summary__title" id="fr-summary-title">
+  {% translate "Summary" %}
+  </{{ self.heading_tag | default:"p" }}>
   <ol class="fr-summary__list">
     {% for item in self.items %}
       {% include "dsfr/summary_list.html" with item=item %}

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-04 16:34+0200\n"
-"PO-Revision-Date: 2024-04-04 16:38+0200\n"
+"POT-Creation-Date: 2024-04-08 18:24+0200\n"
+"PO-Revision-Date: 2024-04-08 18:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.4\n"
+
+#: dsfr/admin.py:58
+msgid "Newsletter"
+msgstr "Lettre d’information"
 
 #: dsfr/models.py:17
 msgid "fully"
@@ -29,6 +33,26 @@ msgstr "partiellement"
 #: dsfr/models.py:19
 msgid "not"
 msgstr "non"
+
+#: dsfr/models.py:123
+msgid "Title"
+msgstr "Titre"
+
+#: dsfr/models.py:126
+msgid "URL"
+msgstr "URL"
+
+#: dsfr/models.py:131
+msgid "Icon class"
+msgstr "Classe d’icône"
+
+#: dsfr/models.py:138
+msgid "Social media"
+msgstr "Réseau social"
+
+#: dsfr/models.py:139
+msgid "Social medias"
+msgstr "Réseaux sociaux"
 
 #: dsfr/templates/dsfr/alert.html:2 dsfr/templates/dsfr/notice.html:2
 msgid "Hide message"
@@ -46,24 +70,53 @@ msgstr "Voir le fil d’Ariane"
 msgid "Home page"
 msgstr "Accueil"
 
-#: dsfr/templates/dsfr/card.html:2 dsfr/templates/dsfr/footer.html:2
-#: dsfr/templates/dsfr/france_connect.html:9 dsfr/templates/dsfr/link.html:7
-#: dsfr/templates/dsfr/quote.html:2
+#: dsfr/templates/dsfr/card.html:2 dsfr/templates/dsfr/follow.html:2
+#: dsfr/templates/dsfr/footer.html:2 dsfr/templates/dsfr/france_connect.html:9
+#: dsfr/templates/dsfr/link.html:7 dsfr/templates/dsfr/quote.html:2
 msgid "Opens a new window"
 msgstr "Ouvre une nouvelle fenêtre"
 
-#: dsfr/templates/dsfr/content.html:33 dsfr/templates/dsfr/content.html:67
-msgid "Transcript"
-msgstr "Transcription"
+#: dsfr/templates/dsfr/consent.html:13
+msgid "Allow all cookies"
+msgstr "Autoriser tous les cookies"
 
-#: dsfr/templates/dsfr/content.html:39
-msgid "Enlarge"
-msgstr "Agrandir"
+#: dsfr/templates/dsfr/consent.html:17
+msgid "Accept all"
+msgstr "Tout accepter"
 
-#: dsfr/templates/dsfr/content.html:57 dsfr/templates/dsfr/header.html:87
-#: dsfr/templates/dsfr/theme_modale.html:13
-msgid "Close"
-msgstr "Fermer"
+#: dsfr/templates/dsfr/consent.html:21
+msgid "Reject all cookies"
+msgstr "Refuser tous les cookies"
+
+#: dsfr/templates/dsfr/consent.html:25
+msgid "Reject all"
+msgstr "Tout refuser"
+
+#: dsfr/templates/dsfr/consent.html:29
+msgid "Customize cookies"
+msgstr "Personnaliser les cookies"
+
+#: dsfr/templates/dsfr/consent.html:35
+msgid "Customize"
+msgstr "Personnaliser"
+
+#: dsfr/templates/dsfr/follow.html:11
+msgctxt "Section title"
+msgid "Subscribe to our newsletter"
+msgstr "Abonnez-vous à notre lettre d’information"
+
+#: dsfr/templates/dsfr/follow.html:18
+msgctxt "Button title"
+msgid "Subscribe to our newsletter"
+msgstr "S'abonner à notre lettre d’information"
+
+#: dsfr/templates/dsfr/follow.html:24
+msgid "Subscribe"
+msgstr "S’abonner"
+
+#: dsfr/templates/dsfr/follow.html:34
+msgid "Follow us <br /> on social media"
+msgstr "Suivez-nous <br /> sur les réseaux sociaux"
 
 #: dsfr/templates/dsfr/footer.html:9
 msgid "Back to home page"
@@ -125,6 +178,11 @@ msgstr "Qu’est-ce que FranceConnect ?"
 #: dsfr/templates/dsfr/header.html:29
 msgid "Menu"
 msgstr "Menu"
+
+#: dsfr/templates/dsfr/header.html:87 dsfr/templates/dsfr/theme_modale.html:13
+#: dsfr/templates/dsfr/transcription.html:30
+msgid "Close"
+msgstr "Fermer"
 
 #: dsfr/templates/dsfr/header.html:91
 msgid "Main menu"
@@ -206,3 +264,23 @@ msgstr "Système"
 #: dsfr/templates/dsfr/theme_modale.html:60
 msgid "Uses system settings."
 msgstr "Utilise les paramètres système."
+
+#: dsfr/templates/dsfr/toggle.html:2
+msgid "Checked"
+msgstr "Activé"
+
+#: dsfr/templates/dsfr/toggle.html:3
+msgid "Unchecked"
+msgstr "Désactivé"
+
+#: dsfr/templates/dsfr/tooltip.html:6
+msgid "Contextual information"
+msgstr "Information contextuelle"
+
+#: dsfr/templates/dsfr/transcription.html:2
+msgid "Transcript"
+msgstr "Transcription"
+
+#: dsfr/templates/dsfr/transcription.html:12
+msgid "Enlarge"
+msgstr "Agrandir"

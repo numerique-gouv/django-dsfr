@@ -23,10 +23,10 @@ p code, li code {
 {% block content %}
   <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
     <!-- Menu -->
-    <div class="fr-col-12 fr-col-md-3">
+    <div class="fr-col-12 fr-col-md-4">
       {% dsfr_sidemenu side_menu extra_classes="" %}
     </div>
-    <div class="fr-col-12 fr-col-md-9 fr-py-2w">
+    <div class="fr-col-12 fr-col-md-8 fr-py-2w">
       <h1>
         {{ title }}
       </h1>
@@ -95,6 +95,11 @@ p code, li code {
                 {% dsfr_card sample_data_item %}
               </div>
             {% endif %}
+          {% elif tag_name == "consent" %}
+            <p>
+              Voir en bas de votre écran.
+            </p>
+            {% dsfr_consent sample_data_item %}
           {% elif tag_name == "content" %}
             {% dsfr_content sample_data_item %}
           {% elif tag_name == "django_messages" %}
@@ -131,6 +136,12 @@ p code, li code {
                 {% dsfr_tile sample_data_item %}
               </div>
             </div>
+          {% elif tag_name == "toggle" %}
+            {% dsfr_toggle sample_data_item %}
+          {% elif tag_name == "tooltip" %}
+            {% dsfr_tooltip sample_data_item %}
+          {% elif tag_name == "transcription" %}
+            {% dsfr_transcription sample_data_item %}
           {% endif %}
         {% endfor %}
       {% else %}

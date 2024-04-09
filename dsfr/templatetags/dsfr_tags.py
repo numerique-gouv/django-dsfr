@@ -388,6 +388,7 @@ def dsfr_callout(*args, **kwargs) -> dict:
         "title": "(Optional) Title of the callout item",
         "heading_tag": "(Optional) Heading tag for the alert title (default: p)",
         "icon_class": " (Optional) Name of the icon class",
+        "extra_classes": "(Optional) string with names of extra classes."
         "button": {                                 # Optional
             "onclick": "button action",
             "label": "button label"
@@ -396,6 +397,10 @@ def dsfr_callout(*args, **kwargs) -> dict:
     ```
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant `extra_classes`:
+
+    - Color classes ([See the list](/django-dsfr/resources/colors)), for example `fr-callout--green-emeraude`
 
     **Tag name**:
         dsfr_callout
@@ -408,6 +413,7 @@ def dsfr_callout(*args, **kwargs) -> dict:
         "title",
         "heading_tag",
         "icon_class",
+        "extra_classes",
         "button",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
@@ -509,6 +515,38 @@ def dsfr_card(*args, **kwargs) -> dict:
     return {"self": tag_data}
 
 
+@register.inclusion_tag("dsfr/consent.html")
+def dsfr_consent(*args, **kwargs) -> dict:
+    """
+    Returns a consent banner item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "title": "Title of the banner",
+        "content": "Content of the banner. Can contain HTML."
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    The tag only manages the banner. The logic needs to be implemented.
+
+    **Tag name**:
+        dsfr_consent
+
+    **Usage**:
+        `{% dsfr_consent data_dict %}`
+    """
+
+    allowed_keys = [
+        "title",
+        "content",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    return {"self": tag_data}
+
+
 @register.inclusion_tag("dsfr/content.html")
 def dsfr_content(*args, **kwargs) -> dict:
     """
@@ -523,7 +561,7 @@ def dsfr_content(*args, **kwargs) -> dict:
         "alt_text": "(optional) Alternative text of the media"
         "extra_classes": "(Optional) string with names of extra classes for the whole component",
         "ratio_class": "(Optional) string with the name of a ratio class",
-        "transcription_id": "(Optional) id for the transcription accordion",
+        "transcription": "(Optional) A transcription item dictionary, see [component documentation](/django-dsfr/components/transcription/)",
     }
     ```
 
@@ -578,13 +616,10 @@ def dsfr_content(*args, **kwargs) -> dict:
         "alt_text",
         "extra_classes",
         "ratio_class",
-        "transcription_id",
+        "transcription",
     ]
 
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
-
-    if "transcription_id" not in tag_data:
-        tag_data["transcription_id"] = generate_random_id("transcription")
 
     return {"self": tag_data}
 
@@ -634,6 +669,7 @@ def dsfr_highlight(*args, **kwargs) -> dict:
     data_dict = {
         "content": "Content of the highlight item (can include html)",
         "size_class": "(Optional) string with name of text-size related classes",
+        "extra_classes": "(Optional) string with names of extra classes",
     }
     ```
 
@@ -641,6 +677,10 @@ def dsfr_highlight(*args, **kwargs) -> dict:
 
     - `fr-text--sm`
     - `fr-text--lg`
+
+    Relevant `extra_classes`:
+
+    - Color classes ([See the list](/django-dsfr/resources/colors)), for example `fr-highlight--green-emeraude`
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
@@ -654,6 +694,7 @@ def dsfr_highlight(*args, **kwargs) -> dict:
     allowed_keys = [
         "content",
         "size_class",
+        "extra_classes",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
@@ -807,12 +848,17 @@ def dsfr_quote(*args, **kwargs) -> dict:
         "source": "(Optional) The name of the source of the quote",
         "details": "(Optional) A list containing detail dicts",
         "image_url": "(Optional) URL of an illustrative image",
+        "extra_classes": "(Optional) string with names of extra classes"
     }
     ```
 
     The `details` dict entries have a mandatory `text` key and an optional `link` key.
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant `extra_classes`:
+
+    - Color classes ([See the list](/django-dsfr/resources/colors)), for example `fr-quote--green-emeraude`
 
     **Tag name**:
         dsfr_quote
@@ -828,6 +874,7 @@ def dsfr_quote(*args, **kwargs) -> dict:
         "source",
         "details",
         "image_url",
+        "extra_classes",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
@@ -837,7 +884,9 @@ def dsfr_quote(*args, **kwargs) -> dict:
 @register.inclusion_tag("dsfr/select.html")
 def dsfr_select(*args, **kwargs) -> dict:
     """
-    Returns a select item. Takes a dict as parameter, with the following structure:
+    Returns a select item. Prefer the use of an actual form (see documentation)
+
+    Takes a dict as parameter, with the following structure:
 
     ```python
     data_dict = {
@@ -856,6 +905,11 @@ def dsfr_select(*args, **kwargs) -> dict:
         "extra_classes": "(Optional) string with names of extra classes"
     }
     ```
+    Relevant extra_classes:
+
+    - `fr-sidemenu--sticky`: Makes the menu sticky
+    - `fr-sidemenu--sticky-full-height`: Makes the menu take the full height of the screen
+    - `fr-sidemenu--right`: Moves the menu to the right side of the screen
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
@@ -890,8 +944,8 @@ def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
 
     ```python
     data_dict = {
-        "title": "The title of the main menu",
         "items": "a list of similarly structured dictionaries (see below)",
+        "title": "(Optional) The title of the main menu",
         "heading_tag": "(Optional) Heading tag for the accordion title (h2, etc. Default: div)"
         "extra_classes": "(Optional) string with names of extra classes",
     }
@@ -962,6 +1016,7 @@ def dsfr_stepper(*args, **kwargs) -> dict:
         "current_step_title": "Title of current step",
         "next_step_title": "(Optional) Title of next step",
         "total_steps": "Total number of steps",
+        "heading_tag": "(Optional) Heading tag for the current step title (Default: h2)"
     }
     ```
 
@@ -978,6 +1033,7 @@ def dsfr_stepper(*args, **kwargs) -> dict:
         "current_step_title",
         "next_step_title",
         "total_steps",
+        "heading_tag",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
@@ -985,7 +1041,7 @@ def dsfr_stepper(*args, **kwargs) -> dict:
 
 
 @register.inclusion_tag("dsfr/summary.html")
-def dsfr_summary(items: list) -> dict:
+def dsfr_summary(items: list, heading_tag: str = "p") -> dict:
     """
     Returns a summary item. Takes a list as parameter, with the following structure:
 
@@ -1000,13 +1056,15 @@ def dsfr_summary(items: list) -> dict:
     ]
     ```
 
+    Also takes an optional "heading_tag" parameter, which can be "p" (default) or h2>h6.
+
     **Tag name**:
         dsfr_summary
 
     **Usage**:
-        `{% dsfr_summary items %}`
+        `{% dsfr_summary items heading_tag %}`
     """
-    return {"self": {"items": items}}
+    return {"self": {"items": items, "heading_tag": heading_tag}}
 
 
 @register.inclusion_tag("dsfr/table.html")
@@ -1024,6 +1082,16 @@ def dsfr_table(*args, **kwargs) -> dict:
     ```
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
+
+
+    Relevant `extra_classes`:
+
+    - Color classes ([See the list](/django-dsfr/resources/colors)), for example `fr-table--green-emeraude`
+    - `fr-table--bordered`: adds a border under each line
+    - `fr-table--no-scroll` prevents horizontal scrolling on mobile
+    - `fr-table--layout-fixed`: forces the table at 100% and equal size columns
+    - `fr-table--no-caption`: hides the caption
+    - `fr-table--caption-bottom`: sets the caption after the table instead of before
 
     **Tag name**:
         dsfr_table
@@ -1102,8 +1170,8 @@ def dsfr_tile(*args, **kwargs) -> dict:
         "top_detail": "(Optional) dict with a top detail content and optional tags or badges",
         "heading_tag": "(Optional) Heading tag for the alert title (default: h3)",
         "id": "(Optional) id of the tile item",
-        "enlarge_link": (Optional) boolean. If true (default), the link covers the whole card",
-        "extra_classes: (Optional) string with names of extra classes"
+        "enlarge_link": "(Optional) boolean. If true (default), the link covers the whole card",
+        "extra_classes": "(Optional) string with names of extra classes"
     }
     ```
 
@@ -1114,6 +1182,11 @@ def dsfr_tile(*args, **kwargs) -> dict:
     - `fr-tile--sm`: for a small (SM) tile
     - `fr-tile--horizontal`: for an horizontal tile
     - `fr-tile--download`: Replaces the forward arrow icon with a download one
+    - `fr-tile--grey`: adds a grey background on the tile
+    - `fr-tile--no-border`: removes the tile border
+    - `fr-tile--no-background`: removes the tile background
+    - `fr-tile--shadow`: adds a shadow to the tile border
+
 
     Format of the top_detail dict (every field is optional):
 
@@ -1150,6 +1223,127 @@ def dsfr_tile(*args, **kwargs) -> dict:
 
     if "enlarge_link" not in tag_data:
         tag_data["enlarge_link"] = True
+
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/toggle.html")
+def dsfr_toggle(*args, **kwargs) -> dict:
+    """
+    Returns a toggle item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "label": "Label of the item",
+        "help_text": "(Optional) string explaining the intended use of the item",
+        "is_disabled": '''(Optional) boolean that indicate if the toggle is activated
+        (default: False)''',
+        "extra_classes": "(Optional) string with names of extra classes",
+        "id": "(optional) Id of the item",
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    Relevant extra_classes:
+
+    - `fr-toggle--label-left`: sets the label on the left side
+    - `fr-toggle--border-bottom`: adds a border at the bottom
+
+
+    **Tag name**:
+        dsfr_toggle
+
+    **Usage**:
+        `{% dsfr_toggle data_dict %}`
+    """
+
+    allowed_keys = [
+        "label",
+        "help_text",
+        "is_disabled",
+        "extra_classes",
+        "id",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id("toggle")
+
+    if "is_disabled" not in tag_data:
+        tag_data["is_disabled"] = False
+
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/tooltip.html")
+def dsfr_tooltip(*args, **kwargs) -> dict:
+    """
+    Returns a tooltip item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "content": "Content of the tooltip",
+        "label": "(optional) Label of the link item",
+        "is_clickable": "(optional) Boolean indicating if this is a button",
+        "id": "(optional) Id of the item",
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**:
+        dsfr_tooltip
+
+    **Usage**:
+        `{% dsfr_tooltip data_dict %}`
+    """
+
+    allowed_keys = [
+        "content",
+        "label",
+        "is_clickable",
+        "id",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id("tooltip")
+
+    return {"self": tag_data}
+
+
+@register.inclusion_tag("dsfr/transcription.html")
+def dsfr_transcription(*args, **kwargs) -> dict:
+    """
+    Returns a transcription item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "content": "Content of the transcription. Can contain HTML",
+        "title": "(optional) A title that appear in the modal. Defaults to 'Transcription'",
+        "id": "(optional) Id of the item",
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+    **Tag name**:
+        dsfr_transcription
+
+    **Usage**:
+        `{% dsfr_transcription data_dict %}`
+    """
+
+    allowed_keys = [
+        "content",
+        "title",
+        "id",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id("transcription")
 
     return {"self": tag_data}
 

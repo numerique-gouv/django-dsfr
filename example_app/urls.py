@@ -48,6 +48,12 @@ urlpatterns = [
         distill_file="django-dsfr/components/footer/index.html",
     ),
     distill_path(
+        "components/follow/",
+        views.page_component_follow,
+        name="page_component_follow",
+        distill_file="django-dsfr/components/follow/index.html",
+    ),
+    distill_path(
         "components/<slug:tag_name>/",
         views.page_component,
         name="page_component",

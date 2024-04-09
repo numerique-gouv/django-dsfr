@@ -1,69 +1,10 @@
 from django.templatetags.static import static
 
+from example_app.utils import lorem_ipsum
+
 # Sample SVG file
 with open("example_app/static/img/gouvernement.svg") as svg_file:
     gov_svg = svg_file.read()
-
-# Lorem ipsum paragraphs
-lorem_ipsum = """
-<p class="fr-mb-2w">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-    labore et dolore magna aliqua. At quis risus sed vulputate odio ut enim. At risus viverra
-    adipiscing at in tellus integer feugiat. Aliquam purus sit amet luctus venenatis lectus.
-    Pellentesque id nibh tortor id aliquet lectus proin. Ultricies leo integer malesuada nunc vel
-    risus. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Iaculis eu non diam
-    phasellus vestibulum lorem sed risus ultricies. Quis varius quam quisque id diam. Vehicula
-    ipsum a arcu cursus vitae congue mauris rhoncus. Sed id semper risus in hendrerit gravida.
-</p>
-
-<p class="fr-mb-2w">
-    Suspendisse potenti nullam ac tortor vitae purus faucibus. Condimentum lacinia quis vel eros.
-    Pellentesque sit amet porttitor eget dolor. Varius duis at consectetur lorem donec massa sapien
-    faucibus. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Tristique magna
-    sit amet purus gravida. Nec ullamcorper sit amet risus nullam eget felis eget nunc. Aenean vel
-    elit scelerisque mauris pellentesque pulvinar. Vitae proin sagittis nisl rhoncus mattis rhoncus
-    urna neque viverra. Quam viverra orci sagittis eu volutpat odio. Sapien faucibus et molestie
-    ac. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Nunc sed
-    velit dignissim sodales ut eu sem integer.
-</p>
-
-<p class="fr-mb-2w">
-    Diam maecenas ultricies mi eget mauris pharetra et ultrices. Justo nec ultrices dui sapien eget
-    mi proin. Viverra mauris in aliquam sem fringilla ut. Pretium lectus quam id leo in vitae
-    turpis massa. Ultricies integer quis auctor elit sed vulputate mi sit amet. Non quam lacus
-    suspendisse faucibus interdum posuere lorem. Feugiat in fermentum posuere urna nec. Bibendum
-    enim facilisis gravida neque. Vitae aliquet nec ullamcorper sit amet risus. Et netus et
-    malesuada fames ac turpis. Ut eu sem integer vitae. Aliquam eleifend mi in nulla posuere
-    sollicitudin aliquam ultrices sagittis. Eget sit amet tellus cras adipiscing enim. Massa eget
-    egestas purus viverra accumsan. Urna neque viverra justo nec. Bibendum est ultricies integer
-    quis auctor elit. Sagittis vitae et leo duis ut diam.
-</p>
-
-<p class="fr-mb-2w">
-    Urna porttitor rhoncus dolor purus. Enim eu turpis egestas pretium. Risus ultricies tristique
-    nulla aliquet enim tortor at auctor urna. Etiam non quam lacus suspendisse faucibus interdum
-    posuere lorem. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Ac tortor
-    vitae purus faucibus ornare suspendisse sed nisi lacus. Accumsan lacus vel facilisis volutpat
-    est velit egestas dui. Enim eu turpis egestas pretium aenean pharetra. Arcu cursus vitae congue
-    mauris rhoncus. A cras semper auctor neque vitae tempus. Viverra ipsum nunc aliquet bibendum
-    enim facilisis gravida neque convallis. Ac tortor dignissim convallis aenean et tortor. Sed id
-    semper risus in hendrerit gravida rutrum. Tempus iaculis urna id volutpat lacus laoreet.
-</p>
-
-<p class="fr-mb-2w">
-    Massa tempor nec feugiat nisl pretium fusce. Urna porttitor rhoncus dolor purus non enim
-    praesent. Suspendisse ultrices gravida dictum fusce. Habitant morbi tristique senectus et netus.
-    Adipiscing vitae proin sagittis nisl. Bibendum ut tristique et egestas quis. Dictum non
-    consectetur a erat nam at lectus. Vulputate dignissim suspendisse in est ante in nibh mauris
-    cursus. Faucibus turpis in eu mi bibendum neque egestas congue quisque. Neque laoreet
-    suspendisse interdum consectetur libero id faucibus. Gravida rutrum quisque non tellus orci ac
-    auctor augue mauris. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Quam viverra orci
-    sagittis eu volutpat odio. Id interdum velit laoreet id donec ultrices tincidunt arcu non.
-    Viverra nibh cras pulvinar mattis nunc sed. Risus sed vulputate odio ut enim blandit volutpat
-    maecenas volutpat. Augue neque gravida in fermentum et sollicitudin ac orci. Commodo odio
-    aenean sed adipiscing diam.
-</p>
-"""
 
 IMPLEMENTED_COMPONENTS = {
     "accordion": {
@@ -274,6 +215,12 @@ IMPLEMENTED_COMPONENTS = {
                     "extra_classes": "fr-btn--secondary",
                 },
             },
+            {
+                "title": "Mise en avant en couleur",
+                "text": "Cette mise en avant a une classe de couleur",
+                "icon_class": "fr-icon-palette-line",
+                "extra_classes": "fr-callout--green-emeraude",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-avant",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/callout/",
@@ -448,6 +395,22 @@ IMPLEMENTED_COMPONENTS = {
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/card/",
     },
+    "consent": {
+        "title": "Gestionnaire de consentement",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/gestionnaire-de-consentement",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/consent/",
+        "sample_data": [
+            {
+                "title": "À propos des cookies sur Django-DSFR",
+                "content": """
+                Bienvenue ! Nous utilisons des cookies pour améliorer votre expérience et les
+                services disponibles sur ce site. Pour en savoir plus, visitez la page <a href="#">
+                Données personnelles et cookies</a>. Vous pouvez, à tout moment, avoir le contrôle
+                sur les cookies que vous souhaitez activer.
+                """,
+            }
+        ],
+    },
     "content": {
         "title": "Contenu média",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias",
@@ -490,7 +453,7 @@ IMPLEMENTED_COMPONENTS = {
                 "ratio_class": "fr-ratio-4x3",
                 "caption": "Vidéo avec transcription",
                 "alt_text": "",
-                "transcription": f"<div>{lorem_ipsum}</div>",
+                "transcription": {"content": f"<div>{lorem_ipsum}</div>"},
             },
         ],
     },
@@ -498,6 +461,11 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Icône de favoris",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/icones-de-favoris",
         "example_url": "https://main--ds-gouv.netlify.app/example/core/favicon/",
+    },
+    "follow": {
+        "title": "Lettre d’information et réseaux sociaux",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lettre-d-information-et-reseaux-sociaux",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/follow/",
     },
     "footer": {
         "title": "Pied de page",
@@ -520,7 +488,11 @@ IMPLEMENTED_COMPONENTS = {
             {
                 "content": "Contenu de la mise en exergue",
                 "size_class": "fr-text--sm",
-            }
+            },
+            {
+                "content": "Mise en exergue avec bordure colorée",
+                "extra_classes": "fr-highlight--green-emeraude",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-exergue",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/highlight/",
@@ -551,11 +523,26 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Lien",
         "sample_data": [
             {
+                "url": "/django-dsfr/components/link/",
+                "label": "Lien interne",
+            },
+            {
                 "url": "https://www.systeme-de-design.gouv.fr/",
-                "label": "Texte du lien",
+                "label": "Lien externe, large",
                 "is_external": True,
                 "extra_classes": "fr-link--lg",
-            }
+            },
+            {
+                "url": "/django-dsfr/components/link/",
+                "label": "Petit lien interne avec flèche",
+                "is_external": False,
+                "extra_classes": "fr-icon-arrow-right-line fr-link--icon-right fr-link--sm",
+            },
+            {
+                "url": "/django-dsfr/components/link/",
+                "label": "Lien de téléchargement",
+                "extra_classes": "fr-link--download",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/link/",
@@ -596,6 +583,7 @@ IMPLEMENTED_COMPONENTS = {
                     },
                 ],
                 "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
+                "extra_classes": "fr-quote--green-emeraude",
             },
             {
                 "text": "Citation très basique, sans aucun des champs optionnels.",
@@ -679,7 +667,7 @@ IMPLEMENTED_COMPONENTS = {
                 {"link": "#navigation-header", "label": "Menu"},
             ]
         ],
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens-d-evitement",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lien-d-evitement",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/skiplink/",
     },
     "stepper": {
@@ -742,10 +730,40 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Tableau",
         "sample_data": [
             {
-                "caption": "Titre du tableau",
+                "caption": "Tableau basique",
                 "header": ["Colonne 1", "Colonne 2", "Colonne 3"],
                 "content": [["a", "b", "c"], ["d", "e", "f"]],
-            }
+            },
+            {
+                "caption": "Tableau vert",
+                "header": [
+                    "Colonne 1",
+                    "Colonne 2",
+                    "Colonne 3",
+                    "Colonne 4",
+                    "Colonne 5",
+                    "Colonne 6",
+                ],
+                "content": [
+                    [
+                        "Lorem ipsum dolor sit amet",
+                        "consectetur adipiscing elit",
+                        "sed do eiusmod tempor incididunt ut",
+                        "labore et dolore magna aliqua",
+                        "At quis risus sed vulputate odio ut enim",
+                        100.0,
+                    ],
+                    [
+                        "At risus viverra",
+                        "adipiscing at in tellus",
+                        "integer feugiat",
+                        "Aliquam purus sit amet luctus venenatis lectus",
+                        "Pellentesque id nibh tortor id aliquet lectus proin",
+                        2,
+                    ],
+                ],
+                "extra_classes": "fr-table--green-emeraude fr-table--bordered",
+            },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tableau",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/table/",
@@ -831,6 +849,13 @@ IMPLEMENTED_COMPONENTS = {
                 "svg_path": static("dsfr/dist/artwork/pictograms/map/map.svg"),
             },
             {
+                "title": "Tuile à fond gris et ombre sans bordure",
+                "url": "/",
+                "id": "tile-map",
+                "extra_classes": "fr-tile--horizontal fr-tile--grey fr-tile--shadow fr-tile--no-border",
+                "svg_path": static("dsfr/dist/artwork/pictograms/leisure/paint.svg"),
+            },
+            {
                 "title": "Tuile de téléchargement",
                 "extra_classes": "fr-tile--horizontal fr-tile--download",
                 "detail": "PDF — 1,7 Mo",
@@ -842,6 +867,58 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tuile",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/tile/",
+    },
+    "toggle": {
+        "title": "Interrupteur",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/toggle/",
+        "sample_data": [
+            {
+                "label": "Interrupteur basique",
+            },
+            {
+                "label": "Interrupteur basique désactivé avec aide",
+                "help_text": "Vous ne pouvez pas utiliser cet interrupteur.",
+                "is_disabled": True,
+            },
+            {
+                "label": "Interrupteur complet aligné à gauche",
+                "help_text": "Cet interrupteur présente toutes les options disponibles",
+                "is_disabled": False,
+                "extra_classes": "fr-toggle--label-left fr-toggle--border-bottom",
+                "id": "toggle-full",
+            },
+        ],
+    },
+    "tooltip": {
+        "title": "Infobulle",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/infobulle",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/tooltip/",
+        "sample_data": [
+            {
+                "content": "Contenu d’une infobule activée au survol",
+                "label": "Libellé du lien",
+            },
+            {
+                "content": "Contenu d’une infobule cliquable",
+                "is_clickable": True,
+                "id": "tooltip-b",
+            },
+        ],
+    },
+    "transcription": {
+        "title": "Transcription",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/transcription",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/transcription/",
+        "sample_data": [
+            {
+                "content": "<div><p>Courte transcription basique</p></div>",
+            },
+            {
+                "title": "Transcription très longue",
+                "content": f"<div>{lorem_ipsum}</div>",
+            },
+        ],
     },
 }
 
@@ -906,7 +983,9 @@ EXTRA_COMPONENTS = {
 }
 
 unsorted_IMPLEMENTED_COMPONENTS = {**IMPLEMENTED_COMPONENTS, **EXTRA_COMPONENTS}
-ALL_IMPLEMENTED_COMPONENTS = dict(sorted(unsorted_IMPLEMENTED_COMPONENTS.items()))
+ALL_IMPLEMENTED_COMPONENTS = dict(
+    sorted(unsorted_IMPLEMENTED_COMPONENTS.items(), key=lambda k: k[1]["title"])
+)
 
 NOT_YET_IMPLEMENTED_COMPONENTS = {
     "radio_rich": {
@@ -933,69 +1012,34 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
         cf. [#129](https://github.com/numerique-gouv/django-dsfr/issues/129)
         """,
     },
-    "consent": {
-        "title": "Gestionnaire de consentement",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/gestionnaire-de-consentement",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/consent/",
-    },
-    "tooltip": {
-        "title": "Infobulle",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/infobulle",
-        "example_url": "Information contextuelle et Infobulle",
-    },
-    "toggle": {
-        "title": "Interrupteur",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/toggle/",
-    },
-    "newsletter_follow": {
-        "title": "Lettre d’information et réseaux sociaux (newsletter & follow)",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lettre-d-information-et-reseaux-sociaux",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/follow/",
-    },
-    "share": {
-        "title": "Partage",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/partage",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/share/",
-    },
-    "download": {
-        "title": "Téléchargement de fichier",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/telechargement-de-fichier",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/download/",
-    },
-    "transcription": {
-        "title": "Transcription",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/transcription",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/transcription/",
-    },
 }
 
 # There is no need for specific tags for these
 # (either because the DSFR is implemented globally or because they are
 # broken down into more specific tags)
 WONT_BE_IMPLEMENTED = {
-    "file_upload": {
-        "title": "Ajout de fichier",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/upload/",
-        "reason": "Champ de formulaire.",
-    },
-    "search_bar": {
-        "title": "Barre de recherche",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/search/",
-        "reason": "Champ de formulaire.",
-    },
-    "radio": {
-        "title": "Bouton radio",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
-        "reason": "Champ de formulaire.",
+    "back_to_top": {
+        "title": "Retour en haut de page",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/retour-en-haut-de-page",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/link/back-to-top/",
+        "reason": "Utilisez une balise Lien (`dsfr_link`)",
     },
     "checkbox": {
         "title": "Case à cocher",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/checkbox/",
+        "reason": "Champ de formulaire.",
+    },
+    "download": {
+        "title": "Téléchargement de fichier",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/telechargement-de-fichier",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/download/",
+        "reason": "Pas un composant mais une série de variantes d’autres composants : [lien](/django-dsfr/components/link/), [carte](/django-dsfr/components/card/), [tuile](/django-dsfr/components/tile/). Voir la documentation de ceux-ci.",
+    },
+    "file_upload": {
+        "title": "Ajout de fichier",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/upload/",
         "reason": "Champ de formulaire.",
     },
     "modal": {
@@ -1004,29 +1048,41 @@ WONT_BE_IMPLEMENTED = {
         "example_url": "https://main--ds-gouv.netlify.app/example/component/modal/",
         "reason": "Une balise rendrait l’utilisation plus complexe au lieu de la simplifier.",
     },
-    "password": {
-        "title": "Mot de passe",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mot-de-passe",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/password/",
-        "reason": "Dépendant de l’implémentation des comptes utilisateurs dans le projet Django",
-    },
     "navigation": {
         "title": "Navigation principale",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/navigation/",
         "reason": "Partie de l’en-tête, voir la documentation de ce composant.",
     },
+    "password": {
+        "title": "Mot de passe",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mot-de-passe",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/password/",
+        "reason": "Dépendant de l’implémentation des comptes utilisateurs dans le projet Django",
+    },
+    "radio": {
+        "title": "Bouton radio",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
+        "reason": "Champ de formulaire.",
+    },
+    "search_bar": {
+        "title": "Barre de recherche",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/search/",
+        "reason": "Champ de formulaire.",
+    },
+    "share": {
+        "title": "Partage",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/partage",
+        "example_url": "https://main--ds-gouv.netlify.app/example/component/share/",
+        "reason": "Une balise rendrait l’utilisation plus complexe au lieu de la simplifier.",
+    },
     "tab": {
         "title": "Onglet",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/onglet",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/tab/",
         "reason": "Une balise rendrait l’utilisation plus complexe au lieu de la simplifier.",
-    },
-    "back_to_top": {
-        "title": "Retour en haut de page",
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/retour-en-haut-de-page",
-        "example_url": "https://main--ds-gouv.netlify.app/example/component/link/back-to-top/",
-        "reason": "Utilisez une balise Lien (`dsfr_link`)",
     },
     "translate": {
         "title": "Sélecteur de langue",
