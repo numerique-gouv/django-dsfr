@@ -1,5 +1,6 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
+
 {% block extra_css %}
   <style nonce="{{ request.csp_nonce }}">
 .code_sample {
@@ -8,6 +9,10 @@
 }
   </style>
 {% endblock extra_css %}
+
+{% block breadcrumb %}
+{% endblock breadcrumb %}
+
 {% block content %}
   <h1>
     Django-DSFR

@@ -1,4 +1,3 @@
-from django.conf import settings
 from dsfr.models import DsfrConfig
 from django.utils.translation import get_language
 
@@ -11,5 +10,4 @@ def site_config(request):
     if not config:
         config = DsfrConfig.objects.first()
 
-    # Add an extra parameter to check if the site is in DEBUG mode
-    return {"SITE_CONFIG": config, "DEBUG": settings.DEBUG}
+    return {"SITE_CONFIG": config}
