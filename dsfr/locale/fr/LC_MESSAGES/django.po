@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-08 18:24+0200\n"
-"PO-Revision-Date: 2024-04-08 18:24+0200\n"
+"POT-Creation-Date: 2024-04-09 15:48+0200\n"
+"PO-Revision-Date: 2024-04-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -18,39 +18,149 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.4\n"
 
-#: dsfr/admin.py:58
+#: dsfr/admin.py:59
 msgid "Newsletter"
 msgstr "Lettre d’information"
 
-#: dsfr/models.py:17
+#: dsfr/constants.py:5
+msgid "English"
+msgstr "Anglais"
+
+#: dsfr/constants.py:6
+msgid "French"
+msgstr "Français"
+
+#: dsfr/models.py:20
+msgid "Language"
+msgstr "Langue"
+
+#: dsfr/models.py:23
+msgid "Only one configuration is allowed per language"
+msgstr "Une seule configuration autorisée par langue"
+
+#: dsfr/models.py:29
 msgid "fully"
 msgstr "totalement"
 
-#: dsfr/models.py:18
+#: dsfr/models.py:30
 msgid "partially"
 msgstr "partiellement"
 
-#: dsfr/models.py:19
+#: dsfr/models.py:31
 msgid "not"
 msgstr "non"
 
-#: dsfr/models.py:123
+#: dsfr/models.py:36
+msgid "Site title"
+msgstr "Titre du site"
+
+#: dsfr/models.py:39
+msgid "Site tagline"
+msgstr "Sous-titre du site"
+
+#: dsfr/models.py:42
+msgid "Important notice"
+msgstr "Bandeau d’information importante"
+
+#: dsfr/models.py:46
+msgid ""
+"The important notice banner should only be used for essential and temporary "
+"information.             (Excessive or continuous use risks “drowning” the "
+"message.)"
+msgstr ""
+"Le bandeau d’information importante doit être utilisé uniquement pour une "
+"information primordiale et temporaire.  (Une utilisation excessive ou "
+"continue risque de “noyer” le message)"
+
+#: dsfr/models.py:53
+msgid "Institution (header)"
+msgstr "Institution (en-tête)"
+
+#: dsfr/models.py:59
+msgid "Institution with line break (header)"
+msgstr "Institution avec césure (en-tête)"
+
+#: dsfr/models.py:64
+msgid "Show the BETA tag next to the title"
+msgstr "Afficher la mention BETA à côté du titre"
+
+#: dsfr/models.py:68
+msgid "Institution (footer)"
+msgstr "Institution (pied"
+
+#: dsfr/models.py:74
+msgid "Institution with line break (footer)"
+msgstr "Institution avec césure (pied)"
+
+#: dsfr/models.py:79
+msgid "Description"
+msgstr "Description"
+
+#: dsfr/models.py:82
+msgid "Newsletter description"
+msgstr "Description de la lettre d’information"
+
+#: dsfr/models.py:86
+msgid "Newsletter registration URL"
+msgstr "URL d‘inscription à la lettre d’information"
+
+#: dsfr/models.py:93
+msgid "Operator logo"
+msgstr "Logo opérateur"
+
+#: dsfr/models.py:100
+msgid "Logo alt text"
+msgstr "Alternative textuelle du logo"
+
+#: dsfr/models.py:103
+msgid "Must contain the text present in the image."
+msgstr "Doit impérativement contenir le texte présent dans l’image."
+
+#: dsfr/models.py:106
+msgid "Width (em)"
+msgstr "Largeur (em)"
+
+#: dsfr/models.py:112
+msgid ""
+"To be adjusted according to the width of the logo.            Example for a "
+"vertical logo: 3.5, Example for a horizontal logo: 8."
+msgstr ""
+"À ajuster en fonction de la largeur du logo.  Exemple pour un logo vertical: "
+"3.5, Exemple pour un logo horizontal: 8."
+
+#: dsfr/models.py:118
+msgid "Mourning"
+msgstr "Mise en berne"
+
+#: dsfr/models.py:121
+msgid "Accessibility compliance status"
+msgstr "Statut de conformité de l’accessibilité"
+
+#: dsfr/models.py:128
+msgid "Configuration"
+msgstr "Configuration"
+
+#: dsfr/models.py:131
+msgid "Site config:"
+msgstr "Configuration du site :"
+
+#: dsfr/models.py:139
 msgid "Title"
 msgstr "Titre"
 
-#: dsfr/models.py:126
+#: dsfr/models.py:142
 msgid "URL"
 msgstr "URL"
 
-#: dsfr/models.py:131
+#: dsfr/models.py:147
 msgid "Icon class"
 msgstr "Classe d’icône"
 
-#: dsfr/models.py:138
+#: dsfr/models.py:154
 msgid "Social media"
 msgstr "Réseau social"
 
-#: dsfr/models.py:139
+#: dsfr/models.py:155
 msgid "Social medias"
 msgstr "Réseaux sociaux"
 

@@ -1,3 +1,11 @@
+from django.utils.translation import gettext_lazy as _
+
+# List of languages for which the interface translation is currently available
+DJANGO_DSFR_LANGUAGES = [
+    ("en", _("English")),
+    ("fr", _("French")),
+]
+
 # Color palettes, per https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-de-l-identite-de-l-etat/couleurs-palette/
 
 COLOR_CHOICES_PRIMARY = [

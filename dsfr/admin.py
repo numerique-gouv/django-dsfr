@@ -13,6 +13,7 @@ class DsfrSocialMediaInline(admin.TabularInline):
 @admin.register(DsfrConfig)
 class DsfrConfigAdmin(admin.ModelAdmin):
     fieldsets = (
+        ("", {"fields": ("language",)}),
         (
             "Site",
             {

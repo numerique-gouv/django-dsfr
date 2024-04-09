@@ -1,8 +1,11 @@
 import os
 
+
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
+from dsfr.constants import DJANGO_DSFR_LANGUAGES
 
 
 def validate_image_extension(value):
@@ -13,6 +16,15 @@ def validate_image_extension(value):
 
 
 class DsfrConfig(models.Model):
+    language = models.CharField(
+        _("Language"),
+        max_length=7,
+        choices=DJANGO_DSFR_LANGUAGES,
+        help_text=_("Only one configuration is allowed per language"),
+        default="fr",
+        unique=True,
+    )
+
     A11Y_CHOICES = [
         ("FULL", _("fully")),
         ("PART", _("partially")),
@@ -21,98 +33,102 @@ class DsfrConfig(models.Model):
 
     # Site
     site_title = models.CharField(
-        "Titre du site", max_length=200, default="Titre du site", blank=True
+        _("Site title"), max_length=200, default=_("Site title"), blank=True
     )
     site_tagline = models.CharField(
-        "Sous-titre du site", max_length=200, default="Sous-titre du site", blank=True
+        _("Site tagline"), max_length=200, default=_("Site tagline"), blank=True
     )
     notice = models.TextField(
-        "Bandeau d’information importante",
+        _("Important notice"),
         default="",
         blank=True,
+        help_text=_(
+            "The important notice banner should only be used for essential and temporary information. \
+            (Excessive or continuous use risks “drowning” the message.)"
+        ),
     )
 
     # Header
     header_brand = models.CharField(
-        "Institution (en-tête)",
+        _("Institution (header)"),
         max_length=200,
         default="République française",
         blank=True,
     )
     header_brand_html = models.CharField(
-        "Institution avec césure (en-tête)",
+        _("Institution with line break (header)"),
         max_length=200,
         default="République<br />française",
         blank=True,
     )
-    beta_tag = models.BooleanField("Afficher la mention BETA à côté du titre", default=False)  # type: ignore
+    beta_tag = models.BooleanField(_("Show the BETA tag next to the title"), default=False)  # type: ignore
 
     # Footer
     footer_brand = models.CharField(
-        "Institution (pied)", max_length=200, default="République française", blank=True
+        _("Institution (footer)"),
+        max_length=200,
+        default="République française",
+        blank=True,
     )
     footer_brand_html = models.CharField(
-        "Institution avec césure (pied)",
+        _("Institution with line break (footer)"),
         max_length=200,
         default="République<br />française",
         blank=True,
     )
-    footer_description = models.TextField("Description", default="", blank=True)
+    footer_description = models.TextField(_("Description"), default="", blank=True)
 
     newsletter_description = models.TextField(
-        "Description de la newsletter", default="", blank=True
+        _("Newsletter description"), default="", blank=True
     )
 
     newsletter_url = models.URLField(
-        "URL d’inscription à la newsletter",
+        _("Newsletter registration URL"),
         default="",
         blank=True,
     )
 
     # Operator logo
     operator_logo_file = models.FileField(
-        "Logo opérateur",
+        _("Operator logo"),
         upload_to="logos",
         blank=True,
         null=True,
         validators=[validate_image_extension],
     )
     operator_logo_alt = models.CharField(
-        "Alternative textuelle du logo",
+        _("Logo alt text"),
         max_length=200,
         blank=True,
-        help_text="Doit impérativement contenir le texte présent dans l’image.",
+        help_text=_("Must contain the text present in the image."),
     )
     operator_logo_width = models.DecimalField(
-        "Largeur (em)",
+        _("Width (em)"),
         max_digits=3,
         decimal_places=1,
         null=True,
         default="0.0",
-        help_text="""À ajuster en fonction de la largeur du logo.
-        Exemple pour un logo vertical: 3.5, Exemple pour un logo horizontal: 8.""",
+        help_text=_(
+            "To be adjusted according to the width of the logo.\
+            Example for a vertical logo: 3.5, Example for a horizontal logo: 8."
+        ),
     )
 
     # Advanced
-    mourning = models.BooleanField("Mise en berne", default=False)  # type: ignore
+    mourning = models.BooleanField(_("Mourning"), default=False)  # type: ignore
 
     accessibility_status = models.CharField(
-        "Statut de conformité de l’accessibilité",
+        _("Accessibility compliance status"),
         max_length=4,
         choices=A11Y_CHOICES,
         default="NOT",
     )
 
     class Meta:
-        verbose_name = "Configuration"
+        verbose_name = _("Configuration")
 
     def __str__(self):
-        return f"Configuration du site : {self.site_title}"
-
-    def save(self, *args, **kwargs):
-        if not self.pk and DsfrConfig.objects.exists():
-            raise ValidationError("There can be only one DsfrBaseSettings instance")
-        return super(DsfrConfig, self).save(*args, **kwargs)
+        return _("Site config:") + f" {self.site_title} ({self.language})"
 
     def social_media(self):
         return self.dsfrsocialmedia_set.all()

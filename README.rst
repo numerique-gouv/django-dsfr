@@ -1,18 +1,15 @@
 .. image:: https://img.shields.io/github/v/release/numerique-gouv/django-dsfr.svg
     :target: https://github.com/numerique-gouv/django-dsfr/releases/
-
 .. image:: https://badge.fury.io/py/django-dsfr.svg
     :target: https://pypi.org/project/django-dsfr/
 
 .. image:: https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci-3-8.yml/badge.svg
     :target: https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci-3-8.yml
-
 .. image:: https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci-3-10.yml/badge.svg
     :target: https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci-3-10.yml
 
 .. image:: https://github.com/numerique-gouv/django-dsfr/actions/workflows/codeql-analysis.yml/badge.svg
     :target: https://github.com/numerique-gouv/django-dsfr/actions/workflows/codeql-analysis.yml
-
 .. image:: https://img.shields.io/badge/security-bandit-yellow.svg
     :target: https://github.com/PyCQA/bandit
     :alt: Security Status
@@ -23,10 +20,12 @@ Django-DSFR
 
 Django-DSFR is a Django app to integrate the `French government Design System ("Système de design de l’État français") <https://www.systeme-de-design.gouv.fr/>`_.
 
+Documentation
+-------------
 
-This app is very much a work in progress. See the `documentation (in French) <https://numerique-gouv.github.io/django-dsfr/>`_ for details.
+See the `documentation (in French) <https://numerique-gouv.github.io/django-dsfr/>`_ for details.
 
-Django-DSFR (partly) implements the `version 1.11.2 of the DSFR <https://www.systeme-de-design.gouv.fr/a-propos/versions/version-courante>`_ (see also the `Github releases page <https://github.com/GouvernementFR/dsfr/releases/>`_)
+Django-DSFR implements the `version 1.11.2 of the DSFR <https://www.systeme-de-design.gouv.fr/a-propos/versions/version-courante>`_ (see also the `Github releases page <https://github.com/GouvernementFR/dsfr/releases/>`_)
 
 Requirements
 ------------
@@ -44,5 +43,6 @@ See the `INSTALL.md <INSTALL.md>`_ file.
 
 History
 -------
+This app was originally created as a part of `Open Collectivités <https://github.com/entrepreneur-interet-general/opencollectivites>`_ in 2020, and then maintained as part of `Aides-territoires <https://github.com/MTES-MCT/aides-territoires>`_ in 2022-2023.
 
-This app was originally created as a part of `Open Collectivités <https://github.com/entrepreneur-interet-general/opencollectivites>`_ in 2020. In 2022, I continued to manage it as part of my mission at `Aides-territoires <https://github.com/MTES-MCT/aides-territoires>`_ and I now continue to do so at `@numerique-gouv <https://github.com/numerique-gouv>`_ along with the Wagtail-based `Content Manager <https://github.com/numerique-gouv/content-manager/>`_.
+It is now maintained as part of `@numerique-gouv <https://github.com/numerique-gouv>`_ alongside the Wagtail-based `Content Manager <https://github.com/numerique-gouv/content-manager/>`_.

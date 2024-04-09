@@ -11,7 +11,7 @@ class Command(BaseCommand):
         # Note: the command should be able to be run several times without creating
         # duplicate objects.
         config, _created = DsfrConfig.objects.get_or_create(
-            id=1,
+            language="fr",
             defaults={
                 "header_brand": "République française",
                 "header_brand_html": "République<br />française",

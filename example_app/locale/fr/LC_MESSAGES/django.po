@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-04 15:34+0200\n"
-"PO-Revision-Date: 2024-04-04 16:39+0200\n"
+"POT-Creation-Date: 2024-04-09 15:51+0200\n"
+"PO-Revision-Date: 2024-04-09 15:55+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -17,6 +17,66 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.4\n"
+
+#: example_app/apps.py:7
+msgid "Example app"
+msgstr "Application d’exemple"
+
+#: example_app/models.py:10
+msgid "First name"
+msgstr "Prénom"
+
+#: example_app/models.py:13
+msgid "Last name"
+msgstr "Nom"
+
+#: example_app/models.py:15
+msgid "Birth date"
+msgstr "Date de naissance"
+
+#: example_app/models.py:18
+msgid "Author"
+msgstr "Auteur"
+
+#: example_app/models.py:22
+msgid "Code"
+msgstr "Code"
+
+#: example_app/models.py:24
+msgid "Designation"
+msgstr "Désignation"
+
+#: example_app/models.py:26
+msgid "Help text"
+msgstr "Texte d’aide"
+
+#: example_app/models.py:32
+msgid "Genre"
+msgstr "Genre"
+
+#: example_app/models.py:36
+msgid "Paper"
+msgstr "Papier"
+
+#: example_app/models.py:37
+msgid "Digital"
+msgstr "Numérique"
+
+#: example_app/models.py:45
+msgid "Title"
+msgstr "Titre"
+
+#: example_app/models.py:46
+msgid "Number of pages"
+msgstr "Nombre de pages"
+
+#: example_app/models.py:48
+msgid "Format"
+msgstr "Format"
+
+#: example_app/models.py:53
+msgid "Book"
+msgstr "Livre"
 
 #: example_app/templates/example_app/blocks/footer.html:12
 #: example_app/templates/example_app/blocks/header.html:8
@@ -27,16 +87,16 @@ msgstr "Paramètres d’affichage"
 msgid "Back to home page"
 msgstr "Retour à l’accueil du site"
 
-#: example_app/templates/example_app/blocks/header.html:17
-#: example_app/templates/example_app/blocks/header.html:40
+#: example_app/templates/example_app/blocks/header.html:19
+#: example_app/templates/example_app/blocks/header.html:42
 msgid "Search"
 msgstr "Rechercher"
 
-#: example_app/templates/example_app/blocks/header.html:26
+#: example_app/templates/example_app/blocks/header.html:28
 msgid "Menu"
 msgstr "Menu"
 
-#: example_app/templates/example_app/blocks/header.html:43
+#: example_app/templates/example_app/blocks/header.html:45
 msgid "Close"
 msgstr "Fermer"
 
