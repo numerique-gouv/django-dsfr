@@ -9,23 +9,23 @@ DJANGO_DSFR_LANGUAGES = [
 # Color palettes, per https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-de-l-identite-de-l-etat/couleurs-palette/
 
 COLOR_CHOICES_PRIMARY = [
-    ("blue-france", "Bleu France"),
-    ("red-marianne", "Rouge Marianne"),
+    ("blue-france", _("Blue France")),
+    ("red-marianne", _("Red Marianne")),
 ]
 
 COLOR_CHOICES_NEUTRAL = [
-    ("grey", "Gris"),
+    ("grey", _("Grey")),
 ]
 
 COLOR_CHOICES_SYSTEM = [
-    ("info", "Info"),
-    ("success", "Succès"),
-    ("warning", "Avertissement"),
-    ("error", "Erreur"),
+    ("info", _("Info")),
+    ("success", _("Success")),
+    ("warning", _("Warning")),
+    ("error", _("Error")),
 ]
 
 COLOR_CHOICES_ILLUSTRATION = [
-    ("green-tilleul-verveine", "Thilleul verveine"),
+    ("green-tilleul-verveine", "Tilleul verveine"),
     ("green-bourgeon", "Bourgeon"),
     ("green-emeraude", "Émeraude"),
     ("green-menthe", "Menthe"),
@@ -45,14 +45,14 @@ COLOR_CHOICES_ILLUSTRATION = [
 ]
 
 COLOR_CHOICES = [
-    ("Couleurs primaires", COLOR_CHOICES_PRIMARY),
-    ("Couleurs neutres", COLOR_CHOICES_NEUTRAL),
-    ("Couleurs illustratives", COLOR_CHOICES_ILLUSTRATION),
+    (_("Primary colors"), COLOR_CHOICES_PRIMARY),
+    (_("Neutral colors"), COLOR_CHOICES_NEUTRAL),
+    (_("Illustration colors"), COLOR_CHOICES_ILLUSTRATION),
 ]
 
 COLOR_CHOICES_WITH_SYSTEM = [
-    ("Couleurs primaires", COLOR_CHOICES_PRIMARY),
-    ("Couleurs neutres", COLOR_CHOICES_NEUTRAL),
-    ("Couleurs système", COLOR_CHOICES_SYSTEM),
-    ("Couleurs illustratives", COLOR_CHOICES_ILLUSTRATION),
+    (_("Primary colors"), COLOR_CHOICES_PRIMARY),
+    (_("Neutral colors"), COLOR_CHOICES_NEUTRAL),
+    (_("System colors"), COLOR_CHOICES_SYSTEM),
+    (_("Illustration colors"), COLOR_CHOICES_ILLUSTRATION),
 ]
