@@ -47,6 +47,7 @@
     for (let iconSpan of iconSpans) {
       iconSpan.addEventListener("click", function(){
         navigator.clipboard.writeText(this.title);
+        alert("Copié dans le presse-papier : '" + this.title + "'")
       })
     }
   </script>
