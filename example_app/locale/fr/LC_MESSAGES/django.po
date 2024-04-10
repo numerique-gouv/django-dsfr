@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-09 15:51+0200\n"
-"PO-Revision-Date: 2024-04-09 15:55+0200\n"
+"POT-Creation-Date: 2024-04-10 16:17+0200\n"
+"PO-Revision-Date: 2024-04-10 16:20+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.4\n"
 
-#: example_app/apps.py:7
+#: example_app/apps.py:9
 msgid "Example app"
 msgstr "Application d’exemple"
 
@@ -79,7 +79,7 @@ msgid "Book"
 msgstr "Livre"
 
 #: example_app/templates/example_app/blocks/footer.html:12
-#: example_app/templates/example_app/blocks/header.html:8
+#: example_app/templates/example_app/blocks/header.html:31
 msgid "Display settings"
 msgstr "Paramètres d’affichage"
 
@@ -87,16 +87,20 @@ msgstr "Paramètres d’affichage"
 msgid "Back to home page"
 msgstr "Retour à l’accueil du site"
 
-#: example_app/templates/example_app/blocks/header.html:19
-#: example_app/templates/example_app/blocks/header.html:42
+#: example_app/templates/example_app/blocks/header.html:6
+msgid "Home page"
+msgstr "Accueil"
+
+#: example_app/templates/example_app/blocks/header.html:43
+#: example_app/templates/example_app/blocks/header.html:68
 msgid "Search"
 msgstr "Rechercher"
 
-#: example_app/templates/example_app/blocks/header.html:28
+#: example_app/templates/example_app/blocks/header.html:52
 msgid "Menu"
 msgstr "Menu"
 
-#: example_app/templates/example_app/blocks/header.html:45
+#: example_app/templates/example_app/blocks/header.html:71
 msgid "Close"
 msgstr "Fermer"
 
