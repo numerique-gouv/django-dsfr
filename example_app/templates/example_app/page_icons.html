@@ -4,9 +4,6 @@
   <h1>
     Icônes
   </h1>
-  <div class="fr-mb-4w">
-    {% dsfr_summary summary %}
-  </div>
   <ul>
     <li>
       <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
@@ -25,23 +22,75 @@
       </a>
     </li>
   </ul>
-  <p>
-    Cliquer sur une icône ci-dessous pour copier le nom de sa classe.
-  </p>
-  {% for folder, items in icons.items %}
-    <h2 id="{{ folder|slugify }}" tabindex="-1">
-      {{ folder|title }}
+
+  <div class="fr-mt-4w">
+    <h2 id="search-icon-by-name">
+      Chercher une icône par son nom
     </h2>
-    <div class="fr-mb-4w">
-      {% for item in items %}
-        <span class="fr-icon-{{ item }} click-to-copy"
-              title="fr-icon-{{ item }}"
-              aria-hidden="true"></span>
-      {% endfor %}
+
+    <div class="fr-search-bar" id="icon-filter" role="search">
+      <label class="fr-label" for="uip-select-input">
+        Chercher une icône
+      </label>
+      <input class="fr-input"
+             type="text"
+             name="uip-select-input"
+             id="uip-select-input"
+             value=""
+             placeholder="Chercher une icône" />
     </div>
-  {% endfor %}
+
+    <div id="output-icon">
+    </div>
+  </div>
+
+  <div class="fr-mt-4w">
+    <h2 id="full-icon-list">
+      Liste complète
+    </h2>
+    {% dsfr_summary summary %}
+
+    <p>
+      Cliquer sur une icône ci-dessous pour copier le nom de sa classe.
+    </p>
+    {% for folder, items in icons.items %}
+      <h3 id="{{ folder|slugify }}" tabindex="-1">
+        {{ folder|title }}
+      </h3>
+      <div class="fr-mb-4w">
+        {% for item in items %}
+          <span class="fr-icon-{{ item }} click-to-copy"
+                title="fr-icon-{{ item }}"
+                aria-hidden="true"></span>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
 {% endblock content %}
 {% block extra_js %}
+  <script src="{% static 'dsfr-extras/icon-picker/assets/js/universal-icon-picker.js' %}"></script>
+
+  <script>
+    let lang = (navigator.language || navigator.userLanguage).split('-')[0];
+    console.log(lang);
+
+    const options = {
+      iconLibraries: ['dsfr-buildings.json', 'dsfr-business.json', 'dsfr-communication.json', 'dsfr-design.json', 'dsfr-development.json', 'dsfr-device.json', 'dsfr-document.json', 'dsfr-editor.json', 'dsfr-finance.json', 'dsfr-health.json', 'dsfr-logo.json', 'dsfr-map.json', 'dsfr-media.json', 'dsfr-others.json', 'dsfr-system.json', 'dsfr-user.json', 'dsfr-weather.json'],
+      allowEmpty: false,
+      language: lang,
+      onSelect: function (jsonIconData) {
+        document.getElementById('output-icon').innerHTML = "Copié dans le presse-papier : '" +jsonIconData.iconClass + "'";
+        document.getElementById('uip-select-input').value = jsonIconData.iconClass;
+        navigator.clipboard.writeText(jsonIconData.iconClass);
+        },
+        onReset: function () {
+          document.getElementById('output-icon').innerHTML = '';
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function (event) {
+        let _uip = new UniversalIconPicker('#uip-select-input', options);
+    });
+  </script>
   <script type="text/javascript">
     let iconSpans = document.getElementsByClassName("click-to-copy");
     for (let iconSpan of iconSpans) {
