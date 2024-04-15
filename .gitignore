@@ -134,4 +134,6 @@ dmypy.json
 
 # Project specific
 !dsfr/static/dsfr/dist
+!example_app/static
+!example_app/static/lib
 docs/
