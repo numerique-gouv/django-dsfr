@@ -13,7 +13,7 @@ class Command(BaseCommand):
         icons_folders = os.listdir(icons_root)
         icons_folders.sort()
 
-        json_root = "dsfr/static/dsfr-extras/icon-picker/assets/icons-libraries/"
+        json_root = "dsfr/static/django-dsfr/icon-picker/assets/icons-libraries/"
 
         all_folders = []
 

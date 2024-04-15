@@ -3,8 +3,8 @@ const loadedDependencies = [];
 
 const i18nMessages = {
     en: {
-        all: "All",
         all_icons: "All icons",
+        all_label: "All",
         close_label: "Close",
         icon_picker: "Icon Picker",
         insert_label: "Insert",
@@ -12,8 +12,8 @@ const i18nMessages = {
         search_placeholder: "Filter by name…"
     },
     fr: {
-        all: "Tout",
         all_icons: "Toutes les icônes",
+        all_label: "Tout",
         close_label: "Fermer",
         icon_picker: "Sélecteur d’icônes",
         insert_label: "Insérer",
@@ -110,8 +110,8 @@ const i18nMessages = {
             onReset: null,
             onSelect: null,
             resetSelector: null,
-            loadCustomCss: false,
-            language: "en"
+            language: navigator.language || navigator.userLanguage,
+            loadCustomCss: false
         };
         this.options = extend(defaults, options);
 
@@ -126,14 +126,15 @@ const i18nMessages = {
         this.sideBarBtn = '';
         this.sideBarList = [];
 
-        // Set language
-        if (this.options.language in i18nMessages) {
-            this.messages = i18nMessages[this.options.language];
+        // Set language (force lowercase and remove country code if present, defaults to English if code is not found)
+        let language = this.options.language.toLowerCase().split('-')[0].split('_')[0];
+        if (language in i18nMessages) {
+            this.messages = i18nMessages[language];
         } else {
             this.messages = i18nMessages["en"];
         }
 
-        this.universalWrap = '<div class="uip-modal uip-open" id="uip-modal' + this.idSuffix + '"><div class="uip-modal--content"><div class="uip-modal--header"><div class="uip-modal--header-logo-area"><span class="uip-modal--header-logo-title">' + this.messages.icon_picker + '</span></div><div class="uip-modal--header-close-btn"><img src="' + iconPickerUrl + '/images/xmark-solid.svg" width="20" height="16" alt="' + this.messages.close_label + '" title="' + this.messages.close_label + '" /></div></div><div class="uip-modal--body"><div id="uip-modal--sidebar' + this.idSuffix + '" class="uip-modal--sidebar"><div class="uip-modal--sidebar-tabs"></div></div><div id="uip-modal--icon-preview-wrap' + this.idSuffix + '" class="uip-modal--icon-preview-wrap"><div class="uip-modal--icon-search"><input name="" value="" placeholder="' + this.messages.search_placeholder + '"><img src="' + iconPickerUrl + '/images/magnifying-glass-solid.svg" width="20" height="16" alt="' + this.messages.search_label + '" title="' + this.messages.search_label + '" /></div><div class="uip-modal--icon-preview-inner"><div id="uip-modal--icon-preview' + this.idSuffix + '" class="uip-modal--icon-preview"></div></div></div></div><div class="uip-modal--footer"><button class="uip-insert-icon-button">' + this.messages.insert_label + '</button></div></div></div>';
+        this.universalWrap = '<div class="uip-modal uip-open" id="uip-modal' + this.idSuffix + '"><div class="uip-modal--content"><div class="uip-modal--header"><div class="uip-modal--header-logo-area"><span class="uip-modal--header-logo-title">' + this.messages.icon_picker + '</span></div><div class="uip-modal--header-close-btn"><img src="' + (options.closeUrl || iconPickerUrl + '/images/xmark-solid.svg') + '" width="20" height="16" alt="' + this.messages.close_label + '" title="' + this.messages.close_label + '" /></div></div><div class="uip-modal--body"><div id="uip-modal--sidebar' + this.idSuffix + '" class="uip-modal--sidebar"><div class="uip-modal--sidebar-tabs"></div></div><div id="uip-modal--icon-preview-wrap' + this.idSuffix + '" class="uip-modal--icon-preview-wrap"><div class="uip-modal--icon-search"><input name="" value="" placeholder="' + this.messages.search_placeholder + '"><img src="' + (options.searchUrl || iconPickerUrl + '/images/magnifying-glass-solid.svg') + '" width="20" height="16" alt="' + this.messages.search_label + '" title="' + this.messages.search_label + '" /></div><div class="uip-modal--icon-preview-inner"><div id="uip-modal--icon-preview' + this.idSuffix + '" class="uip-modal--icon-preview"></div></div></div></div><div class="uip-modal--footer"><button class="uip-insert-icon-button">' + this.messages.insert_label + '</button></div></div></div>';
 
 
         this.universalDomEle = createDomEle(this.universalWrap);
@@ -490,7 +491,7 @@ const i18nMessages = {
                     }
                     markup += '<div class="uip-modal--sidebar-tab-item' + activeClazz + '" data-library-id="' + item['library-id'] + '">' + iconTag + item['title'] + '</div>';
                 } else {
-                    markup += '<div class="uip-modal--sidebar-tab-item' + activeClazz + '" data-library-id="' + item['library-id'] + '"><img src="' + iconPickerUrl + '/images/star-of-life-solid.svg" width="13.125px" height="auto" alt="' + this.messages.all + '" title="' + this.messages.all + '" />' + item['title'] + '</div>';
+                    markup += '<div class="uip-modal--sidebar-tab-item' + activeClazz + '" data-library-id="' + item['library-id'] + '"><img src="' + (this.options.starUrl || '/images/star-of-life-solid.svg') + '" width="13.125px" height="auto" alt="' + this.messages.all_label + '" title="' + this.messages.all_label + '" />' + item['title'] + '</div>';
                 }
             });
 

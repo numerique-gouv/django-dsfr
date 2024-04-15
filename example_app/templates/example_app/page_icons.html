@@ -68,16 +68,12 @@
   </div>
 {% endblock content %}
 {% block extra_js %}
-  <script src="{% static 'dsfr-extras/icon-picker/assets/js/universal-icon-picker.js' %}"></script>
+  <script src="{% static 'django-dsfr/icon-picker/assets/js/universal-icon-picker.js' %}"></script>
 
   <script>
-    let lang = (navigator.language || navigator.userLanguage).split('-')[0];
-    console.log(lang);
-
     const options = {
       iconLibraries: ['dsfr-buildings.json', 'dsfr-business.json', 'dsfr-communication.json', 'dsfr-design.json', 'dsfr-development.json', 'dsfr-device.json', 'dsfr-document.json', 'dsfr-editor.json', 'dsfr-finance.json', 'dsfr-health.json', 'dsfr-logo.json', 'dsfr-map.json', 'dsfr-media.json', 'dsfr-others.json', 'dsfr-system.json', 'dsfr-user.json', 'dsfr-weather.json'],
       allowEmpty: false,
-      language: lang,
       onSelect: function (jsonIconData) {
         document.getElementById('output-icon').innerHTML = "Copié dans le presse-papier : '" +jsonIconData.iconClass + "'";
         document.getElementById('uip-select-input').value = jsonIconData.iconClass;
