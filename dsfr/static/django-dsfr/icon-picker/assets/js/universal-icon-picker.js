@@ -8,6 +8,7 @@ const i18nMessages = {
         close_label: "Close",
         icon_picker: "Icon Picker",
         insert_label: "Insert",
+        none_label: "None",
         search_label: "Search",
         search_placeholder: "Filter by name…"
     },
@@ -17,6 +18,7 @@ const i18nMessages = {
         close_label: "Fermer",
         icon_picker: "Sélecteur d’icônes",
         insert_label: "Insérer",
+        none_label: "Aucune",
         search_label: "Rechercher",
         search_placeholder: "Filtrer par nom…"
     }
@@ -270,7 +272,7 @@ const i18nMessages = {
                 library = libraryItem['icon-style'],
                 prefix = libraryItem['prefix'];
             if (this.options.allowEmpty) {
-                markup += '<div class="uip-icon-item" data-library-id="' + library + '" data-filter="" data-library-name="' + libraryName + '"><div class="uip-icon-item-inner"><i class="' + prefix + ' uip-icon-none">&nbsp;</i><div class="uip-icon-item-name" title="None">None</div></div></div>';
+                markup += '<div class="uip-icon-item" data-library-id="' + library + '" data-filter="" data-library-name="' + libraryName + '"><div class="uip-icon-item-inner"><i class="' + ' uip-icon-none">&nbsp;</i><div class="uip-icon-item-name" title="' + this.messages.none_label + '">' + this.messages.none_label + '</div></div></div>';
             }
             if (prefix.match(/^material-icons/)) {
                 libraryItem['icons'].forEach(function (item) {
@@ -401,8 +403,6 @@ const i18nMessages = {
         },
 
         _searchFunc: function (e) {
-            // console.log(this.value.toLowerCase());
-
             const searchText = e.target.value.toLowerCase();
             this._searchFilterFunc(searchText, 'filter');
 
