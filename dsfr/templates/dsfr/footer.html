@@ -20,15 +20,14 @@
                    src="{{ SITE_CONFIG.operator_logo_file.url }}"
                    alt="{{ SITE_CONFIG.operator_logo_alt }}"
                    {% if SITE_CONFIG.operator_logo_width >= 1 %}style="max-width:{{ SITE_CONFIG.operator_logo_width }}rem;"{% endif %} />
-              <!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+              {# L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image #}
             </a>
           </div>
         {% else %}
           <div class="fr-footer__brand fr-enlarge-link">
             <a id="footer-operator"
                href="/"
-               title="{{ back_to_home_label }} - {{ SITE_CONFIG.site_title }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}"
-               None="{{ SITE_CONFIG.footer_brand|default:'république française' }}">
+               title="{{ back_to_home_label }} - {{ SITE_CONFIG.site_title }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}">
               {% block brand %}
                 <p class="fr-logo">
                   {{ SITE_CONFIG.footer_brand_html| default_if_none:'république<br />française' | safe }}
