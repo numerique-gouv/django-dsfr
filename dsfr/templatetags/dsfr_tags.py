@@ -469,7 +469,8 @@ def dsfr_card(*args, **kwargs) -> dict:
     - `fr-ratio-3x4`
     - `fr-ratio-2x3`
 
-    Constants are provided for these classes in dsfr/constants.py: IMAGE_RATIOS and VIDEO_RATIOS
+    A constant is provided for these classes in dsfr/constants.py: IMAGE_RATIOS
+
     Format of the top_detail dict (every field is optional):
 
     ```python
