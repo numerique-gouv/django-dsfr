@@ -202,7 +202,8 @@ p code, li code {
     </div>
   </div>
   
-  <div class="fr-header__menu fr-modal"
+  
+<div class="fr-header__menu fr-modal"
      id="fr-menu-mobile"
      aria-labelledby="fr-btn-menu-mobile">
   <div class="fr-container">
@@ -213,6 +214,7 @@ p code, li code {
     </button>
     <div class="fr-header__menu-links">
     </div>
+    
     <nav role="navigation"
          class="fr-nav"
          id="fr-navigation"
@@ -1340,6 +1342,7 @@ p code, li code {
     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Text of the card item&quot;</span><span class="p">,</span>
     <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) url of the image&quot;</span><span class="p">,</span>
     <span class="s2">&quot;image_alt&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) alt text of the image&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ratio_class&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) string with the name of a ratio class for the image&quot;</span><span class="p">,</span>
     <span class="s2">&quot;media_badges&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) list of badges for the media area (similar to a badge_group tag)&quot;</span>
     <span class="s2">&quot;new_tab&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) if True, forces links to open in a new tab&quot;</span><span class="p">,</span>
     <span class="s2">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) link of the card item&quot;</span><span class="p">,</span>
@@ -1364,6 +1367,17 @@ p code, li code {
 <li><code>fr-card--no-background</code>: removes the card background</li>
 <li><code>fr-card--shadow</code>: adds a shadow to the card border</li>
 </ul>
+<p>Relevant ratio classes for images:</p>
+<ul>
+<li><code>fr-ratio-32x9</code></li>
+<li><code>fr-ratio-16x9</code></li>
+<li><code>fr-ratio-3x2</code></li>
+<li><code>fr-ratio-4x3</code></li>
+<li><code>fr-ratio-1x1</code></li>
+<li><code>fr-ratio-3x4</code></li>
+<li><code>fr-ratio-2x3</code></li>
+</ul>
+<p>A constant is provided for these classes in dsfr/constants.py: IMAGE_RATIOS</p>
 <p>Format of the top_detail dict (every field is optional):</p>
 <div class="dsfr-code"><pre><span></span><code><span class="n">top_detail</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1404,11 +1418,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-qypurpeilxvbnoiy">
+          aria-controls="accordion-jtbbmxozdcfdifih">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-qypurpeilxvbnoiy">
+  <div class="fr-collapse" id="accordion-jtbbmxozdcfdifih">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -1432,7 +1446,7 @@ p code, li code {
           
             
               <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-4">
+                <div class="fr-col-12 fr-col-md-6">
                   
 
 <div class="fr-card fr-enlarge-link"
@@ -1462,7 +1476,7 @@ p code, li code {
   <div class="fr-card__header">
     
       <div class="fr-card__img">
-        <img class="fr-responsive-img"
+        <img class="fr-responsive-img "
              src="/django-dsfr/static/img/placeholder.16x9.svg"
              alt="" />
       </div>
@@ -1489,11 +1503,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-rqqrrwcnfqvseotv">
+          aria-controls="accordion-svgfuzpogofikdyu">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-rqqrrwcnfqvseotv">
+  <div class="fr-collapse" id="accordion-svgfuzpogofikdyu">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -1547,7 +1561,7 @@ p code, li code {
   <div class="fr-card__header">
     
       <div class="fr-card__img">
-        <img class="fr-responsive-img"
+        <img class="fr-responsive-img "
              src="/django-dsfr/static/img/placeholder.1x1.svg"
              alt="" />
       </div>
@@ -1573,11 +1587,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-gbfbgavfqngrfrgi">
+          aria-controls="accordion-jpquidqrqnozqglp">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-gbfbgavfqngrfrgi">
+  <div class="fr-collapse" id="accordion-jpquidqrqnozqglp">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -1631,7 +1645,7 @@ p code, li code {
   <div class="fr-card__header">
     
       <div class="fr-card__img">
-        <img class="fr-responsive-img"
+        <img class="fr-responsive-img "
              src="/django-dsfr/static/img/placeholder.1x1.svg"
              alt="" />
       </div>
@@ -1657,11 +1671,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-aarsufeoefhbgsmx">
+          aria-controls="accordion-cxagzwwpzcmotzsb">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-aarsufeoefhbgsmx">
+  <div class="fr-collapse" id="accordion-cxagzwwpzcmotzsb">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -1715,7 +1729,7 @@ p code, li code {
   <div class="fr-card__header">
     
       <div class="fr-card__img">
-        <img class="fr-responsive-img"
+        <img class="fr-responsive-img "
              src="/django-dsfr/static/img/placeholder.1x1.svg"
              alt="" />
       </div>
@@ -1741,11 +1755,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-maptmikllgkyrgln">
+          aria-controls="accordion-hvoaromlyjohohcn">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-maptmikllgkyrgln">
+  <div class="fr-collapse" id="accordion-hvoaromlyjohohcn">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
@@ -1767,7 +1781,7 @@ p code, li code {
           
             
               <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-4">
+                <div class="fr-col-12 fr-col-md-6">
                   
 
 <div class="fr-card fr-enlarge-link"
@@ -1796,7 +1810,7 @@ p code, li code {
   <div class="fr-card__header">
     
       <div class="fr-card__img">
-        <img class="fr-responsive-img"
+        <img class="fr-responsive-img "
              src="/django-dsfr/static/img/placeholder.1x1.svg"
              alt="" />
       </div>
@@ -1834,11 +1848,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-gbxaoflpbdxqctnr">
+          aria-controls="accordion-ueukjkzbopshgkvt">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-gbxaoflpbdxqctnr">
+  <div class="fr-collapse" id="accordion-ueukjkzbopshgkvt">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
@@ -1862,7 +1876,7 @@ p code, li code {
           
             
               <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-4">
+                <div class="fr-col-12 fr-col-md-6">
                   
 
 <div class="fr-card fr-enlarge-link"
@@ -1907,7 +1921,7 @@ p code, li code {
             </ul>
           
           
-            <p class="fr-card__detail self.top_detail.detail.icon_class">
+            <p class="fr-card__detail fr-icon-warning-fill">
               Détail (optionnel) avec icône (optionnelle)
             </p>
           
@@ -1940,18 +1954,19 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-tsgkkjfrmuavjnfz">
+          aria-controls="accordion-irzxfwngniumethw">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-tsgkkjfrmuavjnfz">
+  <div class="fr-collapse" id="accordion-irzxfwngniumethw">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères.\n'
                 '                    ',
  'image_url': '/django-dsfr/static/img/placeholder.16x9.svg',
  'link': 'https://www.systeme-de-design.gouv.fr/',
  'new_tab': True,
- 'title': 'Carte avec image et détails d’en-tête (badges)',
+ 'ratio_class': 'fr-ratio-1x1',
+ 'title': 'Carte avec image, ratio, et détails d’en-tête (badges)',
  'top_detail': {'badges': [{'label': 'Badge 1'},
                            {'extra_classes': 'fr-badge--warning',
                             'label': 'Badge 2'}],
@@ -1970,7 +1985,7 @@ p code, li code {
           
             
               <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-4">
+                <div class="fr-col-12 fr-col-md-6">
                   
 
 <div class="fr-card fr-enlarge-link"
@@ -1981,8 +1996,8 @@ p code, li code {
       
         <a href="https://www.systeme-de-design.gouv.fr/"
            target="_blank"
-           rel="noopener noreferrer" title="Carte avec image et détails d’en-tête (badges) - Ouvre une nouvelle fenêtre">
-          Carte avec image et détails d’en-tête (badges)
+           rel="noopener noreferrer" title="Carte avec image, ratio, et détails d’en-tête (badges) - Ouvre une nouvelle fenêtre">
+          Carte avec image, ratio, et détails d’en-tête (badges)
         </a>
       
       </p>
@@ -2013,7 +2028,7 @@ p code, li code {
             </ul>
           
           
-            <p class="fr-card__detail self.top_detail.detail.icon_class">
+            <p class="fr-card__detail fr-icon-warning-fill">
               Détail (optionnel)
             </p>
           
@@ -2026,7 +2041,7 @@ p code, li code {
   <div class="fr-card__header">
     
       <div class="fr-card__img">
-        <img class="fr-responsive-img"
+        <img class="fr-responsive-img fr-ratio-1x1"
              src="/django-dsfr/static/img/placeholder.16x9.svg"
              alt="" />
       </div>
@@ -2053,11 +2068,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-mnsevsjucorbkghr">
+          aria-controls="accordion-obivcavhjwcmnqav">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-mnsevsjucorbkghr">
+  <div class="fr-collapse" id="accordion-obivcavhjwcmnqav">
     <pre class="dsfr-code">{'bottom_detail': {'icon': 'fr-icon-warning-fill',
                    'text': 'Détail (optionnel)'},
  'description': 'Texte de la carte.\n'
@@ -2079,7 +2094,7 @@ p code, li code {
           
             
               <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-4">
+                <div class="fr-col-12 fr-col-md-6">
                   
 
 <div class="fr-card fr-enlarge-link"
@@ -2134,11 +2149,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-ortybfdgwaphchbk">
+          aria-controls="accordion-kudxvnfjthxwhrez">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-ortybfdgwaphchbk">
+  <div class="fr-collapse" id="accordion-kudxvnfjthxwhrez">
     <pre class="dsfr-code">{'call_to_action': {'buttons': [{'extra_classes': 'fr-btn--secondary',
                                  'label': 'Bouton 1'},
                                 {'label': 'Bouton 2'}]},
@@ -2222,7 +2237,7 @@ p code, li code {
   <div class="fr-card__header">
     
       <div class="fr-card__img">
-        <img class="fr-responsive-img"
+        <img class="fr-responsive-img "
              src="/django-dsfr/static/img/placeholder.1x1.svg"
              alt="" />
       </div>
@@ -2248,11 +2263,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-vtoeaymrphxnomda">
+          aria-controls="accordion-iohauveegwyqhlpk">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-vtoeaymrphxnomda">
+  <div class="fr-collapse" id="accordion-iohauveegwyqhlpk">
     <pre class="dsfr-code">{'call_to_action': {'links': [{'label': 'Lien interne', 'url': '/'},
                               {'is_external': True,
                                'label': 'Lien externe',
@@ -2339,7 +2354,7 @@ p code, li code {
   <div class="fr-card__header">
     
       <div class="fr-card__img">
-        <img class="fr-responsive-img"
+        <img class="fr-responsive-img "
              src="/django-dsfr/static/img/placeholder.1x1.svg"
              alt="" />
       </div>
@@ -2365,11 +2380,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-nrnsuhcxfrrssvrm">
+          aria-controls="accordion-qnoqfruvvzxlwtwz">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-nrnsuhcxfrrssvrm">
+  <div class="fr-collapse" id="accordion-qnoqfruvvzxlwtwz">
     <pre class="dsfr-code">{'description': 'Texte de la carte.\n'
                 '                    Il peut prendre jusqu’à 200 caractères, '
                 'ce qui devrait correspondre\n'
@@ -2394,7 +2409,7 @@ p code, li code {
           
             
               <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-4">
+                <div class="fr-col-12 fr-col-md-6">
                   
 
 <div class="fr-card fr-enlarge-link fr-card--grey fr-card--shadow"
@@ -2424,7 +2439,7 @@ p code, li code {
   <div class="fr-card__header">
     
       <div class="fr-card__img">
-        <img class="fr-responsive-img"
+        <img class="fr-responsive-img "
              src="/django-dsfr/static/img/placeholder.16x9.svg"
              alt="" />
       </div>
@@ -2451,11 +2466,11 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-hufsanmdyxunrcim">
+          aria-controls="accordion-nasovrsizhlppdov">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-hufsanmdyxunrcim">
+  <div class="fr-collapse" id="accordion-nasovrsizhlppdov">
     <pre class="dsfr-code">{'description': 'Peut être utile au besoin.',
  'enlarge_link': False,
  'extra_classes': 'fr-card--horizontal',
@@ -2496,7 +2511,7 @@ p code, li code {
   <div class="fr-card__header">
     
       <div class="fr-card__img">
-        <img class="fr-responsive-img"
+        <img class="fr-responsive-img "
              src="/django-dsfr/static/img/placeholder.1x1.svg"
              alt="" />
       </div>
@@ -2566,10 +2581,10 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
           <li class="fr-footer__content-item">
             <a target="_blank"
                rel="noopener external"
-               title="gouvernement.fr - Ouvre une nouvelle fenêtre"
+               title="info.gouv.fr - Ouvre une nouvelle fenêtre"
                id="footer__content-link-gouvernement"
                class="fr-footer__content-link"
-               href="https://gouvernement.fr">gouvernement.fr</a>
+               href="https://www.info.gouv.fr">info.gouv.fr</a>
           </li>
           <li class="fr-footer__content-item">
             <a target="_blank"
@@ -2649,11 +2664,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="oUXa1SZaYs0dkJ2srLXqtA=="></script>
+         nonce="1V7WCQ7esd0UXarwVV9Nzg=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="oUXa1SZaYs0dkJ2srLXqtA=="></script>
+         nonce="1V7WCQ7esd0UXarwVV9Nzg=="></script>
 
 
     
