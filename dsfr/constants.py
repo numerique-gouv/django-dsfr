@@ -56,3 +56,20 @@ COLOR_CHOICES_WITH_SYSTEM = [
     (_("System colors"), COLOR_CHOICES_SYSTEM),
     (_("Illustration colors"), COLOR_CHOICES_ILLUSTRATION),
 ]
+
+# Ratio classes used for medias and cards
+IMAGE_RATIOS = [
+    ("fr-ratio-32x9", "32x9"),
+    ("fr-ratio-16x9", "16x9"),
+    ("fr-ratio-3x2", "3x2"),
+    ("fr-ratio-4x3", "4x3"),
+    ("fr-ratio-1x1", "1x1"),
+    ("fr-ratio-3x4", "3x4"),
+    ("fr-ratio-2x3", "2x3"),
+]
+
+VIDEO_RATIOS = [
+    ("fr-ratio-16x9", "16x9"),
+    ("fr-ratio-4x3", "4x3"),
+    ("fr-ratio-1x1", "1x1"),
+]

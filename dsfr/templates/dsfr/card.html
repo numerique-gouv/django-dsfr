@@ -38,7 +38,7 @@
             </ul>
           {% endif %}
           {% if self.top_detail.detail %}
-            <p class="fr-card__detail{% if self.top_detail.detail.icon_class %} self.top_detail.detail.icon_class{% endif %}">
+            <p class="fr-card__detail{% if self.top_detail.detail.icon_class %} {{ self.top_detail.detail.icon_class }}{% endif %}">
               {{ self.top_detail.detail.text }}
             </p>
           {% endif %}
@@ -46,7 +46,7 @@
       {% endif %}
       {% if self.bottom_detail %}
         <div class="fr-card__end">
-          <p class="fr-card__detail{% if self.bottom_detail.icon_class %} self.bottom_detail.icon_class{% endif %}">
+          <p class="fr-card__detail{% if self.bottom_detail.icon_class %} {{ self.bottom_detail.icon_class }}{% endif %}">
             {{ self.bottom_detail.text }}
           </p>
         </div>
@@ -77,7 +77,7 @@
   <div class="fr-card__header">
     {% if self.image_url %}
       <div class="fr-card__img">
-        <img class="fr-responsive-img"
+        <img class="fr-responsive-img {% if self.ratio_class %}{{ self.ratio_class }}{% endif %}"
              src="{{ self.image_url }}"
              alt="{{ self.image_alt }}" />
       </div>
