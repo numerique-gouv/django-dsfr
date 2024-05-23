@@ -433,6 +433,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         "description": "Text of the card item",
         "image_url": "(Optional) url of the image",
         "image_alt": "(Optional) alt text of the image",
+        "ratio_class": "(Optional) string with the name of a ratio class for the image",
         "media_badges": "(Optional) list of badges for the media area (similar to a badge_group tag)"
         "new_tab": "(Optional) if True, forces links to open in a new tab",
         "link": "(Optional) link of the card item",
@@ -458,6 +459,17 @@ def dsfr_card(*args, **kwargs) -> dict:
     - `fr-card--no-background`: removes the card background
     - `fr-card--shadow`: adds a shadow to the card border
 
+    Relevant ratio classes for images:
+
+    - `fr-ratio-32x9`
+    - `fr-ratio-16x9`
+    - `fr-ratio-3x2`
+    - `fr-ratio-4x3`
+    - `fr-ratio-1x1`
+    - `fr-ratio-3x4`
+    - `fr-ratio-2x3`
+
+    Constants are provided for these classes in dsfr/constants.py: IMAGE_RATIOS and VIDEO_RATIOS
     Format of the top_detail dict (every field is optional):
 
     ```python
@@ -493,6 +505,7 @@ def dsfr_card(*args, **kwargs) -> dict:
         "description",
         "image_url",
         "image_alt",
+        "ratio_class",
         "media_badges",
         "new_tab",
         "link",
@@ -600,6 +613,8 @@ def dsfr_content(*args, **kwargs) -> dict:
     - `fr-ratio-16x9`
     - `fr-ratio-4x3`
     - `fr-ratio-1x1`
+
+    Constants are provided for these classes in dsfr/constants.py: IMAGE_RATIOS and VIDEO_RATIOS
 
     **Tag name**:
         dsfr_content

@@ -302,13 +302,14 @@ IMPLEMENTED_COMPONENTS = {
                 },
             },
             {
-                "title": "Carte avec image et détails d’en-tête (badges)",
+                "title": "Carte avec image, ratio, et détails d’en-tête (badges)",
                 "description": """Texte de la carte.
                     Il peut prendre jusqu’à 200 caractères.
                     """,
                 "link": "https://www.systeme-de-design.gouv.fr/",
                 "new_tab": True,
                 "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
+                "ratio_class": "fr-ratio-1x1",
                 "top_detail": {
                     "detail": {
                         "icon_class": "fr-icon-warning-fill",

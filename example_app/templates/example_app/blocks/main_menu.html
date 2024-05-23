@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="fr-header__menu fr-modal"
      id="fr-menu-mobile"
      aria-labelledby="fr-btn-menu-mobile">
@@ -9,10 +10,11 @@
     </button>
     <div class="fr-header__menu-links">
     </div>
+    {% translate "Main menu" as main_menu_label %}
     <nav role="navigation"
          class="fr-nav"
          id="fr-navigation"
-         aria-label="Menu principal">
+         aria-label="{{ main_menu_label }}">
       <ul class="fr-nav__list">
         <li class="fr-nav__item">
           {% url 'index' as home_url %}
