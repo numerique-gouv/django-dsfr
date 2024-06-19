@@ -545,7 +545,7 @@ IMPLEMENTED_COMPONENTS = {
                 "extra_classes": "fr-link--download",
             },
         ],
-        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liens",
+        "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lien",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/link/",
     },
     "notice": {

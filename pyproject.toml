@@ -3,7 +3,7 @@ authors = ["Sylvain Boissel <sylvain.boissel@beta.gouv.fr>"]
 description = "Integrate the French government Design System into a Django app"
 license = "MIT"
 name = "django-dsfr"
-version = "1.1.3"
+version = "1.1.4"
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Web Environment",
@@ -22,6 +22,7 @@ classifiers = [
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
   "Topic :: Software Development :: Libraries",
   "Topic :: Utilities",
 ]
@@ -61,6 +62,7 @@ markdown = "^3.5"
 pygments = "^2.16.1"
 beautifulsoup4 = "^4.12.2"
 lxml = "^5.1.0"
+setuptools = "^70.0.0"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"

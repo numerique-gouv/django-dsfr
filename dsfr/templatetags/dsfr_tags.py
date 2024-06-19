@@ -469,7 +469,7 @@ def dsfr_card(*args, **kwargs) -> dict:
     - `fr-ratio-3x4`
     - `fr-ratio-2x3`
 
-    A constant is provided for these classes in dsfr/constants.py: IMAGE_RATIOS
+    Constants are provided for these classes in dsfr/constants.py: IMAGE_RATIOS and VIDEO_RATIOS
 
     Format of the top_detail dict (every field is optional):
 
@@ -1491,7 +1491,7 @@ def dsfr_django_messages(
 def dsfr_form(context: Context, form=None) -> dict:
     """
     Returns the HTML for a form snippet
-    
+
     ```python
     data_dict = {
         "form": an optionnal form to render instead of the form already present in context
