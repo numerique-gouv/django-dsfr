@@ -1488,17 +1488,23 @@ def dsfr_django_messages(
 
 
 @register.inclusion_tag("dsfr/form_snippet.html", takes_context=True)
-def dsfr_form(context) -> dict:
+def dsfr_form(context: Context, form=None) -> dict:
     """
     Returns the HTML for a form snippet
+    
+    ```python
+    data_dict = {
+        "form": an optionnal form to render instead of the form already present in context
+    }
+    ```
 
     **Tag name**:
         dsfr_form
 
     **Usage**:
         `{% dsfr_form %}`
-    """
-    return context
+    """  # noqa
+    return context.update({"form": form}) if form else context
 
 
 @register.inclusion_tag("dsfr/form_field_snippets/field_snippet.html")
