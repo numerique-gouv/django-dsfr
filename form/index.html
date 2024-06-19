@@ -867,6 +867,19 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot; my custom class&quot;</span>
 </code></pre></div>
 
+<h2 id="utilisation-avec-les-formsets">Utilisation avec les <code>Formsets</code></h2>
+<p>La balise <code>{% dsfr_form %}</code> prend un paramètre optionnel <code>form</code> qui permet de surcharger le formulaire à rendre, ce qui 
+est pratique lors de l'utilisation de <code>Formsets</code> :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="x">&lt;form method=&quot;post&quot;&gt;</span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">formset.management_form</span> <span class="cp">}}</span>
+<span class="x">    &lt;table&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">subform</span> <span class="k">in</span> <span class="nv">formset</span> <span class="cp">%}</span>
+<span class="x">        </span><span class="cp">{{</span> <span class="nv">dsfr_form</span> <span class="nv">subform</span> <span class="cp">}}</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="x">    &lt;/table&gt;</span>
+<span class="x">&lt;/form&gt;</span>
+</code></pre></div>
+
       </main>
     </div>
 
@@ -1002,11 +1015,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="rXquaM1A3YphUxHqyXIk3w=="></script>
+         nonce="58PP/gswF113dP6I9qSUAg=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="rXquaM1A3YphUxHqyXIk3w=="></script>
+         nonce="58PP/gswF113dP6I9qSUAg=="></script>
 
 
     
