@@ -868,13 +868,12 @@
 </code></pre></div>
 
 <h2 id="utilisation-avec-les-formsets">Utilisation avec les <code>Formsets</code></h2>
-<p>La balise <code>{% dsfr_form %}</code> prend un paramètre optionnel <code>form</code> qui permet de surcharger le formulaire à rendre, ce qui 
-est pratique lors de l'utilisation de <code>Formsets</code> :</p>
+<p>La balise <code>{% dsfr_form %}</code> prend un paramètre optionnel <code>form</code> qui permet de surcharger le formulaire à rendre, ce qui est pratique lors de l'utilisation de <code>Formsets</code> :</p>
 <div class="dsfr-code"><pre><span></span><code><span class="x">&lt;form method=&quot;post&quot;&gt;</span>
 <span class="x">    </span><span class="cp">{{</span> <span class="nv">formset.management_form</span> <span class="cp">}}</span>
 <span class="x">    &lt;table&gt;</span>
 <span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">subform</span> <span class="k">in</span> <span class="nv">formset</span> <span class="cp">%}</span>
-<span class="x">        </span><span class="cp">{{</span> <span class="nv">dsfr_form</span> <span class="nv">subform</span> <span class="cp">}}</span>
+<span class="x">            </span><span class="cp">{%</span> <span class="k">dsfr_form</span> <span class="nv">subform</span> <span class="cp">%}</span>
 <span class="x">        </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 <span class="x">    &lt;/table&gt;</span>
 <span class="x">&lt;/form&gt;</span>
@@ -1015,11 +1014,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-2eck9tCbf4bg7Ry/9umF+meaBlLy9FhuBnHgy+WX5U0i5KdS02wBSjgAWGGJtC74"
-         nonce="V3V6pXFZ/7mzZUI8aomZuw=="></script>
+         nonce="PWd88AM4QGXZ8DCsr2kW5w=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-apopLPiAOE8whfeDupMOjP0SuJZCeJ10givr3/HSxM/tlsQ3SrwE3epVEjIfwEqY"
-         nonce="V3V6pXFZ/7mzZUI8aomZuw=="></script>
+         nonce="PWd88AM4QGXZ8DCsr2kW5w=="></script>
 
 
     
