@@ -1,11 +1,9 @@
+{% load dsfr_tags %}
 {% if form.non_field_errors %}
   <section class="fr-my-4v fr-input-group fr-input-group--error">
     {{ form.non_field_errors }}
   </section>
 {% endif %}
-{% for hidden in form.hidden_fields %}
-  {{ hidden }}
-{% endfor %}
-{% for field in form.visible_fields %}
-  {% include "dsfr/form_field_snippets/field_snippet.html" %}
+{% for field in form %}
+  {% dsfr_form_field field %}
 {% endfor %}
