@@ -55,15 +55,14 @@ def __init__(self, *args, **kwargs):
 
 ## Utilisation avec les `Formsets`
 
-La balise `{% dsfr_form %}` prend un paramètre optionnel `form` qui permet de surcharger le formulaire à rendre, ce qui 
-est pratique lors de l'utilisation de `Formsets` :
+La balise `{% dsfr_form %}` prend un paramètre optionnel `form` qui permet de surcharger le formulaire à rendre, ce qui est pratique lors de l'utilisation de `Formsets` :
 
 ```{ .django }
 <form method="post">
     {{ formset.management_form }}
     <table>
         {% for subform in formset %}
-        {{ dsfr_form subform }}
+            {% dsfr_form subform %}
         {% endfor %}
     </table>
 </form>
