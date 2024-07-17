@@ -29,7 +29,7 @@ Django-DSFR implements the `version 1.11.2 of the DSFR <https://www.systeme-de-d
 
 Requirements
 ------------
-Tested with Python 3.8 to 3.11 and Django 3.2 to 5.0. Per `vermin <https://github.com/netromdk/vermin>`_, it should work with Python >= 3.6, and it should work with old versions of Django too.
+Tested with Python 3.8 to 3.12 and Django 3.2 to 5.0. Per `vermin <https://github.com/netromdk/vermin>`_, it should work with Python >= 3.6, and it should work with old versions of Django too.
 
 Note: Only supported versions of Django and Python are supported by this project. You can check the supported versions and their end of life on the following pages:
 
@@ -45,4 +45,4 @@ History
 -------
 This app was originally created as a part of `Open Collectivités <https://github.com/entrepreneur-interet-general/opencollectivites>`_ in 2020, and then maintained as part of `Aides-territoires <https://github.com/MTES-MCT/aides-territoires>`_ in 2022-2023.
 
-It is now maintained as part of `@numerique-gouv <https://github.com/numerique-gouv>`_ alongside the Wagtail-based `Content Manager <https://github.com/numerique-gouv/content-manager/>`_.
+It is now maintained as part of `@numerique-gouv <https://github.com/numerique-gouv>`_ alongside the Wagtail-based `Sites faciles <https://github.com/numerique-gouv/sites-faciles>`_.
