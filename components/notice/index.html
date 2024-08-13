@@ -171,7 +171,9 @@ p code, li code {
           </div>
           
   
-  <div class="fr-header__search fr-modal" id="modal-search">
+  <div class="fr-header__search fr-modal"
+       id="modal-search"
+       aria-label="Rechercher">
     <div class="fr-container fr-container-lg--fluid">
       
       <button class="fr-btn--close fr-btn"
@@ -1337,11 +1339,27 @@ p code, li code {
       </h2>
       <p>Returns a notice item. Takes a dict as parameter, with the following structure:</p>
 <div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Content of the notice item (can include html)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Title of the notice item (can include html)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Content of the notice item (can include html)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Standardized link at the end of the notice.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) The type of notice. See below for allowed values (default: info)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;icon&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) The icon class for weather-related notices&quot;</span><span class="p">,</span>
     <span class="s2">&quot;is_collapsible&quot;</span> <span class="p">:</span> <span class="s2">&quot;(Optional) Boolean, set to true to add a &#39;close&#39; button for the notice (default: false)&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 
+<p>Possible values for type:</p>
+<ul>
+<li>info</li>
+<li>warning</li>
+<li>alert</li>
+<li>weather-orange</li>
+<li>weather-red</li>
+<li>weather-purple</li>
+<li>attack</li>
+<li>witness</li>
+<li>cyberattack</li>
+</ul>
 <p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
 <p><strong>Tag name</strong>:
     dsfr_notice</p>
@@ -1365,21 +1383,21 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-ganyoawugqgovyxq">
+          aria-controls="accordion-alrtlukwonrshgkw">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-ganyoawugqgovyxq">
-    <pre class="dsfr-code">{'is_collapsible': True,
- 'title': 'Label titre du bandeau d’information importante, comprenant un '
-          'texte assez long\n'
+  <div class="fr-collapse" id="accordion-alrtlukwonrshgkw">
+    <pre class="dsfr-code">{'is_collapsible': False,
+ 'title': 'Bandeau d’information importante par défaut, comprenant dans le '
+          'titre un texte assez long\n'
           '                            pour être sur deux lignes, et <a '
           "href='#'\n"
           "                            rel='noopener external'\n"
           '                            title="intitulé - Ouvre une nouvelle '
           'fenêtre" target=\'_blank\'>\n'
-          '                            un lien au fil du texte</a>, ainsi '
-          'qu’une croix de fermeture.'}</pre>
+          '                            un lien au fil du texte</a>, sans croix '
+          'de fermeture.'}</pre>
   </div>
 </section>
 
@@ -1393,15 +1411,562 @@ p code, li code {
           
             
 
+
+
 <div class="fr-notice fr-notice--info">
   <div class="fr-container">
     <div class="fr-notice__body">
-      <p class="fr-notice__title">
-        Label titre du bandeau d’information importante, comprenant un texte assez long
+      <p>
+        <span class="fr-notice__title">Bandeau d’information importante par défaut, comprenant dans le titre un texte assez long
                             pour être sur deux lignes, et <a href='#'
                             rel='noopener external'
                             title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
-                            un lien au fil du texte</a>, ainsi qu’une croix de fermeture.
+                            un lien au fil du texte</a>, sans croix de fermeture.</span>
+        
+        
+      </p>
+      
+    </div>
+  </div>
+</div>
+
+          
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-cscfnqrnbgnhytch">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-cscfnqrnbgnhytch">
+    <pre class="dsfr-code">{'description': 'Il comprend en description un texte assez long\n'
+                '                            pour être sur deux lignes, et <a '
+                "href='#'\n"
+                "                            rel='noopener external'\n"
+                '                            title="intitulé - Ouvre une '
+                'nouvelle fenêtre" target=\'_blank\'>\n'
+                '                            un lien au fil du texte</a>, avec '
+                'une croix de fermeture.',
+ 'is_collapsible': True,
+ 'title': 'Bandeau d’information importante de niveau warning.',
+ 'type': 'warning'}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          
+            
+
+
+
+<div class="fr-notice fr-notice--warning">
+  <div class="fr-container">
+    <div class="fr-notice__body">
+      <p>
+        <span class="fr-notice__title">Bandeau d’information importante de niveau warning.</span>
+        
+          <span class="fr-notice__desc">Il comprend en description un texte assez long
+                            pour être sur deux lignes, et <a href='#'
+                            rel='noopener external'
+                            title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
+                            un lien au fil du texte</a>, avec une croix de fermeture.</span>
+        
+        
+      </p>
+      
+        <button class="fr-btn--close fr-btn"
+                title="Masquer le message"
+                onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
+          Masquer le message
+        </button>
+      
+    </div>
+  </div>
+</div>
+
+          
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-mnnqjueperovivit">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-mnnqjueperovivit">
+    <pre class="dsfr-code">{'is_collapsible': True,
+ 'title': 'Bandeau d’information importante de niveau alert, comprenant un '
+          'texte assez long\n'
+          '                            pour être sur deux lignes, et <a '
+          "href='#'\n"
+          "                            rel='noopener external'\n"
+          '                            title="intitulé - Ouvre une nouvelle '
+          'fenêtre" target=\'_blank\'>\n'
+          '                            un lien au fil du texte</a>, avec une '
+          'croix de fermeture.',
+ 'type': 'alert'}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          
+            
+
+
+
+<div class="fr-notice fr-notice--alert">
+  <div class="fr-container">
+    <div class="fr-notice__body">
+      <p>
+        <span class="fr-notice__title">Bandeau d’information importante de niveau alert, comprenant un texte assez long
+                            pour être sur deux lignes, et <a href='#'
+                            rel='noopener external'
+                            title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
+                            un lien au fil du texte</a>, avec une croix de fermeture.</span>
+        
+        
+      </p>
+      
+        <button class="fr-btn--close fr-btn"
+                title="Masquer le message"
+                onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
+          Masquer le message
+        </button>
+      
+    </div>
+  </div>
+</div>
+
+          
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-hwhtepirnkfycamx">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-hwhtepirnkfycamx">
+    <pre class="dsfr-code">{'description': 'Attention, l’utilisation de ce type de bandeau est encadrée, '
+                'cf. documentation.',
+ 'icon': 'fr-icon-windy-fill',
+ 'is_collapsible': True,
+ 'link': 'https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/',
+ 'title': 'Vigilance météo orange',
+ 'type': 'weather-orange'}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          
+            
+
+
+
+<div class="fr-notice fr-notice--weather-orange">
+  <div class="fr-container">
+    <div class="fr-notice__body">
+      <p>
+        <span class="fr-notice__title fr-icon-windy-fill">Vigilance météo orange</span>
+        
+          <span class="fr-notice__desc">Attention, l’utilisation de ce type de bandeau est encadrée, cf. documentation.</span>
+        
+        
+          <a target="_blank"
+             rel="noopener external"
+             title="Lien de consultation - Ouvre une nouvelle fenêtre"
+             href="https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/"
+             class="fr-notice__link">Lien de consultation</a>
+        
+      </p>
+      
+        <button class="fr-btn--close fr-btn"
+                title="Masquer le message"
+                onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
+          Masquer le message
+        </button>
+      
+    </div>
+  </div>
+</div>
+
+          
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-vyibzeuhkffjfdqm">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-vyibzeuhkffjfdqm">
+    <pre class="dsfr-code">{'description': 'Attention, l’utilisation de ce type de bandeau est encadrée, '
+                'cf. documentation.',
+ 'is_collapsible': True,
+ 'link': 'https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/',
+ 'title': 'Vigilance météo rouge',
+ 'type': 'weather-red'}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          
+            
+
+
+
+<div class="fr-notice fr-notice--weather-red">
+  <div class="fr-container">
+    <div class="fr-notice__body">
+      <p>
+        <span class="fr-notice__title">Vigilance météo rouge</span>
+        
+          <span class="fr-notice__desc">Attention, l’utilisation de ce type de bandeau est encadrée, cf. documentation.</span>
+        
+        
+          <a target="_blank"
+             rel="noopener external"
+             title="Lien de consultation - Ouvre une nouvelle fenêtre"
+             href="https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/"
+             class="fr-notice__link">Lien de consultation</a>
+        
+      </p>
+      
+        <button class="fr-btn--close fr-btn"
+                title="Masquer le message"
+                onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
+          Masquer le message
+        </button>
+      
+    </div>
+  </div>
+</div>
+
+          
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-skiztzsbuijeqbep">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-skiztzsbuijeqbep">
+    <pre class="dsfr-code">{'description': 'Attention, l’utilisation de ce type de bandeau est encadrée, '
+                'cf. documentation.',
+ 'is_collapsible': True,
+ 'link': 'https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/',
+ 'title': 'Vigilance météo violette',
+ 'type': 'weather-purple'}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          
+            
+
+
+
+<div class="fr-notice fr-notice--weather-purple">
+  <div class="fr-container">
+    <div class="fr-notice__body">
+      <p>
+        <span class="fr-notice__title">Vigilance météo violette</span>
+        
+          <span class="fr-notice__desc">Attention, l’utilisation de ce type de bandeau est encadrée, cf. documentation.</span>
+        
+        
+          <a target="_blank"
+             rel="noopener external"
+             title="Lien de consultation - Ouvre une nouvelle fenêtre"
+             href="https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/"
+             class="fr-notice__link">Lien de consultation</a>
+        
+      </p>
+      
+        <button class="fr-btn--close fr-btn"
+                title="Masquer le message"
+                onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
+          Masquer le message
+        </button>
+      
+    </div>
+  </div>
+</div>
+
+          
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-rrvobidnfuhjefdg">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-rrvobidnfuhjefdg">
+    <pre class="dsfr-code">{'description': 'Attention, l’utilisation de ce type de bandeau est encadrée, '
+                'cf. documentation.',
+ 'is_collapsible': True,
+ 'link': 'https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/',
+ 'title': 'Attentat en cours',
+ 'type': 'attack'}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          
+            
+
+
+
+<div class="fr-notice fr-notice--attack">
+  <div class="fr-container">
+    <div class="fr-notice__body">
+      <p>
+        <span class="fr-notice__title">Attentat en cours</span>
+        
+          <span class="fr-notice__desc">Attention, l’utilisation de ce type de bandeau est encadrée, cf. documentation.</span>
+        
+        
+          <a target="_blank"
+             rel="noopener external"
+             title="Lien de consultation - Ouvre une nouvelle fenêtre"
+             href="https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/"
+             class="fr-notice__link">Lien de consultation</a>
+        
+      </p>
+      
+        <button class="fr-btn--close fr-btn"
+                title="Masquer le message"
+                onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
+          Masquer le message
+        </button>
+      
+    </div>
+  </div>
+</div>
+
+          
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-drrxhnspkqhubqxt">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-drrxhnspkqhubqxt">
+    <pre class="dsfr-code">{'description': 'Attention, l’utilisation de ce type de bandeau est encadrée, '
+                'cf. documentation.',
+ 'is_collapsible': True,
+ 'link': 'https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/',
+ 'title': 'Appel à témoins',
+ 'type': 'witness'}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          
+            
+
+
+
+<div class="fr-notice fr-notice--witness">
+  <div class="fr-container">
+    <div class="fr-notice__body">
+      <p>
+        <span class="fr-notice__title">Appel à témoins</span>
+        
+          <span class="fr-notice__desc">Attention, l’utilisation de ce type de bandeau est encadrée, cf. documentation.</span>
+        
+        
+          <a target="_blank"
+             rel="noopener external"
+             title="Lien de consultation - Ouvre une nouvelle fenêtre"
+             href="https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/"
+             class="fr-notice__link">Lien de consultation</a>
+        
+      </p>
+      
+        <button class="fr-btn--close fr-btn"
+                title="Masquer le message"
+                onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
+          Masquer le message
+        </button>
+      
+    </div>
+  </div>
+</div>
+
+          
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-dokrjzwzewkgglpe">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-dokrjzwzewkgglpe">
+    <pre class="dsfr-code">{'description': 'Attention, l’utilisation de ce type de bandeau est encadrée, '
+                'cf. documentation.',
+ 'is_collapsible': True,
+ 'link': 'https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/',
+ 'title': 'Cyber-attaque',
+ 'type': 'cyberattack'}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
+          
+            
+
+
+
+<div class="fr-notice fr-notice--cyberattack">
+  <div class="fr-container">
+    <div class="fr-notice__body">
+      <p>
+        <span class="fr-notice__title">Cyber-attaque</span>
+        
+          <span class="fr-notice__desc">Attention, l’utilisation de ce type de bandeau est encadrée, cf. documentation.</span>
+        
+        
+          <a target="_blank"
+             rel="noopener external"
+             title="Lien de consultation - Ouvre une nouvelle fenêtre"
+             href="https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/"
+             class="fr-notice__link">Lien de consultation</a>
+        
       </p>
       
         <button class="fr-btn--close fr-btn"
@@ -1558,11 +2123,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="M5XrsguucH598+k5f//w+A=="></script>
+         nonce="ekYtTLOsEwIJON0OuQmR8w=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="M5XrsguucH598+k5f//w+A=="></script>
+         nonce="ekYtTLOsEwIJON0OuQmR8w=="></script>
 
 
     
