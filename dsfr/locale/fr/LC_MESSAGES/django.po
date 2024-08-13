@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-23 11:01+0200\n"
-"PO-Revision-Date: 2024-04-10 16:19+0200\n"
+"POT-Creation-Date: 2024-08-13 14:26+0200\n"
+"PO-Revision-Date: 2024-08-13 14:27+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: dsfr/admin.py:59
 msgid "Newsletter"
@@ -226,7 +226,8 @@ msgstr "Accueil"
 
 #: dsfr/templates/dsfr/card.html:2 dsfr/templates/dsfr/follow.html:2
 #: dsfr/templates/dsfr/footer.html:2 dsfr/templates/dsfr/france_connect.html:9
-#: dsfr/templates/dsfr/link.html:7 dsfr/templates/dsfr/quote.html:2
+#: dsfr/templates/dsfr/link.html:7 dsfr/templates/dsfr/notice.html:4
+#: dsfr/templates/dsfr/quote.html:2
 msgid "Opens a new window"
 msgstr "Ouvre une nouvelle fenêtre"
 
@@ -341,6 +342,10 @@ msgstr "Fermer"
 #: dsfr/templates/dsfr/header.html:91
 msgid "Main menu"
 msgstr "Menu principal"
+
+#: dsfr/templates/dsfr/notice.html:3
+msgid "Consultation link"
+msgstr "Lien de consultation"
 
 #: dsfr/templates/dsfr/pagination.html:2
 msgid "Pagination"

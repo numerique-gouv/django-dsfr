@@ -813,10 +813,26 @@ def dsfr_notice(*args, **kwargs) -> dict:
 
     ```python
     data_dict = {
-        "title": "Content of the notice item (can include html)",
+        "title": "Title of the notice item (can include html)",
+        "description": "(Optional) Content of the notice item (can include html)",
+        "link": "(Optional) Standardized link at the end of the notice.",
+        "type": "(Optional) The type of notice. See below for allowed values (default: info)",
+        "icon": "(Optional) The icon class for weather-related notices",
         "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the notice (default: false)",
     }
     ```
+
+    Possible values for type:
+
+    - info
+    - warning
+    - alert
+    - weather-orange
+    - weather-red
+    - weather-purple
+    - attack
+    - witness
+    - cyberattack
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
@@ -829,6 +845,10 @@ def dsfr_notice(*args, **kwargs) -> dict:
 
     allowed_keys = [
         "title",
+        "description",
+        "link",
+        "type",
+        "icon",
         "is_collapsible",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
@@ -1504,7 +1524,7 @@ def dsfr_form(context: Context, form=None) -> dict:
     **Usage**:
         `{% dsfr_form %}`
     """  # noqa
-    return context.update({"form": form}) if form else context
+    return context.update({"form": form}) if form else context  # type: ignore
 
 
 @register.inclusion_tag("dsfr/form_field_snippets/field_snippet.html")

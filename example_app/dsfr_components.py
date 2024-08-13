@@ -554,13 +554,75 @@ IMPLEMENTED_COMPONENTS = {
         "example_url": "https://main--ds-gouv.netlify.app/example/component/notice/",
         "sample_data": [
             {
-                "title": """Label titre du bandeau d’information importante, comprenant un texte assez long
+                "title": """Bandeau d’information importante par défaut, comprenant dans le titre un texte assez long
                             pour être sur deux lignes, et <a href='#'
                             rel='noopener external'
                             title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
-                            un lien au fil du texte</a>, ainsi qu’une croix de fermeture.""",
+                            un lien au fil du texte</a>, sans croix de fermeture.""",
+                "is_collapsible": False,
+            },
+            {
+                "title": "Bandeau d’information importante de niveau warning.",
+                "description": """Il comprend en description un texte assez long
+                            pour être sur deux lignes, et <a href='#'
+                            rel='noopener external'
+                            title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
+                            un lien au fil du texte</a>, avec une croix de fermeture.""",
+                "type": "warning",
                 "is_collapsible": True,
-            }
+            },
+            {
+                "title": """Bandeau d’information importante de niveau alert, comprenant un texte assez long
+                            pour être sur deux lignes, et <a href='#'
+                            rel='noopener external'
+                            title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
+                            un lien au fil du texte</a>, avec une croix de fermeture.""",
+                "type": "alert",
+                "is_collapsible": True,
+            },
+            {
+                "title": "Vigilance météo orange",
+                "description": """Attention, l’utilisation de ce type de bandeau est encadrée, cf. documentation.""",
+                "link": "https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/",
+                "type": "weather-orange",
+                "icon": "fr-icon-windy-fill",
+                "is_collapsible": True,
+            },
+            {
+                "title": "Vigilance météo rouge",
+                "description": """Attention, l’utilisation de ce type de bandeau est encadrée, cf. documentation.""",
+                "link": "https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/",
+                "type": "weather-red",
+                "is_collapsible": True,
+            },
+            {
+                "title": "Vigilance météo violette",
+                "description": """Attention, l’utilisation de ce type de bandeau est encadrée, cf. documentation.""",
+                "link": "https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/",
+                "type": "weather-purple",
+                "is_collapsible": True,
+            },
+            {
+                "title": "Attentat en cours",
+                "description": """Attention, l’utilisation de ce type de bandeau est encadrée, cf. documentation.""",
+                "link": "https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/",
+                "type": "attack",
+                "is_collapsible": True,
+            },
+            {
+                "title": "Appel à témoins",
+                "description": """Attention, l’utilisation de ce type de bandeau est encadrée, cf. documentation.""",
+                "link": "https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/",
+                "type": "witness",
+                "is_collapsible": True,
+            },
+            {
+                "title": "Cyber-attaque",
+                "description": """Attention, l’utilisation de ce type de bandeau est encadrée, cf. documentation.""",
+                "link": "https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/",
+                "type": "cyberattack",
+                "is_collapsible": True,
+            },
         ],
     },
     "pagination": {
