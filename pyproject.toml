@@ -83,3 +83,4 @@ indent = 2
 [tool.pyright]
 reportAttributeAccessIssue = false
 reportOperatorIssue = false
+reportOptionalMemberAccess = false
