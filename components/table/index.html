@@ -1349,12 +1349,9 @@ p code, li code {
 <p>All of the keys of the dict can be passed directly as named parameters of the tag.</p>
 <p>Relevant <code>extra_classes</code>:</p>
 <ul>
-<li>Color classes (<a href="/django-dsfr/resources/colors">See the list</a>), for example <code>fr-table--green-emeraude</code></li>
-<li><code>fr-table--bordered</code>: adds a border under each line</li>
+<li>Size classes: <code>fr-table--sm</code>, <code>fr-table--lg</code> (no class for normal sized tables)</li>
+<li><code>fr-table--bordered</code>: adds a vertical border between each column</li>
 <li><code>fr-table--no-scroll</code> prevents horizontal scrolling on mobile</li>
-<li><code>fr-table--layout-fixed</code>: forces the table at 100% and equal size columns</li>
-<li><code>fr-table--no-caption</code>: hides the caption</li>
-<li><code>fr-table--caption-bottom</code>: sets the caption after the table instead of before</li>
 </ul>
 <p><strong>Tag name</strong>:
     dsfr_table</p>
@@ -1378,13 +1375,14 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-nzqgistxjuvwmanu">
+          aria-controls="accordion-wdhjmqllamrvykrf">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-nzqgistxjuvwmanu">
+  <div class="fr-collapse" id="accordion-wdhjmqllamrvykrf">
     <pre class="dsfr-code">{'caption': 'Tableau basique',
  'content': [['a', 'b', 'c'], ['d', 'e', 'f']],
+ 'extra_classes': 'fr-table--sm',
  'header': ['Colonne 1', 'Colonne 2', 'Colonne 3']}</pre>
   </div>
 </section>
@@ -1397,64 +1395,70 @@ p code, li code {
             Résultat
           </h3>
           
-            <div class="fr-table">
-  <table>
-    <caption>Tableau basique</caption>
-    
-      <thead>
-        <tr>
+            <div class="fr-table fr-table--sm">
+  <div class="fr-table__wrapper">
+    <div class="fr-table__container">
+      <div class="fr-table__content">
+        <table>
+          <caption>Tableau basique</caption>
           
-            <th scope="col">
-              Colonne 1
-            </th>
+            <thead>
+              <tr>
+                
+                  <th scope="col">
+                    Colonne 1
+                  </th>
+                
+                  <th scope="col">
+                    Colonne 2
+                  </th>
+                
+                  <th scope="col">
+                    Colonne 3
+                  </th>
+                
+              </tr>
+            </thead>
           
-            <th scope="col">
-              Colonne 2
-            </th>
-          
-            <th scope="col">
-              Colonne 3
-            </th>
-          
-        </tr>
-      </thead>
-    
-    <tbody>
-      
-        <tr>
-          
-            <td>
-              a
-            </td>
-          
-            <td>
-              b
-            </td>
-          
-            <td>
-              c
-            </td>
-          
-        </tr>
-      
-        <tr>
-          
-            <td>
-              d
-            </td>
-          
-            <td>
-              e
-            </td>
-          
-            <td>
-              f
-            </td>
-          
-        </tr>
-      
-    </tbody>
-  </table>
+          <tbody>
+            
+              <tr>
+                
+                  <td>
+                    a
+                  </td>
+                
+                  <td>
+                    b
+                  </td>
+                
+                  <td>
+                    c
+                  </td>
+                
+              </tr>
+            
+              <tr>
+                
+                  <td>
+                    d
+                  </td>
+                
+                  <td>
+                    e
+                  </td>
+                
+                  <td>
+                    f
+                  </td>
+                
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 
           
@@ -1472,12 +1476,12 @@ p code, li code {
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-bjsikolqqdmdfyjb">
+          aria-controls="accordion-wgfovnzzqlxhuypq">
     Données d’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-bjsikolqqdmdfyjb">
-    <pre class="dsfr-code">{'caption': 'Tableau vert',
+  <div class="fr-collapse" id="accordion-wgfovnzzqlxhuypq">
+    <pre class="dsfr-code">{'caption': 'Tableau avec bordure',
  'content': [['Lorem ipsum dolor sit amet',
               'consectetur adipiscing elit',
               'sed do eiusmod tempor incididunt ut',
@@ -1490,7 +1494,7 @@ p code, li code {
               'Aliquam purus sit amet luctus venenatis lectus',
               'Pellentesque id nibh tortor id aliquet lectus proin',
               2]],
- 'extra_classes': 'fr-table--green-emeraude fr-table--bordered',
+ 'extra_classes': 'fr-table--bordered',
  'header': ['Colonne 1',
             'Colonne 2',
             'Colonne 3',
@@ -1508,100 +1512,259 @@ p code, li code {
             Résultat
           </h3>
           
-            <div class="fr-table fr-table--green-emeraude fr-table--bordered">
-  <table>
-    <caption>Tableau vert</caption>
-    
-      <thead>
-        <tr>
+            <div class="fr-table fr-table--bordered">
+  <div class="fr-table__wrapper">
+    <div class="fr-table__container">
+      <div class="fr-table__content">
+        <table>
+          <caption>Tableau avec bordure</caption>
           
-            <th scope="col">
-              Colonne 1
-            </th>
+            <thead>
+              <tr>
+                
+                  <th scope="col">
+                    Colonne 1
+                  </th>
+                
+                  <th scope="col">
+                    Colonne 2
+                  </th>
+                
+                  <th scope="col">
+                    Colonne 3
+                  </th>
+                
+                  <th scope="col">
+                    Colonne 4
+                  </th>
+                
+                  <th scope="col">
+                    Colonne 5
+                  </th>
+                
+                  <th scope="col">
+                    Colonne 6
+                  </th>
+                
+              </tr>
+            </thead>
           
-            <th scope="col">
-              Colonne 2
-            </th>
+          <tbody>
+            
+              <tr>
+                
+                  <td>
+                    Lorem ipsum dolor sit amet
+                  </td>
+                
+                  <td>
+                    consectetur adipiscing elit
+                  </td>
+                
+                  <td>
+                    sed do eiusmod tempor incididunt ut
+                  </td>
+                
+                  <td>
+                    labore et dolore magna aliqua
+                  </td>
+                
+                  <td>
+                    At quis risus sed vulputate odio ut enim
+                  </td>
+                
+                  <td>
+                    100.0
+                  </td>
+                
+              </tr>
+            
+              <tr>
+                
+                  <td>
+                    At risus viverra
+                  </td>
+                
+                  <td>
+                    adipiscing at in tellus
+                  </td>
+                
+                  <td>
+                    integer feugiat
+                  </td>
+                
+                  <td>
+                    Aliquam purus sit amet luctus venenatis lectus
+                  </td>
+                
+                  <td>
+                    Pellentesque id nibh tortor id aliquet lectus proin
+                  </td>
+                
+                  <td>
+                    2
+                  </td>
+                
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
           
-            <th scope="col">
-              Colonne 3
-            </th>
+        
+          <h3 class="fr-mt-3w">
+            Données
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-mrjuqigtsqgdhfvb">
+    Données d’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-mrjuqigtsqgdhfvb">
+    <pre class="dsfr-code">{'caption': 'Tableau non-scrollable',
+ 'content': [['Lorem ipsum dolor sit amet',
+              'consectetur adipiscing elit',
+              'sed do eiusmod tempor incididunt ut',
+              'labore et dolore magna aliqua',
+              'At quis risus sed vulputate odio ut enim',
+              100.0],
+             ['At risus viverra',
+              'adipiscing at in tellus',
+              'integer feugiat',
+              'Aliquam purus sit amet luctus venenatis lectus',
+              'Pellentesque id nibh tortor id aliquet lectus proin',
+              2]],
+ 'extra_classes': 'fr-table--no-scroll fr-table--bordered',
+ 'header': ['Colonne 1',
+            'Colonne 2',
+            'Colonne 3',
+            'Colonne 4',
+            'Colonne 5',
+            'Colonne 6']}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          <h3>
+            Résultat
+          </h3>
           
-            <th scope="col">
-              Colonne 4
-            </th>
+            <div class="fr-table fr-table--no-scroll fr-table--bordered">
+  <div class="fr-table__wrapper">
+    <div class="fr-table__container">
+      <div class="fr-table__content">
+        <table>
+          <caption>Tableau non-scrollable</caption>
           
-            <th scope="col">
-              Colonne 5
-            </th>
+            <thead>
+              <tr>
+                
+                  <th scope="col">
+                    Colonne 1
+                  </th>
+                
+                  <th scope="col">
+                    Colonne 2
+                  </th>
+                
+                  <th scope="col">
+                    Colonne 3
+                  </th>
+                
+                  <th scope="col">
+                    Colonne 4
+                  </th>
+                
+                  <th scope="col">
+                    Colonne 5
+                  </th>
+                
+                  <th scope="col">
+                    Colonne 6
+                  </th>
+                
+              </tr>
+            </thead>
           
-            <th scope="col">
-              Colonne 6
-            </th>
-          
-        </tr>
-      </thead>
-    
-    <tbody>
-      
-        <tr>
-          
-            <td>
-              Lorem ipsum dolor sit amet
-            </td>
-          
-            <td>
-              consectetur adipiscing elit
-            </td>
-          
-            <td>
-              sed do eiusmod tempor incididunt ut
-            </td>
-          
-            <td>
-              labore et dolore magna aliqua
-            </td>
-          
-            <td>
-              At quis risus sed vulputate odio ut enim
-            </td>
-          
-            <td>
-              100.0
-            </td>
-          
-        </tr>
-      
-        <tr>
-          
-            <td>
-              At risus viverra
-            </td>
-          
-            <td>
-              adipiscing at in tellus
-            </td>
-          
-            <td>
-              integer feugiat
-            </td>
-          
-            <td>
-              Aliquam purus sit amet luctus venenatis lectus
-            </td>
-          
-            <td>
-              Pellentesque id nibh tortor id aliquet lectus proin
-            </td>
-          
-            <td>
-              2
-            </td>
-          
-        </tr>
-      
-    </tbody>
-  </table>
+          <tbody>
+            
+              <tr>
+                
+                  <td>
+                    Lorem ipsum dolor sit amet
+                  </td>
+                
+                  <td>
+                    consectetur adipiscing elit
+                  </td>
+                
+                  <td>
+                    sed do eiusmod tempor incididunt ut
+                  </td>
+                
+                  <td>
+                    labore et dolore magna aliqua
+                  </td>
+                
+                  <td>
+                    At quis risus sed vulputate odio ut enim
+                  </td>
+                
+                  <td>
+                    100.0
+                  </td>
+                
+              </tr>
+            
+              <tr>
+                
+                  <td>
+                    At risus viverra
+                  </td>
+                
+                  <td>
+                    adipiscing at in tellus
+                  </td>
+                
+                  <td>
+                    integer feugiat
+                  </td>
+                
+                  <td>
+                    Aliquam purus sit amet luctus venenatis lectus
+                  </td>
+                
+                  <td>
+                    Pellentesque id nibh tortor id aliquet lectus proin
+                  </td>
+                
+                  <td>
+                    2
+                  </td>
+                
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 
           
@@ -1748,11 +1911,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="IOFQGDraJI/a7VVFa1qyiw=="></script>
+         nonce="j3RUscf5QanDJaxhwo0ZKw=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="IOFQGDraJI/a7VVFa1qyiw=="></script>
+         nonce="j3RUscf5QanDJaxhwo0ZKw=="></script>
 
 
     
