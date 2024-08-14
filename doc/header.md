@@ -74,7 +74,7 @@ Un bloc `opengraph`, vide par défaut, est fourni pour permettre d’entrer des 
 {% extends "dsfr/base.html" %}
 
 <!-- [...] -->
-{% block opengraph }
+{% block opengraph %}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="[À MODIFIER - @usernameTwitter]">
   <meta property="og:title" content="[À MODIFIER - Système de Design de l'État]">
@@ -85,5 +85,5 @@ Un bloc `opengraph`, vide par défaut, est fourni pour permettre d’entrer des 
   <meta property="og:site_name" content="[À MODIFIER - Site officiel du Système de Design de l'État]">
   <meta property="og:image:alt" content="[À MODIFIER - République Française - Système de Design de l'État]">
   <meta name="twitter:image:alt" content="[À MODIFIER - République Française - Système de Design de l'État]">
-{% endblock opengraph }
+{% endblock opengraph %}
 ```
