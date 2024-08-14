@@ -25,7 +25,7 @@ Documentation
 
 See the `documentation (in French) <https://numerique-gouv.github.io/django-dsfr/>`_ for details.
 
-Django-DSFR implements the `version 1.11.2 of the DSFR <https://www.systeme-de-design.gouv.fr/a-propos/versions/version-courante>`_ (see also the `Github releases page <https://github.com/GouvernementFR/dsfr/releases/>`_)
+Django-DSFR implements the `version 1.12.1 of the DSFR <https://www.systeme-de-design.gouv.fr/a-propos/versions/version-courante>`_ (see also the `Github releases page <https://github.com/GouvernementFR/dsfr/releases/>`_)
 
 Requirements
 ------------
