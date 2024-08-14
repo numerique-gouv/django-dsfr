@@ -1,10 +1,22 @@
 {% load i18n %}
 {% translate "Hide message" as hide_message %}
-<div class="fr-notice fr-notice--info">
+{% translate "Consultation link" as consultation_link %}
+{% translate "Opens a new window" as new_window_label %}
+<div class="fr-notice fr-notice--{{ self.type|default:'info' }}">
   <div class="fr-container">
     <div class="fr-notice__body">
-      <p class="fr-notice__title">
-        {{ self.title|safe }}
+      <p>
+        <span class="fr-notice__title{% if self.icon %} {{ self.icon }}{% endif %}">{{ self.title|safe }}</span>
+        {% if self.description %}
+          <span class="fr-notice__desc">{{ self.description|safe }}</span>
+        {% endif %}
+        {% if self.link %}
+          <a target="_blank"
+             rel="noopener external"
+             title="{{ consultation_link }} - {{ new_window_label }}"
+             href="{{ self.link }}"
+             class="fr-notice__link">{{ consultation_link }}</a>
+        {% endif %}
       </p>
       {% if self.is_collapsible %}
         <button class="fr-btn--close fr-btn"

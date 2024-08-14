@@ -1,3 +1,4 @@
+import warnings
 from django import template
 from django.conf import settings
 from django.contrib.messages.constants import DEBUG, INFO, SUCCESS, WARNING, ERROR
@@ -24,6 +25,19 @@ from dsfr.utils import (
 )
 
 register = template.Library()
+
+warnings.simplefilter("default")
+
+# Check for obsolete parameters inside tags?
+# Deprecated tags will always issue a warning
+if (
+    hasattr(settings, "DSFR_CHECK_DEPRECATED_PARAMS")
+    and settings.DSFR_CHECK_DEPRECATED_PARAMS
+):
+    CHECK_DEPRECATED = True
+else:
+    CHECK_DEPRECATED = False
+
 """
 Tags used in the "DSFR" templates.
 """
@@ -813,10 +827,26 @@ def dsfr_notice(*args, **kwargs) -> dict:
 
     ```python
     data_dict = {
-        "title": "Content of the notice item (can include html)",
+        "title": "Title of the notice item (can include html)",
+        "description": "(Optional) Content of the notice item (can include html)",
+        "link": "(Optional) Standardized link at the end of the notice.",
+        "type": "(Optional) The type of notice. See below for allowed values (default: info)",
+        "icon": "(Optional) The icon class for weather-related notices",
         "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the notice (default: false)",
     }
     ```
+
+    Possible values for type:
+
+    - info
+    - warning
+    - alert
+    - weather-orange
+    - weather-red
+    - weather-purple
+    - attack
+    - witness
+    - cyberattack
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
@@ -829,6 +859,10 @@ def dsfr_notice(*args, **kwargs) -> dict:
 
     allowed_keys = [
         "title",
+        "description",
+        "link",
+        "type",
+        "icon",
         "is_collapsible",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
@@ -1102,12 +1136,9 @@ def dsfr_table(*args, **kwargs) -> dict:
 
     Relevant `extra_classes`:
 
-    - Color classes ([See the list](/django-dsfr/resources/colors)), for example `fr-table--green-emeraude`
-    - `fr-table--bordered`: adds a border under each line
+    - Size classes: `fr-table--sm`, `fr-table--lg` (no class for normal sized tables)
+    - `fr-table--bordered`: adds a vertical border between each column
     - `fr-table--no-scroll` prevents horizontal scrolling on mobile
-    - `fr-table--layout-fixed`: forces the table at 100% and equal size columns
-    - `fr-table--no-caption`: hides the caption
-    - `fr-table--caption-bottom`: sets the caption after the table instead of before
 
     **Tag name**:
         dsfr_table
@@ -1122,6 +1153,43 @@ def dsfr_table(*args, **kwargs) -> dict:
         "extra_classes",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "extra_classes" in tag_data and CHECK_DEPRECATED:
+        extra_classes = tag_data["extra_classes"]
+        # Deprecated in DSFR 1.12
+        deprecated_layout_classes = [
+            "fr-table--no-caption",
+            "fr-table--layout-fixed",
+            "fr-table--layout-fixed",
+        ]
+
+        for dc in deprecated_layout_classes:
+            if dc in extra_classes:
+                warnings.warn(
+                    f"Due to changes in the DSFR v1.12, class {dc} is deprecated in django-dsfr v1.3 or superior",
+                    DeprecationWarning,
+                    stacklevel=2,
+                )
+
+        # Deprecated in DSFR 1.12
+        deprecated_color_classes = [
+            "fr-table--green",
+            "fr-table--blue",
+            "fr-table--purple",
+            "fr-table--pink",
+            "fr-table--yellow",
+            "fr-table--orange",
+            "fr-table--brown",
+            "fr-table--beige",
+        ]
+
+        for dc in deprecated_color_classes:
+            if dc in extra_classes:
+                warnings.warn(
+                    "Due to changes in the DSFR v1.12, color classes in tables are deprecated in django-dsfr v1.3 or superior",
+                    DeprecationWarning,
+                    stacklevel=3,
+                )
 
     return {"self": tag_data}
 
@@ -1504,7 +1572,7 @@ def dsfr_form(context: Context, form=None) -> dict:
     **Usage**:
         `{% dsfr_form %}`
     """  # noqa
-    return context.update({"form": form}) if form else context
+    return context.update({"form": form}) if form else context  # type: ignore
 
 
 @register.inclusion_tag("dsfr/form_field_snippets/field_snippet.html")

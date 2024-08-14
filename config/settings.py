@@ -154,3 +154,6 @@ CSP_SCRIPT_SRC = ("'self'", "'unsafe-eval'", "'unsafe-inline'")
 CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
 CSP_OBJECT_SRC = ("'none'",)
 CSP_IMG_SRC = ("'self'", "data:")
+
+# DSFR-specific
+DSFR_CHECK_DEPRECATED = True

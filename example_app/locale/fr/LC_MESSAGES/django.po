@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-23 11:01+0200\n"
-"PO-Revision-Date: 2024-05-23 11:01+0200\n"
+"POT-Creation-Date: 2024-08-13 14:26+0200\n"
+"PO-Revision-Date: 2024-08-13 14:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: example_app/apps.py:9
 msgid "Example app"
@@ -100,7 +100,7 @@ msgstr "Rechercher"
 msgid "Menu"
 msgstr "Menu"
 
-#: example_app/templates/example_app/blocks/header.html:71
+#: example_app/templates/example_app/blocks/header.html:73
 msgid "Close"
 msgstr "Fermer"
 

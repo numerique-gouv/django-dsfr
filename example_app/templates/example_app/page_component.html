@@ -51,21 +51,18 @@ p code, li code {
         </h2>
         {% for sample_data_item in sample_data %}
           <h3 class="fr-mt-3w">
-            Données
+            Exemple {{ forloop.counter }}
           </h3>
           <div class="fr-my-2w">
             {# djlint:off #}
             {% with sample_data_item|pprint as raw_sample_code %}
               {# djlint:off #}
               {% with '<pre class="dsfr-code">'|concatenate:raw_sample_code|concatenate:"</pre>" as sample_data_code %}
-                {% dsfr_accordion title="Données d’exemple" content=sample_data_code %}
+                {% dsfr_accordion title="Données de l’exemple" content=sample_data_code %}
               {% endwith %}
             {% endwith %}
             {# djlint:on #}
           </div>
-          <h3>
-            Résultat
-          </h3>
           {% if tag_name == "accordion" %}
             {% dsfr_accordion sample_data_item %}
           {% elif tag_name == "accordion_group" %}
@@ -145,7 +142,7 @@ p code, li code {
         {% endfor %}
       {% else %}
         <h2>
-          Résultat
+          Rendu
         </h2>
         {% if tag_name == "breadcrumb" %}
           {% dsfr_breadcrumb %}
@@ -160,6 +157,10 @@ p code, li code {
                     class="example-textarea">{% dsfr_css %}</textarea>
           <br />
         {% elif tag_name == "favicon" %}
+          <img src="/django-dsfr/static/dsfr/dist/favicon/favicon.svg"
+               width="24"
+               alt="" />
+          <br clear="both" />
           <label for="example-textarea">
             Code source :
           </label>
