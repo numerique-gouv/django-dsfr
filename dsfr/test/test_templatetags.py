@@ -494,9 +494,9 @@ class DsfrFormTagTest(SimpleTestCase):
     context = Context({"form": TestForm(), "form2": TestForm2()})
 
     def test_dsfr_form_renders(self):
-        rendered_template = Template(
-            "{% load dsfr_tags %} {% dsfr_form %}"
-        ).render(self.context)
+        rendered_template = Template("{% load dsfr_tags %} {% dsfr_form %}").render(
+            self.context
+        )
         self.assertInHTML(
             """
             <label for="id_test" class="fr-label">Ceci est un test*</label>
@@ -744,11 +744,13 @@ class DsfrNoticeTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <div class="fr-notice__body">
-                <p class="fr-notice__title">
-                    Bandeau d’information importante avec <a href='#'
-                        rel='noopener external'
-                        title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
-                        lien</a>.
+                <p>
+                    <span class="fr-notice__title">
+                        Bandeau d’information importante avec <a href='#'
+                            rel='noopener external'
+                            title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
+                            lien</a>.
+                    </span>
                 </p>
                     <button class="fr-btn--close fr-btn"
                         title="Masquer le message"
