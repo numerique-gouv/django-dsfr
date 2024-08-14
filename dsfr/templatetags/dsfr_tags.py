@@ -1,3 +1,4 @@
+import warnings
 from django import template
 from django.conf import settings
 from django.contrib.messages.constants import DEBUG, INFO, SUCCESS, WARNING, ERROR
@@ -24,6 +25,19 @@ from dsfr.utils import (
 )
 
 register = template.Library()
+
+warnings.simplefilter("default")
+
+# Check for obsolete parameters inside tags?
+# Deprecated tags will always issue a warning
+if (
+    hasattr(settings, "DSFR_CHECK_DEPRECATED_PARAMS")
+    and settings.DSFR_CHECK_DEPRECATED_PARAMS
+):
+    CHECK_DEPRECATED = True
+else:
+    CHECK_DEPRECATED = False
+
 """
 Tags used in the "DSFR" templates.
 """
@@ -1122,12 +1136,9 @@ def dsfr_table(*args, **kwargs) -> dict:
 
     Relevant `extra_classes`:
 
-    - Color classes ([See the list](/django-dsfr/resources/colors)), for example `fr-table--green-emeraude`
-    - `fr-table--bordered`: adds a border under each line
+    - Size classes: `fr-table--sm`, `fr-table--lg` (no class for normal sized tables)
+    - `fr-table--bordered`: adds a vertical border between each column
     - `fr-table--no-scroll` prevents horizontal scrolling on mobile
-    - `fr-table--layout-fixed`: forces the table at 100% and equal size columns
-    - `fr-table--no-caption`: hides the caption
-    - `fr-table--caption-bottom`: sets the caption after the table instead of before
 
     **Tag name**:
         dsfr_table
@@ -1142,6 +1153,43 @@ def dsfr_table(*args, **kwargs) -> dict:
         "extra_classes",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "extra_classes" in tag_data and CHECK_DEPRECATED:
+        extra_classes = tag_data["extra_classes"]
+        # Deprecated in DSFR 1.12
+        deprecated_layout_classes = [
+            "fr-table--no-caption",
+            "fr-table--layout-fixed",
+            "fr-table--layout-fixed",
+        ]
+
+        for dc in deprecated_layout_classes:
+            if dc in extra_classes:
+                warnings.warn(
+                    f"Due to changes in the DSFR v1.12, class {dc} is deprecated in django-dsfr v1.3 or superior",
+                    DeprecationWarning,
+                    stacklevel=2,
+                )
+
+        # Deprecated in DSFR 1.12
+        deprecated_color_classes = [
+            "fr-table--green",
+            "fr-table--blue",
+            "fr-table--purple",
+            "fr-table--pink",
+            "fr-table--yellow",
+            "fr-table--orange",
+            "fr-table--brown",
+            "fr-table--beige",
+        ]
+
+        for dc in deprecated_color_classes:
+            if dc in extra_classes:
+                warnings.warn(
+                    "Due to changes in the DSFR v1.12, color classes in tables are deprecated in django-dsfr v1.3 or superior",
+                    DeprecationWarning,
+                    stacklevel=3,
+                )
 
     return {"self": tag_data}
 
