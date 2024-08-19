@@ -26,17 +26,15 @@ from dsfr.utils import (
 
 register = template.Library()
 
-warnings.simplefilter("default")
-
 # Check for obsolete parameters inside tags?
 # Deprecated tags will always issue a warning
 if (
     hasattr(settings, "DSFR_CHECK_DEPRECATED_PARAMS")
     and settings.DSFR_CHECK_DEPRECATED_PARAMS
 ):
-    CHECK_DEPRECATED = True
+    CHECK_DEPRECATED_PARAMS = True
 else:
-    CHECK_DEPRECATED = False
+    CHECK_DEPRECATED_PARAMS = False
 
 """
 Tags used in the "DSFR" templates.
@@ -1154,7 +1152,7 @@ def dsfr_table(*args, **kwargs) -> dict:
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
-    if "extra_classes" in tag_data and CHECK_DEPRECATED:
+    if "extra_classes" in tag_data and CHECK_DEPRECATED_PARAMS:
         extra_classes = tag_data["extra_classes"]
         # Deprecated in DSFR 1.12
         deprecated_layout_classes = [
@@ -1558,11 +1556,18 @@ def dsfr_django_messages(
 @register.inclusion_tag("dsfr/form_snippet.html", takes_context=True)
 def dsfr_form(context: Context, form=None) -> dict:
     """
-    Returns the HTML for a form snippet
+    Returns the HTML for a form snippet.
+
+    <div role="alert" class="fr-alert fr-alert--warning">
+        <h3 class="fr-alert__title">This tag is obsolete and it will be removed at the end of 2024.</h3>
+        <p>
+          Please directly include the form with <code>{{ form }}</code> (or the name of the form context variable if different).
+        </p>
+    </div>
 
     ```python
     data_dict = {
-        "form": an optionnal form to render instead of the form already present in context
+        "form": an optional form to render instead of the form already present in context
     }
     ```
 

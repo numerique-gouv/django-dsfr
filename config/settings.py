@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 from django import VERSION as DJANGO_VERSION
+import warnings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +29,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+warnings.simplefilter("default")
+if DJANGO_VERSION < (4, 0):
+    warnings.warn(
+        "Support for Django < 4.0 will be deprecated in django-dsfr at the end of 2024.",
+        PendingDeprecationWarning,
+        stacklevel=3,
+    )
 
 # Application definition
 
@@ -124,8 +132,6 @@ LANGUAGE_CODE = "fr"
 TIME_ZONE = "UTC"
 
 USE_I18N = True
-
-USE_L10N = True
 
 USE_TZ = True
 
