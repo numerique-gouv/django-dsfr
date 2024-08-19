@@ -295,12 +295,12 @@ class AuthorCreateView(CreateView):
     model = Author
     form_class = AuthorCreateForm
     formset = None
-    template_name = "example_app/example_form.html"
+    template_name = "example_app/page_formset_main_form.html"
     # /!\ Your template needs to extends form_base.html. If you use formset,
     # your template needs to include another template which extends formset_base.html
 
     def get(self, request, *args, **kwargs):
-        instance = None  # noqa: F841
+        instance = None  # noqa: F841 NOSONAR
         try:
             if self.object:
                 instance = self.object  # noqa: F841
@@ -311,7 +311,7 @@ class AuthorCreateView(CreateView):
         form = self.get_form(form_class)
         self.formset = self.get_formset(request)
         formset = self.formset
-        book_formhelper = BookCreateFormHelper()  # noqa: F841
+        book_formhelper = BookCreateFormHelper()  # noqa: F841 NOSONAR
 
         return self.render_to_response(
             self.get_context_data(form=form, formset=formset)
