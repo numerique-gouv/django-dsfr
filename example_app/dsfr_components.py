@@ -634,6 +634,9 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Citation",
         "sample_data": [
             {
+                "text": "Citation très basique, sans aucun des champs optionnels.",
+            },
+            {
                 "text": "Développer vos sites et applications en utilisant des composants prêts à l’emploi, accessibles et ergonomiques",  # noqa
                 "source_url": "https://www.systeme-de-design.gouv.fr/",
                 "author": "Auteur",
@@ -647,9 +650,6 @@ IMPLEMENTED_COMPONENTS = {
                 ],
                 "image_url": "/django-dsfr/static/img/placeholder.1x1.svg",
                 "extra_classes": "fr-quote--green-emeraude",
-            },
-            {
-                "text": "Citation très basique, sans aucun des champs optionnels.",
             },
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/citation",
