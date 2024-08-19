@@ -6,7 +6,7 @@
   </h1>
   <form action="{% url 'page_form' %}" method="post">
     {% csrf_token %}
-    {% dsfr_form %}
+    {{ form }}
     <div class="fr-input-group fr-my-4w">
       <button type="submit" class="fr-btn" title="Valider">
         Valider ce formulaire

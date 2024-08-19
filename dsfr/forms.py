@@ -16,18 +16,20 @@ class DsfrDjangoTemplates(DjangoTemplates):
                 "APP_DIRS": True,
                 "DIRS": [
                     Path(__file__).resolve().parent / self.backend.app_dirname,
-                    Path(forms.__path__[0]).resolve() / "templates",
+                    Path(forms.__path__[0]).resolve() / "templates",  # type: ignore
                 ],
                 "NAME": "djangoforms",
                 "OPTIONS": {},
-            }
+            }  # type: ignore
         )
 
 
 class DsfrBaseForm(Form):
     """
-    A base form that adds the necessary class on relevant fields
+    A base form that adds the necessary classes on relevant fields
     """
+
+    template_name = "dsfr/form_snippet.html"  # type: ignore
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

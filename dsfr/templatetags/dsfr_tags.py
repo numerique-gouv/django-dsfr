@@ -1168,7 +1168,7 @@ def dsfr_table(*args, **kwargs) -> dict:
                 warnings.warn(
                     f"Due to changes in the DSFR v1.12, class {dc} is deprecated in django-dsfr v1.3 or superior",
                     DeprecationWarning,
-                    stacklevel=2,
+                    stacklevel=3,
                 )
 
         # Deprecated in DSFR 1.12
@@ -1572,6 +1572,14 @@ def dsfr_form(context: Context, form=None) -> dict:
     **Usage**:
         `{% dsfr_form %}`
     """  # noqa
+
+    warnings.warn(
+        """The dsfr_form tag is deprecated and will be removed from django-dsfr at the end of 2024.
+        Please use a normal {{ form }} tag (requires Django 4 or superior)""",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+
     return context.update({"form": form}) if form else context  # type: ignore
 
 
