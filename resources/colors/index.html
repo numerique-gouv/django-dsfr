@@ -841,7 +841,7 @@
     Cartes et tuiles
   </h2>
   <p>
-    Les cartes et tuiles peuvent prendre un fond gris à la place de la couleur par défaut.
+    Les cartes et tuiles peuvent prendre un fond gris à la place de la couleur par défaut, respectivement avec les classes <code>fr-card--grey</code> et <code>fr-tile--grey</code>.
   </p>
   <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
     <div class="fr-col-12 fr-col-md-6">
@@ -1103,6 +1103,10 @@
     Il est possible de changer la couleur de fond d’un paragraphe ou d’une div. Les couleurs primaires, neutres et illustratives sont prises en compte.
   </p>
 
+  <p>
+    Il faut utiliser une classe de type <code>fr-background-alt--&lt;color-name&gt;</code> (par exemple, <code>fr-background-alt--green-archipel</code>.)
+  </p>
+
   <div class="fr-background-alt fr-px-2w fr-pt-2w fr-pb-2v fr-mb-2w">
     
     <p>
@@ -1189,6 +1193,9 @@
     <p>
       Personnalise la couleur de l’icône.
     </p>
+    <p>
+      Il faut utiliser une classe de type <code>fr-quote--&lt;color-name&gt;</code> (par exemple, <code>fr-quote--green-archipel</code>.)
+    </p>
     
 
 <figure class="fr-quote fr-quote--column">
@@ -1204,11 +1211,15 @@
   </figcaption>
 </figure>
 
+
     <h3>
       Mise en avant
     </h3>
     <p>
       Personnalise la couleur du fond et de la bordure.
+    </p>
+    <p>
+      Il faut utiliser une classe de type <code>fr-callout--&lt;color-name&gt;</code> (par exemple, <code>fr-callout--green-archipel</code>.)
     </p>
     
 <div class="fr-callout fr-icon-alert-line">
@@ -1234,11 +1245,15 @@
   
 </div>
 
+
     <h3>
       Mise en exergue
     </h3>
     <p>
       Personnalise la couleur de la bordure.
+    </p>
+    <p>
+      Il faut utiliser une classe de type <code>fr-highlight--&lt;color-name&gt;</code> (par exemple, <code>fr-highlight--green-archipel</code>.)
     </p>
     <div class="fr-highlight">
   <p class="fr-text--sm">
@@ -1246,11 +1261,15 @@
   </p>
 </div>
 
+
     <h3>
       Tag
     </h3>
     <p>
       Personnalise la couleur de la bordure, du fond et de l’icône. Seuls les tags cliquables sont pris en compte.
+    </p>
+    <p>
+      Il faut utiliser une classe de type <code>fr-tag--&lt;color-name&gt;</code> (par exemple, <code>fr-tag--green-archipel</code>.)
     </p>
     <ul class="fr-tags-group">
       <li>
@@ -1407,11 +1426,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="S8IXVBrxxqWN0NQhvK9rlA=="></script>
+         nonce="4gTomUQCe+67hBQxK8FOEA=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="S8IXVBrxxqWN0NQhvK9rlA=="></script>
+         nonce="4gTomUQCe+67hBQxK8FOEA=="></script>
 
 
     
@@ -1461,7 +1480,6 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
       manageColorClasses("fr-quote", event.target.value);
       manageColorClasses("fr-callout", event.target.value);
       manageColorClasses("fr-highlight", event.target.value);
-      manageColorClasses("fr-table", event.target.value);
       manageColorClasses("fr-tag", event.target.value);
     }, false);
 
