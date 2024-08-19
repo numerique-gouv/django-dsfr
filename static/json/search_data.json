@@ -284,7 +284,7 @@
     {
         "filename": "example-formset",
         "path": "/django-dsfr/form/example-formset/index.html",
-        "text": "Exemple de formulaire avec formset Pr\u00e9nom* Nom* Date de naissance Livres Author* --------- Titre* Nombre de pages Format : * Papier Num\u00e9rique Livre \u00e9lectronique Genre Veuillez choisir le ou les genres associ\u00e9s au livre Science-Fiction Fantastique Intrusion du surnaturel dans un cadre r\u00e9aliste Fantasy \u00c9laboration d\u2019un univers distinct du monde r\u00e9el Supprimer Supprimer cet \u00e9l\u00e9ment Ajouter un \u00e9l\u00e9ment Soumettre",
+        "text": "Exemple de formulaire avec formset Pr\u00e9nom* Nom* Date de naissance Livres Auteur* --------- Titre* Nombre de pages Format : * Papier Num\u00e9rique Livre \u00e9lectronique Genre Veuillez choisir le ou les genres associ\u00e9s au livre Science-Fiction Fantastique Intrusion du surnaturel dans un cadre r\u00e9aliste Fantasy \u00c9laboration d\u2019un univers distinct du monde r\u00e9el Supprimer Supprimer cet \u00e9l\u00e9ment Ajouter un \u00e9l\u00e9ment Soumettre",
         "title": "Formulaire avec formset \u2014 Django-DSFR"
     },
     {
