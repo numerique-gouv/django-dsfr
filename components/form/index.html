@@ -51,10 +51,11 @@
       font-family: monospace;
       font-size: 1rem;
     }
-p code, li code {
-  background: var(--background-alt-grey);
-  padding: 0.2em;
-}
+
+    p code, li code {
+      background: var(--background-alt-grey);
+      padding: 0.2em;
+    }
   </style>
 
 
@@ -1311,9 +1312,16 @@ p code, li code {
       <h2>
         Documentation du tag
       </h2>
-      <p>Returns the HTML for a form snippet</p>
+      <p>Returns the HTML for a form snippet.</p>
+<div role="alert" class="fr-alert fr-alert--warning">
+    <h3 class="fr-alert__title">This tag is obsolete and it will be removed at the end of 2024.</h3>
+    <p>
+      Please directly include the form with <code>{{ form }}</code> (or the name of the form context variable if different).
+    </p>
+</div>
+
 <div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">an</span> <span class="n">optionnal</span> <span class="n">form</span> <span class="n">to</span> <span class="n">render</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">the</span> <span class="n">form</span> <span class="n">already</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">context</span>
+    <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">an</span> <span class="n">optional</span> <span class="n">form</span> <span class="n">to</span> <span class="n">render</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">the</span> <span class="n">form</span> <span class="n">already</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">context</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -1468,11 +1476,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="sg7eNwH0h6VhvHr9QbrXBg=="></script>
+         nonce="3PC6Sn4R2OaFoPeekUTp2Q=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="sg7eNwH0h6VhvHr9QbrXBg=="></script>
+         nonce="3PC6Sn4R2OaFoPeekUTp2Q=="></script>
 
 
     
