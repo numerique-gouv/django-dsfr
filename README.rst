@@ -36,6 +36,8 @@ Note: Only supported versions of Django and Python are supported by this project
 - `Python <https://devguide.python.org/versions/>`_
 - `Django <https://www.djangoproject.com/download/#supported-versions>`_
 
+Warning: Support for Django < 4.0 and Python < 3.10 will be removed at the end of 2024.
+
 Quick start
 -----------
 
