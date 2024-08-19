@@ -869,17 +869,9 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot; my custom class&quot;</span>
 </code></pre></div>
 
-<h2 id="utilisation-avec-les-formsets">Utilisation avec les <code>Formsets</code></h2>
-<p>La balise <code>{% dsfr_form %}</code> prend un paramètre optionnel <code>form</code> qui permet de surcharger le formulaire à rendre, ce qui est pratique lors de l'utilisation de <code>Formsets</code> :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="x">&lt;form method=&quot;post&quot;&gt;</span>
-<span class="x">    </span><span class="cp">{{</span> <span class="nv">formset.management_form</span> <span class="cp">}}</span>
-<span class="x">    &lt;table&gt;</span>
-<span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">subform</span> <span class="k">in</span> <span class="nv">formset</span> <span class="cp">%}</span>
-<span class="x">            </span><span class="cp">{%</span> <span class="k">dsfr_form</span> <span class="nv">subform</span> <span class="cp">%}</span>
-<span class="x">        </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
-<span class="x">    &lt;/table&gt;</span>
-<span class="x">&lt;/form&gt;</span>
-</code></pre></div>
+<h2 id="utilisation">Utilisation</h2>
+<p>La balise <code>{% dsfr_form %}</code> est maintenant dépréciée et sera retirée avant la fin de l’année 2024.</p>
+<p>Il faut donc remplacer les instances de <code>{% dsfr_form %}</code> par <code>{{ form }}</code> et <code>{% dsfr_form my_custom_form %}</code> par <code>{{ my_custom_form }}</code>.</p>
 
       </main>
     </div>
@@ -1018,11 +1010,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="lyr6pz5xA6CfIqGhNryy5Q=="></script>
+         nonce="yP3ZSpZlD0tBVwRkoY4AwA=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="lyr6pz5xA6CfIqGhNryy5Q=="></script>
+         nonce="yP3ZSpZlD0tBVwRkoY4AwA=="></script>
 
 
     
