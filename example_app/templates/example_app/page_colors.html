@@ -26,7 +26,7 @@
     Cartes et tuiles
   </h2>
   <p>
-    Les cartes et tuiles peuvent prendre un fond gris à la place de la couleur par défaut.
+    Les cartes et tuiles peuvent prendre un fond gris à la place de la couleur par défaut, respectivement avec les classes <code>fr-card--grey</code> et <code>fr-tile--grey</code>.
   </p>
   <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
     <div class="fr-col-12 fr-col-md-6">
@@ -50,6 +50,34 @@
       {% dsfr_tile components_data.tile.sample_data.0 extra_classes="fr-tile--grey" %}
     </div>
   </div>
+
+  <h2>
+    Couleurs de fond
+  </h2>
+  <form class="fr-mb-4w">
+    {% dsfr_form full_color_form %}
+  </form>
+  <p>
+    Il est possible de changer la couleur de fond d’un paragraphe ou d’une div. Les couleurs primaires, neutres et illustratives sont prises en compte.
+  </p>
+
+  <p>
+    Il faut utiliser une classe de type <code>fr-background-alt--&lt;color-name&gt;</code> (par exemple, <code>fr-background-alt--green-archipel</code>.)
+  </p>
+
+  <div class="fr-background-alt fr-px-2w fr-pt-2w fr-pb-2v fr-mb-2w">
+    {# (La classe fr-background-alt n’est pas nécessaire, elle est utilisée ici pour le script de changement de couleur en fonction du formulaire) #}
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Optio tempore atque quis nulla repellat dolores quibusdam temporibus laborum velit rerum aliquam amet recusandae consectetur voluptas,
+      quasi asperiores veniam excepturi ipsam.
+    </p>
+    <p>
+      Totam harum magni quis laudantium esse? Quod, tenetur nobis ab nostrum minus rerum magnam? Tempora provident distinctio fugit sunt, rem magni harum?
+      Minus explicabo repudiandae placeat suscipit! Earum provident facere, unde quam recusandae cumque neque quas porro dolor a natus labore delectus vel necessitatibus.
+    </p>
+  </div>
+
   <h2>
     Couleurs d’accentuation
   </h2>
@@ -57,7 +85,7 @@
     Certains composants prennent une couleur d’accentuation comme paramètre. Seules les couleurs illustratives sont prises en compte.
   </p>
   <form class="fr-mb-4w">
-    {% dsfr_form %}
+    {% dsfr_form accent_color_form %}
   </form>
   <div class="example-use">
     <h3>
@@ -66,26 +94,41 @@
     <p>
       Personnalise la couleur de l’icône.
     </p>
+    <p>
+      Il faut utiliser une classe de type <code>fr-quote--&lt;color-name&gt;</code> (par exemple, <code>fr-quote--green-archipel</code>.)
+    </p>
     {% dsfr_quote components_data.quote.sample_data.0 %}
+
     <h3>
       Mise en avant
     </h3>
     <p>
       Personnalise la couleur du fond et de la bordure.
     </p>
+    <p>
+      Il faut utiliser une classe de type <code>fr-callout--&lt;color-name&gt;</code> (par exemple, <code>fr-callout--green-archipel</code>.)
+    </p>
     {% dsfr_callout components_data.callout.sample_data.0 %}
+
     <h3>
       Mise en exergue
     </h3>
     <p>
       Personnalise la couleur de la bordure.
     </p>
+    <p>
+      Il faut utiliser une classe de type <code>fr-highlight--&lt;color-name&gt;</code> (par exemple, <code>fr-highlight--green-archipel</code>.)
+    </p>
     {% dsfr_highlight components_data.highlight.sample_data.0 %}
+
     <h3>
       Tag
     </h3>
     <p>
       Personnalise la couleur de la bordure, du fond et de l’icône. Seuls les tags cliquables sont pris en compte.
+    </p>
+    <p>
+      Il faut utiliser une classe de type <code>fr-tag--&lt;color-name&gt;</code> (par exemple, <code>fr-tag--green-archipel</code>.)
     </p>
     <ul class="fr-tags-group">
       <li>
@@ -100,6 +143,9 @@
 {% block extra_js %}
   <script>
     const colors_list = [
+      "blue-france",
+      "red-marianne",
+      "grey",
       "green-tilleul-verveine",
       "green-bourgeon",
       "green-emeraude",
@@ -137,13 +183,17 @@
       }
     }
 
-
-    document.getElementById('id_color').addEventListener('input', function (event) {
+    document.getElementById('id_color_accent').addEventListener('input', function (event) {
       manageColorClasses("fr-quote", event.target.value);
       manageColorClasses("fr-callout", event.target.value);
       manageColorClasses("fr-highlight", event.target.value);
-      manageColorClasses("fr-table", event.target.value);
       manageColorClasses("fr-tag", event.target.value);
     }, false);
+
+    document.getElementById('id_color_full').addEventListener('input', function (event) {
+      console.log("here");
+      manageColorClasses("fr-background-alt", event.target.value);
+    }, false);
+
   </script>
 {% endblock extra_js %}

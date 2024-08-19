@@ -15,7 +15,7 @@ from django.views.decorators.http import require_safe
 
 from dsfr.utils import generate_summary_items
 
-from example_app.forms import ColorForm, ExampleForm
+from example_app.forms import AccentColorForm, ExampleForm, FullColorForm
 
 from example_app.dsfr_components import (
     ALL_IMPLEMENTED_COMPONENTS,
@@ -456,6 +456,20 @@ def doc_form(request):
 
 
 @require_safe
+def resource_colors(request):
+    payload = init_payload("Couleurs")
+
+    accent_color_form = AccentColorForm()
+    full_color_form = FullColorForm()
+
+    payload["accent_color_form"] = accent_color_form
+    payload["full_color_form"] = full_color_form
+    payload["components_data"] = IMPLEMENTED_COMPONENTS
+
+    return render(request, "example_app/page_colors.html", payload)
+
+
+@require_safe
 def resource_icons(request):
     payload = init_payload("Icônes")
 
@@ -496,18 +510,6 @@ def resource_pictograms(request):
     payload["summary"] = summary
 
     return render(request, "example_app/page_pictograms.html", payload)
-
-
-@require_safe
-def resource_colors(request):
-    payload = init_payload("Couleurs")
-
-    form = ColorForm()
-
-    payload["form"] = form
-    payload["components_data"] = IMPLEMENTED_COMPONENTS
-
-    return render(request, "example_app/page_colors.html", payload)
 
 
 @require_safe
