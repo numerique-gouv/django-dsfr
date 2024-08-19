@@ -4,7 +4,7 @@ from django.forms import (
     inlineformset_factory,
 )  # /!\ In order to use formsets
 
-from dsfr.constants import COLOR_CHOICES_ILLUSTRATION
+from dsfr.constants import COLOR_CHOICES, COLOR_CHOICES_ILLUSTRATION
 from dsfr.forms import DsfrBaseForm
 
 # /!\ In order to use formsets
@@ -214,9 +214,17 @@ BookCreateFormSet = inlineformset_factory(
 )
 
 
-class ColorForm(DsfrBaseForm):
-    color = forms.ChoiceField(
+class AccentColorForm(DsfrBaseForm):
+    color_accent = forms.ChoiceField(
         label="Choisissez une couleur",
         required=False,
         choices=[("", "----")] + COLOR_CHOICES_ILLUSTRATION,
+    )
+
+
+class FullColorForm(DsfrBaseForm):
+    color_full = forms.ChoiceField(
+        label="Choisissez une couleur",
+        required=False,
+        choices=[("", "----")] + COLOR_CHOICES,
     )
