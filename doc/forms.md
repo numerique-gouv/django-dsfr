@@ -55,6 +55,6 @@ def __init__(self, *args, **kwargs):
 
 ## Utilisation
 
-La balise `{% dsfr_form %}` est maintenant dépréciée et sera retirée avant la fin de l’année 2024.
+La balise `{% dsfr_form %}` est maintenant dépréciée et sera retirée à la fin de l’année 2024.
 
 Il faut donc remplacer les instances de `{% dsfr_form %}` par ``{{ form }}`` et `{% dsfr_form my_custom_form %}` par `{{ my_custom_form }}`.
