@@ -40,7 +40,11 @@ BOOK_FORMAT = (
 
 class Book(models.Model):
     author = models.ForeignKey(
-        Author, on_delete=models.CASCADE, null=False, blank=False
+        Author,
+        on_delete=models.CASCADE,
+        null=False,
+        blank=False,
+        verbose_name=_("Author"),
     )
     title = models.CharField(_("Title"), max_length=250, null=False, blank=False)
     number_of_pages = models.CharField(_("Number of pages"), max_length=6, blank=True)
