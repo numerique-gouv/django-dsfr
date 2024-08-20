@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 14:26+0200\n"
-"PO-Revision-Date: 2024-08-13 14:27+0200\n"
+"POT-Creation-Date: 2024-08-19 12:48+0200\n"
+"PO-Revision-Date: 2024-08-19 12:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -310,11 +310,11 @@ msgstr ""
 "Sauf mention explicite de propriété intellectuelle détenue par des tiers, "
 "les contenus de ce site sont proposés sous"
 
-#: dsfr/templates/dsfr/formset_base.html:27
+#: dsfr/templates/dsfr/formset_base.html:31
 msgid "Delete this item"
 msgstr "Supprimer cet élément"
 
-#: dsfr/templates/dsfr/formset_base.html:37
+#: dsfr/templates/dsfr/formset_base.html:39
 msgid "Add an item"
 msgstr "Ajouter un élément"
 

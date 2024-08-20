@@ -53,17 +53,8 @@ def __init__(self, *args, **kwargs):
     self.fields["password"].widget.attrs["class"] += " my custom class"
 ```
 
-## Utilisation avec les `Formsets`
+## Utilisation
 
-La balise `{% dsfr_form %}` prend un paramètre optionnel `form` qui permet de surcharger le formulaire à rendre, ce qui est pratique lors de l'utilisation de `Formsets` :
+La balise `{% dsfr_form %}` est maintenant dépréciée et sera retirée à la fin de l’année 2024.
 
-```{ .django }
-<form method="post">
-    {{ formset.management_form }}
-    <table>
-        {% for subform in formset %}
-            {% dsfr_form subform %}
-        {% endfor %}
-    </table>
-</form>
-```
+Il faut donc remplacer les instances de `{% dsfr_form %}` par ``{{ form }}`` et `{% dsfr_form my_custom_form %}` par `{{ my_custom_form }}`.

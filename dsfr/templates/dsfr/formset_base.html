@@ -12,7 +12,7 @@
       {% block formset_title %}
       {% endblock formset_title %}
       {% for form in formset %}
-        <div class="{% cycle 'row1' 'row2' %} formset-row-{{ formset.prefix }} formset"
+        <div class="{% cycle 'row1' 'row2' %} formset-row-{{ formset.prefix }} formset {% block formset_style %}fr-background-alt--grey fr-px-6v fr-py-6v fr-mb-4v{% endblock formset_style %}"
              id="formset-0">
           {% for hidden in form.hidden_fields %}
             {{ hidden }}
@@ -24,21 +24,23 @@
             {% include "dsfr/form_field_snippets/field_snippet.html" %}
           {% endfor %}
           <div class="fr-mt-2w">
-          <a id="remove-0" href="#" onclick="removeFormset(0)">{% translate "Delete this item" %} <span class="fr-fi-delete-line" aria-hidden="true"></span>
-          <br />
-          <br />
-        </a>
-      </div>
+            <button id="remove-0"
+                    type="button"
+                    class="fr-btn fr-btn--secondary fr-fi-delete-line fr-btn--icon-right fr-mt-1w"
+                    onclick="removeFormset(0)">
+              {% translate "Delete this item" %}
+            </button>
+          </div>
+        </div>
+      {% endfor %}
+      <button id="add-form"
+              type="button"
+              class="fr-btn fr-btn--secondary fr-fi-add-circle-line fr-btn--icon-right fr-mt-1w">
+        {% translate "Add an item" %}
+      </button>
     </div>
-  {% endfor %}
-  <button id="add-form"
-          type="button"
-          class="fr-btn fr-btn--secondary fr-fi-add-circle-line fr-btn--icon-right fr-mt-1w">
-    {% translate "Add an item" %}
-  </button>
-</div>
-<br />
-{% endif %}
+    <br />
+  {% endif %}
 {% endblock form_set %}
 {% block extra_js %}
   <script type="text/javascript">let objectName = "{{ object_name }}";</script>

@@ -1,12 +1,13 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
+
 {% block content %}
   <h1>
     Exemple de formulaire
   </h1>
   <form action="{% url 'page_form' %}" method="post">
     {% csrf_token %}
-    {% dsfr_form %}
+    {{ form }}
     <div class="fr-input-group fr-my-4w">
       <button type="submit" class="fr-btn" title="Valider">
         Valider ce formulaire

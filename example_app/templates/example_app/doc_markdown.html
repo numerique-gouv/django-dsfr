@@ -1,5 +1,6 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
+
 {% block content %}
   <h1>
     {{ title }}
@@ -13,6 +14,13 @@
   </div>
   {{ documentation|safe }}
 {% endblock content %}
+
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}">
+  <style>
+    p code, li code {
+      background: var(--background-alt-grey);
+      padding: 0.2em;
+    }
+  </style>
 {% endblock extra_css %}

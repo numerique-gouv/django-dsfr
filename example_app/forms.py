@@ -137,7 +137,7 @@ class ExampleForm(DsfrBaseForm):
 class AuthorCreateForm(ModelForm, DsfrBaseForm):
     class Meta:
         model = Author
-        exclude = []
+        exclude = []  # NOSONAR
         widgets = {
             "first_name": forms.TextInput(),
             "last_name": forms.TextInput(),
@@ -159,7 +159,7 @@ BOOK_FORMAT = (
 class BookCreateForm(ModelForm, DsfrBaseForm):
     class Meta:
         model = Book
-        exclude = []
+        exclude = []  # NOSONAR
         widgets = {
             "title": forms.TextInput(),
             "number_of_pages": forms.NumberInput(),

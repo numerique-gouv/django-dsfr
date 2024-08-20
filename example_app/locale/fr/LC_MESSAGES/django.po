@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 14:26+0200\n"
-"PO-Revision-Date: 2024-08-13 14:46+0200\n"
+"POT-Creation-Date: 2024-08-19 12:48+0200\n"
+"PO-Revision-Date: 2024-08-19 12:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -34,7 +34,7 @@ msgstr "Nom"
 msgid "Birth date"
 msgstr "Date de naissance"
 
-#: example_app/models.py:18
+#: example_app/models.py:18 example_app/models.py:47
 msgid "Author"
 msgstr "Auteur"
 
@@ -62,19 +62,19 @@ msgstr "Papier"
 msgid "Digital"
 msgstr "Numérique"
 
-#: example_app/models.py:45
+#: example_app/models.py:49
 msgid "Title"
 msgstr "Titre"
 
-#: example_app/models.py:46
+#: example_app/models.py:50
 msgid "Number of pages"
 msgstr "Nombre de pages"
 
-#: example_app/models.py:48
+#: example_app/models.py:52
 msgid "Format"
 msgstr "Format"
 
-#: example_app/models.py:53
+#: example_app/models.py:57
 msgid "Book"
 msgstr "Livre"
 
