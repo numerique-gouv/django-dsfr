@@ -1,4 +1,4 @@
-{% load static dsfr_tags %}
+{% load i18n static dsfr_tags %}
 <!DOCTYPE html>
 <html lang="{% block lang %}fr{% endblock lang %}"
       data-fr-scheme="system"
@@ -15,10 +15,14 @@
 
     {% block title %}
       <title>
-        {% if title %}
+        {% if title and SITE_CONFIG.site_title %}
           {{ title }} — {{ SITE_CONFIG.site_title }}
-        {% else %}
+        {% elif title %}
+          {{ title }}
+        {% elif SITE_CONFIG.site_title %}
           {{ SITE_CONFIG.site_title }}
+        {% else %}
+          {% translate "Untitled page" %}
         {% endif %}
       </title>
     {% endblock title %}
