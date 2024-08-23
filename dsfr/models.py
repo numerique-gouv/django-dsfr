@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from dsfr.constants import DJANGO_DSFR_LANGUAGES
+from dsfr.constants import DJANGO_DSFR_LANGUAGES, NOTICE_TYPE_CHOICES
 
 
 def validate_image_extension(value):
@@ -38,15 +38,51 @@ class DsfrConfig(models.Model):
     site_tagline = models.CharField(
         _("Site tagline"), max_length=200, default=_("Site tagline"), blank=True
     )
-    notice = models.TextField(
-        _("Important notice"),
+
+    # Notice
+    notice_title = models.CharField(
+        _("Notice title"),
+        max_length=250,
         default="",
         blank=True,
+        help_text=_("Can include HTML"),
+    )
+
+    notice_description = models.TextField(
+        _("Notice description"),
+        default="",
+        blank=True,
+        help_text=_("Can include HTML"),
+    )
+
+    notice_type = models.CharField(
+        _("Notice type"),
+        choices=NOTICE_TYPE_CHOICES,
+        default="info",
+        blank=True,
+        max_length=20,
         help_text=_(
-            "The important notice banner should only be used for essential and temporary information. \
-            (Excessive or continuous use risks “drowning” the message.)"
+            'Use is strictly regulated, see \
+            <a href="https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-importante/">documentation</a>.'
         ),
     )
+
+    notice_link = models.URLField(
+        _("Notice link"),
+        default="",
+        blank=True,
+        help_text=_("Standardized consultation link at the end of the notice."),
+    )
+
+    notice_icon_class = models.CharField(
+        _("Notice icon class"),
+        max_length=200,
+        default="",
+        blank=True,
+        help_text=_("For weather alerts only"),
+    )
+
+    notice_is_collapsible = models.BooleanField(_("Collapsible?"), default=False)  # type: ignore
 
     # Header
     header_brand = models.CharField(

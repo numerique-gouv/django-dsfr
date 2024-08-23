@@ -57,6 +57,34 @@ COLOR_CHOICES_WITH_SYSTEM = [
     (_("Illustration colors"), COLOR_CHOICES_ILLUSTRATION),
 ]
 
+# Types allowed for the site Notice
+NOTICE_TYPE_CHOICES = [
+    (
+        _("Generic notices"),
+        [
+            ("info", _("Information")),
+            ("warning", _("Warning")),
+            ("alert", _("Alert")),
+        ],
+    ),
+    (
+        _("Weather alert notices"),
+        [
+            ("weather-orange", _("Orange weather alert")),
+            ("weather-red", _("Red weather alert")),
+            ("weather-purple", _("Purple weather alert")),
+        ],
+    ),
+    (
+        _("Alert notices"),
+        [
+            ("attack", _("Attack alert")),
+            ("witness", _("Call for witnesses")),
+            ("cyberattack", _("Cyberattack")),
+        ],
+    ),
+]
+
 # Ratio classes used for medias and cards
 IMAGE_RATIOS = [
     ("fr-ratio-32x9", "32x9"),
