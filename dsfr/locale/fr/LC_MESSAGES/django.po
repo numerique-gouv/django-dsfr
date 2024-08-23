@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-23 09:51+0200\n"
-"PO-Revision-Date: 2024-08-23 09:58+0200\n"
+"PO-Revision-Date: 2024-08-23 10:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -312,7 +312,7 @@ msgstr "Réseaux sociaux"
 
 #: dsfr/templates/dsfr/alert.html:2 dsfr/templates/dsfr/notice.html:2
 msgid "Hide message"
-msgstr "Cacher le message"
+msgstr "Masquer le message"
 
 #: dsfr/templates/dsfr/breadcrumb.html:2
 msgid "you are here:"
@@ -377,7 +377,7 @@ msgstr "Suivez-nous <br />sur les réseaux sociaux"
 
 #: dsfr/templates/dsfr/footer.html:9
 msgid "Back to home page"
-msgstr "Retourner à l’accueil"
+msgstr "Retour à l’accueil du site"
 
 #: dsfr/templates/dsfr/footer.html:92
 msgid "Sitemap"
@@ -386,7 +386,7 @@ msgstr "Plan du site"
 #: dsfr/templates/dsfr/footer.html:97
 #, python-format
 msgid "Accessibility: %(accessibility_status)s compliant"
-msgstr "Accessibilité : %(accessibility_status)s' conforme"
+msgstr "Accessibilité : %(accessibility_status)s conforme"
 
 #: dsfr/templates/dsfr/footer.html:102
 msgid "Legal notice"
@@ -408,7 +408,9 @@ msgstr "licence etalab-2.0"
 msgid ""
 "Unless explicit mention of intellectual property held by third parties, the "
 "contents of this site are offered under"
-msgstr "Sauf mention contraire, tous les contenus de ce site sont sous"
+msgstr ""
+"Sauf mention explicite de propriété intellectuelle détenue par des tiers, "
+"les contenus de ce site sont proposés sous"
 
 #: dsfr/templates/dsfr/formset_base.html:31
 msgid "Delete this item"
