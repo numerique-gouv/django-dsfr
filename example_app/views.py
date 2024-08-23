@@ -11,6 +11,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils.text import slugify
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_safe
 
 from dsfr.utils import generate_summary_items
@@ -87,7 +88,7 @@ def init_payload(page_title: str, links: list = []):
 
 @require_safe
 def index(request):
-    payload = init_payload("Accueil")
+    payload = init_payload(_("Home page"))  # type: ignore
 
     payload["summary_data"] = generate_summary_items(
         [

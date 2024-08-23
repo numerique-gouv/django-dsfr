@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-19 12:48+0200\n"
-"PO-Revision-Date: 2024-08-19 12:48+0200\n"
+"POT-Creation-Date: 2024-08-23 11:21+0200\n"
+"PO-Revision-Date: 2024-08-23 11:22+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -88,6 +88,7 @@ msgid "Back to home page"
 msgstr "Retour à l’accueil du site"
 
 #: example_app/templates/example_app/blocks/header.html:6
+#: example_app/views.py:91
 msgid "Home page"
 msgstr "Accueil"
 
