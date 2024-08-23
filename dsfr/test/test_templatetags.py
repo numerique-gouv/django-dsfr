@@ -1,3 +1,5 @@
+import warnings
+
 from django import forms
 from django.test import SimpleTestCase
 from django.template import Context, Template
@@ -492,6 +494,9 @@ class DsfrFormTagTest(SimpleTestCase):
         test = forms.CharField(label="Ceci est un autre test")
 
     context = Context({"form": TestForm(), "form2": TestForm2()})
+
+    def setUp(self) -> None:
+        warnings.simplefilter("ignore", category=DeprecationWarning, lineno=258)
 
     def test_dsfr_form_renders(self):
         rendered_template = Template("{% load dsfr_tags %} {% dsfr_form %}").render(

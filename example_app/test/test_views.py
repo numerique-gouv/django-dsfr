@@ -1,13 +1,17 @@
-import unittest
-from django.test import Client
+from django.conf import settings
+from django.test import Client, TestCase
 from django.urls import reverse
+from django.utils import translation
 
 from example_app.dsfr_components import ALL_TAGS
 
 
-class BasicPagesTest(unittest.TestCase):
-    def setUp(self):
+class BasicPagesTest(TestCase):
+    def setUp(self) -> None:
         self.client = Client()
+
+    def tearDown(self) -> None:
+        translation.activate(settings.LANGUAGE_CODE)
 
     def test_index(self):
         response = self.client.get(reverse("index"))
@@ -17,8 +21,33 @@ class BasicPagesTest(unittest.TestCase):
         response = self.client.get(reverse("page_search"))
         self.assertEqual(response.status_code, 200)
 
+    def test_page_is_rendered_in_french_by_default(self) -> None:
+        # Checking for strings from both the view and a template
+        response = self.client.get(reverse("index"))
+        self.assertInHTML(
+            "<title>Accueil</title>",
+            response.content.decode(),
+        )
+        self.assertInHTML(
+            """<h1 id="fr-theme-modal-title" class="fr-modal__title">Paramètres d’affichage</h1>""",
+            response.content.decode(),
+        )
 
-class DocTest(unittest.TestCase):
+    def test_page_can_be_rendered_in_english(self) -> None:
+        # Checking for strings from both the view and a template
+        self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: "en"})
+        response = self.client.get(reverse("index"))
+        self.assertInHTML(
+            "<title>Home page</title>",
+            response.content.decode(),
+        )
+        self.assertInHTML(
+            """<h1 id="fr-theme-modal-title" class="fr-modal__title">Display settings</h1>""",
+            response.content.decode(),
+        )
+
+
+class DocTest(TestCase):
     def setUp(self):
         self.client = Client()
 
@@ -31,8 +60,7 @@ class DocTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
 
-class ComponentsTest(unittest.TestCase):
-
+class ComponentsTest(TestCase):
     def setUp(self):
         self.client = Client()
 
@@ -48,7 +76,7 @@ class ComponentsTest(unittest.TestCase):
             self.assertEqual(response.status_code, 200)
 
 
-class FormsTest(unittest.TestCase):
+class FormsTest(TestCase):
     def setUp(self):
         self.client = Client()
 
@@ -65,7 +93,7 @@ class FormsTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
 
-class ResourceTest(unittest.TestCase):
+class ResourceTest(TestCase):
     def setUp(self):
         self.client = Client()
 
