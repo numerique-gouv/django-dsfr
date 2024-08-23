@@ -36,10 +36,17 @@ class ContextProcessorTestCase(TestCase):
         DsfrConfig.objects.create(language="en", site_title="Site title")
 
         response = self.client.get(reverse("index"), headers={"accept-language": "fr"})
+
         self.assertEqual(response.context["SITE_CONFIG"].site_title, "Titre du site")
+        self.assertInHTML(
+            "<title>Accueil — Titre du site</title>", response.content.decode()
+        )
 
         response = self.client.get(reverse("index"), headers={"accept-language": "en"})
         self.assertEqual(response.context["SITE_CONFIG"].site_title, "Site title")
+        self.assertInHTML(
+            "<title>Home page — Site title</title>", response.content.decode()
+        )
 
     def test_config_fallbacks_to_first_if_language_is_not_set(self) -> None:
         DsfrConfig.objects.create(language="fr", site_title="Titre du site")

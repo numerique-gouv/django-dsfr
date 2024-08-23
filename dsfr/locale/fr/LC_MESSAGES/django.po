@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 09:51+0200\n"
-"PO-Revision-Date: 2024-08-23 10:09+0200\n"
+"POT-Creation-Date: 2024-08-23 11:10+0200\n"
+"PO-Revision-Date: 2024-08-23 11:12+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -198,8 +198,8 @@ msgid ""
 "design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-"
 "importante/\">documentation</a>."
 msgstr ""
-"L’usage de ce bandeau est strictement encadré, voir la <a href=\"https://"
-"www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-"
+"L’usage de ce bandeau est strictement encadré, voir la <a href=\"https://www."
+"systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-"
 "information-importante/\">documentation</a>."
 
 #: dsfr/models.py:71
@@ -271,8 +271,8 @@ msgid ""
 "To be adjusted according to the width of the logo.            Example for a "
 "vertical logo: 3.5, Example for a horizontal logo: 8."
 msgstr ""
-"À ajuster en fonction de la largeur du logo.  Exemple pour un logo "
-"vertical: 3.5, Exemple pour un logo horizontal: 8."
+"À ajuster en fonction de la largeur du logo.  Exemple pour un logo vertical: "
+"3.5, Exemple pour un logo horizontal: 8."
 
 #: dsfr/models.py:154
 msgid "Mourning"
@@ -313,6 +313,10 @@ msgstr "Réseaux sociaux"
 #: dsfr/templates/dsfr/alert.html:2 dsfr/templates/dsfr/notice.html:2
 msgid "Hide message"
 msgstr "Masquer le message"
+
+#: dsfr/templates/dsfr/base.html:25
+msgid "Untitled page"
+msgstr "Page sans titre"
 
 #: dsfr/templates/dsfr/breadcrumb.html:2
 msgid "you are here:"
