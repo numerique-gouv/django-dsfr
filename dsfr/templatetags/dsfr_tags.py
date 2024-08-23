@@ -834,7 +834,7 @@ def dsfr_notice(*args, **kwargs) -> dict:
     }
     ```
 
-    Possible values for type:
+    Possible values for type (list available in constant NOTICE_TYPE_CHOICES):
 
     - info
     - warning

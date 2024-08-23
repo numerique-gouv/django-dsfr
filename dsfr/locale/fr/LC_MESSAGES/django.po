@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-19 12:48+0200\n"
-"PO-Revision-Date: 2024-08-19 12:48+0200\n"
+"POT-Creation-Date: 2024-08-23 09:51+0200\n"
+"PO-Revision-Date: 2024-08-23 09:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -18,7 +18,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: dsfr/admin.py:59
+#: dsfr/admin.py:18
+msgid "Website"
+msgstr "Site"
+
+#: dsfr/admin.py:28
+msgid "Notice"
+msgstr "Bandeau d’information importante"
+
+#: dsfr/admin.py:39
+msgid ""
+"The important notice banner should only be used for essential and temporary "
+"information.                     (Excessive or continuous use risks "
+"“drowning” the message.)"
+msgstr ""
+"Le bandeau d’information importante doit être utilisé uniquement pour une "
+"information primordiale et temporaire.  (Une utilisation excessive ou "
+"continue risque de “noyer” le message)"
+
+#: dsfr/admin.py:45
+msgid "Header"
+msgstr "En-tête"
+
+#: dsfr/admin.py:54
+msgid "Footer"
+msgstr "Pied de page"
+
+#: dsfr/admin.py:65 dsfr/models.py:129
+msgid "Operator logo"
+msgstr "Logo opérateur"
+
+#: dsfr/admin.py:75
 msgid "Newsletter"
 msgstr "Lettre d’information"
 
@@ -50,7 +80,7 @@ msgstr "Info"
 msgid "Success"
 msgstr "Succès"
 
-#: dsfr/constants.py:23
+#: dsfr/constants.py:23 dsfr/constants.py:66
 msgid "Warning"
 msgstr "Avertissement"
 
@@ -73,6 +103,50 @@ msgstr "Couleurs illustratives"
 #: dsfr/constants.py:56
 msgid "System colors"
 msgstr "Couleurs système"
+
+#: dsfr/constants.py:63
+msgid "Generic notices"
+msgstr "Bandeaux génériques"
+
+#: dsfr/constants.py:65
+msgid "Information"
+msgstr "Information"
+
+#: dsfr/constants.py:67
+msgid "Alert"
+msgstr "Alerte"
+
+#: dsfr/constants.py:71
+msgid "Weather alert notices"
+msgstr "Bandeaux de vigilance météo"
+
+#: dsfr/constants.py:73
+msgid "Orange weather alert"
+msgstr "Vigilance météo orange"
+
+#: dsfr/constants.py:74
+msgid "Red weather alert"
+msgstr "Vigilance météo rouge"
+
+#: dsfr/constants.py:75
+msgid "Purple weather alert"
+msgstr "Vigilance météo violette"
+
+#: dsfr/constants.py:79
+msgid "Alert notices"
+msgstr "Bandeaux d’alerte"
+
+#: dsfr/constants.py:81
+msgid "Attack alert"
+msgstr "Alerte attentat"
+
+#: dsfr/constants.py:82
+msgid "Call for witnesses"
+msgstr "Appel à témoins"
+
+#: dsfr/constants.py:83
+msgid "Cyberattack"
+msgstr "Cyberattaque"
 
 #: dsfr/models.py:20
 msgid "Language"
@@ -102,115 +176,143 @@ msgstr "Titre du site"
 msgid "Site tagline"
 msgstr "Sous-titre du site"
 
-#: dsfr/models.py:42
-msgid "Important notice"
-msgstr "Bandeau d’information importante"
+#: dsfr/models.py:44
+msgid "Notice title"
+msgstr "Titre du bandeau"
 
-#: dsfr/models.py:46
+#: dsfr/models.py:48 dsfr/models.py:55
+msgid "Can include HTML"
+msgstr "Peut inclure du HTML"
+
+#: dsfr/models.py:52
+msgid "Notice description"
+msgstr "Description du bandeau"
+
+#: dsfr/models.py:59
+msgid "Notice type"
+msgstr "Type de bandeau"
+
+#: dsfr/models.py:65
 msgid ""
-"The important notice banner should only be used for essential and temporary "
-"information.             (Excessive or continuous use risks “drowning” the "
-"message.)"
+"Use is strictly regulated, see             <a href=\"https://www.systeme-de-"
+"design.gouv.fr/composants-et-modeles/composants/bandeau-d-information-"
+"importante/\">documentation</a>."
 msgstr ""
-"Le bandeau d’information importante doit être utilisé uniquement pour une "
-"information primordiale et temporaire.  (Une utilisation excessive ou "
-"continue risque de “noyer” le message)"
+"L’usage de ce bandeau est strictement encadré, voir la <a href=\"https://"
+"www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bandeau-d-"
+"information-importante/\">documentation</a>."
 
-#: dsfr/models.py:53
+#: dsfr/models.py:71
+msgid "Notice link"
+msgstr "Lien du bandeau"
+
+#: dsfr/models.py:74
+msgid "Standardized consultation link at the end of the notice."
+msgstr "Lien de consultation standardisé à la fin du bandeau."
+
+#: dsfr/models.py:78
+msgid "Notice icon class"
+msgstr "Classe d’icône du bandeau"
+
+#: dsfr/models.py:82
+msgid "For weather alerts only"
+msgstr "Pour les bandeaux de vigilance météo uniquement"
+
+#: dsfr/models.py:85
+msgid "Collapsible?"
+msgstr "Repliable ?"
+
+#: dsfr/models.py:89
 msgid "Institution (header)"
 msgstr "Institution (en-tête)"
 
-#: dsfr/models.py:59
+#: dsfr/models.py:95
 msgid "Institution with line break (header)"
 msgstr "Institution avec césure (en-tête)"
 
-#: dsfr/models.py:64
+#: dsfr/models.py:100
 msgid "Show the BETA tag next to the title"
 msgstr "Afficher la mention BETA à côté du titre"
 
-#: dsfr/models.py:68
+#: dsfr/models.py:104
 msgid "Institution (footer)"
-msgstr "Institution (pied"
+msgstr "Institution (pied)"
 
-#: dsfr/models.py:74
+#: dsfr/models.py:110
 msgid "Institution with line break (footer)"
 msgstr "Institution avec césure (pied)"
 
-#: dsfr/models.py:79
+#: dsfr/models.py:115
 msgid "Description"
 msgstr "Description"
 
-#: dsfr/models.py:82
+#: dsfr/models.py:118
 msgid "Newsletter description"
 msgstr "Description de la lettre d’information"
 
-#: dsfr/models.py:86
+#: dsfr/models.py:122
 msgid "Newsletter registration URL"
 msgstr "URL d‘inscription à la lettre d’information"
 
-#: dsfr/models.py:93
-msgid "Operator logo"
-msgstr "Logo opérateur"
-
-#: dsfr/models.py:100
+#: dsfr/models.py:136
 msgid "Logo alt text"
 msgstr "Alternative textuelle du logo"
 
-#: dsfr/models.py:103
+#: dsfr/models.py:139
 msgid "Must contain the text present in the image."
 msgstr "Doit impérativement contenir le texte présent dans l’image."
 
-#: dsfr/models.py:106
+#: dsfr/models.py:142
 msgid "Width (em)"
 msgstr "Largeur (em)"
 
-#: dsfr/models.py:112
+#: dsfr/models.py:148
 msgid ""
 "To be adjusted according to the width of the logo.            Example for a "
 "vertical logo: 3.5, Example for a horizontal logo: 8."
 msgstr ""
-"À ajuster en fonction de la largeur du logo.  Exemple pour un logo vertical: "
-"3.5, Exemple pour un logo horizontal: 8."
+"À ajuster en fonction de la largeur du logo.  Exemple pour un logo "
+"vertical: 3.5, Exemple pour un logo horizontal: 8."
 
-#: dsfr/models.py:118
+#: dsfr/models.py:154
 msgid "Mourning"
 msgstr "Mise en berne"
 
-#: dsfr/models.py:121
+#: dsfr/models.py:157
 msgid "Accessibility compliance status"
 msgstr "Statut de conformité de l’accessibilité"
 
-#: dsfr/models.py:128
+#: dsfr/models.py:164
 msgid "Configuration"
 msgstr "Configuration"
 
-#: dsfr/models.py:131
+#: dsfr/models.py:167
 msgid "Site config:"
 msgstr "Configuration du site :"
 
-#: dsfr/models.py:139
+#: dsfr/models.py:175
 msgid "Title"
 msgstr "Titre"
 
-#: dsfr/models.py:142
+#: dsfr/models.py:178
 msgid "URL"
 msgstr "URL"
 
-#: dsfr/models.py:147
+#: dsfr/models.py:183
 msgid "Icon class"
 msgstr "Classe d’icône"
 
-#: dsfr/models.py:154
+#: dsfr/models.py:190
 msgid "Social media"
 msgstr "Réseau social"
 
-#: dsfr/models.py:155
+#: dsfr/models.py:191
 msgid "Social medias"
 msgstr "Réseaux sociaux"
 
 #: dsfr/templates/dsfr/alert.html:2 dsfr/templates/dsfr/notice.html:2
 msgid "Hide message"
-msgstr "Masquer le message"
+msgstr "Cacher le message"
 
 #: dsfr/templates/dsfr/breadcrumb.html:2
 msgid "you are here:"
@@ -263,7 +365,7 @@ msgstr "Abonnez-vous à notre lettre d’information"
 #: dsfr/templates/dsfr/follow.html:18
 msgctxt "Button title"
 msgid "Subscribe to our newsletter"
-msgstr "S'abonner à notre lettre d’information"
+msgstr "S’abonner à notre lettre d’information"
 
 #: dsfr/templates/dsfr/follow.html:24
 msgid "Subscribe"
@@ -271,11 +373,11 @@ msgstr "S’abonner"
 
 #: dsfr/templates/dsfr/follow.html:34
 msgid "Follow us <br /> on social media"
-msgstr "Suivez-nous <br /> sur les réseaux sociaux"
+msgstr "Suivez-nous <br />sur les réseaux sociaux"
 
 #: dsfr/templates/dsfr/footer.html:9
 msgid "Back to home page"
-msgstr "Retour à l’accueil du site"
+msgstr "Retourner à l’accueil"
 
 #: dsfr/templates/dsfr/footer.html:92
 msgid "Sitemap"
@@ -284,7 +386,7 @@ msgstr "Plan du site"
 #: dsfr/templates/dsfr/footer.html:97
 #, python-format
 msgid "Accessibility: %(accessibility_status)s compliant"
-msgstr "Accessibilité : %(accessibility_status)s conforme"
+msgstr "Accessibilité : %(accessibility_status)s' conforme"
 
 #: dsfr/templates/dsfr/footer.html:102
 msgid "Legal notice"
@@ -306,9 +408,7 @@ msgstr "licence etalab-2.0"
 msgid ""
 "Unless explicit mention of intellectual property held by third parties, the "
 "contents of this site are offered under"
-msgstr ""
-"Sauf mention explicite de propriété intellectuelle détenue par des tiers, "
-"les contenus de ce site sont proposés sous"
+msgstr "Sauf mention contraire, tous les contenus de ce site sont sous"
 
 #: dsfr/templates/dsfr/formset_base.html:31
 msgid "Delete this item"

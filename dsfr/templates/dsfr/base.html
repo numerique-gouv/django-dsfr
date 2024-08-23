@@ -38,8 +38,8 @@
 
     {% dsfr_theme_modale %}
 
-    {% if SITE_CONFIG.notice %}
-      {% dsfr_notice title=SITE_CONFIG.notice %}
+    {% if SITE_CONFIG.notice_title or SITE_CONFIG.notice_description %}
+      {% dsfr_notice title=SITE_CONFIG.notice_title description=SITE_CONFIG.notice_description link=SITE_CONFIG.notice_link type=SITE_CONFIG.notice_type icon=SITE_CONFIG.notice_icon_class is_collapsible=SITE_CONFIG.notice_is_collapsible %}
     {% endif %}
 
     <div class="fr-container fr-mt-4w fr-mb-6w">

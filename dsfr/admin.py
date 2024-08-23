@@ -15,18 +15,34 @@ class DsfrConfigAdmin(admin.ModelAdmin):
     fieldsets = (
         ("", {"fields": ("language",)}),
         (
-            "Site",
+            _("Website"),
             {
                 "fields": (
                     ("site_title", "beta_tag"),
                     "site_tagline",
-                    "notice",
                     "mourning",
                 )
             },
         ),
         (
-            "En-tête",
+            _("Notice"),
+            {
+                "fields": (
+                    "notice_title",
+                    "notice_description",
+                    "notice_type",
+                    "notice_link",
+                    "notice_icon_class",
+                    "notice_is_collapsible",
+                ),
+                "description": _(
+                    "The important notice banner should only be used for essential and temporary information. \
+                    (Excessive or continuous use risks “drowning” the message.)"
+                ),
+            },
+        ),
+        (
+            _("Header"),
             {
                 "fields": (
                     "header_brand",
@@ -35,7 +51,7 @@ class DsfrConfigAdmin(admin.ModelAdmin):
             },
         ),
         (
-            "Pied de page",
+            _("Footer"),
             {
                 "fields": (
                     "footer_brand",
@@ -46,7 +62,7 @@ class DsfrConfigAdmin(admin.ModelAdmin):
             },
         ),
         (
-            "Logo opérateur",
+            _("Operator logo"),
             {
                 "fields": (
                     "operator_logo_file",
