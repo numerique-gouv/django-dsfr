@@ -82,7 +82,7 @@ class ExampleForm(DsfrBaseForm):
         widget=forms.RadioSelect,
     )
 
-    sample_checkbox = forms.ChoiceField(
+    sample_checkbox = forms.MultipleChoiceField(
         label="Cases à cocher",
         required=False,
         choices=[
@@ -124,7 +124,7 @@ class ExampleForm(DsfrBaseForm):
     def clean_sample_checkbox(self):
         sample_checkbox = self.cleaned_data["sample_checkbox"]
 
-        if sample_checkbox == ["2"]:
+        if "3" in sample_checkbox:
             raise forms.ValidationError("Le troisième choix est interdit")
 
         return sample_checkbox
