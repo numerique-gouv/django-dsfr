@@ -48,3 +48,21 @@ History
 This app was originally created as a part of `Open Collectivités <https://github.com/entrepreneur-interet-general/opencollectivites>`_ in 2020, and then maintained as part of `Aides-territoires <https://github.com/MTES-MCT/aides-territoires>`_ in 2022-2023.
 
 It is now maintained as part of `@numerique-gouv <https://github.com/numerique-gouv>`_ alongside the Wagtail-based `Sites faciles <https://github.com/numerique-gouv/sites-faciles>`_.
+
+
+Licence et droit d’utilisation
+-------
+
+Le contenu de ce projet est placé sous licence MIT, à l’exception de la fonte Marianne. Voir `la licence du DSFR <https://github.com/GouvernementFR/dsfr/blob/main/doc/legal/cgu.md>`_.
+
+⚠️ Utilisation du DSFR interdite en dehors des sites Internet de l’État
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    Il est formellement interdit à tout autre acteur d’utiliser le Système de Design de l’État (les administrations territoriales ou tout autre acteur privé) pour des sites web ou des applications. Le Système de Design de l’État représente l’identité numérique de l’État. En cas d’usage à des fins trompeuses ou frauduleuses, l'État se réserve le droit d’entreprendre les actions nécessaires pour y mettre un terme.
+
+    Voir les `conditions générales d'utilisation <https://github.com/GouvernementFR/dsfr/blob/main/doc/legal/cgu.md>`_.
+
+⚠️ Prohibited Use Outside Government Websites
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    This Design System is only meant to be used by official French public services' websites and apps. Its main purpose is to make it easy to identify governmental websites for citizens. See terms.
