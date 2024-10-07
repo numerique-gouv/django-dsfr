@@ -34,6 +34,7 @@ def format_markdown_from_file(filename: str, ignore_first_line: bool = False) ->
         md = markdown.Markdown(
             extensions=[
                 "markdown.extensions.fenced_code",
+                "markdown.extensions.attr_list",
                 TocExtension(toc_depth="2-6"),
                 CodeHiliteExtension(css_class="dsfr-code"),
             ],

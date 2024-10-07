@@ -1,0 +1,21 @@
+{% with id=widget.attrs.id %}
+  <fieldset {% if id %}id="{{ id }}"{% endif %}
+            class="fr-fieldset{% if widget.attrs.class %} {{ widget.attrs.class }}{% endif %}"
+            {% if id %}aria-labelledby="{{ id }}-legend"{% endif %}>
+    {% for group, options, index in widget.optgroups %}
+      {% if group %}
+        <legend id="{{ group }}-legend"
+                class="fr-fieldset__legend{% if widget.attrs.legend_classes %} {{ widget.attrs.legend_classes }}{% endif %}">
+          {{ group }}
+        </legend>
+        <fieldset aria-labelledby="{{ group }}-legend">
+        {% endif %}
+        {% for option in options %}
+          {% include option.template_name with widget=option %}
+        {% endfor %}
+        {% if group %}
+        </fieldset>
+      {% endif %}
+    {% endfor %}
+  </fieldset>
+{% endwith %}
