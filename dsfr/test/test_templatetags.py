@@ -1193,3 +1193,40 @@ class HyphenateTestCase(SimpleTestCase):
     def test_numbers_and_string_can_be_hyphenated(self):
         result = hyphenate("test", 3)
         self.assertEqual(result, "test-3")
+
+
+class StrfmtTestCase(SimpleTestCase):
+    def test_single_arg(self):
+        self.assertEqual(
+            "The sum of 1 + 2 is 3",
+            Template(
+                '{% load dsfr_tags %}{{ ctx_variable|strfmt:"The sum of 1 + 2 is {}" }}'
+            ).render(Context({"ctx_variable": 1 + 2})),
+        )
+
+    def test_args(self):
+        self.assertEqual(
+            "The sum of 1 + 2 is 3 and it's awesome",
+            Template(
+                "{% load dsfr_tags %}"
+                """{{ ctx_variable|strfmt:"The sum of 1 + 2 is {0} and it's {1}" }}"""
+            ).render(Context({"ctx_variable": [1 + 2, "awesome"]})),
+        )
+
+    def test_single_kwargs(self):
+        self.assertEqual(
+            "The sum of 1 + 2 is 3 and it's awesome",
+            Template(
+                "{% load dsfr_tags %}"
+                """{{ ctx_variable|strfmt:"The sum of 1 + 2 is {add_result} and it's {result_feeling}" }}"""
+            ).render(
+                Context(
+                    {
+                        "ctx_variable": {
+                            "add_result": 1 + 2,
+                            "result_feeling": "awesome",
+                        }
+                    }
+                )
+            ),
+        )
