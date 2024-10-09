@@ -1,4 +1,6 @@
 import warnings
+from typing import Iterable
+
 from django import template
 from django.conf import settings
 from django.contrib.messages.constants import DEBUG, INFO, SUCCESS, WARNING, ERROR
@@ -1636,3 +1638,44 @@ def concatenate(value, arg):
 def hyphenate(value, arg):
     """Concatenate value and arg with hyphens as separator, if neither is empty"""
     return "-".join(filter(None, [str(value), str(arg)]))
+
+
+@register.filter(is_safe=True)
+def strfmt(args, format_string):
+    """
+    Shortcup to [`str.format`](https://docs.python.org/3/library/stdtypes.html#str.format).
+
+    Usage:
+
+    ```django
+    {{ ctx_variable|strfmt:"The sum of 1 + 2 is {}" }}
+    ```
+
+    `ctx_variable` may either be a single argument or a list of arguments or a dict of args:
+
+    ```python
+    def get_context_data(self, **kwargs):
+        return {
+            "format_args: [1 + 2, "awesome"]
+            "format_kwargs": {
+                "add_result": 1 + 2,
+                "result_feeling": "awesome",
+            }
+        }
+    ```
+
+    ```django
+    {{ format_args|strfmt:"The sum of 1 + 2 is {0} and it's {1}" }}
+    {{ format_kwargs|strfmt:"The sum of 1 + 2 is {add_result} and it's {result_feeling}" }}
+    ```
+    """
+    kwargs = {}
+    if isinstance(args, dict):
+        kwargs.update(args)
+        args = tuple()
+    if isinstance(args, Iterable) and not isinstance(args, str):
+        args = tuple(args)
+    else:
+        args = (str(args),)
+
+    return format_html(format_string, *args, **kwargs)
