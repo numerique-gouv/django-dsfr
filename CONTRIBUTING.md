@@ -84,7 +84,7 @@ Une fois la mise à jour faite, il reste à :
 - lancer les tests unitaires avec `make test` ;
 - ouvrir le site de test et vérifier que tous les composants s’affichent toujours bien ;
 - mettre à jour la liste des composants en vérifiant depuis le site du système de design de l’État ;
-- mettre à jour le fichier README.rst pour indiquer la nouvelle version du DSFR ;
+- mettre à jour le fichier README.md pour indiquer la nouvelle version du DSFR ;
 - mettre à jour les composants si nécessaire, en se basant sur le site du système de design de l’État (ou ouvrir des *issues*)
 
 ## Publication d’une nouvelle version

@@ -21,7 +21,7 @@ legal:
   license: mit
   authorsFile: ""
 metadataFiles:
-  readme: README.rst
+  readme: README.md
   license: LICENSE
 maintenance:
   type: community
