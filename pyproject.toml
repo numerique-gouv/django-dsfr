@@ -3,7 +3,7 @@ authors = ["Sylvain Boissel <sylvain.boissel@beta.gouv.fr>"]
 description = "Integrate the French government Design System into a Django app"
 license = "MIT"
 name = "django-dsfr"
-version = "1.4.0"
+version = "1.4.1"
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Web Environment",
@@ -29,14 +29,14 @@ classifiers = [
 documentation = "https://numerique-gouv.github.io/django-dsfr"
 homepage = "https://github.com/numerique-gouv/django-dsfr"
 keywords = ["django"]
-readme = "README.rst"
+readme = "README.md"
 repository = "https://github.com/numerique-gouv/django-dsfr"
 
 packages = [
   {include = "dsfr"},
 ]
 
-include = ["LICENSE", "README.rst", "dsfr/static/dsfr/dist/*/*.*"]
+include = ["LICENSE", "README.md", "dsfr/static/dsfr/dist/*/*.*"]
 
 [tool.poetry.dependencies]
 Django = ">3.2.5"
