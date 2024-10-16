@@ -878,6 +878,282 @@
 <h2 id="utilisation">Utilisation</h2>
 <p>La balise <code>{% dsfr_form %}</code> est maintenant dépréciée et sera retirée à la fin de l’année 2024.</p>
 <p>Il faut donc remplacer les instances de <code>{% dsfr_form %}</code> par <code>{{ form }}</code> et <code>{% dsfr_form my_custom_form %}</code> par <code>{{ my_custom_form }}</code>.</p>
+<h2 id="composants">Composants</h2>
+<h3 id="extended-choices"><code>dsfr.enums.ExtendedChoices</code></h3>
+<p>Extension de <a href="https://docs.djangoproject.com/en/5.1/ref/utils/#django.utils.safestring.mark_safe">Django's <code>models.Choices</code></a> pour supporter l'ajout d'attributs
+arbitraires aux enums en utilisant un dictionnaire.</p>
+<p>Exemple d'utilisation :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+
+<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
+  <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;COLD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Cold&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;12°c&quot;</span>
+  <span class="p">}</span>
+  <span class="n">OK</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=12°c,&lt;25°c&quot;</span>
+  <span class="p">}</span>
+  <span class="n">HOT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;HOT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Hot!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=25°c&quot;</span>
+  <span class="p">}</span>
+
+<span class="n">TemperatureChoices</span><span class="o">.</span><span class="n">OK</span><span class="o">.</span><span class="n">temperature</span> <span class="o">==</span> <span class="s2">&quot;&gt;=12°c,&lt;25°c&quot;</span>
+</code></pre></div>
+
+<p>Dans l'exemple précédent, en plus de <code>TemperatureChoices.&lt;enum instance&gt;.value</code>,
+<code>TemperatureChoices.&lt;enum instance&gt;.label</code> et
+<code>TemperatureChoices.&lt;enum instance&gt;.name</code>, <code>ExtendedChoices</code> ajoute une propriété
+<code>temperature</code> pour chaque instance de instance d'enum.</p>
+<p>Exemple : <code>TemperatureChoices.&lt;enum instance&gt;.temperature</code>.</p>
+<p>Notez que <code>"value"</code> est la seule clé obligatoire dans le dictionnaire. Lorsqu'un
+dictionnaire ne contient que <code>« value »</code>, les exemples suivants sont équivalents :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+
+<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Choices</span><span class="p">):</span>
+    <span class="n">COLD</span> <span class="o">=</span> <span class="s2">&quot;COLD&quot;</span>
+
+<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
+    <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;COLD&quot;</span><span class="p">}</span>
+</code></pre></div>
+
+<p>Voir <a href="#default-values">cette section sur la façon de fournir des valeurs par défaut pour des attributs supplémentaires</a></p>
+<h4 id="utilisation-avec-enumauto">Utilisation avec <code>enum.auto()</code></h4>
+<p><code>ExtendedChoices</code> supporte l'utilisation de <a href="https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping"><code>enum.auto()</code></a> :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+
+<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">TextChoices</span><span class="p">):</span>
+  <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Cold&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;12°c&quot;</span>
+  <span class="p">}</span>
+  <span class="n">OK</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=12°c,&lt;25°c&quot;</span>
+  <span class="p">}</span>
+  <span class="n">HOT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Hot!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=25°c&quot;</span>
+  <span class="p">}</span>
+</code></pre></div>
+
+<p><code>ExtendedChoices</code> peut être utilisé en combinaison <code>django.db.models.TextChoices</code>
+ou <code>django.db.models.IntegerChoices</code> pour calculer automatiquement l'attribut
+<code>value</code> avec <code>enum.auto()</code> ou peut définir une méthode <code>_generate_next_value_</code> pour
+fournir la valeur (voir <a href="https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping"><a href="https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping">2</a></a>) :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+
+<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
+  <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Cold&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;12°c&quot;</span>
+  <span class="p">}</span>
+  <span class="n">OK</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=12°c,&lt;25°c&quot;</span>
+  <span class="p">}</span>
+  <span class="n">HOT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Hot!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=25°c&quot;</span>
+  <span class="p">}</span>
+
+  <span class="k">def</span> <span class="nf">_generate_next_value_</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">last_values</span><span class="p">):</span>
+      <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<h4 id="default-values">Fournir des valeurs par défaut aux attributs supplémentaires</h4>
+<p>Il peut arriver que vous souhaitiez fournir dynamiquement des valeurs pour un
+attribut supplémentaire. Si vous ne spécifiez pas de valeur pour un attribut
+supplémentaire lors de la déclaration de l'enum, vous pouvez la fournir
+dynamiquement avec la méthode <code>dynamic_attribute_value</code> :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerChoices</span><span class="p">):</span>
+    <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+        <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lorem&quot;</span><span class="p">:</span> <span class="s2">&quot;ipsum 1&quot;</span><span class="p">},</span>
+    <span class="p">}</span>
+    <span class="n">OK</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">dynamic_attribute_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">settings</span><span class="o">.</span><span class="n">TEMPERATURES</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</code></pre></div>
+
+<p>Dans l'exemple précédent, la valeur de <code>temperature</code> n'est pas spécifiée pour
+<code>TemperatureChoices.OK</code>. Accéder à la propriété <code>TemperatureChoices.OK.temperature</code>
+appellera <code>TemperatureChoices.OK.dynamic_attribute_value("temperature")</code> pour .</p>
+<h4 id="utilisation-avancee">Utilisation avancée</h4>
+<p>Par défaut, lorsque vous spécifiez des attibuts supplémentaires, <code>ExtendedChoices</code>
+stocke cette valeur dans un membre de l'instance. Le nom de se membre correspond
+au nom de l'attribut spécifié précédé de <code>__</code>. Exemple :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+
+<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
+  <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Cold&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;12°c&quot;</span>
+  <span class="p">}</span>
+  <span class="n">OK</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=12°c,&lt;25°c&quot;</span>
+  <span class="p">}</span>
+  <span class="n">HOT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Hot!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=25°c&quot;</span>
+  <span class="p">}</span>
+
+<span class="n">TemperatureChoices</span><span class="o">.</span><span class="n">OK</span><span class="o">.</span><span class="n">__temperature</span> <span class="o">==</span> <span class="n">TemperatureChoices</span><span class="o">.</span><span class="n">OK</span><span class="o">.</span><span class="n">temperature</span>
+</code></pre></div>
+
+<p>Si, pour quelque raison que ce soit, vous souhaitez utiliser un autre nom pour
+l'instance qui stocke la valeur, vous pouvez déclarer une méthode statique
+<code>private_variable_name</code> :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+
+<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
+  <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Cold&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;12°c&quot;</span>
+  <span class="p">}</span>
+  <span class="n">OK</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=12°c,&lt;25°c&quot;</span>
+  <span class="p">}</span>
+  <span class="n">HOT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Hot!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=25°c&quot;</span>
+  <span class="p">}</span>
+
+  <span class="nd">@staticmethod</span>
+  <span class="k">def</span> <span class="nf">private_variable_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;m_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">TemperatureChoices</span><span class="o">.</span><span class="n">OK</span><span class="o">.</span><span class="n">m_temperature</span> <span class="o">==</span> <span class="n">TemperatureChoices</span><span class="o">.</span><span class="n">OK</span><span class="o">.</span><span class="n">temperature</span>
+</code></pre></div>
+
+<h3 id="rich-choices"><code>dsfr.enums.RichRadioButtonChoices</code></h3>
+<p>Version spécialisée de <a href="#extended-choices"><code>RichRadioButtonChoices</code></a> à utiliser avec
+<code>dsfr.widgets.RichRadioSelect</code>. Cette version déclare en plus les propriétés
+<code>pictogram</code>, <code>pictogram_alt</code> et <code>html_label</code> :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">IntegerChoices</span>
+<span class="kn">from</span> <span class="nn">dsfr.utils</span> <span class="kn">import</span> <span class="n">lazy_static</span>
+<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">RichRadioButtonChoices</span>
+
+<span class="k">class</span> <span class="nc">ExampleRichChoices</span><span class="p">(</span><span class="n">IntegerChoices</span><span class="p">,</span> <span class="n">RichRadioButtonChoices</span><span class="p">):</span>
+  <span class="n">ITEM_1</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+      <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Item 1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;html_label&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;strong&gt;Item 1&lt;/strong&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;pictogram&quot;</span><span class="p">:</span> <span class="n">lazy_static</span><span class="p">(</span><span class="s2">&quot;img/placeholder.1x1.png&quot;</span><span class="p">),</span>
+  <span class="p">}</span>
+  <span class="n">ITEM_2</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+      <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Item 2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;html_label&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;strong&gt;Item 2&lt;/strong&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;pictogram&quot;</span><span class="p">:</span> <span class="n">lazy_static</span><span class="p">(</span><span class="s2">&quot;img/placeholder.1x1.png&quot;</span><span class="p">),</span>
+  <span class="p">}</span>
+  <span class="n">ITEM_3</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+      <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Item 3&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;html_label&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;strong&gt;Item 3&lt;/strong&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;pictogram&quot;</span><span class="p">:</span> <span class="n">lazy_static</span><span class="p">(</span><span class="s2">&quot;img/placeholder.1x1.png&quot;</span><span class="p">),</span>
+  <span class="p">}</span>
+</code></pre></div>
+
+<p>Voir <a href="#rich-radio-select"><code>dsfr.widgets.RichRadioSelect</code></a> pour plus de détails.</p>
+<h3 id="rich-radio-select"><code>dsfr.widgets.RichRadioSelect</code></h3>
+<p>Widget permettant de produire des boutons radio riches. Ce widget fonctionne avec
+<a href="#rich-choices"><code>dsfr.enums.ExtendedChoices</code></a>.</p>
+<p><code>RichRadioSelect.__init__</code> prend obligatoirement un argument <code>rich_choices</code> de type
+<code>RichRadioButtonChoices</code>.</p>
+<p>Utilisation :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">IntegerChoices</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">dsfr.forms</span> <span class="kn">import</span> <span class="n">DsfrBaseForm</span>
+<span class="kn">from</span> <span class="nn">dsfr.utils</span> <span class="kn">import</span> <span class="n">lazy_static</span>
+<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">RichRadioButtonChoices</span>
+<span class="kn">from</span> <span class="nn">dsfr.widgets</span> <span class="kn">import</span> <span class="n">RichRadioSelect</span>
+
+<span class="k">class</span> <span class="nc">ExampleRichChoices</span><span class="p">(</span><span class="n">RichRadioButtonChoices</span><span class="p">,</span> <span class="n">IntegerChoices</span><span class="p">):</span>
+    <span class="n">ITEM_1</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Item 1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;html_label&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;strong&gt;Item 1&lt;/strong&gt;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pictogram&quot;</span><span class="p">:</span> <span class="n">lazy_static</span><span class="p">(</span><span class="s2">&quot;img/placeholder.1x1.png&quot;</span><span class="p">),</span>
+    <span class="p">}</span>
+    <span class="n">ITEM_2</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Item 2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;html_label&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;strong&gt;Item 2&lt;/strong&gt;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pictogram&quot;</span><span class="p">:</span> <span class="n">lazy_static</span><span class="p">(</span><span class="s2">&quot;img/placeholder.1x1.png&quot;</span><span class="p">),</span>
+    <span class="p">}</span>
+    <span class="n">ITEM_3</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Item 3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;html_label&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;strong&gt;Item 3&lt;/strong&gt;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pictogram&quot;</span><span class="p">:</span> <span class="n">lazy_static</span><span class="p">(</span><span class="s2">&quot;img/placeholder.1x1.png&quot;</span><span class="p">),</span>
+    <span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">ExampleForm</span><span class="p">(</span><span class="n">DsfrBaseForm</span><span class="p">):</span>
+    <span class="n">sample_rich_radio</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cases à cocher&quot;</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="n">ExampleRichChoices</span><span class="o">.</span><span class="n">choices</span><span class="p">,</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="s2">&quot;Exemple de boutons radios riches&quot;</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">RichRadioSelect</span><span class="p">(</span><span class="n">rich_choices</span><span class="o">=</span><span class="n">ExampleRichChoices</span><span class="p">),</span>
+    <span class="p">)</span>
+</code></pre></div>
+
+<h4 id="html_label"><code>html_label</code></h4>
+<p>L'attribut <code>html_label</code> peut-être utilisé pour déclarer du HTML à insérer dans
+<code>&lt;label&gt;</code>. Le code est automatiquement marqué sûr avec
+<a href="https://docs.djangoproject.com/en/5.1/ref/utils/#django.utils.safestring.mark_safe"><code>django.utils.safestring.mark_safe</code></a> et ne produira pas de
+<a href="https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping">problème d'échappement du HTML</a> dans vos templates.</p>
+<p>Si <code>html_label</code> n'est pas déclaré par un membre de l'enum, la propriété <code>html_label</code>
+renvoie la valeur de la propriété <code>label</code> à la place.</p>
+<h4 id="pictogram"><code>pictogram</code></h4>
+<p>L'attribut <code>pictogram</code> peut être utilisé pour spécifier le pictogramme du bouton
+radio riche. Il peut être utilisé en combinaison avec <a href="#lazy-static"><code>dsfr.utils.lazy_static</code></a>
+pour charger une ressource statique.</p>
+<h4 id="pictogram_alt"><code>pictogram_alt</code></h4>
+<p>L'attribut <code>pictogram_alt</code> définit la valeur à mettre dans l'attribut <code>alt</code> de la
+balise <code>&lt;img&gt;</code> utilisée dans le bouton radio riche. S'il n'est pas déclaré par
+l'enum, <code>RichRadioSelect</code> ajoute un <code>alt=""</code>.</p>
+<h3 id="lazy-static"><code>dsfr.utils.lazy_static</code></h3>
+<p>Équivalent du tag Django <code>{% static %}</code> à utiliser dans le code. Exemple :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">dsfr.utils</span> <span class="kn">import</span> <span class="n">lazy_static</span>
+
+<span class="n">lazy_static</span><span class="p">(</span><span class="s2">&quot;img/logo.png&quot;</span><span class="p">)</span>
+</code></pre></div>
 
       </main>
     </div>
@@ -1016,11 +1292,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="THnEoJr9ZSkkXvel+UzheQ=="></script>
+         nonce="jfhX+/CTq6XAY41yUM8WGQ=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="THnEoJr9ZSkkXvel+UzheQ=="></script>
+         nonce="jfhX+/CTq6XAY41yUM8WGQ=="></script>
 
 
     
