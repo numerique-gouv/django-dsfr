@@ -1,18 +1,46 @@
+from enum import auto
+
 from django import forms
 from django.forms import (
     ModelForm,
     inlineformset_factory,
 )  # /!\ In order to use formsets
+from django.db.models import IntegerChoices
+
 
 from dsfr.constants import COLOR_CHOICES, COLOR_CHOICES_ILLUSTRATION
+from dsfr.enums import RichRadioButtonChoices
 from dsfr.forms import DsfrBaseForm
 
 # /!\ In order to use formsets
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Field
 
+from dsfr.utils import lazy_static
+from dsfr.widgets import RichRadioSelect
 from example_app.models import Author, Book
 from example_app.utils import populate_genre_choices
+
+
+class ExampleRichChoices(IntegerChoices, RichRadioButtonChoices):
+    ITEM_1 = {
+        "value": auto(),
+        "label": "Item 1",
+        "html_label": "<strong>Item 1</strong>",
+        "pictogram": lazy_static("img/placeholder.1x1.png"),
+    }
+    ITEM_2 = {
+        "value": auto(),
+        "label": "Item 2",
+        "html_label": "<strong>Item 2</strong>",
+        "pictogram": lazy_static("img/placeholder.1x1.png"),
+    }
+    ITEM_3 = {
+        "value": auto(),
+        "label": "Item 3",
+        "html_label": "<strong>Item 3</strong>",
+        "pictogram": lazy_static("img/placeholder.1x1.png"),
+    }
 
 
 class ExampleForm(DsfrBaseForm):
@@ -92,6 +120,22 @@ class ExampleForm(DsfrBaseForm):
         ],
         help_text="Le troisième choix renvoie une erreur s’il est sélectionné",
         widget=forms.CheckboxSelectMultiple,
+    )
+
+    sample_rich_radio = forms.ChoiceField(
+        label="Cases à cocher",
+        required=False,
+        choices=ExampleRichChoices.choices,
+        help_text="Exemple de boutons radios riches",
+        widget=RichRadioSelect(rich_choices=ExampleRichChoices),
+    )
+
+    inline_rich_radio = forms.ChoiceField(
+        label="Cases à cocher",
+        required=False,
+        choices=ExampleRichChoices.choices,
+        help_text="Exemple de boutons radios riches en ligne",
+        widget=RichRadioSelect(rich_choices=ExampleRichChoices, inline=True),
     )
 
     # text blocks

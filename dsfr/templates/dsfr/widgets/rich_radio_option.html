@@ -1,0 +1,18 @@
+<div class="fr-fieldset__element{% if widget.inline %} fr-fieldset__element--inline{% endif %}">
+  <div class="fr-radio-group fr-radio-rich">
+    <input value="{{ widget.value }}"
+           type="{{ widget.type }}"
+           id="{{ widget.attrs.id }}"
+           name="{{ widget.name }}"
+           {% include "django/forms/widgets/attrs.html" %}>
+    <label class="fr-label" for="{{ widget.attrs.id }}">
+      {{ widget.html_label }}
+    </label>
+    {% if widget.pictogram %}
+      <div class="fr-radio-rich__pictogram">
+        <img src="{{ widget.pictogram }}"
+             {% if widget.pictogram_alt is not None %} alt="{{ widget.pictogram_alt }}"{% endif %} />
+      </div>
+    {% endif %}
+  </div>
+</div>

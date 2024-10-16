@@ -1,5 +1,9 @@
+import functools
+
 from django.forms import BoundField, widgets
 from django.core.paginator import Page
+from django.templatetags.static import static
+from django.utils.functional import keep_lazy_text
 from django.utils.text import slugify
 import random
 import string
@@ -127,3 +131,16 @@ def dsfr_input_class_attr(bf: BoundField):
         ):
             bf.field.widget.attrs["class"] = "fr-input"
     return bf
+
+
+def lazy_static(path):
+    """
+    Équivalent du tag Django `{% static %}` à utiliser dans le code.
+
+    Exemple :
+
+    ```python
+    >>> lazy_static("img/logo.png")
+    ```
+    """
+    return keep_lazy_text(functools.partial(static, path))
