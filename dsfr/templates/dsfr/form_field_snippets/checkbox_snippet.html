@@ -10,7 +10,7 @@
   <label for="{{ field.id_for_label }}" class="fr-label">
     {{ field.label_tag }}
     {% if field.help_text %}
-      <span class="fr-hint-text">{{ field.help_text }}</span>
+      <span class="fr-hint-text">{{ field.help_text|safe }}</span>
     {% endif %}
   </label>
   {% if field.errors %}
