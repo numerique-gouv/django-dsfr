@@ -3,7 +3,7 @@ authors = ["Sylvain Boissel <sylvain.boissel@beta.gouv.fr>"]
 description = "Integrate the French government Design System into a Django app"
 license = "MIT"
 name = "django-dsfr"
-version = "1.4.2"
+version = "1.4.3"
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Web Environment",
