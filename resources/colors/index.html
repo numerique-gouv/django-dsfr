@@ -1170,6 +1170,23 @@
   </form>
   <div class="example-use">
     <h3>
+      Badge
+    </h3>
+    <p>
+      Personnalise la couleur du fond et du texte.
+    </p>
+    <p>
+      Il faut utiliser une classe de type <code>fr-badge--&lt;color-name&gt;</code> (par exemple, <code>fr-quote--green-archipel</code>.)
+    </p>
+
+    <p>
+      <p class="fr-badge">
+  Badge simple
+</p>
+
+    </p>
+
+    <h3>
       Citation
     </h3>
     <p>
@@ -1248,7 +1265,7 @@
       Tag
     </h3>
     <p>
-      Personnalise la couleur de la bordure, du fond et de l’icône. Seuls les tags cliquables sont pris en compte.
+      Personnalise la couleur du fond, du texte et de l’icône. Seuls les tags cliquables sont pris en compte.
     </p>
     <p>
       Il faut utiliser une classe de type <code>fr-tag--&lt;color-name&gt;</code> (par exemple, <code>fr-tag--green-archipel</code>.)
@@ -1408,11 +1425,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="mHOOLc6jJwChiDSIb4dNaA=="></script>
+         nonce="QDfa7OYw9XzmlldtrZQE8Q=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="mHOOLc6jJwChiDSIb4dNaA=="></script>
+         nonce="QDfa7OYw9XzmlldtrZQE8Q=="></script>
 
 
     
@@ -1459,6 +1476,7 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
     }
 
     document.getElementById('id_color_accent').addEventListener('input', function (event) {
+      manageColorClasses("fr-badge", event.target.value);
       manageColorClasses("fr-quote", event.target.value);
       manageColorClasses("fr-callout", event.target.value);
       manageColorClasses("fr-highlight", event.target.value);
