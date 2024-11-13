@@ -49,7 +49,7 @@ class ExampleForm(DsfrBaseForm):
 
     user_email = forms.EmailField(
         label="Adresse électronique",
-        help_text="Format attendu : prenom.nom@domaine.fr",
+        help_text="Format attendu : <code>prenom.nom@domaine.fr</code>",
         required=False,
     )
 
