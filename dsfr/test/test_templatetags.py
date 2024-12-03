@@ -186,6 +186,25 @@ class DsfrAlertTagTest(SimpleTestCase):
             rendered_template,
         )
 
+    def test_alert_tag_has_custom_attrs(self):
+        test_data = self.test_data.copy()
+        test_data.pop("is_collapsible", None)
+        test_data["collapsible_attrs"] = {
+            "data-controller": "close",
+            "data-action": "close#onClick",
+        }
+        rendered_template = self.template_to_render.render(
+            Context({"test_data": test_data})
+        )
+        self.assertInHTML(
+            """
+            <button class="fr-btn--close fr-btn" title="Masquer le message" data-controller="close" data-action="close#onClick">
+              Masquer le message
+            </button>
+            """,  # noqa
+            rendered_template,
+        )
+
 
 class DsfrBadgeTagTest(SimpleTestCase):
     test_data = {

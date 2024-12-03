@@ -183,7 +183,8 @@ def dsfr_alert(*args, **kwargs) -> dict:
         "type": "Possible values : info, success, error",
         "content": "(Optional if median) Content of the accordion item (can include html)",
         "heading_tag": "(Optional) Heading tag for the alert title (default: p)",
-        "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the alert (default: false)",
+        "is_collapsible" : "(Optional) Boolean, set to true to add a 'close' button for the alert (default: false); set to true if 'collapsible_attrs' is set",
+        "collapsible_attrs": dict of HTML attribute to set to the 'close' button,
         "id": "Unique id of the alert item (Optional, mandatory if collapsible)",
         "extra_classes": "(Optional) string with names of extra classes."
     }
@@ -216,9 +217,20 @@ def dsfr_alert(*args, **kwargs) -> dict:
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
+    if "collapsible_attrs" in tag_data:
+        tag_data["is_collapsible"] = True
+
     tag_data.setdefault("title", None)
     tag_data.setdefault("id", generate_random_id("alert"))
     tag_data.setdefault("is_collapsible", False)
+    tag_data.setdefault(
+        "collapsible_attrs",
+        {
+            "onclick": (
+                "const alert = this.parentNode; " "alert.parentNode.removeChild(alert)"
+            )
+        },
+    )
 
     return {"self": tag_data}
 
