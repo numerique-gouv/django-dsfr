@@ -1,10 +1,10 @@
 {% load widget_tweaks dsfr_tags %}
 <fieldset class="fr-fieldset{% if field.errors %} fr-fieldset--error{% endif %}"
           id="radio-{{ field.auto_id }}"
-          aria-labelledby="{{ field.auto_id }}-legend{% if field.errors %} {{ field.auto_id }}-messages{% endif %}">
-  <legend class="fr-fieldset__legend fr-text--regular"
+          aria-labelledby="{{ field.auto_id }}-legend{% if field.errors %} {{ field.auto_id }}-desc-error{% endif %}">
+  <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="{{ field.auto_id }}-legend">
-    {{ field.label_tag }}
+    {{ field.label }}
     {% if field.field.required %}
       *
     {% endif %}
@@ -12,17 +12,15 @@
       <span class="fr-hint-text">{{ field.help_text|safe }}</span>
     {% endif %}
   </legend>
-  <div class="fr-fieldset__content">
-    <div class="fr-radio-group">
-      {% if field.field.disabled %}
-        {{ field|dsfr_input_class_attr|attr:"type:radio"|attr:"disabled" }}
-      {% else %}
-        {{ field|dsfr_input_class_attr|attr:"type:radio" }}
-      {% endif %}
-    </div>
-  </div>
+  {% with field=field|dsfr_input_class_attr %}
+    {% for subwidget in field.subwidgets %}
+      <div class="fr-fieldset__element{% if field.field.widget.inline %} fr-fieldset__element--inline{% endif %}">
+        {{ subwidget }}
+      </div>
+    {% endfor %}
+  {% endwith %}
   {% if field.errors %}
-    <div class="fr-messages-group" id="{{ field.auto_id }}-messages">
+    <div class="fr-messages-group" id="{{ field.auto_id }}-desc-error">
       {{ field.errors }}
     </div>
   {% endif %}

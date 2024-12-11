@@ -1,7 +1,13 @@
 from django import VERSION
 from django.db import models
 from django.utils.safestring import mark_safe
-from django.utils.version import PY311
+
+if VERSION >= (4, 0):
+    from django.utils.version import PY311
+else:
+    import sys
+
+    PY311 = sys.version_info >= (3, 11)
 
 if PY311:
     from enum import property as enum_property

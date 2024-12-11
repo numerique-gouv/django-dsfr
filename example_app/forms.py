@@ -16,6 +16,7 @@ from dsfr.forms import DsfrBaseForm
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Field
 
+from dsfr.templatetags.dsfr_tags import dsfr_inline
 from dsfr.utils import lazy_static
 from dsfr.widgets import RichRadioSelect
 from example_app.models import Author, Book
@@ -110,6 +111,13 @@ class ExampleForm(DsfrBaseForm):
         widget=forms.RadioSelect,
     )
 
+    sample_radio_inline = forms.ChoiceField(
+        label="Boutons radio inline",
+        required=False,
+        choices=[(1, "Premier choix"), (2, "Second choix"), (3, "Troisième choix")],
+        widget=forms.RadioSelect,
+    )
+
     sample_checkbox = forms.MultipleChoiceField(
         label="Cases à cocher",
         required=False,
@@ -119,6 +127,17 @@ class ExampleForm(DsfrBaseForm):
             ("3", "Troisième choix"),
         ],
         help_text="Le troisième choix renvoie une erreur s’il est sélectionné",
+        widget=forms.CheckboxSelectMultiple,
+    )
+
+    sample_checkbox_inline = forms.MultipleChoiceField(
+        label="Cases à cocher",
+        required=False,
+        choices=[
+            ("1", "Premier choix"),
+            ("2", "Second choix"),
+            ("3", "Troisième choix"),
+        ],
         widget=forms.CheckboxSelectMultiple,
     )
 
@@ -176,6 +195,8 @@ class ExampleForm(DsfrBaseForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.set_autofocus_on_first_error()
+        dsfr_inline(self["sample_radio_inline"])
+        dsfr_inline(self["sample_checkbox_inline"])
 
 
 class AuthorCreateForm(ModelForm, DsfrBaseForm):
