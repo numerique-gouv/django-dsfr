@@ -824,7 +824,7 @@
     Exemple de formulaire
   </h1>
   <form action="/django-dsfr/form/example/" method="post">
-    <input type="hidden" name="csrfmiddlewaretoken" value="sncw1sMgjiqpdcE2XIqnEJNbr2B0iTosExGc5PzT6klIgHEu4C5Z2DoYOJKnDVXD">
+    <input type="hidden" name="csrfmiddlewaretoken" value="XP1Ct80zG3RWBLHXp6jDgb0jjosHZK86fXAtRxjFXJJiiw2yGgVZCCss6KD1xUfj">
     <div class="fr-input-group">
   <label for="id_user_name" class="fr-label">
     
@@ -832,9 +832,7 @@
     
     
   </label>
-  
-    <input type="text" name="user_name" maxlength="100" class="fr-input" required id="id_user_name">
-  
+  <input type="text" name="user_name" maxlength="100" class="fr-input" required id="id_user_name">
   
 </div>
 
@@ -854,9 +852,7 @@
     
     
   </label>
-  
-    <input type="email" name="user_email" maxlength="320" class="fr-input" id="id_user_email">
-  
+  <input type="email" name="user_email" maxlength="320" class="fr-input" id="id_user_email">
   
 </div>
 
@@ -874,9 +870,7 @@
     
     
   </label>
-  
-    <input type="password" name="password" class="fr-input" id="id_password">
-  
+  <input type="password" name="password" class="fr-input" id="id_password">
   
 </div>
 
@@ -896,9 +890,7 @@
     
     
   </label>
-  
-    <input type="number" name="sample_number" class="fr-input" required id="id_sample_number">
-  
+  <input type="number" name="sample_number" class="fr-input" required id="id_sample_number">
   
 </div>
 
@@ -916,9 +908,7 @@
     
     
   </label>
-  
-    <input type="number" name="sample_decimal" step="any" class="fr-input" id="id_sample_decimal">
-  
+  <input type="number" name="sample_decimal" step="any" class="fr-input" id="id_sample_decimal">
   
 </div>
 
@@ -938,9 +928,7 @@
     
     
   </label>
-  
-    <input type="text" name="sample_disabled_field" maxlength="100" class="fr-input" disabled id="id_sample_disabled_field">
-  
+  <input type="text" name="sample_disabled_field" maxlength="100" class="fr-input" disabled id="id_sample_disabled_field">
   
 </div>
 
@@ -958,9 +946,7 @@
     
     
   </label>
-  
-    <input type="date" name="sample_date" class="fr-input" id="id_sample_date">
-  
+  <input type="date" name="sample_date" class="fr-input" id="id_sample_date">
   
 </div>
 
@@ -971,11 +957,9 @@
 
   
 <div class="fr-checkbox-group fr-mb-2w">
-  
-    <input type="checkbox" name="sample_boolean" id="id_sample_boolean">
-  
+  <input type="checkbox" name="sample_boolean" id="id_sample_boolean">
   <label for="id_sample_boolean" class="fr-label">
-    <label for="id_sample_boolean">Cochez la case</label>
+    Cochez la case
     
   </label>
   
@@ -995,8 +979,7 @@
     
     
   </label>
-  
-    <select name="sample_select" class="fr-select" id="id_sample_select">
+  <select name="sample_select" class="fr-select" id="id_sample_select">
   <option value="1">Option 1</option>
 
   <option value="2">Option 2</option>
@@ -1004,7 +987,6 @@
   <option value="3">Option 3</option>
 
 </select>
-  
   
 </div>
 
@@ -1022,8 +1004,7 @@
     
     
   </label>
-  
-    <select name="sample_multiple_select" class="fr-select" id="id_sample_multiple_select" multiple>
+  <select name="sample_multiple_select" class="fr-select" id="id_sample_multiple_select" multiple>
   <option value="1">Option 1</option>
 
   <option value="2">Option 2</option>
@@ -1031,7 +1012,6 @@
   <option value="3">Option 3</option>
 
 </select>
-  
   
 </div>
 
@@ -1044,17 +1024,17 @@
 <fieldset class="fr-fieldset"
           id="radio-id_sample_radio"
           aria-labelledby="id_sample_radio-legend">
-  <legend class="fr-fieldset__legend fr-text--regular"
+  <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="id_sample_radio-legend">
-    <label>Boutons radio</label>
+    Boutons radio
     
     
       <span class="fr-hint-text">Le troisième choix renvoie une erreur s’il est sélectionné</span>
     
   </legend>
-  <div class="fr-fieldset__content">
-    <div class="fr-radio-group">
-      
+  
+    
+      <div class="fr-fieldset__element">
         <div class="fr-radio-group">
   
   <input type="radio" name="sample_radio" value="1" dsfr="dsfr" id="id_sample_radio_0">
@@ -1069,13 +1049,10 @@
   
   
   </div>
-
-
+      </div>
     
-  
-    
-      
-  <div class="fr-radio-group">
+      <div class="fr-fieldset__element">
+        <div class="fr-radio-group">
   
   <input type="radio" name="sample_radio" value="2" dsfr="dsfr" id="id_sample_radio_1">
 
@@ -1089,13 +1066,10 @@
   
   
   </div>
-
-
+      </div>
     
-  
-    
-      
-  <div class="fr-radio-group">
+      <div class="fr-fieldset__element">
+        <div class="fr-radio-group">
   
   <input type="radio" name="sample_radio" value="3" dsfr="dsfr" id="id_sample_radio_2">
 
@@ -1109,9 +1083,9 @@
   
   
   </div>
-      
-    </div>
-  </div>
+      </div>
+    
+  
   
 </fieldset>
 
@@ -1122,19 +1096,91 @@
 
   
 <fieldset class="fr-fieldset"
+          id="radio-id_sample_radio_inline"
+          aria-labelledby="id_sample_radio_inline-legend">
+  <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
+          id="id_sample_radio_inline-legend">
+    Boutons radio inline
+    
+    
+  </legend>
+  
+    
+      <div class="fr-fieldset__element fr-fieldset__element--inline">
+        <div class="fr-radio-group">
+  
+  <input type="radio" name="sample_radio_inline" value="1" dsfr="dsfr" id="id_sample_radio_inline_0">
+
+  
+    <label class="fr-label"
+           for="id_sample_radio_inline_0">
+      
+        Premier choix
+      
+    </label>
+  
+  
+  </div>
+      </div>
+    
+      <div class="fr-fieldset__element fr-fieldset__element--inline">
+        <div class="fr-radio-group">
+  
+  <input type="radio" name="sample_radio_inline" value="2" dsfr="dsfr" id="id_sample_radio_inline_1">
+
+  
+    <label class="fr-label"
+           for="id_sample_radio_inline_1">
+      
+        Second choix
+      
+    </label>
+  
+  
+  </div>
+      </div>
+    
+      <div class="fr-fieldset__element fr-fieldset__element--inline">
+        <div class="fr-radio-group">
+  
+  <input type="radio" name="sample_radio_inline" value="3" dsfr="dsfr" id="id_sample_radio_inline_2">
+
+  
+    <label class="fr-label"
+           for="id_sample_radio_inline_2">
+      
+        Troisième choix
+      
+    </label>
+  
+  
+  </div>
+      </div>
+    
+  
+  
+</fieldset>
+
+
+
+
+  
+
+  
+<fieldset class="fr-fieldset fr-fieldsets"
           id="checkboxes-id_sample_checkbox"
           aria-labelledby="id_sample_checkbox-legend">
-  <legend class="fr-fieldset__legend fr-text--regular"
+  <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="id_sample_checkbox-legend">
-    <label>Cases à cocher</label>
+    Cases à cocher
     
     
       <span class="fr-hint-text">Le troisième choix renvoie une erreur s’il est sélectionné</span>
     
   </legend>
-  <div class="fr-fieldset__content">
-    <div class="fr-checkbox-group">
-      
+  
+    
+      <div class="fr-fieldset__element">
         <div class="fr-checkbox-group">
   
   <input type="checkbox" name="sample_checkbox" value="1" dsfr="dsfr" id="id_sample_checkbox_0">
@@ -1149,13 +1195,10 @@
   
   
   </div>
-
-
+      </div>
     
-  
-    
-      
-  <div class="fr-checkbox-group">
+      <div class="fr-fieldset__element">
+        <div class="fr-checkbox-group">
   
   <input type="checkbox" name="sample_checkbox" value="2" dsfr="dsfr" id="id_sample_checkbox_1">
 
@@ -1169,13 +1212,10 @@
   
   
   </div>
-
-
+      </div>
     
-  
-    
-      
-  <div class="fr-checkbox-group">
+      <div class="fr-fieldset__element">
+        <div class="fr-checkbox-group">
   
   <input type="checkbox" name="sample_checkbox" value="3" dsfr="dsfr" id="id_sample_checkbox_2">
 
@@ -1189,10 +1229,82 @@
   
   
   </div>
+      </div>
+    
+  
+  
+</fieldset>
+
+
+
+
+  
+
+  
+<fieldset class="fr-fieldset fr-fieldsets"
+          id="checkboxes-id_sample_checkbox_inline"
+          aria-labelledby="id_sample_checkbox_inline-legend">
+  <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
+          id="id_sample_checkbox_inline-legend">
+    Cases à cocher
+    
+    
+  </legend>
+  
+    
+      <div class="fr-fieldset__element fr-fieldset__element--inline">
+        <div class="fr-checkbox-group">
+  
+  <input type="checkbox" name="sample_checkbox_inline" value="1" dsfr="dsfr" id="id_sample_checkbox_inline_0">
+
+  
+    <label class="fr-label"
+           for="id_sample_checkbox_inline_0">
       
+        Premier choix
       
-    </div>
+    </label>
+  
+  
   </div>
+      </div>
+    
+      <div class="fr-fieldset__element fr-fieldset__element--inline">
+        <div class="fr-checkbox-group">
+  
+  <input type="checkbox" name="sample_checkbox_inline" value="2" dsfr="dsfr" id="id_sample_checkbox_inline_1">
+
+  
+    <label class="fr-label"
+           for="id_sample_checkbox_inline_1">
+      
+        Second choix
+      
+    </label>
+  
+  
+  </div>
+      </div>
+    
+      <div class="fr-fieldset__element fr-fieldset__element--inline">
+        <div class="fr-checkbox-group">
+  
+  <input type="checkbox" name="sample_checkbox_inline" value="3" dsfr="dsfr" id="id_sample_checkbox_inline_2">
+
+  
+    <label class="fr-label"
+           for="id_sample_checkbox_inline_2">
+      
+        Troisième choix
+      
+    </label>
+  
+  
+  </div>
+      </div>
+    
+  
+  
 </fieldset>
 
 
@@ -1211,8 +1323,7 @@
     
     
   </label>
-  
-    <fieldset id="id_sample_rich_radio"
+  <fieldset id="id_sample_rich_radio"
             class="fr-fieldset"
             aria-labelledby="id_sample_rich_radio-legend">
     
@@ -1290,7 +1401,6 @@
     
   </fieldset>
   
-  
 </div>
 
 
@@ -1309,8 +1419,7 @@
     
     
   </label>
-  
-    <fieldset id="id_inline_rich_radio"
+  <fieldset id="id_inline_rich_radio"
             class="fr-fieldset"
             aria-labelledby="id_inline_rich_radio-legend">
     
@@ -1388,7 +1497,6 @@
     
   </fieldset>
   
-  
 </div>
 
 
@@ -1405,10 +1513,8 @@
     
     
   </label>
-  
-    <textarea name="sample_comment" cols="40" rows="10" class="fr-input" id="id_sample_comment">
+  <textarea name="sample_comment" cols="40" rows="10" class="fr-input" id="id_sample_comment">
 </textarea>
-  
   
 </div>
 
@@ -1426,10 +1532,8 @@
     
     
   </label>
-  
-    <textarea name="sample_json" cols="40" rows="10" class="fr-input" id="id_sample_json">
+  <textarea name="sample_json" cols="40" rows="10" class="fr-input" id="id_sample_json">
 null</textarea>
-  
   
 </div>
 
@@ -1447,9 +1551,7 @@ null</textarea>
     
     
   </label>
-  
-    <input type="file" name="sample_file" id="id_sample_file">
-  
+  <input type="file" name="sample_file" id="id_sample_file">
   
 </div>
 
@@ -1606,11 +1708,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="RW20kEci0Qe9wXAWEiubbQ=="></script>
+         nonce="5R688Q2tn4FjENQqZQyleg=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="RW20kEci0Qe9wXAWEiubbQ=="></script>
+         nonce="5R688Q2tn4FjENQqZQyleg=="></script>
 
 
     

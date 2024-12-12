@@ -830,7 +830,7 @@
   
   <div id="form">
     <form method="post" enctype="multipart/form-data" id="form-base">
-      <input type="hidden" name="csrfmiddlewaretoken" value="yl2AqSnV2FoHTqrVCe5VtdgiuXedkspkcDeN07sMOQwpvTBPlXKj1gUBUMKUAJXN">
+      <input type="hidden" name="csrfmiddlewaretoken" value="gBtsMY3LIFAS1i3l5v78ERdgpHu2mYM94EzTyfrB51eXYMinKq3PuH4xBOfoalJY">
       
       
   <h1>
@@ -856,9 +856,7 @@
     
     
   </label>
-  
-    <input type="text" name="first_name" maxlength="250" class="fr-input" required id="id_first_name">
-  
+  <input type="text" name="first_name" maxlength="250" class="fr-input" required id="id_first_name">
   
 </div>
 
@@ -879,9 +877,7 @@
     
     
   </label>
-  
-    <input type="text" name="last_name" maxlength="250" class="fr-input" required id="id_last_name">
-  
+  <input type="text" name="last_name" maxlength="250" class="fr-input" required id="id_last_name">
   
 </div>
 
@@ -902,9 +898,7 @@
     
     
   </label>
-  
-    <input type="date" name="birth_date" class="fr-input" id="id_birth_date">
-  
+  <input type="date" name="birth_date" class="fr-input" id="id_birth_date">
   
 </div>
 
@@ -954,12 +948,10 @@
     
     
   </label>
-  
-    <select name="book_set-0-author" class="fr-select" id="id_book_set-0-author">
+  <select name="book_set-0-author" class="fr-select" id="id_book_set-0-author">
   <option value="" selected>---------</option>
 
 </select>
-  
   
 </div>
 
@@ -980,9 +972,7 @@
     
     
   </label>
-  
-    <input type="text" name="book_set-0-title" maxlength="250" class="fr-input" id="id_book_set-0-title">
-  
+  <input type="text" name="book_set-0-title" maxlength="250" class="fr-input" id="id_book_set-0-title">
   
 </div>
 
@@ -1003,9 +993,7 @@
     
     
   </label>
-  
-    <input type="number" name="book_set-0-number_of_pages" maxlength="6" class="fr-input" id="id_book_set-0-number_of_pages">
-  
+  <input type="number" name="book_set-0-number_of_pages" maxlength="6" class="fr-input" id="id_book_set-0-number_of_pages">
   
 </div>
 
@@ -1021,17 +1009,17 @@
 <fieldset class="fr-fieldset"
           id="radio-id_book_set-0-book_format"
           aria-labelledby="id_book_set-0-book_format-legend">
-  <legend class="fr-fieldset__legend fr-text--regular"
+  <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="id_book_set-0-book_format-legend">
-    <label>Format :</label>
+    Format
     
       *
     
     
   </legend>
-  <div class="fr-fieldset__content">
-    <div class="fr-radio-group">
-      
+  
+    
+      <div class="fr-fieldset__element">
         <input type="radio" name="book_set-0-book_format" value="PAPER" class="fr-fieldset--inline" id="id_book_set-0-book_format_0">
 
   
@@ -1041,14 +1029,10 @@
         Papier
       
     </label>
-  
-  
-
+      </div>
     
-  
-    
-      
-  <input type="radio" name="book_set-0-book_format" value="NUM" class="fr-fieldset--inline" id="id_book_set-0-book_format_1">
+      <div class="fr-fieldset__element">
+        <input type="radio" name="book_set-0-book_format" value="NUM" class="fr-fieldset--inline" id="id_book_set-0-book_format_1">
 
   
     <label class="fr-label"
@@ -1058,9 +1042,9 @@
         <span class="fr-hint-text">Livre électronique</span>
       
     </label>
-      
-    </div>
-  </div>
+      </div>
+    
+  
   
 </fieldset>
 
@@ -1073,20 +1057,20 @@
             
 
   
-<fieldset class="fr-fieldset"
+<fieldset class="fr-fieldset fr-fieldsets"
           id="checkboxes-id_book_set-0-genre"
           aria-labelledby="id_book_set-0-genre-legend">
-  <legend class="fr-fieldset__legend fr-text--regular"
+  <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="id_book_set-0-genre-legend">
-    <label>Genre</label>
+    Genre
     
     
       <span class="fr-hint-text">Veuillez choisir le ou les genres associés au livre</span>
     
   </legend>
-  <div class="fr-fieldset__content">
-    <div class="fr-checkbox-group">
-      
+  
+    
+      <div class="fr-fieldset__element">
         <div class="fr-checkbox-group">
   
   <input type="checkbox" name="book_set-0-genre" value="1" dsfr="dsfr" id="id_book_set-0-genre_0">
@@ -1101,13 +1085,10 @@
   
   
   </div>
-
-
+      </div>
     
-  
-    
-      
-  <div class="fr-checkbox-group">
+      <div class="fr-fieldset__element">
+        <div class="fr-checkbox-group">
   
   <input type="checkbox" name="book_set-0-genre" value="2" dsfr="dsfr" id="id_book_set-0-genre_1">
 
@@ -1122,13 +1103,10 @@
   
   
   </div>
-
-
+      </div>
     
-  
-    
-      
-  <div class="fr-checkbox-group">
+      <div class="fr-fieldset__element">
+        <div class="fr-checkbox-group">
   
   <input type="checkbox" name="book_set-0-genre" value="3" dsfr="dsfr" id="id_book_set-0-genre_2">
 
@@ -1143,10 +1121,10 @@
   
   
   </div>
-      
-      
-    </div>
-  </div>
+      </div>
+    
+  
+  
 </fieldset>
 
 
@@ -1159,11 +1137,9 @@
 
   
 <div class="fr-checkbox-group fr-mb-2w">
-  
-    <input type="checkbox" name="book_set-0-DELETE" id="id_book_set-0-DELETE">
-  
+  <input type="checkbox" name="book_set-0-DELETE" id="id_book_set-0-DELETE">
   <label for="id_book_set-0-DELETE" class="fr-label">
-    <label for="id_book_set-0-DELETE">Supprimer</label>
+    Supprimer
     
   </label>
   
@@ -1341,11 +1317,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="hIjnMcn1TEVX6El8CPrsnQ=="></script>
+         nonce="1UCJiw4ZsHpBocrkMlHZeQ=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="hIjnMcn1TEVX6El8CPrsnQ=="></script>
+         nonce="1UCJiw4ZsHpBocrkMlHZeQ=="></script>
 
 
     
