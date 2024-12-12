@@ -27,7 +27,7 @@ jobs:
         poetry install
     - name: 🚧 Check pending migrations
       run: |
-        poetry run django-admin makemigrations --check --dry-run --noinput
+        poetry run python manage.py makemigrations --check --dry-run --noinput
     - name: 🧪 Run Tests - Django 3
       run: |
         poetry run python manage.py test
