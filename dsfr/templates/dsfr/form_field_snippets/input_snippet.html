@@ -9,13 +9,7 @@
     {% endif %}
     {# djlint:on #}
   </label>
-  {% if field.errors %}
-    {% with aria_describedby="aria-describedby:"|add:field.auto_id|add:"-desc-error" %}
-      {{ field|dsfr_input_class_attr|attr:"aria-invalid:true"|attr:aria_describedby }}
-    {% endwith %}
-  {% else %}
-    {{ field|dsfr_input_class_attr }}
-  {% endif %}
+  {{ field|dsfr_input_class_attr }}
   {% if field.errors %}
     <div id="{{ field.auto_id }}-desc-error">
       {{ field.errors }}

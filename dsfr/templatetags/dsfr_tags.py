@@ -1612,6 +1612,12 @@ def dsfr_form_field(field) -> dict:
 
     **Usage**:
         `{% dsfr_form_field field %}`
+
+    You can use this in combination with filter `dsfr_inline` to inline checkboxes,
+    radio buttons and rich radio buttons.
+
+    **Usage**:
+        `{% dsfr_form_field field|dsfr_inline %}`
     """
     return {"field": field}
 
@@ -1691,3 +1697,19 @@ def strfmt(args, format_string):
         args = (str(args),)
 
     return format_html(format_string, *args, **kwargs)
+
+
+@register.filter
+def dsfr_inline(field):
+    """
+    Sets field.widget.inline to `True` to inline form field in combination with
+    {% dsfr_form_field %}
+
+    **Usage**:
+
+    ```django
+    {% dsfr_form_field form.is_aidant|dsfr_inline %}
+    ```
+    """
+    field.field.widget.inline = True
+    return field

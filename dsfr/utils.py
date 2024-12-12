@@ -111,7 +111,9 @@ def generate_summary_items(sections_names: list) -> list:
 
 
 def dsfr_input_class_attr(bf: BoundField):
-    if not bf.is_hidden and "class" not in bf.field.widget.attrs:
+    if bf.is_hidden:
+        return bf
+    if "class" not in bf.field.widget.attrs:
         bf.field.label_suffix = ""
         if isinstance(bf.field.widget, (widgets.Select, widgets.SelectMultiple)):
             bf.field.widget.attrs["class"] = "fr-select"
@@ -130,6 +132,12 @@ def dsfr_input_class_attr(bf: BoundField):
             ),
         ):
             bf.field.widget.attrs["class"] = "fr-input"
+
+    if bf.errors:
+        bf.field.widget.attrs.update(
+            {"aria-invalid": "true", "aria-describedby": f"{bf.auto_id}-desc-error"}
+        )
+
     return bf
 
 

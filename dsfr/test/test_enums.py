@@ -1,12 +1,19 @@
 from enum import auto
 from unittest import skipIf
 
+from django import VERSION
 from django.db.models import IntegerChoices
 from django.test import SimpleTestCase
 from django.utils.safestring import mark_safe
-from django.utils.version import PY311
 
 from dsfr.enums import ExtendedChoices
+
+if VERSION >= (4, 0):
+    from django.utils.version import PY311
+else:
+    import sys
+
+    PY311 = sys.version_info >= (3, 11)
 
 if PY311:
     from enum import property as enum_property, nonmember
