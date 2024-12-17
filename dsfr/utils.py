@@ -133,7 +133,8 @@ def dsfr_input_class_attr(bf: BoundField):
         ):
             bf.field.widget.attrs["class"] = "fr-input"
 
-    if bf.errors:
+    # bf.errors triggers form validation. We need to check form._errors to prevent that
+    if bf.form._errors and bf.errors:
         bf.field.widget.attrs.update(
             {"aria-invalid": "true", "aria-describedby": f"{bf.auto_id}-desc-error"}
         )
