@@ -40,29 +40,12 @@
 
 
     
-  <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-code.css">
-  <style>
-    .example-textarea {
-      background: var(--background-alt-grey);
-      border: 1px solid var(--border-default-grey);
-      color: var(--text-default-grey);
-      padding: 1rem;
-      margin: 2rem 0;
-      font-family: monospace;
-      font-size: 1rem;
-    }
-
-    p code, li code {
-      background: var(--background-alt-grey);
-      padding: 0.2em;
-    }
-  </style>
-
+    
 
     
       <title>
         
-          Formulaire — Django-DSFR
+          Non implémenté — Django-DSFR
         
       </title>
     
@@ -477,16 +460,6 @@
                           <li>
                             
                             <a class="fr-nav__link"
-                               href="/django-dsfr/components/form/"
-                               aria-current="true"
-                               target="_self">Formulaire</a>
-                          </li>
-                        
-                      
-                        
-                          <li>
-                            
-                            <a class="fr-nav__link"
                                href="/django-dsfr/components/form_field/"
                                
                                target="_self">Formulaire - champ</a>
@@ -553,15 +526,6 @@
                           </li>
                         
                       
-                    </ul>
-                  </div>
-                
-                  <div class="fr-col-12 fr-col-lg-3">
-                    <h3 class="fr-mega-menu__category">
-                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
-                    </h3>
-                    <ul class="fr-mega-menu__list">
-                      
                         
                           <li>
                             
@@ -571,6 +535,15 @@
                                target="_self">Lettre d’information et réseaux sociaux</a>
                           </li>
                         
+                      
+                    </ul>
+                  </div>
+                
+                  <div class="fr-col-12 fr-col-lg-3">
+                    <h3 class="fr-mega-menu__category">
+                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
+                    </h3>
+                    <ul class="fr-mega-menu__list">
                       
                         
                           <li>
@@ -629,6 +602,16 @@
                                href="/django-dsfr/components/callout/"
                                
                                target="_self">Mise en avant</a>
+                          </li>
+                        
+                      
+                        
+                          <li>
+                            
+                            <a class="fr-nav__link"
+                               href="/django-dsfr/components/highlight/"
+                               
+                               target="_self">Mise en exergue</a>
                           </li>
                         
                       
@@ -823,12 +806,8 @@
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
       </li>
       
-        <li>
-          <a class="fr-breadcrumb__link" href="/django-dsfr/components/">Composants</a>
-        </li>
-      
       <li>
-        <a class="fr-breadcrumb__link" aria-current="page">Formulaire</a>
+        <a class="fr-breadcrumb__link" aria-current="page">Non implémenté</a>
       </li>
     </ol>
   </div>
@@ -837,506 +816,22 @@
       
       <main id="content" role="main">
         
-  <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
-    <div class="fr-col-12 fr-col-md-4">
-      
-
-<nav role="navigation"
-     class="fr-sidemenu"
-     aria-label="Menu latéral">
-  <div class="fr-sidemenu__inner">
-    <button type="button"
-            class="fr-sidemenu__btn"
-            aria-controls="fr-sidemenu-wrapper"
-            aria-expanded="false">
-      Dans cette rubrique
-    </button>
-    <div class="fr-collapse" id="fr-sidemenu-wrapper">
-      
-      <ul class="fr-sidemenu__list">
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/"
-                 target="_self"
-                 >Documentation</a>
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item fr-sidemenu__item--active">
-            
-              
-                <button type="button"
-                        class="fr-sidemenu__btn"
-                        aria-expanded="true"
-                        aria-controls="fr-sidemenu-item-2">
-                  Composants implémentés
-                </button>
-                <div class="fr-collapse" id="fr-sidemenu-item-2">
-                  <ul class="fr-sidemenu__list">
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/accordion/"
-                             target="_self"
-                             >Accordéon (accordion)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/accordion_group/"
-                             target="_self"
-                             >Accordéons – Groupe (accordion_group)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/alert/"
-                             target="_self"
-                             >Alertes (alert)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/badge/"
-                             target="_self"
-                             >Badge (badge)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/badge_group/"
-                             target="_self"
-                             >Badges – Groupe (badge_group)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/notice/"
-                             target="_self"
-                             >Bandeau d’information importante (notice)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/france_connect/"
-                             target="_self"
-                             >Bouton FranceConnect (france_connect)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/button/"
-                             target="_self"
-                             >Boutons (button)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/button_group/"
-                             target="_self"
-                             >Boutons – Groupe (button_group)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/css/"
-                             target="_self"
-                             >CSS global (css)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/card/"
-                             target="_self"
-                             >Carte (card)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/input/"
-                             target="_self"
-                             >Champs de saisie (input)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/quote/"
-                             target="_self"
-                             >Citation (quote)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/content/"
-                             target="_self"
-                             >Contenu média (content)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/header/"
-                             target="_self"
-                             >En-tête (header)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/breadcrumb/"
-                             target="_self"
-                             >Fil d’Ariane (breadcrumb)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item fr-sidemenu__item--active">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/form/"
-                             target="_self"
-                             aria-current="page">Formulaire (form)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/form_field/"
-                             target="_self"
-                             >Formulaire - champ (form_field)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/consent/"
-                             target="_self"
-                             >Gestionnaire de consentement (consent)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/favicon/"
-                             target="_self"
-                             >Icône de favoris (favicon)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/stepper/"
-                             target="_self"
-                             >Indicateur d’étapes (stepper)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/tooltip/"
-                             target="_self"
-                             >Infobulle (tooltip)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/toggle/"
-                             target="_self"
-                             >Interrupteur (toggle)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/js/"
-                             target="_self"
-                             >JS global (js)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/follow/"
-                             target="_self"
-                             >Lettre d’information et réseaux sociaux (follow)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/link/"
-                             target="_self"
-                             >Lien (link)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/skiplinks/"
-                             target="_self"
-                             >Liens d’évitement (skiplinks)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/select/"
-                             target="_self"
-                             >Listes déroulantes (select)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/sidemenu/"
-                             target="_self"
-                             >Menu latéral (sidemenu)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/django_messages/"
-                             target="_self"
-                             >Messages Django dans une alerte (django_messages)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/callout/"
-                             target="_self"
-                             >Mise en avant (callout)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/highlight/"
-                             target="_self"
-                             >Mise en exergue (highlight)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/pagination/"
-                             target="_self"
-                             >Pagination (pagination)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/theme_modale/"
-                             target="_self"
-                             >Paramètres d’affichage (theme_modale)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/footer/"
-                             target="_self"
-                             >Pied de page (footer)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/summary/"
-                             target="_self"
-                             >Sommaire (summary)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/table/"
-                             target="_self"
-                             >Tableau (table)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/tag/"
-                             target="_self"
-                             >Tag (tag)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/transcription/"
-                             target="_self"
-                             >Transcription (transcription)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/tile/"
-                             target="_self"
-                             >Tuile (tile)</a>
-                        
-                        
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-            
-          </li>
-        
-          
-          <li class="fr-sidemenu__item">
-            
-              <a class="fr-sidemenu__link"
-                 href="/django-dsfr/components/#tabpanel-notyetimplemented-panel"
-                 target="_self"
-                 >Composants non implémentés</a>
-            
-          </li>
-        
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    </div>
-    <div class="fr-col-12 fr-col-md-8 fr-py-2w">
-      <h1>
-        Formulaire
-      </h1>
-      <ul>
-        
-        
-      </ul>
-      <h2>
-        Documentation du tag
-      </h2>
-      <p>Returns the HTML for a form snippet.</p>
-<div role="alert" class="fr-alert fr-alert--warning">
-    <h3 class="fr-alert__title">This tag is obsolete and it will be removed at the end of 2024.</h3>
-    <p>
-      Please directly include the form with <code>{{ form }}</code> (or the name of the form context variable if different).
+  <h1>
+    Non implémenté
+  </h1>
+  
+<div class="fr-callout ">
+  
+    <p class="fr-callout__title">
+    Non implémenté
     </p>
+  
+  <p class="fr-callout__text">
+    Le contenu recherché n’est pas encore implémenté
+  </p>
+  
 </div>
 
-<div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">an</span> <span class="n">optional</span> <span class="n">form</span> <span class="n">to</span> <span class="n">render</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">the</span> <span class="n">form</span> <span class="n">already</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">context</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p><strong>Tag name</strong>:
-    dsfr_form</p>
-<p><strong>Usage</strong>:
-    <code>{% dsfr_form %}</code></p>
-      
-        <h2>
-          Rendu
-        </h2>
-        
-      
-    </div>
-  </div>
   <br />
 
       </main>
@@ -1476,11 +971,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="l81UQN5a3qgwBvxYNatl1w=="></script>
+         nonce="xs3CtByHNMT5GtFEvLPqsA=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="l81UQN5a3qgwBvxYNatl1w=="></script>
+         nonce="xs3CtByHNMT5GtFEvLPqsA=="></script>
 
 
     

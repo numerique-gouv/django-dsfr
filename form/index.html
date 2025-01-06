@@ -467,16 +467,6 @@
                           <li>
                             
                             <a class="fr-nav__link"
-                               href="/django-dsfr/components/form/"
-                               
-                               target="_self">Formulaire</a>
-                          </li>
-                        
-                      
-                        
-                          <li>
-                            
-                            <a class="fr-nav__link"
                                href="/django-dsfr/components/form_field/"
                                
                                target="_self">Formulaire - champ</a>
@@ -543,15 +533,6 @@
                           </li>
                         
                       
-                    </ul>
-                  </div>
-                
-                  <div class="fr-col-12 fr-col-lg-3">
-                    <h3 class="fr-mega-menu__category">
-                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
-                    </h3>
-                    <ul class="fr-mega-menu__list">
-                      
                         
                           <li>
                             
@@ -561,6 +542,15 @@
                                target="_self">Lettre d’information et réseaux sociaux</a>
                           </li>
                         
+                      
+                    </ul>
+                  </div>
+                
+                  <div class="fr-col-12 fr-col-lg-3">
+                    <h3 class="fr-mega-menu__category">
+                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
+                    </h3>
+                    <ul class="fr-mega-menu__list">
                       
                         
                           <li>
@@ -619,6 +609,16 @@
                                href="/django-dsfr/components/callout/"
                                
                                target="_self">Mise en avant</a>
+                          </li>
+                        
+                      
+                        
+                          <li>
+                            
+                            <a class="fr-nav__link"
+                               href="/django-dsfr/components/highlight/"
+                               
+                               target="_self">Mise en exergue</a>
                           </li>
                         
                       
@@ -835,10 +835,10 @@
 <p>Les formulaires sont construits en se basant sur la classe <code>DsfrBaseForm</code>, par exemple :</p>
 <div class="dsfr-code"><pre><span></span><code><span class="c1"># votre_app/forms.py</span>
 
-<span class="kn">from</span> <span class="nn">dsfr.forms</span> <span class="kn">import</span> <span class="n">DsfrBaseForm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.forms</span><span class="w"> </span><span class="kn">import</span> <span class="n">DsfrBaseForm</span>
 
 
-<span class="k">class</span> <span class="nc">ExampleForm</span><span class="p">(</span><span class="n">DsfrBaseForm</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ExampleForm</span><span class="p">(</span><span class="n">DsfrBaseForm</span><span class="p">):</span>
     <span class="c1"># basic fields</span>
     <span class="n">user_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Nom d’utilisateur&quot;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
@@ -850,7 +850,7 @@
 </code></pre></div>
 
 <p>Il est possible de multi-classer :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="k">class</span> <span class="nc">AuthorCreateForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">,</span> <span class="n">DsfrBaseForm</span><span class="p">):</span>
+<div class="dsfr-code"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AuthorCreateForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">,</span> <span class="n">DsfrBaseForm</span><span class="p">):</span>
 </code></pre></div>
 
 <h2 id="classes-css">Classes CSS</h2>
@@ -866,26 +866,26 @@
 </code></pre></div>
 
 <p>soit les ajouter dans la méthode <code>init</code> du formulaire (en faisant attention à laisser une espace au début) :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="k">class</span> <span class="nc">AuthorCreateForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">,</span> <span class="n">DsfrBaseForm</span><span class="p">):</span>
+<div class="dsfr-code"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AuthorCreateForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">,</span> <span class="n">DsfrBaseForm</span><span class="p">):</span>
 
 <span class="c1"># [...]</span>
 
-<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot; my custom class&quot;</span>
 </code></pre></div>
 
 <h2 id="utilisation">Utilisation</h2>
-<p>La balise <code>{% dsfr_form %}</code> est maintenant dépréciée et sera retirée à la fin de l’année 2024.</p>
-<p>Il faut donc remplacer les instances de <code>{% dsfr_form %}</code> par <code>{{ form }}</code> et <code>{% dsfr_form my_custom_form %}</code> par <code>{{ my_custom_form }}</code>.</p>
+<p>Les formulaires sont appelés avec la balise <code>{{ form }}</code> (ou <code>{{ my_custom_form }}</code> le cas échéant).</p>
+<p>La balise <code>{% dsfr_form %}</code> est maintenant dépréciée depuis Django-DSFR 2.0.0.</p>
 <h2 id="composants">Composants</h2>
 <h3 id="extended-choices"><code>dsfr.enums.ExtendedChoices</code></h3>
 <p>Extension de <a href="https://docs.djangoproject.com/en/5.1/ref/utils/#django.utils.safestring.mark_safe">Django's <code>models.Choices</code></a> pour supporter l'ajout d'attributs
 arbitraires aux enums en utilisant un dictionnaire.</p>
 <p>Exemple d'utilisation :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtendedChoices</span>
 
-<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
   <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;COLD&quot;</span><span class="p">,</span>
     <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Cold&quot;</span><span class="p">,</span>
@@ -912,24 +912,24 @@ arbitraires aux enums en utilisant un dictionnaire.</p>
 <p>Exemple : <code>TemperatureChoices.&lt;enum instance&gt;.temperature</code>.</p>
 <p>Notez que <code>"value"</code> est la seule clé obligatoire dans le dictionnaire. Lorsqu'un
 dictionnaire ne contient que <code>« value »</code>, les exemples suivants sont équivalents :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">django.db</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtendedChoices</span>
 
-<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Choices</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Choices</span><span class="p">):</span>
     <span class="n">COLD</span> <span class="o">=</span> <span class="s2">&quot;COLD&quot;</span>
 
-<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
     <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;COLD&quot;</span><span class="p">}</span>
 </code></pre></div>
 
 <p>Voir <a href="#default-values">cette section sur la façon de fournir des valeurs par défaut pour des attributs supplémentaires</a></p>
 <h4 id="utilisation-avec-enumauto">Utilisation avec <code>enum.auto()</code></h4>
 <p><code>ExtendedChoices</code> supporte l'utilisation de <a href="https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping"><code>enum.auto()</code></a> :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
-<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.db</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtendedChoices</span>
 
-<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">TextChoices</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">TextChoices</span><span class="p">):</span>
   <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
     <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Cold&quot;</span><span class="p">,</span>
@@ -951,10 +951,10 @@ dictionnaire ne contient que <code>« value »</code>, les exemples suivants son
 ou <code>django.db.models.IntegerChoices</code> pour calculer automatiquement l'attribut
 <code>value</code> avec <code>enum.auto()</code> ou peut définir une méthode <code>_generate_next_value_</code> pour
 fournir la valeur (voir <a href="https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping"><a href="https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping">2</a></a>) :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
-<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtendedChoices</span>
 
-<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
   <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
     <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Cold&quot;</span><span class="p">,</span>
@@ -971,7 +971,7 @@ fournir la valeur (voir <a href="https://docs.djangoproject.com/en/5.1/ref/templ
     <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=25°c&quot;</span>
   <span class="p">}</span>
 
-  <span class="k">def</span> <span class="nf">_generate_next_value_</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">last_values</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">_generate_next_value_</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">last_values</span><span class="p">):</span>
       <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
 
@@ -980,18 +980,18 @@ fournir la valeur (voir <a href="https://docs.djangoproject.com/en/5.1/ref/templ
 attribut supplémentaire. Si vous ne spécifiez pas de valeur pour un attribut
 supplémentaire lors de la déclaration de l'enum, vous pouvez la fournir
 dynamiquement avec la méthode <code>dynamic_attribute_value</code> :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
-<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
-<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
-<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerChoices</span><span class="p">):</span>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.conf</span><span class="w"> </span><span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.db</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtendedChoices</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerChoices</span><span class="p">):</span>
     <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
         <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lorem&quot;</span><span class="p">:</span> <span class="s2">&quot;ipsum 1&quot;</span><span class="p">},</span>
     <span class="p">}</span>
     <span class="n">OK</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">dynamic_attribute_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dynamic_attribute_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
       <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">settings</span><span class="o">.</span><span class="n">TEMPERATURES</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
       <span class="k">else</span><span class="p">:</span>
@@ -1005,10 +1005,10 @@ appellera <code>TemperatureChoices.OK.dynamic_attribute_value("temperature")</co
 <p>Par défaut, lorsque vous spécifiez des attibuts supplémentaires, <code>ExtendedChoices</code>
 stocke cette valeur dans un membre de l'instance. Le nom de se membre correspond
 au nom de l'attribut spécifié précédé de <code>__</code>. Exemple :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
-<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtendedChoices</span>
 
-<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
   <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
     <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Cold&quot;</span><span class="p">,</span>
@@ -1031,10 +1031,10 @@ au nom de l'attribut spécifié précédé de <code>__</code>. Exemple :</p>
 <p>Si, pour quelque raison que ce soit, vous souhaitez utiliser un autre nom pour
 l'instance qui stocke la valeur, vous pouvez déclarer une méthode statique
 <code>private_variable_name</code> :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
-<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">ExtendedChoices</span>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtendedChoices</span>
 
-<span class="k">class</span> <span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TemperatureChoices</span><span class="p">(</span><span class="n">ExtendedChoices</span><span class="p">):</span>
   <span class="n">COLD</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
     <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Cold&quot;</span><span class="p">,</span>
@@ -1052,7 +1052,7 @@ l'instance qui stocke la valeur, vous pouvez déclarer une méthode statique
   <span class="p">}</span>
 
   <span class="nd">@staticmethod</span>
-  <span class="k">def</span> <span class="nf">private_variable_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">private_variable_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;m_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">TemperatureChoices</span><span class="o">.</span><span class="n">OK</span><span class="o">.</span><span class="n">m_temperature</span> <span class="o">==</span> <span class="n">TemperatureChoices</span><span class="o">.</span><span class="n">OK</span><span class="o">.</span><span class="n">temperature</span>
@@ -1062,12 +1062,12 @@ l'instance qui stocke la valeur, vous pouvez déclarer une méthode statique
 <p>Version spécialisée de <a href="#extended-choices"><code>RichRadioButtonChoices</code></a> à utiliser avec
 <code>dsfr.widgets.RichRadioSelect</code>. Cette version déclare en plus les propriétés
 <code>pictogram</code>, <code>pictogram_alt</code> et <code>html_label</code> :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
-<span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">IntegerChoices</span>
-<span class="kn">from</span> <span class="nn">dsfr.utils</span> <span class="kn">import</span> <span class="n">lazy_static</span>
-<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">RichRadioButtonChoices</span>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.db.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">IntegerChoices</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">lazy_static</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">RichRadioButtonChoices</span>
 
-<span class="k">class</span> <span class="nc">ExampleRichChoices</span><span class="p">(</span><span class="n">IntegerChoices</span><span class="p">,</span> <span class="n">RichRadioButtonChoices</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ExampleRichChoices</span><span class="p">(</span><span class="n">IntegerChoices</span><span class="p">,</span> <span class="n">RichRadioButtonChoices</span><span class="p">):</span>
   <span class="n">ITEM_1</span> <span class="o">=</span> <span class="p">{</span>
       <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
       <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Item 1&quot;</span><span class="p">,</span>
@@ -1095,15 +1095,15 @@ l'instance qui stocke la valeur, vous pouvez déclarer une méthode statique
 <p><code>RichRadioSelect.__init__</code> prend obligatoirement un argument <code>rich_choices</code> de type
 <code>RichRadioButtonChoices</code>.</p>
 <p>Utilisation :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span>
-<span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">IntegerChoices</span>
-<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
-<span class="kn">from</span> <span class="nn">dsfr.forms</span> <span class="kn">import</span> <span class="n">DsfrBaseForm</span>
-<span class="kn">from</span> <span class="nn">dsfr.utils</span> <span class="kn">import</span> <span class="n">lazy_static</span>
-<span class="kn">from</span> <span class="nn">dsfr.enums</span> <span class="kn">import</span> <span class="n">RichRadioButtonChoices</span>
-<span class="kn">from</span> <span class="nn">dsfr.widgets</span> <span class="kn">import</span> <span class="n">RichRadioSelect</span>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.db.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">IntegerChoices</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django</span><span class="w"> </span><span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.forms</span><span class="w"> </span><span class="kn">import</span> <span class="n">DsfrBaseForm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">lazy_static</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">RichRadioButtonChoices</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.widgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">RichRadioSelect</span>
 
-<span class="k">class</span> <span class="nc">ExampleRichChoices</span><span class="p">(</span><span class="n">RichRadioButtonChoices</span><span class="p">,</span> <span class="n">IntegerChoices</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ExampleRichChoices</span><span class="p">(</span><span class="n">RichRadioButtonChoices</span><span class="p">,</span> <span class="n">IntegerChoices</span><span class="p">):</span>
     <span class="n">ITEM_1</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
         <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Item 1&quot;</span><span class="p">,</span>
@@ -1123,7 +1123,7 @@ l'instance qui stocke la valeur, vous pouvez déclarer une méthode statique
         <span class="s2">&quot;pictogram&quot;</span><span class="p">:</span> <span class="n">lazy_static</span><span class="p">(</span><span class="s2">&quot;img/placeholder.1x1.png&quot;</span><span class="p">),</span>
     <span class="p">}</span>
 
-<span class="k">class</span> <span class="nc">ExampleForm</span><span class="p">(</span><span class="n">DsfrBaseForm</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ExampleForm</span><span class="p">(</span><span class="n">DsfrBaseForm</span><span class="p">):</span>
     <span class="n">sample_rich_radio</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span>
         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cases à cocher&quot;</span><span class="p">,</span>
         <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -1150,7 +1150,7 @@ balise <code>&lt;img&gt;</code> utilisée dans le bouton radio riche. S'il n'est
 l'enum, <code>RichRadioSelect</code> ajoute un <code>alt=""</code>.</p>
 <h3 id="lazy-static"><code>dsfr.utils.lazy_static</code></h3>
 <p>Équivalent du tag Django <code>{% static %}</code> à utiliser dans le code. Exemple :</p>
-<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">dsfr.utils</span> <span class="kn">import</span> <span class="n">lazy_static</span>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">lazy_static</span>
 
 <span class="n">lazy_static</span><span class="p">(</span><span class="s2">&quot;img/logo.png&quot;</span><span class="p">)</span>
 </code></pre></div>
@@ -1292,11 +1292,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="b3bqwCcfnyARoU+YJ1tR/w=="></script>
+         nonce="fqTAtxYyyodfmJLiMSkCTA=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="b3bqwCcfnyARoU+YJ1tR/w=="></script>
+         nonce="fqTAtxYyyodfmJLiMSkCTA=="></script>
 
 
     

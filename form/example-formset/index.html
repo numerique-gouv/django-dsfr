@@ -465,16 +465,6 @@
                           <li>
                             
                             <a class="fr-nav__link"
-                               href="/django-dsfr/components/form/"
-                               
-                               target="_self">Formulaire</a>
-                          </li>
-                        
-                      
-                        
-                          <li>
-                            
-                            <a class="fr-nav__link"
                                href="/django-dsfr/components/form_field/"
                                
                                target="_self">Formulaire - champ</a>
@@ -541,15 +531,6 @@
                           </li>
                         
                       
-                    </ul>
-                  </div>
-                
-                  <div class="fr-col-12 fr-col-lg-3">
-                    <h3 class="fr-mega-menu__category">
-                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
-                    </h3>
-                    <ul class="fr-mega-menu__list">
-                      
                         
                           <li>
                             
@@ -559,6 +540,15 @@
                                target="_self">Lettre d’information et réseaux sociaux</a>
                           </li>
                         
+                      
+                    </ul>
+                  </div>
+                
+                  <div class="fr-col-12 fr-col-lg-3">
+                    <h3 class="fr-mega-menu__category">
+                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
+                    </h3>
+                    <ul class="fr-mega-menu__list">
                       
                         
                           <li>
@@ -617,6 +607,16 @@
                                href="/django-dsfr/components/callout/"
                                
                                target="_self">Mise en avant</a>
+                          </li>
+                        
+                      
+                        
+                          <li>
+                            
+                            <a class="fr-nav__link"
+                               href="/django-dsfr/components/highlight/"
+                               
+                               target="_self">Mise en exergue</a>
                           </li>
                         
                       
@@ -830,7 +830,7 @@
   
   <div id="form">
     <form method="post" enctype="multipart/form-data" id="form-base">
-      <input type="hidden" name="csrfmiddlewaretoken" value="zDojmDpEqPpHNXGtSrdZspaGNm4Vxgi69341YzeXC0iiFVfJK7RPpvn1qB93kkUa">
+      <input type="hidden" name="csrfmiddlewaretoken" value="KoC3Oe4jIHZkXcZiTbDvGx5JKjkOKFu4xXhgJprCW8f32hpAeB2Gron3W2FjYacX">
       
       
   <h1>
@@ -1032,14 +1032,25 @@
       </div>
     
       <div class="fr-fieldset__element">
-        <input type="radio" name="book_set-0-book_format" value="NUM" class="fr-fieldset--inline" id="id_book_set-0-book_format_1">
+        <input type="radio" name="book_set-0-book_format" value="label" class="fr-fieldset--inline" id="id_book_set-0-book_format_1_0">
 
   
     <label class="fr-label"
-           for="id_book_set-0-book_format_1">
+           for="id_book_set-0-book_format_1_0">
       
         Numérique
-        <span class="fr-hint-text">Livre électronique</span>
+      
+    </label>
+      </div>
+    
+      <div class="fr-fieldset__element">
+        <input type="radio" name="book_set-0-book_format" value="help_text" class="fr-fieldset--inline" id="id_book_set-0-book_format_1_1">
+
+  
+    <label class="fr-label"
+           for="id_book_set-0-book_format_1_1">
+      
+        Livre électronique
       
     </label>
       </div>
@@ -1090,14 +1101,13 @@
       <div class="fr-fieldset__element">
         <div class="fr-checkbox-group">
   
-  <input type="checkbox" name="book_set-0-genre" value="2" dsfr="dsfr" id="id_book_set-0-genre_1">
+  <input type="checkbox" name="book_set-0-genre" value="label" dsfr="dsfr" id="id_book_set-0-genre_1_0">
 
   
     <label class="fr-label"
-           for="id_book_set-0-genre_1">
+           for="id_book_set-0-genre_1_0">
       
         Fantastique
-        <span class="fr-hint-text">Intrusion du surnaturel dans un cadre réaliste</span>
       
     </label>
   
@@ -1108,14 +1118,47 @@
       <div class="fr-fieldset__element">
         <div class="fr-checkbox-group">
   
-  <input type="checkbox" name="book_set-0-genre" value="3" dsfr="dsfr" id="id_book_set-0-genre_2">
+  <input type="checkbox" name="book_set-0-genre" value="help_text" dsfr="dsfr" id="id_book_set-0-genre_1_1">
 
   
     <label class="fr-label"
-           for="id_book_set-0-genre_2">
+           for="id_book_set-0-genre_1_1">
+      
+        Intrusion du surnaturel dans un cadre réaliste
+      
+    </label>
+  
+  
+  </div>
+      </div>
+    
+      <div class="fr-fieldset__element">
+        <div class="fr-checkbox-group">
+  
+  <input type="checkbox" name="book_set-0-genre" value="label" dsfr="dsfr" id="id_book_set-0-genre_2_0">
+
+  
+    <label class="fr-label"
+           for="id_book_set-0-genre_2_0">
       
         Fantasy
-        <span class="fr-hint-text">Élaboration d’un univers distinct du monde réel</span>
+      
+    </label>
+  
+  
+  </div>
+      </div>
+    
+      <div class="fr-fieldset__element">
+        <div class="fr-checkbox-group">
+  
+  <input type="checkbox" name="book_set-0-genre" value="help_text" dsfr="dsfr" id="id_book_set-0-genre_2_1">
+
+  
+    <label class="fr-label"
+           for="id_book_set-0-genre_2_1">
+      
+        Élaboration d’un univers distinct du monde réel
       
     </label>
   
@@ -1317,11 +1360,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="lNko6voDXbJgX4++/EN+Bg=="></script>
+         nonce="udaqcQec/GTiSnRzT9YLbw=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="lNko6voDXbJgX4++/EN+Bg=="></script>
+         nonce="udaqcQec/GTiSnRzT9YLbw=="></script>
 
 
     

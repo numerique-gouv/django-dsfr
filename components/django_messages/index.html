@@ -477,16 +477,6 @@
                           <li>
                             
                             <a class="fr-nav__link"
-                               href="/django-dsfr/components/form/"
-                               
-                               target="_self">Formulaire</a>
-                          </li>
-                        
-                      
-                        
-                          <li>
-                            
-                            <a class="fr-nav__link"
                                href="/django-dsfr/components/form_field/"
                                
                                target="_self">Formulaire - champ</a>
@@ -553,15 +543,6 @@
                           </li>
                         
                       
-                    </ul>
-                  </div>
-                
-                  <div class="fr-col-12 fr-col-lg-3">
-                    <h3 class="fr-mega-menu__category">
-                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
-                    </h3>
-                    <ul class="fr-mega-menu__list">
-                      
                         
                           <li>
                             
@@ -571,6 +552,15 @@
                                target="_self">Lettre d’information et réseaux sociaux</a>
                           </li>
                         
+                      
+                    </ul>
+                  </div>
+                
+                  <div class="fr-col-12 fr-col-lg-3">
+                    <h3 class="fr-mega-menu__category">
+                      <a class="fr-nav__link" href="#" target="_self">Composants implémentés</a>
+                    </h3>
+                    <ul class="fr-mega-menu__list">
                       
                         
                           <li>
@@ -629,6 +619,16 @@
                                href="/django-dsfr/components/callout/"
                                
                                target="_self">Mise en avant</a>
+                          </li>
+                        
+                      
+                        
+                          <li>
+                            
+                            <a class="fr-nav__link"
+                               href="/django-dsfr/components/highlight/"
+                               
+                               target="_self">Mise en exergue</a>
                           </li>
                         
                       
@@ -1041,16 +1041,6 @@
                       <li class="fr-sidemenu__item">
                         
                           <a class="fr-sidemenu__link"
-                             href="/django-dsfr/components/form/"
-                             target="_self"
-                             >Formulaire (form)</a>
-                        
-                        
-                      </li>
-                    
-                      <li class="fr-sidemenu__item">
-                        
-                          <a class="fr-sidemenu__link"
                              href="/django-dsfr/components/form_field/"
                              target="_self"
                              >Formulaire - champ (form_field)</a>
@@ -1361,7 +1351,7 @@
 </div>
 <p>There types are then concatenated with <code>fr-alert--</code> to form the CSS classe in the template.</p>
 <p>These classes can be modified by setting <code>DSFR_MESSAGE_TAGS_CSS_CLASSES</code> in your <code>settings.py</code>, like so:</p>
-<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib</span><span class="w"> </span><span class="kn">import</span> <span class="n">messages</span>
 <span class="n">DSFR_MESSAGE_TAGS_CSS_CLASSES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">messages</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span>
 <span class="p">}</span>
@@ -1369,8 +1359,8 @@
 
 <p>You can also use this setting to map <a href="https://docs.djangoproject.com/en/4.2/ref/contrib/messages/#creating-custom-message-levels">custom custom message levels</a>
 to alert types:</p>
-<div class="dsfr-code"><pre><span></span><code><span class="n">django</span><span class="o">.</span><span class="n">conf</span> <span class="kn">import</span> <span class="nn">global_settings</span>
-<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<div class="dsfr-code"><pre><span></span><code><span class="n">django</span><span class="o">.</span><span class="n">conf</span> <span class="kn">import</span><span class="w"> </span><span class="nn">global_settings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib</span><span class="w"> </span><span class="kn">import</span> <span class="n">messages</span>
 <span class="n">MESSAGE_TAGS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="mi">50</span><span class="p">:</span> <span class="s2">&quot;fatal&quot;</span>
 <span class="p">}</span>
@@ -1407,11 +1397,11 @@ to alert types:</p>
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-mtedcbeuzfgmaswh">
+          aria-controls="accordion-drivapzmuvvdnynm">
     Données de l’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-mtedcbeuzfgmaswh">
+  <div class="fr-collapse" id="accordion-drivapzmuvvdnynm">
     <pre class="dsfr-code">{'is_collapsible': True}</pre>
   </div>
 </section>
@@ -1633,11 +1623,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="CnbEqQa4Xkr6o4WgFB1clg=="></script>
+         nonce="ZKNVBpudArImCID/d9Oehw=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="CnbEqQa4Xkr6o4WgFB1clg=="></script>
+         nonce="ZKNVBpudArImCID/d9Oehw=="></script>
 
 
     
