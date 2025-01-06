@@ -10,7 +10,7 @@
     
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"
-      integrity="sha384-4CMBG/bSDnHTO4BzePaP0c1y81c6oAT2XKpjVi1vzQl4AtMBSoAuUVv5XgRNXJAj">
+      integrity="sha384-0Wd1nuoasQg34LmqHZNv9t0sGc6FlxNcUC7O56SJSKhI4mgZ51FVEZ8v0QnPFN3U">
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/utility/utility.min.css"
       integrity="">
@@ -925,10 +925,12 @@
 <h2 id="conventions-de-style-et-verifications-automatique">Conventions de style et vérifications automatique</h2>
 <p>Ce projet suit globalement les <a href="https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/coding-style/">conventions de style de Django</a>.</p>
 <p>Il utilise <code>ruff</code> et <code>black</code> pour la mise en forme et <code>bandit</code> pour repérer les failles de sécurité les plus communes.</p>
-<p>Concernant les langues :
-- le code est en anglais, y compris les commentaires, de même que le nom des branches git ;
-- la documentation est en français, de même que les exemples de composants et le nom des PR ;
-- Les <em>issues</em> peuvent être ouvertes dans l’une ou l’autre langue.</p>
+<p>Concernant les langues :</p>
+<ul>
+<li>le code est en anglais, y compris les commentaires, de même que le nom des branches git ;</li>
+<li>la documentation est en français, de même que les exemples de composants et le nom des PR ;</li>
+<li>Les <em>issues</em> peuvent être ouvertes dans l’une ou l’autre langue.</li>
+</ul>
 <p>Pour vérifier son code, on peut intégrer le linter adapté à son IDE et aussi faire ceci :</p>
 <div class="dsfr-code"><pre><span></span><code>make<span class="w"> </span>checkstyle
 </code></pre></div>
@@ -944,12 +946,14 @@
 </code></pre></div>
 
 <p>La commande télécharge la dernière version depuis le dépôt Github, la met dans le répertoire <code>dsfr/static/dsfr/dist/</code>, retire des fichiers pour réduire la taille du paquet Python et met à jour les sommes de contrôle d’intégrité dans le fichier <code>dsfr/checksums</code>.</p>
-<p>Une fois la mise à jour faite, il reste à :
-- lancer les tests unitaires avec <code>make test</code> ;
-- ouvrir le site de test et vérifier que tous les composants s’affichent toujours bien ;
-- mettre à jour la liste des composants en vérifiant depuis le site du système de design de l’État ;
-- mettre à jour le fichier README.md pour indiquer la nouvelle version du DSFR ;
-- mettre à jour les composants si nécessaire, en se basant sur le site du système de design de l’État (ou ouvrir des <em>issues</em>)</p>
+<p>Une fois la mise à jour faite, il reste à :</p>
+<ul>
+<li>lancer les tests unitaires avec <code>make test</code> ;</li>
+<li>ouvrir le site de test et vérifier que tous les composants s’affichent toujours bien ;</li>
+<li>mettre à jour la liste des composants en vérifiant depuis le site du système de design de l’État ;</li>
+<li>mettre à jour le fichier README.md pour indiquer la nouvelle version du DSFR ;</li>
+<li>mettre à jour les composants si nécessaire, en se basant sur le site du système de design de l’État (ou ouvrir des <em>issues</em>)</li>
+</ul>
 <h2 id="publication-dune-nouvelle-version">Publication d’une nouvelle version</h2>
 <p>Lorsque qu’une release est publiée sur Github, une tâche Github Actions (<a href="[./.github/workflows/publish-package.yml">publish-package.yml</a>) est lancée pour automatiquement générer une nouvelle version du paquet et la publier sur Pypi.</p>
 <p>Attention ! Il faut mettre à jour le numéro de version dans le fichier <code>pyproject.toml</code> avant de faire la release, sinon la tâche échouera.</p>
@@ -1093,12 +1097,12 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
     
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
-        integrity="sha384-TcXr68fg/siMFa6WMoFtntRfwfPoawk7Wz+pnrV+z17crqhROwg2/GRBOaw7Iysy"
-         nonce="vbDudbGCJbzc5ukAQIzIlw=="></script>
+        integrity="sha384-dQNRA2VhSeU0SYIKWHja8MGpEF7wm/34WJRVJMHbbUItBgG2yn0JYMdlnKWNsuR8"
+         nonce="BHPcluo6K7D/qEuBAzSBtA=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
-        integrity="sha384-6D+aTUzuRoyopt1Ol/+T7WcnBMAwxhx67azX1vSEt98q7uN0FBKzfDHSytt+IWo9"
-         nonce="vbDudbGCJbzc5ukAQIzIlw=="></script>
+        integrity="sha384-Z9sSCL+iZkc22YwU6QRxXGtKnQiiiVLq4aJhoIJNtV0lO9nd12ZwowDrsA/eSxmd"
+         nonce="BHPcluo6K7D/qEuBAzSBtA=="></script>
 
 
     
