@@ -2,9 +2,7 @@
 
 [![image](https://badge.fury.io/py/django-dsfr.svg)](https://pypi.org/project/django-dsfr/)
 
-[![image](https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci-3-8.yml/badge.svg)](https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci-3-8.yml)
-
-[![image](https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci-3-10.yml/badge.svg)](https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci-3-10.yml)
+[![image](https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci.yml/badge.svg)](https://github.com/numerique-gouv/django-dsfr/actions/workflows/ci.yml)
 
 [![image](https://github.com/numerique-gouv/django-dsfr/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/numerique-gouv/django-dsfr/actions/workflows/codeql-analysis.yml)
 
@@ -23,14 +21,13 @@ Django-DSFR implements the [version 1.12.1 of the DSFR](https://www.systeme-de-d
 
 ## Requirements
 
-Tested with Python 3.8 to 3.12 and Django 3.2 to 5.0. Per [vermin](https://github.com/netromdk/vermin), it should work with Python >= 3.6, and it should work with old versions of Django too.
+Tested with Python 3.10 to 3.13 and the latest available version of Django 4 and 5.
 
 Note: Only supported versions of Django and Python are supported by this project. You can check the supported versions and their end of life on the following pages:
 
 -   [Python](https://devguide.python.org/versions/)
 -   [Django](https://www.djangoproject.com/download/#supported-versions)
 
-⚠️ Warning: Support for Django < 4.0 and Python < 3.10 will be removed at the end of 2024.
 
 ## Quick start
 

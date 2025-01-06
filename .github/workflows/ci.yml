@@ -28,15 +28,10 @@ jobs:
     - name: 🚧 Check pending migrations
       run: |
         poetry run python manage.py makemigrations --check --dry-run --noinput
-    - name: 🧪 Run Tests - Django 3
-      run: |
-        poetry run python manage.py test
     - name: 🧪 Run Tests - Django 4
       run: |
-        poetry add django@^4.1
         poetry run python manage.py test
     - name: 🧪 Run Tests - Django 5
       run: |
-        sed -i 's/python = "^3.8"/python = "^3.10"/g' pyproject.toml
         poetry add django@^5.0
         poetry run python manage.py test
