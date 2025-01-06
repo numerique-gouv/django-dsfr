@@ -1068,7 +1068,6 @@ EXTRA_COMPONENTS = {
     },
     "css": {"title": "CSS global"},
     "js": {"title": "JS global"},
-    "form": {"title": "Formulaire"},
     "form_field": {"title": "Formulaire - champ"},
     "django_messages": {
         "title": "Messages Django dans une alerte",
@@ -1186,10 +1185,19 @@ WONT_BE_IMPLEMENTED = {
     },
 }
 
+DEPRECATED_COMPONENTS = {
+    "form": {
+        "title": "Formulaire",
+        "since": "2.0.0",
+        "reason": "replaced with standard call to {{ form }}.",
+    },
+}
+
 all_tags_unsorted = {
     **IMPLEMENTED_COMPONENTS,
     **EXTRA_COMPONENTS,
     **NOT_YET_IMPLEMENTED_COMPONENTS,
     **WONT_BE_IMPLEMENTED,
+    **DEPRECATED_COMPONENTS,
 }
 ALL_TAGS = dict(sorted(all_tags_unsorted.items()))

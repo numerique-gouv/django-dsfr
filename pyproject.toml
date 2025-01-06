@@ -3,12 +3,11 @@ authors = ["Sylvain Boissel <sylvain.boissel@beta.gouv.fr>"]
 description = "Integrate the French government Design System into a Django app"
 license = "MIT"
 name = "django-dsfr"
-version = "1.4.5"
+version = "2.0.0alpha1"
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Web Environment",
   "Framework :: Django",
-  "Framework :: Django :: 3.2",
   "Framework :: Django :: 4.0",
   "Framework :: Django :: 4.1",
   "Framework :: Django :: 4.2",
@@ -18,11 +17,10 @@ classifiers = [
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Software Development :: Libraries",
   "Topic :: Utilities",
 ]
@@ -39,8 +37,8 @@ packages = [
 include = ["LICENSE", "README.md", "dsfr/static/dsfr/dist/*/*.*"]
 
 [tool.poetry.dependencies]
-Django = ">3.2.5"
-python = "^3.8"
+Django = ">4.2.17"
+python = "^3.10"
 requests = "^2.26.0"
 django-widget-tweaks = "^1.4.12"
 django-crispy-forms = "^2.0"

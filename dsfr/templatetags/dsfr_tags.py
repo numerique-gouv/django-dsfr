@@ -1567,41 +1567,6 @@ def dsfr_django_messages(
     )
 
 
-@register.inclusion_tag("dsfr/form_snippet.html", takes_context=True)
-def dsfr_form(context: Context, form=None) -> dict:
-    """
-    Returns the HTML for a form snippet.
-
-    <div role="alert" class="fr-alert fr-alert--warning">
-        <h3 class="fr-alert__title">This tag is obsolete and it will be removed at the end of 2024.</h3>
-        <p>
-          Please directly include the form with <code>{{ form }}</code> (or the name of the form context variable if different).
-        </p>
-    </div>
-
-    ```python
-    data_dict = {
-        "form": an optional form to render instead of the form already present in context
-    }
-    ```
-
-    **Tag name**:
-        dsfr_form
-
-    **Usage**:
-        `{% dsfr_form %}`
-    """  # noqa
-
-    warnings.warn(
-        """The dsfr_form tag is deprecated and will be removed from django-dsfr at the end of 2024.
-        Please use a normal {{ form }} tag (requires Django 4 or superior)""",
-        DeprecationWarning,
-        stacklevel=2,
-    )
-
-    return context.update({"form": form}) if form else context  # type: ignore
-
-
 @register.inclusion_tag("dsfr/form_field_snippets/field_snippet.html")
 def dsfr_form_field(field) -> dict:
     """
@@ -1713,3 +1678,12 @@ def dsfr_inline(field):
     """
     field.field.widget.inline = True
     return field
+
+
+# Deprecated tags
+@register.simple_tag(takes_context=True)
+def dsfr_form(context: Context):
+    raise ValueError(
+        """The dsfr_form tag is deprecated since django-dsfr 2.0.0.
+        Please use a normal {{ form }} tag.""",
+    )
