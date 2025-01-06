@@ -1,6 +1,3 @@
-import warnings
-
-from django import forms
 from django.test import SimpleTestCase
 from django.template import Context, Template
 from unittest.mock import MagicMock
@@ -14,7 +11,6 @@ from dsfr.checksums import (
     INTEGRITY_JS_MODULE,
     INTEGRITY_JS_NOMODULE,
 )
-from dsfr.forms import DsfrBaseForm
 from dsfr.templatetags.dsfr_tags import concatenate, hyphenate
 
 
@@ -500,43 +496,6 @@ class DsfrConsentTagTest(SimpleTestCase):
                 </li>
             </ul>
             </div>
-            """,
-            rendered_template,
-        )
-
-
-class DsfrFormTagTest(SimpleTestCase):
-    class TestForm(DsfrBaseForm):
-        test = forms.CharField(label="Ceci est un test")
-
-    class TestForm2(DsfrBaseForm):
-        test = forms.CharField(label="Ceci est un autre test")
-
-    context = Context({"form": TestForm(), "form2": TestForm2()})
-
-    def setUp(self) -> None:
-        warnings.simplefilter("ignore", category=DeprecationWarning, lineno=258)
-
-    def test_dsfr_form_renders(self):
-        rendered_template = Template("{% load dsfr_tags %} {% dsfr_form %}").render(
-            self.context
-        )
-        self.assertInHTML(
-            """
-            <label for="id_test" class="fr-label">Ceci est un test*</label>
-            <input type="text" name="test" class="fr-input" required id="id_test">
-            """,
-            rendered_template,
-        )
-
-    def test_dsfr_form_renders_with_form_override(self):
-        rendered_template = Template(
-            "{% load dsfr_tags %} {% dsfr_form form2 %}"
-        ).render(self.context)
-        self.assertInHTML(
-            """
-            <label for="id_test" class="fr-label">Ceci est un autre test*</label>
-            <input type="text" name="test" class="fr-input" required id="id_test">
             """,
             rendered_template,
         )

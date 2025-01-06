@@ -54,10 +54,9 @@ def __init__(self, *args, **kwargs):
 ```
 
 ## Utilisation
+Les formulaires sont appelés avec la balise `{{ form }}` (ou `{{ my_custom_form }}` le cas échéant).
 
-La balise `{% dsfr_form %}` est maintenant dépréciée et sera retirée à la fin de l’année 2024.
-
-Il faut donc remplacer les instances de `{% dsfr_form %}` par ``{{ form }}`` et `{% dsfr_form my_custom_form %}` par `{{ my_custom_form }}`.
+La balise `{% dsfr_form %}` est maintenant dépréciée depuis Django-DSFR 2.0.0.
 
 ## Composants
 
