@@ -9,6 +9,13 @@ import random
 import string
 
 
+def dsfr_version():
+    # Returns the current version of the DSFR
+    with open("dsfr/static/dsfr/dsfr_version") as f:
+        s = f.read()
+        return s.strip()
+
+
 def list_pages(page_obj: Page) -> Page:
     """
     Gets a paginator page item and returns it with a list of pages to display like:
