@@ -41,5 +41,6 @@ class Command(BaseCommand):
             json_file = os.path.join(json_root, dsfr_folder_json)
             with open(json_file, "w") as fp:
                 json.dump(icons_dict, fp)
+                fp.write("\n")
 
         print("Folders created or updated: ", all_folders)
