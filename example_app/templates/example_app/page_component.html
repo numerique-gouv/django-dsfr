@@ -41,6 +41,11 @@
             {% dsfr_link url=example_url label="Voir la page d’exemple du Système de Design de l’État" is_external=True extra_classes="fr-link--lg" %}
           </li>
         {% endif %}
+        {% if storybook_url %}
+          <li>
+            {% dsfr_link url=storybook_url label="Voir la page du composant sur Storybook" is_external=True extra_classes="fr-link--lg" %}
+          </li>
+        {% endif %}
       </ul>
       <h2>
         Documentation du tag

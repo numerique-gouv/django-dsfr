@@ -18,6 +18,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/accordeon",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/accordion/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/accordion--docs",
     },
     "alert": {
         "title": "Alertes",
@@ -56,6 +57,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/alerte",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/alert/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/alert--docs",
     },
     "badge": {
         "title": "Badge",
@@ -79,11 +81,13 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/badge",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/badge/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/badge--docs",
     },
     "breadcrumb": {
         "title": "Fil d’Ariane",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/fil-d-ariane",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/breadcrumb/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/breadcrumb--docs",
     },
     "button": {
         "title": "Boutons",
@@ -113,6 +117,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/button/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/button--docs",
     },
     "button_group": {
         "title": "Boutons – Groupe",
@@ -191,6 +196,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/groupe-de-boutons",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/button/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/buttons-group--docs",
     },
     "callout": {
         "title": "Mise en avant",
@@ -224,6 +230,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-avant",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/callout/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/callout--docs",
     },
     "card": {
         "title": "Carte",
@@ -395,11 +402,13 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/card/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/card--docs",
     },
     "consent": {
         "title": "Gestionnaire de consentement",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/gestionnaire-de-consentement",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/consent/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/consent--docs",
         "sample_data": [
             {
                 "title": "À propos des cookies sur Django-DSFR",
@@ -416,6 +425,7 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Contenu média",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/content/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/content--docs",
         "sample_data": [
             {
                 "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
@@ -467,14 +477,17 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Lettre d’information et réseaux sociaux",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lettre-d-information-et-reseaux-sociaux",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/follow/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/follow--docs",
     },
     "footer": {
         "title": "Pied de page",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/footer--docs",
     },
     "france_connect": {
         "title": "Bouton FranceConnect",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-franceconnect",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/connect/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/connect--docs",
         "sample_data": [
             {},
             {"id": "france-connect-plus", "plus": True},
@@ -482,6 +495,7 @@ IMPLEMENTED_COMPONENTS = {
     },
     "header": {
         "title": "En-tête",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/header--docs",
     },
     "highlight": {
         "title": "Mise en exergue",
@@ -497,6 +511,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-exergue",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/highlight/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/highlight--docs",
     },
     "input": {
         "title": "Champs de saisie",
@@ -519,6 +534,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/champ-de-saisie",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/input/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/input--docs",
     },
     "link": {
         "title": "Lien",
@@ -547,11 +563,13 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lien",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/link/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/link--docs",
     },
     "notice": {
         "title": "Bandeau d’information importante",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bandeau-d-information-importante",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/notice/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/notice--docs",
         "sample_data": [
             {
                 "title": """Bandeau d’information importante par défaut, comprenant dans le titre un texte assez long
@@ -629,6 +647,7 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Pagination",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pagination",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/pagination/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/pagination--docs",
     },
     "quote": {
         "title": "Citation",
@@ -654,6 +673,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/citation",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/quote/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/quote--docs",
     },
     "select": {
         "title": "Listes déroulantes",
@@ -675,6 +695,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liste-deroulante",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/select/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/select--docs",
     },
     "sidemenu": {
         "title": "Menu latéral",
@@ -721,6 +742,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/menu-lateral",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/sidemenu/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/sidemenu--docs",
     },
     "skiplinks": {
         "title": "Liens d’évitement",
@@ -732,6 +754,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lien-d-evitement",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/skiplink/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/skiplink--docs",
     },
     "stepper": {
         "title": "Indicateur d’étapes",
@@ -750,6 +773,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/indicateur-d-etapes",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/stepper/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/stepper--docs",
     },
     "summary": {
         "title": "Sommaire",
@@ -788,6 +812,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/sommaire",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/summary/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/summary--docs",
     },
     "table": {
         "title": "Tableau",
@@ -861,6 +886,7 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tableau",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/table/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/table--docs",
     },
     "tag": {
         "title": "Tag",
@@ -893,11 +919,13 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tag",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/tag/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/tag--docs",
     },
     "theme_modale": {
         "title": "Paramètres d’affichage",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/parametre-d-affichage",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/display/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/display--docs",
     },
     "tile": {
         "title": "Tuile",
@@ -961,11 +989,13 @@ IMPLEMENTED_COMPONENTS = {
         ],
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tuile",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/tile/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/tile--docs",
     },
     "toggle": {
         "title": "Interrupteur",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/toggle/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/toggle--docs",
         "sample_data": [
             {
                 "label": "Interrupteur basique",
@@ -988,6 +1018,7 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Infobulle",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/infobulle",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/tooltip/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/tooltip--docs",
         "sample_data": [
             {
                 "content": "Contenu d’une infobule activée au survol",
@@ -1004,6 +1035,7 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Transcription",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/transcription",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/transcription/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/transcription--docs",
         "sample_data": [
             {
                 "content": "<div><p>Courte transcription basique</p></div>",
@@ -1038,6 +1070,7 @@ EXTRA_COMPONENTS = {
                 },
             ]
         ],
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/accordions-group--docs",
     },
     "badge_group": {
         "title": "Badges – Groupe",
@@ -1065,6 +1098,7 @@ EXTRA_COMPONENTS = {
                 },
             ]
         ],
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/badges-group--docs",
     },
     "css": {"title": "CSS global"},
     "js": {"title": "JS global"},
@@ -1093,6 +1127,7 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
         "title": "Contrôle segmenté",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/controle-segmente",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/segmented/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/segmented--docs",
         "note": """À implémenter au sein des formulaires et non comme une balise.
         cf. [#128](https://github.com/numerique-gouv/django-dsfr/issues/128)
         """,
@@ -1101,6 +1136,7 @@ NOT_YET_IMPLEMENTED_COMPONENTS = {
         "title": "Curseur",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/curseur-range",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/range/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/range--docs",
         "note": """À implémenter au sein des formulaires et non comme une balise.
         cf. [#129](https://github.com/numerique-gouv/django-dsfr/issues/129)
         """,
@@ -1121,6 +1157,7 @@ WONT_BE_IMPLEMENTED = {
         "title": "Case à cocher",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/checkbox/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/checkbox--docs",
         "reason": "Champ de formulaire.",
     },
     "download": {
@@ -1133,54 +1170,63 @@ WONT_BE_IMPLEMENTED = {
         "title": "Ajout de fichier",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/upload/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/upload--docs",
         "reason": "Champ de formulaire.",
     },
     "modal": {
         "title": "Modale",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/modale",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/modal/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/modal--docs",
         "reason": "Une balise rendrait l’utilisation plus complexe au lieu de la simplifier.",
     },
     "navigation": {
         "title": "Navigation principale",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/navigation/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/navigation--docs",
         "reason": "Partie de l’en-tête, voir la documentation de ce composant.",
     },
     "password": {
         "title": "Mot de passe",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mot-de-passe",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/password/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/password--docs",
         "reason": "Dépendant de l’implémentation des comptes utilisateurs dans le projet Django",
     },
     "radio": {
         "title": "Bouton radio",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/boutons-radio",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/radio/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/radio--docs",
         "reason": "Champ de formulaire.",
     },
     "search_bar": {
         "title": "Barre de recherche",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/search/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/search--docs",
         "reason": "Champ de formulaire.",
     },
     "share": {
         "title": "Partage",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/partage",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/share/",
+        "share": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/share--docs",
         "reason": "Une balise rendrait l’utilisation plus complexe au lieu de la simplifier.",
     },
     "tab": {
         "title": "Onglet",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/onglet",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/tab/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/tabs--docs",
         "reason": "Une balise rendrait l’utilisation plus complexe au lieu de la simplifier.",
     },
     "translate": {
         "title": "Sélecteur de langue",
         "doc_url": "https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/selecteur-de-langue",
         "example_url": "https://main--ds-gouv.netlify.app/example/component/translate/",
+        "storybook_url": "https://storybook.systeme-de-design.gouv.fr/?path=/docs/translate--docs",
         "reason": "Partie de l’en-tête, voir la documentation de ce composant.",
     },
 }

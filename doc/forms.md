@@ -1,4 +1,16 @@
 # Formulaires – Documentation
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/composants-et-modeles/blocs-fonctionnels/formulaires" target="_blank" rel="noopener noreferrer">
+        Voir la page de documentation du composant sur le Système de Design de l’État
+        <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+  </a>
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://main--ds-gouv.netlify.app/example/component/form/" target="_blank" rel="noopener noreferrer">
+        Voir la page d’exemple du Système de Design de l’État
+        <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+  </a>
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://storybook.systeme-de-design.gouv.fr/?path=/docs/form--docs" target="_blank" rel="noopener noreferrer">
+        Voir la page du composant sur Storybook
+        <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+  </a>
 
 ## Initialisation des formulaires
 Les formulaires sont construits en se basant sur la classe `DsfrBaseForm`, par exemple :

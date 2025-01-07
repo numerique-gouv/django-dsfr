@@ -10,6 +10,10 @@ Il est alors possible de personnaliser le titre, le sous-titre, ainsi que le blo
         Voir la page d’exemple du Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://storybook.systeme-de-design.gouv.fr/?path=/docs/header--docs" target="_blank" rel="noopener noreferrer">
+        Voir la page du composant sur Storybook
+        <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+  </a>
 
 ## Composants liés
 Le gabarit d’en-tête est également l’endroit où inclure les composants suivants :
