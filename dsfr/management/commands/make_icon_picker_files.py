@@ -2,6 +2,8 @@ from django.core.management.base import BaseCommand
 import json
 import os
 
+from dsfr.utils import dsfr_version
+
 
 class Command(BaseCommand):
     help = "Add some initial sample data for the example app."
@@ -20,7 +22,7 @@ class Command(BaseCommand):
         for folder in icons_folders:
             icons_dict = {
                 "prefix": "fr-icon-",
-                "version": "1.11.2",
+                "version": dsfr_version(),
                 "icons": [],
             }
 

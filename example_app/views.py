@@ -14,7 +14,7 @@ from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_safe
 
-from dsfr.utils import generate_summary_items
+from dsfr.utils import dsfr_version, generate_summary_items
 
 from example_app.forms import AccentColorForm, ExampleForm, FullColorForm
 
@@ -98,6 +98,7 @@ def index(request):
             "Notes",
         ]
     )
+    payload["dsfr_version"] = dsfr_version()
 
     return render(request, "example_app/index.html", payload)
 
