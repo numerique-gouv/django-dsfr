@@ -52,6 +52,7 @@ Ce projet suit globalement les [conventions de style de Django](https://docs.dja
 Il utilise `ruff` et `black` pour la mise en forme et `bandit` pour repérer les failles de sécurité les plus communes.
 
 Concernant les langues :
+
 - le code est en anglais, y compris les commentaires, de même que le nom des branches git ;
 - la documentation est en français, de même que les exemples de composants et le nom des PR ;
 - Les *issues* peuvent être ouvertes dans l’une ou l’autre langue.
@@ -81,6 +82,7 @@ make update_dsfr
 La commande télécharge la dernière version depuis le dépôt Github, la met dans le répertoire `dsfr/static/dsfr/dist/`, retire des fichiers pour réduire la taille du paquet Python et met à jour les sommes de contrôle d’intégrité dans le fichier `dsfr/checksums`.
 
 Une fois la mise à jour faite, il reste à :
+
 - lancer les tests unitaires avec `make test` ;
 - ouvrir le site de test et vérifier que tous les composants s’affichent toujours bien ;
 - mettre à jour la liste des composants en vérifiant depuis le site du système de design de l’État ;

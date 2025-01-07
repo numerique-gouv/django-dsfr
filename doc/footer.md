@@ -10,6 +10,10 @@ Il est alors possible de personnaliser la description ainsi que le bloc-marque v
         Voir la page d’exemple du Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://storybook.systeme-de-design.gouv.fr/?path=/docs/footer--docs" target="_blank" rel="noopener noreferrer">
+        Voir la page du composant sur Storybook
+        <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
+  </a>
 
 ## Personnaliser
 

@@ -179,14 +179,10 @@ def page_component(request, tag_name):  # NOSONAR
             ],
         )
 
-        if "sample_data" in current_tag:
-            payload["sample_data"] = current_tag["sample_data"]
-
-        if "doc_url" in current_tag:
-            payload["doc_url"] = current_tag["doc_url"]
-
-        if "example_url" in current_tag:
-            payload["example_url"] = current_tag["example_url"]
+        keys = ["sample_data", "doc_url", "example_url", "storybook_url"]
+        for k in keys:
+            if k in current_tag:
+                payload[k] = current_tag[k]
 
         sidemenu_implemented_items = []
         for key, value in ALL_IMPLEMENTED_COMPONENTS.items():
