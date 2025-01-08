@@ -1231,10 +1231,10 @@ def dsfr_tag(*args, **kwargs) -> dict:
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
     **Tag name**:
-        dsfr_highlight
+        dsfr_tag
 
     **Usage**:
-        `{% dsfr_highlight data_dict %}`
+        `{% dsfr_tag data_dict %}`
     """
 
     allowed_keys = [
