@@ -52,6 +52,7 @@ build-backend = "poetry.core.masonry.api"
 packages = [
   {include = "dsfr"},
 ]
+include = ["LICENSE", "README.md", "dsfr/static/dsfr/dist/*/*.*"]
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^5.5"
