@@ -49,14 +49,6 @@
           <li class="fr-footer__content-item">
             <a target="_blank"
                rel="noopener external"
-               title="legifrance.gouv.fr - {{ new_window_label }}"
-               id="footer__content-link-legifrance"
-               class="fr-footer__content-link"
-               href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
-          </li>
-          <li class="fr-footer__content-item">
-            <a target="_blank"
-               rel="noopener external"
                title="info.gouv.fr - {{ new_window_label }}"
                id="footer__content-link-gouvernement"
                class="fr-footer__content-link"
@@ -69,6 +61,14 @@
                id="footer__content-link-servicepublic"
                class="fr-footer__content-link"
                href="https://service-public.fr">service-public.fr</a>
+          </li>
+          <li class="fr-footer__content-item">
+            <a target="_blank"
+               rel="noopener external"
+               title="legifrance.gouv.fr - {{ new_window_label }}"
+               id="footer__content-link-legifrance"
+               class="fr-footer__content-link"
+               href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
           </li>
           <li class="fr-footer__content-item">
             <a target="_blank"
@@ -117,8 +117,8 @@
              target="_blank"
              rel="noopener external"
              title="{{ etalab_license|capfirst }} - {{ new_window_label }}">{{ etalab_license }}</a>
-             {% block footer_bottom_extra %}
-             {% endblock footer_bottom_extra %}
+          {% block footer_bottom_extra %}
+          {% endblock footer_bottom_extra %}
         </p>
       </div>
     </div>
