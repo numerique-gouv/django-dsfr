@@ -1,9 +1,15 @@
-[tool.poetry]
-authors = ["Sylvain Boissel <sylvain.boissel@beta.gouv.fr>"]
-description = "Integrate the French government Design System into a Django app"
-license = "MIT"
+[project]
 name = "django-dsfr"
 version = "2.1.0"
+description = "Integrate the French government Design System into a Django app"
+authors = [
+    {name = "Sylvain Boissel", email = "sylvain.boissel@beta.gouv.fr"}
+]
+readme = "README.md"
+requires-python = "<4.0,>=3.10"
+license = "MIT"
+keywords = ["django", "dsfr"]
+
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Web Environment",
@@ -12,6 +18,7 @@ classifiers = [
   "Framework :: Django :: 4.1",
   "Framework :: Django :: 4.2",
   "Framework :: Django :: 5.0",
+  "Framework :: Django :: 5.1",
   "Operating System :: OS Independent",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
@@ -24,24 +31,27 @@ classifiers = [
   "Topic :: Software Development :: Libraries",
   "Topic :: Utilities",
 ]
+
+dependencies = [
+    "Django>4.2.17",
+    "requests<3.0.0,>=2.26.0",
+    "django-widget-tweaks<2.0.0,>=1.4.12",
+    "django-crispy-forms<3.0,>=2.0",
+]
+
+[project.urls]
 documentation = "https://numerique-gouv.github.io/django-dsfr"
 homepage = "https://github.com/numerique-gouv/django-dsfr"
-keywords = ["django"]
-readme = "README.md"
 repository = "https://github.com/numerique-gouv/django-dsfr"
 
+[build-system]
+requires = ["poetry-core>=2.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
 packages = [
   {include = "dsfr"},
 ]
-
-include = ["LICENSE", "README.md", "dsfr/static/dsfr/dist/*/*.*"]
-
-[tool.poetry.dependencies]
-Django = ">4.2.17"
-python = "^3.10"
-requests = "^2.26.0"
-django-widget-tweaks = "^1.4.12"
-django-crispy-forms = "^2.0"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^5.5"
@@ -61,10 +71,6 @@ beautifulsoup4 = "^4.12.2"
 lxml = "^5.1.0"
 setuptools = "^70.0.0"
 twine = "^5.1.1"
-
-[build-system]
-build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core>=1.0.0"]
 
 [tool.djlint]
 line_break_after_multiline_tag = true
