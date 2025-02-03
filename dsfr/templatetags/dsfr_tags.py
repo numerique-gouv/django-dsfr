@@ -11,6 +11,7 @@ from django.utils.html import format_html, format_html_join
 
 from dsfr.checksums import (
     INTEGRITY_CSS,
+    INTEGRITY_UTILITY_CSS,
     INTEGRITY_CSS_ICONS,
     INTEGRITY_FAVICON_APPLE,
     INTEGRITY_FAVICON_ICO,
@@ -58,7 +59,7 @@ def dsfr_css() -> dict:
     """
     tag_data = {}
     tag_data["INTEGRITY_CSS"] = INTEGRITY_CSS
-    tag_data["INTEGRITY_CSS_ICONS"] = INTEGRITY_CSS_ICONS
+    tag_data["INTEGRITY_UTILITY_CSS"] = INTEGRITY_UTILITY_CSS
 
     return {"self": tag_data}
 
