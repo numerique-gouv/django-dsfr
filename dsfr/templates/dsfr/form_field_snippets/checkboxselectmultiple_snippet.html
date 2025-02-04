@@ -1,5 +1,5 @@
 {% load widget_tweaks dsfr_tags %}
-<fieldset class="fr-fieldset{% if field.errors %} fr-fieldset--error{% endif %} fr-fieldsets"
+<fieldset class="fr-fieldset{% if field.errors %} fr-fieldset--error{% endif %} fr-fieldsets fr-checkbox-group"
           id="checkboxes-{{ field.auto_id }}"
           aria-labelledby="{{ field.auto_id }}-legend{% if field.errors %} {{ field.auto_id }}-messages{% endif %}">
   <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
