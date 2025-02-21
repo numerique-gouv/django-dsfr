@@ -24,18 +24,20 @@
 {% endblock service_title %}
 
 {% block header_tools %}
-  <li>
-    <button class="fr-btn--display fr-btn"
-            aria-controls="fr-theme-modal"
-            data-fr-opened="false">
-      {% translate "Display settings" %}
-    </button>
-  </li>
-  {% if "127.0.0.1" in request.get_host %}
+  <ul class="fr-btns-group">
+    <li>
+      <button class="fr-btn--display fr-btn"
+              aria-controls="fr-theme-modal"
+              data-fr-opened="false">
+        {% translate "Display settings" %}
+      </button>
+    </li>
+    {% if "127.0.0.1" in request.get_host %}
     <li>
       {% include "example_app/blocks/language_selector.html" %}
     </li>
-  {% endif %}
+    {% endif %}
+  </ul>
 {% endblock header_tools %}
 
 {# Leave burger_menu and main_menu blocks empty if the main menu is not used #}
