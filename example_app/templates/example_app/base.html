@@ -17,3 +17,9 @@
 {# djlint:off #}
 {% block lang %}{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}{% endblock lang %}
 {# djlint:on #}
+
+{% block follow_newsletter_social_media %}
+  <aside role="complementary">
+    {% include "dsfr/follow.html" %}
+  </aside>
+{% endblock follow_newsletter_social_media %}

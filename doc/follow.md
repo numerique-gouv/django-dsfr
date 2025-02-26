@@ -6,9 +6,10 @@ Le bandeau de Lettre d’information et Réseaux Sociaux est géré grâce à un
 
 <!-- [...] -->
 {% block follow_newsletter_social_media %}
-  {% include "dsfr/follow.html" %}
+  <aside role="complementary">
+    {% include "dsfr/follow.html" %}
+  </aside>
 {% endblock follow_newsletter_social_media %}
-
 ```
 
 Il est alors possible de personnaliser la description de la lettre d’information, l’URL d’inscription ainsi que les réseaux sociaux via la configuration du site dans l’administration de Django.
