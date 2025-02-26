@@ -58,8 +58,8 @@
         </div>
         <div class="fr-header__tools">
           <div class="fr-header__tools-links">
-            <ul class="fr-btns-group">
-              {% block header_tools %}
+            {% block header_tools %}
+              <ul class="fr-btns-group">
                 <li>
                   <a class="fr-icon-add-circle-line fr-btn" href="[url - à modifier]">Créer un espace</a>
                 </li>
@@ -69,8 +69,8 @@
                 <li>
                   <a class="fr-icon-account-line fr-btn" href="[url - à modifier]">S’enregistrer</a>
                 </li>
-              {% endblock header_tools %}
-            </ul>
+              </ul>
+            {% endblock header_tools %}
           </div>
           {% block header_search %}
           {% endblock header_search %}
