@@ -1,125 +1,129 @@
 {% load i18n %}
 {% translate "Opens a new window" as new_window_label %}
-<footer class="fr-footer" role="contentinfo" id="footer">
-  {% block footer_top %}
-  {% endblock footer_top %}
-  <div class="fr-container">
-    <div class="fr-footer__body">
-      {% block footer_brand %}
-        {% translate "Back to home page" as back_to_home_label %}
-        {% if SITE_CONFIG.operator_logo_file and SITE_CONFIG.operator_logo_alt %}
-          <div class="fr-footer__brand fr-enlarge-link">
-            <p class="fr-logo"
-               title="{{ SITE_CONFIG.footer_brand|default:'république française' }}">
-              {{ SITE_CONFIG.footer_brand_html| default_if_none:'république<br />française' | safe }}
+<footer role="contentinfo" id="footer">
+  {% block footer_outside_style %}
+  {% endblock footer_outside_style %}
+  <div class="fr-footer">
+    {% block footer_top %}
+    {% endblock footer_top %}
+    <div class="fr-container">
+      <div class="fr-footer__body">
+        {% block footer_brand %}
+          {% translate "Back to home page" as back_to_home_label %}
+          {% if SITE_CONFIG.operator_logo_file and SITE_CONFIG.operator_logo_alt %}
+            <div class="fr-footer__brand fr-enlarge-link">
+              <p class="fr-logo"
+                title="{{ SITE_CONFIG.footer_brand|default:'république française' }}">
+                {{ SITE_CONFIG.footer_brand_html| default_if_none:'république<br />française' | safe }}
+              </p>
+              <a class="fr-footer__brand-link"
+                href="/"
+                title="{{ back_to_home_label }} - {{ SITE_CONFIG.operator_logo_alt }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}">
+                <img class="fr-footer__logo"
+                    src="{{ SITE_CONFIG.operator_logo_file.url }}"
+                    alt="{{ SITE_CONFIG.operator_logo_alt }}"
+                    {% if SITE_CONFIG.operator_logo_width >= 1 %}style="max-width:{{ SITE_CONFIG.operator_logo_width }}rem;"{% endif %} />
+                {# L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image #}
+              </a>
+            </div>
+          {% else %}
+            <div class="fr-footer__brand fr-enlarge-link">
+              <a id="footer-operator"
+                href="/"
+                title="{{ back_to_home_label }} - {{ SITE_CONFIG.site_title }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}">
+                {% block brand %}
+                  <p class="fr-logo">
+                    {{ SITE_CONFIG.footer_brand_html| default_if_none:'république<br />française' | safe }}
+                  </p>
+                {% endblock brand %}
+              </a>
+            </div>
+          {% endif %}
+        {% endblock footer_brand %}
+        <div class="fr-footer__content">
+          {% block footer_description %}
+            <p class="fr-footer__content-desc">
+              {% block footer_content %}
+                {{ SITE_CONFIG.footer_description | safe }}
+              {% endblock footer_content %}
             </p>
-            <a class="fr-footer__brand-link"
-               href="/"
-               title="{{ back_to_home_label }} - {{ SITE_CONFIG.operator_logo_alt }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}">
-              <img class="fr-footer__logo"
-                   src="{{ SITE_CONFIG.operator_logo_file.url }}"
-                   alt="{{ SITE_CONFIG.operator_logo_alt }}"
-                   {% if SITE_CONFIG.operator_logo_width >= 1 %}style="max-width:{{ SITE_CONFIG.operator_logo_width }}rem;"{% endif %} />
-              {# L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image #}
-            </a>
-          </div>
-        {% else %}
-          <div class="fr-footer__brand fr-enlarge-link">
-            <a id="footer-operator"
-               href="/"
-               title="{{ back_to_home_label }} - {{ SITE_CONFIG.site_title }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}">
-              {% block brand %}
-                <p class="fr-logo">
-                  {{ SITE_CONFIG.footer_brand_html| default_if_none:'république<br />française' | safe }}
-                </p>
-              {% endblock brand %}
-            </a>
-          </div>
-        {% endif %}
-      {% endblock footer_brand %}
-      <div class="fr-footer__content">
-        {% block footer_description %}
-          <p class="fr-footer__content-desc">
-            {% block footer_content %}
-              {{ SITE_CONFIG.footer_description | safe }}
-            {% endblock footer_content %}
-          </p>
-        {% endblock footer_description %}
-        <ul class="fr-footer__content-list">
-          <li class="fr-footer__content-item">
-            <a target="_blank"
-               rel="noopener external"
-               title="info.gouv.fr - {{ new_window_label }}"
-               id="footer__content-link-gouvernement"
-               class="fr-footer__content-link"
-               href="https://www.info.gouv.fr">info.gouv.fr</a>
-          </li>
-          <li class="fr-footer__content-item">
-            <a target="_blank"
-               rel="noopener external"
-               title="service-public.fr - {{ new_window_label }}"
-               id="footer__content-link-servicepublic"
-               class="fr-footer__content-link"
-               href="https://service-public.fr">service-public.fr</a>
-          </li>
-          <li class="fr-footer__content-item">
-            <a target="_blank"
-               rel="noopener external"
-               title="legifrance.gouv.fr - {{ new_window_label }}"
-               id="footer__content-link-legifrance"
-               class="fr-footer__content-link"
-               href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
-          </li>
-          <li class="fr-footer__content-item">
-            <a target="_blank"
-               rel="noopener external"
-               title="data.gouv.fr - {{ new_window_label }}"
-               id="footer__content-link-datagouv"
-               class="fr-footer__content-link"
-               href="https://data.gouv.fr">data.gouv.fr</a>
-          </li>
-          {% block footer_content_extra %}
-          {% endblock footer_content_extra %}
-        </ul>
+          {% endblock footer_description %}
+          <ul class="fr-footer__content-list">
+            <li class="fr-footer__content-item">
+              <a target="_blank"
+                rel="noopener external"
+                title="info.gouv.fr - {{ new_window_label }}"
+                id="footer__content-link-gouvernement"
+                class="fr-footer__content-link"
+                href="https://www.info.gouv.fr">info.gouv.fr</a>
+            </li>
+            <li class="fr-footer__content-item">
+              <a target="_blank"
+                rel="noopener external"
+                title="service-public.fr - {{ new_window_label }}"
+                id="footer__content-link-servicepublic"
+                class="fr-footer__content-link"
+                href="https://service-public.fr">service-public.fr</a>
+            </li>
+            <li class="fr-footer__content-item">
+              <a target="_blank"
+                rel="noopener external"
+                title="legifrance.gouv.fr - {{ new_window_label }}"
+                id="footer__content-link-legifrance"
+                class="fr-footer__content-link"
+                href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+            </li>
+            <li class="fr-footer__content-item">
+              <a target="_blank"
+                rel="noopener external"
+                title="data.gouv.fr - {{ new_window_label }}"
+                id="footer__content-link-datagouv"
+                class="fr-footer__content-link"
+                href="https://data.gouv.fr">data.gouv.fr</a>
+            </li>
+            {% block footer_content_extra %}
+            {% endblock footer_content_extra %}
+          </ul>
+        </div>
       </div>
-    </div>
-    {% block footer_partners %}
-    {% endblock footer_partners %}
-    <div class="fr-footer__bottom">
-      <ul class="fr-footer__bottom-list">
-        {% block footer_links %}
-          <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">{% translate "Sitemap" %}</a>
-          </li>
-          <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">
-              {% with accessibility_status=SITE_CONFIG.get_accessibility_status_display|default:"non" %}
-                {% blocktranslate %}Accessibility: {{ accessibility_status }} compliant{% endblocktranslate %}
-              {% endwith %}
-            </a>
-          </li>
-          <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">{% translate "Legal notice" %}</a>
-          </li>
-          <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">{% translate "Personal data" %}</a>
-          </li>
-          <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">{% translate "Cookie management" %}</a>
-          </li>
-        {% endblock footer_links %}
-      </ul>
-      <div class="fr-footer__bottom-copy">
-        <p>
-          {% translate "etalab-2.0 license" as etalab_license %}
-          {% translate "Unless explicit mention of intellectual property held by third parties, the contents of this site are offered under" %}
-          <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
-             target="_blank"
-             rel="noopener external"
-             title="{{ etalab_license|capfirst }} - {{ new_window_label }}">{{ etalab_license }}</a>
-          {% block footer_bottom_extra %}
-          {% endblock footer_bottom_extra %}
-        </p>
+      {% block footer_partners %}
+      {% endblock footer_partners %}
+      <div class="fr-footer__bottom">
+        <ul class="fr-footer__bottom-list">
+          {% block footer_links %}
+            <li class="fr-footer__bottom-item">
+              <a class="fr-footer__bottom-link" href="#">{% translate "Sitemap" %}</a>
+            </li>
+            <li class="fr-footer__bottom-item">
+              <a class="fr-footer__bottom-link" href="#">
+                {% with accessibility_status=SITE_CONFIG.get_accessibility_status_display|default:"non" %}
+                  {% blocktranslate %}Accessibility: {{ accessibility_status }} compliant{% endblocktranslate %}
+                {% endwith %}
+              </a>
+            </li>
+            <li class="fr-footer__bottom-item">
+              <a class="fr-footer__bottom-link" href="#">{% translate "Legal notice" %}</a>
+            </li>
+            <li class="fr-footer__bottom-item">
+              <a class="fr-footer__bottom-link" href="#">{% translate "Personal data" %}</a>
+            </li>
+            <li class="fr-footer__bottom-item">
+              <a class="fr-footer__bottom-link" href="#">{% translate "Cookie management" %}</a>
+            </li>
+          {% endblock footer_links %}
+        </ul>
+        <div class="fr-footer__bottom-copy">
+          <p>
+            {% translate "etalab-2.0 license" as etalab_license %}
+            {% translate "Unless explicit mention of intellectual property held by third parties, the contents of this site are offered under" %}
+            <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
+              target="_blank"
+              rel="noopener external"
+              title="{{ etalab_license|capfirst }} - {{ new_window_label }}">{{ etalab_license }}</a>
+            {% block footer_bottom_extra %}
+            {% endblock footer_bottom_extra %}
+          </p>
+        </div>
       </div>
     </div>
   </div>
