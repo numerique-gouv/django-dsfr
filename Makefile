@@ -54,7 +54,7 @@ update_dsfr:
 	poetry run python manage.py make_icon_picker_files
 	make collectstatic
 
-.PHONY: update_dsfr
+.PHONY: static_server
 static_server:
 	python -m http.server 1$(local_port) -d docs/
 
