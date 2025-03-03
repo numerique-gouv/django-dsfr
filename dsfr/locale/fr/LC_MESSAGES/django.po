@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 11:10+0200\n"
-"PO-Revision-Date: 2024-08-23 11:12+0200\n"
+"POT-Creation-Date: 2025-03-03 16:55+0100\n"
+"PO-Revision-Date: 2025-03-03 16:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -440,12 +440,12 @@ msgstr "Qu’est-ce que FranceConnect ?"
 msgid "Menu"
 msgstr "Menu"
 
-#: dsfr/templates/dsfr/header.html:87 dsfr/templates/dsfr/theme_modale.html:13
+#: dsfr/templates/dsfr/header.html:91 dsfr/templates/dsfr/theme_modale.html:13
 #: dsfr/templates/dsfr/transcription.html:30
 msgid "Close"
 msgstr "Fermer"
 
-#: dsfr/templates/dsfr/header.html:91
+#: dsfr/templates/dsfr/header.html:95
 msgid "Main menu"
 msgstr "Menu principal"
 

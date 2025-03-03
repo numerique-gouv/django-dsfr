@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 11:21+0200\n"
-"PO-Revision-Date: 2024-08-23 11:22+0200\n"
+"POT-Creation-Date: 2025-03-03 16:55+0100\n"
+"PO-Revision-Date: 2025-03-03 16:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -105,7 +105,7 @@ msgstr "Menu"
 msgid "Close"
 msgstr "Fermer"
 
-#: example_app/templates/example_app/blocks/language_selector.html:10
+#: example_app/templates/example_app/blocks/language_selector.html:7
 msgid "Select language"
 msgstr "Sélectionner une langue"
 
