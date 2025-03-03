@@ -30,9 +30,9 @@ class Command(BaseCommand):
 
         DsfrSocialMedia.objects.get_or_create(
             site_config=config,
-            title="Mastodon",
-            url="https://social.numerique.gouv.fr/explore",
-            icon_class="fr-btn--mastodon",
+            title="Github",
+            url="https://github.com/numerique-gouv/django-dsfr",
+            icon_class="fr-icon-github-fill",
         )
 
         Genre.objects.get_or_create(code="SF", designation="Science-Fiction")
