@@ -46,5 +46,5 @@ class Command(BaseCommand):
                 fp.write("\n")
 
         self.stdout.write(
-            self.style.SUCCESS("Folders created or updated: ", all_folders)
+            self.style.SUCCESS(f"Folders created or updated: {all_folders}")
         )
