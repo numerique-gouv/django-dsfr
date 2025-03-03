@@ -56,25 +56,29 @@
             </p>
           </div>
         </div>
-        <div class="fr-header__tools">
-          <div class="fr-header__tools-links">
-            {% block header_tools %}
-              <ul class="fr-btns-group">
-                <li>
-                  <a class="fr-icon-add-circle-line fr-btn" href="[url - à modifier]">Créer un espace</a>
-                </li>
-                <li>
-                  <a class="fr-icon-lock-line fr-btn" href="[url - à modifier]">Se connecter</a>
-                </li>
-                <li>
-                  <a class="fr-icon-account-line fr-btn" href="[url - à modifier]">S’enregistrer</a>
-                </li>
-              </ul>
-            {% endblock header_tools %}
+        {% block header_tools_wrapper %}
+          <div class="fr-header__tools">
+            {% block header_tools_links %}
+              <div class="fr-header__tools-links">
+                <ul class="fr-btns-group">
+                  {% block header_tools %}
+                    <li>
+                      <a class="fr-icon-add-circle-line fr-btn" href="[url - à modifier]">Créer un espace</a>
+                    </li>
+                    <li>
+                      <a class="fr-icon-lock-line fr-btn" href="[url - à modifier]">Se connecter</a>
+                    </li>
+                    <li>
+                      <a class="fr-icon-account-line fr-btn" href="[url - à modifier]">S’enregistrer</a>
+                    </li>
+                  {% endblock header_tools %}
+                </ul>
+              </div>
+            {% endblock header_tools_links %}
+            {% block header_search %}
+            {% endblock header_search %}
           </div>
-          {% block header_search %}
-          {% endblock header_search %}
-        </div>
+        {% endblock header_tools_wrapper %}
       </div>
     </div>
   </div>
