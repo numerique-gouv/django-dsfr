@@ -45,4 +45,6 @@ class Command(BaseCommand):
                 json.dump(icons_dict, fp)
                 fp.write("\n")
 
-        print("Folders created or updated: ", all_folders)
+        self.stdout.write(
+            self.style.SUCCESS("Folders created or updated: ", all_folders)
+        )
