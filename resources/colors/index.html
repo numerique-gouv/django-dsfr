@@ -1093,7 +1093,7 @@
   </p>
 
   <p>
-    Il faut utiliser une classe de type <code>fr-background-alt--&lt;color-name&gt;</code> (par exemple, <code>fr-background-alt--green-archipel</code>.)
+    Il faut utiliser une classe de type <code>fr-background-alt--&lt;color-name&gt;</code> (par exemple, <code>fr-background-alt--<span class="example-color-name">green-archipel</span></code>.)
   </p>
 
   <div class="fr-background-alt fr-px-2w fr-pt-2w fr-pb-2v fr-mb-2w">
@@ -1172,7 +1172,7 @@
       Personnalise la couleur du fond et du texte.
     </p>
     <p>
-      Il faut utiliser une classe de type <code>fr-badge--&lt;color-name&gt;</code> (par exemple, <code>fr-quote--green-archipel</code>.)
+      Il faut utiliser une classe de type <code>fr-badge--&lt;color-name&gt;</code> (par exemple, <code>fr-badge--<span class="example-color-name">green-archipel</span></code>.)
     </p>
 
     <p>
@@ -1189,7 +1189,7 @@
       Personnalise la couleur de l’icône.
     </p>
     <p>
-      Il faut utiliser une classe de type <code>fr-quote--&lt;color-name&gt;</code> (par exemple, <code>fr-quote--green-archipel</code>.)
+      Il faut utiliser une classe de type <code>fr-quote--&lt;color-name&gt;</code> (par exemple, <code>fr-quote--<span class="example-color-name">green-archipel</span></code>.)
     </p>
     
 
@@ -1214,7 +1214,7 @@
       Personnalise la couleur du fond et de la bordure.
     </p>
     <p>
-      Il faut utiliser une classe de type <code>fr-callout--&lt;color-name&gt;</code> (par exemple, <code>fr-callout--green-archipel</code>.)
+      Il faut utiliser une classe de type <code>fr-callout--&lt;color-name&gt;</code> (par exemple, <code>fr-callout--<span class="example-color-name">green-archipel</span></code>.)
     </p>
     
 <div class="fr-callout fr-icon-alert-line">
@@ -1248,7 +1248,7 @@
       Personnalise la couleur de la bordure.
     </p>
     <p>
-      Il faut utiliser une classe de type <code>fr-highlight--&lt;color-name&gt;</code> (par exemple, <code>fr-highlight--green-archipel</code>.)
+      Il faut utiliser une classe de type <code>fr-highlight--&lt;color-name&gt;</code> (par exemple, <code>fr-highlight--<span class="example-color-name">green-archipel</span></code>.)
     </p>
     <div class="fr-highlight">
   <p class="fr-text--sm">
@@ -1264,7 +1264,7 @@
       Personnalise la couleur du fond, du texte et de l’icône. Seuls les tags cliquables sont pris en compte.
     </p>
     <p>
-      Il faut utiliser une classe de type <code>fr-tag--&lt;color-name&gt;</code> (par exemple, <code>fr-tag--green-archipel</code>.)
+      Il faut utiliser une classe de type <code>fr-tag--&lt;color-name&gt;</code> (par exemple, <code>fr-tag--<span class="example-color-name">green-archipel</span></code>.)
     </p>
     <ul class="fr-tags-group">
       <li>
@@ -1479,15 +1479,15 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-dQNRA2VhSeU0SYIKWHja8MGpEF7wm/34WJRVJMHbbUItBgG2yn0JYMdlnKWNsuR8"
-         nonce="VbjoT74YhovLpJ8ZkXjWBg=="></script>
+         nonce="f7BCwK4ZK4CrecFTxeCQHw=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-Z9sSCL+iZkc22YwU6QRxXGtKnQiiiVLq4aJhoIJNtV0lO9nd12ZwowDrsA/eSxmd"
-         nonce="VbjoT74YhovLpJ8ZkXjWBg=="></script>
+         nonce="f7BCwK4ZK4CrecFTxeCQHw=="></script>
 
 
     
-  <script>
+  <script nonce="f7BCwK4ZK4CrecFTxeCQHw==">
     const colors_list = [
       "blue-france",
       "red-marianne",
@@ -1529,16 +1529,26 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
       }
     }
 
+    function manageExampleColorNames(color) {
+      if (color == "") {
+        color = "green-archipel"
+      }
+      const collection = document.getElementsByClassName("example-color-name");
+      for (const element of collection){
+        element.innerHTML= color;
+      }
+    }
+
     document.getElementById('id_color_accent').addEventListener('input', function (event) {
       manageColorClasses("fr-badge", event.target.value);
       manageColorClasses("fr-quote", event.target.value);
       manageColorClasses("fr-callout", event.target.value);
       manageColorClasses("fr-highlight", event.target.value);
       manageColorClasses("fr-tag", event.target.value);
+      manageExampleColorNames(event.target.value);
     }, false);
 
     document.getElementById('id_color_full').addEventListener('input', function (event) {
-      console.log("here");
       manageColorClasses("fr-background-alt", event.target.value);
     }, false);
 
