@@ -91,3 +91,39 @@ Un bloc `opengraph`, vide par défaut, est fourni pour permettre d’entrer des 
   <meta name="twitter:image:alt" content="[À MODIFIER - République Française - Système de Design de l'État]">
 {% endblock opengraph %}
 ```
+
+## Bloc déprécié
+- Le bloc `header_tools`, qui n’agit que sur l’intérieur de la liste de liens de l’en-tête, pose un problème d’acessibilité si cette liste est vide et va donc être supprimé à terme. Les personnalisations sont à mettre dans le nouveau bloc `header_tools_links`, comme suit :
+
+```{.django}
+<!-- <votre_app>/templates/<votre_app>/base.html -->
+{% extends "dsfr/base.html" %}
+
+<!-- [...] -->
+
+{% block header_tools_links %}
+  <div class="fr-header__tools-links">
+    <ul class="fr-btns-group">
+        <li>
+          <a class="fr-icon-add-circle-line fr-btn" href="[url - à modifier]">Créer un espace</a>
+        </li>
+        <li>
+          <a class="fr-icon-lock-line fr-btn" href="[url - à modifier]">Se connecter</a>
+        </li>
+        <li>
+          <a class="fr-icon-account-line fr-btn" href="[url - à modifier]">S’enregistrer</a>
+        </li>
+    </ul>
+  </div>
+{% endblock header_tools_links %}
+```
+- Inversement, s’il est vide, il faut donc l’indiquer explicitement comme vide. De même, s’il n’y a pas non plus de barre de recherche, indiquer explicitement le bloc `header_tools_wrapper` comme vide :
+
+```{.django}
+<!-- <votre_app>/templates/<votre_app>/base.html -->
+{% extends "dsfr/base.html" %}
+
+<!-- [...] -->
+
+{% block header_tools_wrapper %}{% endblock header_tools_wrapper %}
+```
