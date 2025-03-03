@@ -62,7 +62,7 @@
   </p>
 
   <p>
-    Il faut utiliser une classe de type <code>fr-background-alt--&lt;color-name&gt;</code> (par exemple, <code>fr-background-alt--<span class="example-color-name">green-archipel</span></code>.)
+    Il faut utiliser une classe de type <code>fr-background-alt--&lt;color-name&gt;</code> (par exemple, <code>fr-background-alt--<span class="example-color-name-full">green-archipel</span></code>.)
   </p>
 
   <div class="fr-background-alt fr-px-2w fr-pt-2w fr-pb-2v fr-mb-2w">
@@ -95,7 +95,7 @@
       Personnalise la couleur du fond et du texte.
     </p>
     <p>
-      Il faut utiliser une classe de type <code>fr-badge--&lt;color-name&gt;</code> (par exemple, <code>fr-badge--<span class="example-color-name">green-archipel</span></code>.)
+      Il faut utiliser une classe de type <code>fr-badge--&lt;color-name&gt;</code> (par exemple, <code>fr-badge--<span class="example-color-name-accent">green-archipel</span></code>.)
     </p>
 
     <p>
@@ -109,7 +109,7 @@
       Personnalise la couleur de l’icône.
     </p>
     <p>
-      Il faut utiliser une classe de type <code>fr-quote--&lt;color-name&gt;</code> (par exemple, <code>fr-quote--<span class="example-color-name">green-archipel</span></code>.)
+      Il faut utiliser une classe de type <code>fr-quote--&lt;color-name&gt;</code> (par exemple, <code>fr-quote--<span class="example-color-name-accent">green-archipel</span></code>.)
     </p>
     {% dsfr_quote components_data.quote.sample_data.0 %}
 
@@ -120,7 +120,7 @@
       Personnalise la couleur du fond et de la bordure.
     </p>
     <p>
-      Il faut utiliser une classe de type <code>fr-callout--&lt;color-name&gt;</code> (par exemple, <code>fr-callout--<span class="example-color-name">green-archipel</span></code>.)
+      Il faut utiliser une classe de type <code>fr-callout--&lt;color-name&gt;</code> (par exemple, <code>fr-callout--<span class="example-color-name-accent">green-archipel</span></code>.)
     </p>
     {% dsfr_callout components_data.callout.sample_data.0 %}
 
@@ -131,7 +131,7 @@
       Personnalise la couleur de la bordure.
     </p>
     <p>
-      Il faut utiliser une classe de type <code>fr-highlight--&lt;color-name&gt;</code> (par exemple, <code>fr-highlight--<span class="example-color-name">green-archipel</span></code>.)
+      Il faut utiliser une classe de type <code>fr-highlight--&lt;color-name&gt;</code> (par exemple, <code>fr-highlight--<span class="example-color-name-accent">green-archipel</span></code>.)
     </p>
     {% dsfr_highlight components_data.highlight.sample_data.0 %}
 
@@ -142,7 +142,7 @@
       Personnalise la couleur du fond, du texte et de l’icône. Seuls les tags cliquables sont pris en compte.
     </p>
     <p>
-      Il faut utiliser une classe de type <code>fr-tag--&lt;color-name&gt;</code> (par exemple, <code>fr-tag--<span class="example-color-name">green-archipel</span></code>.)
+      Il faut utiliser une classe de type <code>fr-tag--&lt;color-name&gt;</code> (par exemple, <code>fr-tag--<span class="example-color-name-accent">green-archipel</span></code>.)
     </p>
     <ul class="fr-tags-group">
       <li>
@@ -197,11 +197,11 @@
       }
     }
 
-    function manageExampleColorNames(color) {
+    function manageExampleColorNames(color, group) {
       if (color == "") {
         color = "green-archipel"
       }
-      const collection = document.getElementsByClassName("example-color-name");
+      const collection = document.getElementsByClassName("example-color-name-" + group);
       for (const element of collection){
         element.innerHTML= color;
       }
@@ -213,11 +213,12 @@
       manageColorClasses("fr-callout", event.target.value);
       manageColorClasses("fr-highlight", event.target.value);
       manageColorClasses("fr-tag", event.target.value);
-      manageExampleColorNames(event.target.value);
+      manageExampleColorNames(event.target.value, "accent");
     }, false);
 
     document.getElementById('id_color_full').addEventListener('input', function (event) {
       manageColorClasses("fr-background-alt", event.target.value);
+      manageExampleColorNames(event.target.value, "full");
     }, false);
 
   </script>
