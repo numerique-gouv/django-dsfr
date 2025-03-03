@@ -12,7 +12,6 @@ from django.utils.html import format_html, format_html_join
 from dsfr.checksums import (
     INTEGRITY_CSS,
     INTEGRITY_UTILITY_CSS,
-    INTEGRITY_CSS_ICONS,
     INTEGRITY_FAVICON_APPLE,
     INTEGRITY_FAVICON_ICO,
     INTEGRITY_FAVICON_MANIFEST,
@@ -228,7 +227,7 @@ def dsfr_alert(*args, **kwargs) -> dict:
         "collapsible_attrs",
         {
             "onclick": (
-                "const alert = this.parentNode; " "alert.parentNode.removeChild(alert)"
+                "const alert = this.parentNode; alert.parentNode.removeChild(alert);"
             )
         },
     )

@@ -10,7 +10,8 @@ class Command(BaseCommand):
     BASE_PATH = "dsfr/static/dsfr/dist"
 
     def handle(self, *args, **options):
-        print("Delete CSS map files and non-minified CSS files")
+        self.stdout.write("Delete CSS map files and non-minified CSS files")
+
         deleted_files = 0
         all_css_map_files = self.get_files_by_ext("*.css.map")
         for file in all_css_map_files:
@@ -22,9 +23,10 @@ class Command(BaseCommand):
             os.remove(file)
             deleted_files += 1
 
-        print(f"{deleted_files} files deleted.")
+        self.stdout.write(f"{deleted_files} files deleted.")
 
-        print("Delete JS map files and non-minified files")
+        self.stdout.write("Delete JS map files and non-minified files")
+
         deleted_files = 0
         all_js_map_files = self.get_files_by_ext("*.js.map")
         for file in all_js_map_files:
@@ -36,9 +38,9 @@ class Command(BaseCommand):
             os.remove(file)
             deleted_files += 1
 
-        print(f"{deleted_files} files deleted.")
+        self.stdout.write(f"{deleted_files} files deleted.")
 
-        print("Removing mentions of deleted files")
+        self.stdout.write("Removing mentions of deleted files")
         edited_files = 0
         all_minified_js_files = self.get_files_by_ext("*.min.js")
         for filename in all_minified_js_files:
@@ -51,7 +53,7 @@ class Command(BaseCommand):
                 file.truncate()
                 edited_files += 1
 
-        print(f"{edited_files} files edited.")
+        self.stdout.write(f"{edited_files} files edited.")
 
     def get_files_by_ext(self, extension) -> list:
         return [

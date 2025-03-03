@@ -23,11 +23,6 @@ INTEGRITY_UTILITY_CSS = (
     "sha384-pXDVyHuMGAo5xGPXnYhmr6rOcGwSZsrAVCJdC6J2PRRxcJL9jFMK//yzaUqMhsBw"
 )
 
-# dsfr/static/dsfr/dist/utility/icons/icons.min.css
-INTEGRITY_CSS_ICONS = (
-    "sha384-00cql3NHF4SSck9bB/Ca/LHBQnO4sy17TUWBr2QlKc1fqcPQ9EIG4g6Mt22uP9Vp"
-)
-
 # dsfr/static/dsfr/dist/favicon/apple-touch-icon.png
 INTEGRITY_FAVICON_APPLE = (
     "sha384-bE/sjT09LYXMMjd/7ovUY40XBU2WQoLkIRw4/eBcHdBVsJOhoomJuSSa+qEFGku/"

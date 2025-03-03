@@ -12,12 +12,12 @@ else
 endif
 
 # Commands
-checkstyle:
-	poetry run pre-commit run --all-files
 
+.PHONY: collectstatic
 collectstatic:
 	poetry run python manage.py collectstatic --noinput
 
+.PHONY: init
 init:
 	poetry install
 	poetry run pre-commit install
@@ -34,12 +34,19 @@ messages:
 compilemessages:
 	poetry run django-admin compilemessages
 
+.PHONY: quality
+quality:
+	poetry run pre-commit run --all-files
+
+.PHONY: runserver
 runserver:
 	poetry run python manage.py runserver $(local_port)
 
+.PHONY: test
 test:
 	poetry run python manage.py test
 
+.PHONY: update_dsfr
 update_dsfr:
 	bash scripts/download_latest.sh
 	poetry run python manage.py trim_dist
@@ -47,9 +54,11 @@ update_dsfr:
 	poetry run python manage.py make_icon_picker_files
 	make collectstatic
 
+.PHONY: static_server
 static_server:
 	python -m http.server 1$(local_port) -d docs/
 
+.PHONY: export_static
 export_static:
 	poetry run python manage.py migrate
 	poetry run python manage.py import_sample_data

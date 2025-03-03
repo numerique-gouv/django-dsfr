@@ -4,10 +4,11 @@
   {% get_available_languages as LANGUAGES %}
   {% get_language_info_list for LANGUAGES as languages %}
   <div class="fr-nav__item">
+    {% translate "Select language" as select_language %}
     <button class="fr-translate__btn fr-btn fr-btn--tertiary"
             aria-controls="translate-menu"
             aria-expanded="false"
-            title="{% translate 'Select language' %}">
+            title="{{ select_language }}">
       {% get_language_info for LANGUAGE_CODE as current_lang %}{{ current_lang.code|upper }}
       <span class="fr-hidden-lg"> - {{ current_lang.name_local |title }}</span>
     </button>
