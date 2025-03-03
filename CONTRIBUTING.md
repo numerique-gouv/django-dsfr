@@ -60,7 +60,7 @@ Concernant les langues :
 Pour vérifier son code, on peut intégrer le linter adapté à son IDE et aussi faire ceci :
 
 ```{ .bash }
-make checkstyle
+make quality
 ```
 
 Une vérification automatique est faite via des *pre-commit hooks*, qui ont normalement été installés via le `make init`.
