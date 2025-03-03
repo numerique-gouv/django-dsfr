@@ -93,6 +93,14 @@ Un bloc `opengraph`, vide par défaut, est fourni pour permettre d’entrer des 
 ```
 
 ## Bloc déprécié
+### header_tools
+
+<ul class="fr-badge-group">
+  <li><p class="fr-badge fr-badge--new">
+    Nouveau en version 2.2.0</p>
+  </li>
+</ul>
+
 - Le bloc `header_tools`, qui n’agit que sur l’intérieur de la liste de liens de l’en-tête, pose un problème d’acessibilité si cette liste est vide et va donc être supprimé à terme. Les personnalisations sont à mettre dans le nouveau bloc `header_tools_links`, comme suit :
 
 ```{.django}
