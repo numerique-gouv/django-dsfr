@@ -1217,6 +1217,7 @@ def dsfr_tag(*args, **kwargs) -> dict:
         "link": "(Optional) link of the tag",
         "onclick": "(Optional) action that happens when the tag is clicked on",
         "is_selectable": "(Optional) boolean that marks the tag as selectable",
+        "is_selected": "(Optional) boolean that marks the tag as selected if it is selectable",
         "is_dismissable": "(Optional) boolean that marks the tag as dismissable",
         "extra_classes: (Optional) string with names of extra classes"
     }
@@ -1243,6 +1244,7 @@ def dsfr_tag(*args, **kwargs) -> dict:
         "onclick",
         "extra_classes",
         "is_selectable",
+        "is_selected",
         "is_dismissable",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
