@@ -908,6 +908,11 @@ IMPLEMENTED_COMPONENTS = {
                 "is_selectable": True,
             },
             {
+                "label": "Tag sélectionné",
+                "is_selectable": True,
+                "is_selected": True,
+            },
+            {
                 "label": "Tag supprimable",
                 "is_dismissable": True,
             },
