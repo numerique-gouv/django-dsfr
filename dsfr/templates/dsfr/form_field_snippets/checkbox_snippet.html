@@ -3,6 +3,10 @@
   {{ field|dsfr_input_class_attr|attr:"type:checkbox" }}
   <label for="{{ field.id_for_label }}" class="fr-label">
     {{ field.label }}
+    {% if field.field.required %}
+      *
+    {% endif %}
+
     {% if field.help_text %}
       <span class="fr-hint-text">{{ field.help_text|safe }}</span>
     {% endif %}
