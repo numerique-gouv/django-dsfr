@@ -83,13 +83,17 @@ class ExampleForm(DsfrBaseForm):
         widget=forms.DateInput(attrs={"type": "date"}),
     )
 
-    """
-    Not managed by the DSFR:
-    - DateTimeField
-    """
+    sample_datetime = forms.DateTimeField(
+        label="Date et heure",
+        help_text="""Attention, dans Firefox le sélecteur
+        <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1726108" target="_blank">n’affiche que la date</a>.
+        Il reste possible de choisir l’heure directement sur la ligne.""",
+        required=False,
+        widget=forms.DateInput(attrs={"type": "datetime-local"}),
+    )
 
     # Booleans and choicefields
-    sample_boolean = forms.BooleanField(label="Cochez la case", required=False)
+    sample_boolean = forms.BooleanField(label="Cochez la case", required=True)
 
     sample_select = forms.ChoiceField(
         label="Liste déroulante",
