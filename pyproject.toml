@@ -1,6 +1,6 @@
 [project]
 name = "django-dsfr"
-version = "2.2.0"
+version = "2.3.0"
 description = "Integrate the French government Design System into a Django app"
 authors = [
     {name = "Sylvain Boissel", email = "sylvain.boissel@beta.gouv.fr"}
