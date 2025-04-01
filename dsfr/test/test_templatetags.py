@@ -1004,6 +1004,20 @@ class DsfrTagTagTest(SimpleTestCase):
             rendered_template,
         )
 
+    def test_tag_dismissable_rendered(self):
+        test_data = {
+            "label": "Label of the tag item",
+            "is_dismissable": True,
+        }
+
+        context = Context({"test_data": test_data})
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_tag test_data %}")
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """<button type="button" class="fr-tag fr-tag--dismiss" aria-label="Retirer le filtre Label of the tag item" onclick="event.preventDefault(); this.parentNode.removeChild(this);">Label of the tag item</button>""",  # noqa
+            rendered_template,
+        )
+
 
 class DsfrToggleTagTest(SimpleTestCase):
     def test_toggle_rendered(self):
