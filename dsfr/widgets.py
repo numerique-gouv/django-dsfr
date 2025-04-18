@@ -5,7 +5,7 @@ from django.forms.widgets import RadioSelect, ChoiceWidget
 from dsfr.enums import RichRadioButtonChoices
 
 
-__all__ = ["RichRadioSelect"]
+__all__ = ["RichRadioSelect", "InlineRadioSelect"]
 
 
 class _RichChoiceWidget(ChoiceWidget):
@@ -131,3 +131,7 @@ class RichRadioSelect(_RichChoiceWidget, RadioSelect):
 
     template_name = "dsfr/widgets/rich_radio.html"
     option_template_name = "dsfr/widgets/rich_radio_option.html"
+
+
+class InlineRadioSelect(RadioSelect):
+    inline = True

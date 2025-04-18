@@ -5,7 +5,7 @@
   {% include "dsfr/form_field_snippets/checkbox_snippet.html" %}
 {% elif field|widget_type == "checkboxselectmultiple" %}
   {% include "dsfr/form_field_snippets/checkboxselectmultiple_snippet.html" %}
-{% elif field|widget_type == "radioselect" %}
+{% elif field|widget_type == "radioselect" or field|widget_type == "inlineradioselect" %}
   {% include "dsfr/form_field_snippets/radioselect_snippet.html" %}
 {% elif field|widget_type == "richradioselect" %}
   {% include "dsfr/form_field_snippets/richradioselect_snippet.html" %}
