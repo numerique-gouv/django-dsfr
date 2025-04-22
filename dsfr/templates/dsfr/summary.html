@@ -3,7 +3,7 @@
      class="fr-summary"
      aria-labelledby="fr-summary-title">
   <{{ self.heading_tag | default:"p" }} class="fr-summary__title" id="fr-summary-title">
-  {% translate "Summary" %}
+  {% translate "Summary" context "DSFR component" %}
   </{{ self.heading_tag | default:"p" }}>
   <ol class="fr-summary__list">
     {% for item in self.items %}
