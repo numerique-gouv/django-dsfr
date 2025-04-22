@@ -54,6 +54,11 @@ update_dsfr:
 	poetry run python manage.py make_icon_picker_files
 	make collectstatic
 
+.PHONY: upgrade
+upgrade:
+	poetry update
+	poetry run pre-commit autoupdate
+
 .PHONY: static_server
 static_server:
 	python -m http.server 1$(local_port) -d docs/
