@@ -3,7 +3,6 @@
 {% url 'index' as home_url %}
 
 {% block brand %}
-  {% translate "Home page" as home_page %}
   <p class="fr-logo">
     {{ SITE_CONFIG.header_brand_html|default_if_none:"république<br />française" | safe }}
   </p>
