@@ -40,8 +40,6 @@
     {% block header %}
     {% endblock header %}
 
-    {% dsfr_theme_modale %}
-
     {% if SITE_CONFIG.notice_title or SITE_CONFIG.notice_description %}
       {% dsfr_notice title=SITE_CONFIG.notice_title description=SITE_CONFIG.notice_description link=SITE_CONFIG.notice_link type=SITE_CONFIG.notice_type icon=SITE_CONFIG.notice_icon_class is_collapsible=SITE_CONFIG.notice_is_collapsible %}
     {% endif %}
@@ -62,6 +60,10 @@
     {% block footer %}
       {% include "dsfr/footer.html" %}
     {% endblock footer %}
+
+    {% block theme_modale %}
+      {% dsfr_theme_modale %}
+    {% endblock theme_modale %}
 
     {% dsfr_js nonce=request.csp_nonce %}
 
