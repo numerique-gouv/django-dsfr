@@ -713,84 +713,6 @@
 
 
     
-<dialog id="fr-theme-modal"
-        class="fr-modal"
-        aria-labelledby="fr-theme-modal-title">
-  <div class="fr-container fr-container--fluid fr-container-md">
-    <div class="fr-grid-row fr-grid-row--center">
-      <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
-        <div class="fr-modal__body">
-          <div class="fr-modal__header">
-            <button class="fr-btn--close fr-btn"
-                    aria-describedby="fr-theme-modal-title"
-                    aria-controls="fr-theme-modal">
-              Fermer
-            </button>
-          </div>
-          <div class="fr-modal__content">
-            <h1 id="fr-theme-modal-title" class="fr-modal__title">
-              Paramètres d’affichage
-            </h1>
-            <div id="fr-display" class="fr-form-group fr-display">
-              <div class="fr-form-group">
-                <fieldset class="fr-fieldset">
-                  <legend class="fr-fieldset__legend fr-text--regular" id="-legend">
-                    Choisissez un thème pour personnaliser l’apparence du site.
-                  </legend>
-                  <div class="fr-fieldset__content">
-                    <div class="fr-radio-group fr-radio-rich">
-                      <input value="light"
-                             type="radio"
-                             id="fr-radios-theme-light"
-                             name="fr-radios-theme" />
-                      <label class="fr-label" for="fr-radios-theme-light">
-                        Thème clair
-                      </label>
-                      <div class="fr-radio-rich__img" data-fr-inject-svg>
-                        <img src="/django-dsfr/static/dsfr/dist/artwork/light.svg" alt="" />
-                        
-                      </div>
-                    </div>
-                    <div class="fr-radio-group fr-radio-rich">
-                      <input value="dark"
-                             type="radio"
-                             id="fr-radios-theme-dark"
-                             name="fr-radios-theme" />
-                      <label class="fr-label" for="fr-radios-theme-dark">
-                        Thème sombre
-                      </label>
-                      <div class="fr-radio-rich__img" data-fr-inject-svg>
-                        <img src="/django-dsfr/static/dsfr/dist/artwork/dark.svg" alt="" />
-                        
-                      </div>
-                    </div>
-                    <div class="fr-radio-group fr-radio-rich">
-                      <input value="system"
-                             type="radio"
-                             id="fr-radios-theme-system"
-                             name="fr-radios-theme" />
-                      <label class="fr-label" for="fr-radios-theme-system">
-                        Système
-                        <span class="fr-hint-text">Utilise les paramètres système.</span>
-                      </label>
-                      <div class="fr-radio-rich__img" data-fr-inject-svg>
-                        <img src="/django-dsfr/static/dsfr/dist/artwork/system.svg" alt="" />
-                        
-                      </div>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-
-    
 
     <div class="fr-container fr-mt-4w fr-mb-6w">
       
@@ -1025,14 +947,94 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 
 
     
+      
+<dialog id="fr-theme-modal"
+        class="fr-modal"
+        aria-labelledby="fr-theme-modal-title">
+  <div class="fr-container fr-container--fluid fr-container-md">
+    <div class="fr-grid-row fr-grid-row--center">
+      <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+        <div class="fr-modal__body">
+          <div class="fr-modal__header">
+            <button class="fr-btn--close fr-btn"
+                    aria-describedby="fr-theme-modal-title"
+                    aria-controls="fr-theme-modal">
+              Fermer
+            </button>
+          </div>
+          <div class="fr-modal__content">
+            <h1 id="fr-theme-modal-title" class="fr-modal__title">
+              Paramètres d’affichage
+            </h1>
+            <div id="fr-display" class="fr-form-group fr-display">
+              <div class="fr-form-group">
+                <fieldset class="fr-fieldset">
+                  <legend class="fr-fieldset__legend fr-text--regular" id="-legend">
+                    Choisissez un thème pour personnaliser l’apparence du site.
+                  </legend>
+                  <div class="fr-fieldset__content">
+                    <div class="fr-radio-group fr-radio-rich">
+                      <input value="light"
+                             type="radio"
+                             id="fr-radios-theme-light"
+                             name="fr-radios-theme" />
+                      <label class="fr-label" for="fr-radios-theme-light">
+                        Thème clair
+                      </label>
+                      <div class="fr-radio-rich__img" data-fr-inject-svg>
+                        <img src="/django-dsfr/static/dsfr/dist/artwork/light.svg" alt="" />
+                        
+                      </div>
+                    </div>
+                    <div class="fr-radio-group fr-radio-rich">
+                      <input value="dark"
+                             type="radio"
+                             id="fr-radios-theme-dark"
+                             name="fr-radios-theme" />
+                      <label class="fr-label" for="fr-radios-theme-dark">
+                        Thème sombre
+                      </label>
+                      <div class="fr-radio-rich__img" data-fr-inject-svg>
+                        <img src="/django-dsfr/static/dsfr/dist/artwork/dark.svg" alt="" />
+                        
+                      </div>
+                    </div>
+                    <div class="fr-radio-group fr-radio-rich">
+                      <input value="system"
+                             type="radio"
+                             id="fr-radios-theme-system"
+                             name="fr-radios-theme" />
+                      <label class="fr-label" for="fr-radios-theme-system">
+                        Système
+                        <span class="fr-hint-text">Utilise les paramètres système.</span>
+                      </label>
+                      <div class="fr-radio-rich__img" data-fr-inject-svg>
+                        <img src="/django-dsfr/static/dsfr/dist/artwork/system.svg" alt="" />
+                        
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+    
+
+    
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-dQNRA2VhSeU0SYIKWHja8MGpEF7wm/34WJRVJMHbbUItBgG2yn0JYMdlnKWNsuR8"
-         nonce="fk/Yc5wB9SG9oOMoUSPgYA=="></script>
+         nonce="cfmEsVqou52e3Ujsux7d1A=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-Z9sSCL+iZkc22YwU6QRxXGtKnQiiiVLq4aJhoIJNtV0lO9nd12ZwowDrsA/eSxmd"
-         nonce="fk/Yc5wB9SG9oOMoUSPgYA=="></script>
+         nonce="cfmEsVqou52e3Ujsux7d1A=="></script>
 
 
     
