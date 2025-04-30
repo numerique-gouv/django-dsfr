@@ -449,8 +449,8 @@ IMPLEMENTED_COMPONENTS = {
                 "svg": gov_svg,
                 "caption": """Image SVG avec un lien dans la légende.
                                 <a class="fr-link" href="https://main--ds-gouv.netlify.app/example/component/content/"
-                                    rel=noopener external'
-                                    title="Source - Ouvre une nouvelle fenêtre" target='_blank'>Source</a>.""",
+                                    rel="noopener external"
+                                    title="Source - Ouvre une nouvelle fenêtre" target="_blank">Source</a>.""",
                 "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
             },
             {
