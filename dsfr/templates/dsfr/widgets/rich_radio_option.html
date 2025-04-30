@@ -5,7 +5,8 @@
            id="{{ widget.attrs.id }}"
            name="{{ widget.name }}"
            {% include "django/forms/widgets/attrs.html" %}>
-    <label class="fr-label" for="{{ widget.attrs.id }}">
+    <label class="fr-label"
+           {% if widget.attrs.id %}for="{{ widget.attrs.id }}"{% endif %}>
       {{ widget.html_label }}
     </label>
     {% if widget.pictogram %}
