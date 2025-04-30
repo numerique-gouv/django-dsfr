@@ -12,10 +12,6 @@ from django.utils.html import format_html, format_html_join
 from dsfr.checksums import (
     INTEGRITY_CSS,
     INTEGRITY_UTILITY_CSS,
-    INTEGRITY_FAVICON_APPLE,
-    INTEGRITY_FAVICON_ICO,
-    INTEGRITY_FAVICON_MANIFEST,
-    INTEGRITY_FAVICON_SVG,
     INTEGRITY_JS_MODULE,
     INTEGRITY_JS_NOMODULE,
 )
@@ -87,7 +83,7 @@ def dsfr_js(context, *args, **kwargs) -> dict:
 
 
 @register.inclusion_tag("dsfr/favicon.html")
-def dsfr_favicon() -> dict:
+def dsfr_favicon() -> None:
     """
     Returns the HTML for the CSS header tags for the DSFR "Marianne" Favicon
 
@@ -98,13 +94,7 @@ def dsfr_favicon() -> dict:
         `{% dsfr_favicon %}`
     """
 
-    tag_data = {}
-    tag_data["INTEGRITY_FAVICON_APPLE"] = INTEGRITY_FAVICON_APPLE
-    tag_data["INTEGRITY_FAVICON_SVG"] = INTEGRITY_FAVICON_SVG
-    tag_data["INTEGRITY_FAVICON_ICO"] = INTEGRITY_FAVICON_ICO
-    tag_data["INTEGRITY_FAVICON_MANIFEST"] = INTEGRITY_FAVICON_MANIFEST
-
-    return {"self": tag_data}
+    return None
 
 
 @register.inclusion_tag("dsfr/theme_modale.html")
