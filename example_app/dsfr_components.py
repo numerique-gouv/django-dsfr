@@ -978,7 +978,7 @@ IMPLEMENTED_COMPONENTS = {
             {
                 "title": "Tuile à fond gris et ombre sans bordure",
                 "url": "/",
-                "id": "tile-map",
+                "id": "tile-map-noborder",
                 "extra_classes": "fr-tile--horizontal fr-tile--grey fr-tile--shadow fr-tile--no-border",
                 "svg_path": static("dsfr/dist/artwork/pictograms/leisure/paint.svg"),
             },
