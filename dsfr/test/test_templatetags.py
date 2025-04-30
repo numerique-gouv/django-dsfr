@@ -791,6 +791,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
     test_data = {
         "title": "Menu",
         "heading_tag": "h2",
+        "id": "example",
         "items": [
             {
                 "label": "Menu replié",
@@ -862,11 +863,11 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                     type="button"
                     class="fr-sidemenu__btn"
                     aria-expanded="true"
-                    aria-controls="fr-sidemenu-item-2-2"
+                    aria-controls="fr-sidemenu-example-item-2-2"
                 >
                     Sous-menu ouvert
                 </button>
-                <div class="fr-collapse" id="fr-sidemenu-item-2-2">
+                <div class="fr-collapse" id="fr-sidemenu-example-item-2-2">
                     <ul class="fr-sidemenu__list">
                         <li class="fr-sidemenu__item">
                         <a class="fr-sidemenu__link" href="#" target="_self" >

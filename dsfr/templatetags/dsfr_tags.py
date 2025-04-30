@@ -279,7 +279,7 @@ def dsfr_badge_group(items: list) -> dict:
 
 
 @register.inclusion_tag("dsfr/breadcrumb.html", takes_context=True)
-def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
+def dsfr_breadcrumb(context: Context, tag_data: dict | None = None) -> dict:
     """
     Returns a breadcrumb item. Takes a dict as parameter, with the following structure:
 
@@ -1004,6 +1004,7 @@ def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
         "title": "(Optional) The title of the main menu",
         "heading_tag": "(Optional) Heading tag for the accordion title (h2, etc. Default: div)"
         "extra_classes": "(Optional) string with names of extra classes",
+        "id": "(Optional) string with the id of the menu
     }
     ```
 
@@ -1027,11 +1028,14 @@ def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
         `{% dsfr_sidemenu data_dict %}`
     """
 
-    allowed_keys = ["label", "items", "heading_tag", "extra_classes"]
+    allowed_keys = ["label", "items", "heading_tag", "extra_classes", "id"]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     active_path = context["request"].path
     tag_data["items"], _ = find_active_menu_items(tag_data["items"], active_path)
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id()
 
     return {"self": tag_data}
 
