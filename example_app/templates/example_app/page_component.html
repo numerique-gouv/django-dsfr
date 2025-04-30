@@ -61,7 +61,7 @@
           </h3>
           <div class="fr-my-2w">
             {# djlint:off #}
-            {% with sample_data_item|pprint as raw_sample_code %}
+            {% with sample_data_item|escape as raw_sample_code %}
               {# djlint:off #}
               {% with '<pre class="dsfr-code">'|concatenate:raw_sample_code|concatenate:"</pre>" as sample_data_code %}
                 {% dsfr_accordion title="Données de l’exemple" content=sample_data_code %}
