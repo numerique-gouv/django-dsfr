@@ -4,10 +4,6 @@ from unittest.mock import MagicMock
 
 from dsfr.checksums import (
     INTEGRITY_CSS,
-    INTEGRITY_FAVICON_APPLE,
-    INTEGRITY_FAVICON_ICO,
-    INTEGRITY_FAVICON_MANIFEST,
-    INTEGRITY_FAVICON_SVG,
     INTEGRITY_JS_MODULE,
     INTEGRITY_JS_NOMODULE,
 )
@@ -61,14 +57,14 @@ class DsfrFaviconTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_favicon %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            f"""
-            <link rel="apple-touch-icon" href="/django-dsfr/static/dsfr/dist/favicon/apple-touch-icon.png" integrity="{ INTEGRITY_FAVICON_APPLE }" /><!-- 180×180 -->
-            <link rel="icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.svg" type="image/svg+xml" integrity="{ INTEGRITY_FAVICON_SVG }" />
-            <link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.ico" type="image/x-icon" integrity="{ INTEGRITY_FAVICON_ICO }" />
+            """
+            <link rel="apple-touch-icon" href="/django-dsfr/static/dsfr/dist/favicon/apple-touch-icon.png"  /><!-- 180×180 -->
+            <link rel="icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.svg" type="image/svg+xml" />
+            <link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.ico" type="image/x-icon" />
             <!-- 32×32 -->
             <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest"
-            crossorigin="use-credentials" integrity="{ INTEGRITY_FAVICON_MANIFEST }" />
-            """,  # noqa
+            crossorigin="use-credentials" />
+            """,
             rendered_template,
         )
 

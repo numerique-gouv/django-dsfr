@@ -17,16 +17,6 @@ class Command(BaseCommand):
             {"path": "dsfr/dsfr.nomodule.min.js", "constant": "INTEGRITY_JS_NOMODULE"},
             {"path": "dsfr/dsfr.min.css", "constant": "INTEGRITY_CSS"},
             {"path": "utility/utility.min.css", "constant": "INTEGRITY_UTILITY_CSS"},
-            {
-                "path": "favicon/apple-touch-icon.png",
-                "constant": "INTEGRITY_FAVICON_APPLE",
-            },
-            {"path": "favicon/favicon.svg", "constant": "INTEGRITY_FAVICON_SVG"},
-            {"path": "favicon/favicon.ico", "constant": "INTEGRITY_FAVICON_ICO"},
-            {
-                "path": "favicon/manifest.webmanifest",
-                "constant": "INTEGRITY_FAVICON_MANIFEST",
-            },
         ]
 
         output_text = """# Integrity checks for the css/js/favicon files
