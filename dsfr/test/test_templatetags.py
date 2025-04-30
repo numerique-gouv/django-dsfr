@@ -895,14 +895,16 @@ class DsfrSummaryTagTest(SimpleTestCase):
     ]
 
     context = Context({"test_data": test_data})
-    template_to_render = Template("{% load dsfr_tags %} {% dsfr_summary test_data %}")
+    template_to_render = Template(
+        "{% load dsfr_tags %} {% dsfr_summary test_data summary_id='example' %}"
+    )
 
     def test_summary_tag_rendered(self):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-            <nav role="navigation" class="fr-summary" aria-labelledby="fr-summary-title">
-                <p class="fr-summary__title" id="fr-summary-title">Sommaire</p>
+            <nav role="navigation" class="fr-summary" aria-labelledby="fr-summary-example-title">
+                <p class="fr-summary__title" id="fr-summary-example-title">Sommaire</p>
                 <ol class="fr-summary__list">
 
                     <li>

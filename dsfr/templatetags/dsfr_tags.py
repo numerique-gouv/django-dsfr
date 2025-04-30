@@ -1101,7 +1101,7 @@ def dsfr_stepper(*args, **kwargs) -> dict:
 
 
 @register.inclusion_tag("dsfr/summary.html")
-def dsfr_summary(items: list, heading_tag: str = "p") -> dict:
+def dsfr_summary(items: list, heading_tag: str = "p", summary_id: str = "") -> dict:
     """
     Returns a summary item. Takes a list as parameter, with the following structure:
 
@@ -1116,7 +1116,8 @@ def dsfr_summary(items: list, heading_tag: str = "p") -> dict:
     ]
     ```
 
-    Also takes an optional "heading_tag" parameter, which can be "p" (default) or h2>h6.
+    Also takes an optional "heading_tag" parameter, which can be "p" (default) or h2>h6,
+    and an optional "summary_id" which will be generated if not set.
 
     **Tag name**:
         dsfr_summary
@@ -1124,7 +1125,11 @@ def dsfr_summary(items: list, heading_tag: str = "p") -> dict:
     **Usage**:
         `{% dsfr_summary items heading_tag %}`
     """
-    return {"self": {"items": items, "heading_tag": heading_tag}}
+
+    if not summary_id:
+        summary_id = generate_random_id()
+
+    return {"self": {"items": items, "heading_tag": heading_tag, "id": summary_id}}
 
 
 @register.inclusion_tag("dsfr/table.html")
