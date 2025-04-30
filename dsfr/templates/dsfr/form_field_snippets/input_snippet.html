@@ -5,7 +5,7 @@
     {# djlint:off #}
     {{ field.label }}{% if field.field.required %}*{% endif %}
     {% if field.help_text %}
-      <span class="fr-hint-text">{{ field.help_text|safe }}</span>
+      <span class="fr-hint-text" id="{{ field.id_for_label }}_helptext">{{ field.help_text|safe }}</span>
     {% endif %}
     {# djlint:on #}
   </label>
