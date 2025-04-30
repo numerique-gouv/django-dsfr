@@ -50,7 +50,7 @@ Il est possible de l’étendre pour le personnaliser, par exemple pour ajouter 
       </button>
       <form action="{% url 'page_search' %}" method="get">
         <div class="fr-search-bar" id="search-bar" role="search">
-          <label class="fr-label" for="search-bar-input">
+          <label class="fr-label" for="query">
             Rechercher
           </label>
           <input class="fr-input"
