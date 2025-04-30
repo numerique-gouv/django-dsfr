@@ -91,7 +91,7 @@ Une fois la mise à jour faite, il reste à :
 
 ## Publication d’une nouvelle version
 
-Lorsque qu’une release est publiée sur Github, une tâche Github Actions ([publish-package.yml]([./.github/workflows/publish-package.yml)) est lancée pour automatiquement générer une nouvelle version du paquet et la publier sur Pypi.
+Lorsque qu’une release est publiée sur Github, une tâche Github Actions ([publish-package.yml](./.github/workflows/publish-package.yml)) est lancée pour automatiquement générer une nouvelle version du paquet et la publier sur Pypi.
 
 Attention ! Il faut mettre à jour le numéro de version dans le fichier `pyproject.toml` avant de faire la release, sinon la tâche échouera.
 
@@ -99,4 +99,4 @@ La numérotation suit le principe de [versionnage sémantique](https://semver.or
 
 ## Mise à jour de la documentation
 
-De la même manière, lorsqu’une PR est mergée dans la branche `main`, une tâche Github Actions ([deploy-doc.yml]([./.github/workflows/deploy-doc.yml)) met à jour la [documentation statique](https://numerique-gouv.github.io/django-dsfr/) en faisant un export statique du site d’exemple.
+De la même manière, lorsqu’une PR est mergée dans la branche `main`, une tâche Github Actions ([deploy-doc.yml](./.github/workflows/deploy-doc.yml)) met à jour la [documentation statique](https://numerique-gouv.github.io/django-dsfr/) en faisant un export statique du site d’exemple.
