@@ -299,11 +299,15 @@ def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
     **Usage**:
         `{% dsfr_breadcrumb data_dict %}`
     """  # noqa
+
     if not tag_data:
         if "breadcrumb_data" in context:
             tag_data = context["breadcrumb_data"]
         else:
             tag_data = {}
+
+    tag_data["id"] = generate_random_id("breadcrumb")
+
     return {"self": tag_data}
 
 
