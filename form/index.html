@@ -720,10 +720,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-jgsifshcgtwffgwj">
+          aria-controls="breadcrumb-uxrrjfmcxdayagqp">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-jgsifshcgtwffgwj">
+  <div class="fr-collapse" id="breadcrumb-uxrrjfmcxdayagqp">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -810,7 +810,7 @@
 <p>La balise <code>{% dsfr_form %}</code> est maintenant dépréciée depuis Django-DSFR 2.0.0.</p>
 <h2 id="composants">Composants</h2>
 <h3 id="extended-choices"><code>dsfr.enums.ExtendedChoices</code></h3>
-<p>Extension de <a href="https://docs.djangoproject.com/en/5.1/ref/utils/#django.utils.safestring.mark_safe">Django's <code>models.Choices</code></a> pour supporter l'ajout d'attributs
+<p>Extension de <a href="https://docs.djangoproject.com/en/5.1/ref/models/fields/#enumeration-types">Django's <code>models.Choices</code></a> pour supporter l'ajout d'attributs
 arbitraires aux enums en utilisant un dictionnaire.</p>
 <p>Exemple d'utilisation :</p>
 <div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtendedChoices</span>
@@ -854,7 +854,7 @@ dictionnaire ne contient que <code>« value »</code>, les exemples suivants son
 
 <p>Voir <a href="#default-values">cette section sur la façon de fournir des valeurs par défaut pour des attributs supplémentaires</a></p>
 <h4 id="utilisation-avec-enumauto">Utilisation avec <code>enum.auto()</code></h4>
-<p><code>ExtendedChoices</code> supporte l'utilisation de <a href="https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping"><code>enum.auto()</code></a> :</p>
+<p><code>ExtendedChoices</code> supporte l'utilisation de <a href="https://docs.python.org/3/library/enum.html#enum.auto"><code>enum.auto()</code></a> :</p>
 <div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">django.db</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtendedChoices</span>
@@ -880,7 +880,7 @@ dictionnaire ne contient que <code>« value »</code>, les exemples suivants son
 <p><code>ExtendedChoices</code> peut être utilisé en combinaison <code>django.db.models.TextChoices</code>
 ou <code>django.db.models.IntegerChoices</code> pour calculer automatiquement l'attribut
 <code>value</code> avec <code>enum.auto()</code> ou peut définir une méthode <code>_generate_next_value_</code> pour
-fournir la valeur (voir <a href="https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping"><a href="https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping">2</a></a>) :</p>
+fournir la valeur (voir <a href="https://docs.python.org/3/library/enum.html#enum.auto"><a href="https://docs.python.org/3/library/enum.html#enum.auto">2</a></a>) :</p>
 <div class="dsfr-code"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtendedChoices</span>
 
@@ -1066,7 +1066,7 @@ l'instance qui stocke la valeur, vous pouvez déclarer une méthode statique
 <h4 id="html_label"><code>html_label</code></h4>
 <p>L'attribut <code>html_label</code> peut-être utilisé pour déclarer du HTML à insérer dans
 <code>&lt;label&gt;</code>. Le code est automatiquement marqué sûr avec
-<a href="https://docs.djangoproject.com/en/5.1/ref/utils/#django.utils.safestring.mark_safe"><code>django.utils.safestring.mark_safe</code></a> et ne produira pas de
+<code>django.utils.safestring.mark_safe</code> <a href="https://docs.djangoproject.com/en/5.1/ref/utils/#django.utils.safestring.mark_safe">(cf. doc)</a> et ne produira pas de
 <a href="https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping">problème d'échappement du HTML</a> dans vos templates.</p>
 <p>Si <code>html_label</code> n'est pas déclaré par un membre de l'enum, la propriété <code>html_label</code>
 renvoie la valeur de la propriété <code>label</code> à la place.</p>
@@ -1360,11 +1360,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-dQNRA2VhSeU0SYIKWHja8MGpEF7wm/34WJRVJMHbbUItBgG2yn0JYMdlnKWNsuR8"
-         nonce="gzY94mWLyiGfdhWnXaH6WQ=="></script>
+         nonce="1Rl7wYfcJt3N0A5coqF6gQ=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-Z9sSCL+iZkc22YwU6QRxXGtKnQiiiVLq4aJhoIJNtV0lO9nd12ZwowDrsA/eSxmd"
-         nonce="gzY94mWLyiGfdhWnXaH6WQ=="></script>
+         nonce="1Rl7wYfcJt3N0A5coqF6gQ=="></script>
 
 
     
