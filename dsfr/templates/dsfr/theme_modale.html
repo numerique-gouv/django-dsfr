@@ -54,10 +54,11 @@
                       <input value="system"
                              type="radio"
                              id="fr-radios-theme-system"
-                             name="fr-radios-theme" />
+                             name="fr-radios-theme"
+                             aria-describedby="fr-radios-theme-system-hint-text" />
                       <label class="fr-label" for="fr-radios-theme-system">
                         {% translate "System" %}
-                        <span class="fr-hint-text">{% translate "Uses system settings." %}</span>
+                        <span class="fr-hint-text" id="fr-radios-theme-system-hint-text">{% translate "Uses system settings." %}</span>
                       </label>
                       <div class="fr-radio-rich__img" data-fr-inject-svg>
                         <img src="{% static 'dsfr/dist/artwork/system.svg' %}" alt="" />
