@@ -1,6 +1,6 @@
 [project]
 name = "django-dsfr"
-version = "2.3.0"
+version = "2.4.0"
 description = "Integrate the French government Design System into a Django app"
 authors = [
     {name = "Sylvain Boissel", email = "sylvain.boissel@beta.gouv.fr"}
@@ -14,11 +14,10 @@ classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Web Environment",
   "Framework :: Django",
-  "Framework :: Django :: 4.0",
-  "Framework :: Django :: 4.1",
   "Framework :: Django :: 4.2",
   "Framework :: Django :: 5.0",
   "Framework :: Django :: 5.1",
+  "Framework :: Django :: 5.2",
   "Operating System :: OS Independent",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",

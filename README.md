@@ -16,12 +16,12 @@ Django-DSFR is a Django app to integrate the [French government Design System ("
 
 See the [documentation (in French)](https://numerique-gouv.github.io/django-dsfr/) for details.
 
-Django-DSFR implements the [version 1.13 of the DSFR](https://www.systeme-de-design.gouv.fr/a-propos/versions/version-courante)
+Django-DSFR implements the [version 1.13.1 of the DSFR](https://www.systeme-de-design.gouv.fr/a-propos/versions/version-courante)
 (see also the [Github releases page](https://github.com/GouvernementFR/dsfr/releases/))
 
 ## Requirements
 
-Tested with Python 3.10 to 3.13 and the latest available version of Django 4 and 5.
+Tested with Python 3.10 to 3.13 and the latest available versions of Django 4 and 5.
 
 Note: Only supported versions of Django and Python are supported by this project. You can check the supported versions and their end of life on the following pages:
 
