@@ -730,10 +730,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-ahxhjfcvocvevaqm">
+          aria-controls="breadcrumb-ujabsihzwuubdpct">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-ahxhjfcvocvevaqm">
+  <div class="fr-collapse" id="breadcrumb-ujabsihzwuubdpct">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -763,11 +763,11 @@
   <div class="fr-sidemenu__inner">
     <button type="button"
             class="fr-sidemenu__btn"
-            aria-controls="fr-sidemenu-hcdiblmbbyyyteeh-wrapper"
+            aria-controls="fr-sidemenu-ifdddcgzdvgqnkkv-wrapper"
             aria-expanded="false">
       Dans cette rubrique
     </button>
-    <div class="fr-collapse" id="fr-sidemenu-hcdiblmbbyyyteeh-wrapper">
+    <div class="fr-collapse" id="fr-sidemenu-ifdddcgzdvgqnkkv-wrapper">
       
       <ul class="fr-sidemenu__list">
         
@@ -787,11 +787,11 @@
               <button type="button"
                       class="fr-sidemenu__btn"
                       aria-expanded="true"
-                      aria-controls="fr-sidemenu-hcdiblmbbyyyteeh-item-2">
+                      aria-controls="fr-sidemenu-ifdddcgzdvgqnkkv-item-2">
                 Composants implémentés
               </button>
               <div class="fr-collapse"
-                   id="fr-sidemenu-hcdiblmbbyyyteeh-item-2">
+                   id="fr-sidemenu-ifdddcgzdvgqnkkv-item-2">
                 <ul class="fr-sidemenu__list">
                   
                     <li class="fr-sidemenu__item">
@@ -1298,11 +1298,11 @@
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-toobpyegqmjohful">
+          aria-controls="accordion-argoskclckyryeay">
     Données de l’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-toobpyegqmjohful">
+  <div class="fr-collapse" id="accordion-argoskclckyryeay">
     <pre class="dsfr-code">{&#x27;title&#x27;: &#x27;Mise en avant avec bouton normal&#x27;, &#x27;text&#x27;: &#x27;Cette mise en avant a un bouton normal&#x27;, &#x27;icon_class&#x27;: &#x27;fr-icon-alert-line&#x27;, &#x27;button&#x27;: {&#x27;onclick&#x27;: &quot;alert(&#x27;Ce bouton est bien un bouton&#x27;)&quot;, &#x27;label&#x27;: &#x27;Bouton normal&#x27;, &#x27;extra_classes&#x27;: &#x27;fr-btn--secondary&#x27;}}</pre>
   </div>
 </section>
@@ -1351,11 +1351,11 @@
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-pqhjiaqgerznmfzd">
+          aria-controls="accordion-hdpahaxzojlxygge">
     Données de l’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-pqhjiaqgerznmfzd">
+  <div class="fr-collapse" id="accordion-hdpahaxzojlxygge">
     <pre class="dsfr-code">{&#x27;title&#x27;: &#x27;Mise en avant avec lien&#x27;, &#x27;text&#x27;: &#x27;Cette mise en avant a un lien d’appel à action&#x27;, &#x27;icon_class&#x27;: &#x27;fr-icon-external-link-line&#x27;, &#x27;button&#x27;: {&#x27;label&#x27;: &#x27;Bouton qui est un lien&#x27;, &#x27;url&#x27;: &#x27;https://www.systeme-de-design.gouv.fr/&#x27;, &#x27;extra_classes&#x27;: &#x27;fr-btn--secondary&#x27;}}</pre>
   </div>
 </section>
@@ -1397,11 +1397,11 @@
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-axirjrmweymksccx">
+          aria-controls="accordion-zocmcvivztzmahuk">
     Données de l’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-axirjrmweymksccx">
+  <div class="fr-collapse" id="accordion-zocmcvivztzmahuk">
     <pre class="dsfr-code">{&#x27;title&#x27;: &#x27;Mise en avant en couleur&#x27;, &#x27;text&#x27;: &#x27;Cette mise en avant a une classe de couleur&#x27;, &#x27;icon_class&#x27;: &#x27;fr-icon-palette-line&#x27;, &#x27;extra_classes&#x27;: &#x27;fr-callout--green-emeraude&#x27;}</pre>
   </div>
 </section>
@@ -1679,10 +1679,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
                       <input value="system"
                              type="radio"
                              id="fr-radios-theme-system"
-                             name="fr-radios-theme" />
+                             name="fr-radios-theme"
+                             aria-describedby="fr-radios-theme-system-hint-text" />
                       <label class="fr-label" for="fr-radios-theme-system">
                         Système
-                        <span class="fr-hint-text">Utilise les paramètres système.</span>
+                        <span class="fr-hint-text" id="fr-radios-theme-system-hint-text">Utilise les paramètres système.</span>
                       </label>
                       <div class="fr-radio-rich__img" data-fr-inject-svg>
                         <img src="/django-dsfr/static/dsfr/dist/artwork/system.svg" alt="" />
@@ -1706,11 +1707,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-dQNRA2VhSeU0SYIKWHja8MGpEF7wm/34WJRVJMHbbUItBgG2yn0JYMdlnKWNsuR8"
-         nonce="qbeviWJl+Dc4zPNA2JpcpQ=="></script>
+         nonce="pST8fApjxSQrqZC3urDWgg=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-Z9sSCL+iZkc22YwU6QRxXGtKnQiiiVLq4aJhoIJNtV0lO9nd12ZwowDrsA/eSxmd"
-         nonce="qbeviWJl+Dc4zPNA2JpcpQ=="></script>
+         nonce="pST8fApjxSQrqZC3urDWgg=="></script>
 
 
     

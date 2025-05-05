@@ -730,10 +730,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-ytosuhptthkjqple">
+          aria-controls="breadcrumb-jukvhdzbjaivlxns">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-ytosuhptthkjqple">
+  <div class="fr-collapse" id="breadcrumb-jukvhdzbjaivlxns">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -763,11 +763,11 @@
   <div class="fr-sidemenu__inner">
     <button type="button"
             class="fr-sidemenu__btn"
-            aria-controls="fr-sidemenu-qhynbbbcmuglzhwk-wrapper"
+            aria-controls="fr-sidemenu-aopwisamwaqeytzu-wrapper"
             aria-expanded="false">
       Dans cette rubrique
     </button>
-    <div class="fr-collapse" id="fr-sidemenu-qhynbbbcmuglzhwk-wrapper">
+    <div class="fr-collapse" id="fr-sidemenu-aopwisamwaqeytzu-wrapper">
       
       <ul class="fr-sidemenu__list">
         
@@ -787,11 +787,11 @@
               <button type="button"
                       class="fr-sidemenu__btn"
                       aria-expanded="true"
-                      aria-controls="fr-sidemenu-qhynbbbcmuglzhwk-item-2">
+                      aria-controls="fr-sidemenu-aopwisamwaqeytzu-item-2">
                 Composants implémentés
               </button>
               <div class="fr-collapse"
-                   id="fr-sidemenu-qhynbbbcmuglzhwk-item-2">
+                   id="fr-sidemenu-aopwisamwaqeytzu-item-2">
                 <ul class="fr-sidemenu__list">
                   
                     <li class="fr-sidemenu__item">
@@ -1292,11 +1292,11 @@ and an optional "summary_id" which will be generated if not set.</p>
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-vafrpxlzbvclulso">
+          aria-controls="accordion-whkgoamsbtxcoozz">
     Données de l’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-vafrpxlzbvclulso">
+  <div class="fr-collapse" id="accordion-whkgoamsbtxcoozz">
     <pre class="dsfr-code">[{&#x27;link&#x27;: &#x27;#&#x27;, &#x27;label&#x27;: &#x27;Titre du premier élément&#x27;}, {&#x27;link&#x27;: &#x27;#&#x27;, &#x27;label&#x27;: &#x27;Titre du second élément&#x27;}]</pre>
   </div>
 </section>
@@ -1309,8 +1309,8 @@ and an optional "summary_id" which will be generated if not set.</p>
             
 <nav role="navigation"
      class="fr-summary"
-     aria-labelledby="fr-summary-nmzemclwnscosgzw-title">
-  <p class="fr-summary__title" id="fr-summary-nmzemclwnscosgzw-title">
+     aria-labelledby="fr-summary-bfozbvzqlxpmeblr-title">
+  <p class="fr-summary__title" id="fr-summary-bfozbvzqlxpmeblr-title">
   Sommaire
   </p>
   <ol class="fr-summary__list">
@@ -1345,11 +1345,11 @@ and an optional "summary_id" which will be generated if not set.</p>
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-lhzzawhthdbbchuv">
+          aria-controls="accordion-zzvkcamzdmiqkhsk">
     Données de l’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-lhzzawhthdbbchuv">
+  <div class="fr-collapse" id="accordion-zzvkcamzdmiqkhsk">
     <pre class="dsfr-code">[{&#x27;link&#x27;: &#x27;#&#x27;, &#x27;label&#x27;: &#x27;Titre du premier élément&#x27;}, {&#x27;link&#x27;: &#x27;#&#x27;, &#x27;label&#x27;: &#x27;Titre du second élément&#x27;, &#x27;children&#x27;: [{&#x27;link&#x27;: &#x27;#&#x27;, &#x27;label&#x27;: &#x27;Titre du premier élément imbriqué&#x27;}, {&#x27;link&#x27;: &#x27;#&#x27;, &#x27;label&#x27;: &#x27;Titre du second élément imbriqué&#x27;, &#x27;children&#x27;: [{&#x27;link&#x27;: &#x27;#&#x27;, &#x27;label&#x27;: &#x27;Titre du premier élément imbriqué (niveau inférieur)&#x27;}, {&#x27;link&#x27;: &#x27;#&#x27;, &#x27;label&#x27;: &#x27;Titre du second élément imbriqué (niveau inférieur)&#x27;}]}]}]</pre>
   </div>
 </section>
@@ -1362,8 +1362,8 @@ and an optional "summary_id" which will be generated if not set.</p>
             
 <nav role="navigation"
      class="fr-summary"
-     aria-labelledby="fr-summary-jfpgnzbhzqijwhpz-title">
-  <p class="fr-summary__title" id="fr-summary-jfpgnzbhzqijwhpz-title">
+     aria-labelledby="fr-summary-civbcdzynvvbwtxz-title">
+  <p class="fr-summary__title" id="fr-summary-civbcdzynvvbwtxz-title">
   Sommaire
   </p>
   <ol class="fr-summary__list">
@@ -1670,10 +1670,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
                       <input value="system"
                              type="radio"
                              id="fr-radios-theme-system"
-                             name="fr-radios-theme" />
+                             name="fr-radios-theme"
+                             aria-describedby="fr-radios-theme-system-hint-text" />
                       <label class="fr-label" for="fr-radios-theme-system">
                         Système
-                        <span class="fr-hint-text">Utilise les paramètres système.</span>
+                        <span class="fr-hint-text" id="fr-radios-theme-system-hint-text">Utilise les paramètres système.</span>
                       </label>
                       <div class="fr-radio-rich__img" data-fr-inject-svg>
                         <img src="/django-dsfr/static/dsfr/dist/artwork/system.svg" alt="" />
@@ -1697,11 +1698,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-dQNRA2VhSeU0SYIKWHja8MGpEF7wm/34WJRVJMHbbUItBgG2yn0JYMdlnKWNsuR8"
-         nonce="FXAKWE9uQVRi4YHFMMnKlg=="></script>
+         nonce="RCmA0Lda5r9cZBExg7S3VQ=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-Z9sSCL+iZkc22YwU6QRxXGtKnQiiiVLq4aJhoIJNtV0lO9nd12ZwowDrsA/eSxmd"
-         nonce="FXAKWE9uQVRi4YHFMMnKlg=="></script>
+         nonce="RCmA0Lda5r9cZBExg7S3VQ=="></script>
 
 
     

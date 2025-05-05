@@ -713,10 +713,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-guayzakmxibhgpym">
+          aria-controls="breadcrumb-usdntnofpjkgucoz">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-guayzakmxibhgpym">
+  <div class="fr-collapse" id="breadcrumb-usdntnofpjkgucoz">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -740,7 +740,7 @@
     Exemple de formulaire
   </h1>
   <form action="/django-dsfr/form/example/" method="post">
-    <input type="hidden" name="csrfmiddlewaretoken" value="2ErfZC7uIocyJSV5RHK751a5O2n1UqWeOsGbrooCytwY803Sbz078z69a8A1sUbU">
+    <input type="hidden" name="csrfmiddlewaretoken" value="nB0Qd7pr3MKqjvWOck0IqIcaP414FFKvnQwA7k9FRXtu9CJ3StTKffUdDwc1Zm2f">
     <div class="fr-input-group">
   <label for="id_user_name" class="fr-label">
     
@@ -971,7 +971,7 @@
     Boutons radio
     
     
-      <span class="fr-hint-text">Le troisième choix renvoie une erreur s’il est sélectionné</span>
+      <span class="fr-hint-text" id="id_sample_radio_helptext">Le troisième choix renvoie une erreur s’il est sélectionné</span>
     
   </legend>
   
@@ -1117,7 +1117,7 @@
     Cases à cocher
     
     
-      <span class="fr-hint-text">Le troisième choix renvoie une erreur s’il est sélectionné</span>
+      <span class="fr-hint-text" id="id_sample_checkbox_helptext">Le troisième choix renvoie une erreur s’il est sélectionné</span>
     
   </legend>
   
@@ -1264,7 +1264,7 @@
     Boutons radio riche
     
     
-      <span class="fr-hint-text">Exemple de boutons radios riches</span>
+      <span class="fr-hint-text" id="id_sample_rich_radio_helptext">Exemple de boutons radios riches</span>
     
   </legend>
   
@@ -1350,7 +1350,7 @@
     Boutons radio riche en ligne
     
     
-      <span class="fr-hint-text">Exemple de boutons radios riches en ligne</span>
+      <span class="fr-hint-text" id="id_inline_rich_radio_helptext">Exemple de boutons radios riches en ligne</span>
     
   </legend>
   
@@ -1741,10 +1741,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
                       <input value="system"
                              type="radio"
                              id="fr-radios-theme-system"
-                             name="fr-radios-theme" />
+                             name="fr-radios-theme"
+                             aria-describedby="fr-radios-theme-system-hint-text" />
                       <label class="fr-label" for="fr-radios-theme-system">
                         Système
-                        <span class="fr-hint-text">Utilise les paramètres système.</span>
+                        <span class="fr-hint-text" id="fr-radios-theme-system-hint-text">Utilise les paramètres système.</span>
                       </label>
                       <div class="fr-radio-rich__img" data-fr-inject-svg>
                         <img src="/django-dsfr/static/dsfr/dist/artwork/system.svg" alt="" />
@@ -1768,11 +1769,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-dQNRA2VhSeU0SYIKWHja8MGpEF7wm/34WJRVJMHbbUItBgG2yn0JYMdlnKWNsuR8"
-         nonce="QB1ac1kwLP44iSR6Dzhd3w=="></script>
+         nonce="wh/Gv6lxMB8s/A9E96nIZw=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-Z9sSCL+iZkc22YwU6QRxXGtKnQiiiVLq4aJhoIJNtV0lO9nd12ZwowDrsA/eSxmd"
-         nonce="QB1ac1kwLP44iSR6Dzhd3w=="></script>
+         nonce="wh/Gv6lxMB8s/A9E96nIZw=="></script>
 
 
     
