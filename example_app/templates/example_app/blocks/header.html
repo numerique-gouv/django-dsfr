@@ -3,13 +3,9 @@
 {% url 'index' as home_url %}
 
 {% block brand %}
-  {% translate "Home page" as home_page %}
-  <a href="{{ home_url }}"
-     title="{{ home_page }} — {{ SITE_CONFIG.site_title }}">
-    <p class="fr-logo">
-      {{ SITE_CONFIG.header_brand_html|default_if_none:"république<br />française" | safe }}
-    </p>
-  </a>
+  <p class="fr-logo">
+    {{ SITE_CONFIG.header_brand_html|default_if_none:"république<br />française" | safe }}
+  </p>
 {% endblock brand %}
 
 {% block service_title %}
@@ -66,9 +62,7 @@
 
 {% block header_search %}
   {% translate "Search" as search_label %}
-  <div class="fr-header__search fr-modal"
-       id="modal-search"
-       aria-label="{{ search_label }}">
+  <div class="fr-header__search fr-modal" id="modal-search">
     <div class="fr-container fr-container-lg--fluid">
       {% translate "Close" as close_label %}
       <button class="fr-btn--close fr-btn"
@@ -78,7 +72,7 @@
       </button>
       <form action="{% url 'page_search' %}" method="get">
         <div class="fr-search-bar" id="search-bar" role="search">
-          <label class="fr-label" for="search-bar-input">
+          <label class="fr-label" for="query">
             {{ search_label }}
           </label>
           <input class="fr-input"

@@ -61,7 +61,7 @@
           </h3>
           <div class="fr-my-2w">
             {# djlint:off #}
-            {% with sample_data_item|pprint as raw_sample_code %}
+            {% with sample_data_item|escape as raw_sample_code %}
               {# djlint:off #}
               {% with '<pre class="dsfr-code">'|concatenate:raw_sample_code|concatenate:"</pre>" as sample_data_code %}
                 {% dsfr_accordion title="Données de l’exemple" content=sample_data_code %}
@@ -101,6 +101,7 @@
             <p>
               Voir en bas de votre écran.
             </p>
+            {% include "example_app/example_consent_modale.html" %}
             {% dsfr_consent sample_data_item %}
           {% elif tag_name == "content" %}
             {% dsfr_content sample_data_item %}
@@ -163,10 +164,11 @@
                     class="example-textarea">{% dsfr_css %}</textarea>
           <br />
         {% elif tag_name == "favicon" %}
-          <img src="/django-dsfr/static/dsfr/dist/favicon/favicon.svg"
-               width="24"
-               alt="" />
-          <br clear="both" />
+          <div>
+            <img src="/django-dsfr/static/dsfr/dist/favicon/favicon.svg"
+                 width="24"
+                 alt="" />
+          </div>
           <label for="example-textarea">
             Code source :
           </label>

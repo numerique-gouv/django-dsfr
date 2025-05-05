@@ -449,8 +449,8 @@ IMPLEMENTED_COMPONENTS = {
                 "svg": gov_svg,
                 "caption": """Image SVG avec un lien dans la légende.
                                 <a class="fr-link" href="https://main--ds-gouv.netlify.app/example/component/content/"
-                                    rel=noopener external'
-                                    title="Source - Ouvre une nouvelle fenêtre" target='_blank'>Source</a>.""",
+                                    rel="noopener external"
+                                    title="Source - Ouvre une nouvelle fenêtre" target="_blank">Source</a>.""",
                 "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
             },
             {
@@ -978,7 +978,7 @@ IMPLEMENTED_COMPONENTS = {
             {
                 "title": "Tuile à fond gris et ombre sans bordure",
                 "url": "/",
-                "id": "tile-map",
+                "id": "tile-map-noborder",
                 "extra_classes": "fr-tile--horizontal fr-tile--grey fr-tile--shadow fr-tile--no-border",
                 "svg_path": static("dsfr/dist/artwork/pictograms/leisure/paint.svg"),
             },

@@ -22,7 +22,7 @@
 {% endblock content %}
 {% block extra_js %}
   <script src="{% static 'lib/fuse.min.js' %}"></script>
-  <script type="text/javascript">
+  <script>
     const pluralize = (count, noun, suffix = 's') => `${count} ${noun}${count !== 1 ? suffix : ''}`;
 
     let fuseOptions = {

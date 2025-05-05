@@ -7,7 +7,7 @@
            {% if widget.attrs.id %}for="{{ widget.attrs.id }}"{% endif %}>
       {% if widget.label.label %}
         {{ widget.label.label }}
-        <span class="fr-hint-text">{{ widget.label.help_text }}</span>
+        <span class="fr-hint-text" id="{{ widget.attrs.id }}_helptext">{{ widget.label.help_text }}</span>
       {% else %}
         {{ widget.label }}
       {% endif %}

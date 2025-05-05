@@ -47,7 +47,7 @@ class Book(models.Model):
         verbose_name=_("Author"),
     )
     title = models.CharField(_("Title"), max_length=250, null=False, blank=False)
-    number_of_pages = models.CharField(_("Number of pages"), max_length=6, blank=True)
+    number_of_pages = models.PositiveSmallIntegerField(_("Number of pages"), blank=True)
     book_format = models.CharField(
         _("Format"), choices=BOOK_FORMAT, max_length=10, blank=True
     )

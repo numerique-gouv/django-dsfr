@@ -1,8 +1,8 @@
 {% load i18n %}
 <nav role="navigation"
      class="fr-summary"
-     aria-labelledby="fr-summary-title">
-  <{{ self.heading_tag | default:"p" }} class="fr-summary__title" id="fr-summary-title">
+     aria-labelledby="fr-summary-{{ self.id }}-title">
+  <{{ self.heading_tag | default:"p" }} class="fr-summary__title" id="fr-summary-{{ self.id }}-title">
   {% translate "Summary" context "DSFR component" %}
   </{{ self.heading_tag | default:"p" }}>
   <ol class="fr-summary__list">

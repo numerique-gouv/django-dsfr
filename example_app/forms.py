@@ -146,7 +146,7 @@ class ExampleForm(DsfrBaseForm):
     )
 
     sample_rich_radio = forms.ChoiceField(
-        label="Cases à cocher",
+        label="Boutons radio riche",
         required=False,
         choices=ExampleRichChoices.choices,
         help_text="Exemple de boutons radios riches",
@@ -154,7 +154,7 @@ class ExampleForm(DsfrBaseForm):
     )
 
     inline_rich_radio = forms.ChoiceField(
-        label="Cases à cocher",
+        label="Boutons radio riche en ligne",
         required=False,
         choices=ExampleRichChoices.choices,
         help_text="Exemple de boutons radios riches en ligne",

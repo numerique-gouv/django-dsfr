@@ -12,10 +12,6 @@ from django.utils.html import format_html, format_html_join
 from dsfr.checksums import (
     INTEGRITY_CSS,
     INTEGRITY_UTILITY_CSS,
-    INTEGRITY_FAVICON_APPLE,
-    INTEGRITY_FAVICON_ICO,
-    INTEGRITY_FAVICON_MANIFEST,
-    INTEGRITY_FAVICON_SVG,
     INTEGRITY_JS_MODULE,
     INTEGRITY_JS_NOMODULE,
 )
@@ -87,7 +83,7 @@ def dsfr_js(context, *args, **kwargs) -> dict:
 
 
 @register.inclusion_tag("dsfr/favicon.html")
-def dsfr_favicon() -> dict:
+def dsfr_favicon() -> None:
     """
     Returns the HTML for the CSS header tags for the DSFR "Marianne" Favicon
 
@@ -98,13 +94,7 @@ def dsfr_favicon() -> dict:
         `{% dsfr_favicon %}`
     """
 
-    tag_data = {}
-    tag_data["INTEGRITY_FAVICON_APPLE"] = INTEGRITY_FAVICON_APPLE
-    tag_data["INTEGRITY_FAVICON_SVG"] = INTEGRITY_FAVICON_SVG
-    tag_data["INTEGRITY_FAVICON_ICO"] = INTEGRITY_FAVICON_ICO
-    tag_data["INTEGRITY_FAVICON_MANIFEST"] = INTEGRITY_FAVICON_MANIFEST
-
-    return {"self": tag_data}
+    return None
 
 
 @register.inclusion_tag("dsfr/theme_modale.html")
@@ -289,7 +279,7 @@ def dsfr_badge_group(items: list) -> dict:
 
 
 @register.inclusion_tag("dsfr/breadcrumb.html", takes_context=True)
-def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
+def dsfr_breadcrumb(context: Context, tag_data: dict | None = None) -> dict:
     """
     Returns a breadcrumb item. Takes a dict as parameter, with the following structure:
 
@@ -309,11 +299,15 @@ def dsfr_breadcrumb(context: Context, tag_data: dict = {}) -> dict:
     **Usage**:
         `{% dsfr_breadcrumb data_dict %}`
     """  # noqa
+
     if not tag_data:
         if "breadcrumb_data" in context:
             tag_data = context["breadcrumb_data"]
         else:
             tag_data = {}
+
+    tag_data["id"] = generate_random_id("breadcrumb")
+
     return {"self": tag_data}
 
 
@@ -1010,6 +1004,7 @@ def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
         "title": "(Optional) The title of the main menu",
         "heading_tag": "(Optional) Heading tag for the accordion title (h2, etc. Default: div)"
         "extra_classes": "(Optional) string with names of extra classes",
+        "id": "(Optional) string with the id of the menu
     }
     ```
 
@@ -1033,11 +1028,14 @@ def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
         `{% dsfr_sidemenu data_dict %}`
     """
 
-    allowed_keys = ["label", "items", "heading_tag", "extra_classes"]
+    allowed_keys = ["label", "items", "heading_tag", "extra_classes", "id"]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     active_path = context["request"].path
     tag_data["items"], _ = find_active_menu_items(tag_data["items"], active_path)
+
+    if "id" not in tag_data:
+        tag_data["id"] = generate_random_id()
 
     return {"self": tag_data}
 
@@ -1103,7 +1101,7 @@ def dsfr_stepper(*args, **kwargs) -> dict:
 
 
 @register.inclusion_tag("dsfr/summary.html")
-def dsfr_summary(items: list, heading_tag: str = "p") -> dict:
+def dsfr_summary(items: list, heading_tag: str = "p", summary_id: str = "") -> dict:
     """
     Returns a summary item. Takes a list as parameter, with the following structure:
 
@@ -1118,7 +1116,8 @@ def dsfr_summary(items: list, heading_tag: str = "p") -> dict:
     ]
     ```
 
-    Also takes an optional "heading_tag" parameter, which can be "p" (default) or h2>h6.
+    Also takes an optional "heading_tag" parameter, which can be "p" (default) or h2>h6,
+    and an optional "summary_id" which will be generated if not set.
 
     **Tag name**:
         dsfr_summary
@@ -1126,7 +1125,11 @@ def dsfr_summary(items: list, heading_tag: str = "p") -> dict:
     **Usage**:
         `{% dsfr_summary items heading_tag %}`
     """
-    return {"self": {"items": items, "heading_tag": heading_tag}}
+
+    if not summary_id:
+        summary_id = generate_random_id()
+
+    return {"self": {"items": items, "heading_tag": heading_tag, "id": summary_id}}
 
 
 @register.inclusion_tag("dsfr/table.html")

@@ -25,7 +25,7 @@
       {{ self.caption|safe }}
     </figcaption>
   {% endif %}
-  {% if self.transcription %}
-    {% dsfr_transcription self.transcription %}
-  {% endif %}
 </figure>
+{% if self.transcription %}
+  {% dsfr_transcription self.transcription %}
+{% endif %}

@@ -7,16 +7,16 @@
   <div class="fr-tabs">
     <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
       <li role="presentation">
-        <li role="presentation">
-          <button id="tabpanel-documentation"
-                  class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left"
-                  tabindex="0"
-                  role="tab"
-                  aria-selected="false"
-                  aria-controls="tabpanel-documentation-panel">
-            Documentation
-          </button>
-        </li>
+        <button id="tabpanel-documentation"
+                class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left"
+                tabindex="0"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tabpanel-documentation-panel">
+          Documentation
+        </button>
+      </li>
+      <li role="presentation">
         <button id="tabpanel-implemented"
                 class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left"
                 tabindex="0"
@@ -55,9 +55,9 @@
       <h2>
         Documentation
       </h2>
-      <ul>
-        {{ documentation|safe }}
-      </ul>
+
+      {{ documentation|safe }}
+
     </div>
     <div id="tabpanel-implemented-panel"
          class="fr-tabs__panel"

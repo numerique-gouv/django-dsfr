@@ -4,10 +4,6 @@ from unittest.mock import MagicMock
 
 from dsfr.checksums import (
     INTEGRITY_CSS,
-    INTEGRITY_FAVICON_APPLE,
-    INTEGRITY_FAVICON_ICO,
-    INTEGRITY_FAVICON_MANIFEST,
-    INTEGRITY_FAVICON_SVG,
     INTEGRITY_JS_MODULE,
     INTEGRITY_JS_NOMODULE,
 )
@@ -61,14 +57,14 @@ class DsfrFaviconTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_favicon %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            f"""
-            <link rel="apple-touch-icon" href="/django-dsfr/static/dsfr/dist/favicon/apple-touch-icon.png" integrity="{ INTEGRITY_FAVICON_APPLE }" /><!-- 180×180 -->
-            <link rel="icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.svg" type="image/svg+xml" integrity="{ INTEGRITY_FAVICON_SVG }" />
-            <link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.ico" type="image/x-icon" integrity="{ INTEGRITY_FAVICON_ICO }" />
+            """
+            <link rel="apple-touch-icon" href="/django-dsfr/static/dsfr/dist/favicon/apple-touch-icon.png"  /><!-- 180×180 -->
+            <link rel="icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.svg" type="image/svg+xml" />
+            <link rel="shortcut icon" href="/django-dsfr/static/dsfr/dist/favicon/favicon.ico" type="image/x-icon" />
             <!-- 32×32 -->
             <link rel="manifest" href="/django-dsfr/static/dsfr/dist/favicon/manifest.webmanifest"
-            crossorigin="use-credentials" integrity="{ INTEGRITY_FAVICON_MANIFEST }" />
-            """,  # noqa
+            crossorigin="use-credentials" />
+            """,
             rendered_template,
         )
 
@@ -795,6 +791,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
     test_data = {
         "title": "Menu",
         "heading_tag": "h2",
+        "id": "example",
         "items": [
             {
                 "label": "Menu replié",
@@ -866,11 +863,11 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                     type="button"
                     class="fr-sidemenu__btn"
                     aria-expanded="true"
-                    aria-controls="fr-sidemenu-item-2-2"
+                    aria-controls="fr-sidemenu-example-item-2-2"
                 >
                     Sous-menu ouvert
                 </button>
-                <div class="fr-collapse" id="fr-sidemenu-item-2-2">
+                <div class="fr-collapse" id="fr-sidemenu-example-item-2-2">
                     <ul class="fr-sidemenu__list">
                         <li class="fr-sidemenu__item">
                         <a class="fr-sidemenu__link" href="#" target="_self" >
@@ -898,14 +895,16 @@ class DsfrSummaryTagTest(SimpleTestCase):
     ]
 
     context = Context({"test_data": test_data})
-    template_to_render = Template("{% load dsfr_tags %} {% dsfr_summary test_data %}")
+    template_to_render = Template(
+        "{% load dsfr_tags %} {% dsfr_summary test_data summary_id='example' %}"
+    )
 
     def test_summary_tag_rendered(self):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-            <nav role="navigation" class="fr-summary" aria-labelledby="fr-summary-title">
-                <p class="fr-summary__title" id="fr-summary-title">Sommaire</p>
+            <nav role="navigation" class="fr-summary" aria-labelledby="fr-summary-example-title">
+                <p class="fr-summary__title" id="fr-summary-example-title">Sommaire</p>
                 <ol class="fr-summary__list">
 
                     <li>

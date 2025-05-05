@@ -5,7 +5,7 @@
   <input type="checkbox"
          {% if self.is_disabled %}disabled{% endif %}
          class="fr-toggle__input"
-         aria-describedby="{{ self.id }}-hint-text"
+         {% if self.help_text %}aria-describedby="{{ self.id }}-hint-text"{% endif %}
          id="{{ self.id }}">
   <label class="fr-toggle__label"
          for="{{ self.id }}"

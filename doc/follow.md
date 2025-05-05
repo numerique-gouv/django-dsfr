@@ -6,7 +6,7 @@ Le bandeau de Lettre d’information et Réseaux Sociaux est géré grâce à un
 
 <!-- [...] -->
 {% block follow_newsletter_social_media %}
-  <aside role="complementary">
+  <aside>
     {% include "dsfr/follow.html" %}
   </aside>
 {% endblock follow_newsletter_social_media %}

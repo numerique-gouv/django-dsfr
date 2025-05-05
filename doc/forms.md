@@ -365,8 +365,8 @@ class ExampleForm(DsfrBaseForm):
 
 L'attribut `html_label` peut-être utilisé pour déclarer du HTML à insérer dans
 `<label>`. Le code est automatiquement marqué sûr avec
-[`django.utils.safestring.mark_safe`][1] et ne produira pas de
-[problème d'échappement du HTML][2] dans vos templates.
+`django.utils.safestring.mark_safe` [(cf. doc)](https://docs.djangoproject.com/en/5.1/ref/utils/#django.utils.safestring.mark_safe) et ne produira pas de
+[problème d'échappement du HTML](https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping) dans vos templates.
 
 Si `html_label` n'est pas déclaré par un membre de l'enum, la propriété `html_label`
 renvoie la valeur de la propriété `label` à la place.
@@ -382,9 +382,6 @@ pour charger une ressource statique.
 L'attribut `pictogram_alt` définit la valeur à mettre dans l'attribut `alt` de la
 balise `<img>` utilisée dans le bouton radio riche. S'il n'est pas déclaré par
 l'enum, `RichRadioSelect` ajoute un `alt=""`.
-
-[1]: https://docs.djangoproject.com/en/5.1/ref/utils/#django.utils.safestring.mark_safe
-[2]: https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping
 
 ### `dsfr.utils.lazy_static` {: #lazy-static }
 

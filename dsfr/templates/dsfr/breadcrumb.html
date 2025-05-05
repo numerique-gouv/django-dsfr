@@ -6,10 +6,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-1">
+          aria-controls="{{ self.id }}">
     {% translate "See breadcrumb" %}
   </button>
-  <div class="fr-collapse" id="breadcrumb-1">
+  <div class="fr-collapse" id="{{ self.id }}">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="{{ self.root_dir | default:'/' }}">{% translate "Home page" %}</a>
