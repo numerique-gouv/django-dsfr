@@ -46,9 +46,11 @@ Si c’est le cas, il faut soit forcer manuellement les classes à utiliser :
 ```{ .python }
     password = forms.CharField(
         label="Mot de passe", widget=forms.PasswordInput(
-            "autocomplete": "current-password",
-            "required": True,
-            "class": "fr-input my-custom-class"
+            attrs={
+                "autocomplete": "current-password",
+                "required": True,
+                "class": "fr-input my-custom-class"
+            }
         )
     )
 ```
