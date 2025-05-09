@@ -1,6 +1,6 @@
 from typing import Type
 
-from django.forms.widgets import RadioSelect, ChoiceWidget
+from django.forms.widgets import RadioSelect, ChoiceWidget, CheckboxSelectMultiple
 
 from dsfr.enums import RichRadioButtonChoices
 
@@ -134,4 +134,8 @@ class RichRadioSelect(_RichChoiceWidget, RadioSelect):
 
 
 class InlineRadioSelect(RadioSelect):
+    inline = True
+
+
+class InlineCheckboxSelectMultiple(RadioSelect):
     inline = True
