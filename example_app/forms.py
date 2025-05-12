@@ -55,7 +55,13 @@ class ExampleForm(DsfrBaseForm):
     )
 
     password = forms.CharField(
-        label="Mot de passe", required=False, widget=forms.PasswordInput
+        label="Mot de passe",
+        required=False,
+        widget=forms.PasswordInput(
+            attrs={
+                "autocomplete": "current-password",
+            }
+        ),
     )
 
     sample_number = forms.IntegerField(
