@@ -16,7 +16,6 @@ from dsfr.forms import DsfrBaseForm
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Field
 
-from dsfr.templatetags.dsfr_tags import dsfr_inline
 from dsfr.utils import lazy_static
 from dsfr.widgets import (
     RichRadioSelect,
