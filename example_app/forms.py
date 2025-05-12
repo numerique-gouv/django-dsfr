@@ -46,12 +46,25 @@ class ExampleRichChoices(IntegerChoices, RichRadioButtonChoices):
 
 class ExampleForm(DsfrBaseForm):
     # basic fields
-    user_name = forms.CharField(label="Nom d’utilisateur", max_length=100)
+    user_name = forms.CharField(
+        label="Nom d’utilisateur",
+        max_length=100,
+        widget=forms.TextInput(
+            attrs={
+                "autocomplete": "username",
+            }
+        ),
+    )
 
     user_email = forms.EmailField(
         label="Adresse électronique",
         help_text="Format attendu : <code>prenom.nom@domaine.fr</code>",
         required=False,
+        widget=forms.EmailInput(
+            attrs={
+                "autocomplete": "email",
+            }
+        ),
     )
 
     password = forms.CharField(
