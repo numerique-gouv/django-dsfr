@@ -5,7 +5,7 @@ from django.forms.widgets import RadioSelect, ChoiceWidget, CheckboxSelectMultip
 from dsfr.enums import RichRadioButtonChoices
 
 
-__all__ = ["RichRadioSelect", "InlineRadioSelect"]
+__all__ = ["RichRadioSelect", "InlineRadioSelect", "InlineCheckboxSelectMultiple"]
 
 
 class _RichChoiceWidget(ChoiceWidget):
