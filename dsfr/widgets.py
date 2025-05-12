@@ -137,5 +137,5 @@ class InlineRadioSelect(RadioSelect):
     inline = True
 
 
-class InlineCheckboxSelectMultiple(RadioSelect):
+class InlineCheckboxSelectMultiple(CheckboxSelectMultiple):
     inline = True
