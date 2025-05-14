@@ -21,6 +21,7 @@ from dsfr.widgets import (
     RichRadioSelect,
     InlineRadioSelect,
     InlineCheckboxSelectMultiple,
+    NumberRange,
 )
 from example_app.models import Author, Book
 from example_app.utils import populate_genre_choices
@@ -190,6 +191,16 @@ class ExampleForm(DsfrBaseForm):
 
     # files
     sample_file = forms.FileField(label="Pièce jointe", required=False)
+
+    # range
+    number_with_range = forms.IntegerField(
+        label="Nombre à choisir avec un curseur",
+        required=False,
+        widget=NumberRange(
+            lower_bound=10,
+            upper_bound=20,
+        ),
+    )
 
     # hidden field
     hidden_input = forms.CharField(widget=forms.HiddenInput(), initial="value")
