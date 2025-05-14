@@ -1,6 +1,11 @@
 from typing import Type
 
-from django.forms.widgets import RadioSelect, ChoiceWidget, CheckboxSelectMultiple
+from django.forms.widgets import (
+    RadioSelect,
+    ChoiceWidget,
+    CheckboxSelectMultiple,
+    NumberInput,
+)
 
 from dsfr.enums import RichRadioButtonChoices
 
@@ -139,3 +144,34 @@ class InlineRadioSelect(RadioSelect):
 
 class InlineCheckboxSelectMultiple(CheckboxSelectMultiple):
     inline = True
+
+
+class NumberRange(NumberInput):
+    template_name = "dsfr/widgets/number_range.html"
+
+    def __init__(
+        self,
+        *args,
+        lower_bound: int = None,
+        upper_bound: int = None,
+        step: int = None,
+        extra_classes: str = "",
+        **kwargs,
+    ):
+        super().__init__(*args, **kwargs)
+        self.lower_bound = lower_bound
+        self.upper_bound = upper_bound
+        self.step = step
+        self.extra_classes = extra_classes
+
+    def get_context(self, *args, **kwargs):
+        context = super().get_context(*args, **kwargs)
+        context.update(
+            {
+                "min": self.lower_bound,
+                "max": self.upper_bound,
+                "step": self.step,
+                "extra_classes": self.extra_classes,
+            }
+        )
+        return context

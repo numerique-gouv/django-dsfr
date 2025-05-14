@@ -1,0 +1,25 @@
+{% with id=widget.attrs.id %}
+  <div class="fr-range-group" id="{{ id }}-group">
+    <label id="{{ id }}-label" class="fr-label" for="{{ id }}">
+      {{ label }}
+      <span class="fr-hint-text">{{ description }}</span>
+    </label>
+    <div class="fr-range {% if step %}fr-range--step{% endif %} {{ extra_classes }}">
+      <span class="fr-range__output">{{ value }}</span>
+      <input id="{{ id }}"
+             name="{{ name }}"
+             type="range"
+             min="{{ min }}"
+             max="{{ max }}"
+             {% if value %}value="{{ value }}"{% endif %}
+             {% if step %}step="{{ step }}"{% endif %}
+             {% if required %}required{% endif %}
+             aria-labelledby="{{ id }}-label"
+             aria-describedby="{{ id }}-messages"
+      >
+      <span class="fr-range__min" aria-hidden="true">{{ min }}</span>
+      <span class="fr-range__max" aria-hidden="true">{{ max }}</span>
+    </div>
+    <div class="fr-messages-group" id="{{ id }}-messages" aria-live="polite"></div>
+  </div>
+{% endwith %}
