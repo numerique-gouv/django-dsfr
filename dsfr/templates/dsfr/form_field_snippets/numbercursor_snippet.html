@@ -1,0 +1,22 @@
+{% load dsfr_tags %}
+
+<div class="fr-range-group {% if field.errors %}fr-range-group--error{% endif %} {% if field.field.disabled %}fr-range-group--disabled{% endif %}">
+  <label for="{{ field.id_for_label }}" class="fr-label">
+    {# djlint:off #}
+    {{ field.label }}{% if field.field.required %}*{% endif %}
+    {% if field.help_text %}
+      <span class="fr-hint-text" id="{{ field.id_for_label }}_helptext">
+        {{ field.help_text|safe }}, valeur
+        comprise entre {{ field.field.min_value|default_if_none:0 }}
+        et {{ field.field.max_value|default_if_none:100 }}.
+      </span>
+    {% endif %}
+    {# djlint:on #}
+  </label>
+  {{ field|dsfr_input_class_attr }}
+  {% if field.errors %}
+    <div id="{{ field.auto_id }}-desc-error">
+      {{ field.errors }}
+    </div>
+  {% endif %}
+</div>
