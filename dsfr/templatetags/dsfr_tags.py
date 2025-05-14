@@ -1316,6 +1316,7 @@ def dsfr_tile(*args, **kwargs) -> dict:
         "description",
         "detail",
         "top_detail",
+        "heading_tag",
         "id",
         "enlarge_link",
         "extra_classes",
