@@ -84,6 +84,38 @@ class DsfrThemeModaleTagTest(SimpleTestCase):
         )
 
 
+class DsfrTileTagTest(SimpleTestCase):
+    def test_tile_tag_rendered(self):
+        context = Context()
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_tile %}")
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """
+            <h3 class="fr-tile__title"><a class="fr-tile__link" href=""></a></h3>
+            """.strip(),
+            rendered_template,
+        )
+
+    def test_tile_tag_override_heading_tag_rendered(self):
+        context = Context()
+        template_to_render = Template(
+            "{% load dsfr_tags %} {% dsfr_tile heading_tag='h4' %}"
+        )
+        rendered_template = template_to_render.render(context)
+        self.assertNotInHTML(
+            """
+            <h3 class="fr-tile__title"><a class="fr-tile__link" href=""></a></h3>
+            """.strip(),
+            rendered_template,
+        )
+        self.assertInHTML(
+            """
+            <h4 class="fr-tile__title"><a class="fr-tile__link" href=""></a></h4>
+            """.strip(),
+            rendered_template,
+        )
+
+
 class DsfrAccordionTagTest(SimpleTestCase):
     test_data = {
         "id": "sample-accordion",
