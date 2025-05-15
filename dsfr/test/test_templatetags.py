@@ -1117,6 +1117,37 @@ class DsfrTooltipTagTest(SimpleTestCase):
             rendered_template,
         )
 
+    def test_clickable_tooltip_rendered(self):
+        test_data = {
+            "content": "Contenu d’une infobule activée au survol",
+            "label": "Libellé du lien",
+            "id": "tooltip-test",
+            "is_clickable": True,
+        }
+
+        context = Context({"test_data": test_data})
+        template_to_render = Template(
+            "{% load dsfr_tags %} {% dsfr_tooltip test_data %}"
+        )
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """
+            <button type="button"
+                    class="fr-btn--tooltip fr-btn"
+                    id="button-tooltip-test"
+                    aria-describedby="tooltip-test"
+            >
+                Information contextuelle
+            </button>
+
+            <span class="fr-tooltip fr-placement"
+                id="tooltip-test"
+                role="tooltip"
+                aria-hidden="true">Contenu d’une infobule activée au survol</span>
+            """,
+            rendered_template,
+        )
+
 
 class DsfrTranscriptionTagTest(SimpleTestCase):
     test_data = {
