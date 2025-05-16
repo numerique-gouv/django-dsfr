@@ -146,32 +146,44 @@ class InlineCheckboxSelectMultiple(CheckboxSelectMultiple):
     inline = True
 
 
-class NumberRange(NumberInput):
-    template_name = "dsfr/widgets/number_range.html"
+class NumberCursor(NumberInput):
+    template_name = "dsfr/widgets/number_cursor.html"
 
     def __init__(
         self,
         *args,
-        lower_bound: int = None,
-        upper_bound: int = None,
+        min_value: int = None,
+        max_value: int = None,
         step: int = None,
+        is_range: bool = False,
         extra_classes: str = "",
         **kwargs,
     ):
         super().__init__(*args, **kwargs)
-        self.lower_bound = lower_bound
-        self.upper_bound = upper_bound
+        self.min_value = min_value
+        self.max_value = max_value
         self.step = step
+        self.is_range = is_range
         self.extra_classes = extra_classes
 
     def get_context(self, *args, **kwargs):
         context = super().get_context(*args, **kwargs)
         context.update(
             {
-                "min": self.lower_bound,
-                "max": self.upper_bound,
+                "min": self.min_value,
+                "max": self.max_value,
                 "step": self.step,
+                "is_range": self.is_range,
                 "extra_classes": self.extra_classes,
             }
         )
         return context
+
+    def value_from_datadict(self, data, files, name):
+        if self.is_range:
+            return data.getlist(name)
+        else:
+            return super().value_from_datadict(data, files, name)
+
+    def format_value(self, value):
+        return value if isinstance(value, list) else None
