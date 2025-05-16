@@ -6,11 +6,18 @@ from django.forms.widgets import (
     CheckboxSelectMultiple,
     NumberInput,
 )
+from django.http import QueryDict
+from django.utils.datastructures import MultiValueDict
 
 from dsfr.enums import RichRadioButtonChoices
 
 
-__all__ = ["RichRadioSelect", "InlineRadioSelect", "InlineCheckboxSelectMultiple"]
+__all__ = [
+    "RichRadioSelect",
+    "InlineRadioSelect",
+    "InlineCheckboxSelectMultiple",
+    "NumberCursor",
+]
 
 
 class _RichChoiceWidget(ChoiceWidget):
@@ -160,9 +167,13 @@ class NumberCursor(NumberInput):
         **kwargs,
     ):
         super().__init__(*args, **kwargs)
-        self.min_value = min_value
-        self.max_value = max_value
-        self.step = step
+        self.attrs.update(
+            {
+                "min": min_value,
+                "max": max_value,
+                "step": step,
+            }
+        )
         self.is_range = is_range
         self.extra_classes = extra_classes
 
@@ -170,20 +181,17 @@ class NumberCursor(NumberInput):
         context = super().get_context(*args, **kwargs)
         context.update(
             {
-                "min": self.min_value,
-                "max": self.max_value,
-                "step": self.step,
                 "is_range": self.is_range,
                 "extra_classes": self.extra_classes,
             }
         )
         return context
 
-    def value_from_datadict(self, data, files, name):
+    def value_from_datadict(self, data: QueryDict, files: MultiValueDict, name: str):
         if self.is_range:
             return data.getlist(name)
         else:
-            return super().value_from_datadict(data, files, name)
+            return data.get(name)
 
     def format_value(self, value):
-        return value if isinstance(value, list) else None
+        return value

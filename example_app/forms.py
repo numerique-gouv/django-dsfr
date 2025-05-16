@@ -200,12 +200,27 @@ class ExampleForm(DsfrBaseForm):
         max_value=70,
         min_value=10,
     )
+    sample_integer_with_cursor_with_steps = IntegerOnCursorField(
+        label="Nombre à choisir avec un curseur cranté",
+        required=False,
+        max_value=70,
+        min_value=10,
+        step_size=5,
+    )
     sample_integer_range = IntegerRangeField(
         label="Intervalle de nombres",
+        help_text="Bougez les curseurs pour choisir un intervalle",
         required=False,
-        max_value=100,
-        min_value=0,
+        max_value=70,
+        min_value=10,
         step_size=1,
+    )
+    sample_integer_with_cursor_disabled = IntegerOnCursorField(
+        label="Nombre à choisir avec un curseur, désactivé",
+        required=False,
+        disabled=True,
+        max_value=70,
+        min_value=10,
     )
 
     # hidden field

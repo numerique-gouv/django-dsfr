@@ -1,38 +1,30 @@
-{% with id=widget.attrs.id %}
-  <div class="fr-range-group" id="{{ id }}-group">
-    <label id="{{ id }}-label" class="fr-label" for="{{ id }}">
-      {{ label }}
-      <span class="fr-hint-text">{{ description }}</span>
-    </label>
-    <div class="fr-range {% if step %}fr-range--step{% endif %} {% if is_range %} fr-range--double{% endif %}{{ extra_classes }}">
-      <span class="fr-range__output">{{ value }}</span>
-      <input id="{{ id }}{% if is_range %}-low{% endif %}"
-             name="{{ widget.name }}"
-             type="range"
-             min="{{ min }}"
-             max="{{ max }}"
-             {% if widget.value %}value="{% if is_range %}{{ widget.value|first }}{% else %}{{ widget.value }}{% endif %}"{% endif %}
-             {% if step %}step="{{ step }}"{% endif %}
-             {% if required %}required{% endif %}
-             aria-labelledby="{{ id }}-label"
-             aria-describedby="{{ id }}-messages"
-      >
-      {% if is_range %}
-        <input id="{{ id }}{% if is_range %}-high{% endif %}"
-               name="{{ widget.name }}"
-               type="range"
-               min="{{ min }}"
-               max="{{ max }}"
-               {% if widget.value %}value="{{ widget.value|last }}"{% endif %}
-               {% if step %}step="{{ step }}"{% endif %}
-               {% if required %}required{% endif %}
-               aria-labelledby="{{ id }}-label"
-               aria-describedby="{{ id }}-messages"
-        >
-      {% endif %}
-      <span class="fr-range__min" aria-hidden="true">{{ min }}</span>
-      <span class="fr-range__max" aria-hidden="true">{{ max }}</span>
-    </div>
-    <div class="fr-messages-group" id="{{ id }}-messages" aria-live="polite"></div>
-  </div>
-{% endwith %}
+<div class="fr-range {% if step %}fr-range--step{% endif %} {% if is_range %} fr-range--double{% endif %}{{ extra_classes }}">
+  <span class="fr-range__output">{% if widget.value %}{% if is_range %}{{ widget.value|first }}{% else %}{{ widget.value }}{% endif %}{% endif %}</span>
+  <input id="{{ widget.attrs.id }}{% if is_range %}-low{% endif %}"
+         name="{{ widget.name }}"
+         type="range"
+         {% if widget.attrs.disabled %}disabled{% endif %}
+         min="{{ widget.attrs.min }}"
+         max="{{ widget.attrs.max }}"
+         {% if step %}step="{{ widget.attrs.step }}"{% endif %}
+         {% if widget.value %}value="{% if is_range %}{{ widget.value|first }}{% else %}{{ widget.value }}{% endif %}"{% endif %}
+         {% if required %}required{% endif %}
+         aria-labelledby="{{ widget.attrs.id }}-label"
+         aria-describedby="{{ widget.attrs.id }}-messages"
+  >
+  {% if is_range %}
+    <input id="{{ widget.attrs.id }}{% if is_range %}-high{% endif %}"
+           name="{{ widget.name }}"
+           type="range"
+           min="{{ widget.attrs.min }}"
+           max="{{ widget.attrs.max }}"
+           {% if step %}step="{{ widget.attrs.step }}"{% endif %}
+           {% if widget.value %}value="{{ widget.value|last }}"{% endif %}
+           {% if required %}required{% endif %}
+           aria-labelledby="{{ widget.attrs.id }}-label"
+           aria-describedby="{{ widget.attrs.id }}-messages"
+    >
+  {% endif %}
+  <span class="fr-range__min" aria-hidden="true">{{ widget.attrs.min }}</span>
+  <span class="fr-range__max" aria-hidden="true">{{ widget.attrs.max }}</span>
+</div>
