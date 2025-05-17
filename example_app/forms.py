@@ -10,6 +10,7 @@ from django.db.models import IntegerChoices
 
 from dsfr.constants import COLOR_CHOICES, COLOR_CHOICES_ILLUSTRATION
 from dsfr.enums import RichRadioButtonChoices
+from dsfr.fields import IntegerOnCursorField, IntegerRangeField
 from dsfr.forms import DsfrBaseForm
 
 # /!\ In order to use formsets
@@ -21,6 +22,7 @@ from dsfr.widgets import (
     RichRadioSelect,
     InlineRadioSelect,
     InlineCheckboxSelectMultiple,
+    NumberCursor,
 )
 from example_app.models import Author, Book
 from example_app.utils import populate_genre_choices
@@ -190,6 +192,36 @@ class ExampleForm(DsfrBaseForm):
 
     # files
     sample_file = forms.FileField(label="Pièce jointe", required=False)
+
+    # range
+    sample_integer_with_cursor = IntegerOnCursorField(
+        label="Nombre à choisir avec un curseur",
+        required=False,
+        max_value=70,
+        min_value=10,
+    )
+    sample_integer_with_cursor_with_steps = IntegerOnCursorField(
+        label="Nombre à choisir avec un curseur cranté",
+        required=False,
+        max_value=70,
+        min_value=10,
+        step_size=5,
+    )
+    sample_integer_range = IntegerRangeField(
+        label="Intervalle de nombres",
+        help_text="Bougez les curseurs pour choisir un intervalle",
+        required=False,
+        max_value=70,
+        min_value=10,
+        step_size=1,
+    )
+    sample_integer_with_cursor_disabled = IntegerOnCursorField(
+        label="Nombre à choisir avec un curseur, désactivé",
+        required=False,
+        disabled=True,
+        max_value=70,
+        min_value=10,
+    )
 
     # hidden field
     hidden_input = forms.CharField(widget=forms.HiddenInput(), initial="value")

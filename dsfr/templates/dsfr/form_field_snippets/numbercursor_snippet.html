@@ -1,0 +1,19 @@
+{% load dsfr_tags %}
+
+<div class="fr-range-group {% if field.errors %} fr-range-group--error{% endif %} {% if field.field.disabled %} fr-range-group--disabled{% endif %}" id="{{ field.auto_id }}-group">
+  <label id="{{ field.auto_id }}-label" class="fr-label" for="{{ field.auto_id }}">
+    {{ field.label }}
+    {% if field.help_text %}
+      <span class="fr-hint-text">
+        {{ field.help_text }},
+        valeur de {{ field.field.min_value }} à {{ field.field.max_value }}
+      </span>
+    {% endif %}
+  </label>
+  {{ field|dsfr_input_class_attr }}
+  {% if field.errors %}
+    <div id="{{ field.auto_id }}-desc-error">
+      {{ field.errors }}
+    </div>
+  {% endif %}
+</div>
