@@ -69,7 +69,7 @@ markdown = "^3.5"
 pygments = "^2.16.1"
 beautifulsoup4 = "^4.12.2"
 lxml = "^5.1.0"
-setuptools = "^70.0.0"
+setuptools = "^78.1.1"
 twine = "^5.1.1"
 
 [tool.djlint]
