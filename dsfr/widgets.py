@@ -1,11 +1,23 @@
 from typing import Type
 
-from django.forms.widgets import RadioSelect, ChoiceWidget, CheckboxSelectMultiple
+from django.forms.widgets import (
+    RadioSelect,
+    ChoiceWidget,
+    CheckboxSelectMultiple,
+    NumberInput,
+)
+from django.http import QueryDict
+from django.utils.datastructures import MultiValueDict
 
 from dsfr.enums import RichRadioButtonChoices
 
 
-__all__ = ["RichRadioSelect", "InlineRadioSelect", "InlineCheckboxSelectMultiple"]
+__all__ = [
+    "RichRadioSelect",
+    "InlineRadioSelect",
+    "InlineCheckboxSelectMultiple",
+    "NumberCursor",
+]
 
 
 class _RichChoiceWidget(ChoiceWidget):
@@ -139,3 +151,44 @@ class InlineRadioSelect(RadioSelect):
 
 class InlineCheckboxSelectMultiple(CheckboxSelectMultiple):
     inline = True
+
+
+class NumberCursor(NumberInput):
+    template_name = "dsfr/widgets/number_cursor.html"
+    group_class = "fr-range-group"
+
+    def __init__(
+        self,
+        *args,
+        is_range: bool = False,
+        prefix: str = "",
+        suffix: str = "",
+        extra_classes: str = "",
+        **kwargs,
+    ):
+        super().__init__(*args, **kwargs)
+        self.is_range = is_range
+        self.prefix = prefix
+        self.suffix = suffix
+        self.extra_classes = extra_classes
+
+    def get_context(self, *args, **kwargs):
+        context = super().get_context(*args, **kwargs)
+        context.update(
+            {
+                "is_range": self.is_range,
+                "prefix": self.prefix,
+                "suffix": self.suffix,
+                "extra_classes": self.extra_classes,
+            }
+        )
+        return context
+
+    def value_from_datadict(self, data: QueryDict, files: MultiValueDict, name: str):
+        if self.is_range:
+            return data.getlist(name)
+        else:
+            return data.get(name)
+
+    def format_value(self, value):
+        return value

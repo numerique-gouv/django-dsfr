@@ -5,7 +5,13 @@ from django.urls import reverse
 
 
 class DsfrBaseFormTestCase(TestCase):
-    sample_data = {"user_name": "Example Name", "sample_number": 5, "sample_json": "{}"}
+    sample_data = {
+        "user_name": "Example Name",
+        "sample_number": 5,
+        "sample_json": "{}",
+        "sample_integer_range": ["50", "50"],
+        "sample_integer_range_small": ["50", "50"],
+    }
 
     def test_valid_form(self):
         response = self.client.post(

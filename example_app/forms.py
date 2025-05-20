@@ -10,6 +10,7 @@ from django.db.models import IntegerChoices
 
 from dsfr.constants import COLOR_CHOICES, COLOR_CHOICES_ILLUSTRATION
 from dsfr.enums import RichRadioButtonChoices
+from dsfr.fields import IntegerRangeField
 from dsfr.forms import DsfrBaseForm
 
 # /!\ In order to use formsets
@@ -21,6 +22,7 @@ from dsfr.widgets import (
     RichRadioSelect,
     InlineRadioSelect,
     InlineCheckboxSelectMultiple,
+    NumberCursor,
 )
 from example_app.models import Author, Book
 from example_app.utils import populate_genre_choices
@@ -190,6 +192,43 @@ class ExampleForm(DsfrBaseForm):
 
     # files
     sample_file = forms.FileField(label="Pièce jointe", required=False)
+
+    # range
+    sample_integer_with_cursor = forms.IntegerField(
+        label="Nombre à choisir avec un curseur, simple, requis",
+        help_text="Texte de description additionnel",
+        required=True,
+        widget=NumberCursor(),
+    )
+    sample_integer_with_cursor_disabled = forms.IntegerField(
+        label="Nombre à choisir avec un curseur, désactivé",
+        help_text="Texte de description additionnel",
+        required=False,
+        disabled=True,
+        widget=NumberCursor(),
+    )
+    sample_integer_with_cursor_with_steps = forms.IntegerField(
+        label="Nombre à choisir dans un intervalle explicite, avec un curseur cranté de 5 en 5, petite taille, avec préfixe et suffixe",
+        help_text="Texte de description additionnel",
+        required=False,
+        max_value=70,
+        min_value=10,
+        step_size=5,
+        widget=NumberCursor(extra_classes="fr-range--sm", prefix="~", suffix="%"),
+    )
+    sample_integer_range = IntegerRangeField(
+        label="Intervalle de nombres",
+        help_text="Déplacez les curseurs pour choisir un intervalle",
+        required=False,
+    )
+    sample_integer_range_small = IntegerRangeField(
+        label="Intervalle de nombres, petite taille, suffixe",
+        help_text="Déplacez les curseurs pour choisir un intervalle de prix",
+        required=False,
+        max_value=70,
+        min_value=10,
+        widget=NumberCursor(extra_classes="fr-range--sm", suffix="€"),
+    )
 
     # hidden field
     hidden_input = forms.CharField(widget=forms.HiddenInput(), initial="value")
