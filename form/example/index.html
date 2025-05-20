@@ -713,10 +713,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-mkfzwgzxeaeqzouu">
+          aria-controls="breadcrumb-dxqgovjirmecsmvn">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-mkfzwgzxeaeqzouu">
+  <div class="fr-collapse" id="breadcrumb-dxqgovjirmecsmvn">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -740,7 +740,7 @@
     Exemple de formulaire
   </h1>
   <form action="/django-dsfr/form/example/" method="post">
-    <input type="hidden" name="csrfmiddlewaretoken" value="uiWfI5Evbskfv46mwyaJrc6RMIYkrgWUf5fMbwU3XBxIvitRi3c6eoOJMHHwzfm2">
+    <input type="hidden" name="csrfmiddlewaretoken" value="GDm1s9ipUM94U0avenhJYnCe46Wgtngs1Shqg6RDQGZDscTiLFkkoKbBHEEpIaCN">
     <div class="fr-input-group">
   <label for="id_user_name" class="fr-label">
     
@@ -1482,6 +1482,250 @@ null</textarea>
 
   
 
+  
+
+<div class="fr-range-group  ">
+  <label for="id_sample_integer_with_cursor" class="fr-label">
+    
+    Nombre à choisir avec un curseur, simple, requis*
+    
+      <span class="fr-hint-text" id="id_sample_integer_with_cursor_helptext">
+        Texte de description additionnel, valeur
+        comprise entre 0
+        et 100.
+      </span>
+    
+    
+  </label>
+  <div class="fr-range "
+     
+     
+>
+  <span class="fr-range__output"></span>
+  <input id="id_sample_integer_with_cursor"
+         name="sample_integer_with_cursor"
+         type="range"
+         
+         
+         
+         
+         
+         
+         aria-labelledby="id_sample_integer_with_cursor-label"
+         aria-describedby="id_sample_integer_with_cursor-messages"
+  >
+  
+  <span class="fr-range__min" aria-hidden="true"></span>
+  <span class="fr-range__max" aria-hidden="true"></span>
+</div>
+  
+</div>
+
+
+
+
+  
+
+  
+
+<div class="fr-range-group  fr-range-group--disabled">
+  <label for="id_sample_integer_with_cursor_disabled" class="fr-label">
+    
+    Nombre à choisir avec un curseur, désactivé
+    
+      <span class="fr-hint-text" id="id_sample_integer_with_cursor_disabled_helptext">
+        Texte de description additionnel, valeur
+        comprise entre 0
+        et 100.
+      </span>
+    
+    
+  </label>
+  <div class="fr-range "
+     
+     
+>
+  <span class="fr-range__output"></span>
+  <input id="id_sample_integer_with_cursor_disabled"
+         name="sample_integer_with_cursor_disabled"
+         type="range"
+         disabled
+         
+         
+         
+         
+         
+         aria-labelledby="id_sample_integer_with_cursor_disabled-label"
+         aria-describedby="id_sample_integer_with_cursor_disabled-messages"
+  >
+  
+  <span class="fr-range__min" aria-hidden="true"></span>
+  <span class="fr-range__max" aria-hidden="true"></span>
+</div>
+  
+</div>
+
+
+
+
+  
+
+  
+
+<div class="fr-range-group  ">
+  <label for="id_sample_integer_with_cursor_with_steps" class="fr-label">
+    
+    Nombre à choisir dans un intervalle explicite, avec un curseur cranté de 5 en 5, petite taille, avec préfixe et suffixe
+    
+      <span class="fr-hint-text" id="id_sample_integer_with_cursor_with_steps_helptext">
+        Texte de description additionnel, valeur
+        comprise entre 10
+        et 70.
+      </span>
+    
+    
+  </label>
+  <div class="fr-range fr-range--step fr-range--sm"
+     data-fr-prefix="~"
+     data-fr-suffix="%"
+>
+  <span class="fr-range__output"></span>
+  <input id="id_sample_integer_with_cursor_with_steps"
+         name="sample_integer_with_cursor_with_steps"
+         type="range"
+         
+         min="10"
+         max="70"
+         step="5"
+         
+         
+         aria-labelledby="id_sample_integer_with_cursor_with_steps-label"
+         aria-describedby="id_sample_integer_with_cursor_with_steps-messages"
+  >
+  
+  <span class="fr-range__min" aria-hidden="true">10</span>
+  <span class="fr-range__max" aria-hidden="true">70</span>
+</div>
+  
+</div>
+
+
+
+
+  
+
+  
+
+<div class="fr-range-group  ">
+  <label for="id_sample_integer_range" class="fr-label">
+    
+    Intervalle de nombres
+    
+      <span class="fr-hint-text" id="id_sample_integer_range_helptext">
+        Déplacez les curseurs pour choisir un intervalle, valeur
+        comprise entre 0
+        et 100.
+      </span>
+    
+    
+  </label>
+  <div class="fr-range fr-range--double "
+     
+     
+>
+  <span class="fr-range__output"></span>
+  <input id="id_sample_integer_range-low"
+         name="sample_integer_range"
+         type="range"
+         
+         
+         max="100"
+         
+         
+         
+         aria-labelledby="id_sample_integer_range-label"
+         aria-describedby="id_sample_integer_range-messages"
+  >
+  
+    <input id="id_sample_integer_range-high"
+           name="sample_integer_range"
+           type="range"
+           min="0"
+           max="100"
+           
+           
+           
+           aria-labelledby="id_sample_integer_range-label"
+           aria-describedby="id_sample_integer_range-messages"
+    >
+  
+  <span class="fr-range__min" aria-hidden="true">0</span>
+  <span class="fr-range__max" aria-hidden="true">100</span>
+</div>
+  
+</div>
+
+
+
+
+  
+
+  
+
+<div class="fr-range-group  ">
+  <label for="id_sample_integer_range_small" class="fr-label">
+    
+    Intervalle de nombres, petite taille, suffixe
+    
+      <span class="fr-hint-text" id="id_sample_integer_range_small_helptext">
+        Déplacez les curseurs pour choisir un intervalle de prix, valeur
+        comprise entre 10
+        et 70.
+      </span>
+    
+    
+  </label>
+  <div class="fr-range fr-range--double fr-range--sm"
+     
+     data-fr-suffix="€"
+>
+  <span class="fr-range__output"></span>
+  <input id="id_sample_integer_range_small-low"
+         name="sample_integer_range_small"
+         type="range"
+         
+         min="10"
+         max="70"
+         
+         
+         
+         aria-labelledby="id_sample_integer_range_small-label"
+         aria-describedby="id_sample_integer_range_small-messages"
+  >
+  
+    <input id="id_sample_integer_range_small-high"
+           name="sample_integer_range_small"
+           type="range"
+           min="10"
+           max="70"
+           
+           
+           
+           aria-labelledby="id_sample_integer_range_small-label"
+           aria-describedby="id_sample_integer_range_small-messages"
+    >
+  
+  <span class="fr-range__min" aria-hidden="true">10</span>
+  <span class="fr-range__max" aria-hidden="true">70</span>
+</div>
+  
+</div>
+
+
+
+
+  
+
   <input type="hidden" name="hidden_input" value="value" id="id_hidden_input">
     <div class="fr-input-group fr-my-4w">
       <button type="submit" class="fr-btn" title="Valider">
@@ -1769,11 +2013,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-l8g9Hsy5GI9+gVYLHCrBoaD2RBoVqjZ189s6ycWnyUMlBc4fJHgDv6Vy6srjghNj"
-         nonce="0bm1DmRy1FJH25ttSC5xJQ=="></script>
+         nonce="GdTtmpGxX4fLaAlNiHF3HQ=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-n3DkLEpXk5jDW26QT+Rsm0VCNrSPDKpmFcCVIwlEkl9I6MgKB89KDVWuDiJpFktn"
-         nonce="0bm1DmRy1FJH25ttSC5xJQ=="></script>
+         nonce="GdTtmpGxX4fLaAlNiHF3HQ=="></script>
 
 
     
