@@ -1590,6 +1590,8 @@ def dsfr_form_field(field) -> dict:
     **Usage**:
         `{% dsfr_form_field field|dsfr_inline %}`
     """
+    if field == '':
+        raise AttributeError("Invalid form field name")
     return {"field": field}
 
 
