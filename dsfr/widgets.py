@@ -17,6 +17,7 @@ __all__ = [
     "InlineRadioSelect",
     "InlineCheckboxSelectMultiple",
     "NumberCursor",
+    "SegmentedControl",
 ]
 
 
@@ -193,3 +194,15 @@ class NumberCursor(NumberInput):
 
     def format_value(self, value):
         return value
+
+
+class SegmentedControl(_ExtendedChoicesWidget, ChoiceWidget):
+    template_name = "dsfr/widgets/segmented_control.html"
+    option_template_name = "dsfr/widgets/segmented_control_option.html"
+
+    def __init__(
+        self, *args, extra_classes: str = "", is_inline: bool = False, **kwargs
+    ):
+        super().__init__(*args, **kwargs)
+        self.extra_classes = extra_classes
+        self.is_inline = is_inline

@@ -422,3 +422,37 @@ class RichRadioButtonChoices(ExtendedChoices):
             if hasattr(self, self.private_variable_name("html_label"))
             else self.label
         )
+
+
+class SegmentedControlChoices(ExtendedChoices):
+    """
+    Version spécialisée de `ExtendedChoices` à utiliser avec
+    `dsfr.widgets.SegmentedControl`. Cette version déclare en plus la propriété
+    `icon` :
+
+    ```python
+    >>> from enum import auto
+    >>> from django.db.models import IntegerChoices
+    >>> class ExampleSegmentedControlChoices(IntegerChoices, SegmentedControlChoices):
+    ...   ITEM_1 = {
+    ...       "value": auto(),
+    ...       "label": "Item 1",
+    ...       "icon": "mail-line",
+    ...   }
+    ...   ITEM_2 = {
+    ...       "value": auto(),
+    ...       "label": "Item 2",
+    ...       "icon": "calendar-line",
+    ...   }
+    ...   ITEM_3 = {
+    ...       "value": auto(),
+    ...       "label": "Item 3",
+    ...       "icon": "archive-line",
+    ...   }
+    ```
+
+    """
+
+    @enum_property
+    def icon(self):
+        return getattr(self, self.private_variable_name("icon"), "")

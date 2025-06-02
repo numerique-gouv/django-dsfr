@@ -1,0 +1,10 @@
+{% load dsfr_tags %}
+
+<div class="fr-input-group">
+  <fieldset class="fr-segmented {{ field.field.widget.extra_classes }}">
+    <legend class="fr-segmented__legend {% if field.field.widget.is_inline %}fr-segmented__legend--inline{% endif %}">
+      {{ field.label }}
+    </legend>
+    {{ field }}
+  </fieldset>
+</div>
