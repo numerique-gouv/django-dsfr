@@ -9,7 +9,7 @@ from django.forms.widgets import (
 from django.http import QueryDict
 from django.utils.datastructures import MultiValueDict
 
-from dsfr.enums import RichRadioButtonChoices
+from dsfr.enums import ExtendedChoices
 
 
 __all__ = [
@@ -20,32 +20,32 @@ __all__ = [
 ]
 
 
-class _RichChoiceWidget(ChoiceWidget):
+class _ExtendedChoicesWidget(ChoiceWidget):
     inline = False
 
     def __init__(
-        self, rich_choices: Type[RichRadioButtonChoices], inline=None, attrs=None
+        self, extended_choices: Type[ExtendedChoices], inline=None, attrs=None
     ):
         super().__init__(attrs)
-        self.rich_choices = rich_choices
+        self.extended_choices = extended_choices
         if inline is not None:
             self.inline = inline
 
     @property
     def choices(self):
-        return self.rich_choices.choices
+        return self.extended_choices.choices
 
     @choices.setter
     def choices(self, value):
         """
-        Superseded by self.rich_choices;
+        Superseded by self.extended_choices;
         kept for compatibility with ChoiceWidget.__init__
         """
         ...
 
     def __deepcopy__(self, memo):
         obj = super().__deepcopy__(memo)
-        obj.rich_choices = self.rich_choices
+        obj.extended_choices = self.extended_choices
         return obj
 
     def create_option(
@@ -60,15 +60,15 @@ class _RichChoiceWidget(ChoiceWidget):
 
         opt.update(
             {
-                k: getattr(self.rich_choices(value), k)
-                for k in self.rich_choices.additional_attributes
+                k: getattr(self.extended_choices(value), k)
+                for k in self.extended_choices.additional_attributes
             }
         )
 
         return opt
 
 
-class RichRadioSelect(_RichChoiceWidget, RadioSelect):
+class RichRadioSelect(_ExtendedChoicesWidget, RadioSelect):
     """
     Widget permettant de produire des boutons radio riches. Ce widget fonctionne avec
     `dsfr.enums.RichRadioButtonChoices`.
@@ -82,6 +82,7 @@ class RichRadioSelect(_RichChoiceWidget, RadioSelect):
     >>> from enum import auto
     >>> from django.db.models import IntegerChoices
     >>> from django import forms
+    >>> from dsfr.enums import RichRadioButtonChoices
     >>> from dsfr.forms import DsfrBaseForm
     >>> from dsfr.utils import lazy_static
 
@@ -111,7 +112,7 @@ class RichRadioSelect(_RichChoiceWidget, RadioSelect):
     ...         required=False,
     ...         choices=ExampleRichChoices.choices,
     ...         help_text="Exemple de boutons radios riches",
-    ...         widget=RichRadioSelect(rich_choices=ExampleRichChoices),
+    ...         widget=RichRadioSelect(extended_choices=ExampleRichChoices),
     ...     )
     ```
 

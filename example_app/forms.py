@@ -174,7 +174,7 @@ class ExampleForm(DsfrBaseForm):
         required=False,
         choices=ExampleRichChoices.choices,
         help_text="Exemple de boutons radios riches",
-        widget=RichRadioSelect(rich_choices=ExampleRichChoices),
+        widget=RichRadioSelect(extended_choices=ExampleRichChoices),
     )
 
     inline_rich_radio = forms.ChoiceField(
@@ -182,7 +182,7 @@ class ExampleForm(DsfrBaseForm):
         required=False,
         choices=ExampleRichChoices.choices,
         help_text="Exemple de boutons radios riches en ligne",
-        widget=RichRadioSelect(rich_choices=ExampleRichChoices, inline=True),
+        widget=RichRadioSelect(extended_choices=ExampleRichChoices, inline=True),
     )
 
     # text blocks

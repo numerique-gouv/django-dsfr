@@ -333,6 +333,7 @@ from dsfr.utils import lazy_static
 from dsfr.enums import RichRadioButtonChoices
 from dsfr.widgets import RichRadioSelect
 
+
 class ExampleRichChoices(RichRadioButtonChoices, IntegerChoices):
     ITEM_1 = {
         "value": auto(),
@@ -353,13 +354,14 @@ class ExampleRichChoices(RichRadioButtonChoices, IntegerChoices):
         "pictogram": lazy_static("img/placeholder.1x1.png"),
     }
 
+
 class ExampleForm(DsfrBaseForm):
     sample_rich_radio = forms.ChoiceField(
         label="Cases à cocher",
         required=False,
         choices=ExampleRichChoices.choices,
         help_text="Exemple de boutons radios riches",
-        widget=RichRadioSelect(rich_choices=ExampleRichChoices),
+        widget=RichRadioSelect(extended_choices=ExampleRichChoices),
     )
 ```
 
