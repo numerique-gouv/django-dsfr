@@ -9,7 +9,7 @@ from django.db.models import IntegerChoices
 
 
 from dsfr.constants import COLOR_CHOICES, COLOR_CHOICES_ILLUSTRATION
-from dsfr.enums import RichRadioButtonChoices
+from dsfr.enums import RichRadioButtonChoices, SegmentedControlChoices
 from dsfr.fields import IntegerRangeField
 from dsfr.forms import DsfrBaseForm
 
@@ -23,6 +23,7 @@ from dsfr.widgets import (
     InlineRadioSelect,
     InlineCheckboxSelectMultiple,
     NumberCursor,
+    SegmentedControl,
 )
 from example_app.models import Author, Book
 from example_app.utils import populate_genre_choices
@@ -46,6 +47,24 @@ class ExampleRichChoices(IntegerChoices, RichRadioButtonChoices):
         "label": "Item 3",
         "html_label": "<strong>Item 3</strong>",
         "pictogram": lazy_static("img/placeholder.1x1.png"),
+    }
+
+
+class ExampleSegmentedControlChoices(IntegerChoices, SegmentedControlChoices):
+    ITEM_1 = {
+        "value": auto(),
+        "label": "Item 1",
+        "icon": "table-line",
+    }
+    ITEM_2 = {
+        "value": auto(),
+        "label": "Item 2",
+        "icon": "list-unordered",
+    }
+    ITEM_3 = {
+        "value": auto(),
+        "label": "Item 3",
+        "icon": "layout-grid-line",
     }
 
 
@@ -228,6 +247,32 @@ class ExampleForm(DsfrBaseForm):
         max_value=70,
         min_value=10,
         widget=NumberCursor(extra_classes="fr-range--sm", suffix="€"),
+    )
+
+    # segmented control
+    sample_segmented_control = forms.ChoiceField(
+        label="Choix de vue segmenté",
+        choices=ExampleSegmentedControlChoices.choices,
+        required=False,
+        widget=SegmentedControl(extended_choices=ExampleSegmentedControlChoices),
+    )
+    sample_segmented_control_inline = forms.ChoiceField(
+        label="Choix de vue segmenté avec légende inline",
+        choices=ExampleSegmentedControlChoices.choices,
+        required=False,
+        widget=SegmentedControl(
+            extended_choices=ExampleSegmentedControlChoices,
+            is_inline=True,
+        ),
+    )
+    sample_segmented_control_small_no_visible_legend = forms.ChoiceField(
+        label="Choix de vue segmenté petit et sans légende visible",
+        choices=ExampleSegmentedControlChoices.choices,
+        required=False,
+        widget=SegmentedControl(
+            extended_choices=ExampleSegmentedControlChoices,
+            extra_classes="fr-segmented--sm fr-segmented--no-legend",
+        ),
     )
 
     # hidden field
