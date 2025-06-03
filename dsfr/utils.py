@@ -117,11 +117,9 @@ def generate_summary_items(sections_names: list) -> list:
     return items
 
 
-def dsfr_input_class_attr(bf: BoundField):
-    if not bf:
-        raise AttributeError(
-            "Either dsfr_form_field or dsfr_input_class_attr has been called with a non-existing field name."
-        )
+def dsfr_input_class_attr(bf: BoundField | str):
+    if bf == "":
+        raise AttributeError("Invalid form field name passed to dsfr_input_class_attr.")
 
     if bf.is_hidden:
         return bf
