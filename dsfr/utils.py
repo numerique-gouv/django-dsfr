@@ -117,7 +117,10 @@ def generate_summary_items(sections_names: list) -> list:
     return items
 
 
-def dsfr_input_class_attr(bf: BoundField):
+def dsfr_input_class_attr(bf: BoundField | str):
+    if bf == "":
+        raise AttributeError("Invalid form field name passed to dsfr_input_class_attr.")
+
     if bf.is_hidden:
         return bf
     if "class" not in bf.field.widget.attrs:
