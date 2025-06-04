@@ -1,3 +1,4 @@
+import warnings
 from typing import Type
 
 from django.forms.widgets import (
@@ -25,9 +26,21 @@ class _ExtendedChoicesWidget(ChoiceWidget):
     inline = False
 
     def __init__(
-        self, extended_choices: Type[ExtendedChoices], inline=None, attrs=None
+        self,
+        extended_choices: Type[ExtendedChoices],
+        rich_choices: Type[ExtendedChoices] = None,  # /!\ do not use, deprecated
+        inline=None,
+        attrs=None,
     ):
         super().__init__(attrs)
+        if rich_choices:
+            # TODO before v3.0, delete rich_choices argument and this block
+            self.extended_choices = rich_choices
+            warnings.warn(
+                "Argument rich_choices is deprecated, it has been renamed extended_choices and will be removed by the next major release.",
+                DeprecationWarning,
+                stacklevel=3,
+            )
         self.extended_choices = extended_choices
         if inline is not None:
             self.inline = inline
