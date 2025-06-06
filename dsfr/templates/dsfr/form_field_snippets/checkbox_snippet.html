@@ -2,10 +2,7 @@
 <div class="fr-checkbox-group{% if field.errors %} fr-checkbox-group--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %} fr-mb-2w">
   {{ field|dsfr_input_class_attr|attr:"type:checkbox" }}
   <label for="{{ field.id_for_label }}" class="fr-label">
-    {{ field.label }}
-    {% if field.field.required %}
-      *
-    {% endif %}
+    {{ field.label }}{% if field.field.required %} *{% endif %}
 
     {% if field.help_text %}
       <span class="fr-hint-text" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</span>

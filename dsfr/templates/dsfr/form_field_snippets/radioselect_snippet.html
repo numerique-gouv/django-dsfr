@@ -4,10 +4,7 @@
           aria-labelledby="{{ field.auto_id }}-legend{% if field.errors %} {{ field.auto_id }}-desc-error{% endif %}">
   <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="{{ field.auto_id }}-legend">
-    {{ field.label }}
-    {% if field.field.required %}
-      *
-    {% endif %}
+    {{ field.label }}{% if field.field.required %} *{% endif %}
     {% if field.help_text %}
       <span class="fr-hint-text" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</span>
     {% endif %}
