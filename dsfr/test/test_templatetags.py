@@ -76,9 +76,9 @@ class DsfrThemeModaleTagTest(SimpleTestCase):
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             """
-            <h1 id="fr-theme-modal-title" class="fr-modal__title">
+            <h2 id="fr-theme-modal-title" class="fr-modal__title">
                 Paramètres d’affichage
-            </h1>
+            </h2>
             """,
             rendered_template,
         )
@@ -1199,10 +1199,10 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
                                             </button>
                                         </div>
                                         <div class="fr-modal__content">
-                                            <h1 id="fr-transcription-modal-transcription-test-title"
+                                            <h2 id="fr-transcription-modal-transcription-test-title"
                                                 class="fr-modal__title">
                                                 Transcription
-                                            </h1>
+                                            </h2>
                                             <div><p>Courte transcription basique</p></div>
                                         </div>
                                     </div>

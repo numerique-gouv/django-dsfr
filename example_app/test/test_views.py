@@ -29,7 +29,7 @@ class BasicPagesTest(TestCase):
             response.content.decode(),
         )
         self.assertInHTML(
-            """<h1 id="fr-theme-modal-title" class="fr-modal__title">Paramètres d’affichage</h1>""",
+            """<h2 id="fr-theme-modal-title" class="fr-modal__title">Paramètres d’affichage</h2>""",
             response.content.decode(),
         )
 
@@ -42,7 +42,7 @@ class BasicPagesTest(TestCase):
             response.content.decode(),
         )
         self.assertInHTML(
-            """<h1 id="fr-theme-modal-title" class="fr-modal__title">Display settings</h1>""",
+            """<h2 id="fr-theme-modal-title" class="fr-modal__title">Display settings</h2>""",
             response.content.decode(),
         )
 
