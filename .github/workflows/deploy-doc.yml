@@ -28,7 +28,7 @@ jobs:
         poetry install
     - name: 📄 Build docs
       run: |
-        make export_static
+        just export_static
         touch docs/django-dsfr/.nojekyll
     - name: 🚀 Deploy Github Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
