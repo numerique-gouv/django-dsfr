@@ -11,6 +11,8 @@
   {% include "dsfr/form_field_snippets/richradioselect_snippet.html" %}
 {% elif field|widget_type == "numbercursor" %}
   {% include "dsfr/form_field_snippets/numbercursor_snippet.html" %}
+{% elif field|widget_type == "segmentedcontrol" %}
+  {% include "dsfr/form_field_snippets/segmented_control_snippet.html" %}
 {% else %}
   {% include "dsfr/form_field_snippets/input_snippet.html" %}
 {% endif %}
