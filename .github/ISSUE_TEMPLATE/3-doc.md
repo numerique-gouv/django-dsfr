@@ -1,6 +1,6 @@
 ---
 name: 📔 Amélioration de la documentation
-about: Rapporter une erreur ou proposer une suggestion pour améliorer la documentation du DSFR.
+about: Rapporter une erreur ou proposer une suggestion pour améliorer la documentation de Django-DSFR.
 title: ''
 labels: documentation
 assignees: ''
