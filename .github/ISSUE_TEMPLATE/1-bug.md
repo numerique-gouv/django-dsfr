@@ -8,21 +8,21 @@ assignees: ''
 ---
 
 ## 🐛 Décrire le bug
-Une description claire et précise du bug.
+_Une description claire et précise du bug._
 
 ## 🪜 Les étapes pour reproduire le bug
-Exemple :
-1. Aller à  '...'
-2. Cliquer sur  '....'
-3. Scroller jusqu’à '....'
-4. Réduire la page
-5. Le problème apparaît
+_Exemple :_
+1. _Aller à  '...'_
+2. _Cliquer sur  '....'_
+3. _Scroller jusqu’à '....'_
+4. _Réduire la page_
+5. _Le problème apparaît_
 
 ## 🦋 Comportement attendu
-Une description claire et concise de ce qui devrait se produire.
+_Une description claire et concise de ce qui devrait se produire._
 
-## 🖼️ Capture d’écran
-Ajouter des captures d’écran ou un exemple de code pour préciser le bug et le contexte.
+## 🖼️ Captures d’écran (optionnel)
+_Ajouter des captures d’écran ou un exemple de code pour préciser le bug et le contexte._
 
 ## 🖥️ Configuration et système utilisé
 - **Version de Django-DSFR : **
@@ -31,4 +31,4 @@ Ajouter des captures d’écran ou un exemple de code pour préciser le bug et l
 - **Navigateur et version : **
 
 ## ℹ️ Informations complémentaires
-Ajouter toute autre information concernant le problème.
+_Ajouter toute autre information concernant le problème._
