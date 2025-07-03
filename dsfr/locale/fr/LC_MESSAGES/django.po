@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-22 18:50+0200\n"
-"PO-Revision-Date: 2025-04-22 18:51+0200\n"
+"POT-Creation-Date: 2025-07-03 19:15+0200\n"
+"PO-Revision-Date: 2025-07-03 19:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -326,7 +326,7 @@ msgstr "vous êtes ici :"
 msgid "See breadcrumb"
 msgstr "Voir le fil d’Ariane"
 
-#: dsfr/templates/dsfr/breadcrumb.html:15 dsfr/templates/dsfr/header.html:10
+#: dsfr/templates/dsfr/breadcrumb.html:15
 msgid "Home page"
 msgstr "Accueil"
 
@@ -436,16 +436,16 @@ msgstr "Qu’est-ce que FranceConnect+ ?"
 msgid "What is FranceConnect?"
 msgstr "Qu’est-ce que FranceConnect ?"
 
-#: dsfr/templates/dsfr/header.html:29
+#: dsfr/templates/dsfr/header.html:26
 msgid "Menu"
 msgstr "Menu"
 
-#: dsfr/templates/dsfr/header.html:91 dsfr/templates/dsfr/theme_modale.html:13
+#: dsfr/templates/dsfr/header.html:88 dsfr/templates/dsfr/theme_modale.html:13
 #: dsfr/templates/dsfr/transcription.html:30
 msgid "Close"
 msgstr "Fermer"
 
-#: dsfr/templates/dsfr/header.html:95
+#: dsfr/templates/dsfr/header.html:92
 msgid "Main menu"
 msgstr "Menu principal"
 
@@ -523,11 +523,11 @@ msgstr "Thème clair"
 msgid "Dark theme"
 msgstr "Thème sombre"
 
-#: dsfr/templates/dsfr/theme_modale.html:59
+#: dsfr/templates/dsfr/theme_modale.html:60
 msgid "System"
 msgstr "Système"
 
-#: dsfr/templates/dsfr/theme_modale.html:60
+#: dsfr/templates/dsfr/theme_modale.html:61
 msgid "Uses system settings."
 msgstr "Utilise les paramètres système."
 
@@ -539,7 +539,7 @@ msgstr "Activé"
 msgid "Unchecked"
 msgstr "Désactivé"
 
-#: dsfr/templates/dsfr/tooltip.html:6
+#: dsfr/templates/dsfr/tooltip.html:7
 msgid "Contextual information"
 msgstr "Information contextuelle"
 

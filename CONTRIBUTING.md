@@ -7,7 +7,7 @@ L’installation a été testée sur Ubuntu 22.04 avec Python 3.10 et poetry ins
 
 - Installer l’environnement virtuel, les dépendances, les *pre-commit hooks* et initialiser le site d’exemple :
 ```{ .bash }
-make init
+just init
 ```
 
 ## Tests
@@ -15,7 +15,7 @@ make init
 Pour faire tourner les tests :
 
 ```{ .bash }
-make test
+just test
 ```
 
 ## Gestion des dépendances avec Poetry
@@ -60,10 +60,10 @@ Concernant les langues :
 Pour vérifier son code, on peut intégrer le linter adapté à son IDE et aussi faire ceci :
 
 ```{ .bash }
-make quality
+just quality
 ```
 
-Une vérification automatique est faite via des *pre-commit hooks*, qui ont normalement été installés via le `make init`.
+Une vérification automatique est faite via des *pre-commit hooks*, qui ont normalement été installés via le `just init`.
 
 Il est possible de les mettre à jour avec la commande :
 
@@ -76,14 +76,14 @@ pre-commit update
 Quand une nouvelle version du système de design de l’État est publiée, il est possible de le mettre à jour automatiquement via la commande :
 
 ```{ .bash }
-make update_dsfr
+just update_dsfr
 ```
 
 La commande télécharge la dernière version depuis le dépôt Github, la met dans le répertoire `dsfr/static/dsfr/dist/`, retire des fichiers pour réduire la taille du paquet Python et met à jour les sommes de contrôle d’intégrité dans le fichier `dsfr/checksums`.
 
 Une fois la mise à jour faite, il reste à :
 
-- lancer les tests unitaires avec `make test` ;
+- lancer les tests unitaires avec `just test` ;
 - ouvrir le site de test et vérifier que tous les composants s’affichent toujours bien ;
 - mettre à jour la liste des composants en vérifiant depuis le site du système de design de l’État ;
 - mettre à jour le fichier README.md pour indiquer la nouvelle version du DSFR ;

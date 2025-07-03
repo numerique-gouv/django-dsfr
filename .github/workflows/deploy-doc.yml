@@ -13,12 +13,14 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: ["3.11"]
+        python-version: ["3.13"]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+    - name: 📔 Install just
+      uses: extractions/setup-just@v2
     - name: 🐍 Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
     - name: 👷 Install Dependencies
@@ -28,7 +30,7 @@ jobs:
         poetry install
     - name: 📄 Build docs
       run: |
-        make export_static
+        just export_static
         touch docs/django-dsfr/.nojekyll
     - name: 🚀 Deploy Github Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
