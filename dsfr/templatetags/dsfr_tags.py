@@ -1648,7 +1648,7 @@ def strfmt(args, format_string):
     ```python
     def get_context_data(self, **kwargs):
         return {
-            "format_args: [1 + 2, "awesome"]
+            "format_args": [1 + 2, "awesome"]
             "format_kwargs": {
                 "add_result": 1 + 2,
                 "result_feeling": "awesome",
@@ -1664,7 +1664,7 @@ def strfmt(args, format_string):
     kwargs = {}
     if isinstance(args, dict):
         kwargs.update(args)
-        args = tuple()
+        args = ()
     if isinstance(args, Iterable) and not isinstance(args, str):
         args = tuple(args)
     else:

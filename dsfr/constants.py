@@ -6,7 +6,7 @@ DJANGO_DSFR_LANGUAGES = [
     ("fr", _("French")),
 ]
 
-# Color palettes, per https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-de-l-identite-de-l-etat/couleurs-palette/
+# Color palettes, per https://www.systeme-de-design.gouv.fr/version-courante/fr/fondamentaux/couleurs--palette
 
 COLOR_CHOICES_PRIMARY = [
     ("blue-france", _("Blue France")),

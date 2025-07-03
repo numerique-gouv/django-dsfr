@@ -2,7 +2,8 @@ Le pied de page est géré grâce à une balise `include` dans le fichier `base.
 
 Il est alors possible de personnaliser la description ainsi que le bloc-marque via la configuration du site dans l’administration de Django.
 
-- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pied-de-page" target="_blank" rel="noopener noreferrer">
+
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/pied-de-page" target="_blank" rel="noopener noreferrer">
         Voir la page de documentation du composant sur le Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>

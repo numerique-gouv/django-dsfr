@@ -36,24 +36,6 @@ urlpatterns = [
         distill_file="django-dsfr/components/index.html",
     ),
     distill_path(
-        "components/header/",
-        views.page_component_header,
-        name="page_component_header",
-        distill_file="django-dsfr/components/header/index.html",
-    ),
-    distill_path(
-        "components/footer/",
-        views.page_component_footer,
-        name="page_component_footer",
-        distill_file="django-dsfr/components/footer/index.html",
-    ),
-    distill_path(
-        "components/follow/",
-        views.page_component_follow,
-        name="page_component_follow",
-        distill_file="django-dsfr/components/follow/index.html",
-    ),
-    distill_path(
         "components/<slug:tag_name>/",
         views.page_component,
         name="page_component",
@@ -94,6 +76,12 @@ urlpatterns = [
         views.resource_pictograms,
         name="resource_pictograms",
         distill_file="django-dsfr/resources/pictograms/index.html",
+    ),
+    distill_path(
+        "resources/templatetags",
+        views.resource_templatetags,
+        name="resource_templatetags",
+        distill_file="django-dsfr/resources/icons/templatetags.html",
     ),
     distill_path(
         "search/",

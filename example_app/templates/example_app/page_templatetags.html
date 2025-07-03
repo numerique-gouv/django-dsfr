@@ -1,0 +1,215 @@
+{% extends "example_app/base.html" %}
+{% load static dsfr_tags i18n %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}">
+  <style>
+    .example-textarea {
+      background: var(--background-alt-grey);
+      border: 1px solid var(--border-default-grey);
+      color: var(--text-default-grey);
+      padding: 1rem;
+      margin: 2rem 0;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+
+    p code, li code {
+      background: var(--background-alt-grey);
+      padding: 0.2em;
+    }
+  </style>
+{% endblock extra_css %}
+
+{% block content %}
+  <h1>
+    Balises et filtres de gabarit
+  </h1>
+  <p>
+    Django-DSFR inclut un certain nombre de <a href="https://docs.djangoproject.com/fr/5.2/howto/custom-template-tags/"
+    target="_blank"
+    rel="noopener noreferrer">balises et filtres de gabarit (<em lang="en">templatetags</em>)</a>, qui permettre d’accomplir un certain nombre de besoins.
+  </p>
+
+  <p>
+    La plupart des composants sont ainsi disponibles de cette façon : voir leur documentation pour leur utilisation. Cette page vise à référencer les autres balises et filtres.
+  </p>
+
+  <h2>
+    url_remplace_params
+  </h2>
+  <p>
+    Permet de créer un lien qui ajoute ou met à jour un paramètre GET tout en conservant les paramètres existants.
+  </p>
+
+  <p>
+    Utile pour combiner filtres et pagination.
+  </p>
+
+  <section class="fr-accordion fr-mb-2v">
+    <h3 class="fr-accordion__title">
+      <button type="button"
+              class="fr-accordion__btn"
+              aria-expanded="false"
+              aria-controls="accordion-url_remplace_params">
+        Exemple
+      </button>
+    </h3>
+    <div id="accordion-url_remplace_params" class="fr-collapse">
+      <code>
+        <textarea readonly rows="3" cols="90" class="example-textarea">
+            {% verbatim %}
+              <a href="?{% url_remplace_params page=1 %}">{% translate "First page" %}</a>
+            {% endverbatim %}
+          </textarea>
+      </code>
+
+      <p>
+        devient
+        <code>
+          <a href="?{% url_remplace_params page=1 %}">{% translate "First page" %}</a>
+        </code>.
+      </p>
+    </div>
+  </section>
+
+  <h2>
+    concatenate
+  </h2>
+  <p>
+    Comme son nom l’indique, concatène la valeur de la variable sur laquelle il est appelé et l’argument.
+  </p>
+
+  <section class="fr-accordion fr-mb-2v">
+    <h3 class="fr-accordion__title">
+      <button type="button"
+              class="fr-accordion__btn"
+              aria-expanded="false"
+              aria-controls="accordion-concatenate">
+        Exemple
+      </button>
+    </h3>
+    <div id="accordion-concatenate" class="fr-collapse">
+      <code>
+        <textarea readonly rows="3" cols="90" class="example-textarea">
+            {% verbatim %}
+            {% with firstpart="Django" %}
+            {{ firstpart|concatenate:"DSFR" }}
+            {% endwith %}
+            {% endverbatim %}
+          </textarea>
+      </code>
+
+      <p>
+        devient
+        <code>
+          {% with firstpart="Django" %}
+            {{ firstpart|concatenate:"DSFR" }}
+          {% endwith %}
+        </code>.
+      </p>
+
+    </div>
+  </section>
+
+  <h2>
+    hyphenate
+  </h2>
+  <p>
+    Comme son nom l’indique, relie la valeur de la variable sur laquelle il est appelé et l’argument par un tiret.
+  </p>
+
+  <section class="fr-accordion fr-mb-2v">
+    <h3 class="fr-accordion__title">
+      <button type="button"
+              class="fr-accordion__btn"
+              aria-expanded="false"
+              aria-controls="accordion-hyphenate">
+        Exemple
+      </button>
+    </h3>
+    <div id="accordion-hyphenate" class="fr-collapse">
+      <code>
+        <textarea readonly rows="3" cols="90" class="example-textarea">
+            {% verbatim %}
+            {% with firstpart="Django" %}
+            {{ firstpart|hyphenate:"DSFR" }}
+            {% endwith %}
+            {% endverbatim %}
+          </textarea>
+      </code>
+
+      <p>
+        devient
+        <code>
+          {% with firstpart="Django" %}
+            {{ firstpart|hyphenate:"DSFR" }}
+          {% endwith %}
+        </code>.
+      </p>
+
+    </div>
+  </section>
+
+  <h2>
+    strfmt
+  </h2>
+  <p>
+    Effectue l’opération de formattage <code>str.format</code> de Python (<a href="https://docs.python.org/3/library/stdtypes.html#str.format"
+   target="_blank"
+   rel="noopener noreferrer">cf. documentation officielle</a>.)
+  </p>
+
+  <section class="fr-accordion fr-mb-2v">
+    <h3 class="fr-accordion__title">
+      <button type="button"
+              class="fr-accordion__btn"
+              aria-expanded="false"
+              aria-controls="accordion-strfmt">
+        Exemple
+      </button>
+    </h3>
+    <div id="accordion-strfmt" class="fr-collapse">
+      <p>
+        Côté vue :
+      </p>
+      <code>
+        <pre>
+          context["strfmt_example_args"] = [1 + 2, "awesome"]
+          context["strfmt_example_kwargs"] = {
+          "add_result": 1 + 2,
+          "result_feeling": "awesome",
+          }
+        </pre>
+      </code>
+
+      <p>
+        Côté template :
+      </p>
+      <code>
+        <pre>
+          {% verbatim %}
+            {{ strfmt_example_args|strfmt:"The sum of 1 + 2 is {0} and it's {1}" }}
+            {{ strfmt_example_kwargs|strfmt:"The sum of 1 + 2 is {add_result} and it's {result_feeling}" }}
+          {% endverbatim %}
+        </pre>
+      </code>
+
+      <p>
+        devient
+      </p>
+
+      <p>
+        <code>
+          {{ strfmt_example_args|strfmt:"The sum of 1 + 2 is {0} and it's {1}" }}
+        </code>.
+      </p>
+      <p>
+        <code>
+          {{ strfmt_example_kwargs|strfmt:"The sum of 1 + 2 is {add_result} and it's {result_feeling}" }}
+        </code>.
+      </p>
+    </div>
+  </section>
+
+{% endblock content %}

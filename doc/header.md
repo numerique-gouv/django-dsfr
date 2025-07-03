@@ -2,7 +2,7 @@ L’en-tête est géré grâce à une balise `include` dans le fichier `base.htm
 
 Il est alors possible de personnaliser le titre, le sous-titre, ainsi que le bloc-marque, via la configuration du site dans l’administration de Django.
 
-- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/en-tete" target="_blank" rel="noopener noreferrer">
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/en-tete" target="_blank" rel="noopener noreferrer">
         Voir la page de documentation du composant sur le Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
@@ -18,8 +18,8 @@ Il est alors possible de personnaliser le titre, le sous-titre, ainsi que le blo
 ## Composants liés
 Le gabarit d’en-tête est également l’endroit où inclure les composants suivants :
 
-- Navigation principale (navigation) ([Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale) — [Exemple](https://main--ds-gouv.netlify.app/example/component/navigation/)), à insérer dans le bloc `main_menu`.
-- Sélecteur de langue (translate) : ([Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/selecteur-de-langue) — [Exemple](https://main--ds-gouv.netlify.app/example/component/translate/)), à insérer dans le bloc `header_tools`. L’application d’exemple donne un exemple d’implémentation ne traduisant que l’interface, et ne changeant pas l’URL, mais il est plutôt recommandé de définir un préfixe de langue dans l’URL, cf. la [documentation de Django](https://docs.djangoproject.com/fr/5.0/topics/i18n/translation/).
+- Navigation principale (navigation) ([Documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/navigation-principale) — [Exemple](https://main--ds-gouv.netlify.app/example/component/navigation/)), à insérer dans le bloc `main_menu`.
+- Sélecteur de langues (translate) : ([Documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/selecteur-de-langues) — [Exemple](https://main--ds-gouv.netlify.app/example/component/translate/)), à insérer dans le bloc `header_tools`. L’application d’exemple donne un exemple d’implémentation ne traduisant que l’interface, et ne changeant pas l’URL, mais il est plutôt recommandé de définir un préfixe de langue dans l’URL, cf. la [documentation de Django](https://docs.djangoproject.com/fr/5.0/topics/i18n/translation/).
 
 ## Personnaliser
 
