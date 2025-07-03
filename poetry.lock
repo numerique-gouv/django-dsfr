@@ -1655,6 +1655,31 @@ files = [
 ]
 
 [[package]]
+name = "rust-just"
+version = "1.41.0"
+description = "🤖 Just a command runner"
+optional = false
+python-versions = ">=3.7"
+groups = ["dev"]
+files = [
+    {file = "rust_just-1.41.0-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:fad854559adf8b7922a2802aa51b53539cb63146fb5fe5caebb4880a89f02de6"},
+    {file = "rust_just-1.41.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:ae8b649315bdd7e892b530a9fd5ee5052cdfd1def8abf65de45e300456955ada"},
+    {file = "rust_just-1.41.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:93e9cf3bb7578a3b6535739c39f10a9a55e50f155d2a96ed57ceafbf20654bf1"},
+    {file = "rust_just-1.41.0-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:c82f7ba8fcffe22de2bd4a7dcdb8070a4d458a20b1db7ed396a5467576dc8957"},
+    {file = "rust_just-1.41.0-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:f077ab3ed32f87989dbb62d7ac4612fed8008a6a3082c2901e2ac5ecf8afbdf7"},
+    {file = "rust_just-1.41.0-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:0d19fcd36875a966fae79d8aea57b7cf0d575546b6e4ea8dcb82c2738f55b323"},
+    {file = "rust_just-1.41.0-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:16a54ea91238fced3e2162c44a681e9d321124742877ec32709f63cf8cf56b53"},
+    {file = "rust_just-1.41.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c125004d31082c3b02631bad62be7b3e2e67f473724ac088c711b84a28634b27"},
+    {file = "rust_just-1.41.0-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:fa052e1508a7467032cc420cc16715f34efcb22d6321356b08f35ec214a57af4"},
+    {file = "rust_just-1.41.0-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:9a24c32fface7fff71c56a889278116e49752c280378cbb55e994261dcc7d36a"},
+    {file = "rust_just-1.41.0-py3-none-musllinux_1_2_i686.whl", hash = "sha256:bc06081981d9970b43d3d1433c0bbcffc2432fbdb2be1f5e6ba1c4c39d4e5c7d"},
+    {file = "rust_just-1.41.0-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:52ff4c3a07deac15e2caf4025a247f7c63ea2efc331c84282e0c3c13e1ac833c"},
+    {file = "rust_just-1.41.0-py3-none-win32.whl", hash = "sha256:a871fe679c5406f98b85aeda79ef1667a76e3121f5d9793553e3daa44dbed9eb"},
+    {file = "rust_just-1.41.0-py3-none-win_amd64.whl", hash = "sha256:f2e1cfe47ba6a1bb5f9a142efd616bbfd669800756fce0db4a75cf4083994b5a"},
+    {file = "rust_just-1.41.0.tar.gz", hash = "sha256:b3118945bb2669bf182a3cc1d56cf5c4042ba2419c25e4aa47efe02039098ffa"},
+]
+
+[[package]]
 name = "secretstorage"
 version = "3.3.3"
 description = "Python bindings to FreeDesktop.org Secret Service API"
@@ -1923,4 +1948,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "<4.0,>=3.10"
-content-hash = "0c00902153aba4d257e99d42ec60859589b715241523d63b6694074ce15f4214"
+content-hash = "6bc4b86fb7898230f829eea8e2f42217793a85c2edad5906092f7c72724102c6"

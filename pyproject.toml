@@ -71,6 +71,7 @@ beautifulsoup4 = "^4.12.2"
 lxml = "^5.1.0"
 setuptools = "^78.1.1"
 twine = "^5.1.1"
+rust-just = "^1.41.0"
 
 [tool.djlint]
 line_break_after_multiline_tag = true
