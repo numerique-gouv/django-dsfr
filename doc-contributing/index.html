@@ -727,10 +727,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-xizlwqbmleswkaym">
+          aria-controls="breadcrumb-vhogaqzonzumjlrt">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-xizlwqbmleswkaym">
+  <div class="fr-collapse" id="breadcrumb-vhogaqzonzumjlrt">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -755,8 +755,8 @@
         
 <nav role="navigation"
      class="fr-summary"
-     aria-labelledby="fr-summary-rityozeykzetmwaj-title">
-  <p class="fr-summary__title" id="fr-summary-rityozeykzetmwaj-title">
+     aria-labelledby="fr-summary-ytsvhualrtfndecn-title">
+  <p class="fr-summary__title" id="fr-summary-ytsvhualrtfndecn-title">
   Sommaire
   </p>
   <ol class="fr-summary__list">
@@ -819,12 +819,12 @@
 <p>Installer l’environnement virtuel, les dépendances, les <em>pre-commit hooks</em> et initialiser le site d’exemple :</p>
 </li>
 </ul>
-<div class="dsfr-code"><pre><span></span><code>make<span class="w"> </span>init
+<div class="dsfr-code"><pre><span></span><code>just<span class="w"> </span>init
 </code></pre></div>
 
 <h2 id="tests">Tests</h2>
 <p>Pour faire tourner les tests :</p>
-<div class="dsfr-code"><pre><span></span><code>make<span class="w"> </span><span class="nb">test</span>
+<div class="dsfr-code"><pre><span></span><code>just<span class="w"> </span><span class="nb">test</span>
 </code></pre></div>
 
 <h2 id="gestion-des-dependances-avec-poetry">Gestion des dépendances avec Poetry</h2>
@@ -855,23 +855,23 @@
 <li>Les <em>issues</em> peuvent être ouvertes dans l’une ou l’autre langue.</li>
 </ul>
 <p>Pour vérifier son code, on peut intégrer le linter adapté à son IDE et aussi faire ceci :</p>
-<div class="dsfr-code"><pre><span></span><code>make<span class="w"> </span>quality
+<div class="dsfr-code"><pre><span></span><code>just<span class="w"> </span>quality
 </code></pre></div>
 
-<p>Une vérification automatique est faite via des <em>pre-commit hooks</em>, qui ont normalement été installés via le <code>make init</code>.</p>
+<p>Une vérification automatique est faite via des <em>pre-commit hooks</em>, qui ont normalement été installés via le <code>just init</code>.</p>
 <p>Il est possible de les mettre à jour avec la commande :</p>
 <div class="dsfr-code"><pre><span></span><code>pre-commit<span class="w"> </span>update
 </code></pre></div>
 
 <h2 id="mise-a-jour-du-systeme-de-design">Mise à jour du système de design</h2>
 <p>Quand une nouvelle version du système de design de l’État est publiée, il est possible de le mettre à jour automatiquement via la commande :</p>
-<div class="dsfr-code"><pre><span></span><code>make<span class="w"> </span>update_dsfr
+<div class="dsfr-code"><pre><span></span><code>just<span class="w"> </span>update_dsfr
 </code></pre></div>
 
 <p>La commande télécharge la dernière version depuis le dépôt Github, la met dans le répertoire <code>dsfr/static/dsfr/dist/</code>, retire des fichiers pour réduire la taille du paquet Python et met à jour les sommes de contrôle d’intégrité dans le fichier <code>dsfr/checksums</code>.</p>
 <p>Une fois la mise à jour faite, il reste à :</p>
 <ul>
-<li>lancer les tests unitaires avec <code>make test</code> ;</li>
+<li>lancer les tests unitaires avec <code>just test</code> ;</li>
 <li>ouvrir le site de test et vérifier que tous les composants s’affichent toujours bien ;</li>
 <li>mettre à jour la liste des composants en vérifiant depuis le site du système de design de l’État ;</li>
 <li>mettre à jour le fichier README.md pour indiquer la nouvelle version du DSFR ;</li>
@@ -1160,11 +1160,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-41GU+RiqAUYv47wDfp2YXZiDUjD3kF13IEv7OxPu+c/vI226zUzWCLaxG3YFr+OE"
-         nonce="i2efiwPR7qb/se0tuRwvRA=="></script>
+         nonce="mo++q+z/aml0z5pVjTA9UQ=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-hm15UcyKDaqIboxtF7Jb9k5IxNtmYydj2vXiMAx0TaLn0tAI3hdjG/Gf0DxkYuHC"
-         nonce="i2efiwPR7qb/se0tuRwvRA=="></script>
+         nonce="mo++q+z/aml0z5pVjTA9UQ=="></script>
 
 
     
