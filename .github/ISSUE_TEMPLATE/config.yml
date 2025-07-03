@@ -1,0 +1,4 @@
+contact_links:
+  - name: Contactez-nous
+    url: https://mattermost.incubateur.net/betagouv/channels/domaine-django
+    about: Contactez-nous sur le canal Mattermost
