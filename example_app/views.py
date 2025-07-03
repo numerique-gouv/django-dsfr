@@ -143,18 +143,72 @@ def components_index(request):
 
 @require_safe
 def page_component(request, tag_name):  # NOSONAR
-    # First three ifs are required for django-distill
+    sidemenu_implemented_items = []
+    for key, value in ALL_IMPLEMENTED_COMPONENTS.items():
+        sidemenu_implemented_items.append(
+            {
+                "label": f"{value['title']} ({key})",
+                "link": reverse("page_component", kwargs={"tag_name": key}),
+            }
+        )
+
+    sidemenu_implemented = {
+        "label": "Composants implémentés",
+        "items": sidemenu_implemented_items,
+    }
+
+    if "/components/" in request.path:
+        sidemenu_implemented["is_active"] = True
+
+    side_menu = {
+        "items": [
+            {"label": "Documentation", "link": reverse("components_index")},
+            sidemenu_implemented,
+            {
+                "label": "Composants non implémentés",
+                "link": reverse("components_index")
+                + "#tabpanel-notyetimplemented-panel",
+            },
+        ]
+    }
+
+    payload_links = [{"url": reverse("components_index"), "title": "Composants"}]
+
+    # First three ifs are components with a dedicated markdown doc.
     if tag_name == "footer":
-        return page_component_footer(request)
+        payload = init_payload(
+            page_title="Pied de page",
+            links=payload_links,
+        )
+        md = format_markdown_from_file("doc/footer.md")
+        payload["documentation"] = md["text"]
+        payload["side_menu"] = side_menu
+        return render(request, "example_app/doc_markdown_with_sidebar.html", payload)
     elif tag_name == "header":
-        return page_component_header(request)
+        payload = init_payload(
+            page_title="En-tête",
+            links=payload_links,
+        )
+
+        md = format_markdown_from_file("doc/header.md")
+        payload["documentation"] = md["text"]
+        payload["side_menu"] = side_menu
+        return render(request, "example_app/doc_markdown_with_sidebar.html", payload)
+
     elif tag_name == "follow":
-        return page_component_follow(request)
+        payload = init_payload(
+            page_title="Lettre d’information et Réseaux Sociaux",
+            links=payload_links,
+        )
+        md = format_markdown_from_file("doc/follow.md")
+        payload["documentation"] = md["text"]
+        payload["side_menu"] = side_menu
+        return render(request, "example_app/doc_markdown_with_sidebar.html", payload)
     elif tag_name in ALL_IMPLEMENTED_COMPONENTS:
         current_tag = ALL_IMPLEMENTED_COMPONENTS[tag_name]
         payload = init_payload(
             current_tag["title"],
-            links=[{"url": reverse("components_index"), "title": "Composants"}],
+            links=payload_links,
         )
         payload["tag_name"] = tag_name
 
@@ -185,34 +239,7 @@ def page_component(request, tag_name):  # NOSONAR
             if k in current_tag:
                 payload[k] = current_tag[k]
 
-        sidemenu_implemented_items = []
-        for key, value in ALL_IMPLEMENTED_COMPONENTS.items():
-            sidemenu_implemented_items.append(
-                {
-                    "label": f"{value['title']} ({key})",
-                    "link": reverse("page_component", kwargs={"tag_name": key}),
-                }
-            )
-
-        sidemenu_implemented = {
-            "label": "Composants implémentés",
-            "items": sidemenu_implemented_items,
-        }
-
-        if "/components/" in request.path:
-            sidemenu_implemented["is_active"] = True
-
-        payload["side_menu"] = {
-            "items": [
-                {"label": "Documentation", "link": reverse("components_index")},
-                sidemenu_implemented,
-                {
-                    "label": "Composants non implémentés",
-                    "link": reverse("components_index")
-                    + "#tabpanel-notyetimplemented-panel",
-                },
-            ]
-        }
+        payload["side_menu"] = side_menu
         return render(request, "example_app/page_component.html", payload)
     else:
         payload = init_payload("Non implémenté")
@@ -221,46 +248,6 @@ def page_component(request, tag_name):  # NOSONAR
             "title": "Non implémenté",
         }
         return render(request, "example_app/not_yet.html", payload)
-
-
-@require_safe
-def page_component_header(request):
-    payload = init_payload(
-        page_title="En-tête",
-        links=[{"url": reverse("components_index"), "title": "Composants"}],
-    )
-
-    md = format_markdown_from_file("doc/header.md")
-    payload["documentation"] = md["text"]
-    # payload["summary_data"] = md["summary"]
-
-    return render(request, "example_app/doc_markdown.html", payload)
-
-
-@require_safe
-def page_component_footer(request):
-    payload = init_payload(
-        page_title="Pied de page",
-        links=[{"url": reverse("components_index"), "title": "Composants"}],
-    )
-    md = format_markdown_from_file("doc/footer.md")
-    payload["documentation"] = md["text"]
-    # payload["summary_data"] = md["summary"]
-
-    return render(request, "example_app/doc_markdown.html", payload)
-
-
-@require_safe
-def page_component_follow(request):
-    payload = init_payload(
-        page_title="Lettre d’information et Réseaux Sociaux",
-        links=[{"url": reverse("components_index"), "title": "Composants"}],
-    )
-    md = format_markdown_from_file("doc/follow.md")
-    payload["documentation"] = md["text"]
-    # payload["summary_data"] = md["summary"]
-
-    return render(request, "example_app/doc_follow.html", payload)
 
 
 def page_form(request):

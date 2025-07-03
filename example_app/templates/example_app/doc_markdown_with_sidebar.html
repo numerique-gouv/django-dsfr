@@ -1,0 +1,34 @@
+{% extends "example_app/base.html" %}
+{% load static dsfr_tags %}
+
+{% block content %}
+  <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
+    <div class="fr-col-12 fr-col-md-4">
+      {% dsfr_sidemenu side_menu extra_classes="" %}
+    </div>
+    <div class="fr-col-12 fr-col-md-8 fr-py-2w">
+
+      <h1>
+        {{ title }}
+      </h1>
+      <div class="fr-grid-row fr-grid-row--gutters fr-mb-3w">
+        <div class="fr-col-12 fr-col-md-4">
+          {% if summary_data %}
+            {% dsfr_summary summary_data %}
+          {% endif %}
+        </div>
+      </div>
+      {{ documentation|safe }}
+    </div>
+  </div>
+{% endblock content %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}">
+  <style>
+    p code, li code {
+      background: var(--background-alt-grey);
+      padding: 0.2em;
+    }
+  </style>
+{% endblock extra_css %}
