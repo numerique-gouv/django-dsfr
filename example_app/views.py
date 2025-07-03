@@ -511,6 +511,18 @@ def resource_pictograms(request):
 
 
 @require_safe
+def resource_templatetags(request):
+    payload = init_payload("Balises et filtres personalisés")
+    payload["strfmt_example_args"] = [1 + 2, "awesome"]
+    payload["strfmt_example_kwargs"] = {
+        "add_result": 1 + 2,
+        "result_feeling": "awesome",
+    }
+
+    return render(request, "example_app/page_templatetags.html", payload)
+
+
+@require_safe
 def search(request):
     payload = init_payload("Recherche")
 

@@ -96,6 +96,12 @@ urlpatterns = [
         distill_file="django-dsfr/resources/pictograms/index.html",
     ),
     distill_path(
+        "resources/templatetags",
+        views.resource_templatetags,
+        name="resource_templatetags",
+        distill_file="django-dsfr/resources/icons/templatetags.html",
+    ),
+    distill_path(
         "search/",
         views.search,
         name="page_search",
