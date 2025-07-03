@@ -10,10 +10,10 @@
     
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"
-      integrity="sha384-xZ7d1FPuJPGbW8x0qwQK1S+SbDZzOJ/Aqxij+8BTibC5+4mOznRXv3dREsSH8LUY">
+      integrity="sha384-hglg7vJT63v4rqjYrTSDzREjGYZb//5qqtcs8/7Ng8v1ihSg4LgdB+5lYdzAZXOt">
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/utility/utility.min.css"
-      integrity="sha384-fBRQe7b44hF/DeP+UL2ICVn+B9+t9YeHkHwp3d63HzY232x0KvifTaUjtByMIQL7">
+      integrity="sha384-OF3yqHNd9CODR/aJcL4+uKOtkKyHvJxfNMO3eBRtIZpFy/iMuNJCyd0HbVArmrUC">
 <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-django-overrides.css">
 
 <meta name="theme-color" content="#000091">
@@ -677,13 +677,6 @@
               <li>
                 
                 <a class="fr-nav__link"
-                   href="/django-dsfr/resources/templatetags"
-                   target="_self"
-                   >Balises et filtres de gabarit</a>
-              </li>
-              <li>
-                
-                <a class="fr-nav__link"
                    href="/django-dsfr/resources/colors"
                    target="_self"
                    >Couleurs</a>
@@ -727,10 +720,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-felylcwqcyvzoeat">
+          aria-controls="breadcrumb-cihvluyhkplnqyjp">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-felylcwqcyvzoeat">
+  <div class="fr-collapse" id="breadcrumb-cihvluyhkplnqyjp">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -1042,6 +1035,7 @@ l'instance qui stocke la valeur, vous pouvez déclarer une méthode statique
 <span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">RichRadioButtonChoices</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dsfr.widgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">RichRadioSelect</span>
 
+
 <span class="k">class</span><span class="w"> </span><span class="nc">ExampleRichChoices</span><span class="p">(</span><span class="n">RichRadioButtonChoices</span><span class="p">,</span> <span class="n">IntegerChoices</span><span class="p">):</span>
     <span class="n">ITEM_1</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">auto</span><span class="p">(),</span>
@@ -1062,13 +1056,14 @@ l'instance qui stocke la valeur, vous pouvez déclarer une méthode statique
         <span class="s2">&quot;pictogram&quot;</span><span class="p">:</span> <span class="n">lazy_static</span><span class="p">(</span><span class="s2">&quot;img/placeholder.1x1.png&quot;</span><span class="p">),</span>
     <span class="p">}</span>
 
+
 <span class="k">class</span><span class="w"> </span><span class="nc">ExampleForm</span><span class="p">(</span><span class="n">DsfrBaseForm</span><span class="p">):</span>
     <span class="n">sample_rich_radio</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span>
         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cases à cocher&quot;</span><span class="p">,</span>
         <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">choices</span><span class="o">=</span><span class="n">ExampleRichChoices</span><span class="o">.</span><span class="n">choices</span><span class="p">,</span>
         <span class="n">help_text</span><span class="o">=</span><span class="s2">&quot;Exemple de boutons radios riches&quot;</span><span class="p">,</span>
-        <span class="n">widget</span><span class="o">=</span><span class="n">RichRadioSelect</span><span class="p">(</span><span class="n">rich_choices</span><span class="o">=</span><span class="n">ExampleRichChoices</span><span class="p">),</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">RichRadioSelect</span><span class="p">(</span><span class="n">extended_choices</span><span class="o">=</span><span class="n">ExampleRichChoices</span><span class="p">),</span>
     <span class="p">)</span>
 </code></pre></div>
 
@@ -1369,12 +1364,12 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
     
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
-        integrity="sha384-41GU+RiqAUYv47wDfp2YXZiDUjD3kF13IEv7OxPu+c/vI226zUzWCLaxG3YFr+OE"
-         nonce="5rTI21Ay0xQcjpo0zZt9IQ=="></script>
+        integrity="sha384-l8g9Hsy5GI9+gVYLHCrBoaD2RBoVqjZ189s6ycWnyUMlBc4fJHgDv6Vy6srjghNj"
+         nonce="sYWXiPrHsJt8072uGZUj4A=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
-        integrity="sha384-hm15UcyKDaqIboxtF7Jb9k5IxNtmYydj2vXiMAx0TaLn0tAI3hdjG/Gf0DxkYuHC"
-         nonce="5rTI21Ay0xQcjpo0zZt9IQ=="></script>
+        integrity="sha384-n3DkLEpXk5jDW26QT+Rsm0VCNrSPDKpmFcCVIwlEkl9I6MgKB89KDVWuDiJpFktn"
+         nonce="sYWXiPrHsJt8072uGZUj4A=="></script>
 
 
     

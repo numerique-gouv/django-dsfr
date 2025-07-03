@@ -10,10 +10,10 @@
     
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"
-      integrity="sha384-xZ7d1FPuJPGbW8x0qwQK1S+SbDZzOJ/Aqxij+8BTibC5+4mOznRXv3dREsSH8LUY">
+      integrity="sha384-hglg7vJT63v4rqjYrTSDzREjGYZb//5qqtcs8/7Ng8v1ihSg4LgdB+5lYdzAZXOt">
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/utility/utility.min.css"
-      integrity="sha384-fBRQe7b44hF/DeP+UL2ICVn+B9+t9YeHkHwp3d63HzY232x0KvifTaUjtByMIQL7">
+      integrity="sha384-OF3yqHNd9CODR/aJcL4+uKOtkKyHvJxfNMO3eBRtIZpFy/iMuNJCyd0HbVArmrUC">
 <link rel="stylesheet" href="/django-dsfr/static/css/dsfr-django-overrides.css">
 
 <meta name="theme-color" content="#000091">
@@ -670,13 +670,6 @@
               <li>
                 
                 <a class="fr-nav__link"
-                   href="/django-dsfr/resources/templatetags"
-                   target="_self"
-                   >Balises et filtres de gabarit</a>
-              </li>
-              <li>
-                
-                <a class="fr-nav__link"
                    href="/django-dsfr/resources/colors"
                    target="_self"
                    >Couleurs</a>
@@ -720,10 +713,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-crpxspqajwzpvdty">
+          aria-controls="breadcrumb-obchsisiqxpzqlsb">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-crpxspqajwzpvdty">
+  <div class="fr-collapse" id="breadcrumb-obchsisiqxpzqlsb">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -747,7 +740,7 @@
     Exemple de formulaire
   </h1>
   <form action="/django-dsfr/form/example/" method="post">
-    <input type="hidden" name="csrfmiddlewaretoken" value="m1epu6LrbwDAsQwH4bOBEvUYLDGJZFzxRnY7sqpz9cw2tJZBrDBlnweqLglRB5Hb">
+    <input type="hidden" name="csrfmiddlewaretoken" value="qUa2GRFWKED1SVFjsF9iW6w8bA8XF0SkRYbGDEGSisIDhJrtZKbhcvC1DRZRfeJC">
     <div class="fr-input-group">
   <label for="id_user_name" class="fr-label">
     
@@ -1733,6 +1726,192 @@ null</textarea>
 
   
 
+  
+
+<div class="fr-input-group">
+  <fieldset class="fr-segmented ">
+    <legend class="fr-segmented__legend ">
+      Choix de vue segmenté
+    </legend>
+    <div class="fr-segmented__elements">
+
+  
+    <div class="fr-segmented__element">
+  <input value="1"
+         type="radio"
+         id="segmented-id_sample_segmented_control_0"
+         name="sample_segmented_control"
+          class="fr-input" id="id_sample_segmented_control_0"
+  >
+  <label class="fr-icon-table-line fr-label" for="segmented-id_sample_segmented_control_0">
+    Item 1
+  </label>
+</div>
+
+  
+
+  
+    <div class="fr-segmented__element">
+  <input value="2"
+         type="radio"
+         id="segmented-id_sample_segmented_control_1"
+         name="sample_segmented_control"
+          class="fr-input" id="id_sample_segmented_control_1"
+  >
+  <label class="fr-icon-list-unordered fr-label" for="segmented-id_sample_segmented_control_1">
+    Item 2
+  </label>
+</div>
+
+  
+
+  
+    <div class="fr-segmented__element">
+  <input value="3"
+         type="radio"
+         id="segmented-id_sample_segmented_control_2"
+         name="sample_segmented_control"
+          class="fr-input" id="id_sample_segmented_control_2"
+  >
+  <label class="fr-icon-layout-grid-line fr-label" for="segmented-id_sample_segmented_control_2">
+    Item 3
+  </label>
+</div>
+
+  
+
+</div>
+  </fieldset>
+</div>
+
+
+
+  
+
+  
+
+<div class="fr-input-group">
+  <fieldset class="fr-segmented ">
+    <legend class="fr-segmented__legend fr-segmented__legend--inline">
+      Choix de vue segmenté avec légende inline
+    </legend>
+    <div class="fr-segmented__elements">
+
+  
+    <div class="fr-segmented__element">
+  <input value="1"
+         type="radio"
+         id="segmented-id_sample_segmented_control_inline_0"
+         name="sample_segmented_control_inline"
+          class="fr-input" id="id_sample_segmented_control_inline_0"
+  >
+  <label class="fr-icon-table-line fr-label" for="segmented-id_sample_segmented_control_inline_0">
+    Item 1
+  </label>
+</div>
+
+  
+
+  
+    <div class="fr-segmented__element">
+  <input value="2"
+         type="radio"
+         id="segmented-id_sample_segmented_control_inline_1"
+         name="sample_segmented_control_inline"
+          class="fr-input" id="id_sample_segmented_control_inline_1"
+  >
+  <label class="fr-icon-list-unordered fr-label" for="segmented-id_sample_segmented_control_inline_1">
+    Item 2
+  </label>
+</div>
+
+  
+
+  
+    <div class="fr-segmented__element">
+  <input value="3"
+         type="radio"
+         id="segmented-id_sample_segmented_control_inline_2"
+         name="sample_segmented_control_inline"
+          class="fr-input" id="id_sample_segmented_control_inline_2"
+  >
+  <label class="fr-icon-layout-grid-line fr-label" for="segmented-id_sample_segmented_control_inline_2">
+    Item 3
+  </label>
+</div>
+
+  
+
+</div>
+  </fieldset>
+</div>
+
+
+
+  
+
+  
+
+<div class="fr-input-group">
+  <fieldset class="fr-segmented fr-segmented--sm fr-segmented--no-legend">
+    <legend class="fr-segmented__legend ">
+      Choix de vue segmenté petit et sans légende visible
+    </legend>
+    <div class="fr-segmented__elements">
+
+  
+    <div class="fr-segmented__element">
+  <input value="1"
+         type="radio"
+         id="segmented-id_sample_segmented_control_small_no_visible_legend_0"
+         name="sample_segmented_control_small_no_visible_legend"
+          class="fr-input" id="id_sample_segmented_control_small_no_visible_legend_0"
+  >
+  <label class="fr-icon-table-line fr-label" for="segmented-id_sample_segmented_control_small_no_visible_legend_0">
+    Item 1
+  </label>
+</div>
+
+  
+
+  
+    <div class="fr-segmented__element">
+  <input value="2"
+         type="radio"
+         id="segmented-id_sample_segmented_control_small_no_visible_legend_1"
+         name="sample_segmented_control_small_no_visible_legend"
+          class="fr-input" id="id_sample_segmented_control_small_no_visible_legend_1"
+  >
+  <label class="fr-icon-list-unordered fr-label" for="segmented-id_sample_segmented_control_small_no_visible_legend_1">
+    Item 2
+  </label>
+</div>
+
+  
+
+  
+    <div class="fr-segmented__element">
+  <input value="3"
+         type="radio"
+         id="segmented-id_sample_segmented_control_small_no_visible_legend_2"
+         name="sample_segmented_control_small_no_visible_legend"
+          class="fr-input" id="id_sample_segmented_control_small_no_visible_legend_2"
+  >
+  <label class="fr-icon-layout-grid-line fr-label" for="segmented-id_sample_segmented_control_small_no_visible_legend_2">
+    Item 3
+  </label>
+</div>
+
+  
+
+</div>
+  </fieldset>
+</div>
+
+
+
+  
+
   <input type="hidden" name="hidden_input" value="value" id="id_hidden_input">
     <div class="fr-input-group fr-my-4w">
       <button type="submit" class="fr-btn" title="Valider">
@@ -2019,12 +2198,12 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
     
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
-        integrity="sha384-41GU+RiqAUYv47wDfp2YXZiDUjD3kF13IEv7OxPu+c/vI226zUzWCLaxG3YFr+OE"
-         nonce="NJdp3oyDjYbdxgo2ql91hg=="></script>
+        integrity="sha384-l8g9Hsy5GI9+gVYLHCrBoaD2RBoVqjZ189s6ycWnyUMlBc4fJHgDv6Vy6srjghNj"
+         nonce="2sxJBv2lQPgmWRBenLPHuA=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
-        integrity="sha384-hm15UcyKDaqIboxtF7Jb9k5IxNtmYydj2vXiMAx0TaLn0tAI3hdjG/Gf0DxkYuHC"
-         nonce="NJdp3oyDjYbdxgo2ql91hg=="></script>
+        integrity="sha384-n3DkLEpXk5jDW26QT+Rsm0VCNrSPDKpmFcCVIwlEkl9I6MgKB89KDVWuDiJpFktn"
+         nonce="2sxJBv2lQPgmWRBenLPHuA=="></script>
 
 
     
