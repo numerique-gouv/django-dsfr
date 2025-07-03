@@ -1,6 +1,6 @@
 ---
 name: 📔 Amélioration de la documentation
-about: Rapporter une erreur ou proposer une suggestion pour améliorer la documentation du DSFR.
+about: Rapporter une erreur ou proposer une suggestion pour améliorer la documentation de Django-DSFR.
 title: ''
 labels: documentation
 assignees: ''
@@ -8,10 +8,10 @@ assignees: ''
 ---
 
 ##  📔 Documentation associée
-Si la suggestion concerne une documentation existante, préciser de laquelle il s’agit. Ajouter un lien si possible.
+_Si la suggestion concerne une documentation existante, préciser de laquelle il s’agit. Ajouter un lien si possible._
 
 ##  🔮 Suggestion
-Comment cette documentation pourrait être améliorée.
+_Comment cette documentation pourrait être améliorée._
 
 ## 🛈 Sources (si applicable)
-Merci de fournir les différentes sources et recherches qui pourraient appuyer cette suggestion.
+_Merci de fournir les différentes sources et recherches qui pourraient appuyer cette suggestion._

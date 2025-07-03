@@ -8,15 +8,18 @@ assignees: ''
 ---
 
 ## 🧬 Décrire votre suggestion
-Si votre suggestion concerne un composant existant, merci de décrire le problème rencontré de façon claire et concise
-Exemple : sur le composant [...], je ne peux pas [...].
+_Si votre suggestion concerne un composant existant, merci de décrire le problème rencontré de façon claire et concise_
+
+_Exemple : sur le composant […], je ne peux pas […]._
 
 ## 🧠 Comportement souhaité
-Une description claire et concise de ce que vous souhaitez qu’il se passe.
+_Une description claire et concise de ce que vous souhaitez qu’il se passe._
 
 ## 🔮 Autres possibilités
-Une description précise de toutes les solutions ou fonctionnalités que vous avez considérées/essayées.
+_Une description précise de toutes les solutions ou fonctionnalités que vous avez considérées/essayées._
 
 ## ℹ️ Contexte & informations complémentaires
-Préciser le contexte, les cas d’usages ou scénarios envisageables.
-Ajouter des captures d’écrans pour clarifier la demande.
+_Préciser le contexte, les cas d’usages ou scénarios envisageables._
+
+## 🖼️ Captures d’écran (optionnel)
+_Ajouter des captures d’écrans pour clarifier la demande._
