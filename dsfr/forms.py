@@ -1,11 +1,11 @@
 from pathlib import Path
 
 from django import forms
-from django.forms import Form
 from django.forms.renderers import DjangoTemplates, get_default_renderer
 from django.utils.functional import cached_property
 
-from dsfr.utils import dsfr_input_class_attr
+from . import settings as dsfr_settings
+from .utils import dsfr_input_class_attr
 
 
 class DsfrDjangoTemplates(DjangoTemplates):
@@ -24,7 +24,7 @@ class DsfrDjangoTemplates(DjangoTemplates):
         )
 
 
-class DsfrBaseForm(Form):
+class DsfrBaseForm(forms.Form):
     """
     A base form that adds the necessary classes on relevant fields
     """
@@ -35,6 +35,13 @@ class DsfrBaseForm(Form):
         super().__init__(*args, **kwargs)
         for visible in self.visible_fields():
             dsfr_input_class_attr(visible)
+
+    def get_context(self):
+        context = super().get_context()
+
+        context.update({"DSFR_MARK_FORM_FIELDS": dsfr_settings.mark_form_fields})
+
+        return context
 
     @property
     def default_renderer(self):
