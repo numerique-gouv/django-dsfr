@@ -9,6 +9,7 @@ jobs:
   publish:
     name: Build and publish package on PyPI
     runs-on: ubuntu-latest
+    environment: pypi
     permissions:
       # For PyPI's trusted publishing.
       id-token: write
