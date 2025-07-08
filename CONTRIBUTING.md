@@ -19,7 +19,7 @@ just test
 ```
 
 ## Commandes
-Le projet utilise [just](https://just.systems/) pour gérer le lancement de séries de commandes spéfiques, appelées recettes.
+Le projet utilise [just](https://just.systems/) pour gérer le lancement de séries de commandes spécifiques, appelées recettes.
 
 Il est possible d’avoir une liste des recettes implémentées en tapant simplement `just`.
 
