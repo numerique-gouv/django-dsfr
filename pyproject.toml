@@ -1,6 +1,6 @@
 [project]
 name = "django-dsfr"
-version = "2.4.0"
+version = "2.5.0"
 description = "Integrate the French government Design System into a Django app"
 authors = [
     {name = "Sylvain Boissel", email = "sylvain.boissel@beta.gouv.fr"}
@@ -54,7 +54,7 @@ packages = [
 include = ["LICENSE", "README.md", "dsfr/static/dsfr/dist/*/*.*"]
 
 [tool.poetry.group.dev.dependencies]
-coverage = "^5.5"
+coverage = {extras = ["toml"], version = "^7.9.2"}
 django-distill = "^2.9.0"
 docutils = "^0.17.1"
 pytest = "^7.2.0"
@@ -71,6 +71,18 @@ beautifulsoup4 = "^4.12.2"
 lxml = "^5.1.0"
 setuptools = "^78.1.1"
 twine = "^5.1.1"
+rust-just = "^1.41.0"
+
+[tool.coverage.run]
+omit = [
+    "manage.py",
+    "config/settings_test.py",
+    "config/asgi.py",
+    "config/wsgi.py",
+    "*/__init__.py",
+    "*/migrations/*.py",
+    "*/tests/*.py",
+]
 
 [tool.djlint]
 line_break_after_multiline_tag = true
