@@ -727,10 +727,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-iquhqorxcgeglpyf">
+          aria-controls="breadcrumb-rglvrgtzmtcveixw">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-iquhqorxcgeglpyf">
+  <div class="fr-collapse" id="breadcrumb-rglvrgtzmtcveixw">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -755,8 +755,8 @@
         
 <nav role="navigation"
      class="fr-summary"
-     aria-labelledby="fr-summary-yeblgpczuiornxmu-title">
-  <p class="fr-summary__title" id="fr-summary-yeblgpczuiornxmu-title">
+     aria-labelledby="fr-summary-dcfpvgkjoygdvybi-title">
+  <p class="fr-summary__title" id="fr-summary-dcfpvgkjoygdvybi-title">
   Sommaire
   </p>
   <ol class="fr-summary__list">
@@ -774,7 +774,13 @@
 
     
       <li>
-  <a class="fr-summary__link" href="#gestion-des-dependances-avec-poetry">Gestion des dépendances avec Poetry</a>
+  <a class="fr-summary__link" href="#commandes">Commandes</a>
+  
+</li>
+
+    
+      <li>
+  <a class="fr-summary__link" href="#gestion-des-dependances-avec-uv">Gestion des dépendances avec UV</a>
   
 </li>
 
@@ -810,7 +816,7 @@
     </div>
   </div>
   <h2 id="installation-en-local">Installation en local</h2>
-<p>L’installation a été testée sur Ubuntu 22.04 avec Python 3.10 et poetry installé.</p>
+<p>L’installation a été testée sur Ubuntu 24.04 avec Python 3.10 et uv installé.</p>
 <ul>
 <li>
 <p>Faire un <code>git clone</code> du projet sur votre machine et ouvrir un terminal</p>
@@ -827,22 +833,25 @@
 <div class="dsfr-code"><pre><span></span><code>just<span class="w"> </span><span class="nb">test</span>
 </code></pre></div>
 
-<h2 id="gestion-des-dependances-avec-poetry">Gestion des dépendances avec Poetry</h2>
-<p>Le projet utilise <a href="https://python-poetry.org/">Poetry</a> pour gérer les dépendances de paquets Python et produire des <em>builds</em> déterministes, ainsi que pour créer les nouvelles versions du paquet et les publier sur Pypi.</p>
+<h2 id="commandes">Commandes</h2>
+<p>Le projet utilise <a href="https://just.systems/">just</a> pour gérer le lancement de séries de commandes spéfiques, appelées recettes.</p>
+<p>Il est possible d’avoir une liste des recettes implémentées en tapant simplement <code>just</code>.</p>
+<p>Pour les commandes Django spécifiquement, il est possible d’en obtenir la liste avec la commande</p>
+<div class="dsfr-code"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>manage.py
+</code></pre></div>
+
+<h2 id="gestion-des-dependances-avec-uv">Gestion des dépendances avec UV</h2>
+<p>Le projet utilise <a href="https://docs.astral.sh/uv/">uv</a> pour gérer les dépendances de paquets Python et produire des <em>builds</em> déterministes, ainsi que pour créer les nouvelles versions du paquet et les publier sur Pypi (via Github Actions).</p>
 <p>Pour installer les dépendances du projet :</p>
-<div class="dsfr-code"><pre><span></span><code>poetry<span class="w"> </span>install
+<div class="dsfr-code"><pre><span></span><code>uv<span class="w"> </span>sync
 </code></pre></div>
 
 <p>Pour installer un nouveau paquet et l’ajouter aux dépendances :</p>
-<div class="dsfr-code"><pre><span></span><code>poetry<span class="w"> </span>add<span class="w"> </span>&lt;paquet&gt;
+<div class="dsfr-code"><pre><span></span><code>uv<span class="w"> </span>add<span class="w"> </span>&lt;paquet&gt;
 </code></pre></div>
 
 <p>Pour un paquet ne servant que pour le développement, par exemple <code>black</code> :</p>
-<div class="dsfr-code"><pre><span></span><code>poetry<span class="w"> </span>add<span class="w"> </span>--group<span class="w"> </span>dev<span class="w"> </span>&lt;paquet&gt;
-</code></pre></div>
-
-<p>Pour activer l’environnement virtuel :</p>
-<div class="dsfr-code"><pre><span></span><code>poetry<span class="w"> </span>shell
+<div class="dsfr-code"><pre><span></span><code>uv<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>&lt;paquet&gt;
 </code></pre></div>
 
 <h2 id="conventions-de-style-et-verifications-automatique">Conventions de style et vérifications automatique</h2>
@@ -1160,11 +1169,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-41GU+RiqAUYv47wDfp2YXZiDUjD3kF13IEv7OxPu+c/vI226zUzWCLaxG3YFr+OE"
-         nonce="B22wW02JOlS9jCmd860f1Q=="></script>
+         nonce="PmqVX1yWGPWLYDkme2ip3Q=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-hm15UcyKDaqIboxtF7Jb9k5IxNtmYydj2vXiMAx0TaLn0tAI3hdjG/Gf0DxkYuHC"
-         nonce="B22wW02JOlS9jCmd860f1Q=="></script>
+         nonce="PmqVX1yWGPWLYDkme2ip3Q=="></script>
 
 
     
