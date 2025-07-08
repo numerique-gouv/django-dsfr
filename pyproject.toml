@@ -1,36 +1,35 @@
 [project]
 name = "django-dsfr"
-version = "2.5.0"
+version = "3.0.0"
 description = "Integrate the French government Design System into a Django app"
-authors = [
-    {name = "Sylvain Boissel", email = "sylvain.boissel@beta.gouv.fr"}
-]
-readme = "README.md"
+authors = [{ name = "Sylvain Boissel", email = "sylvain.boissel@beta.gouv.fr" }]
 requires-python = "<4.0,>=3.10"
+readme = "README.md"
 license = "MIT"
-keywords = ["django", "dsfr"]
-
-classifiers = [
-  "Development Status :: 5 - Production/Stable",
-  "Environment :: Web Environment",
-  "Framework :: Django",
-  "Framework :: Django :: 4.2",
-  "Framework :: Django :: 5.0",
-  "Framework :: Django :: 5.1",
-  "Framework :: Django :: 5.2",
-  "Operating System :: OS Independent",
-  "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3.13",
-  "Topic :: Software Development :: Libraries",
-  "Topic :: Utilities",
+keywords = [
+    "django",
+    "dsfr",
 ]
-
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Framework :: Django :: 5.2",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Utilities",
+]
 dependencies = [
     "Django>4.2.17",
     "requests<3.0.0,>=2.26.0",
@@ -44,34 +43,46 @@ homepage = "https://github.com/numerique-gouv/django-dsfr"
 repository = "https://github.com/numerique-gouv/django-dsfr"
 
 [build-system]
-requires = ["poetry-core>=2.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry]
-packages = [
-  {include = "dsfr"},
+[dependency-groups]
+dev = [
+    "coverage[toml]>=7.9.2,<8",
+    "django-distill>=2.9.0,<3",
+    "docutils>=0.17.1,<0.18",
+    "pytest>=7.2.0,<8",
+    "djlint>=1.12.0,<2",
+    "black>=22.6,<25.0",
+    "django-csp~=3.7",
+    "django-extensions>=3.2.1,<4",
+    "pre-commit>=3.5.0,<4",
+    "bandit>=1.7.5,<2",
+    "ruff>=0.1.2,<0.2",
+    "markdown~=3.5",
+    "pygments>=2.16.1,<3",
+    "beautifulsoup4>=4.12.2,<5",
+    "lxml>=5.1.0,<6",
+    "setuptools>=78.1.1,<79",
+    "twine>=5.1.1,<6",
+    "rust-just>=1.41.0,<2",
 ]
-include = ["LICENSE", "README.md", "dsfr/static/dsfr/dist/*/*.*"]
 
-[tool.poetry.group.dev.dependencies]
-coverage = {extras = ["toml"], version = "^7.9.2"}
-django-distill = "^2.9.0"
-docutils = "^0.17.1"
-pytest = "^7.2.0"
-djlint = "^1.12.0"
-black = ">=22.6,<25.0"
-django-csp = "^3.7"
-django-extensions = "^3.2.1"
-pre-commit = "^3.5.0"
-bandit = "^1.7.5"
-ruff = "^0.1.2"
-markdown = "^3.5"
-pygments = "^2.16.1"
-beautifulsoup4 = "^4.12.2"
-lxml = "^5.1.0"
-setuptools = "^78.1.1"
-twine = "^5.1.1"
-rust-just = "^1.41.0"
+[tool.hatch.build.targets.sdist]
+include = [
+    "dsfr",
+    "LICENSE",
+    "README.md",
+    "dsfr/static/dsfr/dist/*/*.*",
+]
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "dsfr",
+    "LICENSE",
+    "README.md",
+    "dsfr/static/dsfr/dist/*/*.*",
+]
 
 [tool.coverage.run]
 omit = [

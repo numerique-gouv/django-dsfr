@@ -1,7 +1,7 @@
 # Contribuer à Django-DSFR
 
 ## Installation en local
-L’installation a été testée sur Ubuntu 22.04 avec Python 3.10 et poetry installé.
+L’installation a été testée sur Ubuntu 24.04 avec Python 3.10 et uv installé.
 
 - Faire un `git clone` du projet sur votre machine et ouvrir un terminal
 
@@ -18,31 +18,37 @@ Pour faire tourner les tests :
 just test
 ```
 
-## Gestion des dépendances avec Poetry
+## Commandes
+Le projet utilise [just](https://just.systems/) pour gérer le lancement de séries de commandes spécifiques, appelées recettes.
 
-Le projet utilise [Poetry](https://python-poetry.org/) pour gérer les dépendances de paquets Python et produire des *builds* déterministes, ainsi que pour créer les nouvelles versions du paquet et les publier sur Pypi.
+Il est possible d’avoir une liste des recettes implémentées en tapant simplement `just`.
+
+Pour les commandes Django spécifiquement, il est possible d’en obtenir la liste avec la commande
+
+```sh
+uv run python manage.py
+```
+
+## Gestion des dépendances avec UV
+
+Le projet utilise [uv](https://docs.astral.sh/uv/) pour gérer les dépendances de paquets Python et produire des *builds* déterministes, ainsi que pour créer les nouvelles versions du paquet et les publier sur Pypi (via Github Actions).
 
 Pour installer les dépendances du projet :
 
 ```{ .bash }
-poetry install
+uv sync
 ```
 
 Pour installer un nouveau paquet et l’ajouter aux dépendances :
 
 ```{ .bash }
-poetry add <paquet>
+uv add <paquet>
 ```
 
 Pour un paquet ne servant que pour le développement, par exemple `black` :
 
 ```{ .bash }
-poetry add --group dev <paquet>
-```
-
-Pour activer l’environnement virtuel :
-```{ .bash }
-poetry shell
+uv add --dev <paquet>
 ```
 
 ## Conventions de style et vérifications automatique
