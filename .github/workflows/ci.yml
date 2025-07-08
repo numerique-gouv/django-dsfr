@@ -31,5 +31,5 @@ jobs:
         uv run python manage.py test
     - name: 🧪 Run Tests - Django 5
       run: |
-        uv add django@^5.0
+        uv add django>=5.0
         uv run python manage.py test
