@@ -55,7 +55,7 @@ Il est possible de l’étendre pour le personnaliser, par exemple pour ajouter 
 
 ## Utiliser les liens en bas de pied de page
 
-Les liens en bas du pied de page peuvent être modifiés en créant des urls dans votre projet avec les noms suivants :
+Les liens en bas du pied de page peuvent être modifiés soit en surchargeant le bloc `footer_links`, soit en créant des urls dans votre projet avec les noms suivants :
 - Plan du site : `"footer-sitemap"`
 - Accessibilité : `"footer-accessibility-status"`
 - Mentions légales : `"footer-legal-notice"`
