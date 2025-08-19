@@ -727,10 +727,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-tceadfuqavcywebu">
+          aria-controls="breadcrumb-ivjsedehrthqrixi">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-tceadfuqavcywebu">
+  <div class="fr-collapse" id="breadcrumb-ivjsedehrthqrixi">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -760,11 +760,11 @@
   <div class="fr-sidemenu__inner">
     <button type="button"
             class="fr-sidemenu__btn"
-            aria-controls="fr-sidemenu-lcukfqrceoprhxjw-wrapper"
+            aria-controls="fr-sidemenu-jacbwotcrvuthnfa-wrapper"
             aria-expanded="false">
       Dans cette rubrique
     </button>
-    <div class="fr-collapse" id="fr-sidemenu-lcukfqrceoprhxjw-wrapper">
+    <div class="fr-collapse" id="fr-sidemenu-jacbwotcrvuthnfa-wrapper">
       
       <ul class="fr-sidemenu__list">
         
@@ -784,11 +784,11 @@
               <button type="button"
                       class="fr-sidemenu__btn"
                       aria-expanded="true"
-                      aria-controls="fr-sidemenu-lcukfqrceoprhxjw-item-2">
+                      aria-controls="fr-sidemenu-jacbwotcrvuthnfa-item-2">
                 Composants implémentés
               </button>
               <div class="fr-collapse"
-                   id="fr-sidemenu-lcukfqrceoprhxjw-item-2">
+                   id="fr-sidemenu-jacbwotcrvuthnfa-item-2">
                 <ul class="fr-sidemenu__list">
                   
                     <li class="fr-sidemenu__item">
@@ -1261,6 +1261,32 @@
 <li>Le bloc <code>brand</code>, qui ne permet pas toutes les personnalisations nécessaires, va être supprimé à terme. Les personnalisations sont à mettre dans le nouveau bloc <code>footer_brand</code>.</li>
 <li>Même chose pour le bloc <code>footer_content</code>, à remplacer à terme par le nouveau bloc <code>footer_description</code>.</li>
 </ul>
+<h2 id="utiliser-les-liens-en-bas-de-pied-de-page">Utiliser les liens en bas de pied de page</h2>
+<p>Les liens en bas du pied de page peuvent être modifiés soit en surchargeant le bloc <code>footer_links</code>, soit en créant des urls dans votre projet avec les noms suivants :
+- Plan du site : <code>"footer-sitemap"</code>
+- Accessibilité : <code>"footer-accessibility-status"</code>
+- Mentions légales : <code>"footer-legal-notice"</code>
+- Données personnelles : <code>"footer-personal-data"</code>
+- Gestion des cookies : <code>"footer-cookie-management"</code></p>
+<p>Par exemple, dans votre fichier urls.py : </p>
+<div class="dsfr-code"><pre><span></span><code><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="n">path</span><span class="p">(</span>
+      <span class="s2">&quot;my/url&quot;</span><span class="p">,</span>
+      <span class="n">MyView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+      <span class="n">name</span><span class="o">=</span><span class="s2">&quot;footer-legal-notice&quot;</span><span class="p">,</span>
+  <span class="p">),</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<p>Les liens en bas du pied de page possèdent des id pouvant être utilisés dans votre code :
+- Plan du site : <code>id="footer_sitemap"</code>
+- Accessibilité : <code>id="footer_accessibility_status"</code>
+- Mentions légales : <code>id="footer_legal_notice"</code>
+- Données personnelles : <code>id="footer_personal_data"</code>
+- Gestion des cookies : <code>id="footer_cookie_management"</code></p>
+<p>Par exemple :</p>
+<div class="dsfr-code"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">sitemap_link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;footer_sitemap&quot;</span><span class="p">);</span>
+</code></pre></div>
     </div>
   </div>
 
@@ -1407,23 +1433,28 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
         
   
           <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">Plan du site</a>
+            
+            <a class="fr-footer__bottom-link" href="#" id="footer_sitemap">Plan du site</a>
           </li>
           <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">
+            
+            <a class="fr-footer__bottom-link" href="#" id="footer_accessibility_status">
               
                 Accessibilité : non conforme
               
             </a>
           </li>
           <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">Mentions légales</a>
+            
+            <a class="fr-footer__bottom-link" href="#" id="footer_legal_notice">Mentions légales</a>
           </li>
           <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">Données personnelles</a>
+            
+            <a class="fr-footer__bottom-link" href="#" id="footer_personal_data">Données personnelles</a>
           </li>
           <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="#">Gestion des cookies</a>
+            
+            <a class="fr-footer__bottom-link" href="#" id="footer_cookie_management">Gestion des cookies</a>
           </li>
         
   <li class="fr-footer__bottom-item">
@@ -1540,11 +1571,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
         integrity="sha384-41GU+RiqAUYv47wDfp2YXZiDUjD3kF13IEv7OxPu+c/vI226zUzWCLaxG3YFr+OE"
-         nonce="CJohwG7d4f9f9yPkfI6y/Q=="></script>
+         nonce="plilvC7umTVyVrONZAXpMQ=="></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
         integrity="sha384-hm15UcyKDaqIboxtF7Jb9k5IxNtmYydj2vXiMAx0TaLn0tAI3hdjG/Gf0DxkYuHC"
-         nonce="CJohwG7d4f9f9yPkfI6y/Q=="></script>
+         nonce="plilvC7umTVyVrONZAXpMQ=="></script>
 
 
     
