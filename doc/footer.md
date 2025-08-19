@@ -51,3 +51,36 @@ Il est possible de l’étendre pour le personnaliser, par exemple pour ajouter 
 ## Blocs dépréciés
 - Le bloc `brand`, qui ne permet pas toutes les personnalisations nécessaires, va être supprimé à terme. Les personnalisations sont à mettre dans le nouveau bloc `footer_brand`.
 - Même chose pour le bloc `footer_content`, à remplacer à terme par le nouveau bloc `footer_description`.
+
+
+## Utiliser les liens en bas de pied de page
+
+Les liens en bas du pied de page peuvent être modifiés soit en surchargeant le bloc `footer_links`, soit en créant des urls dans votre projet avec les noms suivants :
+- Plan du site : `"footer-sitemap"`
+- Accessibilité : `"footer-accessibility-status"`
+- Mentions légales : `"footer-legal-notice"`
+- Données personnelles : `"footer-personal-data"`
+- Gestion des cookies : `"footer-cookie-management"`
+
+Par exemple, dans votre fichier urls.py : 
+```{ .python }
+urlpatterns = [
+  path(
+      "my/url",
+      MyView.as_view(),
+      name="footer-legal-notice",
+  ),
+]
+```
+
+Les liens en bas du pied de page possèdent des id pouvant être utilisés dans votre code :
+- Plan du site : `id="footer_sitemap"`
+- Accessibilité : `id="footer_accessibility_status"`
+- Mentions légales : `id="footer_legal_notice"`
+- Données personnelles : `id="footer_personal_data"`
+- Gestion des cookies : `id="footer_cookie_management"`
+
+Par exemple :
+```{.js}
+const sitemap_link = document.getElementById("footer_sitemap");
+```
