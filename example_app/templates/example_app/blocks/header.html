@@ -27,7 +27,7 @@
       {% translate "Display settings" %}
     </button>
   </li>
-  {% if "127.0.0.1" in request.get_host %}
+  {% if "127.0.0.1" in request.get_host or "localhost" in request.get_host %}
     <li>
       {% include "example_app/blocks/language_selector.html" %}
     </li>
