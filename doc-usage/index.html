@@ -727,10 +727,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-vrpijcclqfuriylp">
+          aria-controls="breadcrumb-ipzllgfbvjkvpqbu">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-vrpijcclqfuriylp">
+  <div class="fr-collapse" id="breadcrumb-ipzllgfbvjkvpqbu">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -755,8 +755,8 @@
         
 <nav role="navigation"
      class="fr-summary"
-     aria-labelledby="fr-summary-lplgtuttmjngfylg-title">
-  <p class="fr-summary__title" id="fr-summary-lplgtuttmjngfylg-title">
+     aria-labelledby="fr-summary-ajvitdfnieoqkiky-title">
+  <p class="fr-summary__title" id="fr-summary-ajvitdfnieoqkiky-title">
   Sommaire
   </p>
   <ol class="fr-summary__list">
@@ -797,6 +797,12 @@
     
       <li>
   <a class="fr-summary__link" href="#gestion-de-la-configuration-en-admin">Gestion de la configuration en admin</a>
+  
+</li>
+
+    
+      <li>
+  <a class="fr-summary__link" href="#parametres-optionnels">Paramètres (optionnels)</a>
   
 </li>
 
@@ -864,8 +870,15 @@
 <span class="p">]</span>
 </code></pre></div>
 
+<h2 id="parametres-optionnels">Paramètres (optionnels)</h2>
 <ul>
-<li>Créez un objet "DsfrConfig" dans le panneau d’administration (section Système de design de l’État &gt; Configurations.)</li>
+<li><code>DSFR_CHECK_DEPRECATED</code> (défaut: <code>False</code>) : si <code>True</code>, vérifie la présence de paramètres obsolètes à l’intérieur des template tags</li>
+<li>
+<p><code>DSFR_USE_INTEGRITY_CHECKSUMS</code>  (défaut: <code>True</code>)  : si <code>True</code>, intègre des checksums d’intégrité sur les fichiers CSS et JS globaux. À désactiver si cela pose des problèmes avec d’autres modules Django comme Whitenoise.</p>
+</li>
+<li>
+<p>Créez un objet "DsfrConfig" dans le panneau d’administration (section Système de design de l’État &gt; Configurations.)</p>
+</li>
 </ul>
 <h2 id="application-dexemple">Application d’exemple</h2>
 <p>Vous pouvez prendre exemple sur cette application (cf. <a href="https://github.com/numerique-gouv/django-dsfr/tree/main/example_app">code source</a>). Elle consiste en un générateur pour la présente documentation. Dans la mesure où celle-ci est hébergée de manière statique, un export est fait automatiquement via <a href="https://github.com/meeb/django-distill">Django-distill</a>.</p>
