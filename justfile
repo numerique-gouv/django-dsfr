@@ -65,4 +65,5 @@ update_dsfr:
     just collectstatic
 
 upgrade:
+    uv lock --upgrade
     uv run pre-commit autoupdate
