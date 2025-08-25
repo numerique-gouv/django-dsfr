@@ -48,6 +48,9 @@ alias rs := runserver
 runserver host_url=host_url local_port=local_port:
     uv run python manage.py runserver {{host_url}}:{{local_port}}
 
+shell:
+    uv run python manage.py shell
+
 static_server local_port=local_port:
     uv run python -m http.server 1{{local_port}} -d docs/
 
@@ -62,5 +65,4 @@ update_dsfr:
     just collectstatic
 
 upgrade:
-    uv lock --upgrade
     uv run pre-commit autoupdate
