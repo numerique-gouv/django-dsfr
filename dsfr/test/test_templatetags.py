@@ -1,4 +1,4 @@
-from django.test import SimpleTestCase
+from django.test import SimpleTestCase, override_settings
 from django.template import Context, Template
 from unittest.mock import MagicMock
 
@@ -16,7 +16,17 @@ class DsfrCssTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_css %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            f'<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"  integrity="{ INTEGRITY_CSS }">',  # noqa
+            f'<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"  integrity="{ INTEGRITY_CSS }">',
+            rendered_template,
+        )
+
+    @override_settings(DSFR_USE_INTEGRITY_CHECKSUMS=False)
+    def test_css_tag_integrity_checksum_can_be_disabled(self):
+        context = Context()
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_css %}")
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            '<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css">',
             rendered_template,
         )
 
@@ -30,7 +40,20 @@ class DsfrJsTagTest(SimpleTestCase):
             f"""
             <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{ INTEGRITY_JS_MODULE }"></script>
             <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{ INTEGRITY_JS_NOMODULE }"></script>
-            """,  # noqa
+            """,
+            rendered_template,
+        )
+
+    @override_settings(DSFR_USE_INTEGRITY_CHECKSUMS=False)
+    def test_js_tag_integrity_checksum_can_be_disabled(self):
+        context = Context()
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_js %}")
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """
+            <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"></script>
+            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"></script>
+            """,
             rendered_template,
         )
 

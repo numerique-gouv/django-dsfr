@@ -56,6 +56,13 @@ def dsfr_css() -> dict:
     tag_data["INTEGRITY_CSS"] = INTEGRITY_CSS
     tag_data["INTEGRITY_UTILITY_CSS"] = INTEGRITY_UTILITY_CSS
 
+    tag_data["USE_INTEGRITY_CHECKSUMS"] = True
+    if (
+        hasattr(settings, "DSFR_USE_INTEGRITY_CHECKSUMS")
+        and settings.DSFR_USE_INTEGRITY_CHECKSUMS is False
+    ):
+        tag_data["USE_INTEGRITY_CHECKSUMS"] = False
+
     return {"self": tag_data}
 
 
@@ -78,6 +85,13 @@ def dsfr_js(context, *args, **kwargs) -> dict:
 
     tag_data["INTEGRITY_JS_MODULE"] = INTEGRITY_JS_MODULE
     tag_data["INTEGRITY_JS_NOMODULE"] = INTEGRITY_JS_NOMODULE
+
+    tag_data["USE_INTEGRITY_CHECKSUMS"] = True
+    if (
+        hasattr(settings, "DSFR_USE_INTEGRITY_CHECKSUMS")
+        and settings.DSFR_USE_INTEGRITY_CHECKSUMS is False
+    ):
+        tag_data["USE_INTEGRITY_CHECKSUMS"] = False
 
     return {"self": tag_data}
 
