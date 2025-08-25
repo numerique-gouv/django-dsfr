@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_extensions",
     "csp",
     "widget_tweaks",
     "dsfr",
@@ -146,11 +145,15 @@ MEDIA_URL = "django-dsfr/media/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Content security policies
-CSP_DEFAULT_SRC = ("'self'", "tube-numerique-educatif.apps.education.fr")
-CSP_SCRIPT_SRC = ("'self'", "'unsafe-eval'", "'unsafe-inline'")
-CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
-CSP_OBJECT_SRC = ("'none'",)
-CSP_IMG_SRC = ("'self'", "data:")
+CONTENT_SECURITY_POLICY = {
+    "DIRECTIVES": {
+        "default-src": ("'self'", "tube-numerique-educatif.apps.education.fr"),
+        "img-src": ("'self'", "data:"),
+        "object-src": ("'none'",),
+        "script-src": ("'self'", "'unsafe-eval'", "'unsafe-inline'"),
+        "style-src": ("'self'", "'unsafe-inline'"),
+    }
+}
 
 # DSFR-specific
 DSFR_CHECK_DEPRECATED = True
