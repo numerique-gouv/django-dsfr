@@ -1,6 +1,6 @@
 [project]
 name = "django-dsfr"
-version = "3.0.0"
+version = "3.1.0"
 description = "Integrate the French government Design System into a Django app"
 authors = [{ name = "Sylvain Boissel", email = "sylvain.boissel@beta.gouv.fr" }]
 requires-python = "<4.0,>=3.10"

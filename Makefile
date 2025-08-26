@@ -79,7 +79,7 @@ update_dsfr:
 
 .PHONY: upgrade
 upgrade:
-    uv lock --upgrade
+	uv lock --upgrade
 	uv run pre-commit autoupdate
 	@make deprecation-warning
 

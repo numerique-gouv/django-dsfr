@@ -62,6 +62,10 @@ TEMPLATES = [
 ]
 ```
 
+## Paramètres (optionnels)
+- `DSFR_CHECK_DEPRECATED` (défaut: `False`) : si `True`, vérifie la présence de paramètres obsolètes à l’intérieur des template tags
+- `DSFR_USE_INTEGRITY_CHECKSUMS`  (défaut: `True`)  : si `True`, intègre des checksums d’intégrité sur les fichiers CSS et JS globaux. À désactiver si cela pose des problèmes avec d’autres modules Django comme Whitenoise.
+
 - Créez un objet "DsfrConfig" dans le panneau d’administration (section Système de design de l’État > Configurations.)
 
 ## Application d’exemple

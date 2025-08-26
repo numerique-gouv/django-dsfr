@@ -1,10 +1,10 @@
 {% load static %}
 <link rel="stylesheet"
       href="{% static 'dsfr/dist/dsfr/dsfr.min.css' %}"
-      integrity="{{ self.INTEGRITY_CSS }}">
+      {% if self.USE_INTEGRITY_CHECKSUMS %}integrity="{{ self.INTEGRITY_CSS }}"{% endif %}>
 <link rel="stylesheet"
       href="{% static 'dsfr/dist/utility/utility.min.css' %}"
-      integrity="{{ self.INTEGRITY_UTILITY_CSS }}">
+      {% if self.USE_INTEGRITY_CHECKSUMS %}integrity="{{ self.INTEGRITY_UTILITY_CSS }}"{% endif %}>
 <link rel="stylesheet" href="{% static 'css/dsfr-django-overrides.css' %}">
 
 <meta name="theme-color" content="#000091">
