@@ -9,7 +9,7 @@
               <tr>
                 {% for cell in self.header %}
                   <th scope="col">
-                    {{ cell|safe }}
+                    {{ cell }}
                   </th>
                 {% endfor %}
               </tr>
@@ -20,7 +20,7 @@
               <tr>
                 {% for cell in row %}
                   <td>
-                    {{ cell|safe }}
+                    {{ cell }}
                   </td>
                 {% endfor %}
               </tr>
