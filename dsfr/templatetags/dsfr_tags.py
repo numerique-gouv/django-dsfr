@@ -1154,7 +1154,7 @@ def dsfr_table(*args, **kwargs) -> dict:
     ```python
     data_dict = {
         "caption": "The title of the table",
-        "content": "A list of rows, each row being a list of cells itself",
+        "content": "A list of rows, each row being a list of cells itself; escaped by default",
         "extra_classes": "(Optional) string with names of extra classes",
         "header": "(Optional) list of cells for the table header."
     }
@@ -1162,6 +1162,16 @@ def dsfr_table(*args, **kwargs) -> dict:
 
     All of the keys of the dict can be passed directly as named parameters of the tag.
 
+    **Warning**:When rendering the table, the content is untrusted and escaped by DTL by default as
+    it could come from a user input. `content` is trusted HTML, you should provide it like this:
+
+     ```python
+     from django.utils.safestring import mark_safe
+
+    data_dict = {
+        "content": mark_safe("<b>User input</b>")
+    }
+    ```
 
     Relevant `extra_classes`:
 
