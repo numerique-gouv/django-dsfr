@@ -1,9 +1,9 @@
 {% load dsfr_tags %}
 
 <div class="fr-segmented__elements">
-{% for group, options, index in widget.optgroups %}
-  {% for option in options %}
-    {% include option.template_name with widget=option %}
+  {% for group, options, index in widget.optgroups %}
+    {% for option in options %}
+      {% include option.template_name with widget=option %}
+    {% endfor %}
   {% endfor %}
-{% endfor %}
 </div>

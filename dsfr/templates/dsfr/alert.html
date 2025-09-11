@@ -11,7 +11,9 @@
     </p>
   {% endif %}
   {% if self.is_collapsible %}
-    <button class="fr-btn--close fr-btn" title="{{ hide_message }}" {% for attr, value in self.collapsible_attrs.items %}{{ attr }}="{{ value|safe }}"{% endfor %}>
+    <button class="fr-btn--close fr-btn"
+            title="{{ hide_message }}"
+            {% for attr, value in self.collapsible_attrs.items %}{{ attr }}="{{ value|safe }}"{% endfor %}>
       {{ hide_message }}
     </button>
   {% endif %}
