@@ -1,3 +1,4 @@
+import re
 import warnings
 from typing import Type
 
@@ -6,12 +7,13 @@ from django.forms.widgets import (
     ChoiceWidget,
     CheckboxSelectMultiple,
     NumberInput,
+    CheckboxInput
 )
 from django.http import QueryDict
 from django.utils.datastructures import MultiValueDict
+from django.utils.translation import gettext_lazy
 
 from dsfr.enums import ExtendedChoices
-
 
 __all__ = [
     "RichRadioSelect",
@@ -19,6 +21,7 @@ __all__ = [
     "InlineCheckboxSelectMultiple",
     "NumberCursor",
     "SegmentedControl",
+    "Toggle"
 ]
 
 
@@ -219,3 +222,17 @@ class SegmentedControl(_ExtendedChoicesWidget, ChoiceWidget):
         super().__init__(*args, **kwargs)
         self.extra_classes = extra_classes
         self.is_inline = is_inline
+
+
+class Toggle(CheckboxInput):
+    dsfr_wrapper_class = "fr-toggle"
+    dsfr_input_class = "fr-toggle__input"
+    dsfr_label_attrs = {"data-fr-checked-label": gettext_lazy("Checked"), "data-fr-unchecked-label": gettext_lazy("Unchecked"), "class": "fr-toggle__label"}
+
+    def __init__(self, attrs=None, check_test=None, dsfr_input_class=None, dsfr_label_attrs=None, dsfr_wrapper_class=None):
+        super().__init__(attrs, check_test)
+        self.dsfr_input_class = dsfr_input_class or self.dsfr_input_class
+        self.dsfr_label_attrs = dsfr_label_attrs or self.dsfr_label_attrs
+        self.dsfr_wrapper_class = dsfr_wrapper_class or self.dsfr_wrapper_class
+        css_class = re.sub(rf"\s*{re.escape(self.dsfr_input_class)}\s*", "", self.attrs.get("class", ""))
+        self.attrs["class"] = f"{self.dsfr_input_class} {css_class}".strip()
