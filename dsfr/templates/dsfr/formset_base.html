@@ -21,7 +21,7 @@
             {# everything that needs to be in the loop for each field for each form in formset #}
             {% block inside_formset_field %}
             {% endblock inside_formset_field %}
-            {% include "dsfr/form_field_snippets/field_snippet.html" %}
+            {{ field.as_field_group }}
           {% endfor %}
           <div class="fr-mt-2w">
             <button id="remove-0"

@@ -10,7 +10,7 @@ from django.db.models import IntegerChoices
 
 from dsfr.constants import COLOR_CHOICES, COLOR_CHOICES_ILLUSTRATION
 from dsfr.enums import RichRadioButtonChoices, SegmentedControlChoices
-from dsfr.fields import IntegerRangeField
+from dsfr.fields import IntegerRangeField, ToggleField
 from dsfr.forms import DsfrBaseForm
 
 # /!\ In order to use formsets
@@ -274,6 +274,8 @@ class ExampleForm(DsfrBaseForm):
             extra_classes="fr-segmented--sm fr-segmented--no-legend",
         ),
     )
+
+    example_toggle = ToggleField(label="Example toogle")
 
     # hidden field
     hidden_input = forms.CharField(widget=forms.HiddenInput(), initial="value")

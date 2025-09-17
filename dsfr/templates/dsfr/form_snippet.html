@@ -5,5 +5,9 @@
   </section>
 {% endif %}
 {% for field in form %}
-  {% dsfr_form_field field %}
+  {% if field.is_hidden %}
+    {{ field.as_hidden }}
+  {% else %}
+    {{ field.as_field_group }}
+  {% endif %}
 {% endfor %}
