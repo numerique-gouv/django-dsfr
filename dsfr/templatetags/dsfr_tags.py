@@ -1,13 +1,17 @@
 import warnings
 from typing import Iterable
 
+import django
 from django import template
 from django.conf import settings
 from django.contrib.messages.constants import DEBUG, INFO, SUCCESS, WARNING, ERROR
 from django.core.paginator import Page
+from django.forms import BoundField
 from django.template import Template
 from django.template.context import Context
 from django.utils.html import format_html, format_html_join
+from django.utils.safestring import mark_safe
+from django.utils.translation import gettext as _
 
 from dsfr.checksums import (
     INTEGRITY_CSS,
@@ -53,6 +57,7 @@ def dsfr_css() -> dict:
     **Usage**:
         `{% dsfr_css %}`
     """
+
     tag_data = {}
     tag_data["INTEGRITY_CSS"] = INTEGRITY_CSS
     tag_data["INTEGRITY_UTILITY_CSS"] = INTEGRITY_UTILITY_CSS
@@ -1364,7 +1369,7 @@ def dsfr_tile(*args, **kwargs) -> dict:
     return {"self": tag_data}
 
 
-@register.inclusion_tag("dsfr/toggle.html")
+@register.simple_tag
 def dsfr_toggle(*args, **kwargs) -> dict:
     """
     Returns a toggle item. Takes a dict as parameter, with the following structure:
@@ -1372,6 +1377,7 @@ def dsfr_toggle(*args, **kwargs) -> dict:
     ```python
     data_dict = {
         "label": "Label of the item",
+        "name": "(Optional) `name` attribute of the item, defaults to 'toggle'",
         "help_text": "(Optional) string explaining the intended use of the item",
         "is_disabled": '''(Optional) boolean that indicate if the toggle is activated
         (default: False)''',
@@ -1395,22 +1401,35 @@ def dsfr_toggle(*args, **kwargs) -> dict:
         `{% dsfr_toggle data_dict %}`
     """
 
+    from dsfr.fields import ToggleField
+    from dsfr.forms import DsfrBaseForm
+
     allowed_keys = [
         "label",
+        "name",
         "help_text",
         "is_disabled",
         "extra_classes",
         "id",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
+    tag_data.setdefault("id", generate_random_id("toggle"))
+    tag_data.setdefault("is_disabled", False)
+    tag_data.setdefault("name", "toggle")
 
-    if "id" not in tag_data:
-        tag_data["id"] = generate_random_id("toggle")
+    field = ToggleField(
+        required=False, label=tag_data["label"], help_text=tag_data.get("help_text", "")
+    )
+    if tag_data.get("is_disabled", False):
+        field.widget.attrs["disabled"] = tag_data["is_disabled"]
+    if tag_data.get("extra_classes", None):
+        field.widget.dsfr_wrapper_class += " " + tag_data["extra_classes"]
+    if tag_data.get("id", None):
+        field.widget.attrs["id"] = tag_data["id"]
 
-    if "is_disabled" not in tag_data:
-        tag_data["is_disabled"] = False
-
-    return {"self": tag_data}
+    form = DsfrBaseForm()
+    form.fields[tag_data["name"]] = field
+    return form[tag_data["name"]].as_field_group()
 
 
 @register.inclusion_tag("dsfr/tooltip.html")
@@ -1608,10 +1627,8 @@ def dsfr_django_messages(
     )
 
 
-@register.inclusion_tag(
-    "dsfr/form_field_snippets/field_snippet.html", takes_context=True
-)
-def dsfr_form_field(context, field) -> dict:
+@register.simple_tag
+def dsfr_form_field(field: BoundField) -> str:
     """
     Returns the HTML for a form field snippet
 
@@ -1630,8 +1647,17 @@ def dsfr_form_field(context, field) -> dict:
     if field == "":
         raise AttributeError("Invalid form field name in dsfr_form_field.")
 
-    context.update({"field": field})
-    return context
+    if django.VERSION >= (5, 0):
+        warnings.warn(
+            (
+                "{% dsfr_form_field field %} is deprecated; please use {{ field.as_field_group }}"
+                "or {{ field.as_hidden }} in your template instead"
+            ),
+            DeprecationWarning,
+            stacklevel=3,
+        )
+
+    return field.as_field_group()
 
 
 register.filter(name="dsfr_input_class_attr", filter_func=dsfr_input_class_attr)
@@ -1734,3 +1760,17 @@ def dsfr_form(context: Context):
         """The dsfr_form tag is deprecated since django-dsfr 2.0.0.
         Please use a normal {{ form }} tag.""",
     )
+
+
+# Deprecated tags
+@register.simple_tag
+def dsfr_mark_optionnal_fields(bf):
+    mark_optional_fields = getattr(settings, "DSFR_MARK_OPTIONAL_FIELDS", False)
+    if bf.field.required and not mark_optional_fields:
+        return mark_safe(
+            '<span class="fr-required-marker" aria-hidden="true"> *</span>'
+        )
+    elif not bf.field.required and mark_optional_fields:
+        return f" {_('(Optional)')}"
+
+    return ""
