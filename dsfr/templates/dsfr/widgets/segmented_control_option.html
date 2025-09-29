@@ -3,9 +3,9 @@
          type="radio"
          id="segmented-{{ widget.attrs.id }}"
          name="{{ widget.name }}"
-         {% include "django/forms/widgets/attrs.html" %}
-  >
-  <label class="{% if widget.icon %}fr-icon-{{ widget.icon }}{% endif %} fr-label" for="segmented-{{ widget.attrs.id }}">
+         {% include "django/forms/widgets/attrs.html" %}>
+  <label class="{% if widget.icon %}fr-icon-{{ widget.icon }}{% endif %} fr-label"
+         for="segmented-{{ widget.attrs.id }}">
     {{ widget.label }}
   </label>
 </div>
