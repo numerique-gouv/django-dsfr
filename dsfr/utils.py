@@ -56,14 +56,20 @@ def parse_tag_args(args, kwargs, allowed_keys: list) -> dict:
     Allows to use a tag with either all the arguments in a dict or by declaring them separately
     """
     tag_data = {}
+    data_attributes = {}
 
     if args:
         tag_data = args[0].copy()
 
     for k in kwargs:
-        if k in [*allowed_keys, "attrs"]:
+        if k in allowed_keys:
             tag_data[k] = kwargs[k]
+        elif k.startswith("data_"):
+            _, _, attribute = k.partition("data_")
+            data_attributes[attribute] = kwargs[k]
 
+    if data_attributes:
+        tag_data = {**tag_data, "data_attributes": data_attributes}
     return tag_data
 
 

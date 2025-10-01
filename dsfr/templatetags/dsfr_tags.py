@@ -9,6 +9,7 @@ from django.template import Template
 from django.template.context import Context
 from django.utils.html import format_html, format_html_join
 
+
 from dsfr.checksums import (
     INTEGRITY_CSS,
     INTEGRITY_UTILITY_CSS,
@@ -1701,6 +1702,20 @@ def dsfr_inline(field):
     """
     field.field.widget.inline = True
     return field
+
+
+@register.filter
+def data_attributes(tag_data):
+    print("COUCOU", tag_data)
+    # TODO: raise value error if dict contains data-
+    if tag_data.get("data_attributes"):
+        return " ".join(
+            [
+                f"data-{key}={value}"
+                for key, value in tag_data["data_attributes"].items()
+            ]
+        )
+    return ""
 
 
 # Deprecated tags
