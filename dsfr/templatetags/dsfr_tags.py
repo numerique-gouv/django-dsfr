@@ -1709,7 +1709,7 @@ def data_attributes(tag_data):
     if tag_data.get("data_attributes"):
         return " ".join(
             [
-                f"data-{key}={value}"
+                f'data-{key}="{value}"'
                 for key, value in tag_data["data_attributes"].items()
             ]
         )
