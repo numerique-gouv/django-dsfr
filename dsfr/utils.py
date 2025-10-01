@@ -61,7 +61,7 @@ def parse_tag_args(args, kwargs, allowed_keys: list) -> dict:
         tag_data = args[0].copy()
 
     for k in kwargs:
-        if k in allowed_keys:
+        if k in [*allowed_keys, "attrs"]:
             tag_data[k] = kwargs[k]
 
     return tag_data
