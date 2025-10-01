@@ -1706,8 +1706,6 @@ def dsfr_inline(field):
 
 @register.filter
 def data_attributes(tag_data):
-    print("COUCOU", tag_data)
-    # TODO: raise value error if dict contains data-
     if tag_data.get("data_attributes"):
         return " ".join(
             [
