@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
-from django.forms.fields import MultiValueField, IntegerField
+from django.forms.fields import MultiValueField, IntegerField, BooleanField
 
-from .widgets import NumberCursor
+from .widgets import NumberCursor, Toggle
 
 __all__ = ["IntegerRangeField"]
 
@@ -49,3 +49,16 @@ class IntegerRangeField(MultiValueField):
                 "Le second nombre doit être supérieur au premier pour déterminer un intervalle"
             )
         return range(data_list[0], data_list[1] + 1)
+
+
+class ToggleField(BooleanField):
+    widget = Toggle
+    template_name = "dsfr/toggle.html"
+
+    def __init__(self, **kwargs):
+        kwargs["label_suffix"] = ""
+        super().__init__(**kwargs)
+        if self.disabled:
+            self.widget.attrs.setdefault("disabled", "true")
+
+
