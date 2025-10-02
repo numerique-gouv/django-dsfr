@@ -13,19 +13,22 @@
     {% block extra_css %}
     {% endblock extra_css %}
 
-    {% block title %}
-      <title>
-        {% if title and SITE_CONFIG.site_title %}
-          {{ title }} — {{ SITE_CONFIG.site_title }}
-        {% elif title %}
-          {{ title }}
-        {% elif SITE_CONFIG.site_title %}
-          {{ SITE_CONFIG.site_title }}
-        {% else %}
-          {% translate "Untitled page" %}
-        {% endif %}
-      </title>
-    {% endblock title %}
+    {% block title_wrapper %}
+      {% block title %}
+        <title>
+          {% if title and SITE_CONFIG.site_title %}
+            {{ title }} — {{ SITE_CONFIG.site_title }}
+          {% elif title %}
+            {{ title }}
+          {% elif SITE_CONFIG.site_title %}
+            {{ SITE_CONFIG.site_title }}
+          {% else %}
+            {% translate "Untitled page" %}
+          {% endif %}
+        </title>
+      {% endblock title %}
+    {% endblock title_wrapper %}
+
     <meta name="format-detection"
           content="telephone=no,date=no,address=no,email=no,url=no">
 
