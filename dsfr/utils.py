@@ -66,7 +66,7 @@ def parse_tag_args(args, kwargs, allowed_keys: list) -> dict:
             tag_data[k] = kwargs[k]
         elif k.startswith("data_"):
             _, _, attribute = k.partition("data_")
-            data_attributes[attribute] = kwargs[k]
+            data_attributes[attribute.replace("_", "-")] = kwargs[k]
 
     if data_attributes:
         tag_data = {**tag_data, "data_attributes": data_attributes}
