@@ -4,6 +4,6 @@
         {% if self.is_disabled %}disabled{% endif %}
         type="{{ self.type | default:'submit' }}"
         {% if self.name %}name="{{ self.name }}"{% endif %}
-        {{ self|data_attributes|safe }}>
+        {{ self|data_attributes }}>
   {{ self.label }}
 </button>
