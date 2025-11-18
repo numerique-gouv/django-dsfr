@@ -2,7 +2,7 @@
 <a class="fr-link{% if self.is_external %} fr-icon-external-link-line fr-link--icon-right{% endif %}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}"
    href="{{ self.url }}"
    {% if self.is_external %}target="_blank" rel="noopener noreferrer"{% endif %}
-   {{ self|data_attributes|safe }}>
+   {{ self|data_attributes }}>
   {{ self.label }}
   {% if self.is_external %}
     <span class="fr-sr-only">{% translate "Opens a new window" %}</span>
