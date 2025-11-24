@@ -8,7 +8,11 @@
             class="fr-sidemenu__btn"
             aria-controls="fr-sidemenu-{{ self.id }}-wrapper"
             aria-expanded="false">
-      {% translate "In this section" %}
+      {% if self.button_label %}
+        {{ self.button_label }}
+      {% else %}
+        {% translate "In this section" %}
+      {% endif %}
     </button>
     <div class="fr-collapse" id="fr-sidemenu-{{ self.id }}-wrapper">
       {% if self.title %}

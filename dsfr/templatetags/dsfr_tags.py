@@ -1016,6 +1016,7 @@ def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
     data_dict = {
         "items": "a list of similarly structured dictionaries (see below)",
         "title": "(Optional) The title of the main menu",
+        "button_label": "(Optional) The label of the opening button (for mobile)",
         "heading_tag": "(Optional) Heading tag for the accordion title (h2, etc. Default: div)"
         "extra_classes": "(Optional) string with names of extra classes",
         "id": "(Optional) string with the id of the menu
@@ -1042,7 +1043,14 @@ def dsfr_sidemenu(context: Context, *args, **kwargs) -> dict:
         `{% dsfr_sidemenu data_dict %}`
     """
 
-    allowed_keys = ["label", "items", "heading_tag", "extra_classes", "id"]
+    allowed_keys = [
+        "title",
+        "button_label",
+        "items",
+        "heading_tag",
+        "extra_classes",
+        "id",
+    ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
     active_path = context["request"].path

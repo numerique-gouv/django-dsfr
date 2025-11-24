@@ -845,6 +845,7 @@ class DsfrQuoteTagTest(SimpleTestCase):
 class DsfrSidemenuTagTest(SimpleTestCase):
     test_data = {
         "title": "Menu",
+        "button_label": "Ouvrir le menu",
         "heading_tag": "h2",
         "id": "example",
         "items": [
@@ -892,6 +893,12 @@ class DsfrSidemenuTagTest(SimpleTestCase):
     rendered_template = template_to_render.render(context)
 
     def test_sidemenu_tag_rendered(self):
+        self.assertInHTML(
+            """
+            <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-example-wrapper" aria-expanded="false">Ouvrir le menu
+            """,
+            self.rendered_template,
+        )
         self.assertInHTML(
             """
             <li class="fr-sidemenu__item">
