@@ -1,0 +1,88 @@
+{% extends "example_app/base.html" %}
+
+{% load dsfr_tags %}
+
+{% block content %}
+  {% dsfr_table id="my-table" bordered=True size="sm" %}
+  {% caption %}
+  <span class="fr-icon-question-mark"></span>Un bien beau tableau
+  {% captiondesc %}<span>Juste pour montrer à quoi ça ressemble</span>{% endcaptiondesc %}
+{% endcaption %}
+<table>
+  <thead>
+    <tr>
+      <th scope="col">
+        th0
+      </th>
+      <th scope="col">
+        th1
+      </th>
+      <th scope="col">
+        th2
+      </th>
+      <th scope="col">
+        th3
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+      <td>
+        Lorem [...] elit ut.
+      </td>
+    </tr>
+  </tbody>
+</table>
+{% end_dsfr_table %}
+{% endblock content %}

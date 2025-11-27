@@ -1,25 +1,30 @@
+import re
 import warnings
 from typing import Iterable
 
 from django import template
 from django.conf import settings
-from django.contrib.messages.constants import DEBUG, INFO, SUCCESS, WARNING, ERROR
+from django.contrib.messages.constants import DEBUG, ERROR, INFO, SUCCESS, WARNING
 from django.core.paginator import Page
-from django.template import Template
-from django.template.context import Context
+from django.template import Context, Library, NodeList, Template, TemplateSyntaxError
+from django.template.base import Parser, Token, token_kwargs
+from django.template.defaulttags import CommentNode
+from django.template.library import (
+    InclusionNode,
+)
 from django.utils.html import format_html, format_html_join
 
 from dsfr.checksums import (
     INTEGRITY_CSS,
-    INTEGRITY_UTILITY_CSS,
     INTEGRITY_JS_MODULE,
     INTEGRITY_JS_NOMODULE,
+    INTEGRITY_UTILITY_CSS,
 )
 from dsfr.utils import (
+    dsfr_input_class_attr,
     find_active_menu_items,
     generate_random_id,
     parse_tag_args,
-    dsfr_input_class_attr,
 )
 
 register = template.Library()
@@ -1146,83 +1151,6 @@ def dsfr_summary(items: list, heading_tag: str = "p", summary_id: str = "") -> d
     return {"self": {"items": items, "heading_tag": heading_tag, "id": summary_id}}
 
 
-@register.inclusion_tag("dsfr/table.html")
-def dsfr_table(*args, **kwargs) -> dict:
-    """
-    Returns a table item. Takes a dict as parameter, with the following structure:
-
-    ```python
-    data_dict = {
-        "caption": "The title of the table",
-        "content": "A list of rows, each row being a list of cells itself",
-        "extra_classes": "(Optional) string with names of extra classes",
-        "header": "(Optional) list of cells for the table header."
-    }
-    ```
-
-    All of the keys of the dict can be passed directly as named parameters of the tag.
-
-
-    Relevant `extra_classes`:
-
-    - Size classes: `fr-table--sm`, `fr-table--lg` (no class for normal sized tables)
-    - `fr-table--bordered`: adds a vertical border between each column
-    - `fr-table--no-scroll` prevents horizontal scrolling on mobile
-
-    **Tag name**:
-        dsfr_table
-
-    **Usage**:
-        `{% dsfr_table data_dict %}`
-    """
-    allowed_keys = [
-        "caption",
-        "content",
-        "header",
-        "extra_classes",
-    ]
-    tag_data = parse_tag_args(args, kwargs, allowed_keys)
-
-    if "extra_classes" in tag_data and CHECK_DEPRECATED_PARAMS:
-        extra_classes = tag_data["extra_classes"]
-        # Deprecated in DSFR 1.12
-        deprecated_layout_classes = [
-            "fr-table--no-caption",
-            "fr-table--layout-fixed",
-            "fr-table--layout-fixed",
-        ]
-
-        for dc in deprecated_layout_classes:
-            if dc in extra_classes:
-                warnings.warn(
-                    f"Due to changes in the DSFR v1.12, class {dc} is deprecated in django-dsfr v1.3 or superior",
-                    DeprecationWarning,
-                    stacklevel=3,
-                )
-
-        # Deprecated in DSFR 1.12
-        deprecated_color_classes = [
-            "fr-table--green",
-            "fr-table--blue",
-            "fr-table--purple",
-            "fr-table--pink",
-            "fr-table--yellow",
-            "fr-table--orange",
-            "fr-table--brown",
-            "fr-table--beige",
-        ]
-
-        for dc in deprecated_color_classes:
-            if dc in extra_classes:
-                warnings.warn(
-                    "Due to changes in the DSFR v1.12, color classes in tables are deprecated in django-dsfr v1.3 or superior",
-                    DeprecationWarning,
-                    stacklevel=3,
-                )
-
-    return {"self": tag_data}
-
-
 @register.inclusion_tag("dsfr/tag.html")
 def dsfr_tag(*args, **kwargs) -> dict:
     """
@@ -1703,6 +1631,157 @@ def dsfr_inline(field):
     return field
 
 
+def copy_parser(
+    parser: Parser,
+    additional_lib: Library | Iterable[Library] | None = None,
+    *,
+    share_extra_data=False,
+) -> Parser:
+    if isinstance(additional_lib, Library):
+        additional_lib = [additional_lib]
+    elif additional_lib is None:
+        additional_lib = []
+
+    result = Parser([])
+    result.origin = parser.origin
+    # Share tokens here to prevent token stack inconsistancies between parsers
+    result.tokens = parser.tokens
+    # Copying the rest to prevent alteration
+    for field in ("tags", "filters", "command_stack", "libraries"):
+        setattr(result, field, getattr(parser, field).copy())
+
+    result.extra_data = (
+        parser.extra_data if share_extra_data else parser.extra_data.copy()
+    )
+
+    for lib in additional_lib:
+        result.add_library(lib)
+
+    return result
+
+
+def _table_captiondesc(parser: Parser, token: Token):
+    parser.extra_data["dsfr_table"]["captiondesc"] = parser.parse(("endcaptiondesc",))
+    # Don't forget to pop closing tag
+    parser.delete_first_token()
+    return CommentNode()
+
+
+def _table_caption(parser: Parser, token: Token):
+    local_library = Library()
+    local_library.tag("captiondesc", _table_captiondesc)
+    local_parser = copy_parser(parser, local_library, share_extra_data=True)
+    parser.extra_data["dsfr_table"]["caption"] = local_parser.parse(("endcaption",))
+    # Don't forget to pop closing tag
+    parser.delete_first_token()
+    return CommentNode()
+
+
+def _table_wrapper_attrs(parser: Parser, token: Token):
+    table_context = token_kwargs(token.split_contents()[1:], parser)
+    breakpoint()
+
+
+def _table_container_attrs(parser: Parser, token: Token):
+    table_context = token_kwargs(token.split_contents()[1:], parser)
+    breakpoint()
+
+
+def _table_content_attrs(parser: Parser, token: Token):
+    table_context = token_kwargs(token.split_contents()[1:], parser)
+    breakpoint()
+
+
+@register.tag
+def dsfr_table(parser: Parser, token: Token):
+    table_context = token_kwargs(token.split_contents()[1:], parser)
+
+    local_library = Library()
+    local_library.tag("caption", _table_caption)
+    local_library.tag("wrapper_attrs", _table_wrapper_attrs)
+    local_library.tag("container_attrs", _table_container_attrs)
+    local_library.tag("content_attrs", _table_content_attrs)
+    local_parser = copy_parser(parser, local_library)
+
+    local_parser.extra_data.setdefault("dsfr_table", {})
+
+    try:
+        nodelist = local_parser.parse(("end_dsfr_table",))
+        # Don't forget to pop closing tag
+        parser.delete_first_token()
+        return TableNode(nodelist, table_context, local_parser.extra_data["dsfr_table"])
+    except TemplateSyntaxError as e:
+        warnings.warn(
+            "You are using the deprecated {% dsfr_table %} declaration style."
+        )
+        e
+        return dsfr_table_deprecated(parser, token)
+
+
+class TableNode(InclusionNode):
+    template_name = "dsfr/table.html"
+    authorized_arguments = {
+        "id",
+        "size",
+        "no_caption",
+        "bordered",
+        "no_scroll",
+        "multiline",
+        "classes",
+    }
+
+    def __init__(self, nodelist, table_context, extra_context: dict):
+        self.nodelist = nodelist
+        self.caption_nodelist = extra_context.pop("caption", NodeList())
+        self.captiondesc_nodelist = extra_context.pop("captiondesc", NodeList())
+
+        super().__init__(
+            func=self.get_context,
+            takes_context=True,
+            args=[],
+            kwargs=table_context,
+            filename=self.template_name,
+        )
+
+    def get_context(self, context: Context, **kwargs):
+        if rest := (set(kwargs.keys()) - self.authorized_arguments):
+            raise TemplateSyntaxError(
+                f"Unknown additionnal arguments {rest}; valid argumnts are {self.authorized_arguments}"
+            )
+
+        dsfr_classes = re.split(r"\s+", str(kwargs.get("classes", ""))) + ["fr-table"]
+
+        size_valid_options = ("sm", "md", "lg")
+        if size := kwargs.get("size"):
+            if size not in size_valid_options:
+                raise TemplateSyntaxError(
+                    f"{size=} is not a valid option; valid options are {size_valid_options}"
+                )
+
+            dsfr_classes.append(f"fr-table--{size}")
+
+        for option, css_class in (
+            ("no_caption", "fr-table--no-caption"),
+            ("bordered", "fr-table--bordered"),
+            ("no_scroll", "fr-table--no-scroll"),
+            ("multiline", "fr-table--multiline"),
+        ):
+            if kwargs.get(option):
+                dsfr_classes.append(css_class)
+
+        # Eliminate duplicates
+        dsfr_classes = " ".join(list(dict.fromkeys(dsfr_classes).keys()))
+
+        return context.new(
+            {
+                "dsfr_table_classes": dsfr_classes,
+                "dsfr_table_caption": self.caption_nodelist.render(context),
+                "dsfr_table_captiondesc": self.captiondesc_nodelist.render(context),
+                "dsfr_table_content": self.nodelist.render(context),
+            }
+        )
+
+
 # Deprecated tags
 @register.simple_tag(takes_context=True)
 def dsfr_form(context: Context):
@@ -1710,3 +1789,84 @@ def dsfr_form(context: Context):
         """The dsfr_form tag is deprecated since django-dsfr 2.0.0.
         Please use a normal {{ form }} tag.""",
     )
+
+
+def do_dsfr_table_deprecated(*args, **kwargs) -> dict:
+    """
+    Returns a table item. Takes a dict as parameter, with the following structure:
+
+    ```python
+    data_dict = {
+        "caption": "The title of the table",
+        "content": "A list of rows, each row being a list of cells itself",
+        "extra_classes": "(Optional) string with names of extra classes",
+        "header": "(Optional) list of cells for the table header."
+    }
+    ```
+
+    All of the keys of the dict can be passed directly as named parameters of the tag.
+
+
+    Relevant `extra_classes`:
+
+    - Size classes: `fr-table--sm`, `fr-table--lg` (no class for normal sized tables)
+    - `fr-table--bordered`: adds a vertical border between each column
+    - `fr-table--no-scroll` prevents horizontal scrolling on mobile
+
+    **Tag name**:
+        dsfr_table
+
+    **Usage**:
+        `{% dsfr_table data_dict %}`
+    """
+    allowed_keys = [
+        "caption",
+        "content",
+        "header",
+        "extra_classes",
+    ]
+    tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "extra_classes" in tag_data and CHECK_DEPRECATED_PARAMS:
+        extra_classes = tag_data["extra_classes"]
+        # Deprecated in DSFR 1.12
+        deprecated_layout_classes = [
+            "fr-table--no-caption",
+            "fr-table--layout-fixed",
+            "fr-table--layout-fixed",
+        ]
+
+        for dc in deprecated_layout_classes:
+            if dc in extra_classes:
+                warnings.warn(
+                    f"Due to changes in the DSFR v1.12, class {dc} is deprecated in django-dsfr v1.3 or superior",
+                    DeprecationWarning,
+                    stacklevel=3,
+                )
+
+        # Deprecated in DSFR 1.12
+        deprecated_color_classes = [
+            "fr-table--green",
+            "fr-table--blue",
+            "fr-table--purple",
+            "fr-table--pink",
+            "fr-table--yellow",
+            "fr-table--orange",
+            "fr-table--brown",
+            "fr-table--beige",
+        ]
+
+        for dc in deprecated_color_classes:
+            if dc in extra_classes:
+                warnings.warn(
+                    "Due to changes in the DSFR v1.12, color classes in tables are deprecated in django-dsfr v1.3 or superior",
+                    DeprecationWarning,
+                    stacklevel=3,
+                )
+
+    return {"self": tag_data}
+
+
+dsfr_table_deprecated = register.inclusion_tag(
+    "dsfr/table_deprecated.html", name="dsfr_table_deprecated"
+)(do_dsfr_table_deprecated)
