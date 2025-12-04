@@ -320,7 +320,7 @@ def dsfr_breadcrumb(context: Context, tag_data: dict | None = None) -> dict:
         else:
             tag_data = {}
 
-    tag_data["id"] = generate_random_id("breadcrumb")
+    tag_data["id"] = generate_random_id("breadcrumb")  # type: ignore
 
     return {"self": tag_data}
 
