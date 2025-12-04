@@ -23,6 +23,7 @@ jobs:
     - name: 👷 Install Dependencies
       run: |
         uv sync --no-group dev
+        uv python upgrade 3.12
     - name: 🚧 Check pending migrations
       run: |
         uv run python manage.py makemigrations --check --dry-run --noinput
