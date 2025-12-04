@@ -6,7 +6,7 @@
           id="{{ field.auto_id }}-legend">
     {{ field.label }}
     {% if field.field.required %}
-      *
+      <span class="fr-sr-only fr-required-marker">*</span>
     {% endif %}
     {% if field.help_text %}
       <span class="fr-hint-text" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</span>

@@ -3,7 +3,7 @@
 <div class="{{ field.field.widget.group_class|default:'fr-input-group' }}{% if field.errors %} {{ field.field.widget.group_class|default:'fr-input-group' }}--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %}">
   <label for="{{ field.id_for_label }}" class="fr-label">
     {# djlint:off #}
-    {{ field.label }}{% if field.field.required %}*{% endif %}
+    {{ field.label }}{% if field.field.required %}<span class="fr-sr-only fr-required-marker">*</span>{% endif %}
     {% if field.help_text %}
       <span class="fr-hint-text" id="{{ field.id_for_label }}_helptext">{{ field.help_text|safe }}</span>
     {% endif %}
