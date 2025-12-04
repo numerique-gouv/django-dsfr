@@ -1,4 +1,4 @@
-name: Django-DSFR CI for python 3.10+
+name: Django-DSFR CI for python 3.12+
 
 on:
   push:
