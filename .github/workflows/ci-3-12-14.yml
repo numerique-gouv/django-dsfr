@@ -1,4 +1,4 @@
-name: Django-DSFR CI for python 3.10+
+name: Django-DSFR CI for python 3.12+
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.12", "3.13", "3.14"]
 
     steps:
     - uses: actions/checkout@v4
@@ -31,5 +31,10 @@ jobs:
         uv run python manage.py test
     - name: 🧪 Run Tests - Django 5
       run: |
-        uv add django>=5.0
+        uv add "django>=5.0,<6.0"
+        uv run python manage.py test
+    - name: 🧪 Run Tests - Django 6
+      run: |
+        sed -i 's/requires-python = "<4.0,>=3.10"/requires-python = "<4.0,>=3.12"/g' pyproject.toml
+        uv add "django>=6.0"
         uv run python manage.py test

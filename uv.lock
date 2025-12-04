@@ -463,7 +463,7 @@ sdist = { url = "https://files.pythonhosted.org/packages/19/c8/ece20c91129314a1e
 
 [[package]]
 name = "django-dsfr"
-version = "3.2.0"
+version = "3.3.0"
 source = { editable = "." }
 dependencies = [
     { name = "django" },
@@ -497,7 +497,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "django", specifier = ">4.2.17" },
+    { name = "django", specifier = ">4.2.27" },
     { name = "django-crispy-forms", specifier = ">=2.0,<3.0" },
     { name = "django-widget-tweaks", specifier = ">=1.4.12,<2.0.0" },
     { name = "requests", specifier = ">=2.26.0,<3.0.0" },

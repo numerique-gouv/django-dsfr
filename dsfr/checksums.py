@@ -5,20 +5,20 @@
 
 # dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js
 INTEGRITY_JS_MODULE = (
-    "sha384-Xs+61I1TPMyffkb10+ZtgOLoGEDlOs2uLad6m1g4jrRzJ6RzoNStEO+osvy+6uo3"
+    "sha384-RJkvPus2b7RilgVnxnoAma05jmZcnMbGCMseqxWYoI9M7NAwrZl8XQGlqeJze6B8"
 )
 
 # dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js
 INTEGRITY_JS_NOMODULE = (
-    "sha384-52d8zoTXwznfSYC7BcHTt9njPI/7kFHpKMTTs73g+lNFnYARn2PNXw9rusgaY5iP"
+    "sha384-hV+qwuoUW/5dZAPC4eQa8SR6lOclBXfdqdq35SgjdXMOTsbd+uf+oCFxSxl+X6VH"
 )
 
 # dsfr/static/dsfr/dist/dsfr/dsfr.min.css
 INTEGRITY_CSS = (
-    "sha384-3C6orWsjJeghcadQdWIgXiWNhNfsc8bmwGWQ+S57gD++xyOjgV6TTxvwsyLlPyqn"
+    "sha384-JkR64vqiKUi1BMEIOp0tR1iNiQDco5MFax5S+3TyhaWqQpOFF0KjrCfy4xHWdQZt"
 )
 
 # dsfr/static/dsfr/dist/utility/utility.min.css
 INTEGRITY_UTILITY_CSS = (
-    "sha384-/Hoi1zgnLVudHaG0Jm9Gg29sCyPmhwwoYSvRped93NboBUM0YKhAhHVNAzlYh93l"
+    "sha384-DRtYJowv6MG7MkTTag2RK3LgOmdqAoDSx47Lb553//bkuIlCgD9JK6zCJfp02S3s"
 )
