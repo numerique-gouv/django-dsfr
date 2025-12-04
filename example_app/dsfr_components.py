@@ -702,6 +702,7 @@ IMPLEMENTED_COMPONENTS = {
         "sample_data": [
             {
                 "title": "Menu",
+                "button_label": "Ouvrir le menu",
                 "items": [
                     {
                         "label": "Menu replié",

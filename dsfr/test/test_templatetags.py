@@ -16,7 +16,7 @@ class DsfrCssTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_css %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            f'<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"  integrity="{ INTEGRITY_CSS }">',
+            f'<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"  integrity="{INTEGRITY_CSS}">',
             rendered_template,
         )
 
@@ -38,8 +38,8 @@ class DsfrJsTagTest(SimpleTestCase):
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             f"""
-            <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{ INTEGRITY_JS_MODULE }"></script>
-            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{ INTEGRITY_JS_NOMODULE }"></script>
+            <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{INTEGRITY_JS_MODULE}"></script>
+            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{INTEGRITY_JS_NOMODULE}"></script>
             """,
             rendered_template,
         )
@@ -67,8 +67,8 @@ class DsfrJsTagWithNonceTest(SimpleTestCase):
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             f"""
-            <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{ INTEGRITY_JS_MODULE }" nonce="random-nonce"></script>
-            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{ INTEGRITY_JS_NOMODULE }" nonce="random-nonce"></script>
+            <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{INTEGRITY_JS_MODULE}" nonce="random-nonce"></script>
+            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{INTEGRITY_JS_NOMODULE}" nonce="random-nonce"></script>
             """,  # noqa
             rendered_template,
         )
@@ -845,6 +845,7 @@ class DsfrQuoteTagTest(SimpleTestCase):
 class DsfrSidemenuTagTest(SimpleTestCase):
     test_data = {
         "title": "Menu",
+        "button_label": "Ouvrir le menu",
         "heading_tag": "h2",
         "id": "example",
         "items": [
@@ -892,6 +893,12 @@ class DsfrSidemenuTagTest(SimpleTestCase):
     rendered_template = template_to_render.render(context)
 
     def test_sidemenu_tag_rendered(self):
+        self.assertInHTML(
+            """
+            <button type="button" class="fr-sidemenu__btn" aria-controls="fr-sidemenu-example-wrapper" aria-expanded="false">Ouvrir le menu
+            """,
+            self.rendered_template,
+        )
         self.assertInHTML(
             """
             <li class="fr-sidemenu__item">
