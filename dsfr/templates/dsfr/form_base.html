@@ -36,7 +36,7 @@ Radio button and multiple checkboxes :
         {# Everything that needs to be in the for loop #}
         {% block inside_form %}
         {% endblock inside_form %}
-        {% include "dsfr/form_field_snippets/field_snippet.html" %}
+        {{ field.as_field_group }}
       {% endfor %}
       {# If you need to add formsets after the form #}
       {% block extra_formset_after %}
