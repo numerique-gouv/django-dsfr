@@ -5,7 +5,7 @@
   <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="{{ field.auto_id }}-legend">
     {# djlint:off #}
-    {{ field.label }}{% if not DSFR_MARK_OPTIONAL_FIELDS and field.field.required %}<span class="fr-required-marker" aria-hidden="true"> *</span>{% elif DSFR_MARK_OPTIONAL_FIELDS and not field.field.required %} {% translate '(Optional)' %}{% endif %}
+    {{ field.label }}{% if not field.field.required %} {% translate '(Optional)' %}{% endif %}
     {% if field.help_text %}
       <span class="fr-hint-text" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</span>
     {% endif %}
