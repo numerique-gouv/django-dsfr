@@ -133,61 +133,31 @@ class RequiredFieldsMarkerTestCase(SimpleTestCase):
             required=False,
         )
 
-    def test_renders_required_field_markers(self):
+    def test_renders_optional_field_markers_when_configured(self):
         rendered = Template("{{form}}").render(
             Context({"form": RequiredFieldsMarkerTestCase.DummyForm()})
         )
         self.assertInHTML(
-            """Required text field<span class="fr-required-marker" aria-hidden="true"> *</span>""",
+            """Required text field\n""",
             rendered,
         )
         self.assertInHTML(
-            """Required radio field<span class="fr-required-marker" aria-hidden="true"> *</span>""",
+            """Required radio field\n""",
             rendered,
         )
         self.assertInHTML(
-            """Required checkbox field<span class="fr-required-marker" aria-hidden="true"> *</span>""",
+            """Required checkbox field\n""",
             rendered,
         )
         self.assertInHTML(
-            """Optional text field\n""",
+            """Optional text field (Optionnel)""",
             rendered,
         )
         self.assertInHTML(
-            """Optional radio field\n""",
+            """Optional radio field (Optionnel)""",
             rendered,
         )
         self.assertInHTML(
-            """Optional checkbox field\n""",
+            """Optional checkbox field (Optionnel)""",
             rendered,
         )
-
-    def test_renders_optional_field_markers_when_configured(self):
-        with self.settings(DSFR_MARK_OPTIONAL_FIELDS=True):
-            rendered = Template("{{form}}").render(
-                Context({"form": RequiredFieldsMarkerTestCase.DummyForm()})
-            )
-            self.assertInHTML(
-                """Required text field\n""",
-                rendered,
-            )
-            self.assertInHTML(
-                """Required radio field\n""",
-                rendered,
-            )
-            self.assertInHTML(
-                """Required checkbox field\n""",
-                rendered,
-            )
-            self.assertInHTML(
-                """Optional text field (Optionnel)""",
-                rendered,
-            )
-            self.assertInHTML(
-                """Optional radio field (Optionnel)""",
-                rendered,
-            )
-            self.assertInHTML(
-                """Optional checkbox field (Optionnel)""",
-                rendered,
-            )
