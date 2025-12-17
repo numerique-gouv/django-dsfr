@@ -681,6 +681,7 @@ IMPLEMENTED_COMPONENTS = {
             {
                 "id": "select-example-id",
                 "label": "Label de l’élément select",
+                "hint": "Texte d’aide à la saisie",
                 "onchange": "console.log(value)",
                 "default": {
                     "disabled": True,
