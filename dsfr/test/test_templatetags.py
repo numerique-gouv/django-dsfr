@@ -327,6 +327,36 @@ class DsfrButtonTagTest(SimpleTestCase):
         )
 
 
+class DsfrSelectTagTest(SimpleTestCase):
+    test_data = {
+        "id": "select-test",
+        "label": "Label de l’élément select",
+        "hint": "Texte d’aide à la saisie",
+        "options": [
+            {"text": "Option 1", "value": 1},
+            {"text": "Option 2", "value": 2},
+        ],
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_select test_data %}")
+
+    def test_select_tag_rendered(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-select-group ">
+              <label class="fr-label" for="select-test">Label de l’élément select<span class="fr-hint-text">Texte d’aide à la saisie</span></label>
+              <select class="fr-select" id="select-test" name="select-test">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+              </select>
+            </div>
+            """,
+            rendered_template,
+        )
+
+
 class DsfrButtonGroupTagTest(SimpleTestCase):
     test_data = {
         "extra_classes": "fr-btns-group--equisized",

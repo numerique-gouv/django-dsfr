@@ -962,6 +962,7 @@ def dsfr_select(*args, **kwargs) -> dict:
     data_dict = {
         "id": "The html id of the select item",
         "label": "Label of the select item",
+        "hint": "(Optional) Hint text for helping the user",
         "onchange": "(Optional) Action that happens when the select is changed",
         "selected": "(Optional) If the item is selected",
         "default": { # Optional
@@ -993,6 +994,7 @@ def dsfr_select(*args, **kwargs) -> dict:
     allowed_keys = [
         "id",
         "label",
+        "hint",
         "onchange",
         "selected",
         "default",

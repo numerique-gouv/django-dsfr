@@ -1,6 +1,7 @@
 <div class="fr-select-group {% if self.extra_classes %}{{ self.extra_classes }}{% endif %}">
   <label class="fr-label" for="{{ self.id }}">
-    {{ self.label }} :
+    {{ self.label }}
+    {% if self.hint %}<span class="fr-hint-text">{{ self.hint }}</span>{% endif %}
   </label>
   <select class="fr-select"
           id="{{ self.id }}"
