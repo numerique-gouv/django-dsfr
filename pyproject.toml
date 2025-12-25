@@ -33,9 +33,7 @@ classifiers = [
 ]
 dependencies = [
     "Django>4.2.27",
-    "requests>=2.26.0,<3.0.0",
     "django-widget-tweaks>=1.4.12,<2.0.0",
-    "django-crispy-forms>=2.0,<3.0",
 ]
 
 [project.urls]
@@ -51,6 +49,7 @@ build-backend = "hatchling.build"
 dev = [
     "ruff>=0.12.10",
     "coverage[toml]>=7.10.5",
+    "django-crispy-forms>=2.0,<3.0",
     "django-distill>=3.2.7",
     "docutils>=0.17.1",
     "pytest>=8.4.1",
@@ -59,7 +58,7 @@ dev = [
     "django-csp>=4.0",
     "pre-commit>=4.3.0",
     "bandit>=1.8.6",
-    "markdown>=3.8.2",
+    "markdown>=3.10",
     "pygments>=2.19.2",
     "beautifulsoup4>=4.13.5",
     "lxml>=6.0.1",

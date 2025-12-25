@@ -555,9 +555,7 @@ source = { editable = "." }
 dependencies = [
     { name = "django", version = "5.2.10", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
     { name = "django", version = "6.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-    { name = "django-crispy-forms" },
     { name = "django-widget-tweaks" },
-    { name = "requests" },
 ]
 
 [package.dev-dependencies]
@@ -566,6 +564,7 @@ dev = [
     { name = "beautifulsoup4" },
     { name = "black" },
     { name = "coverage", extra = ["toml"] },
+    { name = "django-crispy-forms" },
     { name = "django-csp" },
     { name = "django-distill" },
     { name = "djlint" },
@@ -586,9 +585,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "django", specifier = ">4.2.27" },
-    { name = "django-crispy-forms", specifier = ">=2.0,<3.0" },
     { name = "django-widget-tweaks", specifier = ">=1.4.12,<2.0.0" },
-    { name = "requests", specifier = ">=2.26.0,<3.0.0" },
 ]
 
 [package.metadata.requires-dev]
@@ -597,13 +594,14 @@ dev = [
     { name = "beautifulsoup4", specifier = ">=4.13.5" },
     { name = "black", specifier = ">=25.1.0" },
     { name = "coverage", extras = ["toml"], specifier = ">=7.10.5" },
+    { name = "django-crispy-forms", specifier = ">=2.0,<3.0" },
     { name = "django-csp", specifier = ">=4.0" },
     { name = "django-distill", specifier = ">=3.2.7" },
     { name = "djlint", specifier = ">=1.36.4" },
     { name = "docutils", specifier = ">=0.17.1" },
     { name = "ipython", specifier = ">=8.37.0" },
     { name = "lxml", specifier = ">=6.0.1" },
-    { name = "markdown", specifier = ">=3.8.2" },
+    { name = "markdown", specifier = ">=3.10" },
     { name = "pre-commit", specifier = ">=4.3.0" },
     { name = "pygments", specifier = ">=2.19.2" },
     { name = "pytest", specifier = ">=8.4.1" },
