@@ -182,6 +182,13 @@
                    target="_self"
                    {% if request.path == resource_pictograms_url %}aria-current="true"{% endif %}>Pictogrammes</a>
               </li>
+              <li>
+                {% url 'resource_markdown' as resource_markdown_url %}
+                <a class="fr-nav__link"
+                   href="{{ resource_markdown_url }}"
+                   target="_self"
+                   {% if request.path == resource_markdown_url %}aria-current="true"{% endif %}>Extension : rendu de Markdown</a>
+              </li>
             </ul>
           </div>
         </li>
