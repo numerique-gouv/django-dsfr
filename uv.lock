@@ -558,6 +558,11 @@ dependencies = [
     { name = "django-widget-tweaks" },
 ]
 
+[package.optional-dependencies]
+markdown = [
+    { name = "markdown" },
+]
+
 [package.dev-dependencies]
 dev = [
     { name = "bandit" },
@@ -586,7 +591,9 @@ dev = [
 requires-dist = [
     { name = "django", specifier = ">4.2.27" },
     { name = "django-widget-tweaks", specifier = ">=1.4.12,<2.0.0" },
+    { name = "markdown", marker = "extra == 'markdown'", specifier = "~=3.10" },
 ]
+provides-extras = ["markdown"]
 
 [package.metadata.requires-dev]
 dev = [
