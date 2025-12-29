@@ -45,6 +45,11 @@ repository = "https://github.com/numerique-gouv/django-dsfr"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[project.optional-dependencies]
+markdown = [
+  "markdown ~=3.10",
+]
+
 [dependency-groups]
 dev = [
     "ruff>=0.12.10",

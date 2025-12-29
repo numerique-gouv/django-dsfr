@@ -1,0 +1,32 @@
+{% load dsfr_md_tags %}
+
+{% with slug=name|slugify %}
+  <h3 id="sample-{{ slug }}">{{ name }}</h3>
+  <p>Le document Markdown suivant :</p>
+  <div class="dsfr-code">
+    <pre><code>{{ sample_data }}</code></pre>
+  </div>
+  <p>Sera rendu :</p>
+  <div class="fr-callout">
+    <div class="fr-tabs">
+      <ul class="fr-tabs__list" role="tablist" aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
+        <li role="presentation">
+          <button type="button" id="tab-{{ slug }}-1" class="fr-tabs__tab" tabindex="0" role="tab" aria-selected="true" aria-controls="tab-{{ slug }}-1-panel">
+            Rendu graphique
+          </button>
+        </li>
+        <li role="presentation">
+          <button type="button" id="tab-{{ slug }}-2" class="fr-tabs__tab" tabindex="-1" role="tab" aria-selected="true" aria-controls="tab-{{ slug }}-2-panel">
+            Code HTML généré
+          </button>
+        </li>
+      </ul>
+      <div id="tab-{{ slug }}-1-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-{{ slug }}-1" tabindex="0">
+        <div>{{ sample_data|dsfr_md }}</div>
+      </div>
+      <div id="tab-{{ slug }}-2-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-{{ slug }}-2" tabindex="0">
+        <pre><code>{{ sample_data|dsfr_md|force_escape }}</code></pre>
+      </div>
+    </div>
+  </div>
+{% endwith %}
