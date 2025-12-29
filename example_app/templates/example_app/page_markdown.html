@@ -1,0 +1,33 @@
+{% extends "example_app/base.html" %}
+{% load static dsfr_tags dsfr_md_tags i18n %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/dsfr-code.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+  <h1>{{ title }}</h1>
+  <p>
+    Django-DSFR inclut une extension <code>Markdown</code> qui permet de réaliser le rendu de Markdown en HTML spécialisé pour le DSFR, incluant par exemple les tableaux, des mises en exergue, etc.
+  </p>
+  <p>
+    Ce rendu de Markdown s’effectue à l’aide du <em>template filter</em> <code>dsfr_md</code>.
+  </p>
+  <h2>Pré-requis</h2>
+  <p>
+    Installation d’un groupe de dépendances spécifique à cette extension via l’instruction d’installation suivante dans le <code>pyproject.toml</code> :
+  </p>
+  <div class="dsfr-code"><pre>"django-dsfr[markdown]",</pre></div>
+  <h2>Utilisation</h2>
+  <p>Dans un template Django :</p>
+  <div class="dsfr-code">
+    <pre>
+{% templatetag openblock %} load dsfr_md_tags {% templatetag closeblock %}
+{% templatetag openvariable %} mon_contenu_markdown|dsfr_md {% templatetag closevariable %}</pre>
+  </div>
+  <h2>Exemples</h2>
+  {% dsfr_summary samples_summary %}
+  {% for name, data in samples.items %}
+    {% include "example_app/blocks/page_markdown_example.html" with name=name sample_data=data only %}
+  {% endfor %}
+{% endblock content %}
