@@ -85,8 +85,13 @@ class DsfrQuoteProcessor(BlockQuoteProcessor):
 class DsfrLinkProcessor(LinkInlineProcessor):
     def handleMatch(self, *args):
         el, pos, idx = super().handleMatch(*args)
-        if el.attrib["href"].startswith("http://") or el.attrib["href"].startswith(
-            "https://"
+        if (
+            hasattr(el, "attrib")
+            and "href" in el.attrib
+            and (
+                el.attrib["href"].startswith("http://")
+                or el.attrib["href"].startswith("https://")
+            )
         ):
             el.attrib["target"] = "_blank"
             el.attrib["rel"] = "noopener external"
