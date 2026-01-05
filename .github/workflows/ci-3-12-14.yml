@@ -22,7 +22,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: 👷 Install Dependencies
       run: |
-        uv sync --no-group dev
+        uv sync --all-extras --no-group dev
     - name: 🚧 Check pending migrations
       run: |
         uv run python manage.py makemigrations --check --dry-run --noinput
