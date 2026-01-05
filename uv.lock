@@ -523,7 +523,7 @@ dev = [
     { name = "docutils", specifier = ">=0.17.1" },
     { name = "ipython", specifier = ">=8.37.0" },
     { name = "lxml", specifier = ">=6.0.1" },
-    { name = "markdown", specifier = ">=3.8.2" },
+    { name = "markdown", specifier = ">=3.10" },
     { name = "pre-commit", specifier = ">=4.3.0" },
     { name = "pygments", specifier = ">=2.19.2" },
     { name = "pytest", specifier = ">=8.4.1" },
