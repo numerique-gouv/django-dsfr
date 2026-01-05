@@ -517,6 +517,7 @@ def resource_markdown(request):
         {
             "samples": {
                 "Classe personnalisée": """#### Titre 4 affiché comme titre 6 {: .fr-h6 }""",
+                "Lien externe": "Texte contenant [un lien vers un autre site](https://www.systeme-de-design.gouv.fr/)",
                 "Mise en exergue": """!! note ""
     Texte de la mise en exergue.
                 """,
