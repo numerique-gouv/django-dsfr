@@ -87,3 +87,9 @@ Jusqu’à la prochaine ligne vide.
             </div>""",
             rendered_template,
         )
+
+    def test_strips_inline_js(self):
+        context = Context({"content": """# Titre {: onclick="alert()" }"""})
+        template_to_render = Template("{% load dsfr_md_tags %} {{ content|dsfr_md }}")
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML("<h1>Titre</h1>", rendered_template)

@@ -120,6 +120,7 @@ def dsfr_md(content: str) -> str:
                 AttrListExtension(),
                 DsfrExtension(),
                 Nl2BrExtension(),
+                "pymdownx.striphtml",
             ],
         )
     )
