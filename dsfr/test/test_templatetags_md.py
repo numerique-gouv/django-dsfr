@@ -93,3 +93,44 @@ Jusqu’à la prochaine ligne vide.
         template_to_render = Template("{% load dsfr_md_tags %} {{ content|dsfr_md }}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML("<h1>Titre</h1>", rendered_template)
+
+    def test_md_tag_with_toc_rendered(self):
+        context = Context(
+            {
+                "content": """[TOC]
+# Titre de niveau 1
+
+Contenu niveau 1
+
+## Titre de niveau 2
+
+Contenu niveau 2
+
+# Titre de niveau 1 à nouveau
+
+Contenu
+                """
+            }
+        )
+        template_to_render = Template(
+            "{% load dsfr_md_tags %} {{ content|dsfr_md_with_toc }}"
+        )
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """<nav aria-labelledby="fr-summary-title" class="fr-summary" role="navigation">
+            <h2 class="fr-summary__title" id="fr-summary-title">Sommaire</h2>
+            <ol>
+              <li>
+                <a class="fr-summary__link" href="#titre-de-niveau-1">Titre de niveau 1</a>
+                <ol>
+                  <li><a class="fr-summary__link" href="#titre-de-niveau-2">Titre de niveau 2</a></li>
+                </ol>
+              </li>
+              <li>
+                <a class="fr-summary__link" href="#titre-de-niveau-1-a-nouveau">Titre de niveau 1 à nouveau</a>
+              </li>
+            </ol>
+            </nav>
+            """,
+            rendered_template,
+        )

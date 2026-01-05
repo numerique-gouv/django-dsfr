@@ -9,6 +9,7 @@ from markdown.extensions.admonition import AdmonitionProcessor
 from markdown.extensions.attr_list import AttrListExtension
 from markdown.extensions.nl2br import Nl2BrExtension
 from markdown.extensions.tables import TableProcessor
+from markdown.extensions.toc import TocTreeprocessor, TocExtension
 from markdown.extensions import Extension
 import xml.etree.ElementTree as etree
 
@@ -116,6 +117,36 @@ class DsfrExtension(Extension):
         )
 
 
+class DsfrTocProcessor(TocTreeprocessor):
+    def __init__(self, md, config):
+        config.update(
+            {
+                "title": "Sommaire",
+                "toc_class": "fr-summary",
+                "title_class": "fr-summary__title",
+            }
+        )
+        super().__init__(md, config)
+
+    def run(self, doc):
+        super().run(doc)
+        toc = doc.find(f"div[@class = '{self.toc_class}']")
+        toc.tag = "nav"
+        toc.attrib["role"] = "navigation"
+        toc.attrib["aria-labelledby"] = "fr-summary-title"
+        title = toc.find(f"*[@class = '{self.title_class}']")
+        title.tag = "h2"
+        title.attrib["id"] = toc.attrib["aria-labelledby"]
+        for ul in toc.findall(".//ul"):
+            ul.tag = "ol"
+        for a in toc.findall(".//a"):
+            a.attrib["class"] = "fr-summary__link"
+
+
+class DsfrTocExtension(TocExtension):
+    TreeProcessorClass = DsfrTocProcessor
+
+
 @register.filter(is_safe=True)
 def dsfr_md(content: str) -> str:
     return mark_safe(
@@ -124,6 +155,22 @@ def dsfr_md(content: str) -> str:
             extensions=[
                 AttrListExtension(),
                 DsfrExtension(),
+                Nl2BrExtension(),
+                "pymdownx.striphtml",
+            ],
+        )
+    )
+
+
+@register.filter(is_safe=True)
+def dsfr_md_with_toc(content: str) -> str:
+    return mark_safe(
+        markdown(
+            content,
+            extensions=[
+                AttrListExtension(),
+                DsfrExtension(),
+                DsfrTocExtension(),
                 Nl2BrExtension(),
                 "pymdownx.striphtml",
             ],

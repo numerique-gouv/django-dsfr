@@ -539,7 +539,45 @@ Jusqu’à la prochaine ligne vide.""",
     |--------------------|--------------------|
     | Ligne 1, colonne 1 | Ligne 1, colonne 2 |
     | Ligne 2, colonne 1 | Ligne 2, colonne 2 |
-    """,
+                """,
+                "Document complet avec table des matières": """[TOC]
+# Titre de niveau 1
+
+Contenu *avec* de la **mise en forme** et même un lien vers [la doc de django-dsfr](https://numerique-gouv.github.io/django-dsfr/).
+
+## Titre de niveau 2 affiché comme niveau 6 {: .fr-h6 }
+
+Liste à puces :
+
+- Premier élément ;
+- Second élément.
+
+# Titre de niveau 1 à nouveau
+
+## Démo de mise en avant
+
+!!! warning-line "Attention !"
+    Contenu de la mise en avant
+
+## Démo de mise en exergue
+
+!! note
+    Contenu de la mise en exergue
+
+## Démo de citation
+
+> Texte d’une citation…
+qui peut être sur plusieurs lignes.
+
+Jusqu’à la prochaine ligne vide.
+
+## Démo de tableau
+
+| Colonne 1          | Colonne 2          |
+|--------------------|--------------------|
+| Ligne 1, colonne 1 | Ligne 1, colonne 2 |
+| Ligne 2, colonne 1 | Ligne 2, colonne 2 |
+                """,
             }
         }
     )

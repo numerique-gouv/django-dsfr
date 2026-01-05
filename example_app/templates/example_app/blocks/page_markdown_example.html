@@ -22,10 +22,22 @@
         </li>
       </ul>
       <div id="tab-{{ slug }}-1-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-{{ slug }}-1" tabindex="0">
-        <div>{{ sample_data|dsfr_md }}</div>
+        <div>
+          {% if with_toc %}
+            {{ sample_data|dsfr_md_with_toc }}
+          {% else %}
+            {{ sample_data|dsfr_md }}
+          {% endif %}
+        </div>
       </div>
       <div id="tab-{{ slug }}-2-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-{{ slug }}-2" tabindex="0">
-        <pre><code>{{ sample_data|dsfr_md|force_escape }}</code></pre>
+        <pre><code>
+          {% if with_toc %}
+            {{ sample_data|dsfr_md_with_toc|force_escape }}
+          {% else %}
+            {{ sample_data|dsfr_md|force_escape }}
+          {% endif %}
+        </code></pre>
       </div>
     </div>
   </div>
