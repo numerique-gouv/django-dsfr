@@ -65,8 +65,8 @@ class DsfrCalloutProcessor(AdmonitionProcessor):
             )
         ):
             div.attrib["class"] = div.attrib["class"].replace(" ", " fr-icon-")
-        for i, child in enumerate(div.findall("*")):
-            if i == 0:
+        for child in div.findall("*"):
+            if "class" in child.attrib:
                 continue
             child.attrib["class"] = "fr-callout__text"
 
