@@ -510,6 +510,90 @@ def resource_templatetags(request):
 
 
 @require_safe
+def resource_markdown(request):
+    payload = init_payload("Extension : rendu de Markdown")
+
+    payload.update(
+        {
+            "samples": {
+                "Classe personnalisée": """#### Titre 4 affiché comme titre 6 {: .fr-h6 }""",
+                "Lien externe": "Texte contenant [un lien vers un autre site](https://www.systeme-de-design.gouv.fr/)",
+                "Mise en exergue": """!! note ""
+    Texte de la mise en exergue.
+                """,
+                "Mise en avant minimale": """!!! note ""
+    Texte de la mise en avant.
+                """,
+                "Mise en avant avec titre": """!!! note "Attention !"
+    Texte de la mise en avant.
+                """,
+                "Mise en avant avec titre et icône": """!!! warning-line "Attention !"
+    Texte de la mise en avant.
+                """,
+                "Citation": """> Texte d’une citation…
+qui peut être sur plusieurs lignes.
+
+Jusqu’à la prochaine ligne vide.""",
+                "Tableau simple": """
+    | Colonne 1          | Colonne 2          |
+    |--------------------|--------------------|
+    | Ligne 1, colonne 1 | Ligne 1, colonne 2 |
+    | Ligne 2, colonne 1 | Ligne 2, colonne 2 |
+                """,
+                "Document complet avec table des matières": """[TOC]
+# Titre de niveau 1
+
+Contenu *avec* de la **mise en forme** et même un lien vers [la doc de django-dsfr](https://numerique-gouv.github.io/django-dsfr/).
+
+## Titre de niveau 2 affiché comme niveau 6 {: .fr-h6 }
+
+Liste à puces :
+
+- Premier élément ;
+- Second élément.
+
+# Titre de niveau 1 à nouveau
+
+## Démo de mise en avant
+
+!!! warning-line "Attention !"
+    Contenu de la mise en avant
+
+## Démo de mise en exergue
+
+!! note
+    Contenu de la mise en exergue
+
+## Démo de citation
+
+> Texte d’une citation…
+qui peut être sur plusieurs lignes.
+
+Jusqu’à la prochaine ligne vide.
+
+## Démo de tableau
+
+| Colonne 1          | Colonne 2          |
+|--------------------|--------------------|
+| Ligne 1, colonne 1 | Ligne 1, colonne 2 |
+| Ligne 2, colonne 1 | Ligne 2, colonne 2 |
+                """,
+            }
+        }
+    )
+    payload.update(
+        {
+            "samples_summary": [
+                {"link": f"#sample-{slugify(sample)}", "label": sample}
+                for sample in payload["samples"]
+            ]
+        }
+    )
+
+    return render(request, "example_app/page_markdown.html", payload)
+
+
+@require_safe
 def search(request):
     payload = init_payload("Recherche")
 
