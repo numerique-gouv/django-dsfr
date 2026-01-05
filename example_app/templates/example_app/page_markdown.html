@@ -28,6 +28,10 @@
   <h2>Exemples</h2>
   {% dsfr_summary samples_summary %}
   {% for name, data in samples.items %}
-    {% include "example_app/blocks/page_markdown_example.html" with name=name sample_data=data only %}
+    {% if forloop.last %}
+      {% include "example_app/blocks/page_markdown_example.html" with name=name sample_data=data with_toc=True only %}
+    {% else %}
+      {% include "example_app/blocks/page_markdown_example.html" with name=name sample_data=data only %}
+    {% endif %}
   {% endfor %}
 {% endblock content %}
