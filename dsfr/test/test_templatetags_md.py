@@ -35,7 +35,7 @@ Liste à puces :
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             """<h1>Titre de niveau 1</h1>
-            <p>Contenu <em>avec</em> de la <strong>mise en forme</strong> et même un lien vers <a href="https://numerique-gouv.github.io/django-dsfr/">la doc de django-dsfr</a>.</p>
+            <p>Contenu <em>avec</em> de la <strong>mise en forme</strong> et même un lien vers <a href="https://numerique-gouv.github.io/django-dsfr/" rel="noopener external" target="_blank" title="la doc de django-dsfr - nouvelle fenêtre">la doc de django-dsfr</a>.</p>
             <h2 class="fr-h6">Titre de niveau 2 affiché comme niveau 6</h2>
             <p>Liste à puces :</p>
             <ul>

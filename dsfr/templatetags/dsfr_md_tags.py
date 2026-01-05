@@ -4,6 +4,7 @@ from django import template
 from django.utils.safestring import mark_safe
 from markdown import markdown
 from markdown.blockprocessors import BlockProcessor
+from markdown.inlinepatterns import LinkInlineProcessor, LINK_RE
 from markdown.extensions.admonition import AdmonitionProcessor
 from markdown.extensions.attr_list import AttrListExtension
 from markdown.extensions.nl2br import Nl2BrExtension
@@ -72,8 +73,26 @@ class DsfrHighlightProcessor(AdmonitionProcessor):
         return match.group(1).lower(), None
 
 
+class DsfrLinkProcessor(LinkInlineProcessor):
+    def handleMatch(self, *args):
+        el, pos, idx = super().handleMatch(*args)
+        if (
+            hasattr(el, "attrib")
+            and "href" in el.attrib
+            and (
+                el.attrib["href"].startswith("http://")
+                or el.attrib["href"].startswith("https://")
+            )
+        ):
+            el.attrib["target"] = "_blank"
+            el.attrib["rel"] = "noopener external"
+            el.attrib["title"] = f"{el.text.strip()} - nouvelle fenêtre"
+        return el, pos, idx
+
+
 class DsfrExtension(Extension):
     def extendMarkdown(self, md):
+        md.inlinePatterns.register(DsfrLinkProcessor(LINK_RE, md), "link", 200)
         md.parser.blockprocessors.register(
             DsfrTableProcessor(md.parser, self.getConfigs()), "table", 100
         )
