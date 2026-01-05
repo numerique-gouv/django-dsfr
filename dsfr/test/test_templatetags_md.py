@@ -24,6 +24,11 @@ Liste à puces :
 !! note
     Contenu de la mise en exergue
 
+> Texte d’une citation…
+qui peut être sur plusieurs lignes.
+
+Jusqu’à la prochaine ligne vide.
+
 | Colonne 1          | Colonne 2          |
 |--------------------|--------------------|
 | Ligne 1, colonne 1 | Ligne 1, colonne 2 |
@@ -49,6 +54,11 @@ Liste à puces :
             <div class="fr-highlight note">
               <p>Contenu de la mise en exergue</p>
             </div>
+            <figure class="fr-quote">
+              <blockquote>
+                <p>Texte d’une citation…<br>qui peut être sur plusieurs lignes.</p></blockquote>
+            </figure>
+            <p>Jusqu’à la prochaine ligne vide.</p>
             <div class="fr-table">
               <div class="fr-table__wrapper">
                 <div class="fr-table__container">

@@ -3,7 +3,7 @@ import re
 from django import template
 from django.utils.safestring import mark_safe
 from markdown import markdown
-from markdown.blockprocessors import BlockProcessor
+from markdown.blockprocessors import BlockProcessor, BlockQuoteProcessor
 from markdown.inlinepatterns import LinkInlineProcessor, LINK_RE
 from markdown.extensions.admonition import AdmonitionProcessor
 from markdown.extensions.attr_list import AttrListExtension
@@ -73,6 +73,15 @@ class DsfrHighlightProcessor(AdmonitionProcessor):
         return match.group(1).lower(), None
 
 
+class DsfrQuoteProcessor(BlockQuoteProcessor):
+    def run(self, parent: etree.Element, *args):
+        super().run(parent, *args)
+        figure = etree.SubElement(parent, "figure", {"class": "fr-quote"})
+        blockquote = parent.find("blockquote")
+        parent.remove(blockquote)
+        figure.append(blockquote)
+
+
 class DsfrLinkProcessor(LinkInlineProcessor):
     def handleMatch(self, *args):
         el, pos, idx = super().handleMatch(*args)
@@ -101,6 +110,9 @@ class DsfrExtension(Extension):
         )
         md.parser.blockprocessors.register(
             DsfrHighlightProcessor(md.parser), "dsfr-highlight", 100
+        )
+        md.parser.blockprocessors.register(
+            DsfrQuoteProcessor(md.parser), "dsfr-quote", 100
         )
 
 

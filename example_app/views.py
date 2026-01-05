@@ -530,6 +530,10 @@ def resource_markdown(request):
                 "Mise en avant avec titre et icône": """!!! warning-line "Attention !"
     Texte de la mise en avant.
                 """,
+                "Citation": """> Texte d’une citation…
+qui peut être sur plusieurs lignes.
+
+Jusqu’à la prochaine ligne vide.""",
                 "Tableau simple": """
     | Colonne 1          | Colonne 2          |
     |--------------------|--------------------|
