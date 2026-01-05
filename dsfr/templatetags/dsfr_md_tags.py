@@ -44,13 +44,6 @@ class DsfrTableProcessor(DsfrTableProcessorMixin, TableProcessor):
     pass
 
 
-class DsfrTableExtension(Extension):
-    def extendMarkdown(self, md):
-        md.parser.blockprocessors.register(
-            DsfrTableProcessor(md.parser, self.getConfigs()), "table", 100
-        )
-
-
 class DsfrCalloutProcessor(AdmonitionProcessor):
     CLASSNAME = "fr-callout"
     CLASSNAME_TITLE = "fr-callout__title"
@@ -79,15 +72,14 @@ class DsfrHighlightProcessor(AdmonitionProcessor):
         return match.group(1).lower(), None
 
 
-class DsfrCalloutExtension(Extension):
+class DsfrExtension(Extension):
     def extendMarkdown(self, md):
+        md.parser.blockprocessors.register(
+            DsfrTableProcessor(md.parser, self.getConfigs()), "table", 100
+        )
         md.parser.blockprocessors.register(
             DsfrCalloutProcessor(md.parser), "dsfr-callout", 100
         )
-
-
-class DsfrHighlightExtension(Extension):
-    def extendMarkdown(self, md):
         md.parser.blockprocessors.register(
             DsfrHighlightProcessor(md.parser), "dsfr-highlight", 100
         )
@@ -99,10 +91,8 @@ def dsfr_md(content: str) -> str:
         markdown(
             content,
             extensions=[
-                DsfrTableExtension(),
                 AttrListExtension(),
-                DsfrCalloutExtension(),
-                DsfrHighlightExtension(),
+                DsfrExtension(),
                 Nl2BrExtension(),
             ],
         )
