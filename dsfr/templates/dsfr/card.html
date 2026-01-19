@@ -9,14 +9,14 @@
         <a href="{{ self.link }}"
            target="{% if self.new_tab %}_blank{% else %}_self{% endif %}"
            {% if self.new_tab %}rel="noopener noreferrer" title="{{ self.title }} - {{ new_window_label }}"{% endif %}>
-          {{ self.title |truncatechars:100 }}
+          {{ self.title |truncatechars:self.title_max_length }}
         </a>
       {% else %}
-        {{ self.title |truncatechars:100 }}
+        {{ self.title |truncatechars:self.title_max_length }}
       {% endif %}
       </{{ self.heading_tag | default:"p" }}>
       <p class="fr-card__desc">
-        {{ self.description |truncatechars:200 }}
+        {{ self.description |truncatechars:self.description_max_length }}
       </p>
       {% if self.top_detail %}
         <div class="fr-card__start">

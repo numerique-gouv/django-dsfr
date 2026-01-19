@@ -477,6 +477,8 @@ def dsfr_card(*args, **kwargs) -> dict:
         "bottom_detail": "(Optional) a detail string and optional icon",
         "call_to_action": "(Optional) a list of buttons or links at the bottom of the card,
         "id": "(Optional) id of the tile item",
+        "title_max_length": "(Optional) max length of the card title (default: 100)",
+        "description_max_length": "(Optional) max length of the card description (default: 200)",
     }
     ```
 
@@ -550,8 +552,16 @@ def dsfr_card(*args, **kwargs) -> dict:
         "bottom_detail",
         "call_to_action",
         "id",
+        "title_max_length",
+        "description_max_length",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    if "title_max_length" not in tag_data:
+        tag_data["title_max_length"] = 100
+
+    if "description_max_length" not in tag_data:
+        tag_data["description_max_length"] = 200
 
     if "enlarge_link" not in tag_data:
         tag_data["enlarge_link"] = True
