@@ -1,5 +1,9 @@
 # Contribuer à Django-DSFR
 
+## Rester en contact avec l'équipe
+
+Pour toute question relative à django-dsfr, n'hésitez pas à passer sur [le canal Mattermost du projet](https://mattermost.incubateur.net/betagouv/channels/django-dsfr).
+
 ## Installation en local
 L’installation a été testée sur Ubuntu 24.04 avec Python 3.10 et uv installé.
 

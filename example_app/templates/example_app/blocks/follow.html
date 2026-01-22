@@ -1,0 +1,38 @@
+{% extends "dsfr/follow.html" %}
+{% load i18n %}
+
+{% block follow_social %}
+  <div class="fr-col-12 fr-col-md-4">
+    <a class="fr-link fr-col-12"
+       href="https://mattermost.incubateur.net/betagouv/channels/django-dsfr"
+       rel="noreferrer noopener"
+       target="_blank">
+      Rester en contact avec l'équipe sur Mattermost
+    </a>
+
+    <div class="fr-col-12">
+      <div class="fr-follow__social">
+        <h2 class="fr-h5">
+          {% blocktranslate trimmed %}
+            Follow us
+            <br />
+            on social media
+          {% endblocktranslate %}
+        </h2>
+        <ul class="fr-btns-group">
+          {% for link in SITE_CONFIG.social_media %}
+            <li>
+              <a class="{{ link.icon_class }} fr-btn"
+                 href="{{ link.url }}"
+                 target="_blank"
+                 title="{{ link.title }} - {{ new_window_label }}"
+                 rel="noopener external">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock follow_social %}
