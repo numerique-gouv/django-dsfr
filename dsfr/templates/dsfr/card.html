@@ -63,7 +63,7 @@
             {% endfor %}
           </ul>
         {% elif self.call_to_action.links %}
-          <ul class="fr-links-group">
+          <ul class="fr-links-group fr-links-group--inline">
             {% for link in self.call_to_action.links %}
               <li>
                 {% dsfr_link link %}
