@@ -740,10 +740,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-igwbwbtdoluanrss">
+          aria-controls="breadcrumb-dpgaxbbglgoxdysp">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-igwbwbtdoluanrss">
+  <div class="fr-collapse" id="breadcrumb-dpgaxbbglgoxdysp">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -773,13 +773,13 @@
   <div class="fr-sidemenu__inner">
     <button type="button"
             class="fr-sidemenu__btn"
-            aria-controls="fr-sidemenu-kzdexihkfvavzuuh-wrapper"
+            aria-controls="fr-sidemenu-knoqntmgilohhryr-wrapper"
             aria-expanded="false">
       
         Dans cette rubrique
       
     </button>
-    <div class="fr-collapse" id="fr-sidemenu-kzdexihkfvavzuuh-wrapper">
+    <div class="fr-collapse" id="fr-sidemenu-knoqntmgilohhryr-wrapper">
       
       <ul class="fr-sidemenu__list">
         
@@ -799,11 +799,11 @@
               <button type="button"
                       class="fr-sidemenu__btn"
                       aria-expanded="true"
-                      aria-controls="fr-sidemenu-kzdexihkfvavzuuh-item-2">
+                      aria-controls="fr-sidemenu-knoqntmgilohhryr-item-2">
                 Composants implémentés
               </button>
               <div class="fr-collapse"
-                   id="fr-sidemenu-kzdexihkfvavzuuh-item-2">
+                   id="fr-sidemenu-knoqntmgilohhryr-item-2">
                 <ul class="fr-sidemenu__list">
                   
                     <li class="fr-sidemenu__item">
@@ -1274,6 +1274,7 @@
 <div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;The html id of the select item&quot;</span><span class="p">,</span>
     <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Label of the select item&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hint&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Hint text for helping the user&quot;</span><span class="p">,</span>
     <span class="s2">&quot;onchange&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) Action that happens when the select is changed&quot;</span><span class="p">,</span>
     <span class="s2">&quot;selected&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) If the item is selected&quot;</span><span class="p">,</span>
     <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="c1"># Optional</span>
@@ -1317,12 +1318,12 @@
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-ttddlcgrvqkhkesv">
+          aria-controls="accordion-zytryddvywcbvvqd">
     Données de l’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-ttddlcgrvqkhkesv">
-    <pre class="dsfr-code">{&#x27;id&#x27;: &#x27;select-example-id&#x27;, &#x27;label&#x27;: &#x27;Label de l’élément select&#x27;, &#x27;onchange&#x27;: &#x27;console.log(value)&#x27;, &#x27;default&#x27;: {&#x27;disabled&#x27;: True, &#x27;hidden&#x27;: True, &#x27;text&#x27;: &#x27;Choisissez une option&#x27;}, &#x27;options&#x27;: [{&#x27;text&#x27;: &#x27;Option 1&#x27;, &#x27;value&#x27;: 1}, {&#x27;text&#x27;: &#x27;Option 2&#x27;, &#x27;value&#x27;: 2}]}</pre>
+  <div class="fr-collapse" id="accordion-zytryddvywcbvvqd">
+    <pre class="dsfr-code">{&#x27;id&#x27;: &#x27;select-example-id&#x27;, &#x27;label&#x27;: &#x27;Label de l’élément select&#x27;, &#x27;hint&#x27;: &#x27;Texte d’aide à la saisie&#x27;, &#x27;onchange&#x27;: &#x27;console.log(value)&#x27;, &#x27;default&#x27;: {&#x27;disabled&#x27;: True, &#x27;hidden&#x27;: True, &#x27;text&#x27;: &#x27;Choisissez une option&#x27;}, &#x27;options&#x27;: [{&#x27;text&#x27;: &#x27;Option 1&#x27;, &#x27;value&#x27;: 1}, {&#x27;text&#x27;: &#x27;Option 2&#x27;, &#x27;value&#x27;: 2}]}</pre>
   </div>
 </section>
 
@@ -1333,7 +1334,8 @@
           
             <div class="fr-select-group ">
   <label class="fr-label" for="select-example-id">
-    Label de l’élément select :
+    Label de l’élément select
+    <span class="fr-hint-text">Texte d’aide à la saisie</span>
   </label>
   <select class="fr-select"
           id="select-example-id"
