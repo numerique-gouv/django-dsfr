@@ -6,7 +6,7 @@ repos:
   - id: djlint-reformat-django
   - id: djlint-django
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.13.0
+  rev: v0.14.14
   hooks:
     - id: ruff
       args: [ --fix, --exit-non-zero-on-fix ]
@@ -16,14 +16,14 @@ repos:
   - id: end-of-file-fixer
   - id: trailing-whitespace
 - repo: https://github.com/psf/black
-  rev: 25.1.0
+  rev: 26.1.0
   hooks:
     - id: black
       language_version: python3.11
       args:
         - --line-length=88
 - repo: https://github.com/PyCQA/bandit
-  rev: 1.8.6
+  rev: 1.9.3
   hooks:
     - id: bandit
       language_version: python3
