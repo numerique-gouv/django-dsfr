@@ -550,7 +550,7 @@ sdist = { url = "https://files.pythonhosted.org/packages/19/c8/ece20c91129314a1e
 
 [[package]]
 name = "django-dsfr"
-version = "3.3.0"
+version = "3.3.1"
 source = { editable = "." }
 dependencies = [
     { name = "django", version = "5.2.10", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
