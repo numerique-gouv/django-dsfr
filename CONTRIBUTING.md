@@ -29,7 +29,7 @@ Pour les commandes Django spécifiquement, il est possible d’en obtenir la lis
 uv run python manage.py
 ```
 
-## Gestion des dépendances avec UV
+## Gestion des dépendances avec uv
 
 Le projet utilise [uv](https://docs.astral.sh/uv/) pour gérer les dépendances de paquets Python et produire des *builds* déterministes, ainsi que pour créer les nouvelles versions du paquet et les publier sur Pypi (via Github Actions).
 
@@ -76,6 +76,15 @@ Il est possible de les mettre à jour avec la commande :
 ```{ .bash }
 pre-commit update
 ```
+
+## Workflow avec les mainteneurs
+
+Quelques recommandations :
+
+- Au moment d’ouvrir une PR, merci de structurer (dans la mesure du possible) les commits pour que chacun d’entre eux concerne un seul composant ; cela permet aux mainteneurs d’effectuer une relecture commit par commit s’ils en ont envie ;
+- Ne pas hésiter à solliciter la relecture de la part de l’ensemble des mainteneurs ; ça permet d’obtenir une bonne réactivité, et les mainteneurs se répartiront les PR en s’assurant que chacune d’entre elles soit relue par au moins deux d’entre eux ;
+- Pendant le process de relecture, identifier les commits liés à des retours des relecteurs (pas besoin cependant de faire des commits de fixup, parce que point suivant) ;
+- Pour les mainteneurs : au moment du merge, utiliser le "Squash and merge", qui permet de masquer dans l'historique final les (parfois nombreux) commits de la PR.
 
 ## Mise à jour du système de design
 
