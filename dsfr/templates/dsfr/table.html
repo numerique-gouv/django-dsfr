@@ -1,31 +1,20 @@
-<div class="fr-table{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
+<div {% if id %}id="{{ id }}-component" {% endif %}
+     class="{{ dsfr_table_classes }}">
   <div class="fr-table__wrapper">
     <div class="fr-table__container">
       <div class="fr-table__content">
-        <table>
-          <caption>{{ self.caption }}</caption>
-          {% if self.header %}
-            <thead>
-              <tr>
-                {% for cell in self.header %}
-                  <th scope="col">
-                    {{ cell|safe }}
-                  </th>
-                {% endfor %}
-              </tr>
-            </thead>
+        <table {% if id %} id="{{ id }}"{% endif %}>
+          {% if dsfr_table_caption %}
+            <caption>
+              {{ dsfr_table_caption }}
+              {% if dsfr_table_captiondesc %}
+                <div class="fr-table__caption__desc">
+                  {{ dsfr_table_captiondesc }}
+                </div>
+              {% endif %}
+            </caption>
           {% endif %}
-          <tbody>
-            {% for row in self.content %}
-              <tr>
-                {% for cell in row %}
-                  <td>
-                    {{ cell|safe }}
-                  </td>
-                {% endfor %}
-              </tr>
-            {% endfor %}
-          </tbody>
+          {{ dsfr_table_content }}
         </table>
       </div>
     </div>
