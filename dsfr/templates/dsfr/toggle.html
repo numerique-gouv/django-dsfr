@@ -1,21 +1,23 @@
-{% load i18n %}
-{% translate "Checked" as checked_label %}
-{% translate "Unchecked" as unchecked_label %}
-<div class="fr-toggle{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
-  <input type="checkbox"
-         {% if self.is_disabled %}disabled{% endif %}
-         class="fr-toggle__input"
-         {% if self.help_text %}aria-describedby="{{ self.id }}-hint-text"{% endif %}
-         id="{{ self.id }}">
-  <label class="fr-toggle__label"
-         for="{{ self.id }}"
-         data-fr-checked-label="{{ checked_label }}"
-         data-fr-unchecked-label="{{ unchecked_label }}">
-    {{ self.label }}
-  </label>
-  {% if self.help_text %}
-    <p class="fr-hint-text" id="{{ self.id }}-hint-text">
-      {{ self.help_text }}
+<div class="{{ field.field.widget.dsfr_wrapper_class|default:"" }}{% if field.errors %} fr-toggle--error{% endif %}">
+  {{ field }}
+  {% if field.label %}
+    {{ field.label_tag }}
+  {% endif %}
+  {% if field.help_text %}
+    <p class="fr-hint-text" id="{{ field.field.widget.attrs.id }}-hint-text">
+      {{ field.help_text }}
     </p>
+  {% endif %}
+  {% if field.errors %}
+    <div class="fr-messages-group"
+         id="{{ field.field.widget.attrs.id }}-messages"
+         aria-live="polite">
+      {% for error in field.errors %}
+        <p class="fr-message fr-message--error"
+           id="{{ field.field.widget.attrs.id }}-message-error">
+          {{ error }}
+        </p>
+      {% endfor %}
+    </div>
   {% endif %}
 </div>
