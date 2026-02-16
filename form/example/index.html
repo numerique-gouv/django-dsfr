@@ -730,10 +730,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-oxvjblhcdyeysxsd">
+          aria-controls="breadcrumb-gwwdvgzxbtaueyhs">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-oxvjblhcdyeysxsd">
+  <div class="fr-collapse" id="breadcrumb-gwwdvgzxbtaueyhs">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -757,11 +757,11 @@
     Exemple de formulaire
   </h1>
   <form action="/django-dsfr/form/example/" method="post">
-    <input type="hidden" name="csrfmiddlewaretoken" value="gZ1a2rhoZNCJfeQDy3u4Vxajydm6Ale8Ftgv0SPlZcPLPlejU9r8XxnURzbEhCx0">
+    <input type="hidden" name="csrfmiddlewaretoken" value="6XZxeIojOwGUOdcE0O7pX9eYg0HTPqIRxkkglZKYHYs1S2Yy8tSi7c6xVWaYwwJN">
     <div class="fr-input-group">
   <label for="id_user_name" class="fr-label">
     
-    Nom d’utilisateur<span class="fr-required-marker">*</span>
+    Nom d’utilisateur<span class="fr-required-marker" aria-hidden="true"> *</span>
     
     
   </label>
@@ -817,7 +817,7 @@
 <div class="fr-input-group">
   <label for="id_sample_number" class="fr-label">
     
-    Nombre entier<span class="fr-required-marker">*</span>
+    Nombre entier<span class="fr-required-marker" aria-hidden="true"> *</span>
     
       <span class="fr-hint-text" id="id_sample_number_helptext">Un nombre inférieur à 0 déclenchera un message d’erreur</span>
     
@@ -914,11 +914,9 @@
 <div class="fr-checkbox-group fr-mb-2w">
   <input type="checkbox" name="sample_boolean" required id="id_sample_boolean">
   <label for="id_sample_boolean" class="fr-label">
-    Cochez la case
     
-      <span class="fr-required-marker">*</span>
+    Cochez la case<span class="fr-required-marker" aria-hidden="true"> *</span>
     
-
     
   </label>
   
@@ -985,10 +983,11 @@
           aria-labelledby="id_sample_radio-legend">
   <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="id_sample_radio-legend">
+    
     Boutons radio
     
-    
       <span class="fr-hint-text" id="id_sample_radio_helptext">Le troisième choix renvoie une erreur s’il est sélectionné</span>
+    
     
   </legend>
   
@@ -1059,6 +1058,7 @@
           aria-labelledby="id_sample_radio_inline-legend">
   <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="id_sample_radio_inline-legend">
+    
     Boutons radio inline
     
     
@@ -1131,10 +1131,11 @@
           aria-labelledby="id_sample_checkbox-legend">
   <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="id_sample_checkbox-legend">
+    
     Cases à cocher
     
-    
       <span class="fr-hint-text" id="id_sample_checkbox_helptext">Le troisième choix renvoie une erreur s’il est sélectionné</span>
+    
     
   </legend>
   
@@ -1205,6 +1206,7 @@
           aria-labelledby="id_sample_checkbox_inline-legend">
   <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="id_sample_checkbox_inline-legend">
+    
     Cases à cocher inline
     
     
@@ -1278,10 +1280,11 @@
           aria-labelledby="id_sample_rich_radio-legend">
   <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="id_sample_rich_radio-legend">
+    
     Boutons radio riche
     
-    
       <span class="fr-hint-text" id="id_sample_rich_radio_helptext">Exemple de boutons radios riches</span>
+    
     
   </legend>
   
@@ -1364,10 +1367,11 @@
           aria-labelledby="id_inline_rich_radio-legend">
   <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="id_inline_rich_radio-legend">
+    
     Boutons radio riche en ligne
     
-    
       <span class="fr-hint-text" id="id_inline_rich_radio_helptext">Exemple de boutons radios riches en ligne</span>
+    
     
   </legend>
   
@@ -1504,7 +1508,7 @@ null</textarea>
 <div class="fr-range-group  ">
   <label for="id_sample_integer_with_cursor" class="fr-label">
     
-    Nombre à choisir avec un curseur, simple, requis<span class="fr-required-marker">*</span>
+    Nombre à choisir avec un curseur, simple, requis<span class="fr-required-marker" aria-hidden="true"> *</span>
     
       <span class="fr-hint-text" id="id_sample_integer_with_cursor_helptext">
         Texte de description additionnel, valeur

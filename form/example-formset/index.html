@@ -735,10 +735,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-bxeeqqiekjqguljo">
+          aria-controls="breadcrumb-ofzwyyhqampuvlcd">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-bxeeqqiekjqguljo">
+  <div class="fr-collapse" id="breadcrumb-ofzwyyhqampuvlcd">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -763,7 +763,7 @@
   
   <div id="form">
     <form method="post" enctype="multipart/form-data" id="form-base">
-      <input type="hidden" name="csrfmiddlewaretoken" value="9XSEkCIIVxHG9MSbJmAaTOhgBJ49HcElqoDpU1jQGZHexU9VWJpQWjB9OIglZZjU">
+      <input type="hidden" name="csrfmiddlewaretoken" value="P5fYvX0xJbXmRI0OiHPqjpetvD0CWgsyd9UEPqMylQILNA0By3WnOEDqHXngQxkC">
       
       
   <h1>
@@ -785,7 +785,7 @@
 <div class="fr-input-group">
   <label for="id_first_name" class="fr-label">
     
-    Prénom<span class="fr-required-marker">*</span>
+    Prénom<span class="fr-required-marker" aria-hidden="true"> *</span>
     
     
   </label>
@@ -806,7 +806,7 @@
 <div class="fr-input-group">
   <label for="id_last_name" class="fr-label">
     
-    Nom<span class="fr-required-marker">*</span>
+    Nom<span class="fr-required-marker" aria-hidden="true"> *</span>
     
     
   </label>
@@ -877,7 +877,7 @@
 <div class="fr-select-group">
   <label for="id_book_set-0-author" class="fr-label">
     
-    Auteur<span class="fr-required-marker">*</span>
+    Auteur<span class="fr-required-marker" aria-hidden="true"> *</span>
     
     
   </label>
@@ -901,7 +901,7 @@
 <div class="fr-input-group">
   <label for="id_book_set-0-title" class="fr-label">
     
-    Titre<span class="fr-required-marker">*</span>
+    Titre<span class="fr-required-marker" aria-hidden="true"> *</span>
     
     
   </label>
@@ -944,9 +944,8 @@
           aria-labelledby="id_book_set-0-book_format-legend">
   <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="id_book_set-0-book_format-legend">
-    Format
     
-      <span class="fr-required-marker">*</span>
+    Format<span class="fr-required-marker" aria-hidden="true"> *</span>
     
     
   </legend>
@@ -1006,10 +1005,11 @@
           aria-labelledby="id_book_set-0-genre-legend">
   <legend class="fr-fieldset__legend fr-fieldset__legend--regular"
           id="id_book_set-0-genre-legend">
+    
     Genre
     
-    
       <span class="fr-hint-text" id="id_book_set-0-genre_helptext">Veuillez choisir le ou les genres associés au livre</span>
+    
     
   </legend>
   
@@ -1115,9 +1115,9 @@
 <div class="fr-checkbox-group fr-mb-2w">
   <input type="checkbox" name="book_set-0-DELETE" id="id_book_set-0-DELETE">
   <label for="id_book_set-0-DELETE" class="fr-label">
+    
     Supprimer
     
-
     
   </label>
   
