@@ -1130,8 +1130,9 @@ class DsfrToggleTagTest(SimpleTestCase):
             <div class="fr-toggle fr-toggle--label-left fr-toggle--border-bottom">
                 <input type="checkbox"
                         class="fr-toggle__input"
-                        aria-describedby="toggle-full-hint-text"
-                        id="toggle-full">
+                        aria-describedby="id_toggle_helptext"
+                        id="toggle-full"
+                        name="toggle">
                 <label class="fr-toggle__label"
                         for="toggle-full"
                         data-fr-checked-label="Activé"
