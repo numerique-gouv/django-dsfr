@@ -1607,8 +1607,10 @@ def dsfr_django_messages(
     )
 
 
-@register.inclusion_tag("dsfr/form_field_snippets/field_snippet.html")
-def dsfr_form_field(field) -> dict:
+@register.inclusion_tag(
+    "dsfr/form_field_snippets/field_snippet.html", takes_context=True
+)
+def dsfr_form_field(context, field) -> dict:
     """
     Returns the HTML for a form field snippet
 
@@ -1627,7 +1629,8 @@ def dsfr_form_field(field) -> dict:
     if field == "":
         raise AttributeError("Invalid form field name in dsfr_form_field.")
 
-    return {"field": field}
+    context.update({"field": field})
+    return context
 
 
 register.filter(name="dsfr_input_class_attr", filter_func=dsfr_input_class_attr)

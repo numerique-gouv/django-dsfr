@@ -1,15 +1,13 @@
-{% load widget_tweaks dsfr_tags %}
+{% load i18n widget_tweaks dsfr_tags %}
 <div class="fr-checkbox-group{% if field.errors %} fr-checkbox-group--error{% endif %}{% if field.field.disabled %} fr-input-group--disabled{% endif %} fr-mb-2w">
   {{ field|dsfr_input_class_attr|attr:"type:checkbox" }}
   <label for="{{ field.id_for_label }}" class="fr-label">
-    {{ field.label }}
-    {% if field.field.required %}
-      <span class="fr-required-marker">*</span>
-    {% endif %}
-
+    {# djlint:off #}
+    {{ field.label }}{% if not DSFR_MARK_OPTIONAL_FIELDS and field.field.required %}<span class="fr-required-marker" aria-hidden="true"> *</span>{% elif DSFR_MARK_OPTIONAL_FIELDS and not field.field.required %} {% translate '(Optional)' %}{% endif %}
     {% if field.help_text %}
       <span class="fr-hint-text" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</span>
     {% endif %}
+    {# djlint:on #}
   </label>
   {% if field.errors %}
     <div id="{{ field.auto_id }}-desc-error">

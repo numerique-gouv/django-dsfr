@@ -1,9 +1,9 @@
-{% load dsfr_tags %}
+{% load i18n dsfr_tags %}
 
 <div class="fr-range-group {% if field.errors %}fr-range-group--error{% endif %} {% if field.field.disabled %}fr-range-group--disabled{% endif %}">
   <label for="{{ field.id_for_label }}" class="fr-label">
     {# djlint:off #}
-    {{ field.label }}{% if field.field.required %}<span class="fr-required-marker">*</span>{% endif %}
+    {{ field.label }}{% if not DSFR_MARK_OPTIONAL_FIELDS and field.field.required %}<span class="fr-required-marker" aria-hidden="true"> *</span>{% elif DSFR_MARK_OPTIONAL_FIELDS and not field.field.required %} {% translate '(Optional)' %}{% endif %}
     {% if field.help_text %}
       <span class="fr-hint-text" id="{{ field.id_for_label }}_helptext">
         {{ field.help_text|safe }}, valeur
