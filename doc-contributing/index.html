@@ -737,10 +737,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-viqbzdobllordndu">
+          aria-controls="breadcrumb-zavkqphspryzijih">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-viqbzdobllordndu">
+  <div class="fr-collapse" id="breadcrumb-zavkqphspryzijih">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -765,8 +765,8 @@
         
 <nav role="navigation"
      class="fr-summary"
-     aria-labelledby="fr-summary-zcoxhuxctpfsmnlt-title">
-  <p class="fr-summary__title" id="fr-summary-zcoxhuxctpfsmnlt-title">
+     aria-labelledby="fr-summary-eqootxvqwpjgalyd-title">
+  <p class="fr-summary__title" id="fr-summary-eqootxvqwpjgalyd-title">
   Sommaire
   </p>
   <ol class="fr-summary__list">
@@ -790,13 +790,19 @@
 
     
       <li>
-  <a class="fr-summary__link" href="#gestion-des-dependances-avec-uv">Gestion des dépendances avec UV</a>
+  <a class="fr-summary__link" href="#gestion-des-dependances-avec-uv">Gestion des dépendances avec uv</a>
   
 </li>
 
     
       <li>
   <a class="fr-summary__link" href="#conventions-de-style-et-verifications-automatique">Conventions de style et vérifications automatique</a>
+  
+</li>
+
+    
+      <li>
+  <a class="fr-summary__link" href="#workflow-avec-les-mainteneurs">Workflow avec les mainteneurs</a>
   
 </li>
 
@@ -850,7 +856,7 @@
 <div class="dsfr-code"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>manage.py
 </code></pre></div>
 
-<h2 id="gestion-des-dependances-avec-uv">Gestion des dépendances avec UV</h2>
+<h2 id="gestion-des-dependances-avec-uv">Gestion des dépendances avec uv</h2>
 <p>Le projet utilise <a href="https://docs.astral.sh/uv/">uv</a> pour gérer les dépendances de paquets Python et produire des <em>builds</em> déterministes, ainsi que pour créer les nouvelles versions du paquet et les publier sur Pypi (via Github Actions).</p>
 <p>Pour installer les dépendances du projet :</p>
 <div class="dsfr-code"><pre><span></span><code>uv<span class="w"> </span>sync
@@ -882,6 +888,14 @@
 <div class="dsfr-code"><pre><span></span><code>pre-commit<span class="w"> </span>update
 </code></pre></div>
 
+<h2 id="workflow-avec-les-mainteneurs">Workflow avec les mainteneurs</h2>
+<p>Quelques recommandations :</p>
+<ul>
+<li>Au moment d’ouvrir une PR, merci de structurer (dans la mesure du possible) les commits pour que chacun d’entre eux concerne un seul composant ; cela permet aux mainteneurs d’effectuer une relecture commit par commit s’ils en ont envie ;</li>
+<li>Ne pas hésiter à solliciter la relecture de la part de l’ensemble des mainteneurs ; ça permet d’obtenir une bonne réactivité, et les mainteneurs se répartiront les PR en s’assurant que chacune d’entre elles soit relue par au moins deux d’entre eux ;</li>
+<li>Pendant le process de relecture, identifier les commits liés à des retours des relecteurs (pas besoin cependant de faire des commits de fixup, parce que point suivant) ;</li>
+<li>Pour les mainteneurs : au moment du merge, utiliser le "Squash and merge", qui permet de masquer dans l'historique final les (parfois nombreux) commits de la PR.</li>
+</ul>
 <h2 id="mise-a-jour-du-systeme-de-design">Mise à jour du système de design</h2>
 <p>Quand une nouvelle version du système de design de l’État est publiée, il est possible de le mettre à jour automatiquement via la commande :</p>
 <div class="dsfr-code"><pre><span></span><code>just<span class="w"> </span>update_dsfr
