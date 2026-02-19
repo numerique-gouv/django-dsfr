@@ -598,3 +598,10 @@ def search(request):
     payload = init_payload("Recherche")
 
     return render(request, "example_app/search.html", payload)
+
+
+@require_safe
+def table(request):
+    payload = init_payload("Tableau")
+
+    return render(request, "example_app/new_table.html", payload)
