@@ -46,32 +46,6 @@ class DsfrBaseForm(forms.Form):
             else get_default_renderer()
         )
 
-    def get_context(self) -> dict:
-        from django.conf import settings
-
-        try:
-            mark_optional_fields = settings.DSFR_MARK_OPTIONAL_FIELDS
-            warnings.warn("""Transitional Django setting DSFR_MARK_OPTIONAL_FIELDS will be removed
-            by the next major version of django-dsfr.""")
-        except AttributeError:
-            mark_optional_fields = False
-
-        if not mark_optional_fields:
-            warnings.warn(
-                """Marking required form fields is not recommended by DSFR anymore
-                (https://www.systeme-de-design.gouv.fr/version-courante/fr/modeles/blocs-fonctionnels/formulaires#champ-obligatoire)
-                so the next major version of django-dsfr will stop doing so,
-                and mark optional fields instead.
-                To get the future behavior, you can set the transitional Django setting DSFR_MARK_OPTIONAL_FIELDS to True,
-                or you can override the DSFR_MARK_OPTIONAL_FIELDS context variable of single forms,
-                by overriding YourFormClass.get_context()""",
-                DeprecationWarning,
-            )
-
-        context = super().get_context()
-        context.setdefault("DSFR_MARK_OPTIONAL_FIELDS", mark_optional_fields)
-        return context
-
     def set_autofocus_on_first_error(self):
         """
         Sets the autofocus on the first field with an error message.
