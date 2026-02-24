@@ -15,6 +15,7 @@ from dsfr.checksums import (
     INTEGRITY_JS_MODULE,
     INTEGRITY_JS_NOMODULE,
 )
+from dsfr.constants import DsfrStaticAssets
 from dsfr.utils import (
     find_active_menu_items,
     generate_random_id,
@@ -63,7 +64,7 @@ def dsfr_css() -> dict:
     ):
         tag_data["USE_INTEGRITY_CHECKSUMS"] = False
 
-    return {"self": tag_data}
+    return {"self": tag_data, "DsfrStaticAssets": DsfrStaticAssets}
 
 
 @register.inclusion_tag("dsfr/global_js.html", takes_context=True)
@@ -93,7 +94,7 @@ def dsfr_js(context, *args, **kwargs) -> dict:
     ):
         tag_data["USE_INTEGRITY_CHECKSUMS"] = False
 
-    return {"self": tag_data}
+    return {"self": tag_data, "DsfrStaticAssets": DsfrStaticAssets}
 
 
 @register.inclusion_tag("dsfr/favicon.html")

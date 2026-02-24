@@ -101,3 +101,11 @@ VIDEO_RATIOS = [
     ("fr-ratio-4x3", "4x3"),
     ("fr-ratio-1x1", "1x1"),
 ]
+
+
+class DsfrStaticAssets:
+    DSFR_MODULE_JS = "dsfr/dist/dsfr/dsfr.module.min.js"
+    DSFR_NOMODULE_JS = "dsfr/dist/dsfr/dsfr.nomodule.min.js"
+    DSFR_CSS = "dsfr/dist/dsfr/dsfr.min.css"
+    DSFR_UTILITY_CSS = "dsfr/dist/utility/utility.min.css"
+    DSFR_OVERRIDES_CSS = "css/dsfr-django-overrides.css"
