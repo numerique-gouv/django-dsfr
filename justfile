@@ -67,3 +67,17 @@ update_dsfr:
 upgrade:
     uv lock --upgrade
     uv run pre-commit autoupdate
+
+[arg('bump', pattern='major|minor|patch')]
+prepare_release bump:
+    #!/usr/bin/env bash
+
+    set -e
+
+    version=`uv version --bump {{bump}} --short`
+    echo "Version will be bumped to: $version"
+    git switch -c "release/$version"
+    uv version "$version"
+    git add pyproject.toml uv.lock
+    git commit -m "chore: prepare release $version"
+    git push -u origin "release/$version"
