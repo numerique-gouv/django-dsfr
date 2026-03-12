@@ -7,7 +7,7 @@ from dsfr.checksums import (
     INTEGRITY_JS_MODULE,
     INTEGRITY_JS_NOMODULE,
 )
-from dsfr.templatetags.dsfr_tags import concatenate, hyphenate
+from dsfr.templatetags.dsfr_tags import concatenate, hyphenate, data_attributes
 
 
 class DsfrCssTagTest(SimpleTestCase):
@@ -1344,3 +1344,21 @@ class StrfmtTestCase(SimpleTestCase):
                 )
             ),
         )
+
+
+class DataAttributesFilterTest(SimpleTestCase):
+    def test_returns_empty_string_if_no_data_attributes(self):
+        self.assertEqual(data_attributes({}), "")
+
+    def test_returns_single_data_attribute(self):
+        self.assertEqual(
+            data_attributes({"data_attributes": {"role": "admin"}}), 'data-role="admin"'
+        )
+
+    def test_returns_multiple_data_attributes(self):
+        result = data_attributes({"data_attributes": {"role": "admin", "id": "123"}})
+        # Since dict order is preserved in Python 3.7+, output order will follow insertion order
+        self.assertEqual(result, 'data-role="admin" data-id="123"')
+
+    def test_returns_empty_string_if_data_attributes_empty_dict(self):
+        self.assertEqual(data_attributes({"data_attributes": {}}), "")
