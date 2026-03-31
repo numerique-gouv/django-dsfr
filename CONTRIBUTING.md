@@ -110,11 +110,19 @@ Une fois la mise à jour faite, il reste à :
 
 ## Publication d’une nouvelle version
 
-Lorsque qu’une release est publiée sur Github, une tâche Github Actions ([publish-package.yml](https://github.com/numerique-gouv/django-dsfr/blob/main/.github/workflows/publish-package.yml)) est lancée pour automatiquement générer une nouvelle version du paquet et la publier sur Pypi.
+Elle s’effectue en trois étapes :
 
-Attention ! Il faut mettre à jour le numéro de version dans le fichier `pyproject.toml` avant de faire la release, sinon la tâche échouera.
-
-La numérotation suit le principe de [versionnage sémantique](https://semver.org/).
+1. Ouvrir une PR de préparation de la release :
+    ```shell
+    just prepare_release {major|minor|patch}  # ce script met à jour le numéro de version du paquet uv et crée un tag Git
+    ```
+2. Créer et publier la release Github depuis [cet écran](https://github.com/numerique-gouv/django-dsfr/releases/new) :
+    - Sélectionner **le tag Git qui vient d’être créé** (plutôt qu’une branche) ;
+    - Vérifier le changelog généré ;
+    - Publier la release.
+3. Vérifier que le workflow de construction puis publication du paquet a tourné correctement :
+    - Via [l’écran de suivi du workflow sur Github](https://github.com/numerique-gouv/django-dsfr/actions/workflows/publish-package.yml) ;
+    - Puis sur [la page du paquet sur PyPI](https://pypi.org/project/django-dsfr).
 
 ## Mise à jour de la documentation
 
