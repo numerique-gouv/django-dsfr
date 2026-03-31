@@ -831,7 +831,9 @@ def dsfr_link(*args, **kwargs) -> dict:
     - `fr-link--lg` for large links
 
 
-    All of the keys of the dict can be passed directly as named parameters of the tag.
+    All the keys of the dict can be passed directly as named parameters of the tag.
+
+    Note: if key `url` is missing, the link will be displayed with an empty `href`. If `None` the button will be rendered disabled.
 
     **Tag name**:
         dsfr_link
@@ -847,6 +849,8 @@ def dsfr_link(*args, **kwargs) -> dict:
         "extra_classes",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    tag_data.setdefault("url", "")
 
     return {"self": tag_data}
 

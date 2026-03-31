@@ -790,6 +790,35 @@ class DsfrLinkTagTest(SimpleTestCase):
             rendered_template,
         )
 
+    def test_link_tag_with_no_url_rendered(self):
+        rendered_template = self.template_to_render.render(
+            Context({"test_data": {"label": "Label of the link item"}})
+        )
+        self.assertInHTML(
+            """
+            <a class="fr-link" href="">
+              Label of the link item
+            </a>
+            """,  # noqa
+            rendered_template,
+        )
+
+    def test_link_tag_with_none_url_rendered(self):
+        rendered_template = self.template_to_render.render(
+            Context({"test_data": {"label": "Label of the link item", "url": None}})
+        )
+        self.assertInHTML(
+            """
+            <a
+            class="fr-link"
+            aria-disabled="true" role="link"
+            >
+              Label of the link item
+            </a>
+            """,  # noqa
+            rendered_template,
+        )
+
 
 class DsfrNoticeTagTest(SimpleTestCase):
     test_data = {

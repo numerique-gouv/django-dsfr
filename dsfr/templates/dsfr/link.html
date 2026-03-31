@@ -1,6 +1,6 @@
 {% load i18n %}
 <a class="fr-link{% if self.is_external %} fr-icon-external-link-line fr-link--icon-right{% endif %}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}"
-   href="{{ self.url }}"
+   {% if self.url is None %}aria-disabled="true" role="link"{% else %}href="{{ self.url }}"{% endif %}
    {% if self.is_external %}target="_blank" rel="noopener noreferrer"{% endif %}>
   {{ self.label }}
   {% if self.is_external %}
