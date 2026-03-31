@@ -738,10 +738,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-wdfvpdhnomkqcrjp">
+          aria-controls="breadcrumb-ekkdxufcdbwqkghe">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-wdfvpdhnomkqcrjp">
+  <div class="fr-collapse" id="breadcrumb-ekkdxufcdbwqkghe">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -766,8 +766,8 @@
         
 <nav role="navigation"
      class="fr-summary"
-     aria-labelledby="fr-summary-zthruiqqsoyciajz-title">
-  <p class="fr-summary__title" id="fr-summary-zthruiqqsoyciajz-title">
+     aria-labelledby="fr-summary-yysrpxsbkgmjkejp-title">
+  <p class="fr-summary__title" id="fr-summary-yysrpxsbkgmjkejp-title">
   Sommaire
   </p>
   <ol class="fr-summary__list">
@@ -920,9 +920,23 @@
 <li>mettre à jour les composants si nécessaire, en se basant sur le site du système de design de l’État (ou ouvrir des <em>issues</em>)</li>
 </ul>
 <h2 id="publication-dune-nouvelle-version">Publication d’une nouvelle version</h2>
-<p>Lorsque qu’une release est publiée sur Github, une tâche Github Actions (<a href="https://github.com/numerique-gouv/django-dsfr/blob/main/.github/workflows/publish-package.yml">publish-package.yml</a>) est lancée pour automatiquement générer une nouvelle version du paquet et la publier sur Pypi.</p>
-<p>Attention ! Il faut mettre à jour le numéro de version dans le fichier <code>pyproject.toml</code> avant de faire la release, sinon la tâche échouera.</p>
-<p>La numérotation suit le principe de <a href="https://semver.org/">versionnage sémantique</a>.</p>
+<p>Elle s’effectue en trois étapes :</p>
+<ol>
+<li>Ouvrir une PR de préparation de la release :
+    <code>shell
+    just prepare_release {major|minor|patch}  # ce script met à jour le numéro de version du paquet uv et crée un tag Git</code></li>
+<li>Créer et publier la release Github depuis <a href="https://github.com/numerique-gouv/django-dsfr/releases/new">cet écran</a> :<ul>
+<li>Sélectionner <strong>le tag Git qui vient d’être créé</strong> (plutôt qu’une branche) ;</li>
+<li>Vérifier le changelog généré ;</li>
+<li>Publier la release.</li>
+</ul>
+</li>
+<li>Vérifier que le workflow de construction puis publication du paquet a tourné correctement :<ul>
+<li>Via <a href="https://github.com/numerique-gouv/django-dsfr/actions/workflows/publish-package.yml">l’écran de suivi du workflow sur Github</a> ;</li>
+<li>Puis sur <a href="https://pypi.org/project/django-dsfr">la page du paquet sur PyPI</a>.</li>
+</ul>
+</li>
+</ol>
 <h2 id="mise-a-jour-de-la-documentation">Mise à jour de la documentation</h2>
 <p>De la même manière, lorsqu’une PR est mergée dans la branche <code>main</code>, une tâche Github Actions (<a href="https://github.com/numerique-gouv/django-dsfr/blob/main/.github/workflows/deploy-doc.yml">deploy-doc.yml</a>) met à jour la <a href="https://numerique-gouv.github.io/django-dsfr/">documentation statique</a> en faisant un export statique du site d’exemple.</p>
 
