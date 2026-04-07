@@ -49,6 +49,7 @@ build-backend = "hatchling.build"
 markdown = [
   "markdown ~=3.10",
   "pymdown-extensions ~=10.20",
+  "lxml>=6.0.1",
 ]
 
 [dependency-groups]
@@ -67,7 +68,6 @@ dev = [
     "markdown>=3.10",
     "pygments>=2.19.2",
     "beautifulsoup4>=4.13.5",
-    "lxml>=6.0.1",
     "setuptools>=80.9.0",
     "twine>=6.1.0",
     "rust-just>=1.42.4",
