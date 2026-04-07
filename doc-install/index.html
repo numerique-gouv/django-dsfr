@@ -738,10 +738,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-juoggjapkkogdkpk">
+          aria-controls="breadcrumb-qlcjseshqekpybow">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-juoggjapkkogdkpk">
+  <div class="fr-collapse" id="breadcrumb-qlcjseshqekpybow">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -766,8 +766,8 @@
         
 <nav role="navigation"
      class="fr-summary"
-     aria-labelledby="fr-summary-phsxlsbbsrnbqtyc-title">
-  <p class="fr-summary__title" id="fr-summary-phsxlsbbsrnbqtyc-title">
+     aria-labelledby="fr-summary-bhypajohxwkdname-title">
+  <p class="fr-summary__title" id="fr-summary-bhypajohxwkdname-title">
   Sommaire
   </p>
   <ol class="fr-summary__list">
@@ -802,6 +802,22 @@
     
       <li>
   <a class="fr-summary__link" href="#parametres-optionnels">Paramètres optionnels</a>
+  
+</li>
+
+    
+      <li>
+  <a class="fr-summary__link" href="#extensions">Extensions</a>
+  
+    <ol>
+      
+        <li>
+  <a class="fr-summary__link" href="#rendu-de-contenu-markdown">Rendu de contenu Markdown</a>
+  
+</li>
+
+      
+    </ol>
   
 </li>
 
@@ -867,6 +883,23 @@
 </ul>
 <p>Si valeur à <code>True</code>, permet d’avoir des avertissements dans la console si on utilise des valeurs obsolètes pour les paramètres des <code>templatetags</code>.</p>
 <p>Les tags obsolètes feront toujours l’objet d’un avertissement.</p>
+<h2 id="extensions">Extensions</h2>
+<h3 id="rendu-de-contenu-markdown">Rendu de contenu Markdown</h3>
+<ol>
+<li>Installer avec l’extra markdown
+    <code>{ .bash }
+    pip install django-dsfr[markdown]</code></li>
+<li>Activer l’application Django supplémentaire
+    <code>{ .python }
+    INSTALLED_APPS = [
+    ...
+    "widget_tweaks",
+    "dsfr",
+    "dsfr.extras.markdown",
+    "django.forms",
+    &lt;votre_app&gt;
+    ]</code></li>
+</ol>
 
       </main>
     </div>
