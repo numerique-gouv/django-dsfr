@@ -56,3 +56,23 @@ FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 Si valeur à `True`, permet d’avoir des avertissements dans la console si on utilise des valeurs obsolètes pour les paramètres des `templatetags`.
 
 Les tags obsolètes feront toujours l’objet d’un avertissement.
+
+## Extensions
+
+### Rendu de contenu Markdown
+
+1. Installer avec l’extra markdown
+    ```{ .bash }
+    pip install django-dsfr[markdown]
+    ```
+2. Activer l’application Django supplémentaire
+    ```{ .python }
+    INSTALLED_APPS = [
+    ...
+    "widget_tweaks",
+    "dsfr",
+    "dsfr.extras.markdown",
+    "django.forms",
+    <votre_app>
+    ]
+    ```

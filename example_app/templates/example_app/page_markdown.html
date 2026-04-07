@@ -14,10 +14,16 @@
     Ce rendu de Markdown s’effectue à l’aide du <em>template filter</em> <code>dsfr_md</code>.
   </p>
   <h2>Pré-requis</h2>
-  <p>
+  <ul>
+  <li>
     Installation d’un groupe de dépendances spécifique à cette extension via l’instruction d’installation suivante dans le <code>pyproject.toml</code> :
-  </p>
-  <div class="dsfr-code"><pre>"django-dsfr[markdown]",</pre></div>
+    <div class="dsfr-code"><pre>"django-dsfr[markdown]",</pre></div>
+  </li>
+  <li>
+    Activation de l’application supplémentaire dans les réglages Django via <code>INSTALLED_APPS</code> :
+    <div class="dsfr-code"><pre>"dsfr.extras.markdown",</pre></div>
+  </li>
+  </ul>
   <h2>Utilisation</h2>
   <p>Dans un template Django :</p>
   <div class="dsfr-code">
