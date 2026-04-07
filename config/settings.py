@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "csp",
     "widget_tweaks",
     "dsfr",
+    "dsfr.extras.markdown",
     "example_app",
     "django_distill",
 ]
