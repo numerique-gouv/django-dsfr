@@ -669,10 +669,10 @@ IMPLEMENTED_COMPONENTS = {
         "title": "Citation",
         "sample_data": [
             {
-                "text": "Citation très basique, sans aucun des champs optionnels.",
+                "text": "« Citation très basique, sans aucun des champs optionnels. »",
             },
             {
-                "text": "Développer vos sites et applications en utilisant des composants prêts à l’emploi, accessibles et ergonomiques",  # noqa
+                "text": "« Développer vos sites et applications en utilisant des composants prêts à l’emploi, accessibles et ergonomiques »",
                 "source_url": "https://www.systeme-de-design.gouv.fr/",
                 "author": "Auteur",
                 "source": "Système de Design de l'État",

@@ -46,12 +46,12 @@ Afin d’utiliser le composant `core`, il est nécessaire d’ajouter les fichie
 
 ## Documentation
 
-Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-de-l-identite-de-l-etat/typographie/) sur le module Typographie
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/fondamentaux/typographie) sur le module Typographie
 
-Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/icones) sur le module Icônes
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/fondamentaux/icone) sur le module Icônes
 
-Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/icone-de-favoris) sur le module Icônes de favoris - Favicon
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/fondamentaux/icone-de-favori) sur le module Icônes de favoris - Favicon
 
-Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/medias) sur le module Médias fondamentaux
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/fondamentaux/medias) sur le module Médias fondamentaux
 
-Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/grille-et-points-de-rupture) sur le module Grille
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/fondamentaux/grille-et-points-de-rupture) sur le module Grille

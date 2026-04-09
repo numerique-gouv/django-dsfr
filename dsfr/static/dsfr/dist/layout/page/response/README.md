@@ -27,4 +27,4 @@ Afin d’utiliser le composant `response`, il est nécessaire d’ajouter les fi
 
 ## Documentation
 
-Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/modeles/page-d-erreurs) sur le module Codes de Statut HTML
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/modeles/pages-types/page-d-erreurs) sur le module Codes de Statut HTML

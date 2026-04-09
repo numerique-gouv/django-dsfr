@@ -1,3 +1,5 @@
+# Django-DSFR
+
 [![image](https://img.shields.io/github/v/release/numerique-gouv/django-dsfr.svg)](https://github.com/numerique-gouv/django-dsfr/releases/)
 
 [![image](https://badge.fury.io/py/django-dsfr.svg)](https://pypi.org/project/django-dsfr/)
@@ -8,26 +10,27 @@
 
 [![Security Status](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
 
-# Django-DSFR
-
-Django-DSFR is a Django app to integrate the [French government Design System ("Système de design de l’État français")](https://www.systeme-de-design.gouv.fr/).
+Django-DSFR is a Django app to integrate the
+[French government Design System ("Système de design de l’État français")](https://www.systeme-de-design.gouv.fr/).
 
 ## Documentation
 
-See the [documentation (in French)](https://numerique-gouv.github.io/django-dsfr/) for details.
+See the [documentation (in French)](https://numerique-gouv.github.io/django-dsfr/)
+for details.
 
 Django-DSFR implements the [version 1.14.2 of the DSFR](https://www.systeme-de-design.gouv.fr/a-propos/versions/version-courante)
 (see also the [Github releases page](https://github.com/GouvernementFR/dsfr/releases/))
 
 ## Requirements
 
-Tested with Python 3.10 to 3.14 and the latest available versions of Django 4, 5 and 6.
+Tested with Python 3.10 to 3.14 and the latest available versions of
+Django 4, 5 and 6.
 
-Note: Only supported versions of Django and Python are supported by this project. You can check the supported versions and their end of life on the following pages:
+Note: Only supported versions of Django and Python are supported by this project.
+You can check the supported versions and their end of life on the following pages:
 
--   [Python](https://devguide.python.org/versions/)
--   [Django](https://www.djangoproject.com/download/#supported-versions)
-
+- [Python](https://devguide.python.org/versions/)
+- [Django](https://www.djangoproject.com/download/#supported-versions)
 
 ## Quick start
 
@@ -54,7 +57,12 @@ DSFR](https://github.com/GouvernementFR/dsfr/blob/main/doc/legal/cgu.md).
 
 ### ⚠️ Utilisation du DSFR interdite en dehors des sites Internet de l’État
 
-> Il est formellement interdit à tout autre acteur d’utiliser le Système de Design de l’État (les administrations territoriales ou tout autre acteur privé) pour des sites web ou des applications. Le Système de Design de l’État représente l’identité numérique de l’État. En cas d’usage à des fins trompeuses ou frauduleuses, l’État se réserve le droit d’entreprendre les actions nécessaires pour y mettre un terme.
+> Il est formellement interdit à tout autre acteur d’utiliser le
+> Système de Design de l’État (les administrations territoriales ou tout autre
+> acteur privé) pour des sites web ou des applications. Le Système de Design de
+> l’État représente l’identité numérique de l’État. En cas d’usage à des fins
+trompeuses ou frauduleuses, l’État se réserve le droit d’entreprendre les actions
+nécessaires pour y mettre un terme.
 >
 > Voir les [conditions générales d’utilisation](https://github.com/GouvernementFR/dsfr/blob/main/doc/legal/cgu.md).
 

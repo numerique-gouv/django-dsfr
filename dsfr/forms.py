@@ -10,7 +10,7 @@ from .utils import dsfr_input_class_attr
 
 class DsfrDjangoTemplates(DjangoTemplates):
     @cached_property
-    def engine(self):
+    def engine(self):  # type: ignore
         return self.backend(
             {
                 "APP_DIRS": True,
@@ -37,7 +37,7 @@ class DsfrBaseForm(forms.Form):
             dsfr_input_class_attr(visible)
 
     @property
-    def default_renderer(self):
+    def default_renderer(self):  # type: ignore
         from django.conf import settings, global_settings
 
         return (
@@ -51,8 +51,10 @@ class DsfrBaseForm(forms.Form):
 
         try:
             mark_optional_fields = settings.DSFR_MARK_OPTIONAL_FIELDS
-            warnings.warn("""Transitional Django setting DSFR_MARK_OPTIONAL_FIELDS will be removed
-            by the next major version of django-dsfr.""")
+            warnings.warn(
+                """Transitional Django setting DSFR_MARK_OPTIONAL_FIELDS will be removed
+            by the next major version of django-dsfr."""
+            )
         except AttributeError:
             mark_optional_fields = False
 
@@ -70,7 +72,7 @@ class DsfrBaseForm(forms.Form):
 
         context = super().get_context()
         context.setdefault("DSFR_MARK_OPTIONAL_FIELDS", mark_optional_fields)
-        return context
+        return context  # type: ignore
 
     def set_autofocus_on_first_error(self):
         """

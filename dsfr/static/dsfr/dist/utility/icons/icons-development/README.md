@@ -23,4 +23,4 @@ Afin d’utiliser le composant `icons-development`, il est nécessaire d’ajout
 
 ## Documentation
 
-Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/icones) sur le module Icônes Development
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/fondamentaux/icone) sur le module Icônes Development
