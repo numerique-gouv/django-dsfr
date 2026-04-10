@@ -10,10 +10,10 @@
     
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"
-      integrity="sha384-JkR64vqiKUi1BMEIOp0tR1iNiQDco5MFax5S+3TyhaWqQpOFF0KjrCfy4xHWdQZt">
+      integrity="sha384-YCukMJNHKyiRQ1GFeGXOd6Lov744PkUweAfT5XIkIQ5+6sIQSnSyfyZr8syKCdJp">
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/utility/utility.min.css"
-      integrity="sha384-DRtYJowv6MG7MkTTag2RK3LgOmdqAoDSx47Lb553//bkuIlCgD9JK6zCJfp02S3s">
+      integrity="sha384-5P5DFFqorcEBpfnK9WHu/Ralfr7ZxyCZh0ryaJbgucSvc71+qRYdGvNEcyMqQwa/">
 <link rel="stylesheet"
       href="/django-dsfr/static/css/dsfr-django-overrides.css">
 
@@ -738,10 +738,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-wzxbwhnthehcmizl">
+          aria-controls="breadcrumb-zibzncmtsvsxrdhc">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-wzxbwhnthehcmizl">
+  <div class="fr-collapse" id="breadcrumb-zibzncmtsvsxrdhc">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -771,13 +771,13 @@
   <div class="fr-sidemenu__inner">
     <button type="button"
             class="fr-sidemenu__btn"
-            aria-controls="fr-sidemenu-drwbsstwzxtyethy-wrapper"
+            aria-controls="fr-sidemenu-hkmaklldzybzruxm-wrapper"
             aria-expanded="false">
       
         Dans cette rubrique
       
     </button>
-    <div class="fr-collapse" id="fr-sidemenu-drwbsstwzxtyethy-wrapper">
+    <div class="fr-collapse" id="fr-sidemenu-hkmaklldzybzruxm-wrapper">
       
       <ul class="fr-sidemenu__list">
         
@@ -797,11 +797,11 @@
               <button type="button"
                       class="fr-sidemenu__btn"
                       aria-expanded="true"
-                      aria-controls="fr-sidemenu-drwbsstwzxtyethy-item-2">
+                      aria-controls="fr-sidemenu-hkmaklldzybzruxm-item-2">
                 Composants implémentés
               </button>
               <div class="fr-collapse"
-                   id="fr-sidemenu-drwbsstwzxtyethy-item-2">
+                   id="fr-sidemenu-hkmaklldzybzruxm-item-2">
                 <ul class="fr-sidemenu__list">
                   
                     <li class="fr-sidemenu__item">
@@ -1226,24 +1226,34 @@
           
         </div>
       </div>
-      <p>Le pied de page est géré grâce à une balise <code>include</code> dans le fichier <code>base.html</code>. Si vous n’avez pas besoin de le personnaliser, vous n’avez rien à faire.</p>
-<p>Il est alors possible de personnaliser la description ainsi que le bloc-marque via la configuration du site dans l’administration de Django.</p>
+      <p>Le pied de page est géré grâce à une balise <code>include</code> dans le fichier <code>base.html</code>.</p>
+<p>Si vous n’avez pas besoin de le personnaliser, vous n’avez rien à faire.</p>
+<p>Il est alors possible de personnaliser la description ainsi que le bloc-marque
+via la configuration du site dans l’administration de Django.</p>
 <ul>
-<li><a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/pied-de-page" target="_blank" rel="noopener noreferrer">
+<li><a
+  class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+  href="https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/pied-de-page"
+  target="_blank" rel="noopener noreferrer">
         Voir la page de documentation du composant sur le Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a></li>
-<li><a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://main--ds-gouv.netlify.app/example/component/footer/" target="_blank" rel="noopener noreferrer">
+<li><a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+  href="https://main--ds-gouv.netlify.app/example/component/footer/"
+  target="_blank" rel="noopener noreferrer">
         Voir la page d’exemple du Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a></li>
-<li><a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://storybook.systeme-de-design.gouv.fr/?path=/docs/footer--docs" target="_blank" rel="noopener noreferrer">
+<li><a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+  href="https://storybook.systeme-de-design.gouv.fr/?path=/docs/footer--docs"
+  target="_blank" rel="noopener noreferrer">
         Voir la page du composant sur Storybook
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a></li>
 </ul>
 <h2 id="personnaliser">Personnaliser</h2>
-<p>Il est possible de l’étendre pour le personnaliser, par exemple pour ajouter le sélecteur de thème :</p>
+<p>Il est possible de l’étendre pour le personnaliser, par exemple pour ajouter le
+sélecteur de thème :</p>
 <div class="dsfr-code"><pre><span></span><code><span class="x">&lt;!-- &lt;votre_app&gt;/templates/&lt;votre_app&gt;/base.html --&gt;</span>
 <span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;dsfr/base.html&quot;</span> <span class="cp">%}</span>
 
@@ -1254,34 +1264,41 @@
 </code></pre></div>
 
 <div class="dsfr-code"><pre><span></span><code><span class="cm">&lt;!-- &lt;votre_app&gt;/templates/&lt;votre_app&gt;/blocks/footer.html --&gt;</span>
-<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;dsfr/footer.html&quot;</span> <span class="cp">%}</span>
-<span class="cp">{%</span> <span class="k">block</span> <span class="nv">footer_links</span> <span class="cp">%}</span>
-<span class="w">  </span><span class="cp">{{</span> <span class="nb">block</span><span class="nv">.super</span> <span class="cp">}}</span>
-<span class="w">  </span><span class="nt">&lt;li</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;fr-footer__bottom-item&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;button</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;footer__bottom-link__parametres-affichage&quot;</span>
-<span class="w">            </span><span class="na">aria-controls=</span><span class="s">&quot;fr-theme-modal&quot;</span>
-<span class="w">            </span><span class="na">data-fr-opened=</span><span class="s">&quot;false&quot;</span>
-<span class="w">            </span><span class="na">class=</span><span class="s">&quot;fr-icon-theme-fill fr-link--icon-left fr-footer__bottom-link&quot;</span>
-<span class="w">            </span><span class="na">data-fr-js-modal-button=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-<span class="w">      </span>Paramètres<span class="w"> </span>d’affichage
-<span class="w">    </span><span class="nt">&lt;/button&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/li&gt;</span>
-<span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">footer_links</span> <span class="cp">%}</span>
+{% extends &quot;dsfr/footer.html&quot; %}
+{% block footer_links %}
+  {{ block.super }}
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-footer__bottom-item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;footer__bottom-link__parametres-affichage&quot;</span>
+            <span class="na">aria-controls</span><span class="o">=</span><span class="s">&quot;fr-theme-modal&quot;</span>
+            <span class="na">data-fr-opened</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
+            <span class="na">class</span><span class="o">=</span><span class="s">&quot;fr-icon-theme-fill fr-link--icon-left fr-footer__bottom-link&quot;</span>
+            <span class="na">data-fr-js-modal-button</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+      Paramètres d’affichage
+    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+{% endblock footer_links %}
 </code></pre></div>
 
 <h2 id="blocs-deprecies">Blocs dépréciés</h2>
 <ul>
-<li>Le bloc <code>brand</code>, qui ne permet pas toutes les personnalisations nécessaires, va être supprimé à terme. Les personnalisations sont à mettre dans le nouveau bloc <code>footer_brand</code>.</li>
-<li>Même chose pour le bloc <code>footer_content</code>, à remplacer à terme par le nouveau bloc <code>footer_description</code>.</li>
+<li>Le bloc <code>brand</code>, qui ne permet pas toutes les personnalisations nécessaires,
+  va être supprimé à terme. Les personnalisations sont à mettre dans le nouveau
+  bloc <code>footer_brand</code>.</li>
+<li>Même chose pour le bloc <code>footer_content</code>, à remplacer à terme par le nouveau
+  bloc <code>footer_description</code>.</li>
 </ul>
 <h2 id="utiliser-les-liens-en-bas-de-pied-de-page">Utiliser les liens en bas de pied de page</h2>
-<p>Les liens en bas du pied de page peuvent être modifiés soit en surchargeant le bloc <code>footer_links</code>, soit en créant des urls dans votre projet avec les noms suivants :
-- Plan du site : <code>"footer-sitemap"</code>
-- Accessibilité : <code>"footer-accessibility-status"</code>
-- Mentions légales : <code>"footer-legal-notice"</code>
-- Données personnelles : <code>"footer-personal-data"</code>
-- Gestion des cookies : <code>"footer-cookie-management"</code></p>
-<p>Par exemple, dans votre fichier urls.py : </p>
+<p>Les liens en bas du pied de page peuvent être modifiés soit en surchargeant le
+bloc <code>footer_links</code>, soit en créant des urls dans votre projet avec les noms
+suivants :</p>
+<ul>
+<li>Plan du site : <code>"footer-sitemap"</code></li>
+<li>Accessibilité : <code>"footer-accessibility-status"</code></li>
+<li>Mentions légales : <code>"footer-legal-notice"</code></li>
+<li>Données personnelles : <code>"footer-personal-data"</code></li>
+<li>Gestion des cookies : <code>"footer-cookie-management"</code></li>
+</ul>
+<p>Par exemple, dans votre fichier urls.py :</p>
 <div class="dsfr-code"><pre><span></span><code><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
   <span class="n">path</span><span class="p">(</span>
       <span class="s2">&quot;my/url&quot;</span><span class="p">,</span>
@@ -1291,12 +1308,15 @@
 <span class="p">]</span>
 </code></pre></div>
 
-<p>Les liens en bas du pied de page possèdent des id pouvant être utilisés dans votre code :
-- Plan du site : <code>id="footer_sitemap"</code>
-- Accessibilité : <code>id="footer_accessibility_status"</code>
-- Mentions légales : <code>id="footer_legal_notice"</code>
-- Données personnelles : <code>id="footer_personal_data"</code>
-- Gestion des cookies : <code>id="footer_cookie_management"</code></p>
+<p>Les liens en bas du pied de page possèdent des id pouvant être utilisés dans
+votre code :</p>
+<ul>
+<li>Plan du site : <code>id="footer_sitemap"</code></li>
+<li>Accessibilité : <code>id="footer_accessibility_status"</code></li>
+<li>Mentions légales : <code>id="footer_legal_notice"</code></li>
+<li>Données personnelles : <code>id="footer_personal_data"</code></li>
+<li>Gestion des cookies : <code>id="footer_cookie_management"</code></li>
+</ul>
 <p>Par exemple :</p>
 <div class="dsfr-code"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">sitemap_link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;footer_sitemap&quot;</span><span class="p">);</span>
 </code></pre></div>
@@ -1592,11 +1612,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
     
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
-        integrity="sha384-RJkvPus2b7RilgVnxnoAma05jmZcnMbGCMseqxWYoI9M7NAwrZl8XQGlqeJze6B8"
+        integrity="sha384-X74emiCarEPSrcS8UDhKQLhB+5jLUZsM9N+7okITLuqE5bvSnjC1zlnruXbhH+RO"
         ></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
-        integrity="sha384-hV+qwuoUW/5dZAPC4eQa8SR6lOclBXfdqdq35SgjdXMOTsbd+uf+oCFxSxl+X6VH"
+        integrity="sha384-rJCIIHcEfJiYS5zMZ9uNn7J3UpbPZ1/AJPG0k7zddfEM6b6Q/8kgTwAEw6Bm8Eeo"
         ></script>
 
 

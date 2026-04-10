@@ -28,6 +28,6 @@ Afin d’utiliser le composant `utility`, il est nécessaire d’ajouter les fic
 
 ## Documentation
 
-Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/icones) sur le module Icônes
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/fondamentaux/icone) sur le module Icônes
 
-Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/pictogramme) sur le module Pictogramme
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/fondamentaux/pictogramme) sur le module Pictogramme

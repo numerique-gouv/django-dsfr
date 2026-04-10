@@ -10,10 +10,10 @@
     
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"
-      integrity="sha384-JkR64vqiKUi1BMEIOp0tR1iNiQDco5MFax5S+3TyhaWqQpOFF0KjrCfy4xHWdQZt">
+      integrity="sha384-YCukMJNHKyiRQ1GFeGXOd6Lov744PkUweAfT5XIkIQ5+6sIQSnSyfyZr8syKCdJp">
 <link rel="stylesheet"
       href="/django-dsfr/static/dsfr/dist/utility/utility.min.css"
-      integrity="sha384-DRtYJowv6MG7MkTTag2RK3LgOmdqAoDSx47Lb553//bkuIlCgD9JK6zCJfp02S3s">
+      integrity="sha384-5P5DFFqorcEBpfnK9WHu/Ralfr7ZxyCZh0ryaJbgucSvc71+qRYdGvNEcyMqQwa/">
 <link rel="stylesheet"
       href="/django-dsfr/static/css/dsfr-django-overrides.css">
 
@@ -738,10 +738,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-llqzgmpxtpejkccq">
+          aria-controls="breadcrumb-noqriumagigzlisv">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-llqzgmpxtpejkccq">
+  <div class="fr-collapse" id="breadcrumb-noqriumagigzlisv">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -766,8 +766,8 @@
         
 <nav role="navigation"
      class="fr-summary"
-     aria-labelledby="fr-summary-azvpsmhesnowcfhu-title">
-  <p class="fr-summary__title" id="fr-summary-azvpsmhesnowcfhu-title">
+     aria-labelledby="fr-summary-wflocgfwgupqeykf-title">
+  <p class="fr-summary__title" id="fr-summary-wflocgfwgupqeykf-title">
   Sommaire
   </p>
   <ol class="fr-summary__list">
@@ -831,12 +831,18 @@
     </div>
   </div>
   <h2 id="bien-commencer">Bien commencer</h2>
-<p>Pour utiliser Django-DSFR dans votre application après l’installation, vous pouvez commencer à utiliser la balise <code>{% extends "dsfr/base.html" %}</code> dans vos <a href="https://docs.djangoproject.com/fr/5.0/topics/templates/">gabarits Django</a> et mettre votre contenu dans le bloc <code>{% block content %}{% endblock content %}</code>.</p>
-<p>Vous pouvez faire appel aux <a href="/django-dsfr/components/">composants du système de design implémentés</a> en appelant la balise <code>{% load dsfr_tags %}</code> en haut de vos fichiers.</p>
+<p>Pour utiliser Django-DSFR dans votre application après l’installation, vous
+pouvez commencer à utiliser la balise <code>{% extends "dsfr/base.html" %}</code> dans
+vos <a href="https://docs.djangoproject.com/fr/5.0/topics/templates/">gabarits Django</a>
+et mettre votre contenu dans le bloc <code>{% block content %}{% endblock content %}</code>.</p>
+<p>Vous pouvez faire appel aux <a href="/django-dsfr/components/">composants du système de design implémentés</a>
+en appelant la balise <code>{% load dsfr_tags %}</code> en haut de vos fichiers.</p>
 <h2 id="etendre-les-gabarits-de-base">Étendre les gabarits de base</h2>
-<p>Si vous avez besoin d'aller plus loin, vous pouvez étendre <code>base.html</code> (et potentiellement <code>header.html</code> et <code>footer.html</code>).</p>
+<p>Si vous avez besoin d'aller plus loin, vous pouvez étendre <code>base.html</code>
+(et potentiellement <code>header.html</code> et <code>footer.html</code>).</p>
 <h3 id="fichier-basehtml">Fichier base.html</h3>
-<p>Dans le répertoire de votre application, créez le ficher <code>&lt;votre_app&gt;/templates/&lt;votre_app&gt;/base.html</code> avec le contenu suivant :</p>
+<p>Dans le répertoire de votre application, créez le ficher <code>&lt;votre_app&gt;/templates/&lt;votre_app&gt;/base.html</code>
+avec le contenu suivant :</p>
 <div class="dsfr-code"><pre><span></span><code><span class="x">&lt;!-- &lt;votre_app&gt;/templates/&lt;votre_app&gt;/base.html --&gt;</span>
 <span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;dsfr/base.html&quot;</span> <span class="cp">%}</span>
 
@@ -856,14 +862,18 @@
 <li><a href="/django-dsfr/components/footer/">Pied de page (footer)</a></li>
 </ul>
 <h3 id="remplacer-au-lieu-detendre">Remplacer au lieu d’étendre</h3>
-<p>Dans le cas où les gabarits fournis se révéleraient trop limités, n’hésitez pas à les remplacer complètement par les vôtres. En plus des composants du Système de design de l’État lui-même, vous pouvez alors utiliser certaines balises pour vous faciliter le travail, notamment :</p>
+<p>Dans le cas où les gabarits fournis se révéleraient trop limités, n’hésitez pas
+à les remplacer complètement par les vôtres. En plus des composants du Système
+de design de l’État lui-même, vous pouvez alors utiliser certaines balises pour
+vous faciliter le travail, notamment :</p>
 <ul>
 <li><a href="/django-dsfr/components/css/">CSS global</a></li>
 <li><a href="/django-dsfr/components/js/">JS global</a></li>
 <li><a href="/django-dsfr/components/django_messages/">Messages Django dans une alerte</a></li>
 </ul>
 <h2 id="gestion-de-la-configuration-en-admin">Gestion de la configuration en admin</h2>
-<p>Vous pouvez personnaliser certains éléments du site via une "configuration du site" dans l’<a href="https://docs.djangoproject.com/fr/5.0/ref/contrib/admin/">administration de Django</a>.</p>
+<p>Vous pouvez personnaliser certains éléments du site via une "configuration du site"
+dans l’<a href="https://docs.djangoproject.com/fr/5.0/ref/contrib/admin/">administration de Django</a>.</p>
 <p>Cela permet notamment aux utilisateurs de les modifier sans passer par un développement.</p>
 <ul>
 <li>Ajoutez le <code>context_processor</code> au fichier <code>settings.py</code> :</li>
@@ -883,16 +893,23 @@
 
 <h2 id="parametres-optionnels">Paramètres (optionnels)</h2>
 <ul>
-<li><code>DSFR_CHECK_DEPRECATED</code> (défaut: <code>False</code>) : si <code>True</code>, vérifie la présence de paramètres obsolètes à l’intérieur des template tags</li>
+<li><code>DSFR_CHECK_DEPRECATED</code> (défaut: <code>False</code>) : si <code>True</code>, vérifie la présence de
+    paramètres obsolètes à l’intérieur des template tags</li>
 <li>
-<p><code>DSFR_USE_INTEGRITY_CHECKSUMS</code>  (défaut: <code>True</code>)  : si <code>True</code>, intègre des checksums d’intégrité sur les fichiers CSS et JS globaux. À désactiver si cela pose des problèmes avec d’autres modules Django comme Whitenoise.</p>
+<p><code>DSFR_USE_INTEGRITY_CHECKSUMS</code>  (défaut: <code>True</code>)  : si <code>True</code>, intègre des
+    checksums d’intégrité sur les fichiers CSS et JS globaux. À désactiver si
+    cela pose des problèmes avec d’autres modules Django comme Whitenoise.</p>
 </li>
 <li>
-<p>Créez un objet "DsfrConfig" dans le panneau d’administration (section Système de design de l’État &gt; Configurations.)</p>
+<p>Créez un objet "DsfrConfig" dans le panneau d’administration
+    (section Système de design de l’État &gt; Configurations.)</p>
 </li>
 </ul>
 <h2 id="application-dexemple">Application d’exemple</h2>
-<p>Vous pouvez prendre exemple sur cette application (cf. <a href="https://github.com/numerique-gouv/django-dsfr/tree/main/example_app">code source</a>). Elle consiste en un générateur pour la présente documentation. Dans la mesure où celle-ci est hébergée de manière statique, un export est fait automatiquement via <a href="https://github.com/meeb/django-distill">Django-distill</a>.</p>
+<p>Vous pouvez prendre exemple sur cette application (cf. <a href="https://github.com/numerique-gouv/django-dsfr/tree/main/example_app">code source</a>).</p>
+<p>Elle consiste en un générateur pour la présente documentation. Dans la mesure
+où celle-ci est hébergée de manière statique, un export est fait automatiquement
+via <a href="https://github.com/meeb/django-distill">Django-distill</a>.</p>
 
       </main>
     </div>
@@ -1183,11 +1200,11 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
     
 <script type="module"
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js"
-        integrity="sha384-RJkvPus2b7RilgVnxnoAma05jmZcnMbGCMseqxWYoI9M7NAwrZl8XQGlqeJze6B8"
+        integrity="sha384-X74emiCarEPSrcS8UDhKQLhB+5jLUZsM9N+7okITLuqE5bvSnjC1zlnruXbhH+RO"
         ></script>
 <script nomodule
         src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js"
-        integrity="sha384-hV+qwuoUW/5dZAPC4eQa8SR6lOclBXfdqdq35SgjdXMOTsbd+uf+oCFxSxl+X6VH"
+        integrity="sha384-rJCIIHcEfJiYS5zMZ9uNn7J3UpbPZ1/AJPG0k7zddfEM6b6Q/8kgTwAEw6Bm8Eeo"
         ></script>
 
 
