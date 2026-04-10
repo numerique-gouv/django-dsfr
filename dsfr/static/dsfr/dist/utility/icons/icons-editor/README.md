@@ -23,4 +23,4 @@ Afin d’utiliser le composant `icons-editor`, il est nécessaire d’ajouter le
 
 ## Documentation
 
-Consulter [la documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/icones) sur le module Icônes Editor
+Consulter [la documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/fondamentaux/icone) sur le module Icônes Editor

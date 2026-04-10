@@ -106,7 +106,7 @@ def index(request):
 @require_safe
 def components_index(request):
     payload = init_payload("Composants")
-    md = format_markdown_from_file("doc/components.md")
+    md = format_markdown_from_file("doc/components.md", ignore_first_line=True)
     payload["documentation"] = md["text"]
     payload["implemented_components"] = dict(
         sorted(IMPLEMENTED_COMPONENTS.items(), key=lambda k: k[1]["title"])
@@ -180,7 +180,7 @@ def page_component(request, tag_name):  # NOSONAR
             page_title="Pied de page",
             links=payload_links,
         )
-        md = format_markdown_from_file("doc/footer.md")
+        md = format_markdown_from_file("doc/footer.md", ignore_first_line=True)
         payload["documentation"] = md["text"]
         payload["side_menu"] = side_menu
         return render(request, "example_app/doc_markdown_with_sidebar.html", payload)
@@ -190,7 +190,7 @@ def page_component(request, tag_name):  # NOSONAR
             links=payload_links,
         )
 
-        md = format_markdown_from_file("doc/header.md")
+        md = format_markdown_from_file("doc/header.md", ignore_first_line=True)
         payload["documentation"] = md["text"]
         payload["side_menu"] = side_menu
         return render(request, "example_app/doc_markdown_with_sidebar.html", payload)
@@ -200,7 +200,7 @@ def page_component(request, tag_name):  # NOSONAR
             page_title="Lettre d’information et Réseaux Sociaux",
             links=payload_links,
         )
-        md = format_markdown_from_file("doc/follow.md")
+        md = format_markdown_from_file("doc/follow.md", ignore_first_line=True)
         payload["documentation"] = md["text"]
         payload["side_menu"] = side_menu
         return render(request, "example_app/doc_markdown_with_sidebar.html", payload)
@@ -335,13 +335,13 @@ class AuthorCreateView(CreateView):
 
         # /!\ Pass your form, formset and helper to the context
         if self.request.POST:
-            context["form"] = self.form_class(self.request.POST)
+            context["form"] = self.form_class(self.request.POST)  #  type: ignore
             context["formset"] = BookCreateFormSet(
                 self.request.POST, self.request.FILES, instance=instance
             )
             context["book_formhelper"] = book_formhelper
         else:
-            context["form"] = self.form_class()
+            context["form"] = self.form_class()  #  type: ignore
             self.formset = self.get_formset(self.request)
             context["formset"] = self.formset
             context["book_formhelper"] = book_formhelper
@@ -423,7 +423,7 @@ def doc_install(request):
 def doc_usage(request):
     payload = init_payload("Utiliser Django-DSFR")
 
-    md = format_markdown_from_file("doc/usage.md")
+    md = format_markdown_from_file("doc/usage.md", ignore_first_line=True)
     payload["documentation"] = md["text"]
     payload["summary_data"] = md["summary"]
 

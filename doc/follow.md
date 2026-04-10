@@ -1,4 +1,8 @@
-Le bandeau de Lettre d’information et Réseaux Sociaux est géré grâce à une balise `include` à insérer dans le bloc `follow_newsletter_social_media` dans le fichier `base.html`.
+# Bandeau Lettre d’information et Réseaux sociaux
+
+Le bandeau de Lettre d’information et Réseaux sociaux est géré grâce à une
+balise `include` à insérer dans le bloc `follow_newsletter_social_media` dans
+le fichier `base.html`.
 
 ```{.django}
 <!-- <votre_app>/templates/<votre_app>/base.html -->
@@ -12,14 +16,21 @@ Le bandeau de Lettre d’information et Réseaux Sociaux est géré grâce à un
 {% endblock follow_newsletter_social_media %}
 ```
 
-Il est alors possible de personnaliser la description de la lettre d’information, l’URL d’inscription ainsi que les réseaux sociaux via la configuration du site dans l’administration de Django.
+Il est alors possible de personnaliser la description de la lettre d’information,
+l’URL d’inscription ainsi que les réseaux sociaux via la configuration du site
+dans l’administration de Django.
 
-
-- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/pied-de-page" target="_blank" rel="noopener noreferrer">
+- <a
+    class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+    href="https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/pied-de-page"
+    target="_blank" rel="noopener noreferrer">
         Voir la page de documentation du composant sur le Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
-- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://main--ds-gouv.netlify.app/example/component/footer/" target="_blank" rel="noopener noreferrer">
+- <a
+    class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+    href="https://main--ds-gouv.netlify.app/example/component/footer/"
+    target="_blank" rel="noopener noreferrer">
         Voir la page d’exemple du Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
@@ -43,7 +54,10 @@ Il est alors possible de personnaliser la description de la lettre d’informati
 - `fr-btn--youtube`
 
 ## Personnaliser
-Il est possible de le remplacer par votre propre bloc pour étendre ses capacités (par exemple pour n’afficher qu’un des deux blocs ou pour inclure le champ d’adhésion directement dans le bandeau.)
+
+Il est possible de le remplacer par votre propre bloc pour étendre ses capacités
+(par exemple pour n’afficher qu’un des deux blocs ou pour inclure le champ
+d’adhésion directement dans le bandeau.)
 
 ```{.django}
 <!-- <votre_app>/templates/<votre_app>/base.html -->

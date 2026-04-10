@@ -1,29 +1,50 @@
-L’en-tête est géré grâce à une balise `include` dans le fichier `base.html`. Si vous n’avez pas besoin de le personnaliser, vous n’avez rien à faire.
+# En-tête
 
-Il est alors possible de personnaliser le titre, le sous-titre, ainsi que le bloc-marque, via la configuration du site dans l’administration de Django.
+L’en-tête est géré grâce à une balise `include` dans le fichier `base.html`.
+Si vous n’avez pas besoin de le personnaliser, vous n’avez rien à faire.
 
-- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/en-tete" target="_blank" rel="noopener noreferrer">
+Il est alors possible de personnaliser le titre, le sous-titre, ainsi que
+le bloc-marque, via la configuration du site dans l’administration de Django.
+
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+    href="https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/en-tete"
+    target="_blank" rel="noopener noreferrer">
         Voir la page de documentation du composant sur le Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
-- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://main--ds-gouv.netlify.app/example/component/header/" target="_blank" rel="noopener noreferrer">
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+    href="https://main--ds-gouv.netlify.app/example/component/header/"
+    target="_blank" rel="noopener noreferrer">
         Voir la page d’exemple du Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
-- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://storybook.systeme-de-design.gouv.fr/?path=/docs/header--docs" target="_blank" rel="noopener noreferrer">
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+    href="https://storybook.systeme-de-design.gouv.fr/?path=/docs/header--docs"
+    target="_blank" rel="noopener noreferrer">
         Voir la page du composant sur Storybook
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
 
 ## Composants liés
-Le gabarit d’en-tête est également l’endroit où inclure les composants suivants :
 
-- Navigation principale (navigation) ([Documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/navigation-principale) — [Exemple](https://main--ds-gouv.netlify.app/example/component/navigation/)), à insérer dans le bloc `main_menu`.
-- Sélecteur de langues (translate) : ([Documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/selecteur-de-langues) — [Exemple](https://main--ds-gouv.netlify.app/example/component/translate/)), à insérer dans le bloc `header_tools`. L’application d’exemple donne un exemple d’implémentation ne traduisant que l’interface, et ne changeant pas l’URL, mais il est plutôt recommandé de définir un préfixe de langue dans l’URL, cf. la [documentation de Django](https://docs.djangoproject.com/fr/5.0/topics/i18n/translation/).
+Le gabarit d’en-tête est également le bon endroit où inclure les composants
+suivants :
+
+- Navigation principale (navigation)
+  ([Documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/navigation-principale)
+  — [Exemple](https://main--ds-gouv.netlify.app/example/component/navigation/)),
+  à insérer dans le bloc `main_menu`.
+- Sélecteur de langues (translate) : ([Documentation](https://www.systeme-de-design.gouv.fr/version-courante/fr/composants/selecteur-de-langues)
+— [Exemple](https://main--ds-gouv.netlify.app/example/component/translate/)),
+à insérer dans le bloc `header_tools`. L’application d’exemple donne un exemple
+d’implémentation ne traduisant que l’interface, et ne changeant pas l’URL,
+mais il est plutôt recommandé de définir un préfixe de langue dans l’URL, cf.
+la [documentation de Django](https://docs.djangoproject.com/fr/5.0/topics/i18n/translation/).
 
 ## Personnaliser
 
-Il est possible de l’étendre pour le personnaliser, par exemple pour ajouter la barre de recherche :
+Il est possible de l’étendre pour le personnaliser, par exemple pour ajouter la
+barre de recherche :
 
 ```{.django}
 <!-- <votre_app>/templates/<votre_app>/base.html -->
@@ -36,7 +57,7 @@ Il est possible de l’étendre pour le personnaliser, par exemple pour ajouter 
 
 ```
 
-```
+```{.django}
 <!-- <votre_app>/templates/<votre_app>/blocks/header.html -->
 {% extends "dsfr/header.html" %}
 
@@ -70,8 +91,8 @@ Il est possible de l’étendre pour le personnaliser, par exemple pour ajouter 
 
 ## Opengraph
 
-Un bloc `opengraph`, vide par défaut, est fourni pour permettre d’entrer des données de partage sur les réseaux sociaux.
-
+Un bloc `opengraph`, vide par défaut, est fourni pour permettre d’entrer des
+données de partage sur les réseaux sociaux.
 
 ```{.django}
 <!-- <votre_app>/templates/<votre_app>/base.html -->
@@ -93,6 +114,7 @@ Un bloc `opengraph`, vide par défaut, est fourni pour permettre d’entrer des 
 ```
 
 ## Bloc déprécié
+
 ### header_tools
 
 <ul class="fr-badge-group">
@@ -101,7 +123,10 @@ Un bloc `opengraph`, vide par défaut, est fourni pour permettre d’entrer des 
   </li>
 </ul>
 
-- Le bloc `header_tools`, qui n’agit que sur l’intérieur de la liste de liens de l’en-tête, pose un problème d’acessibilité si cette liste est vide et va donc être supprimé à terme. Les personnalisations sont à mettre dans le nouveau bloc `header_tools_links`, comme suit :
+- Le bloc `header_tools`, qui n’agit que sur l’intérieur de la liste de liens de
+  l’en-tête, pose un problème d’acessibilité si cette liste est vide et va donc
+  être supprimé à terme. Les personnalisations sont à mettre dans le nouveau
+  bloc `header_tools_links`, comme suit :
 
 ```{.django}
 <!-- <votre_app>/templates/<votre_app>/base.html -->
@@ -125,7 +150,10 @@ Un bloc `opengraph`, vide par défaut, est fourni pour permettre d’entrer des 
   </div>
 {% endblock header_tools_links %}
 ```
-- Inversement, s’il est vide, il faut donc l’indiquer explicitement comme vide. De même, s’il n’y a pas non plus de barre de recherche, indiquer explicitement le bloc `header_tools_wrapper` comme vide :
+
+- Inversement, s’il est vide, il faut donc l’indiquer explicitement comme vide.
+  De même, s’il n’y a pas non plus de barre de recherche, indiquer explicitement
+  le bloc `header_tools_wrapper` comme vide :
 
 ```{.django}
 <!-- <votre_app>/templates/<votre_app>/base.html -->

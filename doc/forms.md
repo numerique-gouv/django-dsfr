@@ -1,19 +1,28 @@
 # Formulaires – Documentation
-- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://www.systeme-de-design.gouv.fr/version-courante/fr/modeles/blocs-fonctionnels/formulaires" target="_blank" rel="noopener noreferrer">
+
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+    href="https://www.systeme-de-design.gouv.fr/version-courante/fr/modeles/blocs-fonctionnels/formulaires"
+  target="_blank" rel="noopener noreferrer">
         Voir la page de documentation du composant sur le Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
-- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://main--ds-gouv.netlify.app/example/component/form/" target="_blank" rel="noopener noreferrer">
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+    href="https://main--ds-gouv.netlify.app/example/component/form/"
+    target="_blank" rel="noopener noreferrer">
         Voir la page d’exemple du Système de Design de l’État
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
-- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg" href="https://storybook.systeme-de-design.gouv.fr/?path=/docs/form--docs" target="_blank" rel="noopener noreferrer">
+- <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
+    href="https://storybook.systeme-de-design.gouv.fr/?path=/docs/form--docs"
+    target="_blank" rel="noopener noreferrer">
         Voir la page du composant sur Storybook
         <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
   </a>
 
 ## Initialisation des formulaires
-Les formulaires sont construits en se basant sur la classe `DsfrBaseForm`, par exemple :
+
+Les formulaires sont construits en se basant sur la classe `DsfrBaseForm`,
+par exemple :
 
 ```{ .python }
 # votre_app/forms.py
@@ -39,7 +48,9 @@ class AuthorCreateForm(ModelForm, DsfrBaseForm):
 ```
 
 ## Classes CSS
-Le formulaire ajoute la ou les classes appropriées (`fr-input`, `fr-select`, etc.) en fonction du type de champ, mais uniquement si une classe n’a pas déjà été ajoutée.
+
+Le formulaire ajoute la ou les classes appropriées (`fr-input`, `fr-select`, etc.)
+en fonction du type de champ, mais uniquement si une classe n’a pas déjà été ajoutée.
 
 Si c’est le cas, il faut soit forcer manuellement les classes à utiliser :
 
@@ -55,7 +66,8 @@ Si c’est le cas, il faut soit forcer manuellement les classes à utiliser :
     )
 ```
 
-soit les ajouter dans la méthode `init` du formulaire (en faisant attention à laisser une espace au début) :
+soit les ajouter dans la méthode `init` du formulaire (en faisant attention à
+laisser une espace au début) :
 
 ```{ .python }
 class AuthorCreateForm(ModelForm, DsfrBaseForm):
@@ -68,7 +80,9 @@ def __init__(self, *args, **kwargs):
 ```
 
 ## Utilisation
-Les formulaires sont appelés avec la balise `{{ form }}` (ou `{{ my_custom_form }}` le cas échéant).
+
+Les formulaires sont appelés avec la balise `{{ form }}` (ou `{{ my_custom_form }}`
+le cas échéant).
 
 La balise `{% dsfr_form %}` est maintenant dépréciée depuis Django-DSFR 2.0.0.
 
@@ -125,7 +139,8 @@ class TemperatureChoices(ExtendedChoices):
     COLD = {"value": "COLD"}
 ```
 
-Voir [cette section sur la façon de fournir des valeurs par défaut pour des attributs supplémentaires](#default-values)
+Voir [cette section](#default-values) sur la façon de fournir des valeurs par
+défaut pour des attributs supplémentaires.
 
 #### Utilisation avec `enum.auto()`
 
@@ -281,8 +296,8 @@ TemperatureChoices.OK.m_temperature == TemperatureChoices.OK.temperature
 
 ### `dsfr.enums.RichRadioButtonChoices` {: #rich-choices }
 
-Version spécialisée de [`RichRadioButtonChoices`](#extended-choices) à utiliser avec
-`dsfr.widgets.RichRadioSelect`. Cette version déclare en plus les propriétés
+Version spécialisée de [`RichRadioButtonChoices`](#extended-choices) à utiliser
+avec `dsfr.widgets.RichRadioSelect`. Cette version déclare en plus les propriétés
 `pictogram`, `pictogram_alt` et `html_label` :
 
 ```python
@@ -369,8 +384,11 @@ class ExampleForm(DsfrBaseForm):
 
 L'attribut `html_label` peut-être utilisé pour déclarer du HTML à insérer dans
 `<label>`. Le code est automatiquement marqué sûr avec
-`django.utils.safestring.mark_safe` [(cf. doc)](https://docs.djangoproject.com/en/5.1/ref/utils/#django.utils.safestring.mark_safe) et ne produira pas de
-[problème d'échappement du HTML](https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping) dans vos templates.
+`django.utils.safestring.mark_safe`
+[(cf. doc)](https://docs.djangoproject.com/en/5.1/ref/utils/#django.utils.safestring.mark_safe)
+et ne produira pas de
+[problème d'échappement du HTML](https://docs.djangoproject.com/en/5.1/ref/templates/language/#automatic-html-escaping)
+dans vos templates.
 
 Si `html_label` n'est pas déclaré par un membre de l'enum, la propriété `html_label`
 renvoie la valeur de la propriété `label` à la place.
