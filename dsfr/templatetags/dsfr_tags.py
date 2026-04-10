@@ -928,6 +928,7 @@ def dsfr_quote(*args, **kwargs) -> dict:
     ```python
     data_dict = {
         "text": "Text of the quote",
+        "text_size": "(Optional) The size of the quote text (values: 'md', 'lg', 'xl') ; defaults to 'md'",
         "source_url": "(Optional) URL of the source of the quote",
         "author": "(Optional) The author of the quote",
         "source": "(Optional) The name of the source of the quote",
@@ -954,6 +955,7 @@ def dsfr_quote(*args, **kwargs) -> dict:
 
     allowed_keys = [
         "text",
+        "text_size",
         "source_url",
         "author",
         "source",
@@ -962,6 +964,10 @@ def dsfr_quote(*args, **kwargs) -> dict:
         "extra_classes",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
+
+    text_size_options = ("md", "lg", "xl")
+    if tag_data.get("text_size", "") not in text_size_options:
+        tag_data["text_size"] = text_size_options[0]
 
     return {"self": tag_data}
 

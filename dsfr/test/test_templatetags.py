@@ -874,13 +874,40 @@ class DsfrQuoteTagTest(SimpleTestCase):
     context = Context({"test_data": test_data})
     template_to_render = Template("{% load dsfr_tags %} {% dsfr_quote test_data %}")
 
-    def test_quote_tag_rendered(self):
+    def test_quote_tag_default_rendered(self):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
             <figure class="fr-quote fr-quote--column">
                 <blockquote cite="https://www.systeme-de-design.gouv.fr/">
-                    <p>Développer vos sites et applications en utilisant des composants prêts à l&#x27;emploi, accessibles et ergonomiques</p>
+                    <p class="fr-text--md">Développer vos sites et applications en utilisant des composants prêts à l&#x27;emploi, accessibles et ergonomiques</p>
+                </blockquote>
+                <figcaption>
+                    <p class="fr-quote__author">Auteur</p>
+                    <ul class="fr-quote__source">
+                    <li>
+                        <cite>Système de Design de l&#x27;État</cite>
+                    </li>
+                    <li>Détail sans lien</li>
+                    <li><a target="_blank" rel="noopener noreferrer" href="https://template.incubateur.net/">Détail avec lien <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a></li>
+                    </ul>
+                    <div class="fr-quote__image">
+                    <img src="https://via.placeholder.com/150x150" class="fr-responsive-img" alt="" />
+                    </div>
+                </figcaption>
+            </figure>
+            """,  # noqa
+            rendered_template,
+        )
+
+    def test_quote_tag_text_size_rendered(self):
+        self.context["test_data"]["text_size"] = "lg"
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <figure class="fr-quote fr-quote--column">
+                <blockquote cite="https://www.systeme-de-design.gouv.fr/">
+                    <p class="fr-text--lg">Développer vos sites et applications en utilisant des composants prêts à l&#x27;emploi, accessibles et ergonomiques</p>
                 </blockquote>
                 <figcaption>
                     <p class="fr-quote__author">Auteur</p>

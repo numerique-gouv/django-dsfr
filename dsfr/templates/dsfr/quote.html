@@ -2,7 +2,7 @@
 {% translate "Opens a new window" as new_window_label %}
 <figure class="fr-quote fr-quote--column{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
   <blockquote {% if self.source_url %}cite="{{ self.source_url }}"{% endif %}>
-    <p>
+    <p class="fr-text--{{ self.text_size }}">
       {{ self.text }}
     </p>
   </blockquote>
