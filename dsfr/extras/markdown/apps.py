@@ -8,7 +8,7 @@ class DsfrMarkdownConfig(AppConfig):
     name = "dsfr.extras.markdown"
 
     def ready(self):
-        for dep in ("markdown", "pymdownx", "lxml"):
+        for dep in ("markdown", "pymdownx"):
             if find_spec(dep) is None:
                 raise ImportError(
                     f"No module named {dep}; to use django-dsfr's markdown features, you must install the 'markdown' feature by specifying 'django-dsfr[markdown]' in your requirements.txt or pyproject.toml"
