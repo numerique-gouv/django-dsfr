@@ -90,11 +90,17 @@
         {% block footer_links %}
           <li class="fr-footer__bottom-item">
             {% url 'footer-sitemap' as sitemap_url %}
-            <a class="fr-footer__bottom-link" href={% if sitemap_url %}"{{ sitemap_url }}"{% else %}"#"{% endif %} id="footer_sitemap">{% translate "Sitemap" %}</a>
+            <a class="fr-footer__bottom-link"
+               href="{% if sitemap_url %}" " {{ sitemap_url }} " {% else %} " " {% endif %} id="
+               footer_sitemap
+               ">{% translate "Sitemap" %}</a>
           </li>
           <li class="fr-footer__bottom-item">
             {% url 'footer-accessibility-status' as accessibility_status_url %}
-            <a class="fr-footer__bottom-link" href={% if accessibility_status_url %}"{{ accessibility_status_url }}"{% else %}"#"{% endif %} id="footer_accessibility_status">
+            <a class="fr-footer__bottom-link"
+               href="{% if accessibility_status_url %}" " {{ accessibility_status_url }} " {% else %} " " {% endif %} id="
+               footer_accessibility_status
+               ">
               {% with accessibility_status=SITE_CONFIG.get_accessibility_status_display|default:"non" %}
                 {% blocktranslate %}Accessibility: {{ accessibility_status }} compliant{% endblocktranslate %}
               {% endwith %}
@@ -102,15 +108,24 @@
           </li>
           <li class="fr-footer__bottom-item">
             {% url 'footer-legal-notice' as legal_notice_url %}
-            <a class="fr-footer__bottom-link" href={% if legal_notice_url %}"{{ legal_notice_url }}"{% else %}"#"{% endif %} id="footer_legal_notice">{% translate "Legal notice" %}</a>
+            <a class="fr-footer__bottom-link"
+               href="{% if legal_notice_url %}" " {{ legal_notice_url }} " {% else %} " " {% endif %} id="
+               footer_legal_notice
+               ">{% translate "Legal notice" %}</a>
           </li>
           <li class="fr-footer__bottom-item">
             {% url 'footer-personal-data' as personal_data_url %}
-            <a class="fr-footer__bottom-link" href={% if personal_data_url %}"{{ personal_data_url }}"{% else %}"#"{% endif %} id="footer_personal_data">{% translate "Personal data" %}</a>
+            <a class="fr-footer__bottom-link"
+               href="{% if personal_data_url %}" " {{ personal_data_url }} " {% else %} " " {% endif %} id="
+               footer_personal_data
+               ">{% translate "Personal data" %}</a>
           </li>
           <li class="fr-footer__bottom-item">
             {% url 'footer-cookie-management' as cookie_management_url %}
-            <a class="fr-footer__bottom-link" href={% if cookie_management_url %}"{{ cookie_management_url }}"{% else %}"#"{% endif %} id="footer_cookie_management">{% translate "Cookie management" %}</a>
+            <a class="fr-footer__bottom-link"
+               href="{% if cookie_management_url %}" " {{ cookie_management_url }} " {% else %} " " {% endif %} id="
+               footer_cookie_management
+               ">{% translate "Cookie management" %}</a>
           </li>
         {% endblock footer_links %}
       </ul>

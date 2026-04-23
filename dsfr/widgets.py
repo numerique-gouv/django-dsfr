@@ -12,7 +12,6 @@ from django.utils.datastructures import MultiValueDict
 
 from dsfr.enums import ExtendedChoices
 
-
 __all__ = [
     "RichRadioSelect",
     "InlineRadioSelect",

@@ -13,7 +13,6 @@ from markdown.extensions.tables import TableProcessor
 from markdown.extensions.toc import TocTreeprocessor, TocExtension
 from markdown.extensions import Extension
 
-
 register = template.Library()
 
 

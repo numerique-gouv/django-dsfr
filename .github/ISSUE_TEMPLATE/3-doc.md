@@ -7,11 +7,16 @@ assignees: ''
 
 ---
 
-##  📔 Documentation associée
-_Si la suggestion concerne une documentation existante, préciser de laquelle il s’agit. Ajouter un lien si possible._
+## 📔 Documentation associée
 
-##  🔮 Suggestion
+_Si la suggestion concerne une documentation existante, préciser de laquelle il
+s’agit. Ajouter un lien si possible._
+
+## 🔮 Suggestion
+
 _Comment cette documentation pourrait être améliorée._
 
 ## 🛈 Sources (si applicable)
-_Merci de fournir les différentes sources et recherches qui pourraient appuyer cette suggestion._
+
+_Merci de fournir les différentes sources et recherches qui pourraient appuyer
+cette suggestion._

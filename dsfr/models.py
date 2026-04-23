@@ -144,10 +144,8 @@ class DsfrConfig(models.Model):
         decimal_places=1,
         null=True,
         default="0.0",
-        help_text=_(
-            "To be adjusted according to the width of the logo.\
-            Example for a vertical logo: 3.5, Example for a horizontal logo: 8."
-        ),
+        help_text=_("To be adjusted according to the width of the logo.\
+            Example for a vertical logo: 3.5, Example for a horizontal logo: 8."),
     )
 
     # Advanced
