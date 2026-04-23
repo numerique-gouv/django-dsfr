@@ -1,6 +1,5 @@
 import re
-import defusedxml
-import xml.etree.ElementTree as etree  # nosec B405
+import xml.etree.ElementTree as etree  # nosec B405 — used only to create elements, never to parse untrusted XML
 
 from django import template
 from django.utils.safestring import mark_safe
@@ -13,8 +12,6 @@ from markdown.extensions.nl2br import Nl2BrExtension
 from markdown.extensions.tables import TableProcessor
 from markdown.extensions.toc import TocTreeprocessor, TocExtension
 from markdown.extensions import Extension
-
-defusedxml.defuse_stdlib()
 
 register = template.Library()
 
