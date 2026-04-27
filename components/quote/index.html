@@ -748,10 +748,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-ixlaingzbbpqytbz">
+          aria-controls="breadcrumb-dubjzpylgveixaqi">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-ixlaingzbbpqytbz">
+  <div class="fr-collapse" id="breadcrumb-dubjzpylgveixaqi">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -781,13 +781,13 @@
   <div class="fr-sidemenu__inner">
     <button type="button"
             class="fr-sidemenu__btn"
-            aria-controls="fr-sidemenu-hntzacjagmyhzzma-wrapper"
+            aria-controls="fr-sidemenu-qrnurhtdbbnwvvys-wrapper"
             aria-expanded="false">
       
         Dans cette rubrique
       
     </button>
-    <div class="fr-collapse" id="fr-sidemenu-hntzacjagmyhzzma-wrapper">
+    <div class="fr-collapse" id="fr-sidemenu-qrnurhtdbbnwvvys-wrapper">
       
       <ul class="fr-sidemenu__list">
         
@@ -807,11 +807,11 @@
               <button type="button"
                       class="fr-sidemenu__btn"
                       aria-expanded="true"
-                      aria-controls="fr-sidemenu-hntzacjagmyhzzma-item-2">
+                      aria-controls="fr-sidemenu-qrnurhtdbbnwvvys-item-2">
                 Composants implémentés
               </button>
               <div class="fr-collapse"
-                   id="fr-sidemenu-hntzacjagmyhzzma-item-2">
+                   id="fr-sidemenu-qrnurhtdbbnwvvys-item-2">
                 <ul class="fr-sidemenu__list">
                   
                     <li class="fr-sidemenu__item">
@@ -1280,6 +1280,7 @@
       <p>Returns a quote item. Takes a dict as parameter, with the following structure:</p>
 <div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Text of the quote&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;text_size&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) The size of the quote text (values: &#39;md&#39;, &#39;lg&#39;, &#39;xl&#39;) ; defaults to &#39;md&#39;&quot;</span><span class="p">,</span>
     <span class="s2">&quot;source_url&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) URL of the source of the quote&quot;</span><span class="p">,</span>
     <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) The author of the quote&quot;</span><span class="p">,</span>
     <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) The name of the source of the quote&quot;</span><span class="p">,</span>
@@ -1317,11 +1318,11 @@
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-syoupohrbrkzuufq">
+          aria-controls="accordion-bllaklgxbvohdfnp">
     Données de l’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-syoupohrbrkzuufq">
+  <div class="fr-collapse" id="accordion-bllaklgxbvohdfnp">
     <pre class="dsfr-code">{&#x27;text&#x27;: &#x27;«\xa0Citation très basique, sans aucun des champs optionnels.\xa0»&#x27;}</pre>
   </div>
 </section>
@@ -1335,7 +1336,7 @@
 
 <figure class="fr-quote fr-quote--column">
   <blockquote >
-    <p>
+    <p class="fr-text--md">
       « Citation très basique, sans aucun des champs optionnels. »
     </p>
   </blockquote>
@@ -1361,11 +1362,55 @@
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-xrfsawjgcmolccbf">
+          aria-controls="accordion-fjkfyjxnxmrquvif">
     Données de l’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-xrfsawjgcmolccbf">
+  <div class="fr-collapse" id="accordion-fjkfyjxnxmrquvif">
+    <pre class="dsfr-code">{&#x27;text&#x27;: &#x27;«\xa0Citation basique en grande taille.\xa0»&#x27;, &#x27;text_size&#x27;: &#x27;lg&#x27;}</pre>
+  </div>
+</section>
+
+              
+            
+            
+          </div>
+          
+            
+
+<figure class="fr-quote fr-quote--column">
+  <blockquote >
+    <p class="fr-text--lg">
+      « Citation basique en grande taille. »
+    </p>
+  </blockquote>
+  <figcaption>
+    
+    
+    
+  </figcaption>
+</figure>
+
+          
+        
+          <h3 class="fr-mt-3w">
+            Exemple 3
+          </h3>
+          <div class="fr-my-2w">
+            
+            
+              
+              
+                <section class="fr-accordion">
+  <h3 class="fr-accordion__title">
+  <button type="button"
+          class="fr-accordion__btn"
+          aria-expanded="false"
+          aria-controls="accordion-cgvqvqcksobahhjs">
+    Données de l’exemple
+  </button>
+  </h3>
+  <div class="fr-collapse" id="accordion-cgvqvqcksobahhjs">
     <pre class="dsfr-code">{&#x27;text&#x27;: &#x27;«\xa0Développer vos sites et applications en utilisant des composants prêts à l’emploi, accessibles et ergonomiques\xa0»&#x27;, &#x27;source_url&#x27;: &#x27;https://www.systeme-de-design.gouv.fr/&#x27;, &#x27;author&#x27;: &#x27;Auteur&#x27;, &#x27;source&#x27;: &quot;Système de Design de l&#x27;État&quot;, &#x27;details&#x27;: [{&#x27;text&#x27;: &#x27;Détail sans lien&#x27;}, {&#x27;text&#x27;: &#x27;Détail avec lien&#x27;, &#x27;link&#x27;: &#x27;https://template.incubateur.net/&#x27;}], &#x27;image_url&#x27;: &#x27;/django-dsfr/static/img/placeholder.1x1.svg&#x27;, &#x27;extra_classes&#x27;: &#x27;fr-quote--green-emeraude&#x27;}</pre>
   </div>
 </section>
@@ -1379,7 +1424,7 @@
 
 <figure class="fr-quote fr-quote--column fr-quote--green-emeraude">
   <blockquote cite="https://www.systeme-de-design.gouv.fr/">
-    <p>
+    <p class="fr-text--md">
       « Développer vos sites et applications en utilisant des composants prêts à l’emploi, accessibles et ergonomiques »
     </p>
   </blockquote>
