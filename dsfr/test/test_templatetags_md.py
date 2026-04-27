@@ -4,9 +4,7 @@ from django.template import Context, Template
 
 class DsfrMdTagTest(SimpleTestCase):
     def test_md_tag_rendered(self):
-        context = Context(
-            {
-                "content": """
+        context = Context({"content": """
 # Titre de niveau 1
 
 Contenu *avec* de la **mise en forme** et même un lien vers [la doc de django-dsfr](https://numerique-gouv.github.io/django-dsfr/).
@@ -33,9 +31,7 @@ Jusqu’à la prochaine ligne vide.
 |--------------------|--------------------|
 | Ligne 1, colonne 1 | Ligne 1, colonne 2 |
 | Ligne 2, colonne 1 | Ligne 2, colonne 2 |
-                """
-            }
-        )
+                """})
         template_to_render = Template("{% load dsfr_md_tags %} {{ content|dsfr_md }}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
@@ -95,9 +91,7 @@ Jusqu’à la prochaine ligne vide.
         self.assertInHTML("<h1>Titre</h1>", rendered_template)
 
     def test_md_tag_with_toc_rendered(self):
-        context = Context(
-            {
-                "content": """[TOC]
+        context = Context({"content": """[TOC]
 # Titre de niveau 1
 
 Contenu niveau 1
@@ -109,9 +103,7 @@ Contenu niveau 2
 # Titre de niveau 1 à nouveau
 
 Contenu
-                """
-            }
-        )
+                """})
         template_to_render = Template(
             "{% load dsfr_md_tags %} {{ content|dsfr_md_with_toc }}"
         )

@@ -1,5 +1,7 @@
+# Icon picker
 
-Nice small Javascript Icon Picker, forked from https://github.com/migliori/universal-icon-picker: see full documentation there.
+Nice small Javascript Icon Picker, forked from
+<https://github.com/migliori/universal-icon-picker>: see full documentation there.
 
 ## License
 

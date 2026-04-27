@@ -7,9 +7,11 @@
 ```{ .bash }
 pip install django-dsfr
 ```
+
 ### Pour Django 5.0+
 
-- Ajoutez `widget_tweaks` et `dsfr` à `INSTALLED_APPS` dans le `settings.py` avant la ou les app avec laquelle vous voulez l’utiliser :
+- Ajoutez `widget_tweaks` et `dsfr` à `INSTALLED_APPS` dans le `settings.py`
+avant la ou les app(s) avec laquelle vous voulez l’utiliser :
 
 ```{ .python }
 INSTALLED_APPS = [
@@ -22,7 +24,8 @@ INSTALLED_APPS = [
 
 ### Pour Django 4.2 et avant
 
-- Ajoutez `widget_tweaks`, `dsfr` et `django.forms` à `INSTALLED_APPS` dans le `settings.py` avant la ou les app avec laquelle vous voulez l’utiliser :
+- Ajoutez `widget_tweaks`, `dsfr` et `django.forms` à `INSTALLED_APPS` dans le
+`settings.py` avant la ou les app avec laquelle vous voulez l’utiliser :
 
 ```{ .python }
 INSTALLED_APPS = [
@@ -34,9 +37,11 @@ INSTALLED_APPS = [
 ]
 ```
 
-**Attention** : si `django.forms` apparait déjà dans `INSTALLED_APPS`, il doit être placé *après* `dsfr`. Sinon les `FormSet`s ne seront pas correctement rendus.
+**Attention** : si `django.forms` apparait déjà dans `INSTALLED_APPS`, il doit
+être placé *après* `dsfr`. Sinon les `FormSet`s ne seront pas correctement rendus.
 
-- Ajouter le `FORM_RENDERER` in `settings.py` pour faire fonctionner les formulaires :
+- Ajouter le `FORM_RENDERER` in `settings.py` pour faire fonctionner les
+formulaires :
 
 ```{ .python }
 FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
@@ -49,11 +54,13 @@ FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 - Lancer le serveur (`python manage.py runserver`) et aller sur [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ## Paramètres optionnels
+
 À ajouter dans le fichier `settings.py` de votre projet :
 
 - `DSFR_CHECK_DEPRECATED_PARAMS` (defaut: False)
 
-Si valeur à `True`, permet d’avoir des avertissements dans la console si on utilise des valeurs obsolètes pour les paramètres des `templatetags`.
+Si valeur à `True`, permet d’avoir des avertissements dans la console si on
+utilise des valeurs obsolètes pour les paramètres des `templatetags`.
 
 Les tags obsolètes feront toujours l’objet d’un avertissement.
 
@@ -61,18 +68,21 @@ Les tags obsolètes feront toujours l’objet d’un avertissement.
 
 ### Rendu de contenu Markdown
 
-1. Installer avec l’extra markdown
-    ```{ .bash }
-    pip install django-dsfr[markdown]
-    ```
-2. Activer l’application Django supplémentaire
-    ```{ .python }
-    INSTALLED_APPS = [
-    ...
-    "widget_tweaks",
-    "dsfr",
-    "dsfr.extras.markdown",
-    "django.forms",
-    <votre_app>
-    ]
-    ```
+- Installer avec l’extra markdown
+
+```{ .bash }
+pip install django-dsfr[markdown]
+```
+
+- Activer l’application Django supplémentaire
+
+```{ .python }
+INSTALLED_APPS = [
+...
+"widget_tweaks",
+"dsfr",
+"dsfr.extras.markdown",
+"django.forms",
+<votre_app>
+]
+```

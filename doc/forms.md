@@ -81,8 +81,8 @@ def __init__(self, *args, **kwargs):
 
 ## Utilisation
 
-Les formulaires sont appelés avec la balise `{{ form }}` (ou `{{ my_custom_form }}`
-le cas échéant).
+Les formulaires sont appelés avec la balise `{{ form }}`
+(ou `{{ my_custom_form }}` le cas échéant).
 
 La balise `{% dsfr_form %}` est maintenant dépréciée depuis Django-DSFR 2.0.0.
 
@@ -126,7 +126,8 @@ Dans l'exemple précédent, en plus de `TemperatureChoices.<enum instance>.value
 Exemple : `TemperatureChoices.<enum instance>.temperature`.
 
 Notez que `"value"` est la seule clé obligatoire dans le dictionnaire. Lorsqu'un
-dictionnaire ne contient que `« value »`, les exemples suivants sont équivalents :
+dictionnaire ne contient que `« value »`, les exemples suivants sont
+équivalents :
 
 ```python
 from django.db import models

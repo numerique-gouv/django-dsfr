@@ -1,5 +1,5 @@
 import re
-import xml.etree.ElementTree as etree
+import xml.etree.ElementTree as etree  # nosec B405 — used only to create elements, never to parse untrusted XML
 
 from django import template
 from django.utils.safestring import mark_safe
@@ -12,7 +12,6 @@ from markdown.extensions.nl2br import Nl2BrExtension
 from markdown.extensions.tables import TableProcessor
 from markdown.extensions.toc import TocTreeprocessor, TocExtension
 from markdown.extensions import Extension
-
 
 register = template.Library()
 
@@ -149,7 +148,7 @@ class DsfrTocExtension(TocExtension):
 
 @register.filter(is_safe=True)
 def dsfr_md(content: str) -> str:
-    return mark_safe(
+    return mark_safe(  # nosec B308, B703 — output sanitized by pymdownx.striphtml extension
         markdown(
             content,
             extensions=[
@@ -164,7 +163,7 @@ def dsfr_md(content: str) -> str:
 
 @register.filter(is_safe=True)
 def dsfr_md_with_toc(content: str) -> str:
-    return mark_safe(
+    return mark_safe(  # nosec B308, B703 — output sanitized by pymdownx.striphtml extension
         markdown(
             content,
             extensions=[
