@@ -732,10 +732,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-lqvhtbpsixloldjq">
+          aria-controls="breadcrumb-pupxfqfnyhmqxjin">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-lqvhtbpsixloldjq">
+  <div class="fr-collapse" id="breadcrumb-pupxfqfnyhmqxjin">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -751,37 +751,51 @@
       
       <main id="content" role="main">
         
-  <h1>Extension : rendu de Markdown</h1>
+  <h1>
+    Extension : rendu de Markdown
+  </h1>
   <p>
     Django-DSFR inclut une extension <code>Markdown</code> qui permet de réaliser le rendu de Markdown en HTML spécialisé pour le DSFR, incluant par exemple les tableaux, des mises en exergue, etc.
   </p>
   <p>
     Ce rendu de Markdown s’effectue à l’aide du <em>template filter</em> <code>dsfr_md</code>.
   </p>
-  <h2>Pré-requis</h2>
+  <h2>
+    Pré-requis
+  </h2>
   <ul>
-  <li>
-    Installation d’un groupe de dépendances spécifique à cette extension via l’instruction d’installation suivante dans le <code>pyproject.toml</code> :
-    <div class="dsfr-code"><pre>"django-dsfr[markdown]",</pre></div>
-  </li>
-  <li>
-    Activation de l’application supplémentaire dans les réglages Django via <code>INSTALLED_APPS</code> :
-    <div class="dsfr-code"><pre>"dsfr.extras.markdown",</pre></div>
-  </li>
+    <li>
+      Installation d’un groupe de dépendances spécifique à cette extension via l’instruction d’installation suivante dans le <code>pyproject.toml</code> :
+      <div class="dsfr-code">
+        <pre>"django-dsfr[markdown]",</pre>
+      </div>
+    </li>
+    <li>
+      Activation de l’application supplémentaire dans les réglages Django via <code>INSTALLED_APPS</code> :
+      <div class="dsfr-code">
+        <pre>"dsfr.extras.markdown",</pre>
+      </div>
+    </li>
   </ul>
-  <h2>Utilisation</h2>
-  <p>Dans un template Django :</p>
+  <h2>
+    Utilisation
+  </h2>
+  <p>
+    Dans un template Django :
+  </p>
   <div class="dsfr-code">
     <pre>
 {% load dsfr_md_tags %}
 {{ mon_contenu_markdown|dsfr_md }}</pre>
   </div>
-  <h2>Exemples</h2>
+  <h2>
+    Exemples
+  </h2>
   
 <nav role="navigation"
      class="fr-summary"
-     aria-labelledby="fr-summary-pmymjifmqojznefx-title">
-  <p class="fr-summary__title" id="fr-summary-pmymjifmqojznefx-title">
+     aria-labelledby="fr-summary-jgqxelwibzfhyzyj-title">
+  <p class="fr-summary__title" id="fr-summary-jgqxelwibzfhyzyj-title">
   Sommaire
   </p>
   <ol class="fr-summary__list">
@@ -848,34 +862,62 @@
       
 
 
-  <h3 id="sample-classe-personnalisee">Classe personnalisée</h3>
-  <p>Le document Markdown suivant :</p>
+  <h3 id="sample-classe-personnalisee">
+    Classe personnalisée
+  </h3>
+  <p>
+    Le document Markdown suivant :
+  </p>
   <div class="dsfr-code">
     <pre><code>#### Titre 4 affiché comme titre 6 {: .fr-h6 }</code></pre>
   </div>
-  <p>Sera rendu :</p>
+  <p>
+    Sera rendu :
+  </p>
   <div class="fr-callout">
     <div class="fr-tabs">
-      <ul class="fr-tabs__list" role="tablist" aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
+      <ul class="fr-tabs__list"
+          role="tablist"
+          aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
         <li role="presentation">
-          <button type="button" id="tab-classe-personnalisee-1" class="fr-tabs__tab" tabindex="0" role="tab" aria-selected="true" aria-controls="tab-classe-personnalisee-1-panel">
+          <button type="button"
+                  id="tab-classe-personnalisee-1"
+                  class="fr-tabs__tab"
+                  tabindex="0"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-classe-personnalisee-1-panel">
             Rendu graphique
           </button>
         </li>
         <li role="presentation">
-          <button type="button" id="tab-classe-personnalisee-2" class="fr-tabs__tab" tabindex="-1" role="tab" aria-selected="true" aria-controls="tab-classe-personnalisee-2-panel">
+          <button type="button"
+                  id="tab-classe-personnalisee-2"
+                  class="fr-tabs__tab"
+                  tabindex="-1"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-classe-personnalisee-2-panel">
             Code HTML généré
           </button>
         </li>
       </ul>
-      <div id="tab-classe-personnalisee-1-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-classe-personnalisee-1" tabindex="0">
+      <div id="tab-classe-personnalisee-1-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-classe-personnalisee-1"
+           tabindex="0">
         <div>
           
             <h4 class="fr-h6">Titre 4 affiché comme titre 6</h4>
           
         </div>
       </div>
-      <div id="tab-classe-personnalisee-2-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-classe-personnalisee-2" tabindex="0">
+      <div id="tab-classe-personnalisee-2-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-classe-personnalisee-2"
+           tabindex="0">
         <pre><code>
           
             &lt;h4 class=&quot;fr-h6&quot;&gt;Titre 4 affiché comme titre 6&lt;/h4&gt;
@@ -885,40 +927,69 @@
     </div>
   </div>
 
+
     
   
     
       
 
 
-  <h3 id="sample-lien-externe">Lien externe</h3>
-  <p>Le document Markdown suivant :</p>
+  <h3 id="sample-lien-externe">
+    Lien externe
+  </h3>
+  <p>
+    Le document Markdown suivant :
+  </p>
   <div class="dsfr-code">
     <pre><code>Texte contenant [un lien vers un autre site](https://www.systeme-de-design.gouv.fr/)</code></pre>
   </div>
-  <p>Sera rendu :</p>
+  <p>
+    Sera rendu :
+  </p>
   <div class="fr-callout">
     <div class="fr-tabs">
-      <ul class="fr-tabs__list" role="tablist" aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
+      <ul class="fr-tabs__list"
+          role="tablist"
+          aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
         <li role="presentation">
-          <button type="button" id="tab-lien-externe-1" class="fr-tabs__tab" tabindex="0" role="tab" aria-selected="true" aria-controls="tab-lien-externe-1-panel">
+          <button type="button"
+                  id="tab-lien-externe-1"
+                  class="fr-tabs__tab"
+                  tabindex="0"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-lien-externe-1-panel">
             Rendu graphique
           </button>
         </li>
         <li role="presentation">
-          <button type="button" id="tab-lien-externe-2" class="fr-tabs__tab" tabindex="-1" role="tab" aria-selected="true" aria-controls="tab-lien-externe-2-panel">
+          <button type="button"
+                  id="tab-lien-externe-2"
+                  class="fr-tabs__tab"
+                  tabindex="-1"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-lien-externe-2-panel">
             Code HTML généré
           </button>
         </li>
       </ul>
-      <div id="tab-lien-externe-1-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-lien-externe-1" tabindex="0">
+      <div id="tab-lien-externe-1-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-lien-externe-1"
+           tabindex="0">
         <div>
           
             <p>Texte contenant <a href="https://www.systeme-de-design.gouv.fr/" rel="noopener external" target="_blank" title="un lien vers un autre site - nouvelle fenêtre">un lien vers un autre site</a></p>
           
         </div>
       </div>
-      <div id="tab-lien-externe-2-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-lien-externe-2" tabindex="0">
+      <div id="tab-lien-externe-2-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-lien-externe-2"
+           tabindex="0">
         <pre><code>
           
             &lt;p&gt;Texte contenant &lt;a href=&quot;https://www.systeme-de-design.gouv.fr/&quot; rel=&quot;noopener external&quot; target=&quot;_blank&quot; title=&quot;un lien vers un autre site - nouvelle fenêtre&quot;&gt;un lien vers un autre site&lt;/a&gt;&lt;/p&gt;
@@ -928,35 +999,60 @@
     </div>
   </div>
 
+
     
   
     
       
 
 
-  <h3 id="sample-mise-en-exergue">Mise en exergue</h3>
-  <p>Le document Markdown suivant :</p>
+  <h3 id="sample-mise-en-exergue">
+    Mise en exergue
+  </h3>
+  <p>
+    Le document Markdown suivant :
+  </p>
   <div class="dsfr-code">
     <pre><code>!! note &quot;&quot;
     Texte de la mise en exergue.
                 </code></pre>
   </div>
-  <p>Sera rendu :</p>
+  <p>
+    Sera rendu :
+  </p>
   <div class="fr-callout">
     <div class="fr-tabs">
-      <ul class="fr-tabs__list" role="tablist" aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
+      <ul class="fr-tabs__list"
+          role="tablist"
+          aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
         <li role="presentation">
-          <button type="button" id="tab-mise-en-exergue-1" class="fr-tabs__tab" tabindex="0" role="tab" aria-selected="true" aria-controls="tab-mise-en-exergue-1-panel">
+          <button type="button"
+                  id="tab-mise-en-exergue-1"
+                  class="fr-tabs__tab"
+                  tabindex="0"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-mise-en-exergue-1-panel">
             Rendu graphique
           </button>
         </li>
         <li role="presentation">
-          <button type="button" id="tab-mise-en-exergue-2" class="fr-tabs__tab" tabindex="-1" role="tab" aria-selected="true" aria-controls="tab-mise-en-exergue-2-panel">
+          <button type="button"
+                  id="tab-mise-en-exergue-2"
+                  class="fr-tabs__tab"
+                  tabindex="-1"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-mise-en-exergue-2-panel">
             Code HTML généré
           </button>
         </li>
       </ul>
-      <div id="tab-mise-en-exergue-1-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-mise-en-exergue-1" tabindex="0">
+      <div id="tab-mise-en-exergue-1-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-mise-en-exergue-1"
+           tabindex="0">
         <div>
           
             <div class="fr-highlight note">
@@ -965,7 +1061,11 @@
           
         </div>
       </div>
-      <div id="tab-mise-en-exergue-2-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-mise-en-exergue-2" tabindex="0">
+      <div id="tab-mise-en-exergue-2-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-mise-en-exergue-2"
+           tabindex="0">
         <pre><code>
           
             &lt;div class=&quot;fr-highlight note&quot;&gt;
@@ -977,35 +1077,60 @@
     </div>
   </div>
 
+
     
   
     
       
 
 
-  <h3 id="sample-mise-en-avant-minimale">Mise en avant minimale</h3>
-  <p>Le document Markdown suivant :</p>
+  <h3 id="sample-mise-en-avant-minimale">
+    Mise en avant minimale
+  </h3>
+  <p>
+    Le document Markdown suivant :
+  </p>
   <div class="dsfr-code">
     <pre><code>!!! note &quot;&quot;
     Texte de la mise en avant.
                 </code></pre>
   </div>
-  <p>Sera rendu :</p>
+  <p>
+    Sera rendu :
+  </p>
   <div class="fr-callout">
     <div class="fr-tabs">
-      <ul class="fr-tabs__list" role="tablist" aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
+      <ul class="fr-tabs__list"
+          role="tablist"
+          aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
         <li role="presentation">
-          <button type="button" id="tab-mise-en-avant-minimale-1" class="fr-tabs__tab" tabindex="0" role="tab" aria-selected="true" aria-controls="tab-mise-en-avant-minimale-1-panel">
+          <button type="button"
+                  id="tab-mise-en-avant-minimale-1"
+                  class="fr-tabs__tab"
+                  tabindex="0"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-mise-en-avant-minimale-1-panel">
             Rendu graphique
           </button>
         </li>
         <li role="presentation">
-          <button type="button" id="tab-mise-en-avant-minimale-2" class="fr-tabs__tab" tabindex="-1" role="tab" aria-selected="true" aria-controls="tab-mise-en-avant-minimale-2-panel">
+          <button type="button"
+                  id="tab-mise-en-avant-minimale-2"
+                  class="fr-tabs__tab"
+                  tabindex="-1"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-mise-en-avant-minimale-2-panel">
             Code HTML généré
           </button>
         </li>
       </ul>
-      <div id="tab-mise-en-avant-minimale-1-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-mise-en-avant-minimale-1" tabindex="0">
+      <div id="tab-mise-en-avant-minimale-1-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-mise-en-avant-minimale-1"
+           tabindex="0">
         <div>
           
             <div class="fr-callout note">
@@ -1014,7 +1139,11 @@
           
         </div>
       </div>
-      <div id="tab-mise-en-avant-minimale-2-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-mise-en-avant-minimale-2" tabindex="0">
+      <div id="tab-mise-en-avant-minimale-2-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-mise-en-avant-minimale-2"
+           tabindex="0">
         <pre><code>
           
             &lt;div class=&quot;fr-callout note&quot;&gt;
@@ -1026,35 +1155,60 @@
     </div>
   </div>
 
+
     
   
     
       
 
 
-  <h3 id="sample-mise-en-avant-avec-titre">Mise en avant avec titre</h3>
-  <p>Le document Markdown suivant :</p>
+  <h3 id="sample-mise-en-avant-avec-titre">
+    Mise en avant avec titre
+  </h3>
+  <p>
+    Le document Markdown suivant :
+  </p>
   <div class="dsfr-code">
     <pre><code>!!! note &quot;Attention !&quot;
     Texte de la mise en avant.
                 </code></pre>
   </div>
-  <p>Sera rendu :</p>
+  <p>
+    Sera rendu :
+  </p>
   <div class="fr-callout">
     <div class="fr-tabs">
-      <ul class="fr-tabs__list" role="tablist" aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
+      <ul class="fr-tabs__list"
+          role="tablist"
+          aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
         <li role="presentation">
-          <button type="button" id="tab-mise-en-avant-avec-titre-1" class="fr-tabs__tab" tabindex="0" role="tab" aria-selected="true" aria-controls="tab-mise-en-avant-avec-titre-1-panel">
+          <button type="button"
+                  id="tab-mise-en-avant-avec-titre-1"
+                  class="fr-tabs__tab"
+                  tabindex="0"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-mise-en-avant-avec-titre-1-panel">
             Rendu graphique
           </button>
         </li>
         <li role="presentation">
-          <button type="button" id="tab-mise-en-avant-avec-titre-2" class="fr-tabs__tab" tabindex="-1" role="tab" aria-selected="true" aria-controls="tab-mise-en-avant-avec-titre-2-panel">
+          <button type="button"
+                  id="tab-mise-en-avant-avec-titre-2"
+                  class="fr-tabs__tab"
+                  tabindex="-1"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-mise-en-avant-avec-titre-2-panel">
             Code HTML généré
           </button>
         </li>
       </ul>
-      <div id="tab-mise-en-avant-avec-titre-1-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-mise-en-avant-avec-titre-1" tabindex="0">
+      <div id="tab-mise-en-avant-avec-titre-1-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-mise-en-avant-avec-titre-1"
+           tabindex="0">
         <div>
           
             <div class="fr-callout note">
@@ -1064,7 +1218,11 @@
           
         </div>
       </div>
-      <div id="tab-mise-en-avant-avec-titre-2-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-mise-en-avant-avec-titre-2" tabindex="0">
+      <div id="tab-mise-en-avant-avec-titre-2-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-mise-en-avant-avec-titre-2"
+           tabindex="0">
         <pre><code>
           
             &lt;div class=&quot;fr-callout note&quot;&gt;
@@ -1077,35 +1235,60 @@
     </div>
   </div>
 
+
     
   
     
       
 
 
-  <h3 id="sample-mise-en-avant-avec-titre-et-icone">Mise en avant avec titre et icône</h3>
-  <p>Le document Markdown suivant :</p>
+  <h3 id="sample-mise-en-avant-avec-titre-et-icone">
+    Mise en avant avec titre et icône
+  </h3>
+  <p>
+    Le document Markdown suivant :
+  </p>
   <div class="dsfr-code">
     <pre><code>!!! warning-line &quot;Attention !&quot;
     Texte de la mise en avant.
                 </code></pre>
   </div>
-  <p>Sera rendu :</p>
+  <p>
+    Sera rendu :
+  </p>
   <div class="fr-callout">
     <div class="fr-tabs">
-      <ul class="fr-tabs__list" role="tablist" aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
+      <ul class="fr-tabs__list"
+          role="tablist"
+          aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
         <li role="presentation">
-          <button type="button" id="tab-mise-en-avant-avec-titre-et-icone-1" class="fr-tabs__tab" tabindex="0" role="tab" aria-selected="true" aria-controls="tab-mise-en-avant-avec-titre-et-icone-1-panel">
+          <button type="button"
+                  id="tab-mise-en-avant-avec-titre-et-icone-1"
+                  class="fr-tabs__tab"
+                  tabindex="0"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-mise-en-avant-avec-titre-et-icone-1-panel">
             Rendu graphique
           </button>
         </li>
         <li role="presentation">
-          <button type="button" id="tab-mise-en-avant-avec-titre-et-icone-2" class="fr-tabs__tab" tabindex="-1" role="tab" aria-selected="true" aria-controls="tab-mise-en-avant-avec-titre-et-icone-2-panel">
+          <button type="button"
+                  id="tab-mise-en-avant-avec-titre-et-icone-2"
+                  class="fr-tabs__tab"
+                  tabindex="-1"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-mise-en-avant-avec-titre-et-icone-2-panel">
             Code HTML généré
           </button>
         </li>
       </ul>
-      <div id="tab-mise-en-avant-avec-titre-et-icone-1-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-mise-en-avant-avec-titre-et-icone-1" tabindex="0">
+      <div id="tab-mise-en-avant-avec-titre-et-icone-1-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-mise-en-avant-avec-titre-et-icone-1"
+           tabindex="0">
         <div>
           
             <div class="fr-callout fr-icon-warning-line">
@@ -1115,7 +1298,11 @@
           
         </div>
       </div>
-      <div id="tab-mise-en-avant-avec-titre-et-icone-2-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-mise-en-avant-avec-titre-et-icone-2" tabindex="0">
+      <div id="tab-mise-en-avant-avec-titre-et-icone-2-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-mise-en-avant-avec-titre-et-icone-2"
+           tabindex="0">
         <pre><code>
           
             &lt;div class=&quot;fr-callout fr-icon-warning-line&quot;&gt;
@@ -1128,36 +1315,61 @@
     </div>
   </div>
 
+
     
   
     
       
 
 
-  <h3 id="sample-citation">Citation</h3>
-  <p>Le document Markdown suivant :</p>
+  <h3 id="sample-citation">
+    Citation
+  </h3>
+  <p>
+    Le document Markdown suivant :
+  </p>
   <div class="dsfr-code">
     <pre><code>&gt; Texte d’une citation…
 qui peut être sur plusieurs lignes.
 
 Jusqu’à la prochaine ligne vide.</code></pre>
   </div>
-  <p>Sera rendu :</p>
+  <p>
+    Sera rendu :
+  </p>
   <div class="fr-callout">
     <div class="fr-tabs">
-      <ul class="fr-tabs__list" role="tablist" aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
+      <ul class="fr-tabs__list"
+          role="tablist"
+          aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
         <li role="presentation">
-          <button type="button" id="tab-citation-1" class="fr-tabs__tab" tabindex="0" role="tab" aria-selected="true" aria-controls="tab-citation-1-panel">
+          <button type="button"
+                  id="tab-citation-1"
+                  class="fr-tabs__tab"
+                  tabindex="0"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-citation-1-panel">
             Rendu graphique
           </button>
         </li>
         <li role="presentation">
-          <button type="button" id="tab-citation-2" class="fr-tabs__tab" tabindex="-1" role="tab" aria-selected="true" aria-controls="tab-citation-2-panel">
+          <button type="button"
+                  id="tab-citation-2"
+                  class="fr-tabs__tab"
+                  tabindex="-1"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-citation-2-panel">
             Code HTML généré
           </button>
         </li>
       </ul>
-      <div id="tab-citation-1-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-citation-1" tabindex="0">
+      <div id="tab-citation-1-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-citation-1"
+           tabindex="0">
         <div>
           
             <figure class="fr-quote">
@@ -1170,7 +1382,11 @@ qui peut être sur plusieurs lignes.</p>
           
         </div>
       </div>
-      <div id="tab-citation-2-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-citation-2" tabindex="0">
+      <div id="tab-citation-2-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-citation-2"
+           tabindex="0">
         <pre><code>
           
             &lt;figure class=&quot;fr-quote&quot;&gt;
@@ -1186,14 +1402,19 @@ qui peut être sur plusieurs lignes.&lt;/p&gt;
     </div>
   </div>
 
+
     
   
     
       
 
 
-  <h3 id="sample-tableau-simple">Tableau simple</h3>
-  <p>Le document Markdown suivant :</p>
+  <h3 id="sample-tableau-simple">
+    Tableau simple
+  </h3>
+  <p>
+    Le document Markdown suivant :
+  </p>
   <div class="dsfr-code">
     <pre><code>
     | Colonne 1          | Colonne 2          |
@@ -1202,22 +1423,42 @@ qui peut être sur plusieurs lignes.&lt;/p&gt;
     | Ligne 2, colonne 1 | Ligne 2, colonne 2 |
                 </code></pre>
   </div>
-  <p>Sera rendu :</p>
+  <p>
+    Sera rendu :
+  </p>
   <div class="fr-callout">
     <div class="fr-tabs">
-      <ul class="fr-tabs__list" role="tablist" aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
+      <ul class="fr-tabs__list"
+          role="tablist"
+          aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
         <li role="presentation">
-          <button type="button" id="tab-tableau-simple-1" class="fr-tabs__tab" tabindex="0" role="tab" aria-selected="true" aria-controls="tab-tableau-simple-1-panel">
+          <button type="button"
+                  id="tab-tableau-simple-1"
+                  class="fr-tabs__tab"
+                  tabindex="0"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-tableau-simple-1-panel">
             Rendu graphique
           </button>
         </li>
         <li role="presentation">
-          <button type="button" id="tab-tableau-simple-2" class="fr-tabs__tab" tabindex="-1" role="tab" aria-selected="true" aria-controls="tab-tableau-simple-2-panel">
+          <button type="button"
+                  id="tab-tableau-simple-2"
+                  class="fr-tabs__tab"
+                  tabindex="-1"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-tableau-simple-2-panel">
             Code HTML généré
           </button>
         </li>
       </ul>
-      <div id="tab-tableau-simple-1-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-tableau-simple-1" tabindex="0">
+      <div id="tab-tableau-simple-1-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-tableau-simple-1"
+           tabindex="0">
         <div>
           
             <div class="fr-table">
@@ -1249,7 +1490,11 @@ qui peut être sur plusieurs lignes.&lt;/p&gt;
           
         </div>
       </div>
-      <div id="tab-tableau-simple-2-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-tableau-simple-2" tabindex="0">
+      <div id="tab-tableau-simple-2-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-tableau-simple-2"
+           tabindex="0">
         <pre><code>
           
             &lt;div class=&quot;fr-table&quot;&gt;
@@ -1284,14 +1529,19 @@ qui peut être sur plusieurs lignes.&lt;/p&gt;
     </div>
   </div>
 
+
     
   
     
       
 
 
-  <h3 id="sample-document-complet-avec-table-des-matieres">Document complet avec table des matières</h3>
-  <p>Le document Markdown suivant :</p>
+  <h3 id="sample-document-complet-avec-table-des-matieres">
+    Document complet avec table des matières
+  </h3>
+  <p>
+    Le document Markdown suivant :
+  </p>
   <div class="dsfr-code">
     <pre><code>[TOC]
 # Titre de niveau 1
@@ -1332,22 +1582,42 @@ Jusqu’à la prochaine ligne vide.
 | Ligne 2, colonne 1 | Ligne 2, colonne 2 |
                 </code></pre>
   </div>
-  <p>Sera rendu :</p>
+  <p>
+    Sera rendu :
+  </p>
   <div class="fr-callout">
     <div class="fr-tabs">
-      <ul class="fr-tabs__list" role="tablist" aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
+      <ul class="fr-tabs__list"
+          role="tablist"
+          aria-label="Choisir entre la vue du code HTML généré et le rendu graphique">
         <li role="presentation">
-          <button type="button" id="tab-document-complet-avec-table-des-matieres-1" class="fr-tabs__tab" tabindex="0" role="tab" aria-selected="true" aria-controls="tab-document-complet-avec-table-des-matieres-1-panel">
+          <button type="button"
+                  id="tab-document-complet-avec-table-des-matieres-1"
+                  class="fr-tabs__tab"
+                  tabindex="0"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-document-complet-avec-table-des-matieres-1-panel">
             Rendu graphique
           </button>
         </li>
         <li role="presentation">
-          <button type="button" id="tab-document-complet-avec-table-des-matieres-2" class="fr-tabs__tab" tabindex="-1" role="tab" aria-selected="true" aria-controls="tab-document-complet-avec-table-des-matieres-2-panel">
+          <button type="button"
+                  id="tab-document-complet-avec-table-des-matieres-2"
+                  class="fr-tabs__tab"
+                  tabindex="-1"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-document-complet-avec-table-des-matieres-2-panel">
             Code HTML généré
           </button>
         </li>
       </ul>
-      <div id="tab-document-complet-avec-table-des-matieres-1-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-document-complet-avec-table-des-matieres-1" tabindex="0">
+      <div id="tab-document-complet-avec-table-des-matieres-1-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-document-complet-avec-table-des-matieres-1"
+           tabindex="0">
         <div>
           
             <nav aria-labelledby="fr-summary-title" class="fr-summary" role="navigation"><h2 class="fr-summary__title" id="fr-summary-title">Sommaire</h2><ol>
@@ -1420,7 +1690,11 @@ qui peut être sur plusieurs lignes.</p>
           
         </div>
       </div>
-      <div id="tab-document-complet-avec-table-des-matieres-2-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tab-document-complet-avec-table-des-matieres-2" tabindex="0">
+      <div id="tab-document-complet-avec-table-des-matieres-2-panel"
+           class="fr-tabs__panel fr-tabs__panel--selected"
+           role="tabpanel"
+           aria-labelledby="tab-document-complet-avec-table-des-matieres-2"
+           tabindex="0">
         <pre><code>
           
             &lt;nav aria-labelledby=&quot;fr-summary-title&quot; class=&quot;fr-summary&quot; role=&quot;navigation&quot;&gt;&lt;h2 class=&quot;fr-summary__title&quot; id=&quot;fr-summary-title&quot;&gt;Sommaire&lt;/h2&gt;&lt;ol&gt;
@@ -1495,6 +1769,7 @@ qui peut être sur plusieurs lignes.&lt;/p&gt;
       </div>
     </div>
   </div>
+
 
     
   
@@ -1652,11 +1927,17 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
   
           <li class="fr-footer__bottom-item">
             
-            <a class="fr-footer__bottom-link" href="#" id="footer_sitemap">Plan du site</a>
+            <a class="fr-footer__bottom-link"
+               href=" " "  id="
+               footer_sitemap
+               ">Plan du site</a>
           </li>
           <li class="fr-footer__bottom-item">
             
-            <a class="fr-footer__bottom-link" href="#" id="footer_accessibility_status">
+            <a class="fr-footer__bottom-link"
+               href=" " "  id="
+               footer_accessibility_status
+               ">
               
                 Accessibilité : non conforme
               
@@ -1664,15 +1945,24 @@ target="_blank" rel="noreferrer noopener">Dépôt Github</a>
           </li>
           <li class="fr-footer__bottom-item">
             
-            <a class="fr-footer__bottom-link" href="#" id="footer_legal_notice">Mentions légales</a>
+            <a class="fr-footer__bottom-link"
+               href=" " "  id="
+               footer_legal_notice
+               ">Mentions légales</a>
           </li>
           <li class="fr-footer__bottom-item">
             
-            <a class="fr-footer__bottom-link" href="#" id="footer_personal_data">Données personnelles</a>
+            <a class="fr-footer__bottom-link"
+               href=" " "  id="
+               footer_personal_data
+               ">Données personnelles</a>
           </li>
           <li class="fr-footer__bottom-item">
             
-            <a class="fr-footer__bottom-link" href="#" id="footer_cookie_management">Gestion des cookies</a>
+            <a class="fr-footer__bottom-link"
+               href=" " "  id="
+               footer_cookie_management
+               ">Gestion des cookies</a>
           </li>
         
   <li class="fr-footer__bottom-item">
