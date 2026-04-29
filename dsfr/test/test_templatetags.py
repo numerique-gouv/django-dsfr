@@ -1185,8 +1185,9 @@ class DsfrToggleTagTest(SimpleTestCase):
             """
             <div class="fr-toggle fr-toggle--label-left fr-toggle--border-bottom">
                 <input type="checkbox"
+                        name="toggle"
                         class="fr-toggle__input"
-                        aria-describedby="toggle-full-hint-text"
+                        aria-describedby="id_toggle_helptext"
                         id="toggle-full">
                 <label class="fr-toggle__label"
                         for="toggle-full"
@@ -1194,7 +1195,7 @@ class DsfrToggleTagTest(SimpleTestCase):
                         data-fr-unchecked-label="Désactivé">
                     Interrupteur complet aligné à gauche
                 </label>
-                    <p class="fr-hint-text" id="toggle-full-hint-text">
+                    <p class="fr-hint-text" id="id_toggle_helptext">
                     Cet interrupteur présente toutes les options disponibles
                     </p>
                 </div>
