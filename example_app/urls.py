@@ -95,4 +95,10 @@ urlpatterns = [
         name="page_search",
         distill_file="django-dsfr/search/index.html",
     ),
+    distill_path(
+        "tableau/",
+        views.table,
+        name="table",
+        distill_file="django-dsfr/tableau/index.html",
+    ),
 ]
