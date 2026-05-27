@@ -1740,14 +1740,10 @@ def dsfr_inline(field):
 
 @register.filter
 def data_attributes(tag_data):
-    if tag_data.get("data_attributes"):
-        return " ".join(
-            [
-                f'data-{key}="{value}"'
-                for key, value in tag_data["data_attributes"].items()
-            ]
-        )
-    return ""
+    attrs = tag_data.get("data_attributes")
+    if not attrs:
+        return ""
+    return format_html_join(" ", 'data-{}="{}"', attrs.items())
 
 
 # Deprecated tags
