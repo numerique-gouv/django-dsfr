@@ -89,7 +89,7 @@ upgrade:
 
 # Prepare a new release
 [arg('bump', pattern='major|minor|patch')]
-prepare_release bump:
+prepare_release bump repo_name='origin':
     #!/usr/bin/env bash
 
     set -e
@@ -100,4 +100,4 @@ prepare_release bump:
     uv version "$version"
     git add pyproject.toml uv.lock
     git commit -m "chore: prepare release $version"
-    git push -u origin "release/$version"
+    git push -u {{repo_name}} "release/$version"
