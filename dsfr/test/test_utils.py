@@ -1,5 +1,5 @@
 from django.test import SimpleTestCase
-from dsfr.utils import generate_random_id, generate_summary_items
+from dsfr.utils import generate_random_id, generate_summary_items, parse_tag_args
 
 
 class GenerateRandomIdTestCase(SimpleTestCase):
@@ -28,4 +28,49 @@ class GenerateSummaryItemsTestCase(SimpleTestCase):
                 {"label": "Second élément", "link": "#second-element"},
                 {"label": "Dernier", "link": "#dernier"},
             ],
+        )
+
+
+class TestParseTagArgs(SimpleTestCase):
+    def test_parse_tag_args_with_args_only(self):
+        self.assertEqual(
+            parse_tag_args([{"coucou": "youpi"}], {}, ["coucou"]), {"coucou": "youpi"}
+        )
+
+    def test_parse_tag_args_with_kwargs_only(self):
+        self.assertEqual(
+            parse_tag_args(None, {"coucou": "youpi"}, ["coucou"]), {"coucou": "youpi"}
+        )
+
+    def test_parse_tag_args_with_data_attributes(self):
+        self.assertEqual(
+            parse_tag_args(
+                [{}],
+                {"data_test": "value", "data_another": "thing"},
+                [],
+            ),
+            {"data_attributes": {"test": "value", "another": "thing"}},
+        )
+
+    def test_parse_tag_args_with_allowed_and_data_attributes(self):
+        self.assertEqual(
+            parse_tag_args(
+                [{"foo": "bar"}],
+                {"coucou": "yes", "data_role": "admin"},
+                ["coucou", "foo"],
+            ),
+            {"foo": "bar", "coucou": "yes", "data_attributes": {"role": "admin"}},
+        )
+
+    def test_parse_tag_args_with_disallowed_keys(self):
+        # "not_allowed" should be ignored completely
+        self.assertEqual(
+            parse_tag_args(None, {"not_allowed": "oops"}, ["coucou"]),
+            {},
+        )
+
+    def test_parse_tag_args_with_empty_inputs(self):
+        self.assertEqual(
+            parse_tag_args(None, {}, []),
+            {},
         )
