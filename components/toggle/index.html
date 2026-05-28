@@ -748,10 +748,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-cxrqltmgpvgxxori">
+          aria-controls="breadcrumb-oggoladbqlzpqpar">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-cxrqltmgpvgxxori">
+  <div class="fr-collapse" id="breadcrumb-oggoladbqlzpqpar">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -781,13 +781,13 @@
   <div class="fr-sidemenu__inner">
     <button type="button"
             class="fr-sidemenu__btn"
-            aria-controls="fr-sidemenu-kxfslnzbdtqdvull-wrapper"
+            aria-controls="fr-sidemenu-dtuzwmmbmxfmzmyy-wrapper"
             aria-expanded="false">
       
         Dans cette rubrique
       
     </button>
-    <div class="fr-collapse" id="fr-sidemenu-kxfslnzbdtqdvull-wrapper">
+    <div class="fr-collapse" id="fr-sidemenu-dtuzwmmbmxfmzmyy-wrapper">
       
       <ul class="fr-sidemenu__list">
         
@@ -807,11 +807,11 @@
               <button type="button"
                       class="fr-sidemenu__btn"
                       aria-expanded="true"
-                      aria-controls="fr-sidemenu-kxfslnzbdtqdvull-item-2">
+                      aria-controls="fr-sidemenu-dtuzwmmbmxfmzmyy-item-2">
                 Composants implémentés
               </button>
               <div class="fr-collapse"
-                   id="fr-sidemenu-kxfslnzbdtqdvull-item-2">
+                   id="fr-sidemenu-dtuzwmmbmxfmzmyy-item-2">
                 <ul class="fr-sidemenu__list">
                   
                     <li class="fr-sidemenu__item">
@@ -1280,6 +1280,7 @@
       <p>Returns a toggle item. Takes a dict as parameter, with the following structure:</p>
 <div class="dsfr-code"><pre><span></span><code><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Label of the item&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) `name` attribute of the item, defaults to &#39;toggle&#39;&quot;</span><span class="p">,</span>
     <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;(Optional) string explaining the intended use of the item&quot;</span><span class="p">,</span>
     <span class="s2">&quot;is_disabled&quot;</span><span class="p">:</span> <span class="s1">&#39;&#39;&#39;(Optional) boolean that indicate if the toggle is activated</span>
 <span class="s1">    (default: False)&#39;&#39;&#39;</span><span class="p">,</span>
@@ -1316,11 +1317,11 @@
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-jwrzfwnfmytekqje">
+          aria-controls="accordion-umcaewjlsxzfzymt">
     Données de l’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-jwrzfwnfmytekqje">
+  <div class="fr-collapse" id="accordion-umcaewjlsxzfzymt">
     <pre class="dsfr-code">{&#x27;label&#x27;: &#x27;Interrupteur basique&#x27;}</pre>
   </div>
 </section>
@@ -1330,24 +1331,14 @@
             
           </div>
           
-            
-
-
-<div class="fr-toggle">
-  <input type="checkbox"
-         
-         class="fr-toggle__input"
-         
-         id="toggle-cqxdvaeyxkgilihx">
-  <label class="fr-toggle__label"
-         for="toggle-cqxdvaeyxkgilihx"
-         data-fr-checked-label="Activé"
-         data-fr-unchecked-label="Désactivé">
-    Interrupteur basique
-  </label>
+            <div class="fr-toggle">
+  <input type="checkbox" name="toggle" class="fr-toggle__input" id="toggle-ozjcxpnrqfpjasle">
+  
+    <label data-fr-checked-label="Activé" data-fr-unchecked-label="Désactivé" class="fr-toggle__label" for="toggle-ozjcxpnrqfpjasle">Interrupteur basique</label>
+  
+  
   
 </div>
-
           
         
           <h3 class="fr-mt-3w">
@@ -1363,11 +1354,11 @@
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-njmdqliioqfinsio">
+          aria-controls="accordion-pizusjprzlqbvfnw">
     Données de l’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-njmdqliioqfinsio">
+  <div class="fr-collapse" id="accordion-pizusjprzlqbvfnw">
     <pre class="dsfr-code">{&#x27;label&#x27;: &#x27;Interrupteur basique désactivé avec aide&#x27;, &#x27;help_text&#x27;: &#x27;Vous ne pouvez pas utiliser cet interrupteur.&#x27;, &#x27;is_disabled&#x27;: True}</pre>
   </div>
 </section>
@@ -1377,28 +1368,18 @@
             
           </div>
           
-            
-
-
-<div class="fr-toggle">
-  <input type="checkbox"
-         disabled
-         class="fr-toggle__input"
-         aria-describedby="toggle-drgifcahkcldoojw-hint-text"
-         id="toggle-drgifcahkcldoojw">
-  <label class="fr-toggle__label"
-         for="toggle-drgifcahkcldoojw"
-         data-fr-checked-label="Activé"
-         data-fr-unchecked-label="Désactivé">
-    Interrupteur basique désactivé avec aide
-  </label>
+            <div class="fr-toggle">
+  <input type="checkbox" name="toggle" class="fr-toggle__input" disabled id="toggle-askcnprkfmbyfpoy" aria-describedby="id_toggle_helptext">
   
-    <p class="fr-hint-text" id="toggle-drgifcahkcldoojw-hint-text">
+    <label data-fr-checked-label="Activé" data-fr-unchecked-label="Désactivé" class="fr-toggle__label" for="toggle-askcnprkfmbyfpoy">Interrupteur basique désactivé avec aide</label>
+  
+  
+    <p class="fr-hint-text" id="id_toggle_helptext">
       Vous ne pouvez pas utiliser cet interrupteur.
     </p>
   
+  
 </div>
-
           
         
           <h3 class="fr-mt-3w">
@@ -1414,11 +1395,11 @@
   <button type="button"
           class="fr-accordion__btn"
           aria-expanded="false"
-          aria-controls="accordion-linjfnlyhepfozpj">
+          aria-controls="accordion-ffqpakmbvetocrhr">
     Données de l’exemple
   </button>
   </h3>
-  <div class="fr-collapse" id="accordion-linjfnlyhepfozpj">
+  <div class="fr-collapse" id="accordion-ffqpakmbvetocrhr">
     <pre class="dsfr-code">{&#x27;label&#x27;: &#x27;Interrupteur complet aligné à gauche&#x27;, &#x27;help_text&#x27;: &#x27;Cet interrupteur présente toutes les options disponibles&#x27;, &#x27;is_disabled&#x27;: False, &#x27;extra_classes&#x27;: &#x27;fr-toggle--label-left fr-toggle--border-bottom&#x27;, &#x27;id&#x27;: &#x27;toggle-full&#x27;}</pre>
   </div>
 </section>
@@ -1428,28 +1409,18 @@
             
           </div>
           
-            
-
-
-<div class="fr-toggle fr-toggle--label-left fr-toggle--border-bottom">
-  <input type="checkbox"
-         
-         class="fr-toggle__input"
-         aria-describedby="toggle-full-hint-text"
-         id="toggle-full">
-  <label class="fr-toggle__label"
-         for="toggle-full"
-         data-fr-checked-label="Activé"
-         data-fr-unchecked-label="Désactivé">
-    Interrupteur complet aligné à gauche
-  </label>
+            <div class="fr-toggle fr-toggle--label-left fr-toggle--border-bottom">
+  <input type="checkbox" name="toggle" class="fr-toggle__input" id="toggle-full" aria-describedby="id_toggle_helptext">
   
-    <p class="fr-hint-text" id="toggle-full-hint-text">
+    <label data-fr-checked-label="Activé" data-fr-unchecked-label="Désactivé" class="fr-toggle__label" for="toggle-full">Interrupteur complet aligné à gauche</label>
+  
+  
+    <p class="fr-hint-text" id="id_toggle_helptext">
       Cet interrupteur présente toutes les options disponibles
     </p>
   
+  
 </div>
-
           
         
       
