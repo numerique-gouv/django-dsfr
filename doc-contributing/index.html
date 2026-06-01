@@ -738,10 +738,10 @@
   <button type="button"
           class="fr-breadcrumb__button"
           aria-expanded="false"
-          aria-controls="breadcrumb-vqrvpdiomaydpjax">
+          aria-controls="breadcrumb-zwdsazhrcubbcjvs">
     Voir le fil d’Ariane
   </button>
-  <div class="fr-collapse" id="breadcrumb-vqrvpdiomaydpjax">
+  <div class="fr-collapse" id="breadcrumb-zwdsazhrcubbcjvs">
     <ol class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/django-dsfr">Accueil</a>
@@ -766,8 +766,8 @@
         
 <nav role="navigation"
      class="fr-summary"
-     aria-labelledby="fr-summary-encjpdwedzardllj-title">
-  <p class="fr-summary__title" id="fr-summary-encjpdwedzardllj-title">
+     aria-labelledby="fr-summary-usxdpysxxarhykzh-title">
+  <p class="fr-summary__title" id="fr-summary-usxdpysxxarhykzh-title">
   Sommaire
   </p>
   <ol class="fr-summary__list">
@@ -949,16 +949,16 @@ dans le fichier <code>dsfr/checksums</code>.</p>
 <p>Elle s’effectue en trois étapes :</p>
 <ol>
 <li>
-<p>Ouvrir une PR de préparation de la release :</p>
+<p>Mettre à jour le numéro de version du projet :</p>
 <p><code>shell
-just prepare_release {major|minor|patch}  # ce script met à jour le numéro de version du paquet uv et crée un tag Git</code></p>
+just prepare_release {major|minor|patch}</code></p>
 </li>
-<li>
-<p>Créer et publier la release Github depuis
-  <a href="https://github.com/numerique-gouv/django-dsfr/releases/new">cet écran</a> :</p>
-<ul>
-<li>Sélectionner <strong>le tag Git qui vient d’être créé</strong>
-  (plutôt qu’une branche) ;</li>
+</ol>
+<p>Cette commande crée une nouvelle branche <code>release/&lt;nouvelle version&gt;</code> à partir de laquelle il faut ouvrir une nouvelle PR et la merger.</p>
+<ol>
+<li>Créer et publier la release Github depuis
+  <a href="https://github.com/numerique-gouv/django-dsfr/releases/new">cet écran</a> :<ul>
+<li>Créer un nouveau git tag <code>v&lt;nouvelle version&gt;</code> où <code>&lt;nouvelle version&gt;</code> correspond à la nouvelle version généré par la commande de l'étape précédente</li>
 <li>Vérifier le changelog généré ;</li>
 <li>Publier la release.</li>
 </ul>
