@@ -19,6 +19,9 @@ class FormFieldTestCase(SimpleTestCase):
                 }
             ),
         )
+        user_name_hidden = forms.CharField(
+            label="Nom d’utilisateur", max_length=100, widget=forms.HiddenInput
+        )
 
     def test_full_form_works(self):
         rendered = Template("{{form}}").render(
@@ -31,6 +34,15 @@ class FormFieldTestCase(SimpleTestCase):
             "{% load dsfr_tags %}{% dsfr_form_field form.user_name %}"
         ).render(Context({"form": FormFieldTestCase.DummyForm()}))
         self.assertIn("Nom d’utilisateur", rendered)
+
+    def test_correct_hidden_field_works(self):
+        rendered = Template(
+            "{% load dsfr_tags %}{% dsfr_form_field form.user_name_hidden %}"
+        ).render(Context({"form": FormFieldTestCase.DummyForm()}))
+        self.assertHTMLEqual(
+            '<input id="id_user_name_hidden" name="user_name_hidden" type="hidden">',
+            rendered,
+        )
 
     def test_incorrect_field_raises_error(self):
         with self.assertRaises(AttributeError):
