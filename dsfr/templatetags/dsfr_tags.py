@@ -1667,7 +1667,7 @@ def dsfr_form_field(field: BoundField) -> str:
             stacklevel=3,
         )
 
-    return field.as_field_group()
+    return field.as_hidden() if field.is_hidden else field.as_field_group()
 
 
 register.filter(name="dsfr_input_class_attr", filter_func=dsfr_input_class_attr)
@@ -1777,7 +1777,8 @@ def dsfr_form(context: Context):
 def dsfr_mark_optionnal_fields(bf):
     mark_optional_fields = getattr(settings, "DSFR_MARK_OPTIONAL_FIELDS", False)
     if bf.field.required and not mark_optional_fields:
-        return mark_safe(
+
+        return mark_safe(  # nosec B308
             '<span class="fr-required-marker" aria-hidden="true"> *</span>'
         )
     elif not bf.field.required and mark_optional_fields:
