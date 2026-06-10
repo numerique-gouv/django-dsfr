@@ -1,6 +1,4 @@
-{% if widget.attrs.dsfr == "dsfr" %}
-  <div class="fr-radio-group">
-  {% endif %}
+<div class="fr-radio-group">
   {% include "django/forms/widgets/input.html" %}
   {% if widget.wrap_label %}
     <label class="fr-label"
@@ -13,6 +11,4 @@
       {% endif %}
     </label>
   {% endif %}
-  {% if widget.attrs.dsfr == "dsfr" %}
-  </div>
-{% endif %}
+</div>

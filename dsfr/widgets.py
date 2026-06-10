@@ -250,6 +250,6 @@ class Toggle(CheckboxInput):
 
         css_classes = [
             self.dsfr_input_class,
-            *re.split("\s+", self.attrs.get("class", "")),
+            *re.split(r"\s+", self.attrs.get("class", "")),
         ]
         self.attrs["class"] = " ".join(dict.fromkeys(css_classes, "").keys()).strip()
