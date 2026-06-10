@@ -44,7 +44,7 @@ class DsfrBoundField(forms.BoundField):
             return template_name
 
         match self.widget_type:
-            case "checkboxinput":
+            case "checkbox":
                 return "dsfr/form_field_snippets/checkbox_snippet.html"
             case "checkboxselectmultiple" | "inlinecheckboxselectmultiple":
                 return "dsfr/form_field_snippets/checkboxselectmultiple_snippet.html"
