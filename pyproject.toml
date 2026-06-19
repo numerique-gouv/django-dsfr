@@ -89,6 +89,9 @@ include = [
     "README.md",
     "dsfr/static/dsfr/dist/*/*.*",
 ]
+exclude = [
+    "dsfr/test",
+]
 
 [tool.coverage.run]
 omit = [
