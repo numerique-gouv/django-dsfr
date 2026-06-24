@@ -13,6 +13,7 @@ from django.utils.html import format_html, format_html_join
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as _
 
+
 from dsfr.checksums import (
     INTEGRITY_CSS,
     INTEGRITY_UTILITY_CSS,
@@ -1761,6 +1762,14 @@ def dsfr_inline(field):
     """
     field.field.widget.inline = True
     return field
+
+
+@register.filter
+def data_attributes(tag_data):
+    attrs = tag_data.get("data_attributes")
+    if not attrs:
+        return ""
+    return format_html_join(" ", 'data-{}="{}"', attrs.items())
 
 
 # Deprecated tags
