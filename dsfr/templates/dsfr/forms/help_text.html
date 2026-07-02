@@ -1,0 +1,2 @@
+{% load dsfr_tags %}
+<span {% include "django/forms/attrs.html" %}>{{ field.help_text|dsfr_maybe_safe }}</span>
