@@ -1167,6 +1167,8 @@ class DsfrTagTagTest(SimpleTestCase):
 
 
 class DsfrToggleTagTest(SimpleTestCase):
+    maxDiff = None
+
     def test_toggle_rendered(self):
         test_data = {
             "label": "Interrupteur complet aligné à gauche",
@@ -1181,9 +1183,10 @@ class DsfrToggleTagTest(SimpleTestCase):
             "{% load dsfr_tags %} {% dsfr_toggle test_data %}"
         )
         rendered_template = template_to_render.render(context)
-        self.assertInHTML(
-            """
-            <div class="fr-toggle fr-toggle--label-left fr-toggle--border-bottom">
+        # language=html
+        self.assertHTMLEqual(
+            rendered_template,
+            """<div class="fr-toggle fr-toggle--label-left fr-toggle--border-bottom">
                 <input type="checkbox"
                         name="toggle"
                         class="fr-toggle__input"
@@ -1194,13 +1197,11 @@ class DsfrToggleTagTest(SimpleTestCase):
                         data-fr-checked-label="Activé"
                         data-fr-unchecked-label="Désactivé">
                     Interrupteur complet aligné à gauche
+                    <span class="fr-hint-text" id="toggle-full_helptext">
+                        Cet interrupteur présente toutes les options disponibles
+                    </span>
                 </label>
-                    <p class="fr-hint-text" id="id_toggle_helptext">
-                    Cet interrupteur présente toutes les options disponibles
-                    </p>
-                </div>
-            """,
-            rendered_template,
+            </div>""",
         )
 
 
