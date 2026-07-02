@@ -1,0 +1,4 @@
+<span {% include "django/forms/attrs.html" %}>
+  {{ field.help_text }}, valeur comprise entre {{ field.field.min_value|default_if_none:0 }}
+  et {{ field.field.max_value|default_if_none:100 }}.
+</span>
