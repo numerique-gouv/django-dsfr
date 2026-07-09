@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n dsfr_tags %}
 {% translate "Hide message" as hide_message %}
 {% translate "Consultation link" as consultation_link %}
 {% translate "Opens a new window" as new_window_label %}
@@ -6,9 +6,9 @@
   <div class="fr-container">
     <div class="fr-notice__body">
       <p>
-        <span class="fr-notice__title{% if self.icon %} {{ self.icon }}{% endif %}">{{ self.title|safe }}</span>
+        <span class="fr-notice__title{% if self.icon %} {{ self.icon }}{% endif %}">{{ self.title|dsfr_maybe_safe }}</span>
         {% if self.description %}
-          <span class="fr-notice__desc">{{ self.description|safe }}</span>
+          <span class="fr-notice__desc">{{ self.description|dsfr_maybe_safe }}</span>
         {% endif %}
         {% if self.link %}
           <a target="_blank"
