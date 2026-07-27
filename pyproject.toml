@@ -48,7 +48,7 @@ build-backend = "hatchling.build"
 [project.optional-dependencies]
 markdown = [
   "markdown ~=3.10",
-  "pymdown-extensions ~=10.20",
+  "pymdown-extensions>=10.20,<12.0",
 ]
 
 [dependency-groups]
