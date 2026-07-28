@@ -10,8 +10,6 @@ from django.forms import BoundField
 from django.template import Template
 from django.template.context import Context
 from django.utils.html import format_html, format_html_join
-from django.utils.safestring import mark_safe
-from django.utils.translation import gettext as _
 
 from dsfr.checksums import (
     INTEGRITY_CSS,
@@ -1770,18 +1768,3 @@ def dsfr_form(context: Context):
         """The dsfr_form tag is deprecated since django-dsfr 2.0.0.
         Please use a normal {{ form }} tag.""",
     )
-
-
-# Deprecated tags
-@register.simple_tag
-def dsfr_mark_optionnal_fields(bf):
-    mark_optional_fields = getattr(settings, "DSFR_MARK_OPTIONAL_FIELDS", False)
-    if bf.field.required and not mark_optional_fields:
-
-        return mark_safe(  # nosec B308
-            '<span class="fr-required-marker" aria-hidden="true"> *</span>'
-        )
-    elif not bf.field.required and mark_optional_fields:
-        return f" {_('(Optional)')}"
-
-    return ""
