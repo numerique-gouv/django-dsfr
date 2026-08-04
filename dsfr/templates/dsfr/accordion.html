@@ -1,3 +1,5 @@
+{% load dsfr_tags %}
+
 <section class="fr-accordion">
   <{{ self.heading_tag | default:"h3" }} class="fr-accordion__title">
   <button type="button"
@@ -8,6 +10,6 @@
   </button>
   </{{ self.heading_tag | default:"h3" }}>
   <div class="fr-collapse" id="{{ self.id }}">
-    {{ self.content | safe }}
+    {{ self.content | dsfr_maybe_safe }}
   </div>
 </section>

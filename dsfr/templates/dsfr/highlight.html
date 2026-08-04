@@ -1,5 +1,7 @@
+{% load dsfr_tags %}
+
 <div class="fr-highlight{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
   <p {% if self.size_class %}class="{{ self.size_class }}"{% endif %}>
-    {{ self.content | safe }}
+    {{ self.content | dsfr_maybe_safe }}
   </p>
 </div>
