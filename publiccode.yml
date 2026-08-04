@@ -1,30 +1,40 @@
-publiccodeYmlVersion: "0.2"
-name: Django DSFR
-url: https://github.com/numerique-gouv/django-dsfr
-landingURL: https://numerique-gouv.github.io/django-dsfr/
-creationDate: 2021-07-28
-latestRelease:
-  date: ""
-  version: ""
-logo: https://github.com/numerique-gouv.png
-usedBy: []
-fundedBy:
-  - name: Direction interministérielle du numérique
-    url: https://lannuaire.service-public.gouv.fr/gouvernement/d1a97841-b4bf-46df-a089-1003e4e266b4
-roadmap: ""
-softwareType: ""
+publiccodeYmlVersion: "0"
+name: "Django DSFR"
+url: "https://github.com/numerique-gouv/django-dsfr"
+landingURL: "https://numerique-gouv.github.io/django-dsfr/"
+softwareVersion: "3.4.2"
+logo: "https://github.com/numerique-gouv.png"
+platforms:
+  - "web"
+developmentStatus: "stable"
+softwareType: "library"
 description:
   fr:
-    shortDescription: Intégration du système de design de l’État français dans Django
+    shortDescription: "Intégration du système de design de l'État français dans Django"
+    longDescription: >
+      Django-DSFR est une application Django permettant d'intégrer le Système de
+      design de l'État français (DSFR) dans des projets Django. Elle fournit des
+      composants, des balises de gabarit et des ressources statiques correspondant
+      aux spécifications officielles du DSFR, facilitant ainsi la création de
+      services numériques conformes à la charte graphique de l'État. Compatible
+      avec Python 3.10 à 3.14 et Django 4, 5 et 6.
     documentation: "https://numerique-gouv.github.io/django-dsfr/"
+    features:
+      - "Composants DSFR intégrés comme balises de gabarit Django"
+      - "Ressources statiques du DSFR incluses"
+      - "Application d'exemple pour tester les composants"
+      - "Compatible avec les versions supportées de Django et Python"
+fundedBy:
+  - name: "Direction interministérielle du numérique"
+    uri: "https://lannuaire.service-public.gouv.fr/gouvernement/d1a97841-b4bf-46df-a089-1003e4e266b4"
 legal:
-  license: mit
-  authorsFile: ""
-metadataFiles:
-  readme: README.md
-  license: LICENSE
+  license: "MIT"
 maintenance:
-  type: community
+  type: "community"
   contacts:
-    - name: ""
-      email: ""
+    - name: "Sylvain Boissel"
+      email: "sylvain.boissel@beta.gouv.fr"
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - "fr"
