@@ -165,6 +165,23 @@ class DsfrAccordionTagTest(SimpleTestCase):
             rendered_template,
         )
 
+    @override_settings(DSFR_CONTENT_IS_SAFE=False)
+    def test_accordion_tag_rendered_unsafe(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <section class="fr-accordion">
+                <h3 class="fr-accordion__title">
+                    <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion">Title of the accordion item</button>
+                </h3>
+                <div class="fr-collapse" id="sample-accordion">
+                    &lt;p&gt;&lt;b&gt;Bold&lt;/b&gt; and &lt;em>emphatic&lt;/em&gt; Example content&lt;/p&gt;
+                </div>
+            </section>
+            """,  # noqa
+            rendered_template,
+        )
+
 
 class DsfrAccordionGroupTagTest(SimpleTestCase):
     test_data = [
@@ -203,7 +220,7 @@ class DsfrAlertTagTest(SimpleTestCase):
     test_data = {
         "title": "Sample title",
         "type": "info",
-        "content": "Sample content",
+        "content": "Sample <b>bold</b> content",
         "heading_tag": "h3",
         "is_collapsible": True,
         "id": "test-alert-message",
@@ -214,7 +231,14 @@ class DsfrAlertTagTest(SimpleTestCase):
 
     def test_alert_tag_rendered(self):
         rendered_template = self.template_to_render.render(self.context)
-        self.assertInHTML("""<p>Sample content</p>""", rendered_template)
+        self.assertInHTML("""<p>Sample <b>bold</b> content</p>""", rendered_template)
+
+    @override_settings(DSFR_CONTENT_IS_SAFE=False)
+    def test_alert_tag_rendered_unsafe(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """<p>Sample &lt;b&gt;bold&lt;/b&gt; content</p>""", rendered_template
+        )
 
     def test_alert_tag_heading_can_be_set(self):
         rendered_template = self.template_to_render.render(self.context)
@@ -581,11 +605,58 @@ class DsfrConsentTagTest(SimpleTestCase):
             rendered_template,
         )
 
+    @override_settings(DSFR_CONTENT_IS_SAFE=False)
+    def test_consent_tag_rendered_unsafe(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+        <div class="fr-consent-banner">
+        <h2 class="fr-h6">
+            À propos des cookies sur Django-DSFR
+        </h2>
+        <div class="fr-consent-banner__content">
+            <p class="fr-text--sm">
+                Bienvenue ! Nous utilisons des cookies pour améliorer votre expérience et les
+                services disponibles sur ce site. Pour en savoir plus, visitez la page &lt;a href="#"&gt;
+                Données personnelles et cookies&lt;/a&gt;. Vous pouvez, à tout moment, avoir le contrôle
+                sur les cookies que vous souhaitez activer.
+            </p>
+        </div>
+        <ul class="fr-consent-banner__buttons fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-sm">
+            <li>
+            <button class="fr-btn"
+                    id="consent-accept-all"
+                    title="Autoriser tous les cookies">
+                Tout accepter
+            </button>
+            </li>
+            <li>
+            <button class="fr-btn"
+                    id="consent-reject-all"
+                    title="Refuser tous les cookies">
+                Tout refuser
+            </button>
+            </li>
+            <li>
+            <button class="fr-btn fr-btn--secondary"
+                    id="consent-customize"
+                    data-fr-opened="false"
+                    aria-controls="fr-consent-modal"
+                    title="Personnaliser les cookies">
+                Personnaliser
+            </button>
+            </li>
+        </ul>
+        </div>
+        """,
+            rendered_template,
+        )
+
 
 class DsfrContentTagTest(SimpleTestCase):
     test_data = {
         "alt_text": "Silhouette stylisée représentant le soleil au-dessus de deux montagnes.",
-        "caption": "Image en largeur normale et en 4x3",
+        "caption": "Image en largeur normale et en 4x3 et <b>en gras</b>",
         "image_url": "/django-dsfr/static/img/placeholder.16x9.svg",
         "ratio_class": "fr-ratio-4x3",
     }
@@ -597,14 +668,32 @@ class DsfrContentTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-            <figure class="fr-content-media" role="group" aria-label="Image en largeur normale et en 4x3">
+            <figure class="fr-content-media" role="group" aria-label="Image en largeur normale et en 4x3 et <b>en gras</b>">
             <div class="fr-content-media__img">
                 <img class="fr-responsive-img fr-ratio-4x3"
                     src="/django-dsfr/static/img/placeholder.16x9.svg"
                     alt="Silhouette stylisée représentant le soleil au-dessus de deux montagnes." />
             </div>
                 <figcaption class="fr-content-media__caption">
-                Image en largeur normale et en 4x3
+                Image en largeur normale et en 4x3 et <b>en gras</b>
+                </figcaption>
+            </figure>""",
+            rendered_template,
+        )
+
+    @override_settings(DSFR_CONTENT_IS_SAFE=False)
+    def test_content_tag_rendered_unsafe(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <figure class="fr-content-media" role="group" aria-label="Image en largeur normale et en 4x3 et &lt;b&gt;en gras&lt;/b&gt;">
+            <div class="fr-content-media__img">
+                <img class="fr-responsive-img fr-ratio-4x3"
+                    src="/django-dsfr/static/img/placeholder.16x9.svg"
+                    alt="Silhouette stylisée représentant le soleil au-dessus de deux montagnes." />
+            </div>
+                <figcaption class="fr-content-media__caption">
+                Image en largeur normale et en 4x3 et &lt;b&gt;en gras&lt;/b&gt;
                 </figcaption>
             </figure>""",
             rendered_template,
@@ -673,7 +762,7 @@ class DsfrFranceConnectPlusTagTest(SimpleTestCase):
 
 class DsfrHighlightTagTest(SimpleTestCase):
     test_data = {
-        "content": "Content of the highlight item (can include html)",
+        "content": "Content of the highlight item (can include <b>html</b>)",
         "title": "(Optional) Title of the highlight item",
         "heading_tag": "h4",
         "size_class": "fr-text--sm",
@@ -688,7 +777,21 @@ class DsfrHighlightTagTest(SimpleTestCase):
             """
             <div class="fr-highlight">
                 <p class="fr-text--sm">
-                    Content of the highlight item (can include html)
+                    Content of the highlight item (can include <b>html</b>)
+                </p>
+            </div>
+            """,
+            rendered_template,
+        )
+
+    @override_settings(DSFR_CONTENT_IS_SAFE=False)
+    def test_highlight_tag_rendered_unsafe(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-highlight">
+                <p class="fr-text--sm">
+                    Content of the highlight item (can include &lt;b&gt;html&lt;/b&gt;)
                 </p>
             </div>
             """,
@@ -843,6 +946,30 @@ class DsfrNoticeTagTest(SimpleTestCase):
                             rel='noopener external'
                             title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'>
                             lien</a>.
+                    </span>
+                </p>
+                    <button class="fr-btn--close fr-btn"
+                        title="Masquer le message"
+                        onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
+                    Masquer le message
+                    </button>
+                </div>
+            """,  # noqa
+            rendered_template,
+        )
+
+    @override_settings(DSFR_CONTENT_IS_SAFE=False)
+    def test_notice_tag_rendered_unsafe(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-notice__body">
+                <p>
+                    <span class="fr-notice__title">
+                        Bandeau d’information importante avec &lt;a href='#'
+                            rel='noopener external'
+                            title="intitulé - Ouvre une nouvelle fenêtre" target='_blank'&gt;
+                            lien&lt;/a&gt;.
                     </span>
                 </p>
                     <button class="fr-btn--close fr-btn"
@@ -1099,6 +1226,96 @@ class DsfrSkiplinksTagTest(SimpleTestCase):
         )
 
 
+class DsfrTableTagTest(SimpleTestCase):
+    test_data = {
+        "caption": "Tableau basique",
+        "header": ["Colonne 1", "Colonne 2", "Colonne 3"],
+        "content": [["a", "<b>b</b>", "c"], ["d", "e", "f"]],
+        "extra_classes": "fr-table--sm",
+    }
+
+    def test_table_rendered(self):
+        context = Context({"test_data": self.test_data})
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_table test_data %}")
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """
+            <div class="fr-table fr-table--sm">
+  <div class="fr-table__wrapper">
+    <div class="fr-table__container">
+      <div class="fr-table__content">
+        <table>
+          <caption>Tableau basique</caption>
+            <thead>
+              <tr>
+                  <th scope="col">Colonne 1</th>
+                  <th scope="col">Colonne 2</th>
+                  <th scope="col">Colonne 3</th>
+              </tr>
+            </thead>
+          <tbody>
+              <tr>
+                  <td>a</td>
+                  <td><b>b</b></td>
+                  <td>c</td>
+              </tr>
+              <tr>
+                  <td>d</td>
+                  <td>e</td>
+                  <td>f</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+            """,
+            rendered_template,
+        )
+
+    @override_settings(DSFR_CONTENT_IS_SAFE=False)
+    def test_table_rendered_unsafe(self):
+        context = Context({"test_data": self.test_data})
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_table test_data %}")
+        rendered_template = template_to_render.render(context)
+        self.assertInHTML(
+            """
+            <div class="fr-table fr-table--sm">
+  <div class="fr-table__wrapper">
+    <div class="fr-table__container">
+      <div class="fr-table__content">
+        <table>
+          <caption>Tableau basique</caption>
+            <thead>
+              <tr>
+                  <th scope="col">Colonne 1</th>
+                  <th scope="col">Colonne 2</th>
+                  <th scope="col">Colonne 3</th>
+              </tr>
+            </thead>
+          <tbody>
+              <tr>
+                  <td>a</td>
+                  <td>&lt;b&gt;b&lt;/b&gt;</td>
+                  <td>c</td>
+              </tr>
+              <tr>
+                  <td>d</td>
+                  <td>e</td>
+                  <td>f</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+            """,
+            rendered_template,
+        )
+
+
 class DsfrTagTagTest(SimpleTestCase):
     def test_basic_tag_rendered(self):
         test_data = {
@@ -1321,6 +1538,63 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
                                                 Transcription
                                             </h2>
                                             <div><p>Courte transcription basique</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </dialog>
+                </div>
+            </div>
+            """,  # noqa
+            rendered_template,
+        )
+
+    @override_settings(DSFR_CONTENT_IS_SAFE=False)
+    def test_summary_tag_rendered_unsafe(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <div class="fr-transcription">
+                <button class="fr-transcription__btn"
+                        aria-expanded="false"
+                        aria-controls="fr-transcription__collapse-transcription-test">
+                    Transcription
+                </button>
+                <div class="fr-collapse" id="fr-transcription__collapse-transcription-test">
+                    <div class="fr-transcription__footer">
+                        <div class="fr-transcription__actions-group">
+
+                            <button class="fr-btn fr-btn--fullscreen"
+                                    aria-controls="fr-transcription-modal-transcription-test"
+                                    data-fr-opened="false"
+                                    title="Agrandir">
+                                Agrandir
+                            </button>
+                        </div>
+                    </div>
+                    <dialog id="fr-transcription-modal-transcription-test"
+                            class="fr-modal"
+                            role="dialog"
+                            aria-labelledby="fr-transcription-modal-transcription-test-title">
+                        <div class="fr-container fr-container--fluid fr-container-md">
+                            <div class="fr-grid-row fr-grid-row--center">
+                                <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
+                                    <div class="fr-modal__body">
+                                        <div class="fr-modal__header">
+
+                                            <button class="fr-btn--close fr-btn"
+                                                    aria-controls="fr-transcription-modal-transcription-test"
+                                                    title="Fermer">
+                                                Fermer
+                                            </button>
+                                        </div>
+                                        <div class="fr-modal__content">
+                                            <h2 id="fr-transcription-modal-transcription-test-title"
+                                                class="fr-modal__title">
+                                                Transcription
+                                            </h2>
+                                            &lt;div&gt;&lt;p&gt;Courte transcription basique&lt;/p&gt;&lt;/div&gt;
                                         </div>
                                     </div>
                                 </div>

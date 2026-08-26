@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n dsfr_tags %}
 {% translate "Hide message" as hide_message %}
 <div role="alert"
      class="fr-alert fr-alert--{{ self.type }}{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
@@ -7,13 +7,13 @@
   {% endif %}
   {% if self.content %}
     <p>
-      {{ self.content | safe }}
+      {{ self.content | dsfr_maybe_safe }}
     </p>
   {% endif %}
   {% if self.is_collapsible %}
     <button class="fr-btn--close fr-btn"
             title="{{ hide_message }}"
-            {% for attr, value in self.collapsible_attrs.items %}{{ attr }}="{{ value|safe }}"{% endfor %}>
+            {% for attr, value in self.collapsible_attrs.items %}{{ attr }}="{{ value|dsfr_maybe_safe }}"{% endfor %}>
       {{ hide_message }}
     </button>
   {% endif %}

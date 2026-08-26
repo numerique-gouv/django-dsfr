@@ -1,11 +1,11 @@
-{% load i18n %}
+{% load i18n dsfr_tags %}
 <div class="fr-consent-banner">
   <h2 class="fr-h6">
     {{ self.title }}
   </h2>
   <div class="fr-consent-banner__content">
     <p class="fr-text--sm">
-      {{ self.content|safe }}
+      {{ self.content|dsfr_maybe_safe }}
     </p>
   </div>
   <ul class="fr-consent-banner__buttons fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-sm">

@@ -8,6 +8,7 @@ from django.contrib.messages.constants import DEBUG, INFO, SUCCESS, WARNING, ERR
 from django.core.paginator import Page
 from django.forms import BoundField
 from django.template import Template
+from django.template.defaultfilters import stringfilter
 from django.template.context import Context
 from django.utils.html import format_html, format_html_join
 from django.utils.safestring import mark_safe
@@ -1785,3 +1786,11 @@ def dsfr_mark_optionnal_fields(bf):
         return f" {_('(Optional)')}"
 
     return ""
+
+
+# Deprecated tags
+@register.filter
+@stringfilter
+def dsfr_maybe_safe(value: str):
+    content_is_safe = getattr(settings, "DSFR_CONTENT_IS_SAFE", True)
+    return mark_safe(value) if content_is_safe else value  # nosec B308 B703
