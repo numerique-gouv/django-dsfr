@@ -24,12 +24,7 @@ function addForm(e) {
 
     e.preventDefault();
 
-    let newForm;
-    if (formsetGroup[0]) {
-        newForm = formsetGroup[0].cloneNode(true);  // Clone the formset
-    } else {
-        newForm = firstForm;  // If all other forms have been deleted
-    }
+    const newForm = firstForm.cloneNode(true);  // Clone the formset
 
     // Regex
     let formRegex = /\w+-(\d+)-/g;  // Regex to find all instances of the form number
