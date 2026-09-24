@@ -1,12 +1,12 @@
 exclude: dsfr/static/dsfr/dist
 repos:
 - repo: https://github.com/Riverside-Healthcare/djLint
-  rev: v1.36.4
+  rev: v1.44.2
   hooks:
   - id: djlint-reformat-django
   - id: djlint-django
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.15.11
+  rev: v0.16.4
   hooks:
     - id: ruff
       args: [ --fix, --exit-non-zero-on-fix ]
@@ -16,7 +16,7 @@ repos:
   - id: end-of-file-fixer
   - id: trailing-whitespace
 - repo: https://github.com/psf/black
-  rev: 26.3.1
+  rev: 26.5.1
   hooks:
     - id: black
       language_version: python3.13
@@ -29,7 +29,12 @@ repos:
       language_version: python3
       exclude: /tests/
 - repo: https://github.com/igorshubovych/markdownlint-cli
-  rev: "v0.48.0"
+  rev: "v0.49.1"
   hooks:
     - id: markdownlint
       args: ["-f"]
+- repo: https://github.com/fpgmaas/deptry
+  rev: "0.25.1"
+  hooks:
+    - id: deptry
+      entry: uv run deptry .

@@ -132,6 +132,9 @@ dmypy.json
 # Editor stuff
 .vscode/
 
+# LLM stuff
+.claude/
+
 # Project specific
 !dsfr/static/dsfr/dist
 !example_app/static
