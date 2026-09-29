@@ -224,6 +224,7 @@ def dsfr_alert(*args, **kwargs) -> dict:
         "content",
         "heading_tag",
         "is_collapsible",
+        "collapsible_attrs",
         "extra_classes",
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)

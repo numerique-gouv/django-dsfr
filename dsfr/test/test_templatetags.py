@@ -276,6 +276,29 @@ class DsfrAlertTagTest(SimpleTestCase):
             rendered_template,
         )
 
+    def test_alert_tag_has_custom_attrs_through_kwargs(self):
+        template_to_render = Template(
+            "{% load dsfr_tags %} {% dsfr_alert title='coucou' collapsible_attrs=collapsible_attrs %}"
+        )
+        rendered_template = template_to_render.render(
+            Context(
+                {
+                    "collapsible_attrs": {
+                        "data-controller": "close",
+                        "data-action": "close#onClick",
+                    }
+                }
+            )
+        )
+        self.assertInHTML(
+            """
+            <button class="fr-btn--close fr-btn" title="Masquer le message" data-controller="close" data-action="close#onClick">
+              Masquer le message
+            </button>
+            """,  # noqa
+            rendered_template,
+        )
+
 
 class DsfrBadgeTagTest(SimpleTestCase):
     test_data = {
