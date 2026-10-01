@@ -1,0 +1,3 @@
+{# djlint:off #}
+{% if use_tag %}<{{ tag }}{% include "django/forms/attrs.html" %}>{% include "dsfr/forms/label_content.html" %}</{{ tag }}>{% else %}{% include "dsfr/forms/label_content.html" %}{% endif %}
+{# djlint:on #}
