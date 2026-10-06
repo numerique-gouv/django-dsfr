@@ -173,6 +173,7 @@ class InlineCheckboxSelectMultiple(CheckboxSelectMultiple):
 
 class NumberCursor(NumberInput):
     template_name = "dsfr/widgets/number_cursor.html"
+    template_name_help_text = "dsfr/forms/number_cursor_help_text.html"
     group_class = "fr-range-group"
 
     def __init__(
@@ -215,13 +216,22 @@ class NumberCursor(NumberInput):
 class SegmentedControl(_ExtendedChoicesWidget, ChoiceWidget):
     template_name = "dsfr/widgets/segmented_control.html"
     option_template_name = "dsfr/widgets/segmented_control_option.html"
+    inline = False
+    use_fieldset = True
+
+    @property
+    def dsfr_label_attrs(self):
+        attrs = {"class": "fr-segmented__legend"}
+        if self.inline:
+            attrs["class"] += " fr-segmented__legend--inline"
+        return attrs
 
     def __init__(
         self, *args, extra_classes: str = "", is_inline: bool = False, **kwargs
     ):
         super().__init__(*args, **kwargs)
         self.extra_classes = extra_classes
-        self.is_inline = is_inline
+        self.inline = is_inline
 
 
 class Toggle(CheckboxInput):
