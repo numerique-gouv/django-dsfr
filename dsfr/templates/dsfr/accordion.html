@@ -6,10 +6,8 @@
           class="fr-accordion__btn"
           aria-expanded="false"
           aria-controls="{{ self.id }}">
-    {{ self.title }}
+    {{ self.title | dsfr_emoji }}
   </button>
   </{{ self.heading_tag | default:"h3" }}>
-  <div class="fr-collapse" id="{{ self.id }}">
-    {{ self.content | dsfr_maybe_safe }}
-  </div>
+  <div class="fr-collapse" id="{{ self.id }}">{{ self.content | dsfr_maybe_safe | dsfr_emoji }}</div>
 </section>
