@@ -22,9 +22,7 @@
 {% endblock extra_css %}
 
 {% block content %}
-  <h1>
-    Balises et filtres de gabarit
-  </h1>
+  <h1>Balises et filtres de gabarit</h1>
   <p>
     Django-DSFR inclut un certain nombre de <a href="https://docs.djangoproject.com/fr/5.2/howto/custom-template-tags/"
     target="_blank"
@@ -35,16 +33,10 @@
     La plupart des composants sont ainsi disponibles de cette façon : voir leur documentation pour leur utilisation. Cette page vise à référencer les autres balises et filtres.
   </p>
 
-  <h2>
-    url_remplace_params
-  </h2>
-  <p>
-    Permet de créer un lien qui ajoute ou met à jour un paramètre GET tout en conservant les paramètres existants.
-  </p>
+  <h2>url_remplace_params</h2>
+  <p>Permet de créer un lien qui ajoute ou met à jour un paramètre GET tout en conservant les paramètres existants.</p>
 
-  <p>
-    Utile pour combiner filtres et pagination.
-  </p>
+  <p>Utile pour combiner filtres et pagination.</p>
 
   <section class="fr-accordion fr-mb-2v">
     <h3 class="fr-accordion__title">
@@ -73,12 +65,8 @@
     </div>
   </section>
 
-  <h2>
-    concatenate
-  </h2>
-  <p>
-    Comme son nom l’indique, concatène la valeur de la variable sur laquelle il est appelé et l’argument.
-  </p>
+  <h2>concatenate</h2>
+  <p>Comme son nom l’indique, concatène la valeur de la variable sur laquelle il est appelé et l’argument.</p>
 
   <section class="fr-accordion fr-mb-2v">
     <h3 class="fr-accordion__title">
@@ -112,12 +100,8 @@
     </div>
   </section>
 
-  <h2>
-    hyphenate
-  </h2>
-  <p>
-    Comme son nom l’indique, relie la valeur de la variable sur laquelle il est appelé et l’argument par un tiret.
-  </p>
+  <h2>hyphenate</h2>
+  <p>Comme son nom l’indique, relie la valeur de la variable sur laquelle il est appelé et l’argument par un tiret.</p>
 
   <section class="fr-accordion fr-mb-2v">
     <h3 class="fr-accordion__title">
@@ -151,9 +135,7 @@
     </div>
   </section>
 
-  <h2>
-    strfmt
-  </h2>
+  <h2>strfmt</h2>
   <p>
     Effectue l’opération de formattage <code>str.format</code> de Python (<a href="https://docs.python.org/3/library/stdtypes.html#str.format"
    target="_blank"
@@ -170,9 +152,7 @@
       </button>
     </h3>
     <div id="accordion-strfmt" class="fr-collapse">
-      <p>
-        Côté vue :
-      </p>
+      <p>Côté vue :</p>
       <code>
         <pre>
           context["strfmt_example_args"] = [1 + 2, "awesome"]
@@ -183,9 +163,7 @@
         </pre>
       </code>
 
-      <p>
-        Côté template :
-      </p>
+      <p>Côté template :</p>
       <code>
         <pre>
           {% verbatim %}
@@ -195,9 +173,7 @@
         </pre>
       </code>
 
-      <p>
-        devient
-      </p>
+      <p>devient</p>
 
       <p>
         <code>
@@ -208,6 +184,46 @@
         <code>
           {{ strfmt_example_kwargs|strfmt:"The sum of 1 + 2 is {add_result} and it's {result_feeling}" }}
         </code>.
+      </p>
+    </div>
+  </section>
+
+  <h2>dsfr_emoji</h2>
+  <p>
+    Entoure chaque émoji d’une balise <code>&lt;span aria-hidden="true"&gt;</code>
+    pour qu’il ne soit pas lu par les lecteurs d’écran. Seuls les nœuds texte sont modifiés :
+    le filtre peut donc être chaîné après un filtre qui renvoie du HTML (par exemple <code>dsfr_md</code>).
+  </p>
+  <p>
+    Attention : un émoji ne doit pas porter seul le sens d’un élément (par exemple, un bouton avec juste un emoji pour valeur).
+    S’il n’est pas purement décoratif, il faut lui adjoindre un texte, directement visible ou non (dans ce dernier cas, par le biais d'un span portant la classe <code>fr-sr-only</code>.)
+  </p>
+
+  <section class="fr-accordion fr-mb-2v">
+    <h3 class="fr-accordion__title">
+      <button type="button"
+              class="fr-accordion__btn"
+              aria-expanded="false"
+              aria-controls="accordion-dsfr-emoji">
+        Exemple
+      </button>
+    </h3>
+    <div id="accordion-dsfr-emoji" class="fr-collapse">
+      <p>Côté template :</p>
+      <code>
+        <pre>
+          {% verbatim %}
+            {{ "Bravo 🎉 !"|dsfr_emoji }}
+          {% endverbatim %}
+        </pre>
+      </code>
+
+      <p>devient</p>
+
+      <p>
+        <code>
+          {{ "Bravo 🎉 !"|dsfr_emoji|force_escape }}
+        </code>
       </p>
     </div>
   </section>

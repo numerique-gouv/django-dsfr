@@ -8,8 +8,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+
 from django import VERSION as DJANGO_VERSION
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -99,7 +100,7 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -158,3 +159,4 @@ CONTENT_SECURITY_POLICY = {
 
 # DSFR-specific
 DSFR_CHECK_DEPRECATED = True
+DSFR_WRAP_EMOJIS = True
