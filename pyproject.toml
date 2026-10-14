@@ -72,6 +72,7 @@ dev = [
     "twine>=6.1.0",
     "rust-just>=1.42.4",
     "ipython>=8.37.0",
+    "deptry>=0.25.1",
 ]
 
 [tool.hatch.build.targets.sdist]
@@ -100,6 +101,31 @@ omit = [
     "*/migrations/*.py",
     "*/tests/*.py",
 ]
+
+[tool.deptry]
+exclude = [
+    "dsfr/static",
+    "docs",
+    "media",
+    "htmlcov",
+    "dist",
+    "\\.venv",
+    "\\.git",
+]
+
+[tool.deptry.per_rule_ignores]
+# django-widget-tweaks is only used via `{% load widget_tweaks %}` in
+# templates and the "widget_tweaks" app label; pymdown-extensions is only
+# referenced by extension-name strings passed to python-markdown. Neither
+# shows up as a Python import that deptry's AST scan can see.
+DEP002 = ["django-widget-tweaks", "pymdown-extensions"]
+# These dev-dependency imports are all in maintainer-only/demo code, not in
+# the published `dsfr` package's runtime path: `black` is used by the
+# `integrity_checksums` management command (a maintainer tool run via
+# `just update_dsfr`), and crispy_forms/bs4/django_distill are used by
+# example_app, the demo app that showcases components but is never
+# published.
+DEP004 = ["black", "crispy_forms", "bs4", "django_distill"]
 
 [tool.djlint]
 line_break_after_multiline_tag = true
