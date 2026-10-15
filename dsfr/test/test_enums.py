@@ -25,11 +25,11 @@ else:
 class ExtendedChoicesTestCase(SimpleTestCase):
     def test_create_dict_enum(self):
         class TestExtendedChoices(ExtendedChoices, IntegerChoices):
-            TEST_1 = {
+            TEST_1 = {  # type: ignore
                 "value": auto(),
                 "label": "Test 1",
             }
-            TEST_2 = {
+            TEST_2 = {  # type: ignore
                 "value": auto(),
                 "label": "Test 2",
             }
@@ -43,14 +43,14 @@ class ExtendedChoicesTestCase(SimpleTestCase):
 
     def test_additional_attributes(self):
         class TestExtendedChoices(ExtendedChoices, IntegerChoices):
-            TEST_1 = {
+            TEST_1 = {  # type: ignore
                 "value": auto(),
                 "additionnal_attribute_1": {"lorem": "ipsum 1"},
                 "additionnal_attribute_2": mark_safe(
                     "<strong>Item 1</strong>"
                 ),  # nosec
             }
-            TEST_2 = {
+            TEST_2 = {  # type: ignore
                 "value": auto(),
                 "additionnal_attribute_1": {"lorem": "ipsum 2"},
                 "additionnal_attribute_2": mark_safe(
@@ -74,8 +74,8 @@ class ExtendedChoicesTestCase(SimpleTestCase):
     @skipIf(not PY311, "'enum.nonmember' was added to Python 3.11")
     def test_nonmember_attributes(self):
         class TestExtendedChoices(ExtendedChoices, IntegerChoices):
-            TEST_1 = {"value": auto()}
-            TEST_2 = {"value": auto()}
+            TEST_1 = {"value": auto()}  # type: ignore
+            TEST_2 = {"value": auto()}  # type: ignore
 
             additional_attribute = nonmember({"lorem": "ipsum 1"})  # type: ignore
 
@@ -87,8 +87,8 @@ class ExtendedChoicesTestCase(SimpleTestCase):
         with self.assertRaises(ValueError) as e:
 
             class TestExtendedChoices(ExtendedChoices, IntegerChoices):
-                TEST_1 = {"label": "Test 1"}
-                TEST_2 = {"label": "Test 2"}
+                TEST_1 = {"label": "Test 1"}  # type: ignore
+                TEST_2 = {"label": "Test 2"}  # type: ignore
 
         self.assertEqual(
             "enum value for TEST_1 should contain member 'value' "
@@ -98,14 +98,14 @@ class ExtendedChoicesTestCase(SimpleTestCase):
 
     def test_absent_label_computes_default(self):
         class TestExtendedChoices(ExtendedChoices, IntegerChoices):
-            TEST_1 = {"value": auto()}
+            TEST_1 = {"value": auto()}  # type: ignore
             TEST_2 = auto(), "Autre label"
 
         self.assertEqual({"Test 1", "Autre label"}, set(TestExtendedChoices.labels))
 
     def test_absent_additionnal_key_calls_dynamic_attribute_value_method(self):
         class TestExtendedChoices(ExtendedChoices, IntegerChoices):
-            TEST_1 = {
+            TEST_1 = {  # type: ignore
                 "value": auto(),
                 "additionnal_attribute": {"lorem": "ipsum 1"},
             }
@@ -124,7 +124,7 @@ class ExtendedChoicesTestCase(SimpleTestCase):
 
     def test_absent_additionnal_key_no_dynamic_attribute_value_method(self):
         class TestExtendedChoices(ExtendedChoices, IntegerChoices):
-            TEST_1 = {
+            TEST_1 = {  # type: ignore
                 "value": auto(),
                 "additionnal_attribute": {"lorem": "ipsum 1"},
             }
@@ -142,7 +142,7 @@ class ExtendedChoicesTestCase(SimpleTestCase):
 
     def test_uses_overriden_getter(self):
         class TestExtendedChoices(ExtendedChoices, IntegerChoices):
-            TEST_1 = {
+            TEST_1 = {  # type: ignore
                 "value": auto(),
                 "additionnal_attribute": {"lorem": "ipsum 1"},
             }
@@ -159,14 +159,14 @@ class ExtendedChoicesTestCase(SimpleTestCase):
 
     def test_uses_additional_attribute_private_name(self):
         class TestExtendedChoices(ExtendedChoices, IntegerChoices):
-            TEST_1 = {
+            TEST_1 = {  # type: ignore
                 "value": auto(),
                 "additionnal_attribute_1": {"lorem": "ipsum 1"},
                 "additionnal_attribute_2": mark_safe(
                     "<strong>Item 1</strong>"
                 ),  # nosec
             }
-            TEST_2 = {
+            TEST_2 = {  # type: ignore
                 "value": auto(),
                 "additionnal_attribute_1": {"lorem": "ipsum 2"},
                 "additionnal_attribute_2": mark_safe(

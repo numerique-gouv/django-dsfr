@@ -9,7 +9,7 @@ class Command(shell.Command):
     """
 
     def get_auto_imports(self):
-        return super().get_auto_imports() + [
+        return super().get_auto_imports() + [  # type: ignore
             "django.core.cache.cache",
             "django.conf.settings",
             "django.contrib.auth.get_user_model",

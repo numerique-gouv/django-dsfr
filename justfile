@@ -53,6 +53,10 @@ alias messages := makemessages
 makemessages:
     uv run django-admin makemessages -l fr --ignore=manage.py,docs/*
 
+# Run static type checks
+typecheck:
+    uv run pyright
+
 # Make quality checks on the whole project
 quality:
     uv run prek run --all-files

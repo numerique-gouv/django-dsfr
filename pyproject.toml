@@ -74,6 +74,7 @@ dev = [
     "deptry>=0.25.1",
     "prek>=0.5.5",
     "pyright>=1.1.414",
+    "django-stubs>=6.0.9",
 ]
 
 [tool.hatch.build.targets.sdist]
@@ -136,6 +137,10 @@ ignore = "H030,H031,H006"
 indent = 2
 
 [tool.pyright]
+typeCheckingMode = "standard"
+venvPath = "."
+venv = ".venv"
+reportUnnecessaryTypeIgnoreComment = "warning"
 exclude = ["**/migrations", "**/static", "**/node_modules", "**/__pycache__", "**/.*"]
 reportAttributeAccessIssue = false
 reportOperatorIssue = false

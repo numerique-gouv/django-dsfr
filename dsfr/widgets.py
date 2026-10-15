@@ -52,7 +52,7 @@ class _ExtendedChoicesWidget(ChoiceWidget):
         return self.extended_choices.choices
 
     @choices.setter
-    def choices(self, value):
+    def choices(self, value):  # type: ignore
         """
         Superseded by self.extended_choices;
         kept for compatibility with ChoiceWidget.__init__
@@ -83,7 +83,7 @@ class _ExtendedChoicesWidget(ChoiceWidget):
         return opt
 
 
-class RichRadioSelect(_ExtendedChoicesWidget, RadioSelect):
+class RichRadioSelect(_ExtendedChoicesWidget, RadioSelect):  # type: ignore
     """
     Widget permettant de produire des boutons radio riches. Ce widget fonctionne avec
     `dsfr.enums.RichRadioButtonChoices`.
@@ -190,8 +190,8 @@ class NumberCursor(NumberInput):
 
     def get_context(self, *args, **kwargs):
         context = super().get_context(*args, **kwargs)
-        context.update(  # type: ignore
-            {  # type: ignore
+        context.update(
+            {
                 "is_range": self.is_range,
                 "prefix": self.prefix,
                 "suffix": self.suffix,
@@ -200,7 +200,7 @@ class NumberCursor(NumberInput):
         )
         return context
 
-    def value_from_datadict(self, data: QueryDict, files: MultiValueDict, name: str):
+    def value_from_datadict(self, data: QueryDict, files: MultiValueDict, name: str):  # type: ignore
         if self.is_range:
             return data.getlist(name)
         else:
@@ -210,7 +210,7 @@ class NumberCursor(NumberInput):
         return value
 
 
-class SegmentedControl(_ExtendedChoicesWidget, ChoiceWidget):
+class SegmentedControl(_ExtendedChoicesWidget, ChoiceWidget):  # type: ignore
     template_name = "dsfr/widgets/segmented_control.html"
     option_template_name = "dsfr/widgets/segmented_control_option.html"
 

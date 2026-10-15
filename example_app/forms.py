@@ -27,19 +27,19 @@ from example_app.utils import populate_genre_choices
 
 
 class ExampleRichChoices(IntegerChoices, RichRadioButtonChoices):
-    ITEM_1 = {
+    ITEM_1 = {  # type: ignore
         "value": auto(),
         "label": "Item 1",
         "html_label": "<strong>Item 1</strong>",
         "pictogram": lazy_static("img/placeholder.1x1.png"),
     }
-    ITEM_2 = {
+    ITEM_2 = {  # type: ignore
         "value": auto(),
         "label": "Item 2",
         "html_label": "<strong>Item 2</strong>",
         "pictogram": lazy_static("img/placeholder.1x1.png"),
     }
-    ITEM_3 = {
+    ITEM_3 = {  # type: ignore
         "value": auto(),
         "label": "Item 3",
         "html_label": "<strong>Item 3</strong>",
@@ -48,17 +48,17 @@ class ExampleRichChoices(IntegerChoices, RichRadioButtonChoices):
 
 
 class ExampleSegmentedControlChoices(IntegerChoices, SegmentedControlChoices):
-    ITEM_1 = {
+    ITEM_1 = {  # type: ignore
         "value": auto(),
         "label": "Item 1",
         "icon": "table-line",
     }
-    ITEM_2 = {
+    ITEM_2 = {  # type: ignore
         "value": auto(),
         "label": "Item 2",
         "icon": "list-unordered",
     }
-    ITEM_3 = {
+    ITEM_3 = {  # type: ignore
         "value": auto(),
         "label": "Item 3",
         "icon": "layout-grid-line",

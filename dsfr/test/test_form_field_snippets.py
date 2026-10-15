@@ -79,17 +79,17 @@ class CheckboxSelectMultipleTestCase(SimpleTestCase):
 class SegmentedControlTestCase(SimpleTestCase):
     class DummyForm(DsfrBaseForm):
         class ExampleSegmentedControlChoices(IntegerChoices, SegmentedControlChoices):
-            ITEM_1 = {
+            ITEM_1 = {  # type: ignore
                 "value": 1,
                 "label": "Item 1",
                 "icon": "table-line",
             }
-            ITEM_2 = {
+            ITEM_2 = {  # type: ignore
                 "value": 2,
                 "label": "Item 2",
                 "icon": "list-unordered",
             }
-            ITEM_3 = {
+            ITEM_3 = {  # type: ignore
                 "value": 3,
                 "label": "Item 3",
                 "icon": "layout-grid-line",

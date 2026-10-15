@@ -17,7 +17,7 @@ class DsfrDjangoTemplates(DjangoTemplates):
                 "APP_DIRS": True,
                 "DIRS": [
                     Path(__file__).resolve().parent / self.backend.app_dirname,
-                    Path(forms.__path__[0]).resolve() / "templates",  # type: ignore
+                    Path(forms.__path__[0]).resolve() / "templates",
                 ],
                 "NAME": "djangoforms",
                 "OPTIONS": {},
@@ -74,7 +74,7 @@ class DsfrBaseForm(forms.Form):
     bound_field_class = DsfrBoundField
 
     @property
-    def default_renderer(self):
+    def default_renderer(self):  # type: ignore
         from django.conf import global_settings, settings
 
         return (
@@ -106,7 +106,7 @@ class DsfrBaseForm(forms.Form):
                 bound_field_class = getattr(
                     self, "bound_field_class", self.bound_field_class
                 )
-                self._bound_fields_cache[name] = bound_field_class(self, field, name)
+                self._bound_fields_cache[name] = bound_field_class(self, field, name)  # type: ignore
             return self._bound_fields_cache[name]
 
     def get_context(self) -> dict:
@@ -143,6 +143,6 @@ class DsfrBaseForm(forms.Form):
         Not included in the __init__ by default because it can cause some side effects on
         non-standard fields/forms.
         """
-        for field in self.errors:  # type: ignore
+        for field in self.errors:
             self.fields[field].widget.attrs.update({"autofocus": ""})
             break

@@ -81,7 +81,7 @@ class DsfrConfig(models.Model):
         help_text=_("For weather alerts only"),
     )
 
-    notice_is_collapsible = models.BooleanField(_("Collapsible?"), default=False)  # type: ignore
+    notice_is_collapsible = models.BooleanField(_("Collapsible?"), default=False)
 
     # Header
     header_brand = models.CharField(
@@ -96,7 +96,9 @@ class DsfrConfig(models.Model):
         default="République<br />française",
         blank=True,
     )
-    beta_tag = models.BooleanField(_("Show the BETA tag next to the title"), default=False)  # type: ignore
+    beta_tag = models.BooleanField(
+        _("Show the BETA tag next to the title"), default=False
+    )
 
     # Footer
     footer_brand = models.CharField(
@@ -148,7 +150,7 @@ class DsfrConfig(models.Model):
     )
 
     # Advanced
-    mourning = models.BooleanField(_("Mourning"), default=False)  # type: ignore
+    mourning = models.BooleanField(_("Mourning"), default=False)
 
     accessibility_status = models.CharField(
         _("Accessibility compliance status"),

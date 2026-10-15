@@ -146,7 +146,7 @@ class DsfrTocExtension(TocExtension):
 
 @register.filter(is_safe=True)
 def dsfr_md(content: str) -> str:
-    return mark_safe(  # type: ignore  # nosec B308, B703 — output sanitized by pymdownx.striphtml extension
+    return mark_safe(  # nosec B308, B703 — output sanitized by pymdownx.striphtml extension
         markdown(
             content,
             extensions=[
@@ -161,7 +161,7 @@ def dsfr_md(content: str) -> str:
 
 @register.filter(is_safe=True)
 def dsfr_md_with_toc(content: str) -> str:
-    return mark_safe(  # type: ignore  # nosec B308, B703 — output sanitized by pymdownx.striphtml extension
+    return mark_safe(  # nosec B308, B703 — output sanitized by pymdownx.striphtml extension
         markdown(
             content,
             extensions=[
