@@ -26,11 +26,11 @@ class BasicPagesTest(TestCase):
         response = self.client.get(reverse("index"))
         self.assertInHTML(
             "<title>Accueil</title>",
-            response.content.decode(),  # type: ignore
+            response.content.decode(),
         )
         self.assertInHTML(
             """<h2 id="fr-theme-modal-title" class="fr-modal__title">Paramètres d’affichage</h2>""",
-            response.content.decode(),  # type: ignore
+            response.content.decode(),
         )
 
     def test_page_can_be_rendered_in_english(self) -> None:
@@ -39,11 +39,11 @@ class BasicPagesTest(TestCase):
         response = self.client.get(reverse("index"))
         self.assertInHTML(
             "<title>Home page</title>",
-            response.content.decode(),  # type: ignore
+            response.content.decode(),
         )
         self.assertInHTML(
             """<h2 id="fr-theme-modal-title" class="fr-modal__title">Display settings</h2>""",
-            response.content.decode(),  # type: ignore
+            response.content.decode(),
         )
 
 

@@ -11,7 +11,7 @@ from dsfr.utils import dsfr_input_class_attr
 
 class DsfrDjangoTemplates(DjangoTemplates):
     @cached_property
-    def engine(self):  # type: ignore
+    def engine(self):
         return self.backend(
             {
                 "APP_DIRS": True,
@@ -21,7 +21,7 @@ class DsfrDjangoTemplates(DjangoTemplates):
                 ],
                 "NAME": "djangoforms",
                 "OPTIONS": {},
-            }  # type: ignore
+            }
         )
 
 
@@ -74,7 +74,7 @@ class DsfrBaseForm(forms.Form):
     bound_field_class = DsfrBoundField
 
     @property
-    def default_renderer(self):  # type: ignore
+    def default_renderer(self):
         from django.conf import global_settings, settings
 
         return (
@@ -106,7 +106,7 @@ class DsfrBaseForm(forms.Form):
                 bound_field_class = getattr(
                     self, "bound_field_class", self.bound_field_class
                 )
-                self._bound_fields_cache[name] = bound_field_class(self, field, name)  # type: ignore
+                self._bound_fields_cache[name] = bound_field_class(self, field, name)
             return self._bound_fields_cache[name]
 
     def get_context(self) -> dict:
@@ -135,7 +135,7 @@ class DsfrBaseForm(forms.Form):
 
         context = super().get_context()
         context.setdefault("DSFR_MARK_OPTIONAL_FIELDS", mark_optional_fields)
-        return context  # type: ignore
+        return context
 
     def set_autofocus_on_first_error(self):
         """
@@ -143,6 +143,6 @@ class DsfrBaseForm(forms.Form):
         Not included in the __init__ by default because it can cause some side effects on
         non-standard fields/forms.
         """
-        for field in self.errors:
+        for field in self.errors:  # type: ignore
             self.fields[field].widget.attrs.update({"autofocus": ""})
             break

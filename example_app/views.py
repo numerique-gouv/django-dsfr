@@ -330,13 +330,13 @@ class AuthorCreateView(CreateView):
 
         # /!\ Pass your form, formset and helper to the context
         if self.request.POST:
-            context["form"] = self.form_class(self.request.POST)  # type: ignore
+            context["form"] = self.form_class(self.request.POST)
             context["formset"] = BookCreateFormSet(
                 self.request.POST, self.request.FILES, instance=instance
             )
             context["book_formhelper"] = book_formhelper
         else:
-            context["form"] = self.form_class()  # type: ignore
+            context["form"] = self.form_class()
             self.formset = self.get_formset(self.request)
             context["formset"] = self.formset
             context["book_formhelper"] = book_formhelper

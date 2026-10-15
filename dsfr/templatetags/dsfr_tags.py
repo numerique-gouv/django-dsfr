@@ -328,7 +328,7 @@ def dsfr_breadcrumb(context: Context, tag_data: dict | None = None) -> dict:
         else:
             tag_data = {}
 
-    tag_data["id"] = generate_random_id("breadcrumb")  # type: ignore
+    tag_data["id"] = generate_random_id("breadcrumb")
 
     return {"self": tag_data}
 
@@ -1670,7 +1670,7 @@ def dsfr_form_field(field: BoundField) -> str:
             stacklevel=3,
         )
 
-    return field.as_hidden() if field.is_hidden else field.as_field_group()
+    return field.as_hidden() if field.is_hidden else field.as_field_group()  # type: ignore
 
 
 register.filter(name="dsfr_input_class_attr", filter_func=dsfr_input_class_attr)

@@ -42,9 +42,9 @@ def _is_sunder(name):
     )
 
 
-class _ExtendedChoicesType(ChoicesType):
+class _ExtendedChoicesType(ChoicesType):  # type: ignore
     @classmethod
-    def __prepare__(metacls, cls, bases, **kwds):
+    def __prepare__(metacls, cls, bases, **kwds):  # type: ignore
         classdict = super().__prepare__(cls, bases, **kwds)
 
         class _EnumDict(classdict.__class__):
@@ -114,7 +114,7 @@ class _ExtendedChoicesType(ChoicesType):
 
         return _EnumDict(classdict)
 
-    def __new__(metacls, classname, bases, classdict, **kwds):
+    def __new__(metacls, classname, bases, classdict, **kwds):  # type: ignore
         cls = super().__new__(metacls, classname, bases, classdict, **kwds)
         cls._additional_attributes = list(classdict._additional_attributes.keys())
 

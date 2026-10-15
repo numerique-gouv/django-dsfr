@@ -4,7 +4,7 @@ from django.apps import AppConfig
 
 
 class DsfrMarkdownConfig(AppConfig):
-    default_auto_field = "django.db.models.BigAutoField"
+    default_auto_field = "django.db.models.BigAutoField"  # type: ignore
     name = "dsfr.extras.markdown"
 
     def ready(self):

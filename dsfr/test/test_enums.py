@@ -77,7 +77,7 @@ class ExtendedChoicesTestCase(SimpleTestCase):
             TEST_1 = {"value": auto()}
             TEST_2 = {"value": auto()}
 
-            additional_attribute = nonmember({"lorem": "ipsum 1"})
+            additional_attribute = nonmember({"lorem": "ipsum 1"})  # type: ignore
 
         self.assertEqual(
             {(1, "Test 1"), (2, "Test 2")}, set(TestExtendedChoices.choices)

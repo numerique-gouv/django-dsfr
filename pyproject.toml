@@ -73,6 +73,7 @@ dev = [
     "ipython>=8.37.0",
     "deptry>=0.25.1",
     "prek>=0.5.5",
+    "pyright>=1.1.414",
 ]
 
 [tool.hatch.build.targets.sdist]
@@ -135,6 +136,7 @@ ignore = "H030,H031,H006"
 indent = 2
 
 [tool.pyright]
+exclude = ["**/migrations", "**/static", "**/node_modules", "**/__pycache__", "**/.*"]
 reportAttributeAccessIssue = false
 reportOperatorIssue = false
 reportOptionalMemberAccess = false

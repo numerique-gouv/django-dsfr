@@ -190,8 +190,8 @@ class NumberCursor(NumberInput):
 
     def get_context(self, *args, **kwargs):
         context = super().get_context(*args, **kwargs)
-        context.update(
-            {
+        context.update(  # type: ignore
+            {  # type: ignore
                 "is_range": self.is_range,
                 "prefix": self.prefix,
                 "suffix": self.suffix,

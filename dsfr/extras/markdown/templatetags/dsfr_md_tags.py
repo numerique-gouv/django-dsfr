@@ -19,7 +19,7 @@ register = template.Library()
 class DsfrTableProcessorMixin(BlockProcessor):
     dsfr_bordered = False
 
-    def run(self, parent, *args):
+    def run(self, parent, *args):  # type: ignore
         super().run(parent, *args)
 
         # Build the DSFR-specific layers surrounding the <table>
@@ -41,7 +41,7 @@ class DsfrTableProcessorMixin(BlockProcessor):
         content.append(added_table)
 
 
-class DsfrTableProcessor(DsfrTableProcessorMixin, TableProcessor):
+class DsfrTableProcessor(DsfrTableProcessorMixin, TableProcessor):  # type: ignore
     pass
 
 
@@ -49,7 +49,7 @@ class DsfrCalloutProcessor(AdmonitionProcessor):
     CLASSNAME = "fr-callout"
     CLASSNAME_TITLE = "fr-callout__title"
 
-    def run(self, parent: etree.Element, *args) -> None:
+    def run(self, parent: etree.Element, *args) -> None:  # type: ignore
         super().run(parent, *args)
         div = parent.find("div")
         if any(
@@ -72,16 +72,16 @@ class DsfrHighlightProcessor(AdmonitionProcessor):
 
 
 class DsfrQuoteProcessor(BlockQuoteProcessor):
-    def run(self, parent: etree.Element, *args):
+    def run(self, parent: etree.Element, *args):  # type: ignore
         super().run(parent, *args)
         figure = etree.SubElement(parent, "figure", {"class": "fr-quote"})
         blockquote = parent.find("blockquote")
-        parent.remove(blockquote)
-        figure.append(blockquote)
+        parent.remove(blockquote)  # type: ignore
+        figure.append(blockquote)  # type: ignore
 
 
 class DsfrLinkProcessor(LinkInlineProcessor):
-    def handleMatch(self, *args):
+    def handleMatch(self, *args):  # type: ignore
         el, pos, idx = super().handleMatch(*args)
         if (
             hasattr(el, "attrib")
@@ -146,7 +146,7 @@ class DsfrTocExtension(TocExtension):
 
 @register.filter(is_safe=True)
 def dsfr_md(content: str) -> str:
-    return mark_safe(  # nosec B308, B703 — output sanitized by pymdownx.striphtml extension
+    return mark_safe(  # type: ignore  # nosec B308, B703 — output sanitized by pymdownx.striphtml extension
         markdown(
             content,
             extensions=[
@@ -161,7 +161,7 @@ def dsfr_md(content: str) -> str:
 
 @register.filter(is_safe=True)
 def dsfr_md_with_toc(content: str) -> str:
-    return mark_safe(  # nosec B308, B703 — output sanitized by pymdownx.striphtml extension
+    return mark_safe(  # type: ignore  # nosec B308, B703 — output sanitized by pymdownx.striphtml extension
         markdown(
             content,
             extensions=[
