@@ -1,5 +1,6 @@
-from dsfr.models import DsfrConfig
 from django.utils.translation import get_language
+
+from dsfr.models import DsfrConfig
 
 
 def site_config(request):

@@ -1,6 +1,7 @@
 {% load i18n %}
 <div class="fr-connect-group">
-  <button class="fr-connect{% if self.plus %} fr-connect--plus{% endif %}"
+  <button type="submit"
+          class="fr-connect{% if self.plus %} fr-connect--plus{% endif %}"
           id="{{ self.id }}">
     <span class="fr-connect__login">{% translate "Login with" %}</span>
     <span class="fr-connect__brand">FranceConnect</span>

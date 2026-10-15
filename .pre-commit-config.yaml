@@ -1,12 +1,14 @@
+# Hooks are run by prek (https://prek.j178.dev/), a drop-in replacement for pre-commit
+# See https://pre-commit.com/hooks.html for more hooks
 exclude: dsfr/static/dsfr/dist
 repos:
 - repo: https://github.com/Riverside-Healthcare/djLint
-  rev: v1.44.2
+  rev: v1.46.4
   hooks:
   - id: djlint-reformat-django
   - id: djlint-django
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.16.4
+  rev: v0.16.10
   hooks:
     - id: ruff
       args: [ --fix, --exit-non-zero-on-fix ]
@@ -16,7 +18,7 @@ repos:
   - id: end-of-file-fixer
   - id: trailing-whitespace
 - repo: https://github.com/psf/black
-  rev: 26.5.1
+  rev: "26.10.0"
   hooks:
     - id: black
       language_version: python3.13

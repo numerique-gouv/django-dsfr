@@ -1,13 +1,12 @@
 import re
 import warnings
-from typing import Type
 
 from django.forms.widgets import (
-    RadioSelect,
-    ChoiceWidget,
-    CheckboxSelectMultiple,
-    NumberInput,
     CheckboxInput,
+    CheckboxSelectMultiple,
+    ChoiceWidget,
+    NumberInput,
+    RadioSelect,
 )
 from django.http import QueryDict
 from django.utils.datastructures import MultiValueDict
@@ -16,10 +15,10 @@ from django.utils.translation import gettext_lazy
 from dsfr.enums import ExtendedChoices
 
 __all__ = [
-    "RichRadioSelect",
-    "InlineRadioSelect",
     "InlineCheckboxSelectMultiple",
+    "InlineRadioSelect",
     "NumberCursor",
+    "RichRadioSelect",
     "SegmentedControl",
     "Toggle",
 ]
@@ -30,8 +29,8 @@ class _ExtendedChoicesWidget(ChoiceWidget):
 
     def __init__(
         self,
-        extended_choices: Type[ExtendedChoices],
-        rich_choices: Type[ExtendedChoices] = None,  # /!\ do not use, deprecated
+        extended_choices: type[ExtendedChoices],
+        rich_choices: type[ExtendedChoices] | None = None,  # /!\ do not use, deprecated
         inline=None,
         attrs=None,
     ):
@@ -58,7 +57,6 @@ class _ExtendedChoicesWidget(ChoiceWidget):
         Superseded by self.extended_choices;
         kept for compatibility with ChoiceWidget.__init__
         """
-        ...
 
     def __deepcopy__(self, memo):
         obj = super().__deepcopy__(memo)

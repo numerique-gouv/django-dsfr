@@ -8,12 +8,8 @@
 {% endblock breadcrumb %}
 
 {% block content %}
-  <h1>
-    Django-DSFR
-  </h1>
-  <h2>
-    Documentation
-  </h2>
+  <h1>Django-DSFR</h1>
+  <h2>Documentation</h2>
   <div>
     <p>
       <strong>Django-DSFR</strong> est une application Django permettant d’utiliser le
@@ -25,19 +21,13 @@
     </p>
   </div>
   <div class="fr-grid-row fr-grid-row--gutters fr-mb-3w">
-    <div class="fr-col-12 fr-col-md-4">
-      {% dsfr_summary summary_data %}
-    </div>
+    <div class="fr-col-12 fr-col-md-4">{% dsfr_summary summary_data %}</div>
   </div>
-  <h3 id="installation">
-    Installation
-  </h3>
+  <h3 id="installation">Installation</h3>
   <p>
     Voir la page <a href="{% url 'doc_install' %}">Installation</a>.
   </p>
-  <h3 id="utilisation">
-    Utilisation
-  </h3>
+  <h3 id="utilisation">Utilisation</h3>
   <p>
     Voir la page <a href="{% url 'doc_usage' %}">Utilisation</a>.
   </p>
@@ -45,21 +35,15 @@
     Les explications sur l’utilisation de chaque composant figurent sur leur entrée dédiée, accessible via la
     page <a href="{% url 'components_index' %}">Composants</a>.
   </p>
-  <h3 id="developpement">
-    Développement
-  </h3>
+  <h3 id="developpement">Développement</h3>
   <p>
     Voir la page <a href="{% url 'doc_contributing' %}">Contribuer</a>.
   </p>
-  <h3 id="notes">
-    Notes
-  </h3>
+  <h3 id="notes">Notes</h3>
   <ul>
     <li>
       Il est possible d’utiliser tous les composants du DSFR directement avec leur code HTML, y compris ceux pour lesquels il n’existe pas de balise.
     </li>
-    <li>
-      De même pour certains où il vaut mieux créer un template ad-hoc à chaque utilisation, comme les modales.
-    </li>
+    <li>De même pour certains où il vaut mieux créer un template ad-hoc à chaque utilisation, comme les modales.</li>
   </ul>
 {% endblock content %}

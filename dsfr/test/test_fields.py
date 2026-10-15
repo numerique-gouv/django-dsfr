@@ -3,8 +3,8 @@ from django.template import Context, Template
 from django.test import SimpleTestCase
 from django.utils.datastructures import MultiValueDict
 
-from dsfr.forms import DsfrBaseForm
 from dsfr.fields import IntegerRangeField
+from dsfr.forms import DsfrBaseForm
 from dsfr.widgets import NumberCursor
 
 

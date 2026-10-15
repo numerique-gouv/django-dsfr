@@ -1,6 +1,7 @@
-from django.test import SimpleTestCase, override_settings
-from django.template import Context, Template
 from unittest.mock import MagicMock
+
+from django.template import Context, Template
+from django.test import SimpleTestCase, override_settings
 
 from dsfr.checksums import (
     INTEGRITY_CSS,
@@ -69,7 +70,7 @@ class DsfrJsTagWithNonceTest(SimpleTestCase):
             f"""
             <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{INTEGRITY_JS_MODULE}" nonce="random-nonce"></script>
             <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{INTEGRITY_JS_NOMODULE}" nonce="random-nonce"></script>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -161,7 +162,7 @@ class DsfrAccordionTagTest(SimpleTestCase):
                     <p><b>Bold</b> and <em>emphatic</em> Example content</p>
                 </div>
             </section>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -178,7 +179,7 @@ class DsfrAccordionTagTest(SimpleTestCase):
                     &lt;p&gt;&lt;b&gt;Bold&lt;/b&gt; and &lt;em>emphatic&lt;/em&gt; Example content&lt;/p&gt;
                 </div>
             </section>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -250,10 +251,10 @@ class DsfrAlertTagTest(SimpleTestCase):
         rendered_template = self.template_to_render.render(self.context)
         self.assertInHTML(
             """
-            <button class="fr-btn--close fr-btn" title="Masquer le message" onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert);">
+            <button type="button" class="fr-btn--close fr-btn" title="Masquer le message" onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert);">
               Masquer le message
             </button>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -269,10 +270,10 @@ class DsfrAlertTagTest(SimpleTestCase):
         )
         self.assertInHTML(
             """
-            <button class="fr-btn--close fr-btn" title="Masquer le message" data-controller="close" data-action="close#onClick">
+            <button type="button" class="fr-btn--close fr-btn" title="Masquer le message" data-controller="close" data-action="close#onClick">
               Masquer le message
             </button>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -292,10 +293,10 @@ class DsfrAlertTagTest(SimpleTestCase):
         )
         self.assertInHTML(
             """
-            <button class="fr-btn--close fr-btn" title="Masquer le message" data-controller="close" data-action="close#onClick">
+            <button type="button" class="fr-btn--close fr-btn" title="Masquer le message" data-controller="close" data-action="close#onClick">
               Masquer le message
             </button>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -523,7 +524,7 @@ class DsfrCardTagTest(SimpleTestCase):
         {"card_data": card_data, "extra_classes": extra_classes, "new_tab": new_tab}
     )
     template_to_render = Template(
-        "{% load dsfr_tags %} {% dsfr_card card_data extra_classes=extra_classes new_tab=newtab %}"  # noqa
+        "{% load dsfr_tags %} {% dsfr_card card_data extra_classes=extra_classes new_tab=newtab %}"
     )
 
     def test_card_is_created(self):
@@ -563,7 +564,7 @@ class DsfrCardTagTest(SimpleTestCase):
             <div class="fr-card__img">
                 <img src="https://test.gouv.fr/test.png" class="fr-responsive-img" alt="">
             </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -600,21 +601,21 @@ class DsfrConsentTagTest(SimpleTestCase):
             </div>
             <ul class="fr-consent-banner__buttons fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-sm">
                 <li>
-                <button class="fr-btn"
+                <button type="button" class="fr-btn"
                         id="consent-accept-all"
                         title="Autoriser tous les cookies">
                     Tout accepter
                 </button>
                 </li>
                 <li>
-                <button class="fr-btn"
+                <button type="button" class="fr-btn"
                         id="consent-reject-all"
                         title="Refuser tous les cookies">
                     Tout refuser
                 </button>
                 </li>
                 <li>
-                <button class="fr-btn fr-btn--secondary"
+                <button type="button" class="fr-btn fr-btn--secondary"
                         id="consent-customize"
                         data-fr-opened="false"
                         aria-controls="fr-consent-modal"
@@ -647,21 +648,21 @@ class DsfrConsentTagTest(SimpleTestCase):
         </div>
         <ul class="fr-consent-banner__buttons fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-sm">
             <li>
-            <button class="fr-btn"
+            <button type="button" class="fr-btn"
                     id="consent-accept-all"
                     title="Autoriser tous les cookies">
                 Tout accepter
             </button>
             </li>
             <li>
-            <button class="fr-btn"
+            <button type="button" class="fr-btn"
                     id="consent-reject-all"
                     title="Refuser tous les cookies">
                 Tout refuser
             </button>
             </li>
             <li>
-            <button class="fr-btn fr-btn--secondary"
+            <button type="button" class="fr-btn fr-btn--secondary"
                     id="consent-customize"
                     data-fr-opened="false"
                     aria-controls="fr-consent-modal"
@@ -736,7 +737,7 @@ class DsfrFranceConnectTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <div class="fr-connect-group">
-                <button class="fr-connect"
+                <button type="submit" class="fr-connect"
                         id="france-connect">
                     <span class="fr-connect__login">S’identifier avec</span>
                     <span class="fr-connect__brand">FranceConnect</span>
@@ -766,7 +767,7 @@ class DsfrFranceConnectPlusTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <div class="fr-connect-group">
-                <button class="fr-connect fr-connect--plus"
+                <button type="submit" class="fr-connect fr-connect--plus"
                         id="france-connect-plus">
                     <span class="fr-connect__login">S’identifier avec</span>
                     <span class="fr-connect__brand">FranceConnect</span>
@@ -912,7 +913,7 @@ class DsfrLinkTagTest(SimpleTestCase):
             >
               Label of the link item <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
             </a>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -925,7 +926,7 @@ class DsfrLinkTagTest(SimpleTestCase):
             <a class="fr-link" href="">
               Label of the link item
             </a>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -941,7 +942,7 @@ class DsfrLinkTagTest(SimpleTestCase):
             >
               Label of the link item
             </a>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -971,13 +972,13 @@ class DsfrNoticeTagTest(SimpleTestCase):
                             lien</a>.
                     </span>
                 </p>
-                    <button class="fr-btn--close fr-btn"
+                    <button type="button" class="fr-btn--close fr-btn"
                         title="Masquer le message"
                         onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
                     Masquer le message
                     </button>
                 </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -995,20 +996,20 @@ class DsfrNoticeTagTest(SimpleTestCase):
                             lien&lt;/a&gt;.
                     </span>
                 </p>
-                    <button class="fr-btn--close fr-btn"
+                    <button type="button" class="fr-btn--close fr-btn"
                         title="Masquer le message"
                         onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
                     Masquer le message
                     </button>
                 </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
 
 class DsfrQuoteTagTest(SimpleTestCase):
     test_data = {
-        "text": "Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques",  # noqa
+        "text": "Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques",
         "source_url": "https://www.systeme-de-design.gouv.fr/",
         "author": "Auteur",
         "source": "Système de Design de l'État",
@@ -1046,7 +1047,7 @@ class DsfrQuoteTagTest(SimpleTestCase):
                     </div>
                 </figcaption>
             </figure>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1073,7 +1074,7 @@ class DsfrQuoteTagTest(SimpleTestCase):
                     </div>
                 </figcaption>
             </figure>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1181,7 +1182,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                     </ul>
                 </div>
             </li>
-            """,  # noqa
+            """,
             self.rendered_template,
         )
 
@@ -1214,7 +1215,7 @@ class DsfrSummaryTagTest(SimpleTestCase):
                     </li>
                 </ol>
             </nav>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1368,11 +1369,11 @@ class DsfrTagTagTest(SimpleTestCase):
 
         context = Context({"test_data": test_data})
         template_to_render = Template(
-            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-icon-arrow-right-line fr-tag--icon-left' %}"  # noqa
+            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-icon-arrow-right-line fr-tag--icon-left' %}"
         )
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<p class="fr-tag fr-icon-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",  # noqa
+            """<p class="fr-tag fr-icon-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",
             rendered_template,
         )
 
@@ -1387,7 +1388,7 @@ class DsfrTagTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_tag test_data %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<a href="#" class="fr-tag" onclick="console.log(&#x27;clicked&#x27;);">Label of the tag item</a>""",  # noqa
+            """<a href="#" class="fr-tag" onclick="console.log(&#x27;clicked&#x27;);">Label of the tag item</a>""",
             rendered_template,
         )
 
@@ -1401,7 +1402,7 @@ class DsfrTagTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_tag test_data %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<button type="button" class="fr-tag fr-tag--dismiss" aria-label="Retirer le filtre Label of the tag item" onclick="event.preventDefault(); this.parentNode.removeChild(this);">Label of the tag item</button>""",  # noqa
+            """<button type="button" class="fr-tag fr-tag--dismiss" aria-label="Retirer le filtre Label of the tag item" onclick="event.preventDefault(); this.parentNode.removeChild(this);">Label of the tag item</button>""",
             rendered_template,
         )
 
@@ -1522,7 +1523,7 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <div class="fr-transcription">
-                <button class="fr-transcription__btn"
+                <button type="button" class="fr-transcription__btn"
                         aria-expanded="false"
                         aria-controls="fr-transcription__collapse-transcription-test">
                     Transcription
@@ -1531,7 +1532,7 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
                     <div class="fr-transcription__footer">
                         <div class="fr-transcription__actions-group">
 
-                            <button class="fr-btn fr-btn--fullscreen"
+                            <button type="button" class="fr-btn fr-btn--fullscreen"
                                     aria-controls="fr-transcription-modal-transcription-test"
                                     data-fr-opened="false"
                                     title="Agrandir">
@@ -1549,7 +1550,7 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
                                     <div class="fr-modal__body">
                                         <div class="fr-modal__header">
 
-                                            <button class="fr-btn--close fr-btn"
+                                            <button type="button" class="fr-btn--close fr-btn"
                                                     aria-controls="fr-transcription-modal-transcription-test"
                                                     title="Fermer">
                                                 Fermer
@@ -1569,7 +1570,7 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
                     </dialog>
                 </div>
             </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1579,7 +1580,7 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
         self.assertInHTML(
             """
             <div class="fr-transcription">
-                <button class="fr-transcription__btn"
+                <button type="button" class="fr-transcription__btn"
                         aria-expanded="false"
                         aria-controls="fr-transcription__collapse-transcription-test">
                     Transcription
@@ -1588,7 +1589,7 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
                     <div class="fr-transcription__footer">
                         <div class="fr-transcription__actions-group">
 
-                            <button class="fr-btn fr-btn--fullscreen"
+                            <button type="button" class="fr-btn fr-btn--fullscreen"
                                     aria-controls="fr-transcription-modal-transcription-test"
                                     data-fr-opened="false"
                                     title="Agrandir">
@@ -1606,7 +1607,7 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
                                     <div class="fr-modal__body">
                                         <div class="fr-modal__header">
 
-                                            <button class="fr-btn--close fr-btn"
+                                            <button type="button" class="fr-btn--close fr-btn"
                                                     aria-controls="fr-transcription-modal-transcription-test"
                                                     title="Fermer">
                                                 Fermer
@@ -1626,7 +1627,7 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
                     </dialog>
                 </div>
             </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 

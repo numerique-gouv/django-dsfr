@@ -2,8 +2,8 @@
 <script type="module"
         src="{% static DsfrStaticAssets.DSFR_MODULE_JS %}"
         {% if self.USE_INTEGRITY_CHECKSUMS %}integrity="{{ self.INTEGRITY_JS_MODULE }}"{% endif %}
-        {% if self.nonce %} nonce="{{self.nonce}}"{% endif %}></script>
+        {% if self.nonce %} nonce="{{ self.nonce }}"{% endif %}></script>
 <script nomodule
         src="{% static DsfrStaticAssets.DSFR_NOMODULE_JS %}"
         {% if self.USE_INTEGRITY_CHECKSUMS %}integrity="{{ self.INTEGRITY_JS_NOMODULE }}"{% endif %}
-        {% if self.nonce %} nonce="{{self.nonce}}"{% endif %}></script>
+        {% if self.nonce %} nonce="{{ self.nonce }}"{% endif %}></script>

@@ -5,13 +5,13 @@ from django import template
 from django.utils.safestring import mark_safe
 from markdown import markdown
 from markdown.blockprocessors import BlockProcessor, BlockQuoteProcessor
-from markdown.inlinepatterns import LinkInlineProcessor, LINK_RE
+from markdown.extensions import Extension
 from markdown.extensions.admonition import AdmonitionProcessor
 from markdown.extensions.attr_list import AttrListExtension
 from markdown.extensions.nl2br import Nl2BrExtension
 from markdown.extensions.tables import TableProcessor
-from markdown.extensions.toc import TocTreeprocessor, TocExtension
-from markdown.extensions import Extension
+from markdown.extensions.toc import TocExtension, TocTreeprocessor
+from markdown.inlinepatterns import LINK_RE, LinkInlineProcessor
 
 register = template.Library()
 
@@ -53,10 +53,8 @@ class DsfrCalloutProcessor(AdmonitionProcessor):
         super().run(parent, *args)
         div = parent.find("div")
         if any(
-            (
-                dsfr_icon_suffix in div.attrib["class"]
-                for dsfr_icon_suffix in ("-line", "-fill")
-            )
+            dsfr_icon_suffix in div.attrib["class"]
+            for dsfr_icon_suffix in ("-line", "-fill")
         ):
             div.attrib["class"] = div.attrib["class"].replace(" ", " fr-icon-")
         for child in div.findall("*"):

@@ -87,12 +87,12 @@ just quality
 ```
 
 Une vérification automatique est faite via des *pre-commit hooks*, qui ont
-normalement été installés via le `just init`.
+normalement été installés via le `just init`, via l’outil [prek](https://prek.j178.dev/).
 
 Il est possible de les mettre à jour avec la commande :
 
 ```{ .bash }
-pre-commit update
+uv run prek update
 ```
 
 ## Workflow avec les mainteneurs
@@ -150,11 +150,13 @@ Elle s’effectue en trois étapes :
     just prepare_release {major|minor|patch}
     ```
 
-   Cette commande crée une nouvelle branche `release/<nouvelle version>` à partir de laquelle il faut ouvrir une nouvelle PR et la merger.
+   Cette commande crée une nouvelle branche `release/<nouvelle version>` à partir
+   de laquelle il faut ouvrir une nouvelle PR et la merger.
 
 2. Créer et publier la release Github depuis
   [cet écran](https://github.com/numerique-gouv/django-dsfr/releases/new) :
-    - Créer un nouveau git tag `v<nouvelle version>` où `<nouvelle version>` correspond à la nouvelle version généré par la commande de l'étape précédente
+    - Créer un nouveau git tag `v<nouvelle version>` où `<nouvelle version>`
+    correspond à la nouvelle version généré par la commande de l'étape précédente
     - Vérifier le changelog généré ;
     - Publier la release.
 3. Vérifier que le workflow de construction puis publication du paquet a tourné

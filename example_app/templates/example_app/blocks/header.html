@@ -21,16 +21,15 @@
 
 {% block header_tools %}
   <li>
-    <button class="fr-btn--display fr-btn"
+    <button type="button"
+            class="fr-btn--display fr-btn"
             aria-controls="fr-theme-modal"
             data-fr-opened="false">
       {% translate "Display settings" %}
     </button>
   </li>
   {% if "127.0.0.1" in request.get_host or "localhost" in request.get_host %}
-    <li>
-      {% include "example_app/blocks/language_selector.html" %}
-    </li>
+    <li>{% include "example_app/blocks/language_selector.html" %}</li>
   {% endif %}
 {% endblock header_tools %}
 
@@ -38,7 +37,8 @@
 {% block burger_menu %}
   {% translate "Search" as search_label %}
   <div class="fr-header__navbar">
-    <button class="fr-btn--search fr-btn"
+    <button type="button"
+            class="fr-btn--search fr-btn"
             data-fr-opened="false"
             aria-controls="modal-search"
             id="fr-btn-search-mobile"
@@ -46,7 +46,8 @@
       {{ search_label }}
     </button>
     {% translate "Menu" as menu_label %}
-    <button class="fr-btn--menu fr-btn"
+    <button type="button"
+            class="fr-btn--menu fr-btn"
             data-fr-opened="false"
             aria-controls="fr-menu-mobile"
             id="fr-btn-menu-mobile"
@@ -65,24 +66,21 @@
   <div class="fr-header__search fr-modal" id="modal-search">
     <div class="fr-container fr-container-lg--fluid">
       {% translate "Close" as close_label %}
-      <button class="fr-btn--close fr-btn"
+      <button type="button"
+              class="fr-btn--close fr-btn"
               aria-controls="modal-search"
               title="{{ close_label }}">
         {{ close_label }}
       </button>
       <form action="{% url 'page_search' %}" method="get">
         <div class="fr-search-bar" id="search-bar" role="search">
-          <label class="fr-label" for="query">
-            {{ search_label }}
-          </label>
+          <label class="fr-label" for="query">{{ search_label }}</label>
           <input class="fr-input"
                  placeholder="{{ search_label }}"
                  type="search"
                  id="query"
                  name="q">
-          <button class="fr-btn" title="{{ search_label }}">
-            {{ search_label }}
-          </button>
+          <button type="submit" class="fr-btn" title="{{ search_label }}">{{ search_label }}</button>
         </div>
       </form>
     </div>

@@ -6,8 +6,8 @@ from django.test import SimpleTestCase
 from dsfr.enums import SegmentedControlChoices
 from dsfr.forms import DsfrBaseForm
 from dsfr.widgets import (
-    InlineRadioSelect,
     InlineCheckboxSelectMultiple,
+    InlineRadioSelect,
     SegmentedControl,
 )
 

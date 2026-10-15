@@ -26,11 +26,11 @@ class BasicPagesTest(TestCase):
         response = self.client.get(reverse("index"))
         self.assertInHTML(
             "<title>Accueil</title>",
-            response.content.decode(),
+            response.content.decode(),  # type: ignore
         )
         self.assertInHTML(
             """<h2 id="fr-theme-modal-title" class="fr-modal__title">Paramètres d’affichage</h2>""",
-            response.content.decode(),
+            response.content.decode(),  # type: ignore
         )
 
     def test_page_can_be_rendered_in_english(self) -> None:
@@ -39,11 +39,11 @@ class BasicPagesTest(TestCase):
         response = self.client.get(reverse("index"))
         self.assertInHTML(
             "<title>Home page</title>",
-            response.content.decode(),
+            response.content.decode(),  # type: ignore
         )
         self.assertInHTML(
             """<h2 id="fr-theme-modal-title" class="fr-modal__title">Display settings</h2>""",
-            response.content.decode(),
+            response.content.decode(),  # type: ignore
         )
 
 
@@ -69,7 +69,7 @@ class ComponentsTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_each_component(self):
-        for key in ALL_TAGS.keys():
+        for key in ALL_TAGS:
             response = self.client.get(
                 reverse("page_component", kwargs={"tag_name": key})
             )

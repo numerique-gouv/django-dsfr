@@ -1,4 +1,5 @@
 from django.test import SimpleTestCase
+
 from dsfr.utils import generate_random_id, generate_summary_items
 
 

@@ -16,7 +16,8 @@ else:
     PY311 = sys.version_info >= (3, 11)
 
 if PY311:
-    from enum import property as enum_property, nonmember
+    from enum import nonmember
+    from enum import property as enum_property
 else:
     from types import DynamicClassAttribute as enum_property
 
@@ -112,7 +113,7 @@ class ExtendedChoicesTestCase(SimpleTestCase):
 
             def dynamic_attribute_value(self, name):
                 if name == "additionnal_attribute":
-                    return {"lorem": "ipsum {}".format(self.value)}
+                    return {"lorem": f"ipsum {self.value}"}
                 else:
                     return {"lorem": "ipsum x"}
 
@@ -130,7 +131,7 @@ class ExtendedChoicesTestCase(SimpleTestCase):
             TEST_2 = auto()
 
         with self.assertRaises(AttributeError) as e:
-            TestExtendedChoices.TEST_2.additionnal_attribute
+            _ = TestExtendedChoices.TEST_2.additionnal_attribute
 
         self.assertEqual(
             "TestExtendedChoices.TEST_2 does not contain key 'additionnal_attribute'. "

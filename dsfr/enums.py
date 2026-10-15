@@ -81,10 +81,8 @@ class _ExtendedChoicesType(ChoicesType):
 
                 if "value" not in value:
                     raise ValueError(
-                        "enum value for {member} should contain member 'value' "
-                        "when using a dict as value; got {member} = {value}".format(
-                            member=member, value=repr(value)
-                        )
+                        f"enum value for {member} should contain member 'value' "
+                        f"when using a dict as value; got {member} = {value!r}"
                     )
 
                 if PY311:
@@ -107,11 +105,9 @@ class _ExtendedChoicesType(ChoicesType):
                 for attr_name, attr_value in value.items():
                     if _is_sunder(attr_name) or _is_dunder(attr_name):
                         raise ValueError(
-                            (
-                                "enum value for {member} contains key {key}. "
-                                "Names surrounded with single or double underscores are "
-                                "not authorized as dict values"
-                            ).format(member=member, key=attr_name)
+                            f"enum value for {member} contains key {attr_name}. "
+                            "Names surrounded with single or double underscores are "
+                            "not authorized as dict values"
                         )
                     self._additional_attributes.setdefault(attr_name, {})
                     self._additional_attributes[attr_name][member] = attr_value
@@ -132,11 +128,9 @@ class _ExtendedChoicesType(ChoicesType):
                     return enum_item.dynamic_attribute_value(name)
                 else:
                     raise AttributeError(
-                        (
-                            "{}.{} does not contain key '{}'. Please add key or "
-                            "implement a 'dynamic_attribute_value(self, name)' method "
-                            "in you enum to provide a value"
-                        ).format(cls.__name__, instance.name, name)
+                        f"{cls.__name__}.{instance.name} does not contain key '{name}'. Please add key or "
+                        "implement a 'dynamic_attribute_value(self, name)' method "
+                        "in you enum to provide a value"
                     )
 
             return _instance_property_getter
@@ -145,16 +139,9 @@ class _ExtendedChoicesType(ChoicesType):
             for attr_name, attr_value in classdict._additional_attributes.items():
                 if hasattr(instance, cls.private_variable_name(attr_name)):
                     raise ValueError(
-                        (
-                            "Can't set '{}' on {}.{}; instance already has a private "
-                            "'{}' attribute; please choose a different name or remove "
-                            "from the member value"
-                        ).format(
-                            attr_name,
-                            cls.__name__,
-                            instance.name,
-                            cls.private_variable_name(attr_name),
-                        )
+                        f"Can't set '{attr_name}' on {cls.__name__}.{instance.name}; instance already has a private "
+                        f"'{cls.private_variable_name(attr_name)}' attribute; please choose a different name or remove "
+                        "from the member value"
                     )
 
                 if instance.name in attr_value:
