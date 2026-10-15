@@ -10,9 +10,7 @@
             <thead>
               <tr>
                 {% for cell in self.header %}
-                  <th scope="col">
-                    {{ cell|dsfr_maybe_safe }}
-                  </th>
+                  <th scope="col">{{ cell|dsfr_maybe_safe }}</th>
                 {% endfor %}
               </tr>
             </thead>
@@ -21,9 +19,7 @@
             {% for row in self.content %}
               <tr>
                 {% for cell in row %}
-                  <td>
-                    {{ cell|dsfr_maybe_safe }}
-                  </td>
+                  <td>{{ cell|dsfr_maybe_safe }}</td>
                 {% endfor %}
               </tr>
             {% endfor %}

@@ -1,8 +1,8 @@
-from django.core.management.base import BaseCommand
-
 import json
-from bs4 import BeautifulSoup
 from pathlib import Path
+
+from bs4 import BeautifulSoup
+from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
@@ -39,7 +39,8 @@ class Command(BaseCommand):
             filename = "homepage"
 
         if filename != "search":
-            soup = BeautifulSoup(open(file), "lxml")
+            with open(file) as html_file:
+                soup = BeautifulSoup(html_file, "lxml")
             title = soup.title.string.replace(
                 "— Système de Design de l’État", ""
             ).strip()

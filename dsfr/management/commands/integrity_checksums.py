@@ -2,8 +2,8 @@ import base64
 import hashlib
 from pathlib import Path
 
+from black import FileMode, format_str
 from django.core.management.base import BaseCommand
-from black import format_str, FileMode
 
 
 class Command(BaseCommand):
@@ -42,4 +42,4 @@ class Command(BaseCommand):
     def calculate_checksum(self, input_content: bytes):
         hashed_content = hashlib.sha384(input_content).digest()
         hash_base64 = base64.b64encode(hashed_content).decode()
-        return "sha384-{}".format(hash_base64)
+        return f"sha384-{hash_base64}"

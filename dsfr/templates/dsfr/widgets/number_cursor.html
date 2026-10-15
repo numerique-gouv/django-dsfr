@@ -10,19 +10,7 @@
       {% endif %}
     {% endif %}
   </span>
-  <input id="{{ widget.attrs.id }}{% if is_range %}-low{% endif %}"
-         name="{{ widget.name }}"
-         type="range"
-         {% if widget.attrs.disabled %}disabled{% endif %}
-         {% if widget.attrs.min %}min="{{ widget.attrs.min }}"{% endif %}
-         {% if widget.attrs.max %}max="{{ widget.attrs.max }}"{% endif %}
-         {% if widget.attrs.step %}step="{{ widget.attrs.step }}"{% endif %}
-         {% if widget.value %}value="{% if is_range %}{{ widget.value|first }}{% else %}{{ widget.value }}{% endif %}
-         "
-         {% endif %}
-         {% if required %}required{% endif %}
-         aria-labelledby="{{ widget.attrs.id }}-label"
-         aria-describedby="{{ widget.attrs.id }}-messages">
+  <input id="{{ widget.attrs.id }}{% if is_range %}-low{% endif %}" name="{{ widget.name }}" type="range" {% if widget.attrs.disabled %}disabled{% endif %} {% if widget.attrs.min %}min="{{ widget.attrs.min }}"{% endif %} {% if widget.attrs.max %}max="{{ widget.attrs.max }}"{% endif %} {% if widget.attrs.step %}step="{{ widget.attrs.step }}"{% endif %} {% if widget.value %}value="{% if is_range %}{{ widget.value|first }}{% else %}{{ widget.value }}{% endif %} " {% endif %} {% if required %}required{% endif %} aria-labelledby="{{ widget.attrs.id }}-label" aria-describedby="{{ widget.attrs.id }}-messages">
   {% if is_range %}
     <input id="{{ widget.attrs.id }}{% if is_range %}-high{% endif %}"
            name="{{ widget.name }}"

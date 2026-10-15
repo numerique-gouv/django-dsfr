@@ -1,2 +1,3 @@
-dsfr/static/dsfr/dist/** linguist-vendored
-docs/** linguist-vendored
+django-dsfr/example_app/static/json/search_data.json linguist-vendored linguist-generated
+docs/** linguist-vendored linguist-generated
+dsfr/static/dsfr/dist/** linguist-vendored linguist-generated

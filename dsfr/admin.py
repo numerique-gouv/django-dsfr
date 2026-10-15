@@ -1,7 +1,7 @@
 from django.contrib import admin
-from dsfr.models import DsfrConfig, DsfrSocialMedia
-
 from django.utils.translation import gettext_lazy as _
+
+from dsfr.models import DsfrConfig, DsfrSocialMedia
 
 
 class DsfrSocialMediaInline(admin.TabularInline):

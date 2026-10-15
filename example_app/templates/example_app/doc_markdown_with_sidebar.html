@@ -3,14 +3,10 @@
 
 {% block content %}
   <div class="fr-grid-row fr-grid-row--gutters fr-b__two-col">
-    <div class="fr-col-12 fr-col-md-4">
-      {% dsfr_sidemenu side_menu extra_classes="" %}
-    </div>
+    <div class="fr-col-12 fr-col-md-4">{% dsfr_sidemenu side_menu extra_classes="" %}</div>
     <div class="fr-col-12 fr-col-md-8 fr-py-2w">
 
-      <h1>
-        {{ title }}
-      </h1>
+      <h1>{{ title }}</h1>
       <div class="fr-grid-row fr-grid-row--gutters fr-mb-3w">
         <div class="fr-col-12 fr-col-md-4">
           {% if summary_data %}

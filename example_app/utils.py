@@ -1,6 +1,7 @@
 import markdown
 from markdown.extensions.codehilite import CodeHiliteExtension
 from markdown.extensions.toc import TocExtension
+
 from example_app.models import Genre
 
 

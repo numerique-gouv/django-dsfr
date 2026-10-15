@@ -69,7 +69,7 @@ class ComponentsTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_each_component(self):
-        for key in ALL_TAGS.keys():
+        for key in ALL_TAGS:
             response = self.client.get(
                 reverse("page_component", kwargs={"tag_name": key})
             )

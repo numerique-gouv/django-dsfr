@@ -1,6 +1,7 @@
 from django.db import IntegrityError
-from django.test import TestCase, Client
+from django.test import Client, TestCase
 from django.urls import reverse
+
 from dsfr.models import DsfrConfig
 
 

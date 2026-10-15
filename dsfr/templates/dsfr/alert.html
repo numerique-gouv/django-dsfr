@@ -6,12 +6,11 @@
     <{{ self.heading_tag | default:"p" }} class="fr-alert__title">{{ self.title }}</{{ self.heading_tag | default:"p" }}>
   {% endif %}
   {% if self.content %}
-    <p>
-      {{ self.content | dsfr_maybe_safe }}
-    </p>
+    <p>{{ self.content | dsfr_maybe_safe }}</p>
   {% endif %}
   {% if self.is_collapsible %}
-    <button class="fr-btn--close fr-btn"
+    <button type="button"
+            class="fr-btn--close fr-btn"
             title="{{ hide_message }}"
             {% for attr, value in self.collapsible_attrs.items %}{{ attr }}="{{ value|dsfr_maybe_safe }}"{% endfor %}>
       {{ hide_message }}

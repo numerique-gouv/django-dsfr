@@ -2,14 +2,12 @@
 
 <section class="fr-accordion">
   <{{ self.heading_tag | default:"h3" }} class="fr-accordion__title">
-  <button type="button"
-          class="fr-accordion__btn"
-          aria-expanded="false"
-          aria-controls="{{ self.id }}">
-    {{ self.title }}
-  </button>
+    <button type="button"
+            class="fr-accordion__btn"
+            aria-expanded="false"
+            aria-controls="{{ self.id }}">
+      {{ self.title }}
+    </button>
   </{{ self.heading_tag | default:"h3" }}>
-  <div class="fr-collapse" id="{{ self.id }}">
-    {{ self.content | dsfr_maybe_safe }}
-  </div>
+  <div class="fr-collapse" id="{{ self.id }}">{{ self.content | dsfr_maybe_safe }}</div>
 </section>

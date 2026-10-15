@@ -917,7 +917,7 @@ IMPLEMENTED_COMPONENTS = {
             {"label": "Tag avec lien", "link": "/django-dsfr/components"},
             {
                 "label": "Petit tag avec icône",
-                "extra_classes": "fr-tag--sm fr-icon-arrow-right-line fr-tag--icon-left",  # noqa
+                "extra_classes": "fr-tag--sm fr-icon-arrow-right-line fr-tag--icon-left",
             },
             {
                 "label": "Tag avec action",
@@ -1083,17 +1083,17 @@ EXTRA_COMPONENTS = {
                 {
                     "id": "sample-accordion-1",
                     "title": "Premier accordéon",
-                    "content": "<p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em> (1)</p>",  # noqa
+                    "content": "<p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em> (1)</p>",
                 },
                 {
                     "id": "sample-accordion-2",
                     "title": "Deuxième accordéon",
-                    "content": "<p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em> (2)</p>",  # noqa
+                    "content": "<p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em> (2)</p>",
                 },
                 {
                     "id": "sample-accordion-3",
                     "title": "Troisième accordéon",
-                    "content": "<p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em> (3)</p>",  # noqa
+                    "content": "<p>Contenu d’exemple avec du <strong>gras</strong> et de l’<em>italique</em> (3)</p>",
                 },
             ]
         ],

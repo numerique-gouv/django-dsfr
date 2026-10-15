@@ -8,8 +8,7 @@
             aria-controls="fr-menu-mobile">
       Fermer
     </button>
-    <div class="fr-header__menu-links">
-    </div>
+    <div class="fr-header__menu-links"></div>
     {% translate "Main menu" as main_menu_label %}
     <nav role="navigation"
          class="fr-nav"
@@ -24,7 +23,8 @@
              {% if request.path == home_url %}aria-current="true"{% endif %}>Accueil</a>
         </li>
         <li class="fr-nav__item">
-          <button class="fr-nav__btn"
+          <button type="button"
+                  class="fr-nav__btn"
                   aria-expanded="false"
                   aria-controls="menu-doc"
                   {% if '/doc-' in request.path %}aria-current="true"{% endif %}>
@@ -57,7 +57,8 @@
           </div>
         </li>
         <li class="fr-nav__item">
-          <button class="fr-nav__btn"
+          <button type="button"
+                  class="fr-nav__btn"
                   aria-expanded="false"
                   aria-controls="mega-menu-components"
                   {% if '/components/' in request.path %}aria-current="true"{% endif %}>
@@ -67,16 +68,16 @@
                id="mega-menu-components"
                tabindex="-1">
             <div class="fr-container fr-container--fluid fr-container-lg">
-              <button class="fr-link--close fr-link" aria-controls="mega-menu-components">
+              <button type="button"
+                      class="fr-link--close fr-link"
+                      aria-controls="mega-menu-components">
                 Fermer
               </button>
               {% url 'components_index' as components_index_url %}
               <div class="fr-grid-row fr-grid-row-lg--gutters">
                 <div class="fr-col-12 fr-col-lg-8 fr-col-offset-lg-4--right">
                   <div class="fr-mega-menu__leader">
-                    <h2 class="fr-h4 fr-mb-2v">
-                      Composants
-                    </h2>
+                    <h2 class="fr-h4 fr-mb-2v">Composants</h2>
                     <a class="fr-link fr-fi-arrow-right-line fr-link--icon-right fr-link--align-on-content"
                        href="{{ components_index_url }}">Voir la documentation</a>
                   </div>
@@ -113,7 +114,8 @@
           </div>
         </li>
         <li class="fr-nav__item">
-          <button class="fr-nav__btn"
+          <button type="button"
+                  class="fr-nav__btn"
                   aria-expanded="false"
                   aria-controls="menu-forms"
                   {% if 'django-dsfr/form' in request.path %}aria-current="true"{% endif %}>
@@ -146,7 +148,8 @@
           </div>
         </li>
         <li class="fr-nav__item">
-          <button class="fr-nav__btn"
+          <button type="button"
+                  class="fr-nav__btn"
                   aria-expanded="false"
                   aria-controls="menu-resources"
                   {% if '/resources' in request.path %}aria-current="true"{% endif %}>

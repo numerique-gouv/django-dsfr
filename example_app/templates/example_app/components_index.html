@@ -1,13 +1,12 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
 {% block content %}
-  <h1>
-    Composants du système de design de l’État
-  </h1>
+  <h1>Composants du système de design de l’État</h1>
   <div class="fr-tabs">
     <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
       <li role="presentation">
-        <button id="tabpanel-documentation"
+        <button type="button"
+                id="tabpanel-documentation"
                 class="fr-tabs__tab fr-icon-book-2-line fr-tabs__tab--icon-left"
                 tabindex="0"
                 role="tab"
@@ -17,7 +16,8 @@
         </button>
       </li>
       <li role="presentation">
-        <button id="tabpanel-implemented"
+        <button type="button"
+                id="tabpanel-implemented"
                 class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left"
                 tabindex="0"
                 role="tab"
@@ -27,7 +27,8 @@
         </button>
       </li>
       <li role="presentation">
-        <button id="tabpanel-notyetimplemented"
+        <button type="button"
+                id="tabpanel-notyetimplemented"
                 class="fr-tabs__tab fr-icon-close-circle-line fr-tabs__tab--icon-left"
                 tabindex="-1"
                 role="tab"
@@ -37,7 +38,8 @@
         </button>
       </li>
       <li role="presentation">
-        <button id="tabpanel-extratags"
+        <button type="button"
+                id="tabpanel-extratags"
                 class="fr-tabs__tab fr-icon-add-circle-line fr-tabs__tab--icon-left"
                 tabindex="-1"
                 role="tab"
@@ -52,9 +54,7 @@
          role="tabpanel"
          aria-labelledby="tabpanel-documentation"
          tabindex="0">
-      <h2>
-        Documentation
-      </h2>
+      <h2>Documentation</h2>
 
       {{ documentation|safe }}
 
@@ -64,9 +64,7 @@
          role="tabpanel"
          aria-labelledby="tabpanel-implemented"
          tabindex="0">
-      <h2>
-        Composants implémentés
-      </h2>
+      <h2>Composants implémentés</h2>
       <ul>
         {% for component, data in implemented_components.items %}
           <li class="fr-mb-1w">
@@ -80,40 +78,40 @@
          role="tabpanel"
          aria-labelledby="tabpanel-notyetimplemented"
          tabindex="0">
-      <h2>
-        Composants pas encore implémentés
-      </h2>
+      <h2>Composants pas encore implémentés</h2>
       <ul>
         {% for component, data in not_yet.items %}
           <li class="fr-mb-1w">
             {{ data.title }} ({{ component }})
-            (<a href="{{ data.doc_url }}" target="_blank" rel="noopener">Documentation <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
+            (<a href="{{ data.doc_url }}"
+   target="_blank"
+   rel="noopener">Documentation <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
             —
-            <a href="{{ data.example_url }}" target="_blank" rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
+            <a href="{{ data.example_url }}"
+               target="_blank"
+               rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
             {% if data.note %}
               <ul>
-                <li>
-                  Note : {{ data.note|safe }}
-                </li>
+                <li>Note : {{ data.note|safe }}</li>
               </ul>
             {% endif %}
           </li>
         {% endfor %}
       </ul>
-      <h2>
-        Composants qui ne seront pas implémentés
-      </h2>
+      <h2>Composants qui ne seront pas implémentés</h2>
       <ul>
         {% for component, data in wont_be.items %}
           <li>
             {{ data.title }} ({{ component }})
-            (<a href="{{ data.doc_url }}" target="_blank" rel="noopener">Documentation <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
+            (<a href="{{ data.doc_url }}"
+   target="_blank"
+   rel="noopener">Documentation <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>
             —
-            <a href="{{ data.example_url }}" target="_blank" rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
+            <a href="{{ data.example_url }}"
+               target="_blank"
+               rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
             <ul>
-              <li>
-                Raison : {{ data.reason|safe }}
-              </li>
+              <li>Raison : {{ data.reason|safe }}</li>
             </ul>
           </li>
         {% endfor %}
@@ -124,9 +122,7 @@
          role="tabpanel"
          aria-labelledby="tabpanel-extratags"
          tabindex="0">
-      <h2>
-        Balises supplémentaires
-      </h2>
+      <h2>Balises supplémentaires</h2>
       <ul>
         {% for component, data in extra_components.items %}
           <li class="fr-mb-1w">

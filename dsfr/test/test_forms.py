@@ -8,8 +8,8 @@ from dsfr.forms import DsfrBaseForm
 from dsfr.widgets import (
     InlineCheckboxSelectMultiple,
     InlineRadioSelect,
-    RichRadioSelect,
     NumberCursor,
+    RichRadioSelect,
     SegmentedControl,
 )
 
