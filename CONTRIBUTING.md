@@ -8,7 +8,7 @@ Pour toute question relative à django-dsfr, n'hésitez pas à passer sur
 ## Prérequis
 
 - [uv](https://docs.astral.sh/uv/) **0.9.17 ou plus récent**
-(nécessaire pour le `exclude-newer` dans le `pyproject.toml`)
+(nécessaire pour le `exclude-newer` dans le `pyproject.toml`, cf. plus bas)
 - [just](https://just.systems/man/en/) **1.27.0 ou plus récent**
 (nécessaire pour l’attribut `[group()]` dans le `justfile`)
 
@@ -171,6 +171,27 @@ correctement :
     - Via
     [l’écran de suivi du workflow sur Github](https://github.com/numerique-gouv/django-dsfr/actions/workflows/publish-package.yml),
     - Puis sur [la page du paquet sur PyPI](https://pypi.org/project/django-dsfr).
+
+## Temporisation des mises à jour
+
+Afin de réduire l'exposition aux attaques ciblant la chaîne logistique
+(supply-chain attacks), les versions de paquets publiées il y a moins de 7 jours
+sont ignorées :
+
+- `uv` : `exclude-newer = "7 days"` est déclaré dans la section `[tool.uv]` du
+fichier `pyproject.toml`. Cela s'applique à toute opération de résolution
+(uv lock, uv add, « just upgrade », etc.)
+- `prek` : la commande `just upgrade` exécute `prek update --cooldown-days 7` ;
+par conséquent, les révisions des « hooks » ne sont mises à jour vers de
+nouvelles versions que si celles-ci ont au moins 7 jours d'ancienneté.
+
+Si vous avez besoin en urgence d’une version plus récente
+(par exemple, pour un correctif de sécurité), passez outre la limite pour ce
+paquet uniquement ; par exemple :
+
+```bash
+uv lock --upgrade-package django --exclude-newer-package django=2026-10-07
+```
 
 ## Mise à jour de la documentation
 
