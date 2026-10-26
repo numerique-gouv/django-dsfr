@@ -1,38 +1,39 @@
+import os
 from itertools import islice
 from textwrap import dedent
 
 import markdown
-from markdown.extensions.codehilite import CodeHiliteExtension
-
-import os
-
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_safe
 
-from dsfr.utils import dsfr_version, generate_summary_items
-
-from example_app.forms import AccentColorForm, ExampleForm, FullColorForm
-
-from example_app.dsfr_components import (
-    ALL_IMPLEMENTED_COMPONENTS,
-    IMPLEMENTED_COMPONENTS,
-    EXTRA_COMPONENTS,
-    NOT_YET_IMPLEMENTED_COMPONENTS,
-    WONT_BE_IMPLEMENTED,
-)
+# /!\ In order to test formset
+from django.views.generic import CreateView
+from markdown.extensions.codehilite import CodeHiliteExtension
 
 # Used by the module = getattr(globals()["dsfr_tags"], f"dsfr_{tag_name}") line
 from dsfr.templatetags import dsfr_tags  # noqa
-
-# /!\ In order to test formset
-from django.views.generic import CreateView
-from django.http import HttpResponse
-from example_app.forms import AuthorCreateForm, BookCreateFormSet, BookCreateFormHelper
+from dsfr.utils import dsfr_version, generate_summary_items
+from example_app.dsfr_components import (
+    ALL_IMPLEMENTED_COMPONENTS,
+    EXTRA_COMPONENTS,
+    IMPLEMENTED_COMPONENTS,
+    NOT_YET_IMPLEMENTED_COMPONENTS,
+    WONT_BE_IMPLEMENTED,
+)
+from example_app.forms import (
+    AccentColorForm,
+    AuthorCreateForm,
+    BookCreateFormHelper,
+    BookCreateFormSet,
+    ExampleForm,
+    FullColorForm,
+)
 from example_app.models import Author
 from example_app.utils import format_markdown_from_file
 
@@ -43,11 +44,14 @@ def chunks(data, SIZE=10000):
         yield {k: data[k] for k in islice(it, SIZE)}
 
 
-def init_payload(page_title: str, links: list = []):
+def init_payload(page_title: str, links: list | None = None):
     # Returns the common payload passed to most pages:
     # title: the page title
     # breadcrumb_data: a dictionary used by the page's breadcrumb
     # skiplinks: a list used by the page's skiplinks item
+
+    if links is None:
+        links = []
 
     breadcrumb_data = {
         "current": page_title,
@@ -127,7 +131,7 @@ def components_index(request):
     )
 
     for k, v in not_yet.items():
-        if "note" in not_yet[k]:
+        if "note" in v:
             not_yet[k]["note"] = (
                 md.convert(v["note"]).replace("<p>", "").replace("</p>", "")
             )
@@ -214,7 +218,7 @@ def page_component(request, tag_name):  # NOSONAR
 
         # Tag-specific context
         if tag_name == "pagination":
-            sample_content = list(range(0, 100))
+            sample_content = list(range(100))
             paginator = Paginator(sample_content, 10)
             payload["page_obj"] = paginator.get_page(4)
         elif tag_name == "django_messages":
@@ -285,12 +289,7 @@ class AuthorCreateView(CreateView):
     # your template needs to include another template which extends formset_base.html
 
     def get(self, request, *args, **kwargs):
-        instance = None  # noqa: F841 NOSONAR
-        try:
-            if self.object:
-                instance = self.object  # noqa: F841
-        except Exception:
-            self.object = None
+        self.object = getattr(self, "object", None)
 
         form_class = self.get_form_class()
         form = self.get_form(form_class)
@@ -314,7 +313,7 @@ class AuthorCreateView(CreateView):
         return self.formset
 
     def get_context_data(self, **kwargs):
-        context = super(AuthorCreateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         payload = init_payload(
             "Formulaire avec formset",
@@ -326,22 +325,18 @@ class AuthorCreateView(CreateView):
 
         book_formhelper = BookCreateFormHelper()
 
-        instance = None
-        try:
-            if self.object:
-                instance = self.object
-        except Exception:
-            self.object = None
+        self.object = getattr(self, "object", None)
+        instance = self.object
 
         # /!\ Pass your form, formset and helper to the context
         if self.request.POST:
-            context["form"] = self.form_class(self.request.POST)  #  type: ignore
+            context["form"] = self.form_class(self.request.POST)  # type: ignore
             context["formset"] = BookCreateFormSet(
                 self.request.POST, self.request.FILES, instance=instance
             )
             context["book_formhelper"] = book_formhelper
         else:
-            context["form"] = self.form_class()  #  type: ignore
+            context["form"] = self.form_class()  # type: ignore
             self.formset = self.get_formset(self.request)
             context["formset"] = self.formset
             context["book_formhelper"] = book_formhelper
@@ -357,12 +352,8 @@ class AuthorCreateView(CreateView):
         return context
 
     def post(self, request, *args, **kwargs):
-        instance = None
-        try:
-            if self.object:
-                instance = self.object
-        except Exception:
-            self.object = None
+        self.object = getattr(self, "object", None)
+        instance = self.object
 
         form_class = self.get_form_class()
         form = self.get_form(form_class)

@@ -8,17 +8,12 @@
   </style>
 {% endblock extra_css %}
 {% block content %}
-  <h1>
-    Recherche
-  </h1>
+  <h1>Recherche</h1>
   <div class="fr-alert fr-alert--info fr-alert--sm alert-hidden"
        id="no-query">
-    <p>
-      Merci de taper votre recherche ci-dessus.
-    </p>
+    <p>Merci de taper votre recherche ci-dessus.</p>
   </div>
-  <div id="results">
-  </div>
+  <div id="results"></div>
 {% endblock content %}
 {% block extra_js %}
   <script src="{% static 'lib/fuse.min.js' %}"></script>

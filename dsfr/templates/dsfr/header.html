@@ -15,17 +15,20 @@
             {% block operator_logo %}
               {% if SITE_CONFIG.operator_logo_file and SITE_CONFIG.operator_logo_alt %}
                 <div class="fr-header__operator">
+                  {# djlint:off H021 #}
                   <img class="fr-responsive-img"
                        src="{{ SITE_CONFIG.operator_logo_file.url }}"
                        alt="{{ SITE_CONFIG.operator_logo_alt }}"
                        {% if SITE_CONFIG.operator_logo_width >= 1 %}style="max-width:{{ SITE_CONFIG.operator_logo_width }}rem;"{% endif %} />
+                  {# djlint:on #}
                 </div>
               {% endif %}
             {% endblock operator_logo %}
             {% block burger_menu %}
               {% translate "Menu" as menu_label %}
               <div class="fr-header__navbar">
-                <button class="fr-btn--menu fr-btn"
+                <button type="button"
+                        class="fr-btn--menu fr-btn"
                         data-fr-opened="false"
                         aria-controls="fr-menu-mobile"
                         id="fr-btn-menu-mobile"
@@ -84,11 +87,12 @@
          id="fr-menu-mobile"
          aria-labelledby="fr-btn-menu-mobile">
       <div class="fr-container">
-        <button class="fr-btn--close fr-btn" aria-controls="fr-menu-mobile">
+        <button type="button"
+                class="fr-btn--close fr-btn"
+                aria-controls="fr-menu-mobile">
           {% translate "Close" %}
         </button>
-        <div class="fr-header__menu-links">
-        </div>
+        <div class="fr-header__menu-links"></div>
         {% translate "Main menu" as main_menu_label %}
         <nav role="navigation"
              class="fr-nav"

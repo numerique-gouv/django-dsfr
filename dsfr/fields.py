@@ -1,5 +1,5 @@
 from django.core.exceptions import ValidationError
-from django.forms.fields import MultiValueField, IntegerField, BooleanField
+from django.forms.fields import BooleanField, IntegerField, MultiValueField
 
 from .widgets import NumberCursor, Toggle
 
@@ -16,7 +16,11 @@ class IntegerRangeField(MultiValueField):
     """
 
     def __init__(
-        self, max_value: int = 100, min_value: int = 0, step_size: int = None, **kwargs
+        self,
+        max_value: int = 100,
+        min_value: int = 0,
+        step_size: int | None = None,
+        **kwargs,
     ):
         self.max_value, self.min_value, self.step_size = max_value, min_value, step_size
         super().__init__(

@@ -1,12 +1,8 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
 {% block content %}
-  <h1>
-    Pictogrammes
-  </h1>
-  <div class="fr-mb-4w">
-    {% dsfr_summary summary %}
-  </div>
+  <h1>Pictogrammes</h1>
+  <div class="fr-mb-4w">{% dsfr_summary summary %}</div>
   <ul>
     <li>
       <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
@@ -26,18 +22,16 @@
     </li>
   </ul>
   {% for folder, files in pictograms.items %}
-    <h2 id="{{ folder|slugify }}" tabindex="-1">
-      {{ folder|title }}
-    </h2>
+    <h2 id="{{ folder|slugify }}" tabindex="-1">{{ folder|title }}</h2>
     <div class="fr-grid-row fr-grid-row--gutters">
       {% for file in files %}
+        {% static "dsfr/dist/artwork/pictograms/"|add:folder|add:"/"|add:file as pictogram_url %}
         <div class="fr-col-12 fr-col-md-3 fr-mb-4w">
           <div class="fr-tile fr-enlarge-link">
             <div class="fr-tile__body">
               <div class="fr-tile__content">
                 <h3 class="fr-tile__title">
-                  <a class="fr-tile__link"
-                     href="/django-dsfr/static/dsfr/dist/artwork/pictograms/{{ folder }}/{{ file }}">{{ file }}</a>
+                  <a class="fr-tile__link" href="{{ pictogram_url }}">{{ file }}</a>
                 </h3>
               </div>
             </div>
@@ -48,9 +42,9 @@
                      viewBox="0 0 80 80"
                      width="80px"
                      height="80px">
-                  <use class="fr-artwork-decorative" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/{{ folder }}/{{ file }}#artwork-decorative"></use>
-                  <use class="fr-artwork-minor" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/{{ folder }}/{{ file }}#artwork-minor"></use>
-                  <use class="fr-artwork-major" href="/django-dsfr/static/dsfr/dist/artwork/pictograms/{{ folder }}/{{ file }}#artwork-major"></use>
+                  <use class="fr-artwork-decorative" href="{{ pictogram_url }}#artwork-decorative"></use>
+                  <use class="fr-artwork-minor" href="{{ pictogram_url }}#artwork-minor"></use>
+                  <use class="fr-artwork-major" href="{{ pictogram_url }}#artwork-major"></use>
                 </svg>
               </div>
             </div>

@@ -5,13 +5,13 @@ from django import template
 from django.utils.safestring import mark_safe
 from markdown import markdown
 from markdown.blockprocessors import BlockProcessor, BlockQuoteProcessor
-from markdown.inlinepatterns import LinkInlineProcessor, LINK_RE
+from markdown.extensions import Extension
 from markdown.extensions.admonition import AdmonitionProcessor
 from markdown.extensions.attr_list import AttrListExtension
 from markdown.extensions.nl2br import Nl2BrExtension
 from markdown.extensions.tables import TableProcessor
-from markdown.extensions.toc import TocTreeprocessor, TocExtension
-from markdown.extensions import Extension
+from markdown.extensions.toc import TocExtension, TocTreeprocessor
+from markdown.inlinepatterns import LINK_RE, LinkInlineProcessor
 
 register = template.Library()
 
@@ -19,7 +19,7 @@ register = template.Library()
 class DsfrTableProcessorMixin(BlockProcessor):
     dsfr_bordered = False
 
-    def run(self, parent, *args):
+    def run(self, parent, *args):  # type: ignore
         super().run(parent, *args)
 
         # Build the DSFR-specific layers surrounding the <table>
@@ -41,7 +41,7 @@ class DsfrTableProcessorMixin(BlockProcessor):
         content.append(added_table)
 
 
-class DsfrTableProcessor(DsfrTableProcessorMixin, TableProcessor):
+class DsfrTableProcessor(DsfrTableProcessorMixin, TableProcessor):  # type: ignore
     pass
 
 
@@ -49,14 +49,12 @@ class DsfrCalloutProcessor(AdmonitionProcessor):
     CLASSNAME = "fr-callout"
     CLASSNAME_TITLE = "fr-callout__title"
 
-    def run(self, parent: etree.Element, *args) -> None:
+    def run(self, parent: etree.Element, *args) -> None:  # type: ignore
         super().run(parent, *args)
         div = parent.find("div")
         if any(
-            (
-                dsfr_icon_suffix in div.attrib["class"]
-                for dsfr_icon_suffix in ("-line", "-fill")
-            )
+            dsfr_icon_suffix in div.attrib["class"]
+            for dsfr_icon_suffix in ("-line", "-fill")
         ):
             div.attrib["class"] = div.attrib["class"].replace(" ", " fr-icon-")
         for child in div.findall("*"):
@@ -74,16 +72,16 @@ class DsfrHighlightProcessor(AdmonitionProcessor):
 
 
 class DsfrQuoteProcessor(BlockQuoteProcessor):
-    def run(self, parent: etree.Element, *args):
+    def run(self, parent: etree.Element, *args):  # type: ignore
         super().run(parent, *args)
         figure = etree.SubElement(parent, "figure", {"class": "fr-quote"})
         blockquote = parent.find("blockquote")
-        parent.remove(blockquote)
-        figure.append(blockquote)
+        parent.remove(blockquote)  # type: ignore
+        figure.append(blockquote)  # type: ignore
 
 
 class DsfrLinkProcessor(LinkInlineProcessor):
-    def handleMatch(self, *args):
+    def handleMatch(self, *args):  # type: ignore
         el, pos, idx = super().handleMatch(*args)
         if (
             hasattr(el, "attrib")
