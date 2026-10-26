@@ -43,7 +43,7 @@ generate_secret_key:
 # Instantiate the project
 init:
     uv sync --dev --all-extras
-    uv run pre-commit install
+    uv run prek install --overwrite
     uv run python manage.py migrate
     just collectstatic
     uv run python manage.py import_sample_data
@@ -55,7 +55,7 @@ makemessages:
 
 # Make quality checks on the whole project
 quality:
-    uv run pre-commit run --all-files
+    uv run prek run --all-files
 
 alias rs := runserver
 # Run the development server
@@ -85,7 +85,7 @@ update_dsfr:
 # Upgrate dependencies
 upgrade:
     uv lock --upgrade
-    uv run pre-commit autoupdate
+    uv run prek update --cooldown-days 7
 
 # Prepare a new release
 [arg('bump', pattern='major|minor|patch')]

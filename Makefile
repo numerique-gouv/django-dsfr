@@ -37,7 +37,7 @@ collectstatic:
 .PHONY: init
 init:
 	uv sync
-	uv run pre-commit install
+	uv run prek install
 	uv run python manage.py migrate
 	make collectstatic
 	uv run python manage.py import_sample_data
@@ -55,7 +55,7 @@ compilemessages:
 
 .PHONY: quality
 quality:
-	uv run pre-commit run --all-files
+	uv run prek run --all-files
 	@make deprecation-warning
 
 .PHONY: runserver
@@ -80,7 +80,7 @@ update_dsfr:
 .PHONY: upgrade
 upgrade:
 	uv lock --upgrade
-	uv run pre-commit autoupdate
+	uv run prek autoupdate
 	@make deprecation-warning
 
 .PHONY: static_server
