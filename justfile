@@ -5,42 +5,101 @@ set shell := ["bash", "-uc"]
 host_url := env("HOST_URL", "localhost")
 local_port := env("LOCAL_PORT", "8000")
 
-# Default recipe
+# List all recipes
 default:
     @just --list
 
-# Other recipes
+#### Django commands
+
+# Pass a django command
+[group('Django')]
+django +command:
+    uv run python manage.py {{command}}
 
 # Compile translated messages
+[group('Django')]
 compilemessages:
     uv run django-admin compilemessages
 
 # Collect static files
+[group('Django')]
 collectstatic:
     uv run python manage.py collectstatic --noinput
 
-# Check test coverage
-coverage app="":
-    uv run coverage run --source='.' manage.py test {{app}}
-    uv run coverage html
-    firefox htmlcov/index.html
-
 # Create a superuser
+[group('Django')]
 createsuperuser:
     uv run python manage.py createsuperuser
 
+alias messages := makemessages
+# Update localization files for translation
+[group('Django')]
+makemessages:
+    uv run django-admin makemessages -l fr --ignore=manage.py,docs/*
+
+alias rs := runserver
+# Run the development server
+[group('Django')]
+runserver host_url=host_url local_port=local_port:
+    uv run python manage.py runserver {{host_url}}:{{local_port}}
+
+# Open a Django shell
+[group('Django')]
+shell:
+    uv run python manage.py shell
+
+#### Code audit
+
+# Make quality checks on the whole project
+[group('Code audit')]
+quality:
+    uv run prek run --all-files
+
+# Run static type checks
+[group('Code audit')]
+typecheck:
+    uv run pyright
+
+#### Static export
+
 # Export a static version of the site
+[group('Static export')]
 export_static:
     uv run python manage.py migrate
     uv run python manage.py import_sample_data
     uv run python manage.py distill-local docs --force --collectstatic
     uv run python manage.py export_json
 
+# Run the site created through the export_static recipe
+[group('Static export')]
+static_server local_port=local_port:
+    uv run python -m http.server 1{{local_port}} -d docs/
+
+#### Tests
+
+# Check test coverage
+[group('Tests')]
+coverage app="":
+    uv run coverage run --source='.' manage.py test {{app}}
+    uv run coverage html
+    firefox htmlcov/index.html
+
+# Run the unit tests
+[group('Tests')]
+test app="":
+    uv run python manage.py test {{app}}
+
+#### Utils
+
 # Generate a secret key
+[group('Utils')]
 generate_secret_key:
-    uv_run python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+    uv run python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+
+#### Setup
 
 # Instantiate the project
+[group('Setup')]
 init:
     uv sync --dev --all-extras
     uv run prek install --overwrite
@@ -48,33 +107,10 @@ init:
     just collectstatic
     uv run python manage.py import_sample_data
 
-alias messages := makemessages
-# Update localization files for translation
-makemessages:
-    uv run django-admin makemessages -l fr --ignore=manage.py,docs/*
-
-# Make quality checks on the whole project
-quality:
-    uv run prek run --all-files
-
-alias rs := runserver
-# Run the development server
-runserver host_url=host_url local_port=local_port:
-    uv run python manage.py runserver {{host_url}}:{{local_port}}
-
-# Open a Django shell
-shell:
-    uv run python manage.py shell
-
-# Run the site created through the export_static recipe
-static_server local_port=local_port:
-    uv run python -m http.server 1{{local_port}} -d docs/
-
-# Run the unit tests
-test app="":
-    uv run python manage.py test {{app}}
+#### Maintenance
 
 # Update the DSFR version
+[group('Maintenance')]
 update_dsfr:
     bash scripts/download_latest.sh
     uv run python manage.py trim_dist
@@ -82,13 +118,15 @@ update_dsfr:
     uv run python manage.py make_icon_picker_files
     just collectstatic
 
-# Upgrate dependencies
+# Upgrade dependencies
+[group('Maintenance')]
 upgrade:
     uv lock --upgrade
     uv run prek update --cooldown-days 7
 
 # Prepare a new release
 [arg('bump', pattern='major|minor|patch')]
+[group('Maintenance')]
 prepare_release bump repo_name='origin':
     #!/usr/bin/env bash
 

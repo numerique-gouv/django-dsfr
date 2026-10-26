@@ -1,7 +1,8 @@
 {% load i18n dsfr_tags %}
 {% translate "Transcript" as transcript_label %}
 <div class="fr-transcription">
-  <button class="fr-transcription__btn"
+  <button type="button"
+          class="fr-transcription__btn"
           aria-expanded="false"
           aria-controls="fr-transcription__collapse-{{ self.id }}">
     {{ transcript_label }}
@@ -10,7 +11,8 @@
     <div class="fr-transcription__footer">
       <div class="fr-transcription__actions-group">
         {% translate "Enlarge" as enlarge_label %}
-        <button class="fr-btn fr-btn--fullscreen"
+        <button type="button"
+                class="fr-btn fr-btn--fullscreen"
                 aria-controls="fr-transcription-modal-{{ self.id }}"
                 data-fr-opened="false"
                 title="{{ enlarge_label }}">
@@ -28,7 +30,8 @@
             <div class="fr-modal__body">
               <div class="fr-modal__header">
                 {% translate "Close" as close_label %}
-                <button class="fr-btn--close fr-btn"
+                <button type="button"
+                        class="fr-btn--close fr-btn"
                         aria-controls="fr-transcription-modal-{{ self.id }}"
                         title="{{ close_label }}">
                   {{ close_label }}

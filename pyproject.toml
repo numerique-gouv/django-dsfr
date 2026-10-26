@@ -1,6 +1,6 @@
 [project]
 name = "django-dsfr"
-version = "3.6.1"
+version = "3.6.2"
 description = "Integrate the French government Design System into a Django app"
 authors = [{ name = "Sylvain Boissel", email = "sylvain.boissel@beta.gouv.fr" }]
 requires-python = "<4.0,>=3.10"
@@ -73,6 +73,8 @@ dev = [
     "ipython>=8.37.0",
     "deptry>=0.25.1",
     "prek>=0.5.5",
+    "pyright>=1.1.414",
+    "django-stubs>=6.0.9",
 ]
 
 [tool.hatch.build.targets.sdist]
@@ -128,21 +130,26 @@ DEP002 = ["django-widget-tweaks", "pymdown-extensions"]
 DEP004 = ["black", "crispy_forms", "bs4", "django_distill"]
 
 [tool.djlint]
+profile = "django"
 line_break_after_multiline_tag = true
 max_blank_lines = 1
 ignore = "H030,H031,H006"
 indent = 2
 
-[tool.djlint.per-file-ignores]
-"header.html" = "D018"
-"footer.html" = "D018"
-"page_pictograms.html" = "D018"
-"page_component.html" = "T002"
-
 [tool.pyright]
+typeCheckingMode = "standard"
+venvPath = "."
+venv = ".venv"
+reportUnnecessaryTypeIgnoreComment = "warning"
+exclude = ["**/migrations", "**/static", "**/node_modules", "**/__pycache__", "**/.*"]
 reportAttributeAccessIssue = false
 reportOperatorIssue = false
 reportOptionalMemberAccess = false
+
+[tool.ruff.lint]
+# Mutable class attributes are idiomatic in Django (Meta, migrations, admin)
+# and in our SimpleTestCase fixtures.
+extend-ignore = ["RUF012"]
 
 [tool.uv]
 required-version = ">=0.9.17"

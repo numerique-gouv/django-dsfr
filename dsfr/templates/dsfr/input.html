@@ -1,7 +1,5 @@
 <div class="fr-input-group {% if self.extra_classes %}{{ self.extra_classes }}{% endif %}">
-  <label class="fr-label" for="{{ self.id }}">
-    {{ self.label }}
-  </label>
+  <label class="fr-label" for="{{ self.id }}">{{ self.label }}</label>
   <input class="fr-input"
          type="{{ self.type|default:'text' }}"
          id="{{ self.id }}"

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from example_app.models import Author, Genre, Book
+from example_app.models import Author, Book, Genre
 
 
 # Register your models here.
@@ -35,5 +35,3 @@ class BookAdmin(admin.ModelAdmin):
     """
     Admin model for Book
     """
-
-    pass

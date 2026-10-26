@@ -19,7 +19,8 @@
         {% endif %}
       </p>
       {% if self.is_collapsible %}
-        <button class="fr-btn--close fr-btn"
+        <button type="button"
+                class="fr-btn--close fr-btn"
                 title="{{ hide_message }}"
                 onclick="const notice = this.parentNode.parentNode.parentNode; notice.parentNode.removeChild(notice)">
           {{ hide_message }}

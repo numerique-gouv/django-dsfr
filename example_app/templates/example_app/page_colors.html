@@ -1,9 +1,7 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
 {% block content %}
-  <h1>
-    Couleurs
-  </h1>
+  <h1>Couleurs</h1>
   <ul class="fr-mb-4w">
     <li>
       <a class="fr-link fr-icon-external-link-line fr-link--icon-right fr-link--lg"
@@ -22,38 +20,28 @@
       </a>
     </li>
   </ul>
-  <h2>
-    Cartes et tuiles
-  </h2>
+  <h2>Cartes et tuiles</h2>
   <p>
     Les cartes et tuiles peuvent prendre un fond gris à la place de la couleur par défaut, respectivement avec les classes <code>fr-card--grey</code> et <code>fr-tile--grey</code>.
   </p>
   <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
-    <div class="fr-col-12 fr-col-md-6">
-      {% dsfr_card components_data.card.sample_data.0 %}
-    </div>
+    <div class="fr-col-12 fr-col-md-6">{% dsfr_card components_data.card.sample_data.0 %}</div>
     <div class="fr-col-12 fr-col-md-6">
       {% dsfr_card components_data.card.sample_data.0 extra_classes="fr-card--grey" %}
     </div>
   </div>
   <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
-    <div class="fr-col-12 fr-col-md-3">
-      {% dsfr_tile components_data.tile.sample_data.0 %}
-    </div>
+    <div class="fr-col-12 fr-col-md-3">{% dsfr_tile components_data.tile.sample_data.0 %}</div>
     <div class="fr-col-12 fr-col-md-3">
       {% dsfr_tile components_data.tile.sample_data.0 extra_classes="fr-tile--grey" %}
     </div>
-    <div class="fr-col-12 fr-col-md-3">
-      {% dsfr_tile components_data.tile.sample_data.0 %}
-    </div>
+    <div class="fr-col-12 fr-col-md-3">{% dsfr_tile components_data.tile.sample_data.0 %}</div>
     <div class="fr-col-12 fr-col-md-3">
       {% dsfr_tile components_data.tile.sample_data.0 extra_classes="fr-tile--grey" %}
     </div>
   </div>
 
-  <h2>
-    Couleurs de fond
-  </h2>
+  <h2>Couleurs de fond</h2>
   <form class="fr-mb-4w">
     {{ full_color_form }}
   </form>
@@ -78,9 +66,7 @@
     </p>
   </div>
 
-  <h2>
-    Couleurs d’accentuation
-  </h2>
+  <h2>Couleurs d’accentuation</h2>
   <p>
     Certains composants prennent une couleur d’accentuation comme paramètre. Seules les couleurs illustratives sont prises en compte.
   </p>
@@ -88,67 +74,43 @@
     {{ accent_color_form }}
   </form>
   <div class="example-use">
-    <h3>
-      Badge
-    </h3>
-    <p>
-      Personnalise la couleur du fond et du texte.
-    </p>
+    <h3>Badge</h3>
+    <p>Personnalise la couleur du fond et du texte.</p>
     <p>
       Il faut utiliser une classe de type <code>fr-badge--&lt;color-name&gt;</code> (par exemple, <code>fr-badge--<span class="example-color-name-accent">green-archipel</span></code>.)
     </p>
 
     {% dsfr_badge components_data.badge.sample_data.0 %}
 
-    <h3>
-      Citation
-    </h3>
-    <p>
-      Personnalise la couleur de l’icône.
-    </p>
+    <h3>Citation</h3>
+    <p>Personnalise la couleur de l’icône.</p>
     <p>
       Il faut utiliser une classe de type <code>fr-quote--&lt;color-name&gt;</code> (par exemple, <code>fr-quote--<span class="example-color-name-accent">green-archipel</span></code>.)
     </p>
     {% dsfr_quote components_data.quote.sample_data.0 %}
 
-    <h3>
-      Mise en avant
-    </h3>
-    <p>
-      Personnalise la couleur du fond et de la bordure.
-    </p>
+    <h3>Mise en avant</h3>
+    <p>Personnalise la couleur du fond et de la bordure.</p>
     <p>
       Il faut utiliser une classe de type <code>fr-callout--&lt;color-name&gt;</code> (par exemple, <code>fr-callout--<span class="example-color-name-accent">green-archipel</span></code>.)
     </p>
     {% dsfr_callout components_data.callout.sample_data.0 %}
 
-    <h3>
-      Mise en exergue
-    </h3>
-    <p>
-      Personnalise la couleur de la bordure.
-    </p>
+    <h3>Mise en exergue</h3>
+    <p>Personnalise la couleur de la bordure.</p>
     <p>
       Il faut utiliser une classe de type <code>fr-highlight--&lt;color-name&gt;</code> (par exemple, <code>fr-highlight--<span class="example-color-name-accent">green-archipel</span></code>.)
     </p>
     {% dsfr_highlight components_data.highlight.sample_data.0 %}
 
-    <h3>
-      Tag
-    </h3>
-    <p>
-      Personnalise la couleur du fond, du texte et de l’icône. Seuls les tags cliquables sont pris en compte.
-    </p>
+    <h3>Tag</h3>
+    <p>Personnalise la couleur du fond, du texte et de l’icône. Seuls les tags cliquables sont pris en compte.</p>
     <p>
       Il faut utiliser une classe de type <code>fr-tag--&lt;color-name&gt;</code> (par exemple, <code>fr-tag--<span class="example-color-name-accent">green-archipel</span></code>.)
     </p>
     <ul class="fr-tags-group">
-      <li>
-        {% dsfr_tag components_data.tag.sample_data.1 %}
-      </li>
-      <li>
-        {% dsfr_tag components_data.tag.sample_data.3 %}
-      </li>
+      <li>{% dsfr_tag components_data.tag.sample_data.1 %}</li>
+      <li>{% dsfr_tag components_data.tag.sample_data.3 %}</li>
     </ul>
   </div>
 {% endblock content %}

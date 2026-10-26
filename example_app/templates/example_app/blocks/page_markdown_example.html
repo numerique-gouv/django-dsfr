@@ -1,18 +1,12 @@
 {% load dsfr_md_tags %}
 
 {% with slug=name|slugify %}
-  <h3 id="sample-{{ slug }}">
-    {{ name }}
-  </h3>
-  <p>
-    Le document Markdown suivant :
-  </p>
+  <h3 id="sample-{{ slug }}">{{ name }}</h3>
+  <p>Le document Markdown suivant :</p>
   <div class="dsfr-code">
     <pre><code>{{ sample_data }}</code></pre>
   </div>
-  <p>
-    Sera rendu :
-  </p>
+  <p>Sera rendu :</p>
   <div class="fr-callout">
     <div class="fr-tabs">
       <ul class="fr-tabs__list"

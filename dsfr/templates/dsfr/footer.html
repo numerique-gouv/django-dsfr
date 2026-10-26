@@ -16,10 +16,12 @@
             <a class="fr-footer__brand-link"
                href="/"
                title="{{ back_to_home_label }} - {{ SITE_CONFIG.operator_logo_alt }} - {{ SITE_CONFIG.footer_brand|default:'république française' }}">
+              {# djlint:off H021 #}
               <img class="fr-footer__logo"
                    src="{{ SITE_CONFIG.operator_logo_file.url }}"
                    alt="{{ SITE_CONFIG.operator_logo_alt }}"
                    {% if SITE_CONFIG.operator_logo_width >= 1 %}style="max-width:{{ SITE_CONFIG.operator_logo_width }}rem;"{% endif %} />
+              {# djlint:on #}
               {# L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image #}
             </a>
           </div>

@@ -1,12 +1,12 @@
 import functools
+import random
+import string
 
-from django.forms import BoundField, widgets
 from django.core.paginator import Page
+from django.forms import BoundField, widgets
 from django.templatetags.static import static
 from django.utils.functional import keep_lazy_text
 from django.utils.text import slugify
-import random
-import string
 
 
 def dsfr_version():
@@ -96,7 +96,7 @@ def generate_random_id(start: str = ""):
     """
     result = "".join(random.SystemRandom().choices(string.ascii_lowercase, k=16))
     if start:
-        result = "-".join([start, result])
+        result = f"{start}-{result}"
     return result
 
 

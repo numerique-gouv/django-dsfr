@@ -9,6 +9,8 @@ Pour toute question relative à django-dsfr, n'hésitez pas à passer sur
 
 - [uv](https://docs.astral.sh/uv/) **0.9.17 ou plus récent**
 (nécessaire pour le `exclude-newer` dans le `pyproject.toml`, cf. plus bas)
+- [just](https://just.systems/man/en/) **1.27.0 ou plus récent**
+(nécessaire pour l’attribut `[group()]` dans le `justfile`)
 
 ## Installation en local
 

@@ -19,8 +19,6 @@
     {% endfor %}
   {% endwith %}
   {% if field.errors %}
-    <div class="fr-messages-group" id="{{ field.auto_id }}-desc-error">
-      {{ field.errors }}
-    </div>
+    <div class="fr-messages-group" id="{{ field.auto_id }}-desc-error">{{ field.errors }}</div>
   {% endif %}
 </fieldset>

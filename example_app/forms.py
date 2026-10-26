@@ -1,28 +1,25 @@
 from enum import auto
 
+# /!\ In order to use formsets
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Field, Fieldset, Layout
 from django import forms
+from django.db.models import IntegerChoices
 from django.forms import (
     ModelForm,
     inlineformset_factory,
 )  # /!\ In order to use formsets
-from django.db.models import IntegerChoices
-
 
 from dsfr.constants import COLOR_CHOICES, COLOR_CHOICES_ILLUSTRATION
 from dsfr.enums import RichRadioButtonChoices, SegmentedControlChoices
 from dsfr.fields import IntegerRangeField, ToggleField
 from dsfr.forms import DsfrBaseForm
-
-# /!\ In order to use formsets
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, Field
-
 from dsfr.utils import lazy_static
 from dsfr.widgets import (
-    RichRadioSelect,
-    InlineRadioSelect,
     InlineCheckboxSelectMultiple,
+    InlineRadioSelect,
     NumberCursor,
+    RichRadioSelect,
     SegmentedControl,
 )
 from example_app.models import Author, Book
@@ -30,19 +27,19 @@ from example_app.utils import populate_genre_choices
 
 
 class ExampleRichChoices(IntegerChoices, RichRadioButtonChoices):
-    ITEM_1 = {
+    ITEM_1 = {  # type: ignore
         "value": auto(),
         "label": "Item 1",
         "html_label": "<strong>Item 1</strong>",
         "pictogram": lazy_static("img/placeholder.1x1.png"),
     }
-    ITEM_2 = {
+    ITEM_2 = {  # type: ignore
         "value": auto(),
         "label": "Item 2",
         "html_label": "<strong>Item 2</strong>",
         "pictogram": lazy_static("img/placeholder.1x1.png"),
     }
-    ITEM_3 = {
+    ITEM_3 = {  # type: ignore
         "value": auto(),
         "label": "Item 3",
         "html_label": "<strong>Item 3</strong>",
@@ -51,17 +48,17 @@ class ExampleRichChoices(IntegerChoices, RichRadioButtonChoices):
 
 
 class ExampleSegmentedControlChoices(IntegerChoices, SegmentedControlChoices):
-    ITEM_1 = {
+    ITEM_1 = {  # type: ignore
         "value": auto(),
         "label": "Item 1",
         "icon": "table-line",
     }
-    ITEM_2 = {
+    ITEM_2 = {  # type: ignore
         "value": auto(),
         "label": "Item 2",
         "icon": "list-unordered",
     }
-    ITEM_3 = {
+    ITEM_3 = {  # type: ignore
         "value": auto(),
         "label": "Item 3",
         "icon": "layout-grid-line",
@@ -366,7 +363,7 @@ class BookCreateForm(ModelForm, DsfrBaseForm):
 # /!\ In order to use formsets, you have to define a crispy FormHelper for the form used for the formset
 class BookCreateFormHelper(FormHelper):
     def __init__(self, *args, **kwargs):
-        super(BookCreateFormHelper, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         # self.form_tag = False
         self.layout = Layout(
             Fieldset(

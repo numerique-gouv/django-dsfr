@@ -10,86 +10,86 @@ def get_all_tags():
 
 
 urlpatterns = [
-    distill_path("", views.index, name="index", distill_file="django-dsfr/index.html"),
-    distill_path(
+    distill_path("", views.index, name="index", distill_file="django-dsfr/index.html"),  # type: ignore
+    distill_path(  # type: ignore
         "doc-contributing",
         views.doc_contributing,
         name="doc_contributing",
         distill_file="django-dsfr/doc-contributing/index.html",
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "doc-install",
         views.doc_install,
         name="doc_install",
         distill_file="django-dsfr/doc-install/index.html",
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "doc-usage",
         views.doc_usage,
         name="doc_usage",
         distill_file="django-dsfr/doc-usage/index.html",
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "components/",
         views.components_index,
         name="components_index",
         distill_file="django-dsfr/components/index.html",
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "components/<slug:tag_name>/",
         views.page_component,
         name="page_component",
         distill_func=get_all_tags,
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "form/",
         views.doc_form,
         name="doc_form",
         distill_file="django-dsfr/form/index.html",
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "form/example/",
         views.page_form,
         name="page_form",
         distill_file="django-dsfr/form/example/index.html",
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "form/example-formset/",
         views.AuthorCreateView.as_view(),
         name="form_formset",
         distill_file="django-dsfr/form/example-formset/index.html",
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "resources/colors",
         views.resource_colors,
         name="resource_colors",
         distill_file="django-dsfr/resources/colors/index.html",
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "resources/icons",
         views.resource_icons,
         name="resource_icons",
         distill_file="django-dsfr/resources/icons/index.html",
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "resources/pictograms",
         views.resource_pictograms,
         name="resource_pictograms",
         distill_file="django-dsfr/resources/pictograms/index.html",
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "resources/templatetags",
         views.resource_templatetags,
         name="resource_templatetags",
         distill_file="django-dsfr/resources/icons/templatetags.html",
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "resources/markdown",
         views.resource_markdown,
         name="resource_markdown",
         distill_file="django-dsfr/resources/markdown.html",
     ),
-    distill_path(
+    distill_path(  # type: ignore
         "search/",
         views.search,
         name="page_search",
