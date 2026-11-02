@@ -5,6 +5,11 @@
 Pour toute question relative à django-dsfr, n'hésitez pas à passer sur
 [le canal Mattermost du projet](https://mattermost.incubateur.net/betagouv/channels/django-dsfr).
 
+## Prérequis
+
+- [uv](https://docs.astral.sh/uv/) **0.9.17 ou plus récent**
+(nécessaire pour le `exclude-newer` dans le `pyproject.toml`, cf. plus bas)
+
 ## Installation en local
 
 L’installation a été testée sur Ubuntu 24.04 avec Python 3.10 et uv installé.
@@ -87,12 +92,12 @@ just quality
 ```
 
 Une vérification automatique est faite via des *pre-commit hooks*, qui ont
-normalement été installés via le `just init`.
+normalement été installés via le `just init`, via l’outil [prek](https://prek.j178.dev/).
 
 Il est possible de les mettre à jour avec la commande :
 
 ```{ .bash }
-pre-commit update
+uv run prek update
 ```
 
 ## Workflow avec les mainteneurs
@@ -150,11 +155,13 @@ Elle s’effectue en trois étapes :
     just prepare_release {major|minor|patch}
     ```
 
-   Cette commande crée une nouvelle branche `release/<nouvelle version>` à partir de laquelle il faut ouvrir une nouvelle PR et la merger.
+   Cette commande crée une nouvelle branche `release/<nouvelle version>` à partir
+   de laquelle il faut ouvrir une nouvelle PR et la merger.
 
 2. Créer et publier la release Github depuis
   [cet écran](https://github.com/numerique-gouv/django-dsfr/releases/new) :
-    - Créer un nouveau git tag `v<nouvelle version>` où `<nouvelle version>` correspond à la nouvelle version généré par la commande de l'étape précédente
+    - Créer un nouveau git tag `v<nouvelle version>` où `<nouvelle version>`
+    correspond à la nouvelle version généré par la commande de l'étape précédente
     - Vérifier le changelog généré ;
     - Publier la release.
 3. Vérifier que le workflow de construction puis publication du paquet a tourné
@@ -162,6 +169,27 @@ correctement :
     - Via
     [l’écran de suivi du workflow sur Github](https://github.com/numerique-gouv/django-dsfr/actions/workflows/publish-package.yml),
     - Puis sur [la page du paquet sur PyPI](https://pypi.org/project/django-dsfr).
+
+## Temporisation des mises à jour
+
+Afin de réduire l'exposition aux attaques ciblant la chaîne logistique
+(supply-chain attacks), les versions de paquets publiées il y a moins de 7 jours
+sont ignorées :
+
+- `uv` : `exclude-newer = "7 days"` est déclaré dans la section `[tool.uv]` du
+fichier `pyproject.toml`. Cela s'applique à toute opération de résolution
+(uv lock, uv add, « just upgrade », etc.)
+- `prek` : la commande `just upgrade` exécute `prek update --cooldown-days 7` ;
+par conséquent, les révisions des « hooks » ne sont mises à jour vers de
+nouvelles versions que si celles-ci ont au moins 7 jours d'ancienneté.
+
+Si vous avez besoin en urgence d’une version plus récente
+(par exemple, pour un correctif de sécurité), passez outre la limite pour ce
+paquet uniquement ; par exemple :
+
+```bash
+uv lock --upgrade-package django --exclude-newer-package django=2026-10-07
+```
 
 ## Mise à jour de la documentation
 

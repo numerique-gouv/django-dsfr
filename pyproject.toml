@@ -62,9 +62,8 @@ dev = [
     "djlint>=1.36.4",
     "black>=25.1.0",
     "django-csp>=4.0",
-    "pre-commit>=4.3.0",
     "bandit>=1.8.6",
-    "markdown>=3.10",
+    "django-dsfr[markdown]",
     "pygments>=2.19.2",
     "beautifulsoup4>=4.13.5",
     "lxml>=6.0.1",
@@ -73,6 +72,7 @@ dev = [
     "rust-just>=1.42.4",
     "ipython>=8.37.0",
     "deptry>=0.25.1",
+    "prek>=0.5.5",
 ]
 
 [tool.hatch.build.targets.sdist]
@@ -143,3 +143,11 @@ indent = 2
 reportAttributeAccessIssue = false
 reportOperatorIssue = false
 reportOptionalMemberAccess = false
+
+[tool.uv]
+required-version = ">=0.9.17"
+exclude-newer = "7 days"
+# Per-package opt-out: set a package to false to bypass the cooldown for an
+# urgent security fix published inside the window. Example:
+# exclude-newer-package = { package_name = false }
+exclude-newer-package = { certifi = false, virtualenv = false }
