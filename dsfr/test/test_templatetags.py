@@ -1,6 +1,8 @@
-from django.test import SimpleTestCase, override_settings
-from django.template import Context, Template
 from unittest.mock import MagicMock
+
+from django.template import Context, Template
+from django.test import SimpleTestCase, override_settings
+from django.utils.safestring import mark_safe
 
 from dsfr.checksums import (
     INTEGRITY_CSS,
@@ -69,7 +71,7 @@ class DsfrJsTagWithNonceTest(SimpleTestCase):
             f"""
             <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{INTEGRITY_JS_MODULE}" nonce="random-nonce"></script>
             <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{INTEGRITY_JS_NOMODULE}" nonce="random-nonce"></script>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -161,7 +163,7 @@ class DsfrAccordionTagTest(SimpleTestCase):
                     <p><b>Bold</b> and <em>emphatic</em> Example content</p>
                 </div>
             </section>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -178,9 +180,92 @@ class DsfrAccordionTagTest(SimpleTestCase):
                     &lt;p&gt;&lt;b&gt;Bold&lt;/b&gt; and &lt;em>emphatic&lt;/em&gt; Example content&lt;/p&gt;
                 </div>
             </section>
-            """,  # noqa
+            """,
             rendered_template,
         )
+
+
+class DsfrAccordionEmojiTest(SimpleTestCase):
+    test_data = {
+        "id": "sample-accordion",
+        "title": "Title 🎉",
+        "content": '<p>Content 😬 <img src="/img.png" alt="Logo 🇫🇷"></p>',
+    }
+
+    context = Context({"test_data": test_data})
+    template_to_render = Template("{% load dsfr_tags %} {% dsfr_accordion test_data %}")
+
+    def test_emojis_are_wrapped(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertInHTML(
+            """
+            <section class="fr-accordion">
+                <h3 class="fr-accordion__title">
+                    <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="sample-accordion">Title <span aria-hidden="true">🎉</span></button>
+                </h3>
+                <div class="fr-collapse" id="sample-accordion">
+                    <p>Content <span aria-hidden="true">😬</span> <img src="/img.png" alt="Logo 🇫🇷"></p>
+                </div>
+            </section>
+            """,
+            rendered_template,
+        )
+
+    def test_title_is_escaped(self):
+        rendered_template = Template(
+            "{% load dsfr_tags %} {% dsfr_accordion test_data %}"
+        ).render(
+            Context(
+                {
+                    "test_data": {
+                        "id": "sample-accordion",
+                        "title": "<b>Title</b> 🎉",
+                        "content": "",
+                    }
+                }
+            )
+        )
+        self.assertIn(
+            '&lt;b&gt;Title&lt;/b&gt; <span aria-hidden="true">🎉</span>',
+            rendered_template,
+        )
+
+    @override_settings(DSFR_CONTENT_IS_SAFE=False)
+    def test_emojis_are_wrapped_in_unsafe_content(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertIn(
+            '&lt;p&gt;Content <span aria-hidden="true">😬</span> '
+            "&lt;img src=&quot;/img.png&quot; alt=&quot;Logo "
+            '<span aria-hidden="true">🇫🇷</span>&quot;&gt;&lt;/p&gt;',
+            rendered_template,
+        )
+
+    @override_settings(DSFR_WRAP_EMOJIS=False)
+    def test_setting_disables_wrapping(self):
+        rendered_template = self.template_to_render.render(self.context)
+        self.assertNotIn('<span aria-hidden="true">', rendered_template)
+        self.assertInHTML(
+            '<p>Content 😬 <img src="/img.png" alt="Logo 🇫🇷"></p>', rendered_template
+        )
+
+    def test_emojis_are_wrapped_in_accordion_group(self):
+        rendered_template = Template(
+            "{% load dsfr_tags %} {% dsfr_accordion_group test_data %}"
+        ).render(
+            Context(
+                {
+                    "test_data": [
+                        {"id": "accordion-1", "title": "First 🥇", "content": "😬"},
+                        {"id": "accordion-2", "title": "Second 🥈", "content": "🎉"},
+                    ]
+                }
+            )
+        )
+        for emoji in ["🥇", "🥈", "😬", "🎉"]:
+            with self.subTest(emoji=emoji):
+                self.assertIn(
+                    f'<span aria-hidden="true">{emoji}</span>', rendered_template
+                )
 
 
 class DsfrAccordionGroupTagTest(SimpleTestCase):
@@ -253,7 +338,7 @@ class DsfrAlertTagTest(SimpleTestCase):
             <button class="fr-btn--close fr-btn" title="Masquer le message" onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert);">
               Masquer le message
             </button>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -272,7 +357,7 @@ class DsfrAlertTagTest(SimpleTestCase):
             <button class="fr-btn--close fr-btn" title="Masquer le message" data-controller="close" data-action="close#onClick">
               Masquer le message
             </button>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -295,7 +380,7 @@ class DsfrAlertTagTest(SimpleTestCase):
             <button class="fr-btn--close fr-btn" title="Masquer le message" data-controller="close" data-action="close#onClick">
               Masquer le message
             </button>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -523,7 +608,7 @@ class DsfrCardTagTest(SimpleTestCase):
         {"card_data": card_data, "extra_classes": extra_classes, "new_tab": new_tab}
     )
     template_to_render = Template(
-        "{% load dsfr_tags %} {% dsfr_card card_data extra_classes=extra_classes new_tab=newtab %}"  # noqa
+        "{% load dsfr_tags %} {% dsfr_card card_data extra_classes=extra_classes new_tab=newtab %}"
     )
 
     def test_card_is_created(self):
@@ -563,7 +648,7 @@ class DsfrCardTagTest(SimpleTestCase):
             <div class="fr-card__img">
                 <img src="https://test.gouv.fr/test.png" class="fr-responsive-img" alt="">
             </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -912,7 +997,7 @@ class DsfrLinkTagTest(SimpleTestCase):
             >
               Label of the link item <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
             </a>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -925,7 +1010,7 @@ class DsfrLinkTagTest(SimpleTestCase):
             <a class="fr-link" href="">
               Label of the link item
             </a>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -941,7 +1026,7 @@ class DsfrLinkTagTest(SimpleTestCase):
             >
               Label of the link item
             </a>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -977,7 +1062,7 @@ class DsfrNoticeTagTest(SimpleTestCase):
                     Masquer le message
                     </button>
                 </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1001,14 +1086,14 @@ class DsfrNoticeTagTest(SimpleTestCase):
                     Masquer le message
                     </button>
                 </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
 
 class DsfrQuoteTagTest(SimpleTestCase):
     test_data = {
-        "text": "Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques",  # noqa
+        "text": "Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques",
         "source_url": "https://www.systeme-de-design.gouv.fr/",
         "author": "Auteur",
         "source": "Système de Design de l'État",
@@ -1046,7 +1131,7 @@ class DsfrQuoteTagTest(SimpleTestCase):
                     </div>
                 </figcaption>
             </figure>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1073,7 +1158,7 @@ class DsfrQuoteTagTest(SimpleTestCase):
                     </div>
                 </figcaption>
             </figure>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1181,7 +1266,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                     </ul>
                 </div>
             </li>
-            """,  # noqa
+            """,
             self.rendered_template,
         )
 
@@ -1214,7 +1299,7 @@ class DsfrSummaryTagTest(SimpleTestCase):
                     </li>
                 </ol>
             </nav>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1368,11 +1453,11 @@ class DsfrTagTagTest(SimpleTestCase):
 
         context = Context({"test_data": test_data})
         template_to_render = Template(
-            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-icon-arrow-right-line fr-tag--icon-left' %}"  # noqa
+            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-icon-arrow-right-line fr-tag--icon-left' %}"
         )
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<p class="fr-tag fr-icon-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",  # noqa
+            """<p class="fr-tag fr-icon-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",
             rendered_template,
         )
 
@@ -1387,7 +1472,7 @@ class DsfrTagTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_tag test_data %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<a href="#" class="fr-tag" onclick="console.log(&#x27;clicked&#x27;);">Label of the tag item</a>""",  # noqa
+            """<a href="#" class="fr-tag" onclick="console.log(&#x27;clicked&#x27;);">Label of the tag item</a>""",
             rendered_template,
         )
 
@@ -1401,7 +1486,7 @@ class DsfrTagTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_tag test_data %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<button type="button" class="fr-tag fr-tag--dismiss" aria-label="Retirer le filtre Label of the tag item" onclick="event.preventDefault(); this.parentNode.removeChild(this);">Label of the tag item</button>""",  # noqa
+            """<button type="button" class="fr-tag fr-tag--dismiss" aria-label="Retirer le filtre Label of the tag item" onclick="event.preventDefault(); this.parentNode.removeChild(this);">Label of the tag item</button>""",
             rendered_template,
         )
 
@@ -1569,7 +1654,7 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
                     </dialog>
                 </div>
             </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1626,7 +1711,7 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
                     </dialog>
                 </div>
             </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1698,3 +1783,73 @@ class StrfmtTestCase(SimpleTestCase):
                 )
             ),
         )
+
+
+class DsfrEmojiTestCase(SimpleTestCase):
+    def render(self, value, template="{{ value|dsfr_emoji }}"):
+        return Template("{% load dsfr_tags %}" + template).render(
+            Context({"value": value})
+        )
+
+    def span(self, emoji):
+        return f'<span aria-hidden="true">{emoji}</span>'
+
+    def test_simple_emoji(self):
+        self.assertEqual(f"Oups {self.span('😬')} !", self.render("Oups 😬 !"))
+
+    def test_value_is_escaped(self):
+        self.assertEqual(
+            f"&lt;b&gt;{self.span('😬')}&lt;/b&gt;", self.render("<b>😬</b>")
+        )
+
+    def test_autoescape_off(self):
+        self.assertEqual(
+            f"<b>{self.span('😬')}</b>",
+            self.render(
+                "<b>😬</b>",
+                "{% autoescape off %}{{ value|dsfr_emoji }}{% endautoescape %}",
+            ),
+        )
+
+    def test_sequences_are_wrapped_once(self):
+        for emoji in ["👨‍👩‍👧", "👍🏽", "🇫🇷", "1️⃣", "🏃‍♀️", "❤️", "🏴󠁧󠁢󠁳󠁣󠁴󠁿"]:
+            with self.subTest(emoji=emoji):
+                self.assertEqual(self.span(emoji), self.render(emoji))
+
+    def test_consecutive_flags(self):
+        self.assertEqual(self.span("🇫🇷") + self.span("🇩🇪"), self.render("🇫🇷🇩🇪"))
+
+    def test_text_presentation_characters_are_ignored(self):
+        self.assertEqual("© ❤ 1 #", self.render("© ❤ 1 #"))
+
+    def test_safe_html_only_text_nodes_are_wrapped(self):
+        self.assertEqual(
+            f'<img alt="😬"><p title="🎉">{self.span("🎉")}</p>'
+            "<script>let a = '😬';</script>"
+            f"<textarea>😬</textarea>{self.span('😬')}",
+            self.render(
+                mark_safe(  # nosec B308
+                    '<img alt="😬"><p title="🎉">🎉</p>'
+                    "<script>let a = '😬';</script>"
+                    "<textarea>😬</textarea>😬"
+                )
+            ),
+        )
+
+    def test_code_and_pre_are_ignored(self):
+        self.assertEqual(
+            f"<code>😬</code> <pre><code>🎉</code> 🎉</pre> {self.span('👍')}",
+            self.render(
+                mark_safe(  # nosec B308
+                    "<code>😬</code> <pre><code>🎉</code> 🎉</pre> 👍"
+                )
+            ),
+        )
+
+    def test_empty_values(self):
+        self.assertEqual("", self.render(""))
+        self.assertEqual("", self.render(None))
+
+    @override_settings(DSFR_WRAP_EMOJIS=False)
+    def test_setting_disables_wrapping(self):
+        self.assertEqual("Oups 😬 &lt;b&gt;", self.render("Oups 😬 <b>"))

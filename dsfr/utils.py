@@ -1,12 +1,13 @@
 import functools
+import random
+import string
 
-from django.forms import BoundField, widgets
+import regex
 from django.core.paginator import Page
+from django.forms import BoundField, widgets
 from django.templatetags.static import static
 from django.utils.functional import keep_lazy_text
 from django.utils.text import slugify
-import random
-import string
 
 
 def dsfr_version():
@@ -96,7 +97,7 @@ def generate_random_id(start: str = ""):
     """
     result = "".join(random.SystemRandom().choices(string.ascii_lowercase, k=16))
     if start:
-        result = "-".join([start, result])
+        result = f"{start}-{result}"
     return result
 
 
@@ -163,3 +164,40 @@ def lazy_static(path):
     ```
     """
     return keep_lazy_text(functools.partial(static, path))
+
+
+def wrap_emojis(html: str) -> str:
+    """
+    Wraps each emoji of an HTML string in a `<span aria-hidden="true">`.
+
+    Only text nodes are modified: tag attributes and the contents of
+    `<script>`, `<style>`, `<textarea>`, `<title>`, `<code>` and `<pre>`
+    are left untouched.
+    """
+
+    # One match per full emoji: flags, keycaps, skin tones, tag sequences, ZWJ sequences.
+    # Text-presentation pictographs (©, ❤…) are only matched when followed by VS16.
+    EMOJI_RE = regex.compile(
+        r"(?:\p{Regional_Indicator}{2}"
+        r"|[#*0-9]\uFE0F?\u20E3"
+        r"|(?:\p{Emoji_Presentation}|\p{Extended_Pictographic}\uFE0F)"
+        r"(?:\p{Emoji_Modifier}|\uFE0F|[\U000E0020-\U000E007F]+)*"
+        r"(?:\u200D\p{Extended_Pictographic}(?:\p{Emoji_Modifier}|\uFE0F)*)*)"
+    )
+    HTML_TAG_RE = regex.compile(r"(<[^>]*>)")
+    IGNORED_TAG_RE = regex.compile(
+        r"<(/?)(script|style|textarea|title|code|pre)\b", regex.IGNORECASE
+    )
+
+    parts = HTML_TAG_RE.split(html)
+    # Ignored tags may be nested (e.g. `<pre><code>`), so track the depth
+    ignored_depth = 0
+    for i, part in enumerate(parts):
+        if i % 2:
+            # HTML tag
+            match = IGNORED_TAG_RE.match(part)
+            if match:
+                ignored_depth = max(ignored_depth + (-1 if match.group(1) else 1), 0)
+        elif part and not ignored_depth:
+            parts[i] = EMOJI_RE.sub(r'<span aria-hidden="true">\g<0></span>', part)
+    return "".join(parts)

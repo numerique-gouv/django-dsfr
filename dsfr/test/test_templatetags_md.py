@@ -1,5 +1,5 @@
-from django.test import SimpleTestCase
 from django.template import Context, Template
+from django.test import SimpleTestCase, override_settings
 
 
 class DsfrMdTagTest(SimpleTestCase):
@@ -126,3 +126,67 @@ Contenu
             """,
             rendered_template,
         )
+
+
+class DsfrMdEmojiTest(SimpleTestCase):
+    def render(self, content, md_filter="dsfr_md"):
+        return Template(
+            "{% load dsfr_tags dsfr_md_tags %}"
+            f"{{{{ content|{md_filter}|dsfr_emoji }}}}"
+        ).render(Context({"content": content}))
+
+    def span(self, emoji):
+        return f'<span aria-hidden="true">{emoji}</span>'
+
+    def test_md_alone_does_not_wrap_emojis(self):
+        rendered_template = Template(
+            "{% load dsfr_md_tags %}{{ content|dsfr_md }}"
+        ).render(Context({"content": "Texte 😬"}))
+        self.assertInHTML("<p>Texte 😬</p>", rendered_template)
+
+    def test_emojis_in_text_are_wrapped(self):
+        rendered_template = self.render("# Titre 🎉\n\nTexte 😬 et **gras 👍🏽**")
+        self.assertInHTML(f"<h1>Titre {self.span('🎉')}</h1>", rendered_template)
+        self.assertInHTML(
+            f"<p>Texte {self.span('😬')} et <strong>gras {self.span('👍🏽')}</strong></p>",
+            rendered_template,
+        )
+
+    def test_emojis_in_lists_and_quotes_are_wrapped(self):
+        rendered_template = self.render("- Élément 🇫🇷\n\n> Citation 👨‍👩‍👧")
+        self.assertInHTML(
+            f"<ul><li>Élément {self.span('🇫🇷')}</li></ul>", rendered_template
+        )
+        self.assertIn(f"Citation {self.span('👨‍👩‍👧')}", rendered_template)
+
+    def test_emojis_in_attributes_are_not_wrapped(self):
+        rendered_template = self.render(
+            '![Logo 🇫🇷](/img.png "Titre 🎉")\n\n[Lien 😬](https://example.com)'
+        )
+        self.assertIn('alt="Logo 🇫🇷"', rendered_template)
+        self.assertIn('title="Titre 🎉"', rendered_template)
+        self.assertIn('title="Lien 😬 - nouvelle fenêtre"', rendered_template)
+        self.assertIn(f"Lien {self.span('😬')}</a>", rendered_template)
+
+    def test_emojis_with_toc_are_wrapped(self):
+        rendered_template = self.render(
+            "[TOC]\n# Titre 🎉\n\nTexte", "dsfr_md_with_toc"
+        )
+        self.assertInHTML(
+            f'<a class="fr-summary__link" href="#titre">Titre {self.span("🎉")}</a>',
+            rendered_template,
+        )
+        self.assertInHTML(
+            f'<h1 id="titre">Titre {self.span("🎉")}</h1>', rendered_template
+        )
+
+    def test_emojis_in_code_are_not_wrapped(self):
+        rendered_template = self.render("Code `😬` ici 🎉\n\n    bloc 👍\n")
+        self.assertInHTML(
+            f"<p>Code <code>😬</code> ici {self.span('🎉')}</p>", rendered_template
+        )
+        self.assertInHTML("<pre><code>bloc 👍\n</code></pre>", rendered_template)
+
+    @override_settings(DSFR_WRAP_EMOJIS=False)
+    def test_setting_disables_wrapping(self):
+        self.assertInHTML("<p>Texte 😬</p>", self.render("Texte 😬"))

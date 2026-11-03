@@ -1,9 +1,7 @@
 {% extends "example_app/base.html" %}
 {% load static dsfr_tags %}
 {% block content %}
-  <h1>
-    Composants du système de design de l’État
-  </h1>
+  <h1>Composants du système de design de l’État</h1>
   <div class="fr-tabs">
     <ul class="fr-tabs__list" role="tablist" aria-label="Composants">
       <li role="presentation">
@@ -52,11 +50,9 @@
          role="tabpanel"
          aria-labelledby="tabpanel-documentation"
          tabindex="0">
-      <h2>
-        Documentation
-      </h2>
+      <h2>Documentation</h2>
 
-      {{ documentation|safe }}
+      {{ documentation|safe|dsfr_emoji }}
 
     </div>
     <div id="tabpanel-implemented-panel"
@@ -64,9 +60,7 @@
          role="tabpanel"
          aria-labelledby="tabpanel-implemented"
          tabindex="0">
-      <h2>
-        Composants implémentés
-      </h2>
+      <h2>Composants implémentés</h2>
       <ul>
         {% for component, data in implemented_components.items %}
           <li class="fr-mb-1w">
@@ -80,9 +74,7 @@
          role="tabpanel"
          aria-labelledby="tabpanel-notyetimplemented"
          tabindex="0">
-      <h2>
-        Composants pas encore implémentés
-      </h2>
+      <h2>Composants pas encore implémentés</h2>
       <ul>
         {% for component, data in not_yet.items %}
           <li class="fr-mb-1w">
@@ -92,17 +84,13 @@
             <a href="{{ data.example_url }}" target="_blank" rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
             {% if data.note %}
               <ul>
-                <li>
-                  Note : {{ data.note|safe }}
-                </li>
+                <li>Note : {{ data.note|safe }}</li>
               </ul>
             {% endif %}
           </li>
         {% endfor %}
       </ul>
-      <h2>
-        Composants qui ne seront pas implémentés
-      </h2>
+      <h2>Composants qui ne seront pas implémentés</h2>
       <ul>
         {% for component, data in wont_be.items %}
           <li>
@@ -111,9 +99,7 @@
             —
             <a href="{{ data.example_url }}" target="_blank" rel="noopener">Exemple <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span></a>)
             <ul>
-              <li>
-                Raison : {{ data.reason|safe }}
-              </li>
+              <li>Raison : {{ data.reason|safe }}</li>
             </ul>
           </li>
         {% endfor %}
@@ -124,9 +110,7 @@
          role="tabpanel"
          aria-labelledby="tabpanel-extratags"
          tabindex="0">
-      <h2>
-        Balises supplémentaires
-      </h2>
+      <h2>Balises supplémentaires</h2>
       <ul>
         {% for component, data in extra_components.items %}
           <li class="fr-mb-1w">

@@ -1,31 +1,32 @@
 import warnings
-from typing import Iterable
+from collections.abc import Iterable
 
 import django
 from django import template
 from django.conf import settings
-from django.contrib.messages.constants import DEBUG, INFO, SUCCESS, WARNING, ERROR
+from django.contrib.messages.constants import DEBUG, ERROR, INFO, SUCCESS, WARNING
 from django.core.paginator import Page
 from django.forms import BoundField
 from django.template import Template
-from django.template.defaultfilters import stringfilter
 from django.template.context import Context
-from django.utils.html import format_html, format_html_join
+from django.template.defaultfilters import stringfilter
+from django.utils.html import conditional_escape, format_html, format_html_join
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as _
 
 from dsfr.checksums import (
     INTEGRITY_CSS,
-    INTEGRITY_UTILITY_CSS,
     INTEGRITY_JS_MODULE,
     INTEGRITY_JS_NOMODULE,
+    INTEGRITY_UTILITY_CSS,
 )
 from dsfr.constants import DsfrStaticAssets
 from dsfr.utils import (
+    dsfr_input_class_attr,
     find_active_menu_items,
     generate_random_id,
     parse_tag_args,
-    dsfr_input_class_attr,
+    wrap_emojis,
 )
 
 register = template.Library()
@@ -115,7 +116,7 @@ def dsfr_favicon() -> None:
         `{% dsfr_favicon %}`
     """
 
-    return None
+    return
 
 
 @register.inclusion_tag("dsfr/theme_modale.html")
@@ -129,7 +130,7 @@ def dsfr_theme_modale() -> None:
     **Usage**:
         `{% dsfr_theme_modale %}`
     """
-    return None
+    return
 
 
 # DSFR components
@@ -215,7 +216,7 @@ def dsfr_alert(*args, **kwargs) -> dict:
 
     **Usage**:
         `{% dsfr_alert data_dict %}`
-    """  # noqa
+    """
 
     allowed_keys = [
         "id",
@@ -320,7 +321,7 @@ def dsfr_breadcrumb(context: Context, tag_data: dict | None = None) -> dict:
 
     **Usage**:
         `{% dsfr_breadcrumb data_dict %}`
-    """  # noqa
+    """
 
     if not tag_data:
         if "breadcrumb_data" in context:
@@ -543,7 +544,7 @@ def dsfr_card(*args, **kwargs) -> dict:
 
     **Usage**:
         `{% dsfr_card data_dict %}`
-    """  # noqa
+    """
     allowed_keys = [
         "title",
         "heading_tag",
@@ -1595,7 +1596,7 @@ def dsfr_django_messages(
 
     **Usage**:
         `{% dsfr_django_messages data_dict %}`
-    """  # noqa
+    """
 
     messages = context.get("messages")
 
@@ -1690,8 +1691,8 @@ def url_remplace_params(context: Context, **kwargs):
     """
     query = context["request"].GET.copy()
 
-    for k in kwargs:
-        query[k] = kwargs[k]
+    for k, v in kwargs.items():
+        query[k] = v
 
     return query.urlencode()
 
@@ -1747,6 +1748,34 @@ def strfmt(args, format_string):
         args = (str(args),)
 
     return format_html(format_string, *args, **kwargs)
+
+
+@register.filter(is_safe=True, needs_autoescape=True)
+def dsfr_emoji(value, autoescape=True):
+    """
+    Wraps the emojis of a string in a `<span aria-hidden="true">`
+    so that screen readers do not read them out.
+
+    The value is escaped first (unless it is already marked safe or autoescape is off).
+    Only text nodes are modified, so it can be chained after filters returning HTML.
+
+    **Usage**:
+
+    ```django
+    {{ title|dsfr_emoji }}
+    {{ content|dsfr_md|dsfr_emoji }}
+    ```
+    """
+    if value is None:
+        return ""
+
+    if autoescape:
+        value = conditional_escape(value)
+
+    if not getattr(settings, "DSFR_WRAP_EMOJIS", True):
+        return value
+
+    return mark_safe(wrap_emojis(str(value)))  # nosec B308 B703
 
 
 @register.filter
