@@ -162,9 +162,9 @@ def dsfr_input_class_attr(bf: BoundField | str):
 
 def lazy_static(path):
     """
-    Équivalent du tag Django `{% static %}` à utiliser dans le code.
+    Equivalent to the Django tag `{% static %}` that can be used in Python code.
 
-    Exemple :
+    Example:
 
     ```python
     >>> lazy_static("img/logo.png")
@@ -181,7 +181,6 @@ def calculate_sri_sha384_hash(content: bytes) -> str:
     return f"sha384-{hash_base64}"
 
 
-@functools.cache
 def get_integrity(path: str) -> str | None:
     """
     Returns the Subresource Integrity (SRI) hash of a static file, as served.
@@ -195,8 +194,10 @@ def get_integrity(path: str) -> str | None:
     Returns None if the file can't be read: the integrity attribute should then
     be omitted.
 
-    The result is cached for the lifetime of the process
-    (use `get_integrity.cache_clear()` in tests that change the storage).
+    With `DEBUG = False`, the result is cached for the lifetime of the process
+    (use `clear_integrity_cache()` in tests that change the storage).
+    With `DEBUG = True`, it is recomputed on each call, so that edited source
+    files get an up-to-date hash.
 
     Example:
 
@@ -205,6 +206,12 @@ def get_integrity(path: str) -> str | None:
     'sha384-...'
     ```
     """
+    if settings.DEBUG:
+        return _compute_integrity(path)
+    return _cached_integrity(path)
+
+
+def _compute_integrity(path: str) -> str | None:
     try:
         if not settings.DEBUG and isinstance(staticfiles_storage, HashedFilesMixin):
             with staticfiles_storage.open(staticfiles_storage.stored_name(path)) as f:
@@ -225,3 +232,13 @@ def get_integrity(path: str) -> str | None:
             exc_info=True,
         )
         return None
+
+
+_cached_integrity = functools.cache(_compute_integrity)
+
+
+def clear_integrity_cache() -> None:
+    """
+    Clears the cache of `get_integrity` (e.g. in tests that change the storage).
+    """
+    _cached_integrity.cache_clear()

@@ -11,7 +11,11 @@ from django.test import SimpleTestCase, override_settings
 
 from dsfr.constants import DsfrStaticAssets
 from dsfr.templatetags.dsfr_tags import concatenate, hyphenate
-from dsfr.utils import calculate_sri_sha384_hash, get_integrity
+from dsfr.utils import (
+    calculate_sri_sha384_hash,
+    clear_integrity_cache,
+    get_integrity,
+)
 
 
 def source_integrity(path: str) -> str:
@@ -116,8 +120,8 @@ class DsfrIntegrityManifestStorageTest(SimpleTestCase):
     """
 
     def setUp(self):
-        get_integrity.cache_clear()
-        self.addCleanup(get_integrity.cache_clear)
+        clear_integrity_cache()
+        self.addCleanup(clear_integrity_cache)
         static_root = tempfile.TemporaryDirectory()
         self.addCleanup(static_root.cleanup)
         self.static_root = static_root.name
@@ -188,8 +192,8 @@ class DsfrIntegrityManifestStorageTest(SimpleTestCase):
 
 class DsfrIntegrityTagTest(SimpleTestCase):
     def setUp(self):
-        get_integrity.cache_clear()
-        self.addCleanup(get_integrity.cache_clear)
+        clear_integrity_cache()
+        self.addCleanup(clear_integrity_cache)
 
     def render(self, path: str) -> str:
         template = Template(f"{{% load dsfr_tags %}}{{% dsfr_integrity '{path}' %}}")
@@ -211,6 +215,27 @@ class DsfrIntegrityTagTest(SimpleTestCase):
                 integrity = get_integrity(DsfrStaticAssets.DSFR_CSS)
         self.assertEqual(integrity, calculate_sri_sha384_hash(b"body { color: red; }"))
         self.assertNotEqual(integrity, INTEGRITY_CSS)
+
+    def get_integrity_before_and_after_edit(self, debug: bool) -> tuple:
+        with tempfile.TemporaryDirectory() as static_dir:
+            edited = Path(static_dir) / "css" / "edited.css"
+            edited.parent.mkdir(parents=True)
+            edited.write_bytes(b"body { color: red; }")
+            with self.settings(DEBUG=debug, STATICFILES_DIRS=[static_dir]):
+                before = get_integrity("css/edited.css")
+                edited.write_bytes(b"body { color: blue; }")
+                after = get_integrity("css/edited.css")
+        return before, after
+
+    def test_integrity_recomputed_in_debug(self):
+        before, after = self.get_integrity_before_and_after_edit(debug=True)
+        self.assertEqual(before, calculate_sri_sha384_hash(b"body { color: red; }"))
+        self.assertEqual(after, calculate_sri_sha384_hash(b"body { color: blue; }"))
+
+    def test_integrity_cached_without_debug(self):
+        before, after = self.get_integrity_before_and_after_edit(debug=False)
+        self.assertEqual(before, calculate_sri_sha384_hash(b"body { color: red; }"))
+        self.assertEqual(after, before)
 
 
 class DsfrChecksumsDeprecatedModuleTest(SimpleTestCase):

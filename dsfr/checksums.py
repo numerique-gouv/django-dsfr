@@ -15,6 +15,7 @@ _PATHS = {
     "INTEGRITY_CSS": DsfrStaticAssets.DSFR_CSS,
     "INTEGRITY_UTILITY_CSS": DsfrStaticAssets.DSFR_UTILITY_CSS,
 }
+__all__ = list(_PATHS)  # type: ignore
 
 
 def __getattr__(name: str) -> str:
