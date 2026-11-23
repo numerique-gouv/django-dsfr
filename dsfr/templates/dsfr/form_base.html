@@ -17,6 +17,7 @@ Radio button and multiple checkboxes :
         put attrs={"class":"fr-fieldset--inline"}
 {% endcomment %}
 {% block extra_css %}
+  {{ block.super }}
 {% endblock extra_css %}
 {% block content %}
   {# Everything that needs to be outside the form, before #}
@@ -52,3 +53,6 @@ Radio button and multiple checkboxes :
   {% block after_form %}
   {% endblock after_form %}
 {% endblock content %}
+{% block extra_js %}
+  {{ block.super }}
+{% endblock extra_js %}
