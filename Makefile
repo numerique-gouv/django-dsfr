@@ -72,7 +72,6 @@ test:
 update_dsfr:
 	bash scripts/download_latest.sh
 	uv run python manage.py trim_dist
-	uv run python manage.py integrity_checksums
 	uv run python manage.py make_icon_picker_files
 	make collectstatic
 	@make deprecation-warning

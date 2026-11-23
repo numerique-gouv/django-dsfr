@@ -1,24 +1,34 @@
-# Integrity checks for the css/js/favicon files
-# Do not update manually!
-# Generated with the following command:
-# python manage.py integrity_checksums
+"""
+Deprecated: the integrity checksums are now computed on the fly.
 
-# dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js
-INTEGRITY_JS_MODULE = (
-    "sha384-X74emiCarEPSrcS8UDhKQLhB+5jLUZsM9N+7okITLuqE5bvSnjC1zlnruXbhH+RO"
-)
+Use `dsfr.utils.get_integrity()` or the `{% dsfr_integrity %}` template tag instead.
+The values below are kept for backward compatibility.
+"""
 
-# dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js
-INTEGRITY_JS_NOMODULE = (
-    "sha384-rJCIIHcEfJiYS5zMZ9uNn7J3UpbPZ1/AJPG0k7zddfEM6b6Q/8kgTwAEw6Bm8Eeo"
-)
+import warnings
 
-# dsfr/static/dsfr/dist/dsfr/dsfr.min.css
-INTEGRITY_CSS = (
-    "sha384-YCukMJNHKyiRQ1GFeGXOd6Lov744PkUweAfT5XIkIQ5+6sIQSnSyfyZr8syKCdJp"
-)
+from dsfr.constants import DsfrStaticAssets
 
-# dsfr/static/dsfr/dist/utility/utility.min.css
-INTEGRITY_UTILITY_CSS = (
-    "sha384-5P5DFFqorcEBpfnK9WHu/Ralfr7ZxyCZh0ryaJbgucSvc71+qRYdGvNEcyMqQwa/"
-)
+_PATHS = {
+    "INTEGRITY_JS_MODULE": DsfrStaticAssets.DSFR_MODULE_JS,
+    "INTEGRITY_JS_NOMODULE": DsfrStaticAssets.DSFR_NOMODULE_JS,
+    "INTEGRITY_CSS": DsfrStaticAssets.DSFR_CSS,
+    "INTEGRITY_UTILITY_CSS": DsfrStaticAssets.DSFR_UTILITY_CSS,
+}
+
+
+def __getattr__(name: str) -> str:
+    # Values are computed lazily, as settings and apps aren't ready at import time
+    if name not in _PATHS:
+        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+    warnings.warn(
+        "dsfr.checksums is deprecated, use dsfr.utils.get_integrity() "
+        "or the {% dsfr_integrity %} template tag instead.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+
+    from dsfr.utils import get_integrity
+
+    return get_integrity(_PATHS[name]) or ""

@@ -1,31 +1,26 @@
 import warnings
-from typing import Iterable
+from collections.abc import Iterable
 
 import django
 from django import template
 from django.conf import settings
-from django.contrib.messages.constants import DEBUG, INFO, SUCCESS, WARNING, ERROR
+from django.contrib.messages.constants import DEBUG, ERROR, INFO, SUCCESS, WARNING
 from django.core.paginator import Page
 from django.forms import BoundField
 from django.template import Template
-from django.template.defaultfilters import stringfilter
 from django.template.context import Context
+from django.template.defaultfilters import stringfilter
 from django.utils.html import format_html, format_html_join
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as _
 
-from dsfr.checksums import (
-    INTEGRITY_CSS,
-    INTEGRITY_UTILITY_CSS,
-    INTEGRITY_JS_MODULE,
-    INTEGRITY_JS_NOMODULE,
-)
 from dsfr.constants import DsfrStaticAssets
 from dsfr.utils import (
+    dsfr_input_class_attr,
     find_active_menu_items,
     generate_random_id,
+    get_integrity,
     parse_tag_args,
-    dsfr_input_class_attr,
 )
 
 register = template.Library()
@@ -47,6 +42,10 @@ Tags used in the "DSFR" templates.
 # Global tags
 
 
+def use_integrity_checksums() -> bool:
+    return getattr(settings, "DSFR_USE_INTEGRITY_CHECKSUMS", True) is not False
+
+
 @register.inclusion_tag("dsfr/global_css.html")
 def dsfr_css() -> dict:
     """
@@ -60,15 +59,10 @@ def dsfr_css() -> dict:
     """
 
     tag_data = {}
-    tag_data["INTEGRITY_CSS"] = INTEGRITY_CSS
-    tag_data["INTEGRITY_UTILITY_CSS"] = INTEGRITY_UTILITY_CSS
+    tag_data["INTEGRITY_CSS"] = get_integrity(DsfrStaticAssets.DSFR_CSS)
+    tag_data["INTEGRITY_UTILITY_CSS"] = get_integrity(DsfrStaticAssets.DSFR_UTILITY_CSS)
 
-    tag_data["USE_INTEGRITY_CHECKSUMS"] = True
-    if (
-        hasattr(settings, "DSFR_USE_INTEGRITY_CHECKSUMS")
-        and settings.DSFR_USE_INTEGRITY_CHECKSUMS is False
-    ):
-        tag_data["USE_INTEGRITY_CHECKSUMS"] = False
+    tag_data["USE_INTEGRITY_CHECKSUMS"] = use_integrity_checksums()
 
     return {"self": tag_data, "DsfrStaticAssets": DsfrStaticAssets}
 
@@ -90,17 +84,29 @@ def dsfr_js(context, *args, **kwargs) -> dict:
     ]
     tag_data = parse_tag_args(args, kwargs, allowed_keys)
 
-    tag_data["INTEGRITY_JS_MODULE"] = INTEGRITY_JS_MODULE
-    tag_data["INTEGRITY_JS_NOMODULE"] = INTEGRITY_JS_NOMODULE
+    tag_data["INTEGRITY_JS_MODULE"] = get_integrity(DsfrStaticAssets.DSFR_MODULE_JS)
+    tag_data["INTEGRITY_JS_NOMODULE"] = get_integrity(DsfrStaticAssets.DSFR_NOMODULE_JS)
 
-    tag_data["USE_INTEGRITY_CHECKSUMS"] = True
-    if (
-        hasattr(settings, "DSFR_USE_INTEGRITY_CHECKSUMS")
-        and settings.DSFR_USE_INTEGRITY_CHECKSUMS is False
-    ):
-        tag_data["USE_INTEGRITY_CHECKSUMS"] = False
+    tag_data["USE_INTEGRITY_CHECKSUMS"] = use_integrity_checksums()
 
     return {"self": tag_data, "DsfrStaticAssets": DsfrStaticAssets}
+
+
+@register.simple_tag
+def dsfr_integrity(path: str) -> str:
+    """
+    Returns the Subresource Integrity (SRI) hash of any static file, as served
+    (see `dsfr.utils.get_integrity`). Returns an empty string if the file
+    can't be read: an empty integrity attribute disables the check.
+
+    **Tag name**:
+        dsfr_integrity
+
+    **Usage**:
+        `<link rel="stylesheet" href="{% static 'css/site.css' %}"
+        integrity="{% dsfr_integrity 'css/site.css' %}">`
+    """
+    return get_integrity(path) or ""
 
 
 @register.inclusion_tag("dsfr/favicon.html")
@@ -115,7 +121,7 @@ def dsfr_favicon() -> None:
         `{% dsfr_favicon %}`
     """
 
-    return None
+    return
 
 
 @register.inclusion_tag("dsfr/theme_modale.html")
@@ -129,7 +135,7 @@ def dsfr_theme_modale() -> None:
     **Usage**:
         `{% dsfr_theme_modale %}`
     """
-    return None
+    return
 
 
 # DSFR components
@@ -215,7 +221,7 @@ def dsfr_alert(*args, **kwargs) -> dict:
 
     **Usage**:
         `{% dsfr_alert data_dict %}`
-    """  # noqa
+    """
 
     allowed_keys = [
         "id",
@@ -320,7 +326,7 @@ def dsfr_breadcrumb(context: Context, tag_data: dict | None = None) -> dict:
 
     **Usage**:
         `{% dsfr_breadcrumb data_dict %}`
-    """  # noqa
+    """
 
     if not tag_data:
         if "breadcrumb_data" in context:
@@ -543,7 +549,7 @@ def dsfr_card(*args, **kwargs) -> dict:
 
     **Usage**:
         `{% dsfr_card data_dict %}`
-    """  # noqa
+    """
     allowed_keys = [
         "title",
         "heading_tag",
@@ -1595,7 +1601,7 @@ def dsfr_django_messages(
 
     **Usage**:
         `{% dsfr_django_messages data_dict %}`
-    """  # noqa
+    """
 
     messages = context.get("messages")
 

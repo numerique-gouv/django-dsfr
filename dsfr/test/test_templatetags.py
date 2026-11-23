@@ -1,13 +1,29 @@
-from django.test import SimpleTestCase, override_settings
-from django.template import Context, Template
+import re
+import tempfile
+from pathlib import Path
 from unittest.mock import MagicMock
 
-from dsfr.checksums import (
-    INTEGRITY_CSS,
-    INTEGRITY_JS_MODULE,
-    INTEGRITY_JS_NOMODULE,
-)
+from django.contrib.staticfiles import finders
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.core.management import call_command
+from django.template import Context, Template
+from django.test import SimpleTestCase, override_settings
+
+from dsfr.constants import DsfrStaticAssets
 from dsfr.templatetags.dsfr_tags import concatenate, hyphenate
+from dsfr.utils import calculate_sri_sha384_hash, get_integrity
+
+
+def source_integrity(path: str) -> str:
+    # Integrity of the source file, as found by the staticfiles finders
+    return calculate_sri_sha384_hash(Path(finders.find(path)).read_bytes())  # type: ignore
+
+
+INTEGRITY_CSS = source_integrity(DsfrStaticAssets.DSFR_CSS)
+INTEGRITY_UTILITY_CSS = source_integrity(DsfrStaticAssets.DSFR_UTILITY_CSS)
+INTEGRITY_JS_MODULE = source_integrity(DsfrStaticAssets.DSFR_MODULE_JS)
+INTEGRITY_JS_NOMODULE = source_integrity(DsfrStaticAssets.DSFR_NOMODULE_JS)
+OVERRIDES_CSS = DsfrStaticAssets.DSFR_OVERRIDES_CSS
 
 
 class DsfrCssTagTest(SimpleTestCase):
@@ -69,9 +85,142 @@ class DsfrJsTagWithNonceTest(SimpleTestCase):
             f"""
             <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{INTEGRITY_JS_MODULE}" nonce="random-nonce"></script>
             <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{INTEGRITY_JS_NOMODULE}" nonce="random-nonce"></script>
-            """,  # noqa
+            """,
             rendered_template,
         )
+
+
+MANIFEST_STORAGES = {
+    "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+    },
+}
+
+
+class DsfrIntegrityManifestStorageTest(SimpleTestCase):
+    """
+    Hashing storages rewrite the url() references of the CSS files on
+    collectstatic, so the integrity must be computed on the collected files.
+    """
+
+    def setUp(self):
+        get_integrity.cache_clear()
+        self.addCleanup(get_integrity.cache_clear)
+        static_root = tempfile.TemporaryDirectory()
+        self.addCleanup(static_root.cleanup)
+        self.static_root = static_root.name
+
+    def render(self, tag: str) -> str:
+        return Template(f"{{% load dsfr_tags %}} {{% {tag} %}}").render(Context())
+
+    def integrities(self, rendered: str) -> list[str]:
+        return re.findall(r'integrity="([^"]+)"', rendered)
+
+    def test_integrity_computed_on_collected_files(self):
+        with self.settings(
+            DEBUG=False, STATIC_ROOT=self.static_root, STORAGES=MANIFEST_STORAGES
+        ):
+            call_command("collectstatic", interactive=False, verbosity=0)
+            rendered_css = self.render("dsfr_css")
+            rendered_js = self.render("dsfr_js")
+
+            expected_css = []
+            for path in [DsfrStaticAssets.DSFR_CSS, DsfrStaticAssets.DSFR_UTILITY_CSS]:
+                stored_path = Path(self.static_root) / staticfiles_storage.stored_name(
+                    path
+                )
+                expected_css.append(calculate_sri_sha384_hash(stored_path.read_bytes()))
+
+        self.assertEqual(self.integrities(rendered_css), expected_css)
+        # The CSS content is rewritten by the storage
+        self.assertNotIn(INTEGRITY_CSS, expected_css)
+        self.assertNotIn(INTEGRITY_UTILITY_CSS, expected_css)
+        # The JS content is left untouched
+        self.assertEqual(
+            self.integrities(rendered_js), [INTEGRITY_JS_MODULE, INTEGRITY_JS_NOMODULE]
+        )
+
+    def test_integrity_omitted_without_collectstatic(self):
+        with (
+            self.settings(
+                DEBUG=False, STATIC_ROOT=self.static_root, STORAGES=MANIFEST_STORAGES
+            ),
+            self.assertLogs("dsfr.utils", level="WARNING"),
+        ):
+            integrity = get_integrity(DsfrStaticAssets.DSFR_CSS)
+        # Integrity is omitted, the precomputed one would block the CSS
+        self.assertIsNone(integrity)
+
+    def test_integrity_tag_computed_on_collected_file(self):
+        with self.settings(
+            DEBUG=False, STATIC_ROOT=self.static_root, STORAGES=MANIFEST_STORAGES
+        ):
+            call_command("collectstatic", interactive=False, verbosity=0)
+            rendered = self.render(f"dsfr_integrity '{OVERRIDES_CSS}'")
+            stored_path = Path(self.static_root) / staticfiles_storage.stored_name(
+                OVERRIDES_CSS
+            )
+        self.assertEqual(
+            rendered.strip(), calculate_sri_sha384_hash(stored_path.read_bytes())
+        )
+
+    def test_source_integrity_used_in_debug(self):
+        with self.settings(
+            DEBUG=True, STATIC_ROOT=self.static_root, STORAGES=MANIFEST_STORAGES
+        ):
+            rendered = self.render("dsfr_css")
+        self.assertEqual(
+            self.integrities(rendered), [INTEGRITY_CSS, INTEGRITY_UTILITY_CSS]
+        )
+
+
+class DsfrIntegrityTagTest(SimpleTestCase):
+    def setUp(self):
+        get_integrity.cache_clear()
+        self.addCleanup(get_integrity.cache_clear)
+
+    def render(self, path: str) -> str:
+        template = Template(f"{{% load dsfr_tags %}}{{% dsfr_integrity '{path}' %}}")
+        return template.render(Context())
+
+    def test_integrity_tag_rendered(self):
+        self.assertEqual(self.render(OVERRIDES_CSS), source_integrity(OVERRIDES_CSS))
+
+    def test_integrity_tag_empty_for_missing_file(self):
+        with self.assertLogs("dsfr.utils", level="WARNING"):
+            self.assertEqual(self.render("css/missing.css"), "")
+
+    def test_overridden_static_file_is_hashed(self):
+        with tempfile.TemporaryDirectory() as static_dir:
+            overridden = Path(static_dir) / DsfrStaticAssets.DSFR_CSS
+            overridden.parent.mkdir(parents=True)
+            overridden.write_bytes(b"body { color: red; }")
+            with self.settings(STATICFILES_DIRS=[static_dir]):
+                integrity = get_integrity(DsfrStaticAssets.DSFR_CSS)
+        self.assertEqual(integrity, calculate_sri_sha384_hash(b"body { color: red; }"))
+        self.assertNotEqual(integrity, INTEGRITY_CSS)
+
+
+class DsfrChecksumsDeprecatedModuleTest(SimpleTestCase):
+    def test_deprecated_constants_computed_on_the_fly(self):
+        import dsfr.checksums
+
+        expected = {
+            "INTEGRITY_CSS": INTEGRITY_CSS,
+            "INTEGRITY_UTILITY_CSS": INTEGRITY_UTILITY_CSS,
+            "INTEGRITY_JS_MODULE": INTEGRITY_JS_MODULE,
+            "INTEGRITY_JS_NOMODULE": INTEGRITY_JS_NOMODULE,
+        }
+        for name, value in expected.items():
+            with self.subTest(name), self.assertWarns(DeprecationWarning):
+                self.assertEqual(getattr(dsfr.checksums, name), value)
+
+    def test_deprecated_module_unknown_attribute(self):
+        import dsfr.checksums
+
+        with self.assertRaises(AttributeError):
+            dsfr.checksums.UNKNOWN  # noqa: B018
 
 
 class DsfrFaviconTagTest(SimpleTestCase):
@@ -161,7 +310,7 @@ class DsfrAccordionTagTest(SimpleTestCase):
                     <p><b>Bold</b> and <em>emphatic</em> Example content</p>
                 </div>
             </section>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -178,7 +327,7 @@ class DsfrAccordionTagTest(SimpleTestCase):
                     &lt;p&gt;&lt;b&gt;Bold&lt;/b&gt; and &lt;em>emphatic&lt;/em&gt; Example content&lt;/p&gt;
                 </div>
             </section>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -253,7 +402,7 @@ class DsfrAlertTagTest(SimpleTestCase):
             <button class="fr-btn--close fr-btn" title="Masquer le message" onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert);">
               Masquer le message
             </button>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -272,7 +421,7 @@ class DsfrAlertTagTest(SimpleTestCase):
             <button class="fr-btn--close fr-btn" title="Masquer le message" data-controller="close" data-action="close#onClick">
               Masquer le message
             </button>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -295,7 +444,7 @@ class DsfrAlertTagTest(SimpleTestCase):
             <button class="fr-btn--close fr-btn" title="Masquer le message" data-controller="close" data-action="close#onClick">
               Masquer le message
             </button>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -523,7 +672,7 @@ class DsfrCardTagTest(SimpleTestCase):
         {"card_data": card_data, "extra_classes": extra_classes, "new_tab": new_tab}
     )
     template_to_render = Template(
-        "{% load dsfr_tags %} {% dsfr_card card_data extra_classes=extra_classes new_tab=newtab %}"  # noqa
+        "{% load dsfr_tags %} {% dsfr_card card_data extra_classes=extra_classes new_tab=newtab %}"
     )
 
     def test_card_is_created(self):
@@ -563,7 +712,7 @@ class DsfrCardTagTest(SimpleTestCase):
             <div class="fr-card__img">
                 <img src="https://test.gouv.fr/test.png" class="fr-responsive-img" alt="">
             </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -912,7 +1061,7 @@ class DsfrLinkTagTest(SimpleTestCase):
             >
               Label of the link item <span class="fr-sr-only">Ouvre une nouvelle fenêtre</span>
             </a>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -925,7 +1074,7 @@ class DsfrLinkTagTest(SimpleTestCase):
             <a class="fr-link" href="">
               Label of the link item
             </a>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -941,7 +1090,7 @@ class DsfrLinkTagTest(SimpleTestCase):
             >
               Label of the link item
             </a>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -977,7 +1126,7 @@ class DsfrNoticeTagTest(SimpleTestCase):
                     Masquer le message
                     </button>
                 </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1001,14 +1150,14 @@ class DsfrNoticeTagTest(SimpleTestCase):
                     Masquer le message
                     </button>
                 </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
 
 class DsfrQuoteTagTest(SimpleTestCase):
     test_data = {
-        "text": "Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques",  # noqa
+        "text": "Développer vos sites et applications en utilisant des composants prêts à l'emploi, accessibles et ergonomiques",
         "source_url": "https://www.systeme-de-design.gouv.fr/",
         "author": "Auteur",
         "source": "Système de Design de l'État",
@@ -1046,7 +1195,7 @@ class DsfrQuoteTagTest(SimpleTestCase):
                     </div>
                 </figcaption>
             </figure>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1073,7 +1222,7 @@ class DsfrQuoteTagTest(SimpleTestCase):
                     </div>
                 </figcaption>
             </figure>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1181,7 +1330,7 @@ class DsfrSidemenuTagTest(SimpleTestCase):
                     </ul>
                 </div>
             </li>
-            """,  # noqa
+            """,
             self.rendered_template,
         )
 
@@ -1214,7 +1363,7 @@ class DsfrSummaryTagTest(SimpleTestCase):
                     </li>
                 </ol>
             </nav>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1368,11 +1517,11 @@ class DsfrTagTagTest(SimpleTestCase):
 
         context = Context({"test_data": test_data})
         template_to_render = Template(
-            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-icon-arrow-right-line fr-tag--icon-left' %}"  # noqa
+            "{% load dsfr_tags %} {% dsfr_tag test_data extra_classes='fr-icon-arrow-right-line fr-tag--icon-left' %}"
         )
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<p class="fr-tag fr-icon-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",  # noqa
+            """<p class="fr-tag fr-icon-arrow-right-line fr-tag--icon-left">Label of the tag item</p>""",
             rendered_template,
         )
 
@@ -1387,7 +1536,7 @@ class DsfrTagTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_tag test_data %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<a href="#" class="fr-tag" onclick="console.log(&#x27;clicked&#x27;);">Label of the tag item</a>""",  # noqa
+            """<a href="#" class="fr-tag" onclick="console.log(&#x27;clicked&#x27;);">Label of the tag item</a>""",
             rendered_template,
         )
 
@@ -1401,7 +1550,7 @@ class DsfrTagTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_tag test_data %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            """<button type="button" class="fr-tag fr-tag--dismiss" aria-label="Retirer le filtre Label of the tag item" onclick="event.preventDefault(); this.parentNode.removeChild(this);">Label of the tag item</button>""",  # noqa
+            """<button type="button" class="fr-tag fr-tag--dismiss" aria-label="Retirer le filtre Label of the tag item" onclick="event.preventDefault(); this.parentNode.removeChild(this);">Label of the tag item</button>""",
             rendered_template,
         )
 
@@ -1569,7 +1718,7 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
                     </dialog>
                 </div>
             </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
@@ -1626,7 +1775,7 @@ class DsfrTranscriptionTagTest(SimpleTestCase):
                     </dialog>
                 </div>
             </div>
-            """,  # noqa
+            """,
             rendered_template,
         )
 
