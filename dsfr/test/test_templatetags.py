@@ -1,7 +1,7 @@
 import re
 import tempfile
 from pathlib import Path
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 from django.contrib.staticfiles import finders
 from django.contrib.staticfiles.storage import staticfiles_storage
@@ -32,7 +32,7 @@ class DsfrCssTagTest(SimpleTestCase):
         template_to_render = Template("{% load dsfr_tags %} {% dsfr_css %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
-            f'<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"  integrity="{INTEGRITY_CSS}">',
+            f'<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css"  integrity="{INTEGRITY_CSS}" crossorigin="anonymous">',
             rendered_template,
         )
 
@@ -46,6 +46,17 @@ class DsfrCssTagTest(SimpleTestCase):
             rendered_template,
         )
 
+    def test_css_tag_without_integrity_has_no_crossorigin(self):
+        with patch("dsfr.templatetags.dsfr_tags.get_integrity", return_value=None):
+            rendered_template = Template("{% load dsfr_tags %} {% dsfr_css %}").render(
+                Context()
+            )
+        self.assertInHTML(
+            '<link rel="stylesheet" href="/django-dsfr/static/dsfr/dist/dsfr/dsfr.min.css">',
+            rendered_template,
+        )
+        self.assertNotIn("crossorigin", rendered_template)
+
 
 class DsfrJsTagTest(SimpleTestCase):
     def test_js_tag_rendered(self):
@@ -54,8 +65,8 @@ class DsfrJsTagTest(SimpleTestCase):
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             f"""
-            <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{INTEGRITY_JS_MODULE}"></script>
-            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{INTEGRITY_JS_NOMODULE}"></script>
+            <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{INTEGRITY_JS_MODULE}" crossorigin="anonymous"></script>
+            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{INTEGRITY_JS_NOMODULE}" crossorigin="anonymous"></script>
             """,
             rendered_template,
         )
@@ -83,8 +94,8 @@ class DsfrJsTagWithNonceTest(SimpleTestCase):
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             f"""
-            <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{INTEGRITY_JS_MODULE}" nonce="random-nonce"></script>
-            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{INTEGRITY_JS_NOMODULE}" nonce="random-nonce"></script>
+            <script type="module" src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.module.min.js" integrity="{INTEGRITY_JS_MODULE}" crossorigin="anonymous" nonce="random-nonce"></script>
+            <script nomodule src="/django-dsfr/static/dsfr/dist/dsfr/dsfr.nomodule.min.js" integrity="{INTEGRITY_JS_NOMODULE}" crossorigin="anonymous" nonce="random-nonce"></script>
             """,
             rendered_template,
         )

@@ -109,8 +109,12 @@ dans un gabarit :
 {% load static dsfr_tags %}
 <link rel="stylesheet"
       href="{% static 'css/site.css' %}"
-      integrity="{% dsfr_integrity 'css/site.css' %}">
+      integrity="{% dsfr_integrity 'css/site.css' %}"
+      crossorigin="anonymous">
 ```
+
+L’attribut `crossorigin="anonymous"` est nécessaire si les fichiers statiques
+sont servis depuis un autre domaine (voir plus bas) et sans effet sinon.
 
 ou en Python :
 
@@ -140,10 +144,14 @@ intermédiaire modifie les fichiers CSS ou JS, ils sont bloqués. Dans ce cas :
     sinon, après une mise à jour, le cache peut servir un ancien fichier
     avec un nouveau checksum, et il faut alors purger le cache à chaque
     déploiement ;
-- si les fichiers statiques sont servis depuis un autre domaine que les pages,
-    le navigateur exige l’attribut `crossorigin` et des en-têtes CORS pour
-    vérifier le checksum, ce que les gabarits `{% dsfr_css %}` et
-    `{% dsfr_js %}` ne gèrent pas actuellement.
+- si les fichiers statiques sont servis depuis un autre domaine que les pages
+    (`STATIC_URL` absolue, bucket S3, sous-domaine de CDN…), le navigateur ne
+    vérifie le checksum que si le fichier est chargé en CORS. Les tags
+    `{% dsfr_css %}` et `{% dsfr_js %}` ajoutent pour cela
+    `crossorigin="anonymous"` à côté de l’attribut `integrity`, et le serveur
+    des fichiers statiques doit renvoyer l’en-tête `Access-Control-Allow-Origin`
+    (c’est le cas par défaut avec Whitenoise, à configurer sur un bucket S3 ou
+    un CDN).
 
 Si une de ces conditions ne peut pas être remplie, désactivez les checksums
 avec `DSFR_USE_INTEGRITY_CHECKSUMS = False`. En cas de problème, la console du
