@@ -8,7 +8,7 @@
            src="{{ self.image_url }}"
            alt="{{ self.alt_text }}" />
     {% elif self.svg %}
-      {{ self.svg|safe }}
+      {{ self.svg|dsfr_maybe_safe }}
     {% elif self.iframe %}
       <iframe title="{{ self.iframe.title }}"
               class="fr-responsive-vid{% if self.ratio_class %} {{ self.ratio_class }}{% endif %}"
@@ -22,7 +22,7 @@
   </div>
   {% if self.caption %}
     <figcaption class="fr-content-media__caption">
-      {{ self.caption|safe }}
+      {{ self.caption|dsfr_maybe_safe }}
     </figcaption>
   {% endif %}
 </figure>

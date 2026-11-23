@@ -1,6 +1,9 @@
+from django.conf import settings
 from django.db import IntegrityError
-from django.test import TestCase, Client
+from django.test import Client, TestCase
 from django.urls import reverse
+from django.utils import translation
+
 from dsfr.models import DsfrConfig
 
 
@@ -20,6 +23,9 @@ class DsfrConfigTestCase(TestCase):
 class ContextProcessorTestCase(TestCase):
     def setUp(self) -> None:
         self.client = Client()
+
+    def tearDown(self) -> None:
+        translation.activate(settings.LANGUAGE_CODE)
 
     def test_config_is_none_if_not_created_yet(self) -> None:
         response = self.client.get(reverse("index"))

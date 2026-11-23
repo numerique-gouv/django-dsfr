@@ -42,7 +42,7 @@ generate_secret_key:
 
 # Instantiate the project
 init:
-    uv sync
+    uv sync --dev --all-extras
     uv run pre-commit install
     uv run python manage.py migrate
     just collectstatic

@@ -1,3 +1,5 @@
+{% load dsfr_tags %}
+
 <div class="fr-table{% if self.extra_classes %} {{ self.extra_classes }}{% endif %}">
   <div class="fr-table__wrapper">
     <div class="fr-table__container">
@@ -9,7 +11,7 @@
               <tr>
                 {% for cell in self.header %}
                   <th scope="col">
-                    {{ cell|safe }}
+                    {{ cell|dsfr_maybe_safe }}
                   </th>
                 {% endfor %}
               </tr>
@@ -20,7 +22,7 @@
               <tr>
                 {% for cell in row %}
                   <td>
-                    {{ cell|safe }}
+                    {{ cell|dsfr_maybe_safe }}
                   </td>
                 {% endfor %}
               </tr>

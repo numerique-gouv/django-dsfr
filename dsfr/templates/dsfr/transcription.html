@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n dsfr_tags %}
 {% translate "Transcript" as transcript_label %}
 <div class="fr-transcription">
   <button class="fr-transcription__btn"
@@ -39,7 +39,7 @@
                     class="fr-modal__title">
                   {{ self.title|default:transcript_label }}
                 </h2>
-                {{ self.content|safe }}
+                {{ self.content|dsfr_maybe_safe }}
               </div>
             </div>
           </div>
