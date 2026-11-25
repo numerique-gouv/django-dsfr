@@ -206,32 +206,24 @@ def get_integrity(path: str) -> str | None:
     'sha384-...'
     ```
     """
-    if settings.DEBUG:
-        return _compute_integrity(path)
-    return _cached_integrity(path)
+    try:
+        return _compute(path) if settings.DEBUG else _cached_integrity(path)
+    except Exception:
+        logger.warning(...); return None
 
 
 def _compute_integrity(path: str) -> str | None:
-    try:
-        if not settings.DEBUG and isinstance(staticfiles_storage, HashedFilesMixin):
-            with staticfiles_storage.open(staticfiles_storage.stored_name(path)) as f:
-                return calculate_sri_sha384_hash(f.read())
-
-        found_path = finders.find(path)
-        if not found_path:
-            raise FileNotFoundError(path)
-        if isinstance(found_path, list):
-            found_path = found_path[0]
-        with open(found_path, "rb") as f:
+    if not settings.DEBUG and isinstance(staticfiles_storage, HashedFilesMixin):
+        with staticfiles_storage.open(staticfiles_storage.stored_name(path)) as f:
             return calculate_sri_sha384_hash(f.read())
-    except Exception:
-        logger.warning(
-            "Unable to compute the integrity checksum of %s, "
-            "the integrity attribute is omitted. Did you run collectstatic?",
-            path,
-            exc_info=True,
-        )
-        return None
+
+    found_path = finders.find(path)
+    if not found_path:
+        raise FileNotFoundError(path)
+    if isinstance(found_path, list):
+        found_path = found_path[0]
+    with open(found_path, "rb") as f:
+        return calculate_sri_sha384_hash(f.read())
 
 
 _cached_integrity = functools.cache(_compute_integrity)
