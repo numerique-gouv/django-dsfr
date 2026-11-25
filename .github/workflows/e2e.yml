@@ -16,9 +16,6 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    defaults:
-      run:
-        working-directory: e2e
     steps:
     - uses: actions/checkout@v4
     - uses: astral-sh/setup-uv@v5
@@ -29,16 +26,15 @@ jobs:
         node-version: 22
         cache: npm
         cache-dependency-path: e2e/package-lock.json
+    - uses: extractions/setup-just@v2
     - run: uv sync --all-extras
-      working-directory: .
-    - run: npm ci
     - name: Cache Playwright browsers
       uses: actions/cache@v4
       with:
         path: ~/.cache/ms-playwright
         key: playwright-${{ runner.os }}-${{ hashFiles('e2e/package-lock.json') }}
-    - run: npx playwright install --with-deps chromium
-    - run: npx playwright test
+    - run: just e2e-install --with-deps
+    - run: just e2e
     - name: Upload the Playwright report
       if: failure()
       uses: actions/upload-artifact@v4

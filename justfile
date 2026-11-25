@@ -48,6 +48,10 @@ init:
     just collectstatic
     uv run python manage.py import_sample_data
 
+# Apply the database migrations
+migrate:
+    uv run python manage.py migrate --noinput
+
 alias messages := makemessages
 # Update localization files for translation
 makemessages:
@@ -74,9 +78,13 @@ static_server local_port=local_port:
 test app="":
     uv run python manage.py test {{app}}
 
-# Run the end-to-end tests (Playwright, on the example app)
+# Install the end-to-end test dependencies (pass --with-deps on CI)
+e2e-install *args:
+    cd e2e && npm ci && npx playwright install {{args}} chromium
+
+# Run the end-to-end tests (e.g. `just e2e --ui`, `just e2e tests/forms.spec.ts`)
 e2e *args:
-    cd e2e && npm ci && npx playwright install chromium && npx playwright test {{args}}
+    cd e2e && npx playwright test {{args}}
 
 # Update the DSFR version
 update_dsfr:

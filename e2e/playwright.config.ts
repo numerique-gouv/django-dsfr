@@ -23,7 +23,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: `uv run python manage.py migrate --noinput > /dev/null && uv run python manage.py runserver ${port} --noreload`,
+    command: `just migrate && just runserver localhost ${port}`,
     cwd: '..',
     url: `http://localhost:${port}/`,
     reuseExistingServer: !isCI,
