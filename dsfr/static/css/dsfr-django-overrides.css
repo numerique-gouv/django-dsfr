@@ -1,3 +1,12 @@
+/* Fix: keep skiplinks in absolute position on focus to avoid pushing page content down */
+.fr-skiplinks:focus-within {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
 .errorlist {
   margin-top: 1rem;
 }
