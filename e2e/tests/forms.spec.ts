@@ -1,5 +1,5 @@
 import AxeBuilder from '@axe-core/playwright'
-import { expect, test } from '../fixtures'
+import { danglingIdRefs, expect, test } from '../fixtures'
 
 const FORM = 'form[action$="/form/example/"]'
 
@@ -59,6 +59,10 @@ test('le contrôle segmenté affiche sa légende, en ligne quand on le demande',
   await expect(regular).not.toContainClass('fr-segmented__legend--inline')
 })
 
+test('aucune légende ne porte d’attribut for, réservé aux <label>', async ({ page }) => {
+  await expect(page.locator(`${FORM} legend[for]`)).toHaveCount(0)
+})
+
 test('l’interrupteur est bien relié à son libellé', async ({ page }) => {
   await expect(page.locator('label[for="id_example_toggle"]')).toHaveClass('fr-toggle__label')
   await expect(page.getByRole('checkbox', { name: /Example toogle/ })).toBeAttached()
@@ -71,4 +75,13 @@ test('toutes les références d’identifiants du formulaire pointent vers un é
     .withRules(['label', 'aria-valid-attr-value', 'duplicate-id-aria', 'aria-input-field-name'])
     .analyze()
   expect(violations).toEqual([])
+})
+
+test('les identifiants du formulaire sont uniques, et chaque référence aria pointe vers un élément existant', async ({ page }) => {
+  const form = page.locator(FORM)
+  const ids = await form.locator('[id]').evaluateAll((els) => els.map((el) => el.id))
+  expect(ids.filter((id, i) => ids.indexOf(id) !== i), 'ids en double').toEqual([])
+  // Les curseurs référencent déjà des ids `-label` / `-messages` absents sur main : exclus comme dans le test axe
+  const dangling = (await danglingIdRefs(form)).filter((id) => !id.startsWith('id_sample_integer_'))
+  expect(dangling, 'références vers des ids absents').toEqual([])
 })

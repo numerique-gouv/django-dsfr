@@ -1,4 +1,4 @@
-import { test as base, expect } from '@playwright/test'
+import { test as base, expect, type Locator } from '@playwright/test'
 
 export const test = base.extend<{ sandbox: void }>({
   sandbox: [
@@ -15,5 +15,13 @@ export const test = base.extend<{ sandbox: void }>({
     { auto: true },
   ],
 })
+
+/** Ids referenced by aria-describedby / aria-labelledby inside `root` that match no element of the page. */
+export const danglingIdRefs = (root: Locator): Promise<string[]> =>
+  root.evaluate((el) =>
+    [...el.querySelectorAll('[aria-describedby], [aria-labelledby]')]
+      .flatMap((node) => `${node.getAttribute('aria-describedby') ?? ''} ${node.getAttribute('aria-labelledby') ?? ''}`.split(/\s+/))
+      .filter((id) => id && !document.getElementById(id)),
+  )
 
 export { expect }
