@@ -74,6 +74,10 @@ static_server local_port=local_port:
 test app="":
     uv run python manage.py test {{app}}
 
+# Run the end-to-end tests (Playwright, on the example app)
+e2e *args:
+    cd e2e && npm ci && npx playwright install chromium && npx playwright test {{args}}
+
 # Update the DSFR version
 update_dsfr:
     bash scripts/download_latest.sh
