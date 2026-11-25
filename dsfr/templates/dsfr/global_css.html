@@ -1,10 +1,10 @@
 {% load static %}
 <link rel="stylesheet"
       href="{% static DsfrStaticAssets.DSFR_CSS %}"
-      {% if self.USE_INTEGRITY_CHECKSUMS %}integrity="{{ self.INTEGRITY_CSS }}"{% endif %}>
+      {% if self.USE_INTEGRITY_CHECKSUMS and self.INTEGRITY_CSS %}integrity="{{ self.INTEGRITY_CSS }}" crossorigin="anonymous"{% endif %}>
 <link rel="stylesheet"
       href="{% static DsfrStaticAssets.DSFR_UTILITY_CSS %}"
-      {% if self.USE_INTEGRITY_CHECKSUMS %}integrity="{{ self.INTEGRITY_UTILITY_CSS }}"{% endif %}>
+      {% if self.USE_INTEGRITY_CHECKSUMS and self.INTEGRITY_UTILITY_CSS %}integrity="{{ self.INTEGRITY_UTILITY_CSS }}" crossorigin="anonymous"{% endif %}>
 <link rel="stylesheet"
       href="{% static DsfrStaticAssets.DSFR_OVERRIDES_CSS %}">
 

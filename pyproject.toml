@@ -120,12 +120,10 @@ exclude = [
 # shows up as a Python import that deptry's AST scan can see.
 DEP002 = ["django-widget-tweaks", "pymdown-extensions"]
 # These dev-dependency imports are all in maintainer-only/demo code, not in
-# the published `dsfr` package's runtime path: `black` is used by the
-# `integrity_checksums` management command (a maintainer tool run via
-# `just update_dsfr`), and crispy_forms/bs4/django_distill are used by
-# example_app, the demo app that showcases components but is never
+# the published `dsfr` package's runtime path: crispy_forms/bs4/django_distill
+# are used by example_app, the demo app that showcases components but is never
 # published.
-DEP004 = ["black", "crispy_forms", "bs4", "django_distill"]
+DEP004 = ["crispy_forms", "bs4", "django_distill"]
 
 [tool.djlint]
 line_break_after_multiline_tag = true

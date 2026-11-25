@@ -79,11 +79,91 @@ TEMPLATES = [
 - `DSFR_CHECK_DEPRECATED` (défaut: `False`) : si `True`, vérifie la présence de
     paramètres obsolètes à l’intérieur des template tags
 - `DSFR_USE_INTEGRITY_CHECKSUMS`  (défaut: `True`)  : si `True`, intègre des
-    checksums d’intégrité sur les fichiers CSS et JS globaux. À désactiver si
-    cela pose des problèmes avec d’autres modules Django comme Whitenoise.
+    checksums d’intégrité sur les fichiers CSS et JS globaux insérés par
+    `{% dsfr_css %}` et `{% dsfr_js %}` (voir
+    [Checksums d’intégrité](#checksums-dintegrite)).
 
 - Créez un objet "DsfrConfig" dans le panneau d’administration
     (section Système de design de l’État > Configurations.)
+
+## Checksums d’intégrité {: #checksums-dintegrite }
+
+Les checksums d’intégrité ([Subresource Integrity](https://developer.mozilla.org/fr/docs/Web/Security/Subresource_Integrity))
+sont calculés à la volée, une seule fois par processus, à partir du fichier
+réellement servi :
+
+- avec un stockage qui réécrit les fichiers statiques
+    (`ManifestStaticFilesStorage`, `CompressedManifestStaticFilesStorage` de
+    Whitenoise, etc.) et `DEBUG = False`, à partir du fichier généré par
+    `collectstatic` ;
+- sinon, à partir du fichier trouvé par les *finders* de Django, ce qui prend
+    en compte un fichier surchargé dans `STATICFILES_DIRS`.
+
+Si le fichier ne peut pas être lu (par exemple si `collectstatic` n’a pas été
+lancé), le checksum est omis et un avertissement est journalisé.
+
+Ils sont aussi disponibles pour n’importe quel fichier statique du projet,
+dans un gabarit :
+
+```django
+{% load static dsfr_tags %}
+<link rel="stylesheet"
+      href="{% static 'css/site.css' %}"
+      integrity="{% dsfr_integrity 'css/site.css' %}"
+      crossorigin="anonymous">
+```
+
+L’attribut `crossorigin="anonymous"` est nécessaire si les fichiers statiques
+sont servis depuis un autre domaine (voir plus bas) et sans effet sinon.
+
+ou en Python :
+
+```python
+from dsfr.utils import get_integrity
+
+get_integrity("css/site.css")  # "sha384-…", ou None si le fichier est illisible
+```
+
+Le tag renvoie une chaîne vide si le fichier ne peut pas être lu : un attribut
+`integrity` vide désactive la vérification. Il ne dépend pas du paramètre
+`DSFR_USE_INTEGRITY_CHECKSUMS`.
+
+### Site derrière un proxy ou un CDN (Cloudflare, Imperva…)
+
+Le navigateur vérifie le checksum sur le fichier qu’il reçoit : si un
+intermédiaire modifie les fichiers CSS ou JS, ils sont bloqués. Dans ce cas :
+
+- désactivez les optimisations qui réécrivent les fichiers statiques
+    (minification, réécriture des scripts comme Rocket Loader chez Cloudflare,
+    optimisation de contenu chez Imperva…) ou envoyez l’en-tête
+    `Cache-Control: no-transform` sur ces fichiers (avec Whitenoise, via
+    `WHITENOISE_ADD_HEADERS_FUNCTION`). La compression (gzip, brotli) ne pose
+    pas de problème ;
+- privilégiez un stockage avec empreinte dans le nom des fichiers
+    (`ManifestStaticFilesStorage`, `CompressedManifestStaticFilesStorage`) :
+    sinon, après une mise à jour, le cache peut servir un ancien fichier
+    avec un nouveau checksum, et il faut alors purger le cache à chaque
+    déploiement ;
+- si les fichiers statiques sont servis depuis un autre domaine que les pages
+    (`STATIC_URL` absolue, bucket S3, sous-domaine de CDN…), le navigateur ne
+    vérifie le checksum que si le fichier est chargé en CORS. Les tags
+    `{% dsfr_css %}` et `{% dsfr_js %}` ajoutent pour cela
+    `crossorigin="anonymous"` à côté de l’attribut `integrity`, et le serveur
+    des fichiers statiques doit renvoyer l’en-tête `Access-Control-Allow-Origin`
+    (c’est le cas par défaut avec Whitenoise, à configurer sur un bucket S3 ou
+    un CDN).
+
+Si une de ces conditions ne peut pas être remplie, désactivez les checksums
+avec `DSFR_USE_INTEGRITY_CHECKSUMS = False`. En cas de problème, la console du
+navigateur affiche une erreur du type
+`Failed to find a valid digest in the 'integrity' attribute`.
+
+### Module `dsfr.checksums` (obsolète)
+
+Le module `dsfr.checksums` (`INTEGRITY_CSS`, `INTEGRITY_UTILITY_CSS`,
+`INTEGRITY_JS_MODULE`, `INTEGRITY_JS_NOMODULE`) est obsolète : ses valeurs
+sont désormais calculées de la même manière et son utilisation émet un
+`DeprecationWarning`. Il sera supprimé dans une prochaine version majeure.
 
 ## Application d’exemple
 
