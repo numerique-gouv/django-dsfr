@@ -1,0 +1,14 @@
+{
+  "name": "django-dsfr-e2e",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^22.20.6"
+  }
+}

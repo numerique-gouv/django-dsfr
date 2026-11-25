@@ -140,3 +140,4 @@ dmypy.json
 !example_app/static
 !example_app/static/lib
 docs/
+e2e/node_modules/
