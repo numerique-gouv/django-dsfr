@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-08 12:29+0200\n"
+"POT-Creation-Date: 2026-11-26 12:07+0000\n"
 "PO-Revision-Date: 2025-07-03 19:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -148,6 +148,10 @@ msgstr "Appel à témoins"
 msgid "Cyberattack"
 msgstr "Cyberattaque"
 
+#: dsfr/forms.py:97
+msgid "(Optional)"
+msgstr "(Optionnel)"
+
 #: dsfr/models.py:20
 msgid "Language"
 msgstr "Langue"
@@ -266,7 +270,7 @@ msgstr "Doit impérativement contenir le texte présent dans l’image."
 msgid "Width (em)"
 msgstr "Largeur (em)"
 
-#: dsfr/models.py:148
+#: dsfr/models.py:147
 msgid ""
 "To be adjusted according to the width of the logo.            Example for a "
 "vertical logo: 3.5, Example for a horizontal logo: 8."
@@ -274,39 +278,39 @@ msgstr ""
 "À ajuster en fonction de la largeur du logo.  Exemple pour un logo vertical: "
 "3.5, Exemple pour un logo horizontal: 8."
 
-#: dsfr/models.py:154
+#: dsfr/models.py:152
 msgid "Mourning"
 msgstr "Mise en berne"
 
-#: dsfr/models.py:157
+#: dsfr/models.py:155
 msgid "Accessibility compliance status"
 msgstr "Statut de conformité de l’accessibilité"
 
-#: dsfr/models.py:164
+#: dsfr/models.py:162
 msgid "Configuration"
 msgstr "Configuration"
 
-#: dsfr/models.py:167
+#: dsfr/models.py:165
 msgid "Site config:"
 msgstr "Configuration du site :"
 
-#: dsfr/models.py:175
+#: dsfr/models.py:173
 msgid "Title"
 msgstr "Titre"
 
-#: dsfr/models.py:178
+#: dsfr/models.py:176
 msgid "URL"
 msgstr "URL"
 
-#: dsfr/models.py:183
+#: dsfr/models.py:181
 msgid "Icon class"
 msgstr "Classe d’icône"
 
-#: dsfr/models.py:190
+#: dsfr/models.py:188
 msgid "Social media"
 msgstr "Réseau social"
 
-#: dsfr/models.py:191
+#: dsfr/models.py:189
 msgid "Social medias"
 msgstr "Réseaux sociaux"
 
@@ -314,7 +318,7 @@ msgstr "Réseaux sociaux"
 msgid "Hide message"
 msgstr "Masquer le message"
 
-#: dsfr/templates/dsfr/base.html:25
+#: dsfr/templates/dsfr/base.html:26
 msgid "Untitled page"
 msgstr "Page sans titre"
 
@@ -383,32 +387,31 @@ msgstr "Suivez-nous <br />sur les réseaux sociaux"
 msgid "Back to home page"
 msgstr "Retour à l’accueil du site"
 
-#: dsfr/templates/dsfr/footer.html:92
+#: dsfr/templates/dsfr/footer.html:96
 msgid "Sitemap"
 msgstr "Plan du site"
 
-#: dsfr/templates/dsfr/footer.html:97
-#, python-format
+#: dsfr/templates/dsfr/footer.html:105
 msgid "Accessibility: %(accessibility_status)s compliant"
 msgstr "Accessibilité : %(accessibility_status)s conforme"
 
-#: dsfr/templates/dsfr/footer.html:102
+#: dsfr/templates/dsfr/footer.html:114
 msgid "Legal notice"
 msgstr "Mentions légales"
 
-#: dsfr/templates/dsfr/footer.html:105
+#: dsfr/templates/dsfr/footer.html:121
 msgid "Personal data"
 msgstr "Données personnelles"
 
-#: dsfr/templates/dsfr/footer.html:108
+#: dsfr/templates/dsfr/footer.html:128
 msgid "Cookie management"
 msgstr "Gestion des cookies"
 
-#: dsfr/templates/dsfr/footer.html:114
+#: dsfr/templates/dsfr/footer.html:134
 msgid "etalab-2.0 license"
 msgstr "licence etalab-2.0"
 
-#: dsfr/templates/dsfr/footer.html:115
+#: dsfr/templates/dsfr/footer.html:135
 msgid ""
 "Unless explicit mention of intellectual property held by third parties, the "
 "contents of this site are offered under"
@@ -416,13 +419,15 @@ msgstr ""
 "Sauf mention explicite de propriété intellectuelle détenue par des tiers, "
 "les contenus de ce site sont proposés sous"
 
-#: dsfr/templates/dsfr/form_field_snippets/checkbox_snippet.html:5
-#: dsfr/templates/dsfr/form_field_snippets/checkboxselectmultiple_snippet.html:7
-#: dsfr/templates/dsfr/form_field_snippets/input_snippet.html:6
-#: dsfr/templates/dsfr/form_field_snippets/numbercursor_snippet.html:6
-#: dsfr/templates/dsfr/form_field_snippets/radioselect_snippet.html:7
-msgid "(optional)"
-msgstr "(optionnel)"
+#: dsfr/templates/dsfr/forms/number_cursor_help_text.html:3
+msgid ""
+"\n"
+"    %(help_text)s, value between %(min_value)s and %(max_value)s.\n"
+"  "
+msgstr ""
+"\n"
+"    %(help_text)s, valeur entre %(min_value)s et %(max_value)s.\n"
+"  "
 
 #: dsfr/templates/dsfr/formset_base.html:31
 msgid "Delete this item"
@@ -489,7 +494,7 @@ msgstr "Dernière page"
 msgid "Side menu"
 msgstr "Menu latéral"
 
-#: dsfr/templates/dsfr/sidemenu.html:11
+#: dsfr/templates/dsfr/sidemenu.html:14
 msgid "In this section"
 msgstr "Dans cette rubrique"
 
@@ -539,14 +544,6 @@ msgstr "Système"
 msgid "Uses system settings."
 msgstr "Utilise les paramètres système."
 
-#: dsfr/templates/dsfr/toggle.html:2
-msgid "Checked"
-msgstr "Activé"
-
-#: dsfr/templates/dsfr/toggle.html:3
-msgid "Unchecked"
-msgstr "Désactivé"
-
 #: dsfr/templates/dsfr/tooltip.html:7
 msgid "Contextual information"
 msgstr "Information contextuelle"
@@ -558,3 +555,11 @@ msgstr "Transcription"
 #: dsfr/templates/dsfr/transcription.html:12
 msgid "Enlarge"
 msgstr "Agrandir"
+
+#: dsfr/widgets.py:241
+msgid "Checked"
+msgstr "Activé"
+
+#: dsfr/widgets.py:242
+msgid "Unchecked"
+msgstr "Désactivé"

@@ -1,0 +1,6 @@
+{% load dsfr_tags i18n %}
+<span {% include "django/forms/attrs.html" %}>
+  {% blocktranslate with help_text=field.help_text min_value=field.field.min_value|default_if_none:0 max_value=field.field.max_value|default_if_none:100 %}
+    {{ help_text|dsfr_maybe_safe }}, value between {{ min_value }} and {{ max_value }}.
+  {% endblocktranslate %}
+</span>
